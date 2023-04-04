@@ -1,14 +1,12 @@
-FROM ruby:2.5.1
+FROM ruby:2.5-alpine
 COPY . /usr/src/app
-VOLUME /usr/src/app
+#VOLUME /usr/src/app
 EXPOSE 4567
 WORKDIR /usr/src/app
-RUN apt-get update
-RUN apt-get install -y gem
-RUN apt-get install -y nodejs
-RUN rm -rf /var/lib/apt/lists/*
-RUN bundle install
+RUN apk add --no-cache bash && \
+    /bin/sh && \
+    apk update && \
+    apk add --virtual build-dependencies build-base nodejs && \
+    gem install bundler -v 2.3.26 && \
+    bundle install
 CMD ["bundle", "exec", "middleman", "server", "--watcher-force-polling"]
-
-
-
