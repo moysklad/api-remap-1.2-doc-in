@@ -27,7 +27,7 @@ spec:
         deploymentconfig: kladana-doc
     spec:
       containers:
-      - image: docker.lognex.ru/kaldana-doc:DO-9164-alpine
+      - image: docker.lognex.ru/kladana-doc:DO-9164-alpine
         imagePullPolicy: IfNotPresent
         name: kladana-doc
         ports:

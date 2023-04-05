@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ secrets.DOCKER_REGISTRY }}/kaldana-doc:${{ github.sha }}-release
+          tags: ${{ secrets.DOCKER_REGISTRY }}/kladana-doc:${{ github.sha }}-release
           file: Dockerfile
 
       - name: Image digest
@@ -40,6 +40,6 @@ jobs:
           manifests: |
             k8s/deploymentconfig.yaml
           images: |
-            ${{ secrets.DOCKER_REGISTRY }}/kaldana-doc:${{ github.sha }}-release
+            ${{ secrets.DOCKER_REGISTRY }}/kladana-doc:${{ github.sha }}-release
           imagepullsecrets: |
             imagepullsecret
