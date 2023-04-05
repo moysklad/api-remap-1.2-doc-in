@@ -1,0 +1,44 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: kladana-doc
+  name: kladana-doc
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: kladana-doc
+    deploymentconfig: kladana-doc
+  strategy:
+    activeDeadlineSeconds: 21600
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kladana-doc
+        deploymentconfig: kladana-doc
+    spec:
+      containers:
+      - image: docker.lognex.ru/kladana-doc:DO-9164-alpine
+        imagePullPolicy: IfNotPresent
+        name: kladana-doc
+        ports:
+        - containerPort: 4567
+          protocol: TCP
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
