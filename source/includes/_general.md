@@ -1,5 +1,7 @@
 # Kladana JSON API
 
+Please note that our API docs may include untranslated content. We kindly recommend using a translator tool. Apologies for any inconvenience caused
+
 ## Authentication
 
 You can integrate Kladana using the Kladana JSON API. To do this, you first need to log in to Kladan. Kladana supports authentication using the Basic Auth protocol and an access token. 
@@ -83,24 +85,24 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 ### Returned HTTP error statuses and their description
 
-| HTTP status code | Description |
-| -----------------| ----------- |
-| **301** | The requested resource has another URL |
-| **303** | The requested resource has another URL. Use GET request to find it |
-| **400** | The transmitted request has a JSON structure error |
-| **401** | Incorrect username or password, or the user or account has been blocked |
-| **403** | No permission to view the object |
-| **404** | The requested resource does not exist |
-| **405** | HTTP method specified incorrectly for the requested resource|
-| **409** | The specified object is in use and cannot be deleted |
-| **410** | API version no longer supported |
-| **412** | A required query string parameter or JSON structure field was not specified |
+| HTTP status code | Description                                                                                                                                                              |
+| -----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **301** | The requested resource has another URL                                                                                                                                   |
+| **303** | The requested resource has another URL. Use GET request to find it                                                                                                       |
+| **400** | The transmitted request has a JSON structure error                                                                                                                       |
+| **401** | Incorrect username or password, or the user or account has been blocked                                                                                                  |
+| **403** | No permission to view the object                                                                                                                                         |
+| **404** | The requested resource does not exist                                                                                                                                    |
+| **405** | HTTP method specified incorrectly for the requested resource                                                                                                             |
+| **409** | The specified object is in use and cannot be deleted                                                                                                                     |
+| **410** | API version no longer supported                                                                                                                                          |
+| **412** | A required query string parameter or JSON structure field was not specified                                                                                              |
 | **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of positions passed in the **positions** array exceeds 1000 |
-| **429** | Request limit was exceeded |
-| **500** | An unexpected error occurred while processing the request |
-| **502** | Service temporarily unavailable |
-| **503** | Service temporarily disabled |
-| **504** | Service timeout exceededю Please try again later |
+| **429** | Request limit was exceeded                                                                                                                                               |
+| **500** | An unexpected error occurred while processing the request                                                                                                                |
+| **502** | Service temporarily unavailable                                                                                                                                          |
+| **503** | Service temporarily disabled                                                                                                                                             |
+| **504** | Service timeout exceeded. Please try again later                                                                                                                         |
 
 Along with the error response body, you may receive the following headers:
 
