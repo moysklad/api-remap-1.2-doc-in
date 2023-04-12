@@ -54,7 +54,7 @@ The Kladana JSON API has the following restrictions:
 
 ### Data types
 
-| Title | Description |
+| Name | Description |
 | ------ | ---------- | 
 | **Array(Type)** | An array of objects/values. 'Type' is a type of array elements. |
 | **Boolean** | Represents a `true` or `false` value. |
@@ -162,9 +162,9 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Structure of the 'Error' object
 
-| Title | Type | Description |
+| Name | Type | Description |
 |------|------|-------------|
-| **error** | String(255) | Error title<br>`+Required for response` |
+| **error** | String(255) | Error name<br>`+Required for response` |
 | **parameter** | String(255) | The parameter on which the error occurred |
 | **code** | int | Error code. If the field contains nothing, see HTTP status code |
 | **error_message** | String(255) | Message attached to the error |
