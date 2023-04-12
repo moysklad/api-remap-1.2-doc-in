@@ -1,80 +1,78 @@
-# Transactions
+## Заказ покупателя
+### Заказы покупателей 
+Средствами JSON API можно создавать и обновлять сведения о Заказах покупателя, запрашивать списки Заказов и сведения по отдельным Заказам покупателей. Позициями Заказов можно управлять как в составе отдельного Заказа покупателя, так и отдельно - с помощью специальных ресурсов для управления позициями Заказа. Кодом сущности для Заказа покупателя в составе JSON API является ключевое слово **customerorder**. Больше о Заказах покупателей и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по [этой ссылке](https://support.moysklad.ru/hc/ru/articles/203248133-%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9). Также в Заказе покупателя поддерживается протокол оповещения об изменениях виджетов вендоров - **change-handler**. Подробнее см. в документации для вендоров о [виджетах](https://dev.moysklad.ru/doc/api/vendor/1.0/#kak-rabotaut-widzhety).
+#### Атрибуты сущности
 
-## Sales Orders
+| Название                  | Тип                                                       | Фильтрация                                                                                                                                        | Описание                                                                                                                                                                                                  |
+|---------------------------|:----------------------------------------------------------| :------------------------------------------------------------------------------------------------------------------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**             | UUID                                                      | `=` `!=`                                                                                                                                          | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                                     |
+| **agent**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные контрагента<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании``+Change-handler` `+Update-provider`                                                                             |
+| **agentAccount**          | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные счета контрагента<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                             |
+| **applicable**            | Boolean                                                   | `=` `!=`                                                                                                                                          | Отметка о проведении<br>`+Обязательное при ответе` `+Change-handler` `+Update-provider`                                                                                                                   |
+| **attributes**            | Array(Object)                                             | [Операторы доп. полей](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Коллекция метаданных доп. полей. [Поля объекта](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br>`+Change-handler` `+Update-provider`                                           |
+| **code**                  | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Код Заказа покупателя                                                                                                                                                                                     |
+| **contract**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные договора<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                                      |
+| **created**               | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата создания<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                                         |
+| **deleted**               | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего удаления Заказа покупателя<br>`+Только для чтения`                                                                                                                                      |
+| **deliveryPlannedMoment** | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Планируемая дата отгрузки<br>`+Change-handler` `+Update-provider`                                                                                                                                         |
+| **description**           | String(4096)                                              | `=` `!=` `~` `~=` `=~`                                                                                                                            | Комментарий Заказа покупателя<br>`+Change-handler` `+Update-provider`                                                                                                                                     |
+| **externalCode**          | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Внешний код Заказа покупателя<br>`+Обязательное при ответе``+Change-handler` `+Update-provider`                                                                                                           |
+| **files**                 | MetaArray                                                 |                                                                                                                                                   | Метаданные массива [Файлов](../dictionaries/#suschnosti-fajly) (Максимальное количество файлов - 100)<br>`+Обязательное при ответе` `+Expand`                                                             |
+| **group**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                                                                                  |
+| **id**                    | UUID                                                      | `=` `!=`                                                                                                                                          | ID Заказа покупателя<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                                  |
+| **invoicedSum**           | Float                                                     |                                                                                                                                                   | Сумма счетов покупателю<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                               |
+| **meta**                  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные Заказа покупателя<br>`+Обязательное при ответе``+Change-handler`                                                                                                                               |
+| **moment**                | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата документа<br>`+Обязательное при ответе``+Change-handler` `+Update-provider`                                                                                                                          |
+| **name**                  | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Наименование Заказа покупателя<br>`+Обязательное при ответе``+Change-handler` `+Update-provider`                                                                                                          |
+| **organization**          | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные юрлица<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании``+Change-handler` `+Update-provider`                                                                                  |
+| **organizationAccount**   | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные счета юрлица<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                                  |
+| **owner**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                                                                                                                              |
+| **payedSum**              | Float                                                     |                                                                                                                                                   | Сумма входящих платежей по Заказу<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                     |
+| **positions**             | MetaArray                                                 |                                                                                                                                                   | Метаданные позиций Заказа покупателя<br>`+Обязательное при ответе` `+Expand``+Change-handler` `+Update-provider`                                                                                          |
+| **printed**               | Boolean                                                   | `=` `!=`                                                                                                                                          | Напечатан ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                  |
+| **project**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные проекта<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                                       |
+| **published**             | Boolean                                                   | `=` `!=`                                                                                                                                          | Опубликован ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                |
+| **rate**                  | Object                                                    |                                                                                                                                                   | Валюта. [Подробнее тут](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Обязательное при ответе``+Change-handler` `+Update-provider`                                                       |
+| **reservedSum**           | Float                                                     |                                                                                                                                                   | Сумма товаров в резерве<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                               |
+| **salesChannel**          | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные канала продаж<br>`+Expand`                                                                                                                                                                     |
+| **shared**                | Boolean                                                   | `=` `!=`                                                                                                                                          | Общий доступ<br>`+Обязательное при ответе`                                                                                                                                                                |
+| **shipmentAddress**       | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Адрес доставки Заказа покупателя<br>`+Change-handler`                                                                                                                                                     |
+| **shipmentAddressFull**   | Object                                                    |                                                                                                                                                   | Адрес доставки Заказа покупателя с детализацией по отдельным полям. [Подробнее тут](../documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki)<br>`+Change-handler` |
+| **shippedSum**            | Float                                                     |                                                                                                                                                   | Сумма отгруженного<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                                    |
+| **state**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные статуса заказа<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                                |
+| **store**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные склада<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                                        |
+| **sum**                   | Int                                                       | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Сумма Заказа в установленной валюте<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                   |
+| **syncId**                | UUID                                                      | `=` `!=`                                                                                                                                          | ID синхронизации. После заполнения недоступен для изменения                                                                                                                                               |
+| **taxSystem**             | Enum                                                      |                                                                                                                                                   | Код системы налогообложения. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Change-handler`                                              |
+| **updated**               | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего обновления Заказа покупателя<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                        |
+| **vatEnabled**            | Boolean                                                   |                                                                                                                                                   | Учитывается ли НДС<br>`+Обязательное при ответе``+Change-handler` `+Update-provider`                                                                                                                      |
+| **vatIncluded**           | Boolean                                                   |                                                                                                                                                   | Включен ли НДС в цену<br>`+Change-handler` `+Update-provider`                                                                                                                                             |
+| **vatSum**                | Float                                                     |                                                                                                                                                   | Сумма НДС<br>`+Обязательное при ответе` `+Только для чтения``+Change-handler`                                                                                                                             |
 
-### Sales Orders
+##### Код системы налогообложения
+Значения поля taxSystem.
 
-Kladana JSON API allows you to create and update information about Sales Orders, request lists of Sales Orders, and information on individual Sales Orders. You can manage Sales Order items as part of a Sales Order or separately with item managing means. The entity code for a Sales Order in the JSON API is the **customerorder** keyword. Sales Order also supports the widget updates notification protocol - **change-handler**. Learn more about [Sales Orders](https://kladana.zendesk.com/hc/en-us/articles/360011348457). 
+| Значение                                 | Описание                     |
+| ---------------------------------------- | :--------------------------- |
+| **GENERAL_TAX_SYSTEM**                   | ОСН                          |
+| **SIMPLIFIED_TAX_SYSTEM_INCOME**         | УСН. Доход                   |
+| **SIMPLIFIED_TAX_SYSTEM_INCOME_OUTCOME** | УСН. Доход-Расход            |
+| **UNIFIED_AGRICULTURAL_TAX**             | ЕСХН                         |
+| **PRESUMPTIVE_TAX_SYSTEM**               | ЕНВД                         |
+| **PATENT_BASED**                         | Патент                       |
 
-#### Entity attributes
+#### Связи с другими документами
 
-| Title | Type | Filtration | Description |
-|-------|------| -----------| ------------|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **applicable** | Boolean | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br>`+Change-handler` `+Update-provider` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Buyer Order Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of last deletion of the Buyer's Order<br>`+Read Only` |
-| **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Estimated date of shipment<br>`+Change-handler` `+Update-provider` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Buyer Order Comment<br>`+Change-handler` `+Update-provider` |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Buyer Order External Code<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Buyer Order ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **invoicedSum** | float | | Buyer invoice amount<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Buyer Order Metadata<br>`+Required when replying``+Change-handler` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Buyer Order Name<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **paidSum** | float | | Amount of incoming payments for the Order<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **positions** | MetaArray | | Buyer's Order item metadata<br>`+Required for response` `+Expand``+Change-handler` `+Update-provider` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying``+Change-handler` `+Update-provider` |
-| **reservedSum** | float | | Amount of goods in reserve<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **salesChannel** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales channel metadata<br>`+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shipmentAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Buyer's Order Delivery Address<br>`+Change-handler` |
-| **shipmentAddressFull** | object | | Delivery address of the Buyer's Order with details on individual fields. [More details here](../documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki)<br>`+Change-handler` |
-| **shippedSum** | float | | Amount of shipped<br>`+Required for response` `+Read-only``+Change-handler` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Change-handler` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Buyer's Order was last updated<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **vatIncluded** | Boolean | | Is VAT included in the price<br>`+Change-handler` `+Update-provider` |
-| **vatSum** | float | | VAT amount<br>`+Required when replying` `+Read-only``+Change-handler` |
-
-##### Tax system code 
-
-The values of the `taxSystem` field.
-
-| Value | Description |
-| ----- | ----------- |
-| **TAX**  | Tax   |
-| **GST** | GST |
-
-#### Links to the other transactions
-
-| Title | Description |
-|---------|--------------------|
-| **purchaseOrders** | Array of links to the related Purchase Orders in metadata format|
-| **demands** | Array of links to the related Shipments in metadata format|
-| **payments** | Array of links to the related Payments in metadata format |
-| **invoicesOut** | Array of links to the related Sales Invoices in metadata format |
-| **moves** | Array of links to the related Transfers in metadata format |
+| Название           | Описание                                                                                                                |
+|--------------------|:------------------------------------------------------------------------------------------------------------------------|
+| **purchaseOrders** | Массив ссылок на связанные заказы поставщикам в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **demands**        | Массив ссылок на связанные отгрузки в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)           |
+| **payments**       | Массив ссылок на связанные платежи в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)            |
+| **invoicesOut**    | Массив ссылок на связанные счета покупателям в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)  |
+| **moves**          | Массив ссылок на связанные перемещния в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)         |
+| **prepayments**    | Массив ссылок на связанные предоплаты в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)         |
 
 #### Позиции Заказа покупателя
-
 Позиции Заказа - это список товаров/услуг/модификаций/серий/комплектов.
 Объект позиции Заказа содержит следующие поля:
 
@@ -127,7 +125,6 @@ The values of the `taxSystem` field.
 Для удаления адреса необходимо в строковое поле `shipmentAddress` передать пустую строку `""`.
 
 ### Получить список Заказов покупателей 
-
 Запрос всех Заказов покупателей на данной учетной записи.
 Результат: Объект JSON, включающий в себя поля:
 
