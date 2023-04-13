@@ -1,79 +1,75 @@
-# МойСклад JSON API
-## Общие Сведения
-### Аутентификация
+# Kladana JSON API
+## General Info
+### Authentication
 
-Для того чтобы успешно взаимодействовать с JSON API онлайн-сервиса МойСклад, необходимо аутентифицироваться
- в системе. МойСклад поддерживает аутентификацию по протоколу Basic Auth и с использованием токена доступа. 
+You can integrate Kladana using the Kladana JSON API. To do this, you first need to log in to Kladan. Kladana supports authentication using the Basic Auth protocol and an access token. 
+
+- When authenticating using the Basic Auth protocol along with a request, the `Authorization` header is passed with the value of the `login:password` pair encoded in the RFC2045-MIME variant of the Base64 standard.
+
+- When authenticating using an access token, the `Authorization` header with a value of `Bearer <Access-Token>` is sent along with the request.
  
- * При аутентификации по протоколу Basic Auth вместе с запросом
- передается заголовок `Authorization` со значением пары `логин:пароль`, закодированным в варианте RFC2045-MIME стандарта Base64.
- * При аутентификации с использованием токена доступа вместе с запросом передается заголовок `Authorization` со значением `Bearer <Access-Token>`.
- 
- Аутентификация по протоколу Basic Auth с автоматической генерацией соответствующего
- заголовка и возможность указать заголовок для аутентификации по токену поддерживается во многих HTTP-клиентах, таких как Postman, curl и т.п.
+Authentication using the Basic Auth protocol with automatic generation of the corresponding header and the ability to specify a header for token authentication is supported in many HTTP clients, such as Postman, curl, etc.
 
-#### Получение нового токена
-Запрос на получение нового токена. Как и в других запросах, в заголовке `Authorization` пара `логин:пароль` указывается закодированной в варианте RFC2045-MIME стандарта Base64. 
-При генерации нового токена доступа сгенерированные до этого токены пользователя будут отозваны.
+#### Getting a new token
 
-* **access_token** - токен для доступа
+Request for a new token. As in other requests, in the `Authorization` header, the `login:password` pair is indicated encoded in the RFC2045-MIME version of the Base64 standard. When a new access token is generated, the previously generated user tokens are revoked.
 
-> Пример запроса на получение нового токена
+- **access_token** — access token
+
+> Example: Request for a new token
 
 ```shell
 curl -X POST
-  "https://online.moysklad.ru/api/remap/1.2/security/token"
-  -H "Authorization: Basic <Credentials>"
-``` 
-
-> Response 200 (application/json) Успешный запрос. Результат JSON объект, содержащий токен
+   "https://dev.kladana.in/api/remap/1.2/security/token"
+   -H "Authorization: Basic <Credentials>"
+```
+> Response 200 (application/json): Successful request. The result is a JSON object containing the token.
 
 ```json
 {
-  "access_token": "0cbfc512618efa7d5fa306250bca064c1169b37c"
+   "access_token": "0cbfc512618efa7d5fa306250bca064c1169b37c"
 }
 ```
 
-### Замечания по разработке клиентских приложений
-При разработке клиентского приложения необходимо учитывать следующие моменты:
+### Client Application Development Considerations
 
-  + Структура ответов и типы полей поддерживаются нами неизменными
-  + Может быть добавлено новое поле без нарушения структуры ответа
-  + Может быть добавлен новый ресурс
+When developing a client application, consider the following points:
 
-### Ограничения
+   + The structure of responses and field types are kept unchanged by us.
+   + A new field can be added without disturbing the structure of the response.
+   + New resources can be added.
 
-Для JSON API установлены следующие ограничения:
 
-  + Не более 45 запросов за 3 секундный период от аккаунта
-  + Не более 5 параллельных запросов от одного пользователя
-  + Не более 20 параллельных запросов от аккаунта
-  + Не более 8Кб в заголовке запроса (url, User-Agent, Authorization и т.д.)
-  + Не более 20 Мб данных в одном запросе, отправляемом на сервер
-  + Не более 4 [асинхронных задач](#mojsklad-json-api-asinhronnyj-obmen) в очереди на аккаунт
+### Restrictions
 
-Также накладывается ограничение на максимальное число объектов (позиций, материалов, продуктов), передаваемых в одном массиве в запросе - не более 1000 элементов.
-В случае, если количество элементов коллекции превышает максимально допустимое, произойдет ошибка со статусом 413.
-Если количество позиций превышает максимально допустимое, то для дальнейшего пополнения позиций нужно будет работать со специальным ресурсом,
-описание которого приведено в конкретной сущности.
+The Kladana JSON API has the following restrictions: 
 
-### Типы данных
+- Under 45 requests per 3 seconds for an account.
+- Under 5 parallel requests from a user.
+- Under 20 parallel requests for an account. 
+- Under 8 Kb in the request header (URL, User-Agent, Authorization, etc). 
+- Under 20 MB of data in a request sent to the server. 
+- Under 4 asynchronous tasks queued for an account. 
+- Under 1000 elements of objects (positions, materials, products) in one array for a request. If the number of elements exceeds the number allowed, an error with status 413 occurs. If the number of positions exceeds the limit, use the resources described separately for each entity.
 
-| Название              | Описание                                                                                                                                                                                                                                                   |
-| --------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Array(Type)**       | Массив объектов/значений. Type - тип элементов массива.                                                                                                                                                                                                    |
-| **Boolean**           | Представляет значение `true` или `false`.                                                                                                                                                                                                                  |
-| **DateTime**          | Представляет строку в формате "гггг-мм-дд чч-мм-сс". Пример значения: `"2016-08-23 15:21:09"`. [Подробнее тут](#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni)                                                                                  |
-| **Enum**              | Представляет строку, принимающую константное множество значений.                                                                                                                                                                                           |
-| **Float**             | Представляет дробное числовое значение. Пример значения: `200.8`.                                                                                                                                                                                          |
-| **Int**               | Представляет целое числовое значение в диапазоне -2^31 – 2^31. Пример значения: `200`.                                                                                                                                                                     |
-| **Long**              | Представляет целое числовое значение в диапазоне -2^63 – 2^63. Пример значения: `1613766951558`.                                                                                                                                                           |
-| **Meta**              | Представляет объект в формате [Метаданных](#mojsklad-json-api-obschie-swedeniq-metadannye).                                                                                                                                                                |
-| **MetaArray**         | Объект с полями **meta** и **rows**, где **rows** - массив объектов. Элементы массива **rows** можно запросить, используя [параметр запроса expand](#mojsklad-json-api-obschie-swedeniq-zamena-ssylok-ob-ektami-s-pomosch-u-expand) соответствующего поля. |
-| **Object**            | Представляет сущность с вложенными полями.                                                                                                                                                                                                                 |
-| **String(MaxLength)** | Представляет текстовые данные в виде последовательности символов UTF-8. MaxLength - максимальная длина строки для конкретного поля. Пример значения: `"Москва"`.                                                                                           |
-| **URL**               | Соответствующая стандартам FRC 3986 и RFC 3987 строка URI. Пример значения: `"https://online.moysklad.ru/api/remap/1.2/entity/counterparty"`.                                                                                                              |
-| **UUID**              | Предствляет строку в формате UUID. Пример значения: `"12a8b923-692c-11e6-8a84-bae500000053"`.                                                                                                                                                              |
+### Data types
+
+| Title | Description |
+| ------ | ---------- | 
+| **Array(Type)** | An array of objects/values. 'Type' is a type of array elements. |
+| **Boolean** | Represents a `true` or `false` value. |
+| **DateTime** | Represents a string in the 'yyyy-mm-dd hh-mm-ss' format. Example: `'2016-08-23 15:21:09'`.|
+| **Enum** | Represents a string that takes a constant set of values. |
+| **Float** | Represents a fractional numeric value. Example: `200.8`. |
+| **int** | Represents an integer numeric value in the range of -2^31 - 2^31. Example: `200`. |
+| **Long** | Represents an integer numeric value in the range of -2^63 - 2^63. Example: `1613766951558`. |
+| **Meta** | Represents an object in the metadata format. |
+| **MetaArray** | An object with **meta** and **rows** fields, where **rows** is an array of objects. The elements of the **rows** array can be queried using the expand query parameter of the corresponding field. |
+| **Object** | Represents an entity with nested fields. |
+| **String(MaxLength)** | Represents text data as a sequence of UTF-8 characters. 'MaxLength' is maximum string length for a particular field. Example: `'Moscow'`. |
+| **URL** | An FRC 3986 and RFC 3987 compliant URI string. Example: `'https://dev.kladana.in/api/remap/1.2/entity/counterparty'`. |
+| **UUID** | Represents a string in UUID format. Example': `'12a8b923-692c-11e6-8a84-bae500000053'`. |
+
 
 ### Метаданные
 
@@ -157,61 +153,62 @@ curl -X GET
 **meta** с такими полями можно встретить при выполнении запросов на получение всех объектов определенного типа
  на учетной записи (например запрос всех отгрузок), а также при запросе всех позиций отдельного документа.
 
-### Обработка ошибок
-###### СТРУКТУРА ОШИБОК
 
-Ошибка в данном API представляет собой массив **errors**, содержащий объекты **error**, каждый из которых описывает отдельную ошибку.
+### Error processing
 
-###### СТРУКТУРА ОБЪЕКТА error
+#### Error structure
 
-| Название          | Тип                                                            | Описание                                                                                                                                                                  |
-|-------------------|:---------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **error**         | String(255)                                                    | Заголовок ошибки<br>`+Обязательное при ответе`                                                                                                                            |
-| **parameter**     | String(255)                                                    | Параметр, на котором произошла ошибка                                                                                                                                     |
-| **code**          | Int                                                            | Код ошибки (Если поле ничего не содержит, смотрите HTTP status code)                                                                                                      |
-| **error_message** | String(255)                                                    | Сообщение, прилагаемое к ошибке                                                                                                                                           |
-| **moreInfo**      | link                                                           | Ссылка на документацию с описанием полученной ошибки                                                                                                                      |
-| **line**          | Int                                                            | Строка JSON, на которой произошла ошибка                                                                                                                                  |
-| **column**        | Int                                                            | Координата элемента в строке `line`, на котором произошла ошибка                                                                                                          |
-| **dependencies**  | Array([Meta](#mojsklad-json-api-obschie-swedeniq-metadannye)) | Список метаданных зависимых сущностей или документов. Выводится при невозможности удаления сущности, документа, если имеются зависимости от удаляемой сущности, документа |
-| **meta**          | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye)         | Метаданные сущности, документа на котором произошла ошибка                                                                                                                |
+An error in the Kladana API is an 'Error' array containing 'Error' objects. Each object describes a single error.
 
-###### Возвращаемые HTTP статусы ошибок и их значения:
+#### Structure of the 'Error' object
 
-| HTTP status code | Значение                                                                                                                                              |
-| :--------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **301**          | Запрашиваемый ресурс находится по другому URL.                                                                                                        |
-| **303**          | Запрашиваемый ресурс может быть найден по другому URI и должен быть найден с использоваием GET запроса                                                |
-| **400**          | Ошибка в структуре JSON передаваемого запроса                                                                                                         |
-| **401**          | Имя и/или пароль пользователя указаны неверно или заблокированы пользователь или аккаунт                                                              |
-| **403**          | У вас нет прав на просмотр данного объекта                                                                                                            |
-| **404**          | Запрошенный ресурс не существует                                                                                                                      |
-| **405**          | http-метод указан неверно для запрошенного ресурса                                                                                                    |
-| **409**          | Указанный объект используется и не может быть удален                                                                                                  |
-| **410**          | Версия API больше не поддерживается                                                                                                                   |
-| **412**          | Не указан обязательный параметр строки запроса или поле структуры JSON                                                                                |
-| **413**          | Размер запроса или количество элементов запроса превышает лимит (например, количество позиций, передаваемых в массиве **positions**, превышает 1000)  |
-| **429**          | Превышен лимит количества запросов                                                                                                                    |
-| **500**          | При обработке запроса возникла непредвиденная ошибка                                                                                                  |
-| **502**          | Сервис временно недоступен                                                                                                                            |
-| **503**          | Сервис временно отключен                                                                                                                              |
-| **504**          | Превышен таймаут обращения к сервису, повторите попытку позднее                                                                                       |
+| Title | Type | Description |
+|------|------|-------------|
+| **error** | String(255) | Error title<br>`+Required for response` |
+| **parameter** | String(255) | The parameter on which the error occurred |
+| **code** | int | Error code. If the field contains nothing, see HTTP status code |
+| **error_message** | String(255) | Message attached to the error |
+| **moreInfo** | link | Link to the error received documentation |
+| **line** | int | The JSON string where the error occurred |
+| **column** | int | The coordinate of the element in the `line` string where the error occurred |
+| **dependencies** | Array Meta | Metadata list of dependent entities or documents. It is displayed when it is impossible to delete an entity or a document. If there are dependencies on the entity, the document is deleted |
+| **meta** | meta | Metadata of the entity on which the error occurred |
 
-Также, вместе с телом ответа ошибки, вам могут прийти следующие заголовки (Headers):
+#### Returned HTTP error statuses and their description
 
-+ X-Lognex-Auth - расширенный код ошибки аутентификации
-+ X-Lognex-Auth-Message - сообщение об ошибке.
-+ X-Lognex-API-Version-Deprecated - дата отключения запрошенной версии API.
-+ Location - URL по которому доступен запрашиваемый ресурс (в случае ответа с кодом 301 или кодом 303)
+| HTTP status code | Description |
+| -----------------| ----------- |
+| **301** | The requested resource has another URL |
+| **303** | The requested resource has another URL. Use GET request to find it |
+| **400** | The transmitted request has a JSON structure error |
+| **401** | Incorrect username or password, or the user or account has been blocked |
+| **403** | No permission to view the object |
+| **404** | The requested resource does not exist |
+| **405** | HTTP method specified incorrectly for the requested resource|
+| **409** | The specified object is in use and cannot be deleted |
+| **410** | API version no longer supported |
+| **412** | A required query string parameter or JSON structure field was not specified |
+| **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of positions passed in the **positions** array exceeds 1000 |
+| **429** | Request limit was exceeded |
+| **500** | An unexpected error occurred while processing the request |
+| **502** | Service temporarily unavailable |
+| **503** | Service temporarily disabled |
+| **504** | Service timeout exceededю Please try again later |
 
-Вы можете узнать лимит оставшихся запросов с помощью следующих заголовков
+Along with the error response body, you may receive the following headers:
 
-+ X-RateLimit-Limit - количество запросов, которые равномерно можно сделать в течение интервала до появления 429 ошибки
-+ X-Lognex-Retry-TimeInterval - интервал в миллисекундах, в течение которого можно сделать эти запросы
-+ X-RateLimit-Remaining - Число запросов, которые можно отправить до получения 429 ошибки
-+ X-Lognex-Reset - время до сброса ограничения в миллисекундах. Равно нулю, если ограничение не установлено
-+ X-Lognex-Retry-After - время до сброса ограничения в миллисекундах.
+- X-Lognex-Auth — Extended authentication error code.
+- X-Lognex-Auth-Message — Error message.
+- X-Lognex-API-Version-Deprecated — The date the requested API version was disabled.
+- Location — The requested resource's current URL (if you receive 301 or 303 code as a response).
 
+Use the following headers to learn the limits of the remaining requests:
+
+- X-RateLimit-Limit — The number of requests that can be made before the 429 error occurs.
+- X-Lognex-Retry-TimeInterval — Interval in milliseconds during which these requests can be made.
+- X-RateLimit-Remaining — The number of requests that can be sent before 429 error receiving.
+- X-Lognex-Reset — Time before limit reset in milliseconds. Equal to zero if the limit is not set.
+- X-Lognex-Retry-After — Time before the restriction reset in milliseconds.
 
 ### Работа с дополнительными полями
 
@@ -1262,7 +1259,7 @@ accounts.accountnumber Параметр строкового типа. В отф
 ### Оператор фильтрации "подобие"
 
 В JSON API для <u>строковых</u> полей есть специальный оператор фильтрации "подобие".
-
+обра
 + `~`  обычное подобие. Ищет любое вхождение подстроки, следующей после оператора, в значении поля. Например, `?filter=code~ms` найдет все сущности, у которых в коде встречается подстрока "ms".
 + `~=` левое подобие. Ищет соответствие по префиксу значения. Например `?filter=code~=ms` найдет все сущности, у которых код начинается на "ms".
 + `=~` правое подобие. Ищет соответствие по постфиксу. Например `?filter=code=~ms` найдет все сущности, у которых код оканчивается на "ms".
@@ -2594,7 +2591,7 @@ curl -X PUT
             "update": "ALL",
             "delete": "ALL",
             "done": "ALL"
-        },
+ v         },
         "dashboard": {
             "view": "ALL"
         },
