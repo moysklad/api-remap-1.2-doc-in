@@ -23,7 +23,7 @@ $(function () {
         let itr = document.createNodeIterator(node, NodeFilter.SHOW_TEXT)
         while ((currentTextNode = itr.nextNode())) {
           let cleanedText = currentTextNode.nodeValue
-            .replaceAll('https://online.moysklad.ru/api/remap/1.2/', ' ')
+            .replaceAll('https://app.kladana.in/api/remap/1.2/', ' ')
             .replaceAll(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/ig, ' ')
             .replaceAll(/\s+/ig, ' ')
             .trim();
@@ -115,7 +115,7 @@ $(function () {
 
       searchResults.empty();
       if (hasIndexLoadingError) {
-        searchResults.append("<li class='warning'>Обновите страницу для поиска по всем разделам</li>");
+        searchResults.append("<li class='warning'>Refresh the page to search all sections</li>");
       }
       if (results.length) {
         $.each(results, function (index, result) {
@@ -132,7 +132,7 @@ $(function () {
         });
         highlight.call(searchInput);
       } else {
-        searchResults.append('<li>Ничего не найдено по запросу "' + searchInput.value + '"</li>');
+        searchResults.append('<li>No results found for "' + searchInput.value + '"</li>');
       }
     } else {
       unhighlight();
