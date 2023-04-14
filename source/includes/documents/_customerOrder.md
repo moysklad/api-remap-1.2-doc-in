@@ -139,7 +139,7 @@ Result: JSON object with the following fields:
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -151,14 +151,14 @@ Successful request. The result is a JSON representation of a list of Sales Order
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerOrder",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerOrder",
     "type": "customerorder",
     "mediaType": "application/json",
     "size": 1,
@@ -168,7 +168,7 @@ Successful request. The result is a JSON representation of a list of Sales Order
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
         "type": "customerorder",
         "mediaType": "application/json"
       },
@@ -181,8 +181,8 @@ Successful request. The result is a JSON representation of a list of Sales Order
       "externalCode": "CntjFix4hoyZOIhZiULjv2",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         }
@@ -190,8 +190,8 @@ Successful request. The result is a JSON representation of a list of Sales Order
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -207,8 +207,8 @@ Successful request. The result is a JSON representation of a list of Sales Order
       "rate": {
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/bc1b4fde-019a-11e6-9464-e4de00000073",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/bc1b4fde-019a-11e6-9464-e4de00000073",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -217,56 +217,56 @@ Successful request. The result is a JSON representation of a list of Sales Order
       },
       "organization": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
           "type": "organization",
           "mediaType": "application/json"
         }
       },
       "store": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
           "type": "store",
           "mediaType": "application/json"
         }
       },
       "contract": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
           "type": "contract",
           "mediaType": "application/json"
         }
       },
       "agent": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
           "type": "counterparty",
           "mediaType": "application/json"
         }
       },
       "state": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
           "type": "state",
           "mediaType": "application/json"
         }
       },
       "organizationAccount": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
           "type": "account",
           "mediaType": "application/json"
         }
       },
       "agentAccount": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
           "type": "account",
           "mediaType": "application/json"
         }
       },
       "salesChannel": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
           "type": "saleschannel",
           "mediaType": "application/json"
         }
@@ -274,7 +274,7 @@ Successful request. The result is a JSON representation of a list of Sales Order
       "attributes": [
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
             "type": "attributemetadata",
             "mediaType": "application/json"
           },
@@ -286,8 +286,8 @@ Successful request. The result is a JSON representation of a list of Sales Order
       ],
       "positions": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b/positions",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b/positions",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
           "type": "customerorderposition",
           "mediaType": "application/json",
           "size": 4,
@@ -306,16 +306,16 @@ Successful request. The result is a JSON representation of a list of Sales Order
         "postalCode":"125009",
         "country":{
           "meta":{
-            "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+            "href":"https://online.moysklad.ru/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+            "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/country/metadata",
             "type":"country",
             "mediaType":"application/json"
           }
         },
         "region":{
           "meta":{
-            "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+            "href":"https://online.moysklad.ru/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+            "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/region/metadata",
             "type":"region",
             "mediaType":"application/json"
           }
@@ -346,20 +346,20 @@ The fields required to create:
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "organization": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                 "type": "organization",
                 "mediaType": "application/json"
               }
             },
             "agent": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                 "type": "counterparty",
                 "mediaType": "application/json"
               }
@@ -373,8 +373,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -386,8 +386,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "externalCode": "08ehdxhRgVIB5-Sa-QNI42",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -395,8 +395,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -408,8 +408,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -418,37 +418,37 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
       "type": "account",
       "mediaType": "application/json"
     }
@@ -458,8 +458,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 0,
@@ -478,15 +478,15 @@ Successful request. The result is a JSON representation of the created Sales Ord
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "name": "000034",
             "owner": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json"
               }
@@ -494,15 +494,15 @@ Successful request. The result is a JSON representation of the created Sales Ord
             "shared": false,
             "group": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
                 "type": "group",
                 "mediaType": "application/json"
               }
             },
             "organization": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                 "type": "organization",
                 "mediaType": "application/json"
               }
@@ -513,14 +513,14 @@ Successful request. The result is a JSON representation of the created Sales Ord
             "vatEnabled": false,
             "agent": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                 "type": "counterparty",
                 "mediaType": "application/json"
               }
             },
             "state": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                 "type": "state",
                 "mediaType": "application/json"
               }
@@ -529,16 +529,16 @@ Successful request. The result is a JSON representation of the created Sales Ord
               "postalCode":"125009",
               "country":{  
                 "meta":{  
-                  "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                  "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                  "href":"https://online.moysklad.ru/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                  "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/country/metadata",
                   "type":"country",
                   "mediaType":"application/json"
                 }
               },
               "region":{  
                 "meta":{  
-                  "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                  "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                  "href":"https://online.moysklad.ru/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                  "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/region/metadata",
                   "type":"region",
                   "mediaType":"application/json"
                 }
@@ -559,8 +559,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -573,8 +573,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "externalCode": "DAD9peGij6sDNii49Dkam2",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -582,8 +582,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -594,8 +594,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -604,37 +604,37 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterperty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterperty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
       "type": "account",
       "mediaType": "application/json"
     }
@@ -644,8 +644,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 0,
@@ -662,16 +662,16 @@ Successful request. The result is a JSON representation of the created Sales Ord
     "postalCode":"125009",
     "country":{
       "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+        "href":"https://online.moysklad.ru/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+        "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/country/metadata",
         "type":"country",
         "mediaType":"application/json"
       }
     },
     "region":{
       "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+        "href":"https://online.moysklad.ru/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+        "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/region/metadata",
         "type":"region",
         "mediaType":"application/json"
       }
@@ -690,14 +690,14 @@ Successful request. The result is a JSON representation of the created Sales Ord
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "name" : "000034",
             "organization": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                 "type": "organization",
                 "mediaType": "application/json"
               }
@@ -708,14 +708,14 @@ Successful request. The result is a JSON representation of the created Sales Ord
             "vatEnabled": false,
             "agent": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                 "type": "counterparty",
                 "mediaType": "application/json"
               }
             },
             "state": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                 "type": "state",
                 "mediaType": "application/json"
               }
@@ -723,7 +723,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
             "attributes": [
               {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                   "type": "attributemetadata",
                   "mediaType": "application/json"
                 },
@@ -739,8 +739,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -753,8 +753,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "externalCode": "DAD9peGij6sDNii49Dkam2",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -762,8 +762,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -774,8 +774,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -784,37 +784,37 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
       "type": "account",
       "mediaType": "application/json"
     }
@@ -822,7 +822,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "attributes": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
@@ -837,8 +837,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 0,
@@ -857,14 +857,14 @@ Successful request. The result is a JSON representation of the created Sales Ord
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "name": "000034",
             "organization": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                 "type": "organization",
                 "mediaType": "application/json"
               }
@@ -875,14 +875,14 @@ Successful request. The result is a JSON representation of the created Sales Ord
             "vatEnabled": false,
             "agent": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                 "type": "counterparty",
                 "mediaType": "application/json"
               }
             },
             "state": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                 "type": "state",
                 "mediaType": "application/json"
               }
@@ -895,7 +895,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
                 "vat": 0,
                 "assortment": {
                   "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
                     "type": "product",
                     "mediaType": "application/json"
                   }
@@ -909,7 +909,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
                 "vat": 21,
                 "assortment": {
                   "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
                     "type": "product",
                     "mediaType": "application/json"
                   }
@@ -923,7 +923,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
                 "vat": 7,
                 "assortment": {
                   "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006",
                     "type": "product",
                     "mediaType": "application/json"
                   }
@@ -943,8 +943,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -958,8 +958,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "externalCode": "DAD9peGij6sDNii49Dkam2",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -967,8 +967,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -979,8 +979,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -989,44 +989,44 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterperty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterperty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "documents": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/06406b97-9138-11e6-8a84-bae500000000/documents",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/06406b97-9138-11e6-8a84-bae500000000/documents",
       "mediaType": "application/json",
       "size": 0,
       "limit": 100,
@@ -1038,8 +1038,8 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 3,
@@ -1062,7 +1062,7 @@ In the body of the request, you need to pass an array containing JSON representa
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '[
@@ -1070,14 +1070,14 @@ In the body of the request, you need to pass an array containing JSON representa
               "name": "00003",
               "organization": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                   "type": "organization",
                   "mediaType": "application/json"
                 }
               },
               "agent": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                   "type": "counterparty",
                   "mediaType": "application/json"
                 }
@@ -1085,16 +1085,16 @@ In the body of the request, you need to pass an array containing JSON representa
             },
             {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
                 "type": "customerorder",
                 "mediaType": "application/json"
               },
               "name": "000039",
               "group": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
+                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
                   "type": "group",
                   "mediaType": "application/json"
                 }
@@ -1107,21 +1107,21 @@ In the body of the request, you need to pass an array containing JSON representa
               "vatIncluded": true,
               "agent": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
                   "type": "counterparty",
                   "mediaType": "application/json"
                 }
               },
               "agentAccount": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
                   "type": "account",
                   "mediaType": "application/json"
                 }
               },
               "state": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                   "type": "state",
                   "mediaType": "application/json"
                 }
@@ -1137,8 +1137,8 @@ The result is a JSON representations array of created and updated Sales Orders.
 [
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorder",
       "mediaType": "application/json"
     },
@@ -1150,8 +1150,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "externalCode": "08ehdxhRgVIB5-Sa-QNI42",
     "owner": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
@@ -1159,8 +1159,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -1172,8 +1172,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "rate": {
       "currency": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json"
         }
@@ -1182,37 +1182,37 @@ The result is a JSON representations array of created and updated Sales Orders.
     "sum": 0,
     "organization": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
         "type": "organization",
         "mediaType": "application/json"
       }
     },
     "agent": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json"
       }
     },
     "state": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
         "type": "state",
         "mediaType": "application/json"
       }
     },
     "organizationAccount": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
         "type": "account",
         "mediaType": "application/json"
       }
     },
     "agentAccount": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
         "type": "account",
         "mediaType": "application/json"
       }
@@ -1222,8 +1222,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "published": true,
     "positions": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020/positions",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020/positions",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
         "type": "customerorderposition",
         "mediaType": "application/json",
         "size": 0,
@@ -1238,8 +1238,8 @@ The result is a JSON representations array of created and updated Sales Orders.
   },
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorder",
       "mediaType": "application/json"
     },
@@ -1252,8 +1252,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "externalCode": "championCode",
     "owner": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
@@ -1261,8 +1261,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -1274,8 +1274,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "rate": {
       "currency": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json"
         }
@@ -1284,37 +1284,37 @@ The result is a JSON representations array of created and updated Sales Orders.
     "sum": 0,
     "organization": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
         "type": "organization",
         "mediaType": "application/json"
       }
     },
     "agent": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json"
       }
     },
     "state": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
         "type": "state",
         "mediaType": "application/json"
       }
     },
     "organizationAccount": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
         "type": "account",
         "mediaType": "application/json"
       }
     },
     "agentAccount": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
         "type": "account",
         "mediaType": "application/json"
       }
@@ -1323,8 +1323,8 @@ The result is a JSON representations array of created and updated Sales Orders.
     "printed": true,
     "published": true,    "positions": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
         "type": "customerorderposition",
         "mediaType": "application/json",
         "size": 3,
@@ -1352,7 +1352,7 @@ The result is a JSON representations array of created and updated Sales Orders.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"7
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"7
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1384,21 +1384,21 @@ The structure of a separate object representing an additional field is described
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/delete"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/delete"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '[
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b1",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
             "type": "customerorder",
             "mediaType": "application/json"
         },
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b2",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
             "type": "customerorder",
             "mediaType": "application/json"
         }
@@ -1422,7 +1422,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1432,13 +1432,13 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "mediaType": "application/json"
   },
   "attributes": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/c2ecd338-015e-11e6-9464-e4de0000008f",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/c2ecd338-015e-11e6-9464-e4de0000008f",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
@@ -1450,7 +1450,7 @@ curl -X GET
   "states": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1463,7 +1463,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56cae3-2e58-11e6-8a84-bae50000006a",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56cae3-2e58-11e6-8a84-bae50000006a",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1476,7 +1476,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56cf4f-2e58-11e6-8a84-bae50000006b",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56cf4f-2e58-11e6-8a84-bae50000006b",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1489,7 +1489,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56d433-2e58-11e6-8a84-bae50000006c",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56d433-2e58-11e6-8a84-bae50000006c",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1502,7 +1502,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56d92f-2e58-11e6-8a84-bae50000006d",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56d92f-2e58-11e6-8a84-bae50000006d",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1515,7 +1515,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56de0a-2e58-11e6-8a84-bae50000006e",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56de0a-2e58-11e6-8a84-bae50000006e",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1528,7 +1528,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56e2b4-2e58-11e6-8a84-bae50000006f",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56e2b4-2e58-11e6-8a84-bae50000006f",
         "type": "state",
         "mediaType": "application/json"
       },
@@ -1557,7 +1557,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1567,7 +1567,7 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/57ab884e-558b-11e6-8a84-bae500000078",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/57ab884e-558b-11e6-8a84-bae500000078",
     "type": "attributemetadata",
     "mediaType": "application/json"
   },
@@ -1592,7 +1592,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1602,8 +1602,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerOrder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerOrder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -1616,8 +1616,8 @@ curl -X GET
   "externalCode": "CntjFix4hoyZOIhZiULjv2",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -1625,8 +1625,8 @@ curl -X GET
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -1641,8 +1641,8 @@ curl -X GET
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/bc1b4fde-019a-11e6-9464-e4de00000073",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/bc1b4fde-019a-11e6-9464-e4de00000073",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -1651,65 +1651,65 @@ curl -X GET
   },
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "store": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
       "type": "store",
       "mediaType": "application/json"
     }
   },
   "contract": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
       "type": "contract",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "salesChannel": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
       "type": "saleschannel",
       "mediaType": "application/json"
     }
   },
   "attributes": [{
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/c2ecd338-015e-11e6-9464-e4de0000008f",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/c2ecd338-015e-11e6-9464-e4de0000008f",
       "type": "attributemetadata",
       "mediaType": "application/json"
     },
@@ -1720,8 +1720,8 @@ curl -X GET
   }],
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 4,
@@ -1739,16 +1739,16 @@ curl -X GET
     "postalCode":"125009",
     "country":{
       "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+        "href":"https://online.moysklad.ru/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+        "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/country/metadata",
         "type":"country",
         "mediaType":"application/json"
       }
     },
     "region":{
       "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+        "href":"https://online.moysklad.ru/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+        "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/region/metadata",
         "type":"region",
         "mediaType":"application/json"
       }
@@ -1781,15 +1781,15 @@ curl -X GET
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "name": "000039",
             "group": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
                 "type": "group",
                 "mediaType": "application/json"
               }
@@ -1802,21 +1802,21 @@ curl -X GET
             "vatIncluded": true,
             "agent": {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
                   "type": "counterparty",
                   "mediaType": "application/json"
               }
             },
             "agentAccount": {
               "meta": {
-                          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+                          "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
                           "type": "account",
                           "mediaType": "application/json"
                       }
             },
             "state": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                 "type": "state",
                 "mediaType": "application/json"
               }
@@ -1825,16 +1825,16 @@ curl -X GET
               "postalCode":"125009",
               "country":{  
                 "meta":{  
-                  "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                  "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                  "href":"https://online.moysklad.ru/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                  "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/country/metadata",
                   "type":"country",
                   "mediaType":"application/json"
                 }
               },
               "region":{  
                 "meta":{  
-                  "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                  "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                  "href":"https://online.moysklad.ru/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                  "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/region/metadata",
                   "type":"region",
                   "mediaType":"application/json"
                 }
@@ -1855,8 +1855,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -1869,8 +1869,8 @@ curl -X GET
   "externalCode": "championCode",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -1878,8 +1878,8 @@ curl -X GET
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -1891,8 +1891,8 @@ curl -X GET
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -1901,37 +1901,37 @@ curl -X GET
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
       "type": "account",
       "mediaType": "application/json"
     }
@@ -1941,8 +1941,8 @@ curl -X GET
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 3,
@@ -1959,16 +1959,16 @@ curl -X GET
     "postalCode":"125009",
     "country":{  
       "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+        "href":"https://online.moysklad.ru/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+        "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/country/metadata",
         "type":"country",
         "mediaType":"application/json"
       }
     },
     "region":{  
       "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+        "href":"https://online.moysklad.ru/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+        "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/region/metadata",
         "type":"region",
         "mediaType":"application/json"
       }
@@ -1987,7 +1987,7 @@ curl -X GET
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -2000,21 +2000,21 @@ curl -X GET
             "vatIncluded": true,
             "agent": {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
                   "type": "counterparty",
                   "mediaType": "application/json"
               }
             },
             "agentAccount": {
               "meta": {
-                          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+                          "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
                           "type": "account",
                           "mediaType": "application/json"
                       }
             },
             "state": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                 "type": "state",
                 "mediaType": "application/json"
               }
@@ -2022,7 +2022,7 @@ curl -X GET
             "attributes": [
               {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                   "type": "attributemetadata",
                   "mediaType": "application/json"
                 },
@@ -2038,8 +2038,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -2052,8 +2052,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "externalCode": "championCode",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -2061,8 +2061,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -2074,8 +2074,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -2084,37 +2084,37 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
       "type": "account",
       "mediaType": "application/json"
     }
@@ -2122,7 +2122,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "attributes": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
@@ -2137,8 +2137,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 0,
@@ -2157,7 +2157,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -2170,21 +2170,21 @@ Successful request. The result is a JSON representation of the updated Sales Ord
             "vatIncluded": true,
             "agent": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
                 "type": "counterparty",
                 "mediaType": "application/json"
               }
             },
             "agentAccount": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
                 "type": "account",
                 "mediaType": "application/json"
               }
             },
             "state": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                 "type": "state",
                 "mediaType": "application/json"
               }
@@ -2198,7 +2198,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
                 "vat": 0,
                 "assortment": {
                   "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
                     "type": "product",
                     "mediaType": "application/json"
                   }
@@ -2213,7 +2213,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
                 "vat": 21,
                 "assortment": {
                   "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
                     "type": "product",
                     "mediaType": "application/json"
                   }
@@ -2228,7 +2228,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
                 "vat": 7,
                 "assortment": {
                   "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006",
                     "type": "product",
                     "mediaType": "application/json"
                   }
@@ -2245,8 +2245,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorder",
     "mediaType": "application/json"
   },
@@ -2259,8 +2259,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "externalCode": "championCode",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -2268,8 +2268,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/ee2d9c89-1fea-4791-8c99-722e8f8294d0",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -2281,8 +2281,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -2291,37 +2291,37 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "sum": 0,
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json"
     }
   },
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
   },
   "state": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
       "type": "state",
       "mediaType": "application/json"
     }
   },
   "organizationAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
       "type": "account",
       "mediaType": "application/json"
     }
   },
   "agentAccount": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005/accounts/71d4cfdb-fd85-11e5-9464-e4de00000006",
       "type": "account",
       "mediaType": "application/json"
     }
@@ -2331,8 +2331,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
   "published": true,
   "positions": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
       "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 3,
@@ -2371,7 +2371,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -2383,15 +2383,15 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorderposition",
     "mediaType": "application/json",
     "size": 4,
@@ -2401,8 +2401,8 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
         "type": "customerorderposition",
         "mediaType": "application/json"
       },
@@ -2415,19 +2415,19 @@ curl -X GET
       "vatEnabled": true,
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=e639e90c-2a99-11e9-ac12-000c0000003e"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=e639e90c-2a99-11e9-ac12-000c0000003e"
         }
       },
       "reserve": 1
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6451e-015e-11e6-9464-e4de0000006d",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6451e-015e-11e6-9464-e4de0000006d",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
         "type": "customerorderposition",
         "mediaType": "application/json"
       },
@@ -2440,19 +2440,19 @@ curl -X GET
       "vatEnabled": true,
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/60fc3826-00d7-11e6-9464-e4de00000097",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/60fc3826-00d7-11e6-9464-e4de00000097",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=e639e90c-2a99-11e9-ac12-000c0000003e"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=e639e90c-2a99-11e9-ac12-000c0000003e"
         }
       },
       "reserve": 0
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6551d-015e-11e6-9464-e4de0000006e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6551d-015e-11e6-9464-e4de0000006e",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
         "type": "customerorderposition",
         "mediaType": "application/json"
       },
@@ -2465,19 +2465,19 @@ curl -X GET
       "vatEnabled": true,
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/56c73633-ffe4-11e5-9464-e4de000000c6",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/56c73633-ffe4-11e5-9464-e4de000000c6",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "variant",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e639e90c-2a99-11e9-ac12-000c00001222"
+          "uuidHref": "https://online.moysklad.ru/app/#feature/edit?id=e639e90c-2a99-11e9-ac12-000c00001222"
         }
       },
       "reserve": 1
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f66948-015e-11e6-9464-e4de0000006f",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f66948-015e-11e6-9464-e4de0000006f",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
         "type": "customerorderposition",
         "mediaType": "application/json"
       },
@@ -2490,11 +2490,11 @@ curl -X GET
       "vatEnabled": true,
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/66cc36dc-f7d2-11e5-8a84-bae500000074",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/66cc36dc-f7d2-11e5-8a84-bae500000074",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
           "type": "variant",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#feature/edit?id=3c6dc9b8-2842-11e9-ac12-000c00000071"
+          "uuidHref": "https://online.moysklad.ru/app/#feature/edit?id=3c6dc9b8-2842-11e9-ac12-000c00000071"
         }
       },
       "reserve": 1
@@ -2524,7 +2524,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -2534,7 +2534,7 @@ curl -X GET
             "vat": 18,
             "assortment": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
                 "type": "product",
                 "mediaType": "application/json"
               }
@@ -2550,7 +2550,7 @@ curl -X GET
 [
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/a7a61c8b-acdd-11e6-8a84-bae500000000",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/a7a61c8b-acdd-11e6-8a84-bae500000000",
       "type": "customerorderposition",
       "mediaType": "application/json"
     },
@@ -2563,11 +2563,11 @@ curl -X GET
     "vatEnabled": true,
     "assortment": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#good/edit?id=3c6dc9b8-2842-11e9-ac12-000c00000071"
+        "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=3c6dc9b8-2842-11e9-ac12-000c00000071"
       }
     },
     "reserve": 19
@@ -2579,7 +2579,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '[
@@ -2589,8 +2589,8 @@ curl -X GET
               "vat": 0,
               "assortment": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
                   "type": "variant",
                   "mediaType": "application/json"
                 }
@@ -2604,8 +2604,8 @@ curl -X GET
               "vat": 10,
               "assortment": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/7a6f697f-3c64-11e6-8a84-bae500000006",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7a6f697f-3c64-11e6-8a84-bae500000006",
+                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                   "type": "product",
                   "mediaType": "application/json"
                 }
@@ -2619,8 +2619,8 @@ curl -X GET
               "vat": 21,
               "assortment": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
                   "type": "variant",
                   "mediaType": "application/json"
                 }
@@ -2637,7 +2637,7 @@ curl -X GET
 [
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f389488d-3f71-11e6-8a84-bae50000005f",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f389488d-3f71-11e6-8a84-bae50000005f",
       "type": "customerorderposition",
       "mediaType": "application/json"
     },
@@ -2650,11 +2650,11 @@ curl -X GET
     "vatEnabled": false,
     "assortment": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
         "type": "variant",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#feature/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+        "uuidHref": "https://online.moysklad.ru/app/#feature/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
       }
     },
     "shipped": 0,
@@ -2662,7 +2662,7 @@ curl -X GET
   },
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f389521b-3f71-11e6-8a84-bae500000060",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f389521b-3f71-11e6-8a84-bae500000060",
       "type": "customerorderposition",
       "mediaType": "application/json"
     },
@@ -2675,11 +2675,11 @@ curl -X GET
     "vatEnabled": true,
     "assortment": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/7a6f697f-3c64-11e6-8a84-bae500000006",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7a6f697f-3c64-11e6-8a84-bae500000006",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+        "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
       }
     },
     "shipped": 0,
@@ -2687,7 +2687,7 @@ curl -X GET
   },
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f3895aa1-3f71-11e6-8a84-bae500000061",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f3895aa1-3f71-11e6-8a84-bae500000061",
       "type": "customerorderposition",
       "mediaType": "application/json"
     },
@@ -2700,11 +2700,11 @@ curl -X GET
     "vatEnabled": true,
     "assortment": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
         "type": "variant",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#feature/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+        "uuidHref": "https://online.moysklad.ru/app/#feature/edit?id=392c045c-2842-11e9-ac12-000a00000002"
       }
     },
     "shipped": 0,
@@ -2729,7 +2729,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -2739,8 +2739,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorderposition",
     "mediaType": "application/json"
   },
@@ -2753,11 +2753,11 @@ curl -X GET
   "vatEnabled": true,
   "assortment": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
     }
   },
   "reserve": 1
@@ -2779,7 +2779,7 @@ curl -X GET
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+    "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -2789,7 +2789,7 @@ curl -X GET
             "vat": 18,
             "assortment": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",
                 "type": "product",
                 "mediaType": "application/json"
               }
@@ -2804,8 +2804,8 @@ Successful request. The result is a JSON representation of the updated item in t
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorderposition",
     "mediaType": "application/json"
   },
@@ -2818,11 +2818,11 @@ Successful request. The result is a JSON representation of the updated item in t
   "vatEnabled": true,
   "assortment": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
     }
   },
   "reserve": 13
@@ -2842,7 +2842,7 @@ Successful request. The result is a JSON representation of the updated item in t
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+  "https://online.moysklad.ru/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
   -H "Authorization: Basic <Credentials>"
 ```
 

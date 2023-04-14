@@ -18,7 +18,7 @@
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/rpc/inventory/7944ef04-f831-11e5-7a69-971500188b19/recalcCalculatedQuantity"
+    "https://online.moysklad.ru/api/remap/1.2/rpc/inventory/7944ef04-f831-11e5-7a69-971500188b19/recalcCalculatedQuantity"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d ''  
