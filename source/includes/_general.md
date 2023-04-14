@@ -74,43 +74,43 @@ The Kladana JSON API has the following restrictions:
 | **UUID** | Represents a string in UUID format. Example': `'12a8b923-692c-11e6-8a84-bae500000053'`. |
 
 
-### Метаданные
+### Metadata
 
-В JSON есть несколько видов Метаданных. Один из них - поле **meta**, которое фигурирует в большинстве
-JSON представлений объектов, и содержит информацию об объекте или о выдаче, а также может использоваться в качестве ссылки
-на другой объект. Поле **meta** представляет собой объект со следующими атрибутами:
+There are several kinds of Metadata in JSON. One of them is the **meta** field, which appears in most
+JSON representations of objects, and contains information about the object or issue, and can also be used as a link
+to another object. The **meta** field is an object with the following attributes:
 
-| Название         | Тип         | Описание                                                                                                                                |
-| ---------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| **href**         | URL         | Ссылка на объект                                                                                                                        |
-| **metadataHref** | URL         | Ссылка на метаданные сущности (Другой вид метаданных. Присутствует не во всех сущностях)                                                |
-| **type**         | String(255) | Тип объекта                                                                                                                             |
-| **mediaType**    | String(255) | Тип данных, которые приходят в ответ от сервиса, либо отправляются в теле запроса. В рамках данного API всегда равен `application/json` |
-| **uuidHref**     | URL         | Ссылка на объект на UI. Присутствует не во всех сущностях. Может быть использована для получения uuid                                   |
-| **downloadHref** | URL         | Ссылка на скачивание Изображения и миниатюр изображений. Данный параметр указывается только в **meta** для Изображения у Товара или Комплекта, а также в поле *miniature* везде, где используются изображения. Если миниатюра не была создана, то значение данного поля равно `null`. Для создания миниатюры нужно перейти по ссылке, указанной в `href` в миниатюре.               |
+| Title | Type | Description |
+| ----- | ---- | -------------|
+| **href** | URL | Link to object |
+| **metadataHref** | URL | Link to entity metadata (Another kind of metadata. Not present in all entities) |
+| **type** | String(255) | Object type |
+| **mediaType** | String(255) | The type of data that comes in response from the service, or is sent in the request body. Within this API is always equal to `application/json` |
+| **uuidHref** | URL | Reference to an object on the UI. Not present in all entities. Can be used to get uuid |
+| **downloadHref** | URL | Link to download Images and thumbnail images. This parameter is indicated only in **meta** for the Image of the Product or Bundle, as well as in the *miniature* field wherever images are used. If the thumbnail has not been created, then the value of this field is `null`. To create a thumbnail, you need to follow the link specified in `href` in the thumbnail. |
 
-###### Атрибуты расширенного объекта meta
+###### Extended meta object attributes
 
-Следующие атрибуты объекта **meta** появляются, как правило, в методах выдачи списка сущностей/строк отчета.
-В них содержится информация о выдаче, пришедшей в ответ. В объектах **meta**, содержащих
-данные лишь об одном объекте (например поле **meta** в объекте **context**) нижеперечисленные атрибуты не фигурируют.  
+The following attributes of the **meta** object appear, as a rule, in the methods for returning a list of entities/rows of a report.
+They contain information about the issuance that came in response. In **meta** objects containing
+data about only one object (for example, the **meta** field in the **context** object) the attributes listed below do not appear.
 
-| Название   | Тип | Описание                                                                                                    |
-| ---------- | :-- | :---------------------------------------------------------------------------------------------------------- |
-| **size**   | Int | Размер выданного списка                                                                                     |
-| **limit**  | Int | Максимальное количество элементов в выданном списке. Максимальное количество элементов в списке равно 1000. |
-| **offset** | Int | Отступ в выданном списке                                                                                    |
+| Title | Type | Description |
+| ---------- | ---- | ---------- |
+| **size** | int | Size of the returned list |
+| **limit** | int | The maximum number of elements in the returned list. The maximum number of elements in the list is 1000. |
+| **offset** | int | Indent in the given list |
 
-###### Метаданные сущности
+###### Entity metadata
 
-Другой вид Метаданных. Представляет собой отдельный ресурс, содержащий информацию обо всех объектах сущностей данного типа.
-**Есть не у каждой сущности.** Присутствует лишь у тех сущностей, у которых в данной документации описан ресурс "Метаданные <наименование_сущности>".
-Как правило содержит информацию о вложенных сущностях, коллекциях и дополнительных полях.
+Another kind of Metadata. Represents a separate resource containing information about all entity objects of a given type.
+**Not available for every entity.** Present only for those entities for which this documentation describes the resource "Metadata <entity_name>".
+As a rule, it contains information about nested entities, collections, and additional fields.
 
-JSON API позволяет получить метаданные всех сущностей с помощью метода `/entity/metadata`. Также можно ограничить
-выборку, указав в фильтре **type** только необходимые сущности.
+The JSON API allows you to get the metadata of all entities using the `/entity/metadata` method. You can also limit
+selection by specifying only the necessary entities in the **type** filter.
 
-> Пример запроса на получение метаданных с помощью GET:
+> Example of a request to get metadata using GET:
 
 ```shell
 curl -X GET
@@ -118,7 +118,7 @@ curl -X GET
   -H "Authorization: Bearer <Access-Token>"
 ```
 
-> Пример тела запроса:
+> Example of the request body:
 
 ```json
 {
@@ -143,19 +143,18 @@ curl -X GET
 }
 ```
 
-###### Мета коллекций
+###### Meta of Collection
 
-**meta** коллекций содержит все те же атрибуты, что и **meta** сущностей, однако, если в списке появляется больше
-позиций, чем умещается на одной странице (size > limit) в объект **meta** добавляются след. поля:
+**meta** of collections contains all the same attributes as **meta** of entities, however, if more appear in the list
+positions than fit on one page (size > limit) the following are added to the **meta** object. fields:
 
-| Название         | Тип | Описание                                 |
-| ---------------- | :-- | :--------------------------------------- |
-| **nextHref**     | URL | Ссылка на следующую страницу сущностей.  |
-| **previousHref** | URL | Ссылка на предыдущую страницу сущностей. |
+| Title | Type | Description |
+| ------| ---- | -------------|
+| **nextHref** | URL | Link to the next page of entities. |
+| **previousHref** | URL | Link to the previous entity page. |
 
-**meta** с такими полями можно встретить при выполнении запросов на получение всех объектов определенного типа
- на учетной записи (например запрос всех отгрузок), а также при запросе всех позиций отдельного документа.
-
+**meta** with such fields can be encountered when executing requests to get all objects of a certain type
+  on an account (for example, requesting all shipments), as well as when requesting all items of a single document.
 
 ### Error processing
 
@@ -213,182 +212,170 @@ Use the following headers to learn the limits of the remaining requests:
 - X-Lognex-Reset — Time before limit reset in milliseconds. Equal to zero if the limit is not set.
 - X-Lognex-Retry-After — Time before the restriction reset in milliseconds.
 
-### Работа с дополнительными полями
+### Additional fields
 
-Дополнительные поля позволяют расширить набор свойств некоторых сущностей путем добавления собственных типизированных полей.
-JSON API позволяет создавать, обновлять и удалять дополнительные поля и их значения.  
+Additional fields allow you to extend the set of properties of some entities by adding your own typed fields.
+The JSON API allows you to create, update, and delete additional fields and their values.
 
-Список сущностей, у которых есть доп. поля:
+List of entities with additional fields:
 
-+ [Договор](dictionaries/#suschnosti-dogowor)
-+ [Контрагент](dictionaries/#suschnosti-kontragent)
-+ [Юрлицо](dictionaries/#suschnosti-jurlico)
-+ [Проект](dictionaries/#suschnosti-proekt)
-+ [Склад](dictionaries/#suschnosti-sklad)
-+ [Сотрудник](dictionaries/#suschnosti-sotrudnik)
-+ [Товар](dictionaries/#suschnosti-towar)
-+ [Услуга](dictionaries/#suschnosti-usluga) (располагаются в метаданных Товаров)
-+ [Комплект](dictionaries/#suschnosti-komplekt) (располагаются в метаданных Товаров)
-+ [Серия](dictionaries/#suschnosti-seriq)
-+ Все документы:
-  - [Возврат покупателя](documents/#dokumenty-vozwrat-pokupatelq)
-  - [Возврат поставщику](documents/#dokumenty-vozwrat-postawschiku)
-  - [Входящий платеж](documents/#dokumenty-vhodqschij-platezh)
-  - [Заказ покупателя](documents/#dokumenty-zakaz-pokupatelq)
-  - [Заказ поставщику](documents/#dokumenty-zakaz-postawschiku)
-  - [Исходящий платеж](documents/#dokumenty-ishodqschij-platezh)
-  - [Оприходование](documents/#dokumenty-oprihodowanie)
-  - [Отгрузка](documents/#dokumenty-otgruzka)
-  - [Перемещение](documents/#dokumenty-peremeschenie)
-  - [Приемка](documents/#dokumenty-priemka)
-  - [Приходный ордер](documents/#dokumenty-prihodnyj-order)
-  - [Расходный ордер](documents/#dokumenty-rashodnyj-order)
-  - [Розничная продажа](documents/#dokumenty-roznichnaq-prodazha)
-  - [Розничная смена](documents/#dokumenty-roznichnaq-smena)
-  - [Розничный возврат](documents/#dokumenty-roznichnyj-wozwrat)
-  - [Списание](documents/#dokumenty-spisanie)
-  - [Инвентаризация](documents/#dokumenty-inwentarizaciq)
-  - [Счет покупателю](documents/#dokumenty-schet-pokupatelu)
-  - [Счет поставщика](documents/#dokumenty-schet-postawschika)
-  - [Счет-фактура выданный](documents/#dokumenty-schet-faktura-wydannyj)
-  - [Счет-фактура полученный](documents/#dokumenty-schet-faktura-poluchennyj)
-  - [Прайс-лист](documents/#dokumenty-prajs-list)
-  - [Внутренний заказ](documents/#dokumenty-vnutrennij-zakaz)
-  - [Заказ на производство](documents/#dokumenty-zakaz-na-proizwodstwo)
-  - [Тех. операция](documents/#dokumenty-teh-operaciq)
-  - [Полученный отчет комиссионера](documents/#dokumenty-poluchennyj-otchet-komissionera)
-  - [Выданный отчет комиссионера](documents/#dokumenty-vydannyj-otchet-komissionera)
++ [Contract](dictionaries/#suschnosti-dogowor)
++ [Counterparty](dictionaries/#suschnosti-kontragent)
++ [Legal entity](dictionaries/#suschnosti-jurlico)
++ [Project](dictionaries/#suschnosti-proekt)
++ [Warehouse](dictionaries/#suschnosti-sklad)
++ [Employee](dictionaries/#suschnosti-sotrudnik)
++ [Product](dictionaries/#suschnosti-towar)
++ [Service](dictionaries/#suschnosti-usluga) (located in the Product metadata)
++ [Bundle](dictionaries/#suschnosti-komplekt) (located in the Product metadata)
++ [Series](dictionaries/#suschnosti-seriq)
++ All transactions:
+  - [Sales Returns](documents/#dokumenty-vozwrat-pokupatelq)
+  - [Purchase Returns](documents/#dokumenty-vozwrat-postawschiku)
+  - [Incoming Payment](documents/#dokumenty-vhodqschij-platezh)
+  - [Sales Order](documents/#dokumenty-zakaz-pokupatelq)
+  - [Purchase Order](documents/#dokumenty-zakaz-postawschiku)
+  - [Outgoing Payment](documents/#dokumenty-ishodqschij-platezh)
+  - [Stock Adjustment](documents/#dokumenty-oprihodowanie)
+  - [Shipment](documents/#dokumenty-otgruzka)
+  - [Transfer](documents/#dokumenty-peremeschenie)
+  - [Receiving](documents/#dokumenty-priemka)
+  - [Incoming Cash Payment](documents/#dokumenty-prihodnyj-order)
+  - [Outgoing Cash Payment](documents/#dokumenty-rashodnyj-order)
+  - [Write-off](documents/#dokumenty-spisanie)
+  - [Inventory Count](documents/#dokumenty-inwentarizaciq)
+  - [Sales Invoice](documents/#dokumenty-schet-pokupatelu)
+  - [Supplier Invoice](documents/#dokumenty-schet-postawschika)
+  - [Internal Order](documents/#dokumenty-vnutrennij-zakaz)
+  - [Production Order](documents/#dokumenty-zakaz-na-proizwodstwo)
 
-Посмотреть все созданные доп. поля можно с помощью запроса на получение метаданных сущности.
-Ответ будет содержать описание доп. полей в виде коллекции **attributes**, если указанная сущность поддерживает работу с доп. полями.
+You can view all the additional fields that have been created using a request to get entity metadata.
+The response contains a description of the additional fields in the form of an **attributes** collection if the specified entity works with additional fields.
 
-#### Атрибуты описания доп. поля
+#### Description attributes of additional fields
 
-| Название        | Тип                                                    | Описание                                                                                                                            |
-| --------------- | :----------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| **description** | String(4096)                                           | Описание доп. поля                                                                                                                  |
-| **id**          | UUID                                                   | ID доп. поля<br>`+Обязательное при ответе` `+Только для чтения`                                                                     |
-| **meta**        | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на метаданные доп. поля<br>`+Обязательное при ответе`                                                                        |
-| **name**        | String(255)                                            | Наименование доп. поля<br>`+Обязательное при ответе` `+Необходимо при создании`                                                     |
-| **required**    | Boolean                                                | Является ли доп. поле обязательным<br>`+Обязательное при ответе`                                                                    |
-| **show**        | Boolean                                                | Показывать ли доп. поле на UI. Не может быть скрытым и обязательным одновременно. Только для операций<br>`+Обязательное при ответе` |
-| **type**        | Enum                                                   | Тип доп. поля<br>`+Обязательное при ответе` `+Необходимо при создании` `+После заполнения недоступно для изменения`                 |
+| Title | Type | Description |
+| ----- | -----| ----------- |
+| **description** | String(4096) | Description of add. fields |
+| **id** | UUID | ID add. fields<br>`+Required for response` `+Read only` |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields<br>`+Required when replying` |
+| **name** | String(255) | Name of add. fields<br>`+Required when replying` `+Required when creating` |
+| **required** | Boolean | Is the add. field required<br>`+Required when replying` |
+| **show** | Boolean | Whether to show additional field on UI. Cannot be hidden and required at the same time. Operations only<br>`+Required when replying` |
+| **type** | Enum | Add-on type fields<br>`+Required when replying` `+Required when creating` `+After filling, unavailable for editing` |
 
-Дополнительные поля конкретной сущности - внутренняя коллекция **attributes**, которая
-представлена в виде массива объектов доп. полей со значениями.
+Additional fields of a particular entity is an internal collection of **attributes**. The collection is represented as an array of additional field objects with values.
 
-#### Атрибуты доп. поля со значением
+#### Attributes of additional fields with the value
 
-| Название  | Тип                                                    | Описание                        |
-| --------- | :----------------------------------------------------- | :------------------------------ |
-| **id**    | UUID                                                   | ID соответствующего доп. поля   |
-| **meta**  | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на метаданные доп. поля  |
-| **name**  | String(255)                                            | Наименование доп. поля          |
-| **value** | Зависит от типа, см. ниже                              | Значение, указанное в доп. поле |
+| Title | Type | Description |
+| --------- |-------- | ------------------ |
+| **id** | UUID | ID of the corresponding add. fields |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields |
+| **name** | String(255) | Name of add. fields |
+| **value** | Depends on type, see below | The value specified in the add. field |
 
-Возможные значения типа доп. поля (поле **type**) и соответствующие им значения типа в JSON, а также
-типы атрибута **value** в JSON объекта доп поля при соответствующем type:
+Possible values of the type of additional fields (field **type**) and their corresponding type values in JSON, as well as
+**value** attribute types in the JSON object of the additional field with the corresponding type:
 
-| Тип атрибута        | Значение поля type в JSON          | Тип поля value в JSON |
-| ------------------- | :--------------------------------- | --------------------- |
-| Дата                | time                               | string                |
-| Справочник          | {entityType}                       | object **             |
-| Ссылка              | link                               | string                |
-| Строка              | string                             | string                |
-| Текст               | text                               | string                |
-| Файл                | file                               | string                |
-| Флажок              | boolean                            | boolean               |
-| Число дробное       | double                             | number                |
-| Число целое         | long                               | number                |
+| Attribute type | The value of the type field in JSON | JSON value field type |
+| -------------------- | ---------------------- | --------------------- |
+| Date | time | string |
+| Directory | {entityType} | object** |
+| Link | link | string |
+| String | string | string |
+| Text | text | string |
+| File | file | string |
+| Checkbox | boolean | boolean |
+| Fractional number | double | number |
+| Number integer | long | number |
 
-Дополнительные поля типов Файл и Флажок не могуть быть обязательными (поле **required** не может быть `true`).
+Additional fields of the File and Checkbox types cannot be required (the **required** field cannot be `true`).
 
-При передаче значения `null` в поле **value** значение соответствующего доп. поля сбрасывается. 
+When passing a `null` value in the **value** field, the value of the corresponding additional fields is reset.
 
-#### Дополнительные поля типа справочник
+#### Additional fields of the 'list' type
 
-Отдельного упоминания заслуживает тип доп. поля "справочник". Значение **type** в представлении
-объекта доп. поля будет разным в зависимости от того, справочник каких сущностей был
-выбран при создании доп. поля. Ниже представлена таблица, в которой при выбранном типе доп. поля
-"справочник" показаны значения поля **type** в зависимости от выбранного типа сущностей в справочнике.
+The **type** value in view object of the additional field differs depending on which the list of entities was
+selected when creating an additional field.
 
-#### Примеры значения **type** у доп. поля типа справочник   
+#### Examples of the **type** value for an additional field of the 'list' type
 
-| Тип сущностей справочника         | Значение поля type в JSON (entityType)   |
-| --------------------------------- | :--------------------------------------- |
-| [Договор]                         | contract                                 |
-| [Контрагент]                      | counterparty                             |
-| [Проект]                          | project                                  |
-| [Склад]                           | store                                    |
-| [Сотрудник]                       | employee                                 |
-| [Товар]                           | product                                  |
-| Имя_пользовательского справочника | customentity                             |
+| Reference entity type | The value of the type field in JSON (entityType) |
+| ---------------------------------- | ---------------------------------- |
+| [Contract] | contract |
+| [Account] | counterparty |
+| [Project] | project |
+| [Warehouse] | store |
+| [Employee] | employee |
+| [Product] | product |
+| User directory_name | customization |
 
-Если в качестве типа доп. поля выбран [Пользовательский справочник](dictionaries/#suschnosti-pol-zowatel-skij-sprawochnik), то в составе объекта данного
-доп. поля появится новый атрибут **customEntityMeta** являющийся ссылкой на метаданные этого справочника.
-Полный набор атрибутов доп. поля будет выглядеть следующим образом:
+If as a type of add. field is selected [Entities](dictionaries/#suschnosti-pol-zowatel-skij-sprawochnik), then as part of the object of this
+add. field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
+The full set of attributes fields will look like this:
 
-| Название             | Тип                                                    | Описание                                                                                              |
-| -------------------- | :----------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
-| **customEntityMeta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на метаданные пользовательского справочника                                                    |
-| **description**      | String(4096)                                           | Описание доп. поля                                                                                    |
-| **id**               | UUID                                                   | ID доп. поля                                                                                          |
-| **meta**             | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на метаданные доп. поля                                                                        |
-| **name**             | String(255)                                            | Наименование доп. поля                                                                                |
-| **required**         | Boolean                                                | Является ли доп. поле обязательным                                                                    |
-| **show**             | Boolean                                                | Показывать ли доп. поле на UI. Не может быть скрытым и обязательным одновременно. Только для операций |
-| **type**             | Enum                                                   | Тип доп. поля                                                                                         |
+| Title | Type | Description |
+| -------------------- |--------------------- |------------------- |
+| **customEntityMeta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to user directory metadata |
+| **description** | String(4096) | Description of add. fields |
+| **id** | UUID | ID add. fields |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields |
+| **name** | String(255) | Name of add. fields |
+| **required** | Boolean | Is the add. field required |
+| **show** | Boolean | Whether to show additional field on UI. Cannot be hidden and required at the same time. Operations only |
+| **type** | Enum | Add-on type fields |
 
-При выбранном типе доп. поля "справочник" атрибут **value** будет объектом со следующими свойствами:
+With the selected type of the 'list' field, the **value** attribute will be an object with the following properties:
 
-| Название | Тип                                                    | Описание                                         |
-| -------- | :----------------------------------------------------- | :----------------------------------------------- |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные сущности соответствующего справочника |
-| **name** | String(255)                                            | Наименование соответствующей сущности            |
+| Title | Type | Description |
+| -------- | ---- | --------------- |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the entity of the corresponding directory |
+| **name** | String(255) | Name of the corresponding entity |
 
-Обнуление доп. поля типа "справочник" происходит так же, как и при работе с другими доп. полями.
-В запросе на обновление в коллекции **attributes** следует указать объект с **id** данного поля, а в качестве **value** передать `null`.
+Resetting extra. field type "reference" occurs in the same way as when working with other add. fields.
+In the update request, in the **attributes** collection, you must specify the object with the **id** of this field, and pass `null` as **value**.
 
-С коллекцией доп. полей можно работать только в контексте отдельной сущности. Доп. поля и их значения
-можно передать в коллекции **attributes** в теле запроса как на создание, так и на обновление сущности.
-В качестве указания доп. поля нужно использовать поле **meta**.
-В переданном массиве объектов можно указать не все доп. поля - проинициализируются/обновятся только указанные.
+A collection of fields can only work in the context of a single entity. Add. fields and their values
+can be passed in the **attributes** collection in the request body for both creating and updating an entity.
+As an indication, for additional fields you need to use the **meta** field.
+In the passed array of objects, you can specify not all the extras. fields - only the specified ones will be initialized/updated.
 
-#### Дополнительные поля типа файл
+#### Additional fields of file type
 
-Для загрузки значения для доп. поля типа файл нужно в JSON при создании или обновлении для значения поля указать объект следующей структуры:
+To load the value for add. fields of the file type, you need to specify an object of the following structure in JSON when creating or updating the field value:
 
-| Название     | Тип         | Описание                                                                                      |
-| ------------ | :---------- | :-------------------------------------------------------------------------------------------- |
-| **filename** | String(255) | Имя файла<br>`+Обязательное при ответе` `+Необходимо при создании`                            |
-| **content**  | String      | Байты файла, закодированные в base64<br>`+Обязательное при ответе` `+Необходимо при создании` |
+| Title | Type | Description |
+| ----- |---- | ---------- |
+| **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
+| **content** | string | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
-Пример указания значения для доп. поля типа файл есть в секции [создания товара](dictionaries/#suschnosti-towar-sozdat-towar)
+An example of specifying a value for add. file type fields are in the [product creation] section (dictionaries/#suschnosti-towar-sozdat-towar)
 
-### Дополнительные поля сущностей
-Запрос на получение дополнительных полей сущности.
-Список доступных типов сущностей перечислен [тут](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+### Additional entity fields
+Request for additional entity fields.
+The list of available entity types is listed [here](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-Структура объекта доп. поля подробно описана в секции [Работа с дополнительными полями](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of the object add. fields are described in detail in the section [Working with additional fields](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-**Параметры**
+**Options**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-| **entityType**                 | `string` *Example: demand* тип сущностей, для которых осуществляется управление доп. полями.                                           |
+| Parameter | Description |
+| ----------| ------------|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **entityType** | `string` *Example: demand* type of entities for which additional control is carried out. fields. |
 
-#### Получить все дополнительные поля для указанного типа
-Запрос всех доп. полей для переданного типа сущностей.
-Результат: Объект JSON, включающий в себя поля:
+#### Get all additional fields for the specified type
+Request for all additional fields for the passed entity type.
+Result: JSON object including fields:
 
-| Название | Тип                                                    | Описание                                              |
-| -------- | :----------------------------------------------------- | :---------------------------------------------------- |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче                                   |
-| **rows** | Array(Object)                                          | Массив JSON объектов, представляющих собой доп. поля. |
+| Title | Type | Description |
+| ------| ------|------------- |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
+| **rows** | Array(Object) | An array of JSON objects representing the add. fields. |
 
-> Получить доп поля отгрузок
+> Get additional shipping fields
 
 ```shell
 curl -X GET
@@ -396,8 +383,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка доп. полей отгрузок.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of addons. shipping fields.
 
 ```json
 {
@@ -413,11 +400,11 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "9862d46e-6500-11e8-9464-e4de00000045",
-      "name": "Строковое",
+      "name": "String",
       "type": "string",
       "required": false,
       "show": true,
-      "description": "Поле-строка"
+      "description": "Field-string"
     },
     {
       "meta": {
@@ -426,7 +413,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "98630aee-6500-11e8-9464-e4de00000046",
-      "name": "Целочисленное",
+      "name": "Integer",
       "type": "long",
       "required": true,
       "show": true
@@ -438,7 +425,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "98630f62-6500-11e8-9464-e4de00000047",
-      "name": "Поле-дата",
+      "name": "Field-date",
       "type": "time",
       "required": false,
       "show": true
@@ -450,7 +437,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "986314b4-6500-11e8-9464-e4de00000048",
-      "name": "Справочник-товар",
+      "name": "List-prodict",
       "type": "productfolder",
       "required": true,
       "show": true
@@ -462,7 +449,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "986318cd-6500-11e8-9464-e4de00000049",
-      "name": "Файловое",
+      "name": "File",
       "type": "file",
       "required": false,
       "show": true
@@ -474,11 +461,11 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "98631cbf-6500-11e8-9464-e4de0000004a",
-      "name": "Дробное число",
+      "name": "Fractional number",
       "type": "double",
       "required": true,
       "show": true,
-      "description": "Поле-дробное"
+      "description": "Field--fractional"
     },
     {
       "meta": {
@@ -487,7 +474,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "986320d6-6500-11e8-9464-e4de0000004b",
-      "name": "Булиновое",
+      "name": "Boolean",
       "type": "boolean",
       "required": false,
       "show": true
@@ -499,7 +486,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "98632583-6500-11e8-9464-e4de0000004c",
-      "name": "Текстовое",
+      "name": "Text",
       "type": "text",
       "required": true,
       "show": true
@@ -511,7 +498,7 @@ curl -X GET
           "mediaType": "application/json"
       },
       "id": "98632a03-6500-11e8-9464-e4de0000004d",
-      "name": "Ссылочное",
+      "name": "Link",
       "type": "link",
       "required": false,
       "show": true
@@ -520,11 +507,11 @@ curl -X GET
 }
 ```
 
-#### Создать дополнительные поля
-Действие доступно только для пользователя с правами администратора.<br>
-Запрос на создание нового доп. поля для указанного типа сущностей.
+#### Create additional fields
+The action is only available to a user with administrative rights.<br>
+Request to create a new fields for the specified entity type.
 
-> Создание двух новых доп. полей для отгрузок.
+> Creation of two new add. shipping fields.
 
 ```shell
 curl -X POST
@@ -533,21 +520,21 @@ curl -X POST
   -H 'Content-Type: application/json' \
   -d '[
         {
-          "name": "Строковое",
+          "name": "String",
           "type": "string",
           "required": false,
-          "description": "Поле-строка"
+          "description": "Field-string"
         },
         {
-          "name": "Целочисленное",
+          "name": "Integer",
           "type": "long",
           "required": true
         }
       ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданных доп. полей.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created add. fields.
 
 ```json
 [
@@ -558,11 +545,11 @@ curl -X POST
       "mediaType": "application/json"
     },
     "id": "7bc578d8-6501-11e8-9464-e4de00000004",
-    "name": "Строковое",
+    "name": "String",
     "type": "string",
     "required": false,
     "show": true,
-    "description": "Поле-строка"
+    "description": "Field-string"
   },
   {
     "meta": {
@@ -571,15 +558,14 @@ curl -X POST
       "mediaType": "application/json"
     },
     "id": "7bd3d688-6501-11e8-9464-e4de00000005",
-    "name": "Целочисленное",
+    "name": "Integer",
     "type": "long",
     "required": true,
     "show": true
   }
 ]
 ```
-
-> Пример создания нового доп. поля Отгрузок и обновления существующего одним запросом.
+> An example of creating a new add. fields of Shipments and updates of the existing one request.
 
 ```shell
 curl -X POST
@@ -593,20 +579,20 @@ curl -X POST
             "type": "attributemetadata",
             "mediaType": "application/json"
           },
-          "name": "Строковое поле",
-          "required": true,
-          "description": "Поле-строка"
-        },
-        {
-          "name": "Целочисленное2",
+        "name": "String field",
+           "required": true
+           "description": "Field-string"
+         },
+         {
+           "name": "Integer2",
           "type": "long",
           "required": true
         }
       ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного и обновленного доп. полей.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created and updated addon. fields.
 
 ```json
 [
@@ -617,11 +603,11 @@ curl -X POST
       "mediaType": "application/json"
     },
     "id": "7bc578d8-6501-11e8-9464-e4de00000004",
-    "name": "Строковое поле",
-    "type": "string",
-    "required": true,
-    "show": true,
-    "description": "Поле-строка"
+  "name": "String field",
+     "type": "string",
+     "required": true
+     "show": true
+     "description": "Field-string"
   },
   {
     "meta": {
@@ -630,7 +616,7 @@ curl -X POST
       "mediaType": "application/json"
     },
     "id": "c66edb30-6501-11e8-9464-e4de00000008",
-    "name": "Целочисленное2",
+    "name": "Integer2",
     "type": "long",
     "required": true,
     "show": true
@@ -638,7 +624,7 @@ curl -X POST
 ]
 ```
 
-> Пример создания дополнительного поля типа пользовательский справочник.
+> An example of creating an additional field of the user directory type.
 
 ```shell
 curl -X POST
@@ -651,14 +637,14 @@ curl -X POST
           "type": "customentitymetadata",
           "mediaType": "application/json"
         },
-        "name": "Доп поле типа пользовательский справочник",
+        "name": "Additional field of the user directory type",
         "type": "customentity",
         "required": false
       }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного доп. поля.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated addon. fields.
 
 ```json
 {
@@ -673,18 +659,17 @@ curl -X POST
     "mediaType": "application/json"
   },
   "id": "53eb36a5-a78a-11e9-ac12-000c00000000",
-  "name": "Доп поле типа пользовательский справочник",
+  "name": "Additional field of the user directory type",
   "type": "customentity",
   "required": false,
   "show": true
 }
 ```
+#### Remove additional fields
+The action is only available to a user with administrative rights.<br>
+Request to remove multiple addons. shipping fields.
 
-#### Удалить дополнительные поля
-Действие доступно только для пользователя с правами администратора.<br>
-Запрос на удаление нескольких доп. полей отгрузок.
-
-> Удаление двух доп полей одним запросом
+> Removing two extra fields in one request
 
 ```shell
 curl -X POST
@@ -709,21 +694,21 @@ curl -X POST
       ]'
 ```
 
-> Response 200 (application/json)
-Успешное удаление доп. полей.
+> Response 200(application/json)
+Successful removal of fields.
 
-### Дополнительное поле
-**Параметры**
+### Additional field
+**Parameters**
 
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7bc578d8-6501-11e8-9464-e4de00000004* id доп. поля. |
+| Parameter | Description |
+| ----------- | -------- |
+| **id** | `string` (required) *Example: 7bc578d8-6501-11e8-9464-e4de00000004* Additional field ID |
 
-#### Получить дополнительное поле
-Запрос на получение отдельного доп. поля отгрузок с указанным id.
+#### Get an additional field
+Request for a separate add. shipment fields with the specified id.
 
 
-> Запрос на получение отдельного доп. поля отгрузки
+> Request for a separate add. shipping fields
 
 ```shell
 curl -X GET
@@ -731,8 +716,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. поля отгрузки.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the add. shipping fields.
 
 ```json
 {
@@ -741,20 +726,20 @@ curl -X GET
     "type": "attributemetadata",
     "mediaType": "application/json"
   },
-  "id": "7bc578d8-6501-11e8-9464-e4de00000004",
-  "name": "Строковое поле",
-  "type": "string",
-  "required": true,
-  "show": true,
-  "description": "Поле-строка"
+   "id": "7bc578d8-6501-11e8-9464-e4de00000004",
+   "name": "String field",
+   "type": "string",
+   "required": true
+   "show": true
+   "description": "Field-string"
 }
 ```
 
-#### Изменить дополнительное поле
-Действие доступно только для пользователя с правами администратора.<br>
-Запрос на обновление отдельного доп. поля для переданного типа сущностей.
+#### Change additional field
+The action is only available to a user with administrative rights.<br>
+Request to update a separate add. fields for the passed entity type.
 
-> Запрос на обновление доп. поля отгрузки
+> Request to update add. shipping fields
 
 ```shell
 curl -X PUT
@@ -762,14 +747,14 @@ curl -X PUT
   -H "Authorization: Basic <Credentials>"
   -H 'Content-Type: application/json' \
   -d '{
-        "name": "обновленное Строковое поле",
-        "required": false,
-        "description": "Обновленное поле-строка"
+        "name": "updated String field",
+         "required": false
+         "description": "Updated field-string"
       }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. поля отгрузки.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the add. shipping fields.
 
 ```json
 {
@@ -779,19 +764,18 @@ curl -X PUT
     "mediaType": "application/json"
   },
   "id": "7bc578d8-6501-11e8-9464-e4de00000004",
-  "name": "обновленное Строковое поле",
-  "type": "string",
-  "required": false,
-  "show": true,
-	"description": "Обновленное поле-строка"
+   "name": "updated String field",
+   "type": "string",
+   "required": false
+   "show": true
+"description": "Updated field-string"
 }
 ```
+#### Delete additional field
+The action is only available to a user with administrative rights.<br>
+Request for deletion shipment fields with the specified id.
 
-#### Удалить дополнительное поле
-Действие доступно только для пользователя с правами администратора.<br>
-Запрос на удаление доп. поля отгрузок с указанным id.
-
-> Запрос на удаление доп. поля отгрузки
+> Request to remove add. shipping fields
 
 ```shell
 curl -X DELETE
@@ -799,13 +783,13 @@ curl -X DELETE
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление доп. поля.
+> Response 200(application/json)
+Successful removal of fields.
 
-### Обновление значений дополнительных полей
-Запрос на обновление коллекции доп. полей конкретной сущности.
+### Update the values of additional fields
+Request to update collection fields of a particular entity.
 
-> Запрос на обновление доп. полей отгрузки
+> Request to update add. shipping fields
 
 ```shell
 curl -X PUT
@@ -826,8 +810,8 @@ curl -X PUT
       }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отгрузки с обновленными доп. полями.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the shipment with updated extras. fields.
 
 ```json
 {
@@ -840,64 +824,63 @@ curl -X PUT
         "mediaType": "application/json"
       },
       "id": "986314b4-6500-11e8-9464-e4de00000048",
-      "name": "Строковое поле",
-      "type": "string",
+      "name": "String field",
+      "typ  e": "string",
       "value": "new string"
     }
   ]
 ...
 }
 ```
+### Working with document positions
 
-### Работа с позициями документов
+The MySklad service API allows you to operate with such documents as [Shipment](documents/#dokumenty-otgruzka), [Buyer's order](documents/#dokumenty-zakaz-pokupatelq), [Buyer's invoice](documents/#dokumenty-schet-pokupatelu) ,
+[Retail](documents/#dokumenty-roznichnaq-prodazha), [Commissioner report received](documents/#dokumenty-poluchennyj-otchet-komissionera), [Commissioner report issued](documents/#dokumenty-vydannyj-otchet-komissionera) , [Deposit](documents/#dokumenty-oprihodowanie),
+[Internal order](documents/#dokumenty-vnutrennij-zakaz), [Inventory](documents/#dokumenty-inwentarizaciq), [Write-off](documents/#dokumenty-spisanie), [Move](documents/#dokumenty-peremeschenie) , [Price list](documents/#dokumenty-prajs-list),
+[Production order](documents/#dokumenty-zakaz-na-proizwodstwo), [Return to supplier](documents/#dokumenty-vozwrat-postawschiku), [Supplier order](documents/#dokumenty-zakaz-postawschiku),
+[Retail Return](documents/#dokumenty-roznichnyj-wozwrat), [Customer Return](documents/#dokumenty-vozwrat-pokupatelq), [Acceptance](documents/#dokumenty-priemka), [Supplier Invoice](documents/# documenty-schet-postawschika). The listed documents contain items that can be worked with both as part of a separate document,
+and with the help of special resources for managing document positions.
 
-API сервиса МойСклад позволяет оперировать с такими документами как [Отгрузка](documents/#dokumenty-otgruzka), [Заказ покупателя](documents/#dokumenty-zakaz-pokupatelq), [Счет покупателю](documents/#dokumenty-schet-pokupatelu),
-[Розничная продажа](documents/#dokumenty-roznichnaq-prodazha), [Полученный отчет комиссионера](documents/#dokumenty-poluchennyj-otchet-komissionera), [Выданный отчет комиссионера](documents/#dokumenty-vydannyj-otchet-komissionera), [Оприходование](documents/#dokumenty-oprihodowanie),
-[Внутренний заказ](documents/#dokumenty-vnutrennij-zakaz), [Инвентаризация](documents/#dokumenty-inwentarizaciq), [Списание](documents/#dokumenty-spisanie), [Перемещение](documents/#dokumenty-peremeschenie), [Прайс-лист](documents/#dokumenty-prajs-list),
-[Заказ на производство](documents/#dokumenty-zakaz-na-proizwodstwo), [Возврат поставщику](documents/#dokumenty-vozwrat-postawschiku), [Заказ поставщику](documents/#dokumenty-zakaz-postawschiku),
-[Розничный возврат](documents/#dokumenty-roznichnyj-wozwrat), [Возврат покупателя](documents/#dokumenty-vozwrat-pokupatelq), [Приемка](documents/#dokumenty-priemka), [Счет поставщика](documents/#dokumenty-schet-postawschika). Перечисленные документы содержат позиции, работать с которыми можно как в составе отдельного документа,
-так и с помощью специальных ресурсов для управления позициями документа.
+###### Working with positions within a separate document
 
-######  Работа с позициями в рамках отдельного документа
+When working with positions within a separate document, they can be passed as the **positions** field, which is an array of document positions, as part of the object used
+in a request to modify or create a document. In this case, the array of positions is perceived as a set of all positions of the document
+and completely replaces (in the case of an update request) all already existing positions in the document. In the case of an update request, all positions that previously existed in the document are
+but were not passed in the body of the update request will be deleted, all existing positions whose id matches the id of the transmitted positions in the request body will be updated,
+and new items that were not previously among the existing items of the document will be added to the list of items.
 
-При работе с позициями в рамках отдельного документа, их можно передавать как поле **positions**, представляющее собой массив позиций документа, в составе объекта, использующегося
-в запросе на изменение или создание документа. В таком случае, массив позиций воспринимается как множество всех позиций документа
-и полностью заменяет (в случае запроса на обновление) все уже существующие позиции в документе. В случае запроса на обновление, все позиции, которые существовали ранее в документе,
-но не были переданы в теле запроса на обновление, будут удалены, все существующие позиции, id которых совпал с id передаваемых позиций в теле запроса, будут обновлены,
-а новые позиции, которых ранее не было среди существующих позиций документа, будут добавлены в список позиций.
+###### Working with document positions using special resources
 
-######  Работа с позициями документов с помощью специальных ресурсов
+The JSON API provides special resources for managing document positions. These resources are usually available at the following URI and you can use them to remove items from the document by making a request with the DELETE method to the URL of the corresponding resource with the item id:
 
-В JSON API предусмотрены специальные ресурсы для управления позициями документов. Эти ресурсы как правило доступны по следующему URI и с помощью них вы сможете удалять позиции из документа, сделав запрос с методом DELETE по URL соответствующего ресурса с указание id позиции:
++ `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
-+ `/{код сущности документа, в составе JSON API}/{id отдельного документа}/positions/{id отдельной позиции}`
-
-> Пример URL для запроса на удаление с помощью DELETE:
+> Sample URL for delete request with DELETE:
 
 ```shell
 curl -X DELETE 
-  "https://app.kladana.in/api/remap/1.2/{код сущности документа, в составе JSON API}/{id отдельного документа}/positions/179dd832-960c-11e6-8a84-bae5000000dc
+  "https://app.kladana.in/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/179dd832-960c-11e6-8a84-bae5000000dc
   -H "Authorization: Bearer <Access-Token>"
 ```
 
 
-При работе со специальными ресурсами можно запрашивать список всех позиций документа, создавать новые позиции, а также обновлять существующие. При создании новых позиций с помощью данных ресурсов, можно обходить ограничение в 1000 позиций на документ. Также, используя данный ресурс, можно управлять массовым обновлением позиций. Для изменения сведений по отдельным позициям необходимо использовать ресурсы управления отдельными позициями документа, которые доступны по URI:
+When working with special resources, you can request a list of all document positions, create new positions, and update existing ones. When creating new positions using these resources, you can bypass the limit of 1000 positions per document. Also, using this resource, you can manage the mass update of positions. To change information on line items, you must use the document line item management resources that are available by URI:
 
-+ `/{код сущности документа, в составе JSON API}/{id отдельного документа}/positions/{id отдельной позиции}`
++ `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
-Оба способа работы с позициями также описаны в документации по каждому из документов.
+Both ways of working with positions are also described in the documentation for each of the documents.
 
-Также возможно массовое удаление позиций документа, используя метод POST по URL соответствующего ресурса. В теле запроса необходимо указать массив удаляемых позиций, указав поле meta у каждой из позиций.
+It is also possible to mass delete document positions using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of positions to be deleted, specifying the meta field for each of the positions.
 
-> Пример URL для запроса на массовое удаление позиций с помощью POST:
+> An example URL for a request to bulk delete positions using POST:
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/{код сущности документа, в составе JSON API}/{id отдельного документа}/positions/delete
+  "https://app.kladana.in/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/delete
   -H "Authorization: Bearer <Access-Token>"
 ```
 
-> Пример тела запроса:
+> Sample request body:
 
 ```json
 [
@@ -925,215 +908,215 @@ curl -X POST
 ]
 ```
 
-### Остатки и себестоимость в позициях документов
+### Balances and cost in document items
 
-> Представление остатков и себестоимости в составе позиции
+> Representation of balances and cost as part of an item
 
 ```json
-"stock": {
-    "cost": 5000,
-    "quantity": 999,
-    "reserve": 90,
-    "intransit": 9,
-    "available": 918
+stock: {
+     cost: 5000
+     "quantity": 999,
+     "reserve": 90
+     "in transit": 9,
+     available: 918
 }
 ```
 
-При запросе и обновлении документов есть возможность получать остатки и себестоимость позиций этих документов.
-Для получения остатков и себестоимости в позициях документа в запросе нужно передать дополнительный параметр `fields=stock`.
-Например,
+When requesting and updating documents, it is possible to receive the balances and cost of the positions of these documents.
+To get stock and cost in document positions, you need to pass an additional parameter `fields=stock` in the request.
+For example,
 
-+ `/customerorder/{id документа}?fields=stock&expand=positions`
++ `/customerorder/{document id}?fields=stock&expand=positions`
 
-Остатки и себестоимость можно получить по следующим документам: `[Отгрузка, Заказ Покупателя, Розничная продажа, Счет покупателя, Заказ поставщика, Счет поставщика, Приемка, Возврат поставщику, Возврат покупателя, Розничный возврат]`
+Stock and cost can be obtained from the following documents: `[Shipping, Buyer Order, Retail, Buyer Invoice, Vendor Order, Vendor Invoice, Receipt, Return to Vendor, Return Buyer, Retail Return]`
 
-Остатки и себестоимость для документов **Отгрузка**, **Розничная продажа**, **Приемка**, **Возврат поставщику**, **Возврат покупателя**, **Розничный возврат** расчитываются на момент поля **moment** в данных документах.
-Для **Заказа покупателя**, **Счета покупателя**, **Заказа поставщика**, **Счета поставщика**  рассчитываются на текущий момент времени.
+Balances and cost price for documents **Shipping**, **Retail**, **Acceptance**, **Return to supplier**, **Return to buyer**, **Retail return** are calculated at the time of the field ** moment** in these documents.
+For **Buyer Order**, **Buyer Invoice**, **Supplier Order**, **Supplier Invoice** are calculated at the current time.
 
-Получить остатки с себестоимостью можно для следующих запросов:
+You can get balances with cost for the following queries:
 
-+ Получения списка операций
-+ Получение отдельной операции
-+ Получение позиций операции
-+ Получение отдельной позиции операции
-+ Обновление операции
-+ Обновление позиции
++ Getting a list of operations
++ Getting a single operation
++ Getting operation positions
++ Retrieve a line item of an operation
++ Update operation
++ Position update
 
-При составлении запроса на получение списка операций нужно дополнительно передать параметр `limit` со значением, не превышающем 100.
-Например,
+When compiling a request to get a list of operations, you must additionally pass the `limit` parameter with a value not exceeding 100.
+For example,
 
-+ `/customerorder?fields=stock&expand=positions&limit=100`                                                                                                                                     
++ `/customerorder?fields=stock&expand=positions&limit=100`
 
-Для возврата покупателя без основания и розничного возврата без основания поле `cost` будет отсутствовать в составе `stock`.
+For customer returns without reason and retail returns without reason, the `cost` field will be absent in the `stock` composition.
 
 
-### Назначение поля syncId
+### Purpose of the syncId field
 
-Сущностям, у которых среди атрибутов присутствует поле **syncId**, оно необходимо для того, чтобы в случае сбоя
-при повторной отправке запроса на создание новой сущности не происходило дублирование объектов. Если в теле запроса
-на создание сущности указать сгенерированный на клиенте syncId, то при повторной отправке этого же запроса (с тем же syncId) вместо создания
-сущности с идентичными полями в ответ придет ранее созданная сущность.
-Сущности, поддерживающие поле **syncId**, можно удалить, используя url типа `/entity/{type}/syncid/{id}`.
+Entities that have the **syncId** field among their attributes need it so that in case of a failure
+when re-sending a request to create a new entity, there was no duplication of objects. If in the request body
+specify the syncId generated on the client to create an entity, then when you resend the same request (with the same syncId), instead of creating
+entities with identical fields, a previously created entity will be returned.
+Entities that support the **syncId** field can be deleted using a url like `/entity/{type}/syncid/{id}`.
 
-### Создание и обновление объекта
+### Create and update an object
 
-При создании объекта достаточно заполнить только поля, помеченные `Необходимое`. Данные поля используются только при создании, при обновлении они не требуются.
-Поля, помеченные `Только для чтения`, игнорируются при создании/обновлении объекта.
+When creating an object, it is enough to fill in only the fields marked `Required`. These fields are only used when creating, they are not required when updating.
+Fields marked `Read Only` are ignored when creating/updating the object.
 
-### Создание и обновление нескольких объектов
+### Create and update multiple objects
 
-При использовании метода POST вы можете указать в теле запроса вместо одной -
-массив сущностей. Для этого, вам нужно передать массив (начать тело запроса с `[` и закончить `]`), который будет содержать JSON представления
-объектов, которые вы хотите создать или обновить. Обновляемые сущности должны содержать идентификатор в виде метаданных.
-Если при обновлении сущность не найдена, она будет создана.
+When using the POST method, you can specify in the request body instead of one -
+entity array. To do this, you need to pass an array (start the request body with `[` and end with `]`) that will contain the JSON representation
+objects you want to create or update. Updated entities must contain the identifier in the form of metadata.
+If the entity is not found during the update, it will be created.
 
-Также возможно произвести массовое удаление сущностей, если при использовании метода POST указать url вида `/entity/{type}/delete`.
+It is also possible to bulk delete entities if you specify a url like `/entity/{type}/delete` when using the POST method.
 
-Лимит на создание, обновление и удаление объектов списком - 1000
+The limit for creating, updating and deleting objects in a list is 1000.
 
-### Поддержка null
+### Null support
 
-В рамках JSON API можно удалить значение из поля типа объект (если это поле не является обязательным, или же если данное поле в
-основном интерфейсе может содержать пустое значение). Например: поле Договор(**contract**) в любом из документов. Сделать это можно передав в
-запросе на обновление сущности в данное поле null. Например: `{  "contract": null  }`.
-Удаление валюты из документов (`{rate: null}`) равносильно изменению валюты документа на валюту по умолчанию. В результате все
-цены и суммы будут пересчитаны. Накладные расходы также будут пересчитаны, если они не были указаны явно.
+Within the JSON API, you can remove a value from a field of type object (if this field is optional, or if this field is in
+the main interface may contain an empty value). For example: the Contract field (**contract**) in any of the documents. This can be done by passing
+request to update the entity in the given null field. For example: `{ "contract": null }`.
+Removing the currency from documents (`{rate: null}`) is equivalent to changing the currency of the document to the default currency. As a result, all
+prices and amounts will be recalculated. Overhead costs will also be recalculated if they have not been explicitly stated.
 
-Исключения:
+Exceptions:
 
-+ Структурированный адрес у
-  [Контрагента](dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres),
-  [Юрлица](dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres),
-  [Точки продаж](dictionaries/#suschnosti-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
-  [Склада](dictionaries/#suschnosti-sklad-sklady-attributy-suschnosti-adres),
-  [Заказа покупателя](documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
-  [Отгрузки](documents/#dokumenty-otgruzka-otgruzki-attributy-suschnosti-adres-dostawki) не поддерживает удаления передачей `null`.
-Для удаления адреса необходимо в строковое поле передать пустую строку `""`. Конкретные строковые поля приведены в соответствующих разделах, переход в которые осуществляется по ссылкам выше.
++ Structured address
+   [Contractor](dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres),
+   [Legal entity](dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres),
+   [Points of sale](dictionaries/#suschnosti-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
+   [Warehouse](dictionaries/#suschnosti-sklad-sklady-attributy-suschnosti-adres),
+   [Buyer Order](documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
+   [Shipments](documents/#dokumenty-otgruzka-otgruzki-attributy-suschnosti-adres-dostawki) does not support deletions by passing `null`.
+To delete an address, pass an empty string `""` to the string field. Specific string fields are given in the relevant sections, the transition to which is carried out via the links above.
 
-### Пустые поля
+### Empty fields
 
-Если какое-то из полей сущности не было заполнено и, при этом оно не является обязательным, оно не будет выдано в JSON представлении этой сущности.
+If any of the fields of the entity was not filled in and, at the same time, it is not required, it will not be returned in the JSON representation of this entity.
 
-### Формат даты и времени
+### Date and time format
 
-В JSON API поля типа дата-время (момент времени) - это строка в формате:
+In the JSON API, fields of type date-time (point in time) are a string in the format:
 
-+ Без миллисекунд: `ГГГГ-ММ-ДД ЧЧ:мм:сс`
-+ С миллисекундами: `ГГГГ-ММ-ДД ЧЧ:мм:сс.ммм` В этом формате возвращаются поля типа дата-время в ответах на запросы.
-+ Без секунд: `ГГГГ-ММ-ДД ЧЧ:мм` Только для параметров фильтрации.
++ No milliseconds: `YYYY-MM-DD HH:mm:ss`
++ With milliseconds: `YYYY-MM-DD HH:mm:ss.mmm` This format returns date-time fields in query responses.
++ Without seconds: `YYYY-MM-DD HH:mm` Only for filtering parameters.
 
-Минимальное значение: `1970-01-01 03:00:00`
+Minimum value: `1970-01-01 03:00:00`
 
-Следующие поля устанавливаются и выводятся в JSON API с точностью до минут, а именно со значением секунд и миллисекунд равным `00`:
+The following fields are set and output to the JSON API with minute precision, namely seconds and milliseconds set to `00`:
 
 + **incomingDate**
-+ **commisionPeriodStart**
-+ **commisionPeriodEnd**
++ **commissionPeriodStart**
++ **commissionPeriodEnd**
 + **certificateDate**
 + **moment**
 + **deliveryPlannedMoment**
 + **paymentPlannedMoment**
 + **firstDemandDate**
 + **lastDemandDate**
-+ дополнительное поле с типом **Дата**
++ additional field with type **Date**
 
-### Сортировка объектов
+### Sorting objects
 
-Для сортировки списка объектов можно использовать url параметр `order`.
-Значение этого параметра - **urlencoded** строка с условиями сортировки, перечисленными через `;`. (Все примеры ниже указаны без urlencoded для лучшей читаемости)
-Каждое условие сортировки- это сочетание названия поля, запятой (опционально, если указывается направление сортировки), направления сортировки (опционально; может принимать значения  `asc` и `desc`. Значение по умолчанию - `asc`).
+You can use the url parameter `order` to sort the list of objects.
+The value of this parameter is an **urlencoded** string with sorting conditions listed with `;`. (All examples below are unurlencoded for better readability)
+Each sort condition is a combination of a field name, a comma (optional if sort direction is specified), a sort direction (optional; can take the values `asc` and `desc`. The default value is `asc`).
 
-Сортировка поддерживается для следующих типов полей: числовой, строковый, дата-время, логический и uuid.
+Sorting is supported for the following field types: numeric, string, datetime, boolean, and uuid.
 
-Примеры запросов с сортировкой:
+Examples of queries with sorting:
 
 + https://app.kladana.in/api/remap/1.2/entity/supply?order=name
 + https://app.kladana.in/api/remap/1.2/entity/product?order=code,desc
 + https://app.kladana.in/api/remap/1.2/entity/product?order=name;code,desc
 + https://app.kladana.in/api/remap/1.2/entity/product?order=name,desc;code,asc
 
-### Фильтрация выборки с помощью параметра filter
+### Filtering the selection using the filter parameter
 
-Для фильтрации выборки по нескольким полям можно использовать url параметр `filter`.
-Значение этого параметра - **urlencoded** строка с поисковыми условиями, перечисленными через `;`. Для использования самого символа `;` 
-в текстовых фильтрах необходимо указывать два символа `\;`.
-(Все примеры ниже указаны без urlencoded для лучшей читаемости)
-Каждое поисковое условие - это сочетание названия поля, оператора и константы.
-Фильтровать можно по всем полям, значения которых являются примитивными типами. Т.е. нельзя фильтровать поля-объекты и поля-массивы,
-все остальные поля могут быть использованы в параметре `filter`.
+To filter the selection by several fields, you can use the `filter` url parameter.
+The value of this parameter is an **urlencoded** string with search terms separated by `;`. To use the `;` character itself
+text filters require two `\;` characters.
+(All examples below are unurlencoded for better readability)
+Each search condition is a combination of a field name, an operator, and a constant.
+You can filter by all fields whose values are primitive types. Those. it is impossible to filter fields-objects and fields-arrays,
+all other fields can be used in the `filter` parameter.
 
-+ Допустимые операторы: `['=', '>', '<', '>=', '<=', '!=', '~', '~=', '=~']`
++ Valid operators: `['=', '>', '<', '>=', '<=', '!=', '~', '~=', '=~']`
 
-Если в поисковом запросе несколько раз встречается условие типа "равенство" `=` примененное к одному и тому же полю,
-то такое условие интерпретируется как совокупность условий, разделенных логическим оператором `ИЛИ`.
+If a search query contains an "equality" condition `=` applied to the same field several times,
+then such a condition is interpreted as a set of conditions separated by a logical `OR` operator.
 
-+ Например условие `filter=sum=100;sum=150` будет интерпретировано как `sum=100 ИЛИ sum=150`
-или же `sum in (100, 150)`
++ For example, the condition `filter=sum=100;sum=150` will be interpreted as `sum=100 OR sum=150`
+or `sum in (100, 150)`
 
-Если же встречается несколько условий вида "не равно" `!=`, наложенных на одну и ту же переменную, то они интерпретируются как совокупность
-условий разделенных логическим оператором `И`.
+If there are several conditions of the form "not equal" `!=` imposed on the same variable, then they are interpreted as a collection
+conditions separated by the logical operator `AND`.
 
-+ Например условие `filter=name!=0001;name!=0002` будет эквивалентно следующим (взаимно эквивалентным) условиям :
-`name != 0001 И name != 0002` или `name not in (0001, 0002)`
++ For example, the condition `filter=name!=0001;name!=0002` will be equivalent to the following (mutually equivalent) conditions :
+`name != 0001 AND name != 0002` or `name not in (0001, 0002)`
 
-Если на одно из полей наложено ограничение типа "равенство", а затем на него накладывается ограничение типа неравенство - в таком случае произойдет ошибка.
+If a constraint of type "equality" is imposed on one of the fields, and then a constraint of type inequality is imposed on it, then an error will occur.
 
-+ Например условие `filter=sum=100;sum>99` вызовет ошибку.
++ For example, the condition `filter=sum=100;sum>99` will cause an error.
 
-Допускается использование одновременно нескольких одинаковых операторов сравнения `['>', '<', '>=', '<=']` для одного поля. При этом будет использовано лишь первое значение.
+It is allowed to use several identical comparison operators `['>', '<', '>=', '<=']` simultaneously for one field. In this case, only the first value will be used.
 
-+ Например условие `filter=sum>99;sum>100` будет аналогично условию `filter=sum>99`.
-В будущих версиях такое условие будет вызывать ошибку.
++ For example, the condition `filter=sum>99;sum>100` will be similar to the condition `filter=sum>99`.
+In future versions, this condition will raise an error.
 
-Фильтры, примененные к разным полям объединяются через логическое `И`, т.е. в запросе вида:
+Filters applied to different fields are combined via logical `AND`, i.e. in a query like:
 
-+ `filter=sum=100;moment>2016-10-11 12:00:00` выборка будет отфильтрована и по сумме и по дате.
++ `filter=sum=100;moment>201 -10-11 12:00:00` the selection will be filtered by both sum and date. 
 
-######  Проверка на пустое значение
+###### Check for an empty value
 
-Если в строке фильтрации указать конструкцию вида: `<имя_поля>=;` то в выборку попадут только объекты, где
-данное поле равно null (т.е. отсутствует значение), а если тип поля - строковое, то будет также выполнена проверка на пустую строку, т.е. поле=''.
-Конструкция `<имя_поля>!=;` выполнит проверку на присутствие значения. С помощью данной конструкции можно проверить наличие значения в ссылочном поле.
+If you specify a construction of the form: `<field_name>=;` in the filtering line, then only objects where
+this field is null (i.e., there is no value), and if the field type is string, then it will also check for an empty string, i.e. field=''.
+The `<field_name>!=;` construct will check for the presence of a value. Using this construct, you can check for the presence of a value in a reference field.
 
-#### Фильтрация документов
+#### Document filtering
 
-Для фильтрации выборки **документов** можно использовать параметр **isDeleted**. Принимает значения `true` и `false`.
+You can use the **isDeleted** parameter to filter a selection of **documents**. Accepts the values `true` and `false`.
 
-+ При указании значения `true` вернутся все документы данного типа, находящиеся в корзине.
-+ При указании значения `false` вернутся только неудаленные документы.
-+ Можно вывести все документы: и удаленные, и нет, указав в запросе оба значения данного параметра: `filter=isDeleted=true;isDeleted=false`.
++ If set to `true`, all documents of this type that are in the trash will be returned.
++ If set to `false`, only undeleted documents will be returned.
++ You can display all documents: both deleted and not, specifying both values of this parameter in the request: `filter=isDeleted=true;isDeleted=false`.
 
-Для фильтрации выборки напечатанных **документов** используется параметр **printed**. Принимает значения `true` и `false`.
+The **printed** parameter is used to filter the selection of printed **documents**. Accepts the values `true` and `false`.
 
-Для фильтрации выборки отправленных **документов** используется параметр **published**. Принимает значения `true` и `false`.
+The **published** parameter is used to filter the selection of submitted **documents**. Accepts the values `true` and `false`.
 
 
-#### Фильтрация сущностей
+#### Entity filtering
 
-Для фильтрации выборки **сущностей** следует использовать параметр **archived**. Данный параметр принимает значения `true` и `false`.
+To filter a selection of **entities**, use the **archived** parameter. This parameter takes the values `true` and `false`.
 
-+ При указании значения `true` вернутся все сущности данного типа, находящиеся в архиве.
-+ При указании значения `false` вернутся только не архивные сущности.
-+ Можно вывести все сущности: и архивные, и нет, указав в запросе оба значения данного параметра: `filter=archived=true;archived=false`.
-Фильтровать по параметру archived можно только те сущности, у которых данный параметр присутствует в списке полей.
++ If set to `true`, all entities of the given type that are in the archive will be returned.
++ If set to `false`, only non-archival entities will be returned.
++ You can display all entities: both archived and not, specifying both values of this parameter in the request: `filter=archived=true;archived=false`.
+You can filter by the archived parameter only for those entities that have this parameter in the list of fields.
 
-#### Фильтрация ссылочных полей
+#### Filtering reference fields
 
-С помощью filter можно фильтровать ссылочные поля. Если в сущности присутствует ссылочное поле в виде метаданных,
-можно использовать следующую конструкцию для того чтобы отфильтровать по этому полю выборку:
+With filter you can filter reference fields. If the entity has a reference field in the form of metadata,
+you can use the following construction to filter the selection by this field:
 
-+ `filter=<имя_поля>=<ссылка>`
++ `filter=<field_name>=<reference>`
 
-Пример ссылки:
+Link example:
 
 + `http://app.kladana.in/api/remap/1.2/entity/<type>/<id>`
 
-Вот несколько примеров:
+Here are some examples:
 
 + `filter=agent=http://app.kladana.in/api/remap/1.2/entity/counterparty/<id>`
 + `filter=ownAgent=http://app.kladana.in/api/remap/1.2/entity/organization/<id>`
 
-Ссылочные поля, доступные для фильтрации:
+Reference fields available for filtering:
 
 + agent
 + ownAgent
@@ -1147,162 +1130,162 @@ curl -X POST
 + agentStore
 + supplier
 
-Для розничных операций ("Розничная смена", "Розничная продажа", "Розничный возврат", "Внесение денег", "Выплата денег") также доступна фильтрация по:
+For retail transactions ("Retail shift", "Retail sale", "Retail return", "Deposit money", "Pay out money"), filtering by:
 
-+ retailstore
++ retail store
 
-Примеры запросов для фильтрации :
+Examples of requests for filtering:
 
 + `https://app.kladana.in/api/remap/1.2/entity/demand?filter=moment>2016-10-11 12:00:00;moment<2016-10-11 13:00:00;sum=100;name=0010;name=0011`
 + `https://app.kladana.in/api/remap/1.2/entity/counterparty?filter=name=Иван;phone=89269269222;email=vanyan@mail.krut`
 
-#### Фильтрация по полям типа ID
+#### Filtering by ID type fields
 
-С помощью filter можно фильтровать поля типа ID.
+With filter, you can filter fields of type ID.
 
-+ `filter=<имя_поля>=<ID>`
++ `filter=<field_name>=<ID>`
 
-Пример ID:
+ID example:
 
-+ `94975104-3cad-11e8-1e44-bd4d00000084`
++`94975104-3cad-11e8-1e44-bd4d00000084`
 
-Например:
+For example:
 
 + `filter=productid=94975104-3cad-11e8-1e44-bd4d00000084`
 
-#### Фильтрация по дополнительным полям
+#### Filtering by additional fields
 
-С помощью параметра filter можно фильтровать по дополнительным полям, добавив ссылку на доп. поле и значение фильтрации. Значение фильтрации может быть строкой, числом, датой или url, в зависимости от типа доп. поля. 
-Пример: `filter=<ссылка на доп.поле>=<значение>`
+Using the filter parameter, you can filter by additional fields by adding a link to additional fields. field and filtering value. The filter value can be a string, a number, a date, or a url, depending on the addon type. fields.
+Example: `filter=<reference to additional field>=<value>`
 
-##### Доступные операторы для фильтрации доп. полей
+##### Available operators for filtering add. fields
 
-| Название         | Тип поля value в JSON  | Значение поля type в JSON  |Описание                             |
-| ---------------- | ---------------------- | -------------------------- | ----------------------------------- |
-| **Дата**         | string                 | time                       | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=`, `&lt;val`, `>val`,  `>=val`, `<=val`, `>=val;<=val2` |
-| **Справочник**   | object                 | {entityType}               | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=` |
-| **Ссылка**       | string                 | link                       | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **Строка**       | string                 | string                     | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **Текст**        | string                 | text                       | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **Файл**         | string                 | file                       | Фильтрация не поддерживается        |
-| **Флажок**       | boolean                | boolean                    | `=true`, `=false`                   |
-| **Число дробное**| number                 | duble                      | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
-| **Число целое**  | number                 | long                       | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val;!=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
+| Title | JSON value field type | Value of type field in JSON |Description |
+| ------| --------------------- | --------------------------- | -----------|
+| **Date** | string | time | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
+| **Handbook** | object | {entityType} | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=` |
+| **Link** | string | link | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
+| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
+| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
+| **File** | string | file | Filtering not supported |
+| **Checkbox** | boolean | boolean | `=true`, `=false` |
+| **The number is fractional**| number | double | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
+| **Integer number** | number | long | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 
-`=val` - фильтрация по значению <br>
-`=` - фильтрация по пустому значению <br>
-`~` - частичное совпадение <br>
-`!~` - частичное совпадение не выводится <br>
-`~=` - полное совпадение в начале значения <br>
-`=~` - полное совпадение в конце значения <br>
-`>` - больше <br>
-`<` - меньше <br>
-`>=` - больше или равно <br>
-`<=` - меньше или равно <br>
+`=val` - filter by value <br>
+`=` - filter by empty value <br>
+`~` - partial match <br>
+`!~` - partial match is not displayed <br>
+`~=` - complete match at the beginning of <br> value
+`=~` - full match at the end of <br> value
+`>` - more <br>
+`<` - less than <br>
+`>=` - greater than or equal <br>
+`<=` - less than or equal <br>
 
-Примеры фильтрации:
+Filtering examples:
 
 - `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/b83c12e7-42bf-11ec-0a80-08bb00000161=color`
 - `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
 - `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/c06ac4a0-e27a-11ec-0a80-0ad600000393=https://app.kladana.in/api/remap/1.2/entity/employee/13268984-e24d-11ec-0a80-0ad600000367`
 
 
-#### Дополнительные фильтры
+#### Additional filters
 
-С помощью filter=state.name=<ИмяСтатуса> можно фильтровать документы по имени статуса. 
-state.name Параметр строкового типа. В отфильтрованную выборку попадут все документы данного типа, на которые выставлен статус с указанным именем.
+With filter=state.name=<StatusName> you can filter documents by state name.
+state.name String type parameter. The filtered selection will include all documents of this type that have a status with the specified name.
 
-Пример запроса с использованием фильтра state.name:
+An example request using the state.name filter:
 
 `https://app.kladana.in/api/remap/1.2/entity/customerOrder?filter=state.name=Новый;state.name=Принят`
 
-Фильтр filter=assortment=<href сущности> позволяет фильтровать документы по наличию позиций с указанными сущностями ассортимента.
-assortment - параметр, принимающий href ассортимента или группы товаров. Допустимые типы сущностей: Товар, Услуга, Модификация, Комплект, Группа товаров. 
-В выборку попадут те документы, которые содержат указанные сущности в числе позиций, или, в случае указания Групп товаров, одну из сущностей из указанных Групп товаров.
+The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of positions with the specified assortment entities.
+assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Service, Modification, Bundle, Product group.
+The selection will include those documents that contain the specified entities in the number of items, or, in the case of specifying Product Groups, one of the entities from the specified Product Groups.
 
-Пример запроса с использованием фильтра assortment:
+An example query using the assortment filter:
 
 `https://app.kladana.in/api/remap/1.2/entity/demand?filter=assortment=https://app.kladana.in/api/remap/1.2/entity/product/166909e6-4a99-11e6-8a84-bae500000089`
 
-С помощью filter=accounts.accountnumber=<НомерСчета> можно фильтровать контрагентов по номеру счета.
-accounts.accountnumber Параметр строкового типа. В отфильтрованную выборку попадут все контрагенты, у которых есть счет с указанным номером.
+Using filter=accounts.accountnumber=<AccountNumber> you can filter counterparties by account number.
+accounts.accountnumber String type parameter. The filtered selection will include all counterparties that have an account with the specified number.
 
-Пример запроса с использованием фильтра accounts.accountnumber:
+An example query using the accounts.accountnumber filter:
 
 `https://app.kladana.in/api/remap/1.2/entity/counterparty?filter=accounts.accountnumber=123456;accounts.accountnumber=654321`
 
-### Фильтрация по сущностям, на которые нет права просмотра
+### Filtering by entities that do not have view permission
 
-При фильтрации по сущности, на которую у текущего пользователя нет прав на просмотр в ответе придет пустой список.
-Например, при фильтрации задач (**task**) по автору (**author**), который является сотрудником, которого не может просматривать текущий пользователь,
-в ответ вернется пустой список задач.
+When filtering by an entity for which the current user does not have view rights, an empty list will be returned in the response.
+For example, when filtering tasks (**task**) by author (**author**), which is an employee who cannot be viewed by the current user,
+an empty list of tasks will be returned in response.
 
-### Контекстный поиск
+### Context search
 
-В JSON API можно осуществлять контекстный поиск среди списка сущностей определенного типа по их строковым полям. Для этого
-используется URI параметр фильтрации **search**
+The JSON API allows you to contextually search a list of entities of a particular type by their string fields. For this
+used URI filter parameter **search**
 
 + **search**
-  Параметр фильтрации, с помощью которого можно осуществить поиск в списке сущностей. Поиск происходит по основным строковым полям сущностей данного
-    типа. Результатом поиска будет отсортированный по релевантности список сущностей данного типа, прошедших фильтрацию по переданной поисковой строке. В отличии от фильтрации выборки
-    с помощью параметра **filter**, при которой значения проверяются на точное совпадение указанным, при контекстном поиске проверка на совпадение не строгая.
-    Таким образом, если осуществлять фильтрацию вида `../entity/<entity_type>?filter=name=120` в отфильтрованную выборку попадут только те сущности, поле **name**
-    у которых имеет значение `120` и никакие другие. При контекстном поиске вида `../entity/<entity_type>?search=120` будут выведены как сущности с **name** равным
-    `120`, так и сущности, в имени (или в другом строковом поле) которых `120` является началом какого-то слова, например `12003`, `пазл детский 1200 штук` и т.п.
-    Причем, если ввести несколько слов `../entity/<entity_type>?search=120 возврат` и поиск идет по полям **name** и **description**, то будут выведены как сущности с **name** равным `1200` и с **description**
-    равным `возврат из-за деффекта`, так и сущности с именем `777` с описанием `розничный возврат на улице 120 летия`.
+   A filtering option that can be used to search the list of entities. The search takes place on the main string fields of the entities of the given
+     type. The search result will be a list of entities of this type, sorted by relevance, that have been filtered by the passed search string. Unlike selection filtering
+     using the **filter** parameter, in which the values are checked for an exact match to the specified ones, with contextual search, the match check is not strict.
+     Thus, if you filter like `../entity/<entity_type>?filter=name=120`, only those entities with the **name** field will get into the filtered selection
+     which have the value `120` and no others. In a contextual search like `../entity/<entity_type>?search=120` will be displayed as entities with **name** equal to
+     `120`, and entities, in the name (or in another string field) of which `120` is the beginning of some word, for example `12003`, `children's puzzle 1200 pieces`, etc.
+     Moreover, if you enter several words `../entity/<entity_type>?search=120 return` and the search goes through the fields **name** and **description**, then they will be displayed as entities with **name** equal to `1200` and with **description**
+     equal to `return due to defect`, and the entity named `777` with description `retail return on 120th Anniversary Street`.
 
-  + Примеры запросов контекстного поиска (значения должны быть urlencoded):
+  + Examples of contextual search queries (values must be urlencoded):
     - `https://app.kladana.in/api/remap/1.2/entity/project?search=реструктуризация`
     - `https://app.kladana.in/api/remap/1.2/entity/move?search=ул.Вавилова`
     - `https://app.kladana.in/api/remap/1.2/entity/counterparty?search=петров`
 
 
 
-### Оператор фильтрации "подобие"
+### Filter operator "similarity"
 
-В JSON API для <u>строковых</u> полей есть специальный оператор фильтрации "подобие".
-обра
-+ `~`  обычное подобие. Ищет любое вхождение подстроки, следующей после оператора, в значении поля. Например, `?filter=code~ms` найдет все сущности, у которых в коде встречается подстрока "ms".
-+ `~=` левое подобие. Ищет соответствие по префиксу значения. Например `?filter=code~=ms` найдет все сущности, у которых код начинается на "ms".
-+ `=~` правое подобие. Ищет соответствие по постфиксу. Например `?filter=code=~ms` найдет все сущности, у которых код оканчивается на "ms".
+The JSON API has a special filter operator "similarity" for <u>string</u> fields.
+image
++ `~` is the usual similarity. Searches for any occurrence of the substring following the operator in the field value. For example, `?filter=code~ms` will find all entities that have the substring "ms" in their code.
++ `~=` left similarity. Looks for a match by value prefix. For example `?filter=code~=ms` will find all entities whose code starts with "ms".
++ `=~` right similarity. Looks for a postfix match. For example `?filter=code=~ms` will find all entities whose code ends in "ms".
 
-Операторы подобия работают исключительно с полями строкового типа и не учитывают регистр. К полям типа uuid и дата-время они неприменимы.
+Similarity operators operate exclusively on fields of string type and are not case sensitive. They are not applicable to fields of type uuid and datetime.
 
-### Применение сохраненного фильтра
+### Apply saved filter
 
-В JSON API есть возможность применения сохраненных фильтров. Подробное описание доступно в [соответствующем разделе](dictionaries/#suschnosti-sohranennye-fil-try).
+The JSON API has the ability to apply saved filters. A detailed description is available in the [relevant section](dictionaries/#suschnosti-sohranennye-fil-try).
 
-### Ссылки на файлы
+### Links to files
 
-В JSON API для скачивания файла формируется редирект на временный URL файла. Для корректной работы необходимо поддерживать обработку редиректов. 
-Запрос на временный URL не требует авторизации.
-По умолчанию время жизни временного URL равно одной минуте.
+In the JSON API for downloading a file, a redirect is generated to a temporary file URL. For correct operation, it is necessary to support the processing of redirects.
+A request for a temporary URL does not require authorization.
+By default, the temporary URL lifetime is one minute.
     
-С помощью заголовка `X-Lognex-Download-Expiration-Seconds` можно изменить время жизни URL в секундах. 
-Текущее максимально возможное значение - 86400 секунд (24 часа).
-Долгоживущие ссылки предназначены для экспорта. Использование этих ссылок на публично доступных web-страницах запрещено.
+The `X-Lognex-Download-Expiration-Seconds` header can be used to change the URL lifetime in seconds.
+The current maximum possible value is 86400 seconds (24 hours).
+Long-lived links are for export. The use of these links on publicly accessible web pages is prohibited.
 
-### Замена ссылок объектами с помощью expand 
+### Replacing links with objects using expand
 
-В JSON API, в составе сущностей можно встретить ссылки на связанные объекты.
-Ссылки выводятся в формате [Метаданных](#mojsklad-json-api-obschie-swedeniq-metadannye). Для того, чтобы вместо ссылок получить связанные объекты,
-не обязательно делать отдельные запросы для каждого из них. Вместо этого, вместе с запросом на получение сущности, нужно передать параметр **expand**.
-В качестве значения данного параметра нужно перечислить через запятую все необходимые поля-ссылки,
-на месте которых вы бы хотели видеть связанные объекты.
-В результате запроса с таким параметром, в ответе вы получите объект с развернутыми вложенными объектами вместо ссылок.
-К примеру, в документах, имеющих в составе поле **agent**, вместо ссылки на
-контрагента будет выведен объект со всеми полями сущности "Контрагент", описанными [тут](dictionaries/#suschnosti-kontragent).
-Максимальный уровень вложенности **expand** : 3.
-Expand разрешен только на размере выборки не более 100. Если указан больший лимит, но указан expand, то данный параметр будет игнорироваться.
+In the JSON API, as part of entities, you can find references to related objects.
+Links are displayed in the [Metadata](#mojsklad-json-api-obschie-swedeniq-metadannye) format. To get related objects instead of links,
+it is not necessary to make separate requests for each of them. Instead, along with the request to get the entity, you need to pass the **expand** parameter.
+As the value of this parameter, you need to list all the necessary reference fields, separated by commas,
+where you would like to see related objects.
+As a result of a request with this parameter, in the response you will receive an object with expanded nested objects instead of links.
+For example, in documents containing the **agent** field, instead of referring to
+counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#suschnosti-kontragent) will be displayed.
+Maximum nesting level **expand** : 3.
+Expand is allowed only on a sample size of 100 or less. If a larger limit is specified, but expand is specified, then this parameter will be ignored.
 
-Также **expand** можно применять для результатов операций создания и обновления.
+You can also use **expand** on the results of create and update operations.
 
-+ Ниже показаны примеры использования **expand** на [Возврате покупателя](documents/#dokumenty-vozwrat-pokupatelq). В примерах представлены только поля **meta** и **demand**.
++ Below are examples of using **expand** on [Customer Returns](documents/#dokumenty-vozwrat-pokupatelq). The examples show only the **meta** and **demand** fields.
 
-### Возврат без expand 
+### Return without expand
 
-> Пример запроса возврата без expand
+> Example of return request without expand
 
 ```shell
 curl -X GET
@@ -1310,7 +1293,7 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Объект возврата покупателя в его обычном представлении, имеющий ссылку на отгрузку
+> Buyer's return object in its normal view, with a link to the shipment
 
 ```json
 {
@@ -1332,11 +1315,11 @@ curl -X GET
 }
 ```
 
-### Возврат с expand отгрузки 
+### Return from expand shipment
 
-Передаем параметр **expand**=demand.
+We pass the parameter **expand**=demand.
 
-> Пример запроса возврата с expand отгрузки
+> Sample return request with expand shipment
 
 ```shell
 curl -X GET
@@ -1344,7 +1327,7 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> В ответ придет возврат покупателя, у которого вместо ссылки на отгрузку, по которой производится возврат, будет вложенный объект со всеми полями данной отгрузки.
+> In response, the return of the buyer will come, which, instead of a reference to the shipment for which the return is made, will have an attached object with all the fields of this shipment.
 
 ```json
 {
@@ -1409,16 +1392,16 @@ curl -X GET
 }
 ```
 
-### Expand с глубиной 2 
+### Expand with depth 2
 
-Теперь развернем поле **agent** у вложенной в возврат отгрузки (**demand**).
-В ответ придет возврат покупателя с развернутой отгрузкой (**demand**), внутри которой
-будет развернутый объект контрагента (**agent**). 
+Now let's expand the **agent** field of the shipment (**demand**) enclosed in the return.
+In response, the buyer will return with a detailed shipment (**demand**), inside which
+there will be a deployed counterparty object (**agent**).
 
-В данном запросе продемонстрирован уровень вложенности
-параметра **expand** равный двум.
+This query demonstrates the level of nesting
+parameter **expand** equal to two.
 
-> Пример запроса возврата c expand с глубиной 2 
+> Example c expand return request with depth 2
 
 ```shell
 curl -X GET
@@ -1426,7 +1409,7 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Ответ с развернутым Demand и Demand.Agent
+> Response with expanded Demand and Demand.Agent
 
 ```json
 {
@@ -1453,12 +1436,12 @@ curl -X GET
         "mediaType": "application/json"
       },
       ...
-      "name": "Агент1",
+      "name": "Agent1",
       "code": "УТ0003074",
       "externalCode": "kAgs4Xbhiz2Sp5oP2OCaB2",
       "archived": false,
-      "legalTitle": "Общество с ограниченной ответственностью «Агент1»",
-      "legalAddress": "107023, г. Москва, Барабанный переулок, дом № 42, строение 2",
+      "legalTitle": "Agent1 Limited Liability Company",
+      "legalAddress": "107023, Moscow, Barabanny lane, house number 42, building 2",
       "inn": "7719864242",
       "kpp": "771901001",
       ...
@@ -1492,9 +1475,9 @@ curl -X GET
 }
 ```
 
-### Создание отгрузки с expand 
+### Create a shipment with expand
 
-> Развернем поле **agent** у создаваемой отгрузки.
+> Expand the **agent** field of the shipment being created.
 
 ```shell
 curl -X POST
@@ -1527,7 +1510,7 @@ curl -X POST
 }'
 ```
 
-> В ответ придет созданная отгрузка с развернутым объектом контрагента (**agent**).
+> In response, the created shipment will come with the deployed object of the counterparty (**agent**).
 
 ```json
 {
@@ -1613,15 +1596,15 @@ curl -X POST
             }
         },
         "updated": "2017-08-18 17:49:23",
-        "name": "ООО \"Поставщик\"",
-        "externalCode": "YWKWXePEi9jBAmxriBpc93",
-        "archived": false,
-        "created": "2017-07-12 16:13:08",
-        "companyType": "legal",
-        "legalTitle": "Общество с ограниченной ответственностью \"Поставщик\"",
-        "legalAddress": "г.Москва, ул.Строителей, д.12",
-        "inn": "7736570901",
-        "kpp": "773601001",
+        "name": "LLC \"Supplier\"",
+         "externalCode": "YWKWXePEi9jBAmxriBpc93",
+         archived: false
+         "created": "2017-07-12 16:13:08",
+         "companyType": "legal",
+         "legalTitle": "Limited Liability Company \"Supplier\"",
+         "legalAddress": "Moscow, Stroiteley st., 12",
+         "inn": "7736570901",
+         "kpp": "773601001",
         "accounts": {
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d9593e70-6703-11e7-9464-e4de00000054/accounts",
@@ -1693,10 +1676,10 @@ curl -X POST
 }
 ```
 
-### Редактирование отгрузки с expand 
+### Edit shipment with expand
 
-> Теперь обновим эту отгрузку и развернем у нее поля **agent** и **organization**.
-В ответ придет измененная отгрузка с развернутым объектом контрагента (**agent**) и развернутым объектом юрлица (**organization**).
+> Now let's update this shipment and expand its **agent** and **organization** fields.
+The response will be a modified shipment with expanded counterparty object (**agent**) and expanded legal entity object (**organization**).
 
 ```shell
 curl -X PUT
@@ -1794,13 +1777,13 @@ curl -X PUT
             }
         },
         "updated": "2017-08-18 17:49:23",
-        "name": "ООО \"Поставщик\"",
-        "externalCode": "YWKWXePEi9jBAmxriBpc93",
-        "archived": false,
-        "created": "2017-07-12 16:13:08",
-        "companyType": "legal",
-        "legalTitle": "Общество с ограниченной ответственностью \"Поставщик\"",
-        "legalAddress": "г.Москва, ул.Строителей, д.12",
+         "name": "LLC \"Supplier\"",
+         "externalCode": "YWKWXePEi9jBAmxriBpc93",
+         archived: false
+         "created": "2017-07-12 16:13:08",
+         "companyType": "legal",
+         "legalTitle": "Limited Liability Company \"Supplier\"",
+         "legalAddress": "Moscow, Stroiteley st., 12",
         "inn": "7736570901",
         "kpp": "773601001",
         "accounts": {
@@ -1895,8 +1878,8 @@ curl -X PUT
         },
         "isEgaisEnable": false,
         "payerVat": true,
-        "director": "Администратор",
-        "chiefAccountant": "Администратор"
+        "director": "Administrator",
+         "chiefAccountant": "Administrator"
     },
     "created": "2017-08-24 13:43:48",
     "positions": {
@@ -1916,185 +1899,178 @@ curl -X PUT
 }
 ```
 
-### Контекст запроса сотрудника
+### Employee request context
 
-Возвращает данные о сотруднике, от лица которого происходит запрос. Доступ к сущности осуществляется по эндпоинту `/context/employee`
+Returns data about the employee on whose behalf the request is made. The entity is accessed via the endpoint `/context/employee`
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название         | Тип                                                    | Описание                                                                                                                                                                                                           |
-| ---------------- | :----------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**    | UUID                                                   | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                               |
-| **archived**     | Boolean                                                | Добавлен ли Сотрудник в архив<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                   |
-| **attributes**   | Array(Object)                                          | Дополнительные поля Сотрудника<br>`+Только для чтения`                                                                                                                                                             |
-| **cashiers**     | MetaArray                                              | Массив кассиров. [Подробнее тут](dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-kassir)<br>`+Только для чтения` `+Expand`                                                           |
-| **code**         | String(255)                                            | Код Сотрудника<br>`+Только для чтения`                                                                                                                                                                             |
-| **created**      | DateTime                                               | Момент создания Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                      |
-| **description**  | String(4096)                                           | Комментарий к Сотруднику<br>`+Только для чтения`                                                                                                                                                                   |
-| **email**        | String(255)                                            | Электронная почта сотрудника<br>`+Только для чтения`                                                                                                                                                               |
-| **externalCode** | String(255)                                            | Внешний код Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                          |
-| **firstName**    | String(255)                                            | Имя<br>`+Только для чтения`                                                                                                                                                                                        |
-| **fullName**     | String(255)                                            | Имя Отчество Фамилия<br>`+Только для чтения`                                                                                                                                                                       |
-| **group**        | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Отдел сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                |
-| **id**           | UUID                                                   | ID Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                   |
-| **image**        | Object                                                 | Фотография сотрудника. [Подробнее тут](dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Только для чтения`                           |
-| **inn**          | String(255)                                            | ИНН сотрудника (в формате ИНН физического лица)<br>`+Только для чтения`                                                                                                                                            |
-| **lastName**     | String(255)                                            | Фамилия<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                         |
-| **meta**         | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                           |
-| **middleName**   | String(255)                                            | Отчество<br>`+Только для чтения`                                                                                                                                                                                   |
-| **name**         | String(255)                                            | Наименование Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                         |
-| **owner**        | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                            |
-| **permissions**  | Object                                                 | Перечисление пермиссий сотрудника. [Подробнее тут](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika)<br>`+Обязательное при ответе` `+Только для чтения` |
-| **phone**        | String(255)                                            | Телефон сотрудника<br>`+Только для чтения`                                                                                                                                                                         |
-| **position**     | String(255)                                            | Должность сотрудника<br>`+Только для чтения`                                                                                                                                                                       |
-| **shared**       | Boolean                                                | Общий доступ<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                    |
-| **shortFio**     | String(255)                                            | Краткое ФИО<br>`+Только для чтения`                                                                                                                                                                                |
-| **uid**          | String(255)                                            | Логин Сотрудника<br>`+Только для чтения`                                                                                                                                                                           |
-| **updated**      | DateTime                                               | Момент последнего обновления Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                         |
+| Title | Type | Description |
+| ------ | -----| ---------- |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | Whether the Employee was added to the archive<br>`+Required when replying` `+Read Only` |
+| **attributes** | Array(Object) | Additional Employee fields<br>`+Read-only` |
+| **cashiers** | MetaArray | Array of cashiers. [More here](dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-kassir)<br>`+Read-only` `+Expand` |
+| **code** | String(255) | Employee Code<br>`+Read Only` |
+| **created** | datetime | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **description** | String(4096) | Employee Comment<br>`+Read Only` |
+| **email** | String(255) | Employee Email<br>`+Read Only` |
+| **externalCode** | String(255) | Employee External ID<br>`+Required for response` `+Read Only` |
+| **firstName** | String(255) | Name<br>`+Read Only` |
+| **fullName** | String(255) | First name Middle name Last name<br>`+Read only` |
+| **group** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee department<br>`+Required when replying` `+Read-only` |
+| **id** | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
+| **images** | object | Photo of an employee. [More here](dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Read only` |
+| **inn** | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
+| **lastName** | String(255) | Last name<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee Metadata<br>`+Required when responding` `+Read Only` |
+| **middleName** | String(255) | Middle name<br>`+Read only` |
+| **name** | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
+| **owner** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
+| **permissions** | object | Enumeration of employee's permissions. [More details here](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika)<br>`+Required when replying` `+Read only` |
+| **phone** | String(255) | Employee phone<br>`+Read-only` |
+| **position** | String(255) | Job Title<br>`+Read Only` |
+| **shared** | Boolean | Sharing<br>`+Required when replying` `+Read Only` |
+| **shortFio** | String(255) | Short Name<br>`+Read Only` |
+| **id** | String(255) | Employee Login<br>`+Read Only` |
+| **updated** | datetime | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
 
-#### Атрибуты вложенных сущностей
+#### Nested entity attributes
 
-Многие атрибуты, представленные в этом запросе, за исключением поля `permissions`, повторяют атрибуты запроса [Сотрудника](dictionaries/#suschnosti-sotrudnik-sotrudniki), подробное описание которых можно посмотреть в соответствующем разделе.
+Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee] request (dictionaries/#suschnosti-sotrudnik-sotrudniki), a detailed description of which can be found in the corresponding section.
 
-##### Пермиссии сотрудника
+##### Employee Permissions
 
-Объект пермиссий сотрудника включает в себя пермиссии сущностей, часть тарифных и пользовательских пермиссий.
-Поля объекта представляют собой отдельную пермиссию, где имя указывает на тип пермиссии, а значение представляет собой объект со значениями пермиссий в формате <тип пермиссии>: <значение>.
+The employee's permissions object includes entity permissions, part of tariff and user permissions.
+The fields of an object represent a single permission, where the name indicates the type of the permission, and the value is an object with permission values in the format <permission type>: <value>.
 
-###### Пользовательские и тарифные пермиссии
+###### User and tariff permissions
 
-| Название             | Описание                              |
-| -------------------- | :------------------------------------ |
-| **admin**            | Является ли сотрудник админом         |
-| **audit_dashboard**  | Просматривать аудит                   |
-| **company_crm**      | Просматривать показатели              |
-| **customAttributes** | Работа с доп. полями                  |
-| **dashboard**        | Просматривать показатели              |
-| **dashboardMoney**   | Видеть остатки денег                  |
-| **viewCashFlow**     | Видеть движение денежных средств      |
-| **pnl**              | Просматривать прибыльность            |
-| **stock**            | Просматривать остатки по товарам      |
-| **tariff_crm**       | Присутствует ли опция CRM на аккаунте |
+| Title | Description |
+| ------| ------------|
+| **admin** | Is the employee an admin |
+| **audit_dashboard** | View audit |
+| **company_crm** | View metrics |
+| **customAttributes** | Work with add. fields |
+| **dashboard** | View metrics |
+| **dashboardmoney** | See money balances |
+| **viewCashFlow** | See cash flow |
+| **pnl** | View profitability |
+| **stock** | View inventory by item|
+| **tariff_crm** | Is there a CRM option on the account |
 
-При наличии соответствующей пермиссии объект содержит поле **VIEW** со значением `ALL`
+If there is a corresponding permission, the object contains a **VIEW** field with a value of `ALL`
 
-###### Список пермиссий сущностей
+###### List of entity permissions
 
-Имеется три возможных типа значений пермиссий сущности: `OPERATION`, `DICTIONARY`, `BASE`.
-Данные типы имеют следующие поля:
+There are three possible types of entity permission values: `OPERATION`, `DICTIONARY`, `BASE`.
+These types have the following fields:
 
-| типы значений пермиссий сущности | view       | create      | update        | delete      | print       | approve     |
-| -------------------------------- | :--------- | :---------- | :------------ | :---------- | :---------- | :---------- |
-| OPERATION                        | +          | +           | +             | +           | +           | +           |
-| DICTIONARY                       | +          | +           | +             | +           | +           | -           |
-| BASE                             | +          | +           | +             | +           | -           | -           |
+| entity permission value types | view | create | update | delete | print | approve |
+|-------|-------|------|--------- |--------|------|------- |
+| OPERATION | + | + | + | + | + | + |
+| DICTIONARY | + | + | + | + | + | - |
+| base | + | + | + | + | - | - |
 
-###### Описание пермиссий сущностей
+###### Description of entity permissions
 
-| Название         | Описание             |
-| ---------------- | :------------------- |
-| **view**         | Смотреть             |
-| **create**       | Создавать            |
-| **update**       | Редактировать        |
-| **delete**       | Удалять              |
-| **print**        | Печатать             |
-| **approve**      | Проводить            |
+| Title | Description |
+| -------| ------------------- |
+| **view** | Watch |
+| **create** | Create |
+| **update** | Edit |
+| **delete** | Delete |
+| **print** | Print |
+| **approve** | Conduct |
 
-###### Возможные значения полей `view`, `create`, `update`, `delete`, `approve`, `print`
+###### Possible values of `view`, `create`, `update`, `delete`, `approve`, `print` fields
 
-| Название             | На кого распространяется |
-| -------------------- | :----------------------- |
-| **OWN**              | Только свои              |
-| **OWN_SHARED**       | Свои и общие             |
-| **OWN_GROUP**        | Свои и отдела            |
-| **OWN_GROUP_SHARED** | Свои, отдела и общие     |
-| **ALL**              | Все                      |
-| Отсутствует          | Ни на кого               |
+| Title | To whom does |
+| ------| ------------|
+| **OWN** | Only their |
+| **OWN_SHARED** | Own and common |
+| **OWN_GROUP** | Own and department |
+| **OWN_GROUP_SHARED** | Own, department and general |
+| **ALL** | All |
+| Missing | To no one |
 
-###### Пермиссии сущностей и документов, которые присутствуют в запросе
+###### Permissions of entities and documents that are present in the request
 
-| Название                   | Возможные значения                                                                                                                                 | Описание                               |
-|----------------------------| :------------------------------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------|
-| **accountAdjustment**      | DICTIONARY                                                                                                                                         | Корректировка остатков на счете        |
-| **bonusTransaction**       | OPERATION                                                                                                                                          | Бонусные баллы                         |
-| **cashIn**                 | OPERATION                                                                                                                                          | Приходной ордер                        |
-| **cashOut**                | OPERATION                                                                                                                                          | Расходной ордер                        |
-| **cashboxAdjustment**      | DICTIONARY                                                                                                                                         | Корректировка остатков в кассе         |
-| **commissionReportIn**     | OPERATION                                                                                                                                          | Полученный отчет комиссионера          |
-| **commissionReportOut**    | OPERATION                                                                                                                                          | Выданный отчет комиссионер             |
-| **company**                | DICTIONARY                                                                                                                                         | Контрагенты                            |
-| **contract**               | DICTIONARY                                                                                                                                         | Договоры                               |
-| **counterpartyAdjustment** | DICTIONARY                                                                                                                                         | Корректировка баланса контрагента      |
-| **country**                | BASE                                                                                                                                               | Страны                                 |
-| **currency**               | BASE                                                                                                                                               | Валюты                                 |
-| **customEntity**           | BASE                                                                                                                                               | Элементы пользовательских справочников |
-| **customerOrder**          | OPERATION                                                                                                                                          | Заказ покупателям                      |
-| **demand**                 | OPERATION                                                                                                                                          | Отгрузка                               |
-| **employee**               | BASE                                                                                                                                               | Сотрудники                             |
-| **enter**                  | OPERATION                                                                                                                                          | Оприходование                          |
-| **factureIn**              | OPERATION                                                                                                                                          | Счета-фактуры полученные               |
-| **factureOut**             | OPERATION                                                                                                                                          | Счета-фактуры выданные                 |
-| **good**                   | DICTIONARY                                                                                                                                         | Товары и Услуги                        |
-| **internalOrder**          | OPERATION                                                                                                                                          | Внутренние заказы                      |
-| **inventory**              | DICTIONARY                                                                                                                                         | Инвентаризация                         |
-| **invoiceIn**              | OPERATION                                                                                                                                          | Счет поставщику                        |
-| **invoiceOut**             | OPERATION                                                                                                                                          | Счет покупателям                       |
-| **loss**                   | OPERATION                                                                                                                                          | Списание                               |
-| **move**                   | OPERATION                                                                                                                                          | Перемещение                            |
-| **myCompany**              | BASE                                                                                                                                               | Юр. Лица                               |
-| **paymentIn**              | OPERATION                                                                                                                                          | Входящий платеж                        |
-| **paymentOut**             | OPERATION                                                                                                                                          | Исходящий платеж                       |
-| **prepayment**             | OPERATION                                                                                                                                          | Предоплаты                             |
-| **prepaymentReturn**       | OPERATION                                                                                                                                          | Возврат предоплаты                     |
-| **priceList**              | OPERATION                                                                                                                                          | Прайс-лист                             |
-| **processing**             | BASE                                                                                                                                               | Тех. операции                          |
-| **processingOrder**        | OPERATION                                                                                                                                          | Заказ на производство                  |
-| **processingPlan**         | BASE                                                                                                                                               | Тех. Карты                             |
-| **processingStage**        | BASE                                                                                                                                               | Этапы производства                             |
-| **processingProcess**      | BASE                                                                                                                                               | Тех. процессы                          |
-| **project**                | BASE                                                                                                                                               | Проекты                                |
-| **purchaseOrder**          | OPERATION                                                                                                                                          | Заказ поставщикам                      |
-| **purchaseReturn**         | OPERATION                                                                                                                                          | Возврат поставщику                     |
-| **retailDemand**           | OPERATION                                                                                                                                          | Продажи                                |
-| **retailDrawerCashIn**     | OPERATION                                                                                                                                          | Внесения                               |
-| **retailDrawerCashOut**    | OPERATION                                                                                                                                          | Выплаты                                |
-| **retailSalesReturn**      | OPERATION                                                                                                                                          | Возвраты                               |
-| **retailShift**            | DICTIONARY                                                                                                                                         | Смены                                  |
-| **retailStore**            | BASE                                                                                                                                               | Точка продаж                           |
-| **salesReturn**            | OPERATION                                                                                                                                          | Возврат покупателя                     |
-| **supply**                 | OPERATION                                                                                                                                          | Приемки                                |
-| **task**                   | [Особый](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Задачи                                 |
-| **uom**                    | BASE                                                                                                                                               | Единицы измерения                      |
-| **warehouse**              | BASE                                                                                                                                               | Склады                                 |
-| **webhook**                | DICTIONARY                                                                                                                                         | Вебхуки                                |
+| Title | Possible values | Description |
+|-------| ---------- |-------------------|
+| **accountAdjustment** | DICTIONARY | Adjustment of account balances |
+| **bonustransaction** | OPERATION | Bonus points |
+| **cashIn** | OPERATION | Receipt order |
+| **cashOut** | OPERATION | Disbursement order |
+| **cashboxAdjustment** | DICTIONARY | Adjustment of cash balances |
+| **company** | DICTIONARY | Contractors |
+| **contract** | DICTIONARY | Contracts |
+| **counterpartyAdjustment** | DICTIONARY | Counterparty balance adjustment |
+| **country** | base | Countries |
+| **currency** | base | Currencies |
+| **customEntity** | base | Elements of user directories |
+| **customerOrder** | OPERATION | Order to buyers |
+| **demand** | OPERATION | Shipment |
+| **employees** | base | Employees |
+| **enter** | OPERATION | Posting |
+| **factoryIn** | OPERATION | Invoices received |
+| **facture** | OPERATION | Invoices issued |
+| **good** | DICTIONARY | Goods and Services |
+| **internalOrder** | OPERATION | Domestic orders |
+| **inventory** | DICTIONARY | Inventory |
+| **invoiceIn** | OPERATION | Supplier invoice |
+| **invoiceOut** | OPERATION | Account for buyers |
+| **loss** | OPERATION | Write-off |
+| **move** | OPERATION | Moving |
+| **myCompany** | base | Jur. Faces |
+| **paymentIn** | OPERATION | Incoming payment |
+| **paymentOut** | OPERATION | Outgoing payment |
+| **prepayment** | OPERATION | Prepayments |
+| **prepaymentReturn** | OPERATION | Return of prepayment |
+| **processingOrder** | OPERATION | Production order |
+| **processingPlan** | base| Those. Maps |
+| **processingStage** | base | Stages of production |
+| **processingProcess** | base | Those. processes |
+| **project** | base | Projects |
+| **purchaseOrder** | OPERATION | Order to suppliers |
+| **purchaseReturn** | OPERATION | Return to supplier |
+| **retailDemand** | OPERATION | Sales |
+| **retailDrawerCashIn** | OPERATION | Applications |
+| **retailDrawerCashOut** | OPERATION | Payouts |
+| **salesReturn** | OPERATION | Buyer Return |
+| **supply** | OPERATION | Acceptances |
+| **task** | [Special](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Tasks |
+| **wom** | base | Units of measure |
+| **warehouse** | base | Warehouses |
+| **webhook** | DICTIONARY | Webhooks |
 
-###### Пермиссии для задач
+###### Permissions for tasks
 
-Пермиссии `script` для задач имеют следующие поля:
+`script` permissions for tasks have the following fields:
 
-| Название         | Описание             | Возможные значения                             |
-| ---------------- | :------------------- | :--------------------------------------------- |
-| **view**         | Смотреть             | Отсутствует, AUTHOR_OR_ASSIGNEE, ALL           |
-| **create**       | Создавать            | Отсутствует, ALL                               |
-| **update**       | Редактировать        | Отсутствует, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL   |
-| **delete**       | Удалять              | Отсутствует, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL   |
-| **done**         | Выполнять            | Отсутствует, ASSIGNEE, AUTHOR_OR_ASSIGNEE, ALL |
+| Title | Description | Possible values |
+| ---------|------------|------- |
+| **view** | Watch | None, AUTHOR_OR_ASSIGNEE, ALL |
+| **create** | Create | None, ALL |
+| **update** | Edit | None, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL |
+| **delete** | Delete | None, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL |
+| **done** | Execute | None, ASSIGNEE, AUTHOR_OR_ASSIGNEE, ALL |
 
-###### Возможные значения полей `view`, `create`, `update`, `delete`, `done` для задач
+###### Possible values of the `view`, `create`, `update`, `delete`, `done` fields for tasks
 
-| Название               | На какие задачи распространяется                   |
-| ---------------------- | :------------------------------------------------- |
-| **AUTHOR_OR_ASSIGNEE** | Созданные пользователем и назначенные ему          |
-| **ASSIGNEE**           | Назначенные                                        |
-| **AUTHOR**             | Созданные пользователем                            |
-| **ALL**                | Возможность совершать действие над любыми задачами |
-| Отсутствует            | Нет прав ни на какие задачи                        |
+| Title | What tasks is covered by |
+| ------| -------------- |
+| **AUTHOR_OR_ASSIGNEE** | Created by the user and assigned to him |
+| **ASSIGNEE** | Appointed |
+| **AUTHOR** | Created by user |
+| **ALL** | The ability to perform an action on any tasks |
+| Missing | No permissions for any tasks |
 
-#### Получить контекст сотрудника
+#### Get employee context
 
-Запрос на получение контекста запроса Cотрудника.
+Request to get the context of the Employee's request.
 
-> Пример запроса на получения контекста запроса Cотрудника.
+> An example of a request to get the context of an Employee's request.
 
 ```shell
   curl -X GET
@@ -2102,8 +2078,8 @@ curl -X PUT
     -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление информации о контексте запроса Cотрудника.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of information about the Employee's request context.
 
 ```json
 {
@@ -2135,15 +2111,15 @@ curl -X PUT
         }
     },
     "updated": "2021-09-28 14:08:07.359",
-    "name": "Администратор",
+    "name": "Administrator",
     "externalCode": "YuqqVXgviyQsimcElBCDl0",
     "archived": false,
     "created": "2021-09-28 14:08:07.359",
     "uid": "admin@f1",
     "email": "f@f.ru",
-    "lastName": "Администратор",
-    "fullName": "Администратор",
-    "shortFio": "Администратор",
+    "lastName": "Administrator",
+    "fullName": "Administrator",
+    "shortFio": "Administrator",
     "cashiers": [
         {
             "meta": {
@@ -2361,30 +2337,12 @@ curl -X PUT
             "approve": "ALL",
             "print": "ALL"
         },
-        "retailstore": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL"
-        },
         "receipttemplate": {
             "view": "ALL",
             "create": "ALL",
             "update": "ALL",
             "delete": "ALL"
         },
-        "retailstorestatus": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL"
-        },
-        "retailshift": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "print": "ALL"
         },
         "retaildemand": {
             "view": "ALL",
@@ -2459,46 +2417,6 @@ curl -X PUT
             "print": "ALL"
         },
         "loss": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "facturein": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "factureout": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "commissionreportin": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "commissionreportout": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "pricelist": {
             "view": "ALL",
             "create": "ALL",
             "update": "ALL",
@@ -2626,13 +2544,13 @@ curl -X PUT
 }
 ```
 
-### Серверные приложения
-Для доступа к API может быть использован токен выданный Вендору при установке Серверного приложения пользователем МоегоСклада.
+### Server applications
+To access the API, a token issued to the Vendor during the installation of the Server Application by the user of MySklad can be used.
 
-#### Получение контекста приложения
-Возвращает параметры приложения, в рамках которого присходит запрос (по аналогии с контекстом Сотрудника).
+#### Get application context
+Returns the parameters of the application within which the request is made (similar to the context of the Employee).
 
-> Пример запроса на получение контекста приложения
+> Application Context Request Example
 
 ```shell
 curl -X GET
@@ -2640,7 +2558,7 @@ curl -X GET
   -H "Authorization: Bearer <Access-Token>"
 ``` 
 
-> Response 200 (application/json) Успешный запрос. Результат JSON объект, содержащий данные приложения
+> Response 200 (application/json) Successful request. Result JSON object containing application data
 
 ```json
 {
@@ -2655,16 +2573,16 @@ curl -X GET
 }
 ```
 
-#### Получение сущности установленного приложения
-Возвращает параметры установленного приложения по id установленного на аккаунте приложения. 
+#### Getting the entity of the installed application
+Returns the parameters of the installed application by the id of the application installed on the account.
 
-**Параметры**
+**Options**
 
-| Параметр | Описание                                                                                                     |
-| :------- | :----------------------------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: b58a6312-f958-11e9-ac12-000a00000020* id установленного на аккаунте приложения |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: b58a6312-f958-11e9-ac12-000a00000020* id of the application installed on the account |
 
-> Пример запроса на получение сущности установленного приложения
+> Sample request to get the entity of an installed application
 
 ```shell
 curl -X GET
@@ -2672,7 +2590,7 @@ curl -X GET
   -H "Authorization: Bearer <Access-Token>"
 ``` 
 
-> Response 200 (application/json) Успешный запрос. Результат JSON объект, содержащий данные приложения
+> Response 200 (application/json) Successful request. Result JSON object containing application data
 
 ```json
 {
@@ -2687,33 +2605,31 @@ curl -X GET
 }
 ```
 
-#### Фильтрация выборки с помощью параметра filter=updatedBy
-Для фильтрации выборок сущностей по приложению укажите _uid_ изменившего их приложения.
+#### Filtering the selection using the filter=updatedBy parameter
+To filter entity selections by application, specify the _uid_ of the application that modified them.
 
-Uid приложения должен быть указан в виде:
-`<Application-Alias>.<Vendor-Alias>@<Account-Name>` 
+Application uid must be specified in the form:
+`<Application-Alias>.<Vendor-Alias>@<Account-Name>`
 
-Пример запроса на получение списка входящих платежей:
+An example of a request to receive a list of incoming payments:
 `https://app.kladana.in/api/remap/1.2/entity/paymentin?filter=updatedBy=test.moysklad@reqwy1` 
 
-#### Фильтрация записей аудита с помощью параметра filter=uid
-Для фильтрации аудита по приложению укажите _uid_ приложения, которое изменяло сущности.
+#### Filtering audit records using the filter=uid parameter
+To filter the audit by application, specify the _uid_ of the application that modified the entities.
 
-Uid приложения должен быть указан в виде:
-`<Application-Alias>.<Vendor-Alias>@<Account-Name>` 
+Application uid must be specified in the form:
+`<Application-Alias>.<Vendor-Alias>@<Account-Name>`
 
-Пример запроса на получение списка записей:
+An example of a request to get a list of records:
 `https://app.kladana.in/api/remap/1.2/audit?filter=uid=test.moysklad@reqwy1` 
 
-#### Фильтрация записей аудита с помощью параметра filter=application
-Для фильтрации аудита по приложению укажите _href_ приложения, которое изменяло сущности.
+#### Filtering audit entries with the filter=application parameter
+To filter the audit by application, specify the _href_ of the application that modified the entities.
 
-Href приложения должен быть указан в виде:
+Application href must be specified in the form:
 `https://app.kladana.in/api/remap/1.2/entity/application/{id}`, 
-где _id_ - UUID установленного на аккаунте приложения
+where _id_ is the UUID of the application installed on the account
 
-Пример запроса на получение списка записей:
+An example of a request to get a list of records:
 `https://app.kladana.in/api/remap/1.2/audit?filter=application=https://app.kladana.in/api/remap/1.2/entity/application/46ea8005-2965-11e9-9ff4-34e80009ac49` 
 
-### Устаревшие версии JSON API 
-Версия [API REMAP 1.1](https://dev.moysklad.ru/doc/api/remap/1.1/) устарела. Поддерживается и работает, но не развивается и не дополняется новыми возможностями.

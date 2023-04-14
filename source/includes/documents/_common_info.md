@@ -17,15 +17,15 @@
 | Cчет покупателю (invoiceout)            | Заказ покупателя (customerorder)                                                                                                                                                         |
 | Возврат покупателя (salesreturn)        | Отгрузка (demand), <br>Розничная продажа (retaildemand)                                                                                                                                  |
 | Возврат поставщику (purchasereturn)     | Приемка (supply)                                                                                                                                                                         |
-| Входящий платеж (paymentin)             | Заказ покупателя (salesreturn), <br>Возврат поставщику (purchasereturn), <br>Отгрузка (demand), <br>Счет покупателю (invoiceout), <br>Полученный отчет комиссионера (commissionreportin) |
+| Входящий платеж (paymentin)             | Заказ покупателя (salesreturn), <br>Возврат поставщику (purchasereturn), <br>Отгрузка (demand), <br>Счет покупателю (invoiceout)|
 | Заказ на производство (processingorder) | Тех. карта (processingplan)                                                                                                                                                              |
 | Заказ поставщику (purchaseorder)        | Внутренний заказ (internalorder)                                                                                                                                                         |
-| Исходящий платеж (paymentout)           | Возврат покупателя (salesreturn), <br>Приемка (supply), <br>Счет поставщика (invoicein), <br>Заказ поставщику (purchaseorder), <br>Выданный отчет комиссионера (commissionreportout)     |
+| Исходящий платеж (paymentout)           | Возврат покупателя (salesreturn), <br>Приемка (supply), <br>Счет поставщика (invoicein), <br>Заказ поставщику (purchaseorder) |
 | Оприходование (enter)                   | Инвентаризация(inventory)                                                                                                                                                                |
 | Отгрузка (demand)                       | Заказ покупателя (customerorder)                                                                                                                                                         |
 | Перемещение (move)                      | Внутренний заказ (internalorder)                                                                                                                                                         |
-| Приходный ордер (cashin)                | Заказ покупателя (salesreturn), <br>Возврат поставщику (purchasereturn), <br>Отгрузка (demand), <br>Счет покупателю (invoiceout), <br>Полученный отчет комиссионера (commissionreportin) |
-| Расходный ордер (cashout)               | Возврат покупателя (salesreturn), <br>Приемка (supply), <br>Счет поставщика (invoicein), <br>Заказ поставщику (purchaseorder), <br>Выданный отчет комиссионера (commissionreportout)     |
+| Приходный ордер (cashin)                | Заказ покупателя (salesreturn), <br>Возврат поставщику (purchasereturn), <br>Отгрузка (demand), <br>Счет покупателю (invoiceout)|
+| Расходный ордер (cashout)               | Возврат покупателя (salesreturn), <br>Приемка (supply), <br>Счет поставщика (invoicein), <br>Заказ поставщику (purchaseorder)|
 | Розничная продажа (retaildemand)        | Розничная смена, Заказ покупателя                                                                                                                                                        |
 | Списание (loss)                         | Возврат покупателя (salesreturn),<br>инвентаризация(inventory)                                                                                                                           |
 | Счет поставщика (invoicein)             | Заказ поставщику (purchaseorder)                                                                                                                                                         |
@@ -467,100 +467,7 @@
 В результате привзяки платежа, в составе коллекции **operations** платежа появится новый объект, указывающий на документ, а в составе коллекции **payments** у документа, к которому
 привязывается платеж, появится новый элемент ссылающийся на данный платеж.
 
-### Пример привязки платежа 1 
-
-Привязка входящего платежа к полученному отчету комиссионера.
-
-> Пример запроса на привязку платежа к полученному отчету комиссионера.
-
-```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/paymentin/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "operations": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/commissionreportin/392fb7a9-ab02-11e6-8a84-bae500000073",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/commissionreportin/metadata",
-                  "type": "commissionreportin",
-                  "mediaType": "application/json"
-                }
-              }
-            ]
-          }'  
-```
-
-> Response 200 (application/json)
-Результат - входящий платеж с новым элементом в коллекции operations.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/94a9f8e9-b30b-11e6-8a84-bae500000017",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-    "type": "paymentin",
-    "mediaType": "application/json"
-  },
-  "id": "94a9f8e9-b30b-11e6-8a84-bae500000017",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-11-25 15:35:00",
-  "name": "Платеж",
-  "externalCode": "-S9khhF3gNPa78SPCu81S2",
-  "moment": "2016-11-25 15:35:00",
-  "applicable": true,
-  "sum": 400,
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942953e-9128-11e6-8a84-bae500000054",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/a8f3150d-9d39-11e6-8a84-bae500000074",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "vatSum": 0,
-  "operations": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/commissionreportin/392fb7a9-ab02-11e6-8a84-bae500000073",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/commissionreportin/metadata",
-        "type": "commissionreportin",
-        "mediaType": "application/json"
-      },
-      "linkedSum": 0
-    }
-  ]
-}
-
-```
-
-### Пример привязки платежа 2 
+### Пример привязки платежа  
 
 Привязка приходного ордера к заказу покупателя.
 

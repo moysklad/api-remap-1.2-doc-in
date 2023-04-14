@@ -85,14 +85,7 @@ curl -X GET
       "update": "ALL",
       "delete": "ALL"
     },
-    "commissionReportIn": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
+
     "processingPlan": {
       "view": "ALL",
       "create": "ALL",
@@ -196,19 +189,8 @@ curl -X GET
       "delete": "ALL",
       "approve": "ALL"
     },
-    "retailStore": {
-      "view": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL"
-    },
-    "retailShift": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL"
-    },
+    
+
     "purchaseReturn": {
       "view": "ALL",
       "print": "ALL",
@@ -241,23 +223,8 @@ curl -X GET
       "delete": "ALL",
       "approve": "ALL"
     },
-    "factureIn": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
+  
     "bonusTransaction": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
-    "commissionReportOut": {
       "view": "ALL",
       "print": "ALL",
       "create": "ALL",
@@ -281,14 +248,6 @@ curl -X GET
       "delete": "ALL"
     },
     "retailDemand": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
-    "priceList": {
       "view": "ALL",
       "print": "ALL",
       "create": "ALL",
@@ -357,14 +316,7 @@ curl -X GET
       "update": "ALL",
       "delete": "ALL"
     },
-    "factureOut": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
+
     "processing": {
       "view": "ALL",
       "print": "ALL",
@@ -540,14 +492,7 @@ curl -X GET
           "update": "ALL",
           "delete": "ALL"
         },
-        "commissionReportIn": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
+     
         "processingPlan": {
           "view": "ALL",
           "create": "ALL",
@@ -651,19 +596,8 @@ curl -X GET
           "delete": "ALL",
           "approve": "ALL"
         },
-        "retailStore": {
-          "view": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL"
-        },
-        "retailShift": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL"
-        },
+      
+        
         "purchaseReturn": {
           "view": "ALL",
           "print": "ALL",
@@ -696,23 +630,8 @@ curl -X GET
           "delete": "ALL",
           "approve": "ALL"
         },
-        "factureIn": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
+    
         "bonusTransaction": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
-        "commissionReportOut": {
           "view": "ALL",
           "print": "ALL",
           "create": "ALL",
@@ -736,14 +655,6 @@ curl -X GET
           "delete": "ALL"
         },
         "retailDemand": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
-        "priceList": {
           "view": "ALL",
           "print": "ALL",
           "create": "ALL",
@@ -812,14 +723,7 @@ curl -X GET
           "update": "ALL",
           "delete": "ALL"
         },
-        "factureOut": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
+   
         "processing": {
           "view": "ALL",
           "print": "ALL",
@@ -1012,14 +916,7 @@ curl -X POST
       "update": "NO",
       "delete": "NO"
     },
-    "commissionReportIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
+
     "processingPlan": {
       "view": "NO",
       "create": "NO",
@@ -1123,19 +1020,8 @@ curl -X POST
       "delete": "NO",
       "approve": "NO"
     },
-    "retailStore": {
-      "view": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO"
-    },
-    "retailShift": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO"
-    },
+  
+   
     "purchaseReturn": {
       "view": "NO",
       "print": "NO",
@@ -1168,23 +1054,8 @@ curl -X POST
       "delete": "NO",
       "approve": "NO"
     },
-    "factureIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
+
     "bonusTransaction": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "commissionReportOut": {
       "view": "NO",
       "print": "NO",
       "create": "NO",
@@ -1208,14 +1079,6 @@ curl -X POST
       "delete": "NO"
     },
     "retailDemand": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "priceList": {
       "view": "NO",
       "print": "NO",
       "create": "NO",
@@ -1284,14 +1147,7 @@ curl -X POST
       "update": "NO",
       "delete": "NO"
     },
-    "factureOut": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
+ 
     "processing": {
       "view": "NO",
       "print": "NO",
@@ -1488,14 +1344,7 @@ curl -X PUT
       "update": "NO",
       "delete": "NO"
     },
-    "commissionReportIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
+ 
     "processingPlan": {
       "view": "NO",
       "create": "NO",
@@ -1599,19 +1448,8 @@ curl -X PUT
       "delete": "NO",
       "approve": "NO"
     },
-    "retailStore": {
-      "view": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO"
-    },
-    "retailShift": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO"
-    },
+   
+    
     "purchaseReturn": {
       "view": "NO",
       "print": "NO",
@@ -1644,23 +1482,8 @@ curl -X PUT
       "delete": "NO",
       "approve": "NO"
     },
-    "factureIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
+ 
     "bonusTransaction": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "commissionReportOut": {
       "view": "NO",
       "print": "NO",
       "create": "NO",
@@ -1684,14 +1507,6 @@ curl -X PUT
       "delete": "NO"
     },
     "retailDemand": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "priceList": {
       "view": "NO",
       "print": "NO",
       "create": "NO",
@@ -1760,14 +1575,7 @@ curl -X PUT
       "update": "NO",
       "delete": "NO"
     },
-    "factureOut": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
+ 
     "processing": {
       "view": "NO",
       "print": "NO",

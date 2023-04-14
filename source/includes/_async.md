@@ -1,31 +1,31 @@
-## Асинхронный обмен
+## Asynchronous exchange
 
-В JSON API можно выполнить некоторые запросы асинхронно. Это позволяет проводить выгрузку больших коллекций, 
-не прибегая к листанию, если работа в реальном времени не критична. 
+With the JSON API, it is possible to execute some queries asynchronously. This allows you to upload large collections,
+without resorting to paging if real-time work is not critical.
 
-Асинхронный обмен поддерживается не для всех запросов. Список запросов, которые могут быть выполнены асинхронно:
+Asynchronous exchange is not supported for all requests. List of requests that can be executed asynchronously:
 
-+ [Отчет Остатки](reports/#otchety-otchet-ostatki)
-+ [Отчет Прибыльность](reports/#otchety-otchet-pribyl-nost)
-+ [Отчет Деньги](reports/#otchety-otchet-den-gi)
-+ [Отчет Показатели продаж и заказов](reports/#otchety-pokazateli-prodazh-i-zakazow)
-+ [Отчет Показатели контрагентов](reports/#otchety-otchet-pokazateli-kontragentow) (кроме [выборочных показателей](reports/#otchety-otchet-pokazateli-kontragentow-vyborochnye-pokazateli-kontragentow))
-+ [Отчет Показатели](reports/#otchety-pokazateli)
-+ [Получение списка Контрагентов](dictionaries/#suschnosti-kontragent-poluchit-spisok-kontragentow)
-+ [Получение Ассортимента](dictionaries/#suschnosti-assortiment)
++ [Report Balance](reports/#otchety-otchet-ostatki)
++ [Report Profitability](reports/#otchety-otchet-pribyl-nost)
++ [Report Money](reports/#otchety-otchet-den-gi)
++ [Sales and Orders Report](reports/#otchety-pokazateli-prodazh-i-zakazow)
++ [Report Counterparties indicators](reports/#otchety-otchet-pokazateli-kontragentow) (except [selected indicators](reports/#otchety-otchet-pokazateli-kontragentow-vyborochnye-pokazateli-kontragentow))
++ [Report Metrics](reports/#otchety-pokazateli)
++ [Getting a list of Counterparties](dictionaries/#suschnosti-kontragent-poluchit-spisok-kontragentow)
++ [Get Assortment](dictionaries/#suschnosti-assortiment)
 
-После выполнения запроса в асинхронном режиме результат доступен в течение 1 часа. 
+After executing a query in asynchronous mode, the result is available within 1 hour.
 
-На количество задач в очереди и число одновременно выполняющихся асинхронных задач установлены [ограничения](#mojsklad-json-api-obschie-swedeniq-ogranicheniq).
+There are [limits](#mojsklad-json-api-obschie-swedeniq-ogranicheniq) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
 
-На данный момент в процессе асинхронного выполнения запроса могут возникать дубли позиций коллекции, 
-если параллельно с подготовкой результата добавляются новые элементы. 
-Кроме того, элементы могут отсутствовать, если параллельно с обработкой Асинхронной задачи удаляются связанные с задачей сущности 
-(например, удаление товара в процессе подготовки Отчета Остатки).
+At the moment, in the process of asynchronous query execution, duplicates of collection positions may occur,
+if new elements are added in parallel with the preparation of the result.
+In addition, elements may be missing if, in parallel with the processing of an Asynchronous task, the entities associated with the task are deleted.
+(for example, deletion of an item during the preparation of the Inventory Report).
 
-### Выполнение запроса в асинхронном режиме
+### Execute request in asynchronous mode
 
-> Пример запроса на создание Асинхронной задачи
+> Sample request to create an Asynchronous task
 
 ```shell
 curl -X GET
@@ -34,61 +34,61 @@ curl -X GET
 ```
 
 > Response 202
-Успешное создание Асинхронной задачи
+Successful creation of an Asynchronous Task
 
 ```shell
 Location: https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result
 Content-Location: https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089
 ```
 
-Чтобы выполнить запрос в асинхронном режиме, нужно в параметрах строки запроса указать `async=true`. 
-Указание параметров строки запроса **offset** и **limit**, свойственных для синхронных запросов, является ошибкой.
+To execute a request in asynchronous mode, you need to specify `async=true` in the query string parameters.
+Specifying the **offset** and **limit** query string options that are specific to synchronous queries is an error.
 
-**Параметры**
+**Options**
 
-| Параметр                       | Описание                                                                                                                      |
-| ------------------------------ | :---------------------------------------------------------------------------------------------------------------------------- |
-| **async**                      | `boolean`<br>`true` - будет создана Асинхронная задача.<br>`false` (по умолчанию) - запрос будет выполнен в синхронном режиме |
+| Parameter | Description |
+| ---------|---------|
+| **async** | `boolean`<br>`true` - an Asynchronous task will be created.<br>`false` (default) - the request will be executed in synchronous mode |
 
-Результатом выполнения запроса будет создание Асинхронной задачи, которая будет помещена в очередь. В ответе будут содержаться заголовки, содержащие URL статуса и результата задачи.
+The result of the request execution will be the creation of an Asynchronous Task, which will be placed in the queue. The response will contain headers containing the URL of the task's status and result.
 
-| Параметр             | Описание                                      |
-| :------------------- | :-------------------------------------------- |
-| **Location**         | URL результата выполнения Асинхронной задачи. |
-| **Content-Location** | URL статуса Асинхронной задачи.               |
+| Parameter | Description |
+| -------------------- | -------------------------------------------------- |
+| **Location** | The URL of the result of the execution of the Asynchronous Task. |
+| **Content-Location** | Status URL of the Asynchronous Task. |
 
-### Асинхронная задача
+### Asynchronous task
 
-Асинхронная задача содержит в себе информацию о создателе задачи, ее текущем статусе, наличии ответа и другую информацию.
+An asynchronous task contains information about the creator of the task, its current status, the presence of a response, and other information.
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название         | Тип                                                     | Описание                                                                                                                                                                                                                     |
-| ---------------- |:--------------------------------------------------------| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**    | UUID                                                    | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                         |
-| **deletionDate** | DateTime                                                | Дата, после которой результат выполнения задачи станет недоступен. Содержится в ответе, если поле **state** имеет значение `DONE`<br>`+Только для чтения`                                                                    |
-| **errors**       | Object                                                  | json ошибки апи, если поле **state** имеет значение `API_ERROR`<br>`+Только для чтения`                                                                                                                                      |
-| **id**           | UUID                                                    | ID Асинхронной задачи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                     |
-| **meta**         | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Асинхронной задачи<br>`+Обязательное при ответе`                                                                                                                                                                  |
-| **owner**        | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye)  | Пользователь или приложение, которые создали Асинхронную задачу<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                           |
-| **request**      | String                                                  | URL запроса, по которому создана Асинхронная задача<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                       |
-| **resultUrl**    | String                                                  | Ссылка на результат выполнения задачи. Содержится в ответе, если поле **state** имеет значение `DONE`<br>`+Только для чтения`                                                                                                |
-| **state**        | Enum                                                    | Статус выполнения Асинхронной задачи. [Подробнее тут](#mojsklad-json-api-asinhronnyj-obmen-asinhronnaq-zadacha-atributy-suschnosti-status-wypolneniq-asinhronnoj-zadachi)<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description |
+| ---------|------| ----------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **deletionDate** | datetime | The date after which the result of the task will become unavailable. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
+| **errors** | object | json api error if **state** field is set to `API_ERROR`<br>`+Read Only` |
+| **id** | UUID | Asynchronous Task ID<br>`+Required for response` `+Read Only` |
+| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Asynchronous Task Metadata<br>`+Required for response` |
+| **owner** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | The user or application that created the Asynchronous Task<br>`+Required on Response` `+Read Only` |
+| **request** | string | The URL of the request that created the Asynchronous Task<br>`+Required for response` `+Read Only` |
+| **resultUrl** | string | Link to the task result. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
+| **state** | Enum | The execution status of the Asynchronous Task. [More details here](#mojsklad-json-api-asinhronnyj-obmen-asinhronnaq-zadacha-atributy-suschnosti-status-wypolneniq-asinhronnoj-zadachi)<br>`+Required when replying` `+Read only` |
 
-##### Статус выполнения Асинхронной задачи
+##### Asynchronous task execution status
 
-| Значение                       | Описание                                                                                                         |
-| ------------------------------ | :--------------------------------------------------------------------------------------------------------------- |
-| **PENDING**                    | Задача находится в очереди                                                                                       |
-| **PROCESSING**                 | Задача находится в обработке, результат еще не готов                                                             |
-| **DONE**                       | Задача выполнена успешно                                                                                         |
-| **ERROR**                      | Задача не была выполнена в результате внутренней ошибки. В этом случае нужно попробовать запустить задачу заново |
-| **CANCEL**                     | Задача была отменена                                                                                             |
-| **API_ERROR**                  | Задача была завершена с ошибкой апи                                                                              |
+| Meaning | Description |
+| ---------------- | ------------ |
+| **PENDING** | The task is in the queue |
+| **PROCESSING** | The task is being processed, the result is not ready yet |
+| **DONE** | Task completed successfully |
+| **ERROR** | The task was not completed due to an internal error. In this case, you should try to run the task again |
+| **CANCEL** | The task has been canceled |
+| **API_ERROR** | The task was completed with an api error |
 
-### Статусы Асинхронных задач
+### Statuses of Asynchronous Tasks
 
-> Пример запроса на получение списка статусов Асинхронных задач
+> Example of a request to get a list of statuses of Asynchronous tasks
 
 ```shell
 curl -X GET
@@ -97,7 +97,7 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка статусов Асинхронных задач.
+Successful request. The result is a JSON representation of the list of Asynchronous Task statuses.
 
 ```json
 {
@@ -165,14 +165,14 @@ curl -X GET
 }
 ```
 
-Запрос на получение списка статусов выполнения Асинхронной задачи. 
-Результат содержит статусы Асинхронных задач за последнюю неделю. 
+Request to get a list of execution statuses of an Asynchronous task.
+The result contains the statuses of the Asynchronous Tasks for the last week.
 
-Доступна фильтрация по полям **state**, **request**, **deletionDate**. 
+Filtering by **state**, **request**, **deletionDate** fields is available.
 
-### Получение статуса Асинхронной задачи
+### Getting the status of an Asynchronous Task
 
-> Пример запроса на получение статуса Асинхронной задачи
+> Example of a request to get the status of an Asynchronous task
 
 ```shell
 curl -X GET
@@ -180,8 +180,8 @@ curl -X GET
   -H "Authorization: Bearer <Access-Token>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление статуса выполнения Асинхронной задачи.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the execution status of the Asynchronous Task.
 
 ```json
 {
@@ -208,8 +208,8 @@ curl -X GET
 }
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление статуса выполнения Асинхронной задачи со статусом API_ERROR.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the execution status of the Asynchronous Task with the API_ERROR status.
 
 ```json
 {
@@ -235,17 +235,17 @@ curl -X GET
 }
 ```
 
-Запрос на получение статуса выполнения Асинхронной задачи.
+Request to get the execution status of an Asynchronous task.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                   |
-| :------- | :----------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 498b8673-0308-11e6-9464-e4de00000089* id Асинхронной задачи. |
+| Parameter | Description|
+| ------- | -------- |
+| **id** | `string` (required) *Example: 498b8673-0308-11e6-9464-e4de00000089* Asynchronous task id. |
 
-### Получение результата выполнения Асинхронной задачи
+### Getting the result of an Asynchronous task execution
 
-> Пример запроса на получение результата Асинхронной задачи
+> Example of a request to get the result of an Asynchronous task
 
 ```shell
 curl -X GET
@@ -254,9 +254,9 @@ curl -X GET
 ```
 
 > Response 200
-Успешный запрос. Результат - файл с результатом выполнения Асинхронной задачи в формате json.
+Successful request. Result is a file with the result of the execution of the Asynchronous task in json format.
 
-> Пример полученного отчета
+> Example of received report
 
 ```json
 {
@@ -323,7 +323,7 @@ curl -X GET
             "type": "store",
             "mediaType": "application/json"
           },
-          "name": "Не основной склад",
+          "name": "Not main warehouse",
           "stock": 0,
           "reserve": 0,
           "inTransit": 0
@@ -335,7 +335,7 @@ curl -X GET
             "type": "store",
             "mediaType": "application/json"
           },
-          "name": "Основной склад",
+          "name": "Main warehouse",
           "stock": 4,
           "reserve": 0,
           "inTransit": 0
@@ -346,24 +346,25 @@ curl -X GET
 }
 ```
 
-Запрос на получение результата выполнения Асинхронной задачи. 
 
-**Параметры**
+A request to receive the result of an Asynchronous task execution.
 
-| Параметр | Описание                                                                                   |
-| :------- | :----------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 498b8673-0308-11e6-9464-e4de00000089* id Асинхронной задачи. |
+**Parameters**
 
-Если статус задачи имеет значение `DONE` и время жизни результата не истекло, ответом на запрос будет перенаправление на ссылку загрузки результата выполнения Асинхронной задачи.
-С момента получения ссылка действительна 5 минут. 
-Большинство HTTP-клиентов осуществляют перенаправление автоматически, но если ваш клиент этого не делает, 
-то результат выполнения запроса будет иметь статус `302 FOUND` с заголовком **Location**, в котором и содержится ссылка на результат. 
-После наступления даты, указанной в поле **deletionDate**, результат становится недоступен. 
+| Parameter | Description|
+| ------- | --------- |
+| **id** | `string` (required) *Example: 498b8673-0308-11e6-9464-e4de00000089* Asynchronous task id. |
 
-Если статус задачи имеет значение `API_ERROR`, то в json ответе на запрос получения результата задачи будет указана [ошибка](#mojsklad-json-api-oshibki), 
-аналогичная той, которую вернул синхронный вызов ресурса.
+If the status of the task is `DONE` and the result has not expired, the response to the request will be a redirect to the download link of the result of the execution of the Asynchronous Task.
+The link is valid for 5 minutes from the moment you receive it.
+Most HTTP clients do the redirect automatically, but if your client doesn't,
+then the result of the request will have the status `302 FOUND` with the header **Location**, which contains a link to the result.
+After the date specified in the **deletionDate** field, the result becomes unavailable.
 
-> Пример запроса на получение результата Асинхронной задачи со статусом API_ERROR
+If the task status is set to `API_ERROR`, then the json response to the request to get the result of the task will contain [error](#mojsklad-json-api-oshibki),
+similar to the one returned by the synchronous resource call.
+
+> An example of a request to get the result of an Asynchronous task with the API_ERROR status
 
 ```shell
 curl -X GET
@@ -371,33 +372,33 @@ curl -X GET
   -H "Authorization: Bearer <Access-Token>"
 ```
 
-> Пример результата задачи, который содержит описание ошибки 
-Response 403 Forbidden 
+> An example of a task result that contains a description of the error
+Response 403 Forbidden
  
 
 ```json
 {
-    "errors": [
-        {
-            "error": "Доступ запрещен: у вас нет прав на просмотр данного объекта",
-            "code": 1016
-        }
-    ]
+     "errors": [
+         {
+             "error": "Access Denied: You do not have permission to view this object",
+             code: 1016
+         }
+     ]
 }
 ```
 
 
-### Вебхуки Асинхронной задачи
+### Asynchronous Task Webhooks
 
-Настроить [вебхуки](dictionaries/#suschnosti-vebhuki) для асинхронной задачи можно аналогично остальным сущностям, но есть ряд исключений:
+You can set up [webhooks](dictionaries/#suschnosti-vebhuki) for an asynchronous task in the same way as other entities, but there are a number of exceptions:
 
-* для асинхронных задач нельзя настроить вебхук на событие удаления, так как удаление асинхронных задач происходит автоматически
-* для асинхронных задач в вебхуках появляется новое событие `PROCESSED`. Оно означает, что задача завершилась и можно узнать ее статус
-* вебхук на обновление приходит, когда меняется статус асинхронной задачи
+* for asynchronous tasks, you cannot set up a webhook for the delete event, since asynchronous tasks are automatically deleted
+* for asynchronous tasks in webhooks, a new `PROCESSED` event appears. It means that the task has completed and you can find out its status
+* the update webhook comes when the status of an asynchronous task changes
 
-При формировании запроса на создание вебхука в поле `entityType` нужно указать тип `async` - асинхронная задача.
+When forming a request to create a webhook, the `entityType` field must specify the type `async` - an asynchronous task.
 
- > Пример запроса на создание вебхука на событие PROCESSED для Асинхронной задачи
+  > An example of a request to create a webhook on the PROCESSED event for an Asynchronous task
 
 ```shell
 curl -X POST
@@ -411,8 +412,8 @@ curl -X POST
       }'
 ```
 
-> Response 200 
-> Пример полученного ответа
+> Response200
+> Sample response received
 
 ```json
 {
@@ -432,10 +433,10 @@ curl -X POST
 }
 ```
 
-На указанный в поле `url` адрес при срабатывании вебхука будет приходить сообщение, у которого в `meta` в поле `href` указан url 
-на получение статуса асинхронной задачи.
+When the webhook is triggered, the address specified in the `url` field will receive a message with the url specified in `meta` in the `href` field
+to get the status of an asynchronous task.
 
-> Пример результата срабатывания вебхука
+> Sample webhook result
 
 ```json
 {
@@ -450,11 +451,11 @@ curl -X POST
     }
   ]
 }
-``` 
+```
 
-### Отмена Асинхронной задачи
+### Cancel Asynchronous Task
 
-> Пример запроса на отмену Асинхронной задачи
+> Sample Request to Cancel an Asynchronous Task
 
 ```shell
 curl -X PUT
@@ -463,12 +464,12 @@ curl -X PUT
 ```
 
 > Response 204
-Успешная отмена задачи
+Successful cancellation of the task
 
-Запрос на отмену находящейся в очереди `PENDING` или в процессе обработки `PROCESSING` Асинхронной задачи.
+A request to cancel a `PENDING` queue or `PROCESSING` Asynchronous task in progress.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                   |
-| :------- | :----------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 498b8673-0308-11e6-9464-e4de00000089* id Асинхронной задачи. |
+| Parameter | Description |
+| ------- | --------------- |
+| **id** | `string` (required) *Example: 498b8673-0308-11e6-9464-e4de00000089* Asynchronous task ID. |
