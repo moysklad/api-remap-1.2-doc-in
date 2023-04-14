@@ -2872,7 +2872,7 @@ curl -X POST
 [
   {
     "meta": {
-      "href": "http://online.moysklad.ru/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/ceba215c-d5cb-11e7-0532-9eed00000005",
+      "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/ceba215c-d5cb-11e7-0532-9eed00000005",
       "type": "contactperson",
       "mediaType": "application/json"
     },
@@ -2887,11 +2887,11 @@ curl -X POST
     "position": "овощедоставщик",
     "agent": {
       "meta": {
-        "href": "http://online.moysklad.ru/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
-        "metadataHref": "http://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
+        "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
+        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
-        "uuidHref": "http://online.moysklad.ru/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+        "uuidHref": "http://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
       }
     }
   }

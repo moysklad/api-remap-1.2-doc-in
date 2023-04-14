@@ -49,7 +49,7 @@
 
 ```shell
   curl -X GET
-    "https://online.moysklad.ru/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
+    "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
     -H "Authorization: Basic <Credentials>"
 ```
 
@@ -60,15 +60,15 @@
    "context": {
      "employee": {
        "meta": {
-         "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
-         "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes",
      "type": "trackingcode",
      "mediaType": "application/json",
      "size": 23,
@@ -108,7 +108,7 @@
 
 ```shell
   curl -X POST
-    "https://online.moysklad.ru/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
+    "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
     -H "Authorization: Basic <Credentials>
     -H "Content-Type: application/json"
       -d '[
@@ -151,13 +151,13 @@
 
 ```shell
   curl -X POST
-    "https://online.moysklad.ru/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
+    "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
     -H "Authorization: Basic <Credentials>
     -H "Content-Type: application/json"
       -d '[
             {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/c7eccae6-1bb9-11ec-ac18-000c00000001",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/c7eccae6-1bb9-11ec-ac18-000c00000001",
                 "type": "trackingcode",
                 "mediaType": "application/json"
               }

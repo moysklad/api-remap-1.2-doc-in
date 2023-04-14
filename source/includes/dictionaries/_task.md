@@ -50,14 +50,14 @@
 Чтобы реализовать подобную фильтрацию списка для JSON API, нужно использовать следующие фильтры для списка задач:
 
 + **Поручено мне**: фильтр по полю **assignee** в значении которого указана ссылка на текущего сотрудника<br>
-`https://online.moysklad.ru/api/remap/1.2/entity/task?filter=assignee=http://online.moysklad.ru/api/remap/1.2/entity/employee/<id текущего сотрудника>`
+`https://app.kladana.in/api/remap/1.2/entity/task?filter=assignee=http://app.kladana.in/api/remap/1.2/entity/employee/<id текущего сотрудника>`
 + **Я поручил**: фильтр по полю **author** в значении которого указана ссылка на текущего сотрудника<br>
-`https://online.moysklad.ru/api/remap/1.2/entity/task?filter=author=http://online.moysklad.ru/api/remap/1.2/entity/employee/<id текущего сотрудника>`
+`https://app.kladana.in/api/remap/1.2/entity/task?filter=author=http://app.kladana.in/api/remap/1.2/entity/employee/<id текущего сотрудника>`
 + **Все задачи**: не требует фильтрации. Обратите внимание на пункт [Отображение списка по умолчанию](../dictionaries/#suschnosti-zadacha-zadachi-otobrazhenie-spiska-po-umolchaniu)
 + **Активные**: фильтр по полю **done** со значением false<br>
-`https://online.moysklad.ru/api/remap/1.2/entity/task?filter=done=false`
+`https://app.kladana.in/api/remap/1.2/entity/task?filter=done=false`
 + **Выполненные**: фильтр по полю **done** со значением true<br>
-`https://online.moysklad.ru/api/remap/1.2/entity/task?filter=done=true`
+`https://app.kladana.in/api/remap/1.2/entity/task?filter=done=true`
 
 #### Права доступа
 | Операция                                                                          | Доступ                                                                        |
@@ -93,7 +93,7 @@
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/entity/task"
+  "https://app.kladana.in/api/remap/1.2/entity/task"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -105,15 +105,15 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task",
     "type": "task",
     "mediaType": "application/json",
     "size": 2,
@@ -123,8 +123,8 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
         "type": "task",
         "mediaType": "application/json"
       },
@@ -132,11 +132,11 @@ curl -X GET
       "accountId": "98182760-8aa1-11e8-7210-075e00000001",
       "author": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
         }
       },
       "created": "2018-07-19 22:09:37",
@@ -145,26 +145,26 @@ curl -X GET
       "dueToDate": "2018-07-20 22:09:00",
       "assignee": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
         }
       },
       "done": false,
       "agent": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
           "type": "counterparty",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
+          "uuidHref": "https://app.kladana.in/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
         }
       },
       "notes": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
           "type": "tasknote",
           "mediaType": "application/json",
           "size": 2,
@@ -175,8 +175,8 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/aaca57a2-8b86-11e8-d9ce-84d900000007",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/aaca57a2-8b86-11e8-d9ce-84d900000007",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
         "type": "task",
         "mediaType": "application/json"
       },
@@ -184,11 +184,11 @@ curl -X GET
       "accountId": "98182760-8aa1-11e8-7210-075e00000001",
       "author": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
         }
       },
       "created": "2018-07-19 22:05:14",
@@ -197,26 +197,26 @@ curl -X GET
       "dueToDate": "2018-07-20 22:05:00",
       "assignee": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
         }
       },
       "done": false,
       "operation": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/7eb5b552-8aa3-11e8-7210-075e000000f1",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/supply/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/supply/7eb5b552-8aa3-11e8-7210-075e000000f1",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/supply/metadata",
           "type": "supply",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#supply/edit?id=7eb5b552-8aa3-11e8-7210-075e000000f1"
+          "uuidHref": "https://app.kladana.in/app/#supply/edit?id=7eb5b552-8aa3-11e8-7210-075e000000f1"
         }
       },
       "notes": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/aaca57a2-8b86-11e8-d9ce-84d900000007/notes",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/task/aaca57a2-8b86-11e8-d9ce-84d900000007/notes",
           "type": "tasknote",
           "mediaType": "application/json",
           "size": 0,
@@ -243,7 +243,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://online.moysklad.ru/api/remap/1.2/entity/task"
+    "https://app.kladana.in/api/remap/1.2/entity/task"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -251,8 +251,8 @@ curl -X GET
             "dueToDate": "2017-05-12 17:12:00",
             "assignee": {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json"
               }
@@ -260,8 +260,8 @@ curl -X GET
             "done": false,
             "agent": {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
                 "type": "organization",
                 "mediaType": "application/json"
               }
@@ -275,8 +275,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000",
-    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
     "type": "task",
     "mediaType": "application/json"
   },
@@ -284,11 +284,11 @@ curl -X GET
   "accountId": "98182760-8aa1-11e8-7210-075e00000001",
   "author": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "created": "2018-07-19 22:13:25",
@@ -297,26 +297,26 @@ curl -X GET
   "dueToDate": "2017-05-12 17:12:00",
   "assignee": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "done": false,
   "agent": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
+      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
     }
   },
   "notes": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
       "type": "tasknote",
       "mediaType": "application/json",
       "size": 0,
@@ -336,7 +336,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://online.moysklad.ru/api/remap/1.2/entity/task"
+    "https://app.kladana.in/api/remap/1.2/entity/task"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '[
@@ -345,8 +345,8 @@ curl -X GET
               "dueToDate": "2017-05-12 17:12:00",
               "assignee": {
                 "meta": {
-                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
                   "type": "employee",
                   "mediaType": "application/json"
                 }
@@ -354,8 +354,8 @@ curl -X GET
               "done": false,
               "agent": {
                 "meta": {
-                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
                   "type": "organization",
                   "mediaType": "application/json"
                 }
@@ -363,16 +363,16 @@ curl -X GET
             },
             {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000",
-                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
                 "type": "task",
                 "mediaType": "application/json"
               },
               "description": "Уточнить контактные лица",
               "assignee": {
                 "meta": {
-                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
                   "type": "employee",
                   "mediaType": "application/json"
                 }
@@ -380,8 +380,8 @@ curl -X GET
               "done": true,
               "agent": {
                 "meta": {
-                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
-                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                   "type": "counterparty",
                   "mediaType": "application/json"
                 }
@@ -397,8 +397,8 @@ curl -X GET
 [
   {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/9971ba00-8b88-11e8-d9ce-84d900000009",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/9971ba00-8b88-11e8-d9ce-84d900000009",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
       "type": "task",
       "mediaType": "application/json"
     },
@@ -406,11 +406,11 @@ curl -X GET
     "accountId": "98182760-8aa1-11e8-7210-075e00000001",
     "author": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "created": "2018-07-19 22:19:04",
@@ -419,26 +419,26 @@ curl -X GET
     "dueToDate": "2017-05-12 17:12:00",
     "assignee": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "done": false,
     "agent": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
         "type": "organization",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
+        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
       }
     },
     "notes": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/9971ba00-8b88-11e8-d9ce-84d900000009/notes",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/9971ba00-8b88-11e8-d9ce-84d900000009/notes",
         "type": "tasknote",
         "mediaType": "application/json",
         "size": 0,
@@ -449,8 +449,8 @@ curl -X GET
   },
   {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
       "type": "task",
       "mediaType": "application/json"
     },
@@ -458,11 +458,11 @@ curl -X GET
     "accountId": "98182760-8aa1-11e8-7210-075e00000001",
     "author": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "created": "2018-07-19 22:13:25",
@@ -471,36 +471,36 @@ curl -X GET
     "dueToDate": "2017-05-12 17:12:00",
     "implementer": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "completed": "2018-07-19 22:19:04",
     "assignee": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "done": true,
     "agent": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
+        "uuidHref": "https://app.kladana.in/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
       }
     },
     "notes": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
         "type": "tasknote",
         "mediaType": "application/json",
         "size": 0,
@@ -527,7 +527,7 @@ curl -X GET
 
 ```shell
 curl -X DELETE
-  "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -543,21 +543,21 @@ curl -X DELETE
 
 ```shell
 curl -X POST
-  "https://online.moysklad.ru/api/remap/1.2/entity/task/delete"
+  "https://app.kladana.in/api/remap/1.2/entity/task/delete"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '[
         {
           "meta": {
-            "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+            "href": "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b1",
+            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
             "type": "task",
             "mediaType": "application/json"
         },
         {
           "meta": {
-            "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+            "href": "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b2",
+            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
             "type": "task",
             "mediaType": "application/json"
         }
@@ -591,7 +591,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -601,8 +601,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
-    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
     "type": "task",
     "mediaType": "application/json"
   },
@@ -610,11 +610,11 @@ curl -X GET
   "accountId": "98182760-8aa1-11e8-7210-075e00000001",
   "author": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "created": "2018-07-19 22:09:37",
@@ -623,26 +623,26 @@ curl -X GET
   "dueToDate": "2018-07-20 22:09:00",
   "assignee": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "done": false,
   "agent": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
+      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
     }
   },
   "notes": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
       "type": "tasknote",
       "mediaType": "application/json",
       "size": 2,
@@ -668,28 +668,28 @@ curl -X GET
 
 ```shell
   curl -X PUT
-    "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
+    "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "description": "Уточнить контактные лица",
             "assignee": {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json",
-                "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+                "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
               }
             },
             "done": true,
             "agent": {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
                 "type": "organization",
                 "mediaType": "application/json",
-                "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
+                "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
               }
             }
           }'  
@@ -701,8 +701,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
-    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/task/metadata",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
     "type": "task",
     "mediaType": "application/json"
   },
@@ -710,11 +710,11 @@ curl -X GET
   "accountId": "98182760-8aa1-11e8-7210-075e00000001",
   "author": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "created": "2018-07-19 22:09:37",
@@ -723,36 +723,36 @@ curl -X GET
   "dueToDate": "2018-07-20 22:09:00",
   "implementer": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "completed": "2018-07-19 22:24:24",
   "assignee": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "done": true,
   "agent": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
+      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
     }
   },
   "notes": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
       "type": "tasknote",
       "mediaType": "application/json",
       "size": 2,
@@ -790,7 +790,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
+  "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
   -H "Authorization: Basic <Credentials>"
 ```
  
@@ -802,15 +802,15 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
     "type": "tasknote",
     "mediaType": "application/json",
     "size": 2,
@@ -820,17 +820,17 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
         "type": "tasknote",
         "mediaType": "application/json"
       },
       "author": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
         }
       },
       "text": "текст комментария 1",
@@ -838,17 +838,17 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaac82-8b87-11e8-d9ce-84d900000026",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaac82-8b87-11e8-d9ce-84d900000026",
         "type": "tasknote",
         "mediaType": "application/json"
       },
       "author": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
         }
       },
       "text": "текст комментария 2",
@@ -876,7 +876,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
+    "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -891,17 +891,17 @@ curl -X GET
 [
   {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/5528751f-8b8a-11e8-d9ce-84d90000000f",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/5528751f-8b8a-11e8-d9ce-84d90000000f",
       "type": "tasknote",
       "mediaType": "application/json"
     },
     "author": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "text": "текст комментария 3",
@@ -914,7 +914,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
+    "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '[
@@ -934,17 +934,17 @@ curl -X GET
 [
   {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba69d28-8b8a-11e8-d9ce-84d900000012",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba69d28-8b8a-11e8-d9ce-84d900000012",
       "type": "tasknote",
       "mediaType": "application/json"
     },
     "author": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "text": "текст комментрания 4",
@@ -952,17 +952,17 @@ curl -X GET
   },
   {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba6a80c-8b8a-11e8-d9ce-84d900000013",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba6a80c-8b8a-11e8-d9ce-84d900000013",
       "type": "tasknote",
       "mediaType": "application/json"
     },
     "author": {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
       }
     },
     "text": "текст комментрания 5",
@@ -988,7 +988,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
+  "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -998,17 +998,17 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
     "type": "tasknote",
     "mediaType": "application/json"
   },
   "author": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "text": "текст комментария 1",
@@ -1035,7 +1035,7 @@ curl -X GET
 
 ```shell
   curl -X PUT
-    "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
+    "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -1049,17 +1049,17 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://online.moysklad.ru/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
     "type": "tasknote",
     "mediaType": "application/json"
   },
   "author": {
     "meta": {
-      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
     }
   },
   "text": "новый текст комментария 1",
@@ -1080,7 +1080,7 @@ curl -X GET
 
 ```shell
 curl -X DELETE
-  "https://online.moysklad.ru/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
+  "https://app.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
   -H "Authorization: Basic <Credentials>"
 ```
 
