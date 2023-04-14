@@ -40,7 +40,7 @@
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/report/dashboard/day"
+  "https://app.kladana.in/api/remap/1.2/report/dashboard/day"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -74,7 +74,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/report/dashboard/week"
+  "https://app.kladana.in/api/remap/1.2/report/dashboard/week"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -109,7 +109,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://online.moysklad.ru/api/remap/1.2/report/dashboard/month"
+  "https://app.kladana.in/api/remap/1.2/report/dashboard/month"
   -H "Authorization: Basic <Credentials>"
 ```
 
