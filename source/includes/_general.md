@@ -1,4 +1,7 @@
 # Kladana JSON API
+
+Please note that our API docs may include untranslated content. We kindly recommend using a translator tool. Apologies for any inconvenience caused
+
 ## General Info
 ### Authentication
 
@@ -193,7 +196,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **500** | An unexpected error occurred while processing the request |
 | **502** | Service temporarily unavailable |
 | **503** | Service temporarily disabled |
-| **504** | Service timeout exceededю Please try again later |
+| **504** | Service timeout exceeded Please try again later |
 
 Along with the error response body, you may receive the following headers:
 
