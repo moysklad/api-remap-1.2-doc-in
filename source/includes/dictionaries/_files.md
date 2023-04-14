@@ -62,7 +62,7 @@
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
+  "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -74,15 +74,15 @@ curl -X GET
     "context": {
         "employee": {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json"
             }
         }
     },
     "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files",
         "type": "files",
         "mediaType": "application/json",
         "size": 2,
@@ -92,10 +92,10 @@ curl -X GET
     "rows": [
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                 "type": "files",
                 "mediaType": "application/json",
-                "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+                "downloadHref": "https://online.moysklad.ru/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
             },
             "title": "birdimage",
             "filename": "birdimage.png",
@@ -103,31 +103,31 @@ curl -X GET
             "created": "2019-01-24 16:55:24.567",
             "createdBy": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
                   "type": "employee",
                   "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
+                  "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
                 }
             },
             "miniature": {
-                "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+                "href": "https://online.moysklad.ru/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
                 "type": "files",
                 "mediaType": "image/png",
                 "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
             },
             "tiny": {
-                "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+                "href": "https://online.moysklad.ru/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
                 "type": "files",
                 "mediaType": "image/png"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9d",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9d",
                 "type": "files",
                 "mediaType": "application/json",
-                "downloadHref": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9d"
+                "downloadHref": "https://online.moysklad.ru/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9d"
             },
             "title": "doc",
             "filename": "doc.pdf",
@@ -135,11 +135,11 @@ curl -X GET
             "created": "2019-01-25 17:30:25.021",
             "createdBy": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                  "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+                  "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
                   "type": "employee",
                   "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
+                  "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
                 }
             },
         }
@@ -171,7 +171,7 @@ curl -X GET
   
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
+    "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
     -d '[{  
@@ -190,10 +190,10 @@ curl -X GET
 [
   {
       "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
           "type": "files",
           "mediaType": "application/json",
-          "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+          "downloadHref": "https://online.moysklad.ru/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
       },
       "title": "birdimage",
       "filename": "birdimage.png",
@@ -201,31 +201,31 @@ curl -X GET
       "created": "2019-01-24 16:55:24.567",
       "createdBy": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
+            "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
           }
       },
       "miniature": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+          "href": "https://online.moysklad.ru/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
           "type": "files",
           "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
       },
       "tiny": {
-          "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+          "href": "https://online.moysklad.ru/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
           "type": "files",
           "mediaType": "image/png"
       }
   },
   {
       "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
           "type": "files",
           "mediaType": "application/json",
-          "downloadHref": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
+          "downloadHref": "https://online.moysklad.ru/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
       },
       "title": "doc",
       "filename": "doc.pdf",
@@ -233,11 +233,11 @@ curl -X GET
       "created": "2019-01-25 17:30:25.021",
       "createdBy": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
+            "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
           }
       }
   }
@@ -259,7 +259,7 @@ curl -X GET
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
+  "https://online.moysklad.ru/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
   -H "Authorization: Basic <Credentials>"
 ```
 > Response 200 (application/json)

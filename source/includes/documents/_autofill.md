@@ -102,29 +102,29 @@
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_price"
+    "https://online.moysklad.ru/api/remap/1.2/wizard/demand?action=evaluate_price"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '
 {
    "agent":{
       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href":"https://online.moysklad.ru/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+         "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
          "type":"counterparty",
          "mediaType":"application/json",
-         "uuidHref":"https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+         "uuidHref":"https://online.moysklad.ru/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
       }
    },
    "positions":[
       {
          "assortment":{
             "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+               "href":"https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+               "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                "type":"product",
                "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+               "uuidHref":"https://online.moysklad.ru/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
             }
          },
          "quantity":12
@@ -132,11 +132,11 @@
       {
          "assortment":{
             "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+               "href":"https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+               "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                "type":"product",
                "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+               "uuidHref":"https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
             }
          },
          "discount":20
@@ -152,22 +152,22 @@
 {
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+      "uuidHref": "https://online.moysklad.ru/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
     }
   },
   "positions": [
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
         }
       },
       "price": 3300.0,
@@ -178,11 +178,11 @@
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
         }
       },
       "price": 3300.0,
@@ -203,29 +203,29 @@
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_discount"
+    "https://online.moysklad.ru/api/remap/1.2/wizard/demand?action=evaluate_discount"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '
 {
    "agent":{
       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href":"https://online.moysklad.ru/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+         "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
          "type":"counterparty",
          "mediaType":"application/json",
-         "uuidHref":"https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+         "uuidHref":"https://online.moysklad.ru/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
       }
    },
    "positions":[
       {
          "assortment":{
             "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+               "href":"https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+               "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                "type":"product",
                "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+               "uuidHref":"https://online.moysklad.ru/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
             }
          },
          "quantity":12
@@ -233,11 +233,11 @@
       {
          "assortment":{
             "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+               "href":"https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+               "metadataHref":"https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                "type":"product",
                "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+               "uuidHref":"https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
             }
          }
       }
@@ -252,22 +252,22 @@
 {
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+      "uuidHref": "https://online.moysklad.ru/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
     }
   },
   "positions": [
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
         }
       },
       "quantity": 12.0,
@@ -277,11 +277,11 @@
       "discount": 40.0,
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
         }
       }
     }
@@ -299,29 +299,29 @@
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_vat"
+    "https://online.moysklad.ru/api/remap/1.2/wizard/demand?action=evaluate_vat"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '
 {
     "organization": {
         "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
             "type": "organization",
             "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
+            "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
         }
     },
     "vatEnabled": "true",
     "rate": {
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
+            "uuidHref": "https://online.moysklad.ru/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
           }
         }
     },
@@ -329,11 +329,11 @@
         {
             "assortment": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json",
-                    "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+                    "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
                 }
             },
             "quantity": 12
@@ -341,11 +341,11 @@
         {
             "assortment": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json",
-                    "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+                    "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
                 }
             }
         }
@@ -360,22 +360,22 @@
 {
   "organization": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
+      "uuidHref": "https://online.moysklad.ru/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
     }
   },
   "vatEnabled": true,
   "rate": {
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
+        "uuidHref": "https://online.moysklad.ru/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
       }
     }
   },
@@ -383,11 +383,11 @@
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
         }
       },
       "quantity": 12.0,
@@ -399,11 +399,11 @@
       "vatEnabled": true,
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
         }
       }
     }
@@ -421,18 +421,18 @@
 
 ```shell
   curl -X POST
-  "https://app.kladana.in/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
+  "https://online.moysklad.ru/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
     -d '
 {
   "store": {
     "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+      "href": "http://online.moysklad.ru/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+      "metadataHref": "http://online.moysklad.ru/api/remap/1.2/entity/store/metadata",
       "type": "store",
       "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
+      "uuidHref": "http://online.moysklad.ru/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
     }
   },
   "moment": "2020-10-20 17:45:00.000",
@@ -440,22 +440,22 @@
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
         }
       }
     },
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
         }
       }
     }
@@ -470,11 +470,11 @@
 {
   "store": {
     "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+      "href": "http://online.moysklad.ru/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+      "metadataHref": "http://online.moysklad.ru/api/remap/1.2/entity/store/metadata",
       "type": "store",
       "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
+      "uuidHref": "http://online.moysklad.ru/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
     }
   },
   "moment": "2020-10-20 17:45:00.000",
@@ -482,11 +482,11 @@
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
         }
       },
     "cost": 1200.0
@@ -494,11 +494,11 @@
     {
       "assortment": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
         }
       },
       "cost": 3500.0

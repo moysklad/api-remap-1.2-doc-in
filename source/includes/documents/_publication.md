@@ -29,7 +29,7 @@ JSON API позволяет опубликовать для общего пол�
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
+  "https://online.moysklad.ru/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -41,16 +41,16 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/demand/metadata",
     "type": "demand",
     "mediaType": "application/json",
     "size": 1,
@@ -60,13 +60,13 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
         "type": "operationpublication",
         "mediaType": "application/json"
       },
       "template": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+          "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
           "type": "customtemplate",
           "mediaType": "application/json"
         }
@@ -94,13 +94,13 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
+    "https://online.moysklad.ru/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
             "template": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
                 "type": "customtemplate",
                 "mediaType": "application/json"
               }
@@ -114,13 +114,13 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
     "type": "operationpublication",
     "mediaType": "application/json"
   },
   "template": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
       "type": "customtemplate",
       "mediaType": "application/json"
     }
@@ -135,13 +135,13 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
     "type": "operationpublication",
     "mediaType": "application/json"
   },
   "template": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
       "type": "customtemplate",
       "mediaType": "application/json"
     }
@@ -164,7 +164,7 @@ curl -X GET
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://online.moysklad.ru/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -185,7 +185,7 @@ curl -X DELETE
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://online.moysklad.ru/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -195,13 +195,13 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
     "type": "operationpublication",
     "mediaType": "application/json"
   },
   "template": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
       "type": "customtemplate",
       "mediaType": "application/json"
     }

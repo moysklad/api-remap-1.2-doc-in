@@ -31,7 +31,7 @@
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/group"
+  "https://online.moysklad.ru/api/remap/1.2/entity/group"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -43,16 +43,16 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/group",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/group",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
     "type": "group",
     "mediaType": "application/json",
     "size": 2,
@@ -62,8 +62,8 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       },
@@ -74,8 +74,8 @@ curl -X GET
     },
     {
       "meta" : {
-        "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-        "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href" : "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+        "metadataHref" : "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
         "type" : "group",
         "mediaType" : "application/json"
       },
@@ -102,7 +102,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002"
+  "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -112,8 +112,8 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
     "type": "group",
     "mediaType": "application/json"
   },
@@ -136,7 +136,7 @@ curl -X GET
   
   ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/group"
+    "https://online.moysklad.ru/api/remap/1.2/entity/group"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -150,8 +150,8 @@ curl -X GET
 ```json
 {
   "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-    "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+    "href" : "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+    "metadataHref" : "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
     "type" : "group",
     "mediaType" : "application/json"
   },
@@ -166,7 +166,7 @@ curl -X GET
   
   ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/group"
+    "https://online.moysklad.ru/api/remap/1.2/entity/group"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -181,8 +181,8 @@ curl -X GET
 ```json
 {
   "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-    "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+    "href" : "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+    "metadataHref" : "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
     "type" : "group",
     "mediaType" : "application/json"
   },
@@ -200,7 +200,7 @@ curl -X GET
   
   ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
+    "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -214,8 +214,8 @@ curl -X GET
 ```json
 {
   "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-    "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+    "href" : "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+    "metadataHref" : "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
     "type" : "group",
     "mediaType" : "application/json"
   },
@@ -230,7 +230,7 @@ curl -X GET
   
   ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
+    "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -244,8 +244,8 @@ curl -X GET
 ```json
 {
   "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-    "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+    "href" : "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+    "metadataHref" : "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata",
     "type" : "group",
     "mediaType" : "application/json"
   },
@@ -268,7 +268,7 @@ curl -X GET
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
+  "https://online.moysklad.ru/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
   -H "Authorization: Basic <Credentials>"
 ```
 
