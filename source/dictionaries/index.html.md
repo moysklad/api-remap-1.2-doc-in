@@ -48,7 +48,6 @@ includes:
   - dictionaries/processingprocess
   - dictionaries/pricetypes
   - dictionaries/product
-  - dictionaries/retailstore
   - dictionaries/service
   - dictionaries/files
   - dictionaries/characteristic

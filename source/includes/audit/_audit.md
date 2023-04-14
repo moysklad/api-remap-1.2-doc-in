@@ -1,103 +1,103 @@
-# Аудит
-## Аудит
+# Audit
+## Audit
 
-Сервис МойСклад накапливает сведения о всех событиях в системе. Эта часть сервиса называется аудит, а накопленные сведения - событиями аудита.
-Изменения по конкретной сущности доступны пользователям при наличии прав на просмотр.
+The MySklad service collects information about all events in the system. This part of the service is called an audit, and the accumulated information is called audit events.
+Changes to a specific entity are available to users if they have view rights.
 
-Основными сущностями в аудите JSON API являются контексты и события.
-События содержат подробную информацию о произошедших изменениях конкретной сущности или операции, например, изменение значения поля.
-Контекстом называются одно или несколько связанных событий, например, массовое обновление товаров.
-События отражают конкретные произошедшие изменения, связанные с одной сущностью, контекст же содержит только общую информацию событий, относящихся к нему.
+The main entities in JSON API auditing are contexts and events.
+Events contain detailed information about the changes that occurred to a particular entity or operation, for example, a change in the value of a field.
+A context is one or more related events, such as a bulk product update.
+Events reflect specific changes that have occurred associated with one entity, while the context contains only general information about events related to it.
 
-Пользователь может получить подробную информацию об изменениях в системе через JSON API двумя способами:
+The user can get detailed information about changes in the system through the JSON API in two ways:
 
-+ **Просмотр общей ленты аудита**
++ **View the overall audit feed**
 
-Для просмотра общей ленты аудита через JSON API пользователь может [запросить список контекстов](../notification/#audit-audit-poluchit-kontexty), которые будут содержать общую информацию
-об изменениях, произошедших в системе, а также ссылку на связные с ними события.
-Для просмотра подробной информации по отдельному контексту, необходимо [запросить события по конкретному контексту](../notification/#audit-audit-poluchit-sobytiq-po-kontextu).
-В ответе пользователю будет содержаться детальная информация об изменениях сущности, произошедших в рамках данного обновления в системе, в [специальном формате diff](../notification/#audit-audit-sobytiq-format-polq-diff)
+To view the general audit feed via the JSON API, the user can [request a list of contexts](../notification/#audit-audit-poluchit-kontexty), which will contain general information
+about the changes that have occurred in the system, as well as a link to related events.
+To view detailed information on a particular context, you need to [request events for a specific context](../notification/#audit-audit-poluchit-sobytiq-po-kontextu).
+The response to the user will contain detailed information about the entity changes that occurred as part of this update in the system, in [special diff format](../notification/#audit-audit-sobytiq-format-polq-diff)
 
-+ **Просмотр событий по отдельной сущности**
++ **View events for a single entity**
 
-Для того, чтобы получить события, связанные с конкретной сущностью, необходимо воспользоваться [запросом событий по сущности](../notification/#audit-audit-poluchit-sobytiq-po-kontextu).
-Ответ будет содержать список событий, относящихся к данной сущности или операции, где в [специальном поле diff](../notification/#audit-audit-sobytiq-format-polq-diff) будут отражены подробные изменения полей сущности или операции.
+In order to get events associated with a particular entity, you need to use the [entity event query](../notification/#audit-audit-poluchit-sobytiq-po-kontextu).
+The response will contain a list of events related to this entity or operation, where the [special diff field](../notification/#audit-audit-sobytiq-format-polq-diff) will reflect detailed changes to the fields of the entity or operation.
 
-### Контексты 
+### Contexts
 
-В аудите под контекстом подразумевается одно или несколько связанных событий, например, массовое обновление товаров.
-События отражают конкретные произошедшие изменения, например, изменение значения поля.
-Контекст же содержит только общую информацию событий, относящихся к нему.
+In auditing, context refers to one or more related events, such as a bulk product update.
+Events reflect specific changes that have occurred, such as changing the value of a field.
+The context contains only general information about the events related to it.
 
-##### Атрибуты сущности
+##### Entity attributes
 
-| Название          | Тип                                                       | Описание                                                                                                                                                                                   |
-| ----------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **entityType**    | Enum                                                      | Название сущности (поле присутствует, только если оно одинаково у всех Событий в рамках данного Контекста)<br>`+Обязательное при ответе` `+Только для чтения`                              |
-| **eventType**     | Enum                                                      | Действие Событий (поле присутствует, только если оно одинаково у всех Событий в рамках данного Контекста)<br>`+Обязательное при ответе` `+Только для чтения`                               |
-| **events**        | Array(Object)                                             | Список методанных Событий аудита<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                        |
-| **id**            | UUID                                                      | ID Контекста<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                            |
-| **info**          | String(255)                                               | Краткое описание<br>`+Только для чтения`                                                                                                                                                   |
-| **meta**          | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные сущности Контекста<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                           |
-| **moment**        | DateTime                                                  | Дата изменения<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                          |
-| **objectCount**   | Int                                                       | количество измененных объектов<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                          |
-| **objectType**    | Enum                                                      | Тип сущностей, с которыми связанно данное изменение. Поле присутствует только для `entityType` = `entitysettings` или `statesettings` или `templatesettings`<br>`+Обязательное при ответе` |
-| **source**        | Enum                                                      | Тип изменения<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                           |
-| **supportAccess** | Boolean                                                   | Был ли доступ произведен поддержкой от имени пользователя. Флаг отсутствует, если значение false<br>`+Обязательное при ответе` `+Только для чтения`                                        |
-| **uid**           | String(255)                                               | Логин Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                        |
+| Title | Type | Description |
+| ----------------- | ------- |------------ |
+| **entityType** | Enum | Entity name (the field is present only if it is the same for all Events within this Context)<br>`+Required for response` `+Read Only` |
+| **eventType** | Enum | Event Action (the field is present only if it is the same for all Events within the given Context)<br>`+Required for response` `+Read Only` |
+| **events** | Array(Object) | List of Method Audit Events<br>`+Required for response` `+Read Only` |
+| **id** | UUID | Context ID<br>`+Required for response` `+Read Only` |
+| **info** | String(255) | Short Description<br>`+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Context entity metadata<br>`+Required for response` `+Read-only` |
+| **moment** | datetime | Modified date<br>`+Required when replying` `+Read only` |
+| **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only` |
+| **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying` |
+| **source** | Enum | Type of change<br>`+Required for response` `+Read only` |
+| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only` |
+| **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
 
-Возможные значение параметра `source` преставлены ниже:
+Possible values for the `source` parameter are listed below:
 
-| Значение параметра source      | Описание                         |
-| ------------------------------ | :------------------------------- |
-| **registration**               | Регистрация аккаунта             |
-| **clearrecyclebin**            | Автоматическая очистка корзины   |
-| **combine**                    | Объединение                      |
-| **connectors**                 | Синхронизация с ИМ               |
-| **copy**                       | Копирование                      |
-| **emailsend**                  | Отправка сообщения               |
-| **evotor**                     | Синхронизация с Эвотор           |
-| **export**                     | Экспорт                          |
-| **exportediclient1c**          | Экспорт в 1С Клиент ЭДО          |
-| **import**                     | Импорт                           |
-| **import1c**                   | Импорт из 1С                     |
-| **importAlfabank**             | Импорт из Альфа-Банка            |
-| **importModulebank**           | Импорт из Модульбанка            |
-| **importTinkoffbank**          | Импорт из Тинькофф Банка         |
-| **importTochkabank**           | Импорт из Точка Банка            |
-| **importediclient1c**          | Импорт в 1С Клиент ЭДО           |
-| **loginlogout**                | Вход или выход из МоегоСклада    |
-| **phone-1.0**                  | Phone API                        |
-| **posapi**                     | POS API                          |
-| **remap-1.0**                  | JSON API 1.0                     |
-| **remap-1.1**                  | JSON API 1.1                     |
-| **remap-1.2**                  | JSON API 1.2                     |
-| **restapi**                    | REST API                         |
-| **retail**                     | Точка продаж                     |
-| **app**                        | Все действия                     |
+| The value of the source parameter | Description |
+| --------------------------------- |------------ |
+| **registration** | Account registration |
+| **clearrecyclebin** | Automatic emptying of the basket |
+| **combine** | Association |
+| **connectors** | Synchronization with MI |
+| **copy** | Copy |
+| **emailsend** | Sending a message |
+| **evotor** | Synchronization with Evotor |
+| **export** | Export |
+| **exportediclient1c** | Export to 1C Client EDO |
+| **import** | Import|
+| **import1c** | Import from 1C |
+| **importAlfabank** | Import from Alfa-Bank |
+| **importModulebank** | Import from Modulbank |
+| **importTinkoffbank** | Import from Tinkoff Bank |
+| **importTochkabank** | Import from Tochka Bank |
+| **importediclient1c** | Import to 1C Client EDO |
+| **loginlogout** | Entering or exiting MyWarehouse |
+| **phone-1.0** | Phone API |
+| **posapi** | POS API |
+| **remap-1.0** | JSON API 1.0 |
+| **remap-1.1** | JSON API 1.1 |
+| **remap-1.2** | JSON API 1.2 |
+| **restapi** | REST API |
+| **retail** | Point of sale |
+| **app** | All actions |
 
-Возможные значение параметров `eventType` и `entityType` приведены в разделе [Фильтры](../notification/#audit-audit-poluchit-fil-try)
+Possible values of the `eventType` and `entityType` parameters are given in the [Filters](../notification/#audit-audit-poluchit-fil-try) section.
 
-### Получить Контексты
+### Get Contexts
 
-Запрос всех изменений.
-Результат: Объект JSON, включающий в себя поля:
+Request all changes.
+Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                              |
-| ----------- | :-------------------------------------------------------- | :---------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                  |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.          |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой изменения. |
+| Title | Type | Description|
+| ----------- | ------| ------------ |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the changes. |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 25** *Example: 25* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 100`.                                                                                                                                                                                                 |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                                                                                                                                                                                 |
-| **filter**                     | `string` (optional) *Example: source=jsonapi* Подробное описание параметра в разделе [Фильтрация выборки с помощью параметра filter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter) Атрибуты фильтрации для Контекстов аудита представлены в разделе [Фильтры](../notification/#audit-audit-fil-try) |
+| Parameter | Description |
+| ----------|-------------------- |
+| **limit** | `number` (optional) **Default: 25** *Example: 25* Maximum number of entities to retrieve. `Allowed values are 1 - 100`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **filter** | `string` (optional) *Example: source=jsonapi* Detailed description of the parameter in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch -u-parametra-filter) Filtering attributes for Audit Contexts are presented in the [Filters](../notification/#audit-audit-fil-try) section |
 
-> Получить Контексты
+> Get Contexts
 
 ```shell
 curl -X GET
@@ -105,8 +105,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Изменений.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Changes.
 
 ```json
 {
@@ -139,25 +139,25 @@ curl -X GET
       "uid": "admin@1",
       "source": "loginlogout",
       "moment": "2017-05-23 16:50:03",
-      "info": "Вход в МойСклад (127.0.0.1, Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0)"
+      "info": "Login to Kladana (127.0.0.1, Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0)"
     }
   ]
 }
 
 ```
 
-### Получить Контексты c фильтрацией
+### Get Filtered Contexts
 
-**Параметры**
+**Parameters**
 
-| Параметр   | Описание                                                                               |
-| :--------- | :------------------------------------------------------------------------------------- |
-| **filter** | `string` (optional) *Example: filter=entityType=customerorder* фильтр по типу сущности |
+| Parameter | Description |
+| --------- | ----------|
+| **filter** | `string` (optional) *Example: filter=entityType=customerorder* filter by entity type |
 
-Пример запроса с фильтрацией контекстов по типу "заказ покупателя"
+Example of a query with context filtering by "sales order" type
 https://app.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder
 
-> Получить Контексты c фильтрацией
+> Get Contexts with filtering
 
 ```shell
 curl -X GET
@@ -165,8 +165,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка событий аудита.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of audit events.
 
 ```json
 {
@@ -217,108 +217,108 @@ curl -X GET
 }
 ```
 
-### События
-События аудита содержат подробную информацию о произошедших изменениях, например, изменение значения поля.
+### Events
+Audit events contain detailed information about the changes that have occurred, such as changing the value of a field.
 
-#### Типы Событий
-События делятся на несколько типов, начиная от аудита создания сущности и заканчивая аудитом печати,
-и состоят из сведений о времени события и произошедших во время этого события изменениях. Различные типы событий отличаются друг от друга [форматом поля diff](../notification/#audit-audit-sobytiq-format-polq-diff),
-подробнее о котором ниже.
+#### Event Types
+Events are divided into several types, ranging from entity creation audit to print audit,
+and consist of information about the time of the event and the changes that occurred during this event. Different types of events differ from each other [diff field format](../notification/#audit-audit-sobytiq-format-polq-diff),
+more about which below.
 
-+ Регистрация аккаунта
-+ Создание сущности или документа
-+ Обновление сущности или документа
-+ Удаление сущности или документа
-+ Помещение в корзину
-+ Восстановление из корзины
-+ Помещение в архив
-+ Восстановление из архива
-+ Публикация документов
-+ Отправка писем
-+ Смена токена
++ Account registration
++ Create entity or document
++ Update entity or document
++ Deleting an entity or document
++ Add to cart
++ Restore from trash
++ Archiving
++ Restore from archive
++ Publication of documents
++ Sending emails
++ Token change
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название           | Тип                                                       | Описание                                                                                                                                                                                                 |
-| ------------------ | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **additionalInfo** | String(4096)                                              | Дополнительная информация о Событии<br>`+Только для чтения`                                                                                                                                              |
-| **audit**          | Enum                                                      | Метаданные контекста<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                  |
-| **diff**           | Object                                                    | Изменения, произошедшие в Событии, в специальном формате diff, описанном в разделе [Формат поля diff](../notification/#audit-audit-sobytiq-format-polq-diff)<br>`+Обязательное при ответе` `+Только для чтения` |
-| **entity**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные сущности. Не будет выводиться только для товаров, услуг, модификаций, комплектов удаленных до 20.08.2017<br>`+Только для чтения`                                                              |
-| **entityType**     | Enum                                                      | Название сущности<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                     |
-| **eventType**      | Enum                                                      | Действие События<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                      |
-| **moment**         | DateTime                                                  | Время создания события<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                |
-| **name**           | String(255)                                               | Имя сущности<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                          |
-| **objectCount**    | Int                                                       | количество измененных объектов<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                        |
-| **objectType**     | Enum                                                      | Тип сущностей, с которыми связанно данное изменение. Поле присутствует только для `entityType` = `entitysettings` или `statesettings` или `templatesettings`<br>`+Обязательное при ответе`               |
-| **source**         | Enum                                                      | Тип изменения<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                         |
-| **supportAccess**  | Boolean                                                   | Был ли доступ произведен поддержкой от имени пользователя. Флаг отсутствует, если значение false<br>`+Обязательное при ответе` `+Только для чтения`                                                      |
-| **uid**            | String(255)                                               | Логин Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                      |
+| Title | Type | Description |
+| ----------| -----|--------- |
+| **additionalInfo** | String(4096) | Additional Event Information<br>`+Read Only` |
+| **audit** | Enum | Context metadata<br>`+Required for response` `+Read-only` |
+| **diff** | object | Changes occurred in the Event, in the special diff format described in the [Diff Field Format] section(../notification/#audit-audit-sobytiq-format-polq-diff)<br>`+Required for response` `+Only for reading` |
+| **entities** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only` |
+| **entityType** | Enum | Entity name<br>`+Required for response` `+Read only` |
+| **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only` |
+| **moment** | datetime | Event creation time<br>`+Required for response` `+Read-only` |
+| **name** | String(255) | Entity name<br>`+Required for response` `+Read-only` |
+| **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only` |
+| **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying` |
+| **source** | Enum | Type of change<br>`+Required for response` `+Read only` |
+| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only` |
+| **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
 
-#### Формат поля diff
-В данном поле отображены изменения полей сущности, произошедшие в Событии.
+#### 'Diff' field format
+This field displays the changes in the fields of the entity that occurred in the Event.
 
-Сведения об изменениях в полях сущностей отображаются по всем полям, включая те, к которым нет доступа через JSON API.
-Для полей, используемых в JSON API для сущностей и документов, название атрибута сущности будет совпадать с названием соответствующего поля,
-описанного в разделе для данной сущности или документа.
+Information about changes in entity fields is displayed for all fields, including those that are not accessible through the JSON API.
+For fields used in the JSON API for entities and documents, the name of the entity attribute will be the same as the name of the corresponding field,
+described in the section for a given entity or document.
 
-Ниже приведены возможные форматы поля ``diff`` для разных [типов Событий](../notification/#audit-audit-sobytiq-tipy-sobytij).
-Для событий создания сущности поле ``diff`` будет отсутствовать.
+Below are the possible formats for the ``diff`` field for different [Event types](../notification/#audit-audit-sobytiq-tipy-sobytij).
+For entity creation events, the ``diff`` field will be absent.
 
-#### Событие регистрации
+#### Registration event
 
-| Название    | Тип         | Описание                                                                          |
-|-------------|:------------|:----------------------------------------------------------------------------------|
-| **account** | String(255) | Название аккаунта<br>`+Обязательное при ответе` `+Только для чтения`              |
-| **country** | String(255) | Конфигурация аккаунта (страна)<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description |
+|-------|------|-----------|
+| **account** | String(255) | Account name<br>`+Required when replying` `+Read only` |
+| **country** | String(255) | Account Configuration (Country)<br>`+Required when replying` `+Read Only` |
 
-#### События публикации документов
+#### Document publishing events
 
-| Название            | Тип         | Описание                                                                |
-| ------------------- | :---------- | :---------------------------------------------------------------------- |
-| **templateName**    | String(255) | Название шаблона<br>`+Обязательное при ответе` `+Только для чтения`     |
-| **publicationHref** | URL         | Ссылка на публикацию<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description|
+| -------------------- | ---------- | ---------------|
+| **templateName** | String(255) | Template name<br>`+Required when replying` `+Read only` |
+| **publicationHref** | URL | Post link<br>`+Required when replying` `+Read only` |
 
-#### События отправки писем
+#### Email sending events
 
-| Название         | Тип         | Описание                                                                    |
-| ---------------- | :---------- | :-------------------------------------------------------------------------- |
-| **senderEmail**  | String(255) | Почта отправителя письма<br>`+Обязательное при ответе` `+Только для чтения` |
-| **targetEmail**  | String(255) | Почта получателя письма<br>`+Обязательное при ответе` `+Только для чтения`  |
-| **subjectEmail** | String(255) | Тема письма<br>`+Обязательное при ответе` `+Только для чтения`              |
-| **text**         | String(255) | Текст письма<br>`+Обязательное при ответе` `+Только для чтения`             |
+| Title | Type | Description |
+| ---------------- | ---------- | ---------------- |
+| **senderEmail** | String(255) | Sender's mailbox<br>`+Required when replying` `+Read only` |
+| **targetEmail** | String(255) | Recipient's mailbox<br>`+Required when replying` `+Read only` |
+| **subjectEmail** | String(255) | Email subject<br>`+Required when replying` `+Read only` |
+| **text** | String(255) | Message body<br>`+Required when replying` `+Read-only` |
 
-#### События удаления сущностей
+#### Entity deletion events
 
-| Название          | Тип         | Описание                                                                         |
-| ----------------- | :---------- | :------------------------------------------------------------------------------- |
-| **attributeName** | String(255) | Название атрибута сущности<br>`+Обязательное при ответе` `+Только для чтения`    |
-| **oldValue**      | Boolean     | Значение атрибута до удаления<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description |
+| ----------------- | ---------- | -----------------|
+| **attributeName** | String(255) | Entity attribute name<br>`+Required for response` `+Read-only` |
+| **oldValue** | Boolean | Attribute value before deletion<br>`+Required for response` `+Read only` |
 
-#### События обновления сущностей, перемещения/восстановления из корзины, перемещение/восстановление из архива
+#### Events for updating entities, moving/restoring from trash, moving/restoring from archive
 
-| Название          | Тип         | Описание                                                                              |
-| ----------------- | :---------- | :------------------------------------------------------------------------------------ |
-| **attributeName** | String(255) | Название атрибута сущности<br>`+Обязательное при ответе` `+Только для чтения`         |
-| **oldValue**      | Boolean     | Значение атрибута до удаления<br>`+Обязательное при ответе` `+Только для чтения`      |
-| **newValue**      | Boolean     | Значение атрибута после обновления<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description |
+| ------| -----| ------------|
+| **attributeName** | String(255) | Entity attribute name<br>`+Required for response` `+Read-only` |
+| **oldValue** | Boolean | Attribute value before deletion<br>`+Required for response` `+Read only` |
+| **newValue** | Boolean | Attribute value after update<br>`+Required for response` `+Read-only` |
 
-### Получить События по Контексту
-Запрос на получение событий Контекста с указанным id. Результат: Объект JSON, включающий в себя поля:
+### Get Events by Context
+Request to receive Context events with the specified id. Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                            |
-| ----------- | :-------------------------------------------------------- | :-------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.        |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой события. |
+| Title | Type | Description |
+| ------| -----|----------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing events. |
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Контекста. |
+| Parameter | Description |
+| ------- | --------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Context id. |
 
-> Получить События по Контексту
+> Get Events by Context
 
 ```shell
 curl -X GET
@@ -326,8 +326,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка событий.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of events.
 
 ```json
 {
@@ -384,23 +384,23 @@ curl -X GET
 }
 ```
 
-### Получить События по Сущности
-Запрос на получение событий по сущности с указанным id. Результат: Объект JSON, включающий в себя поля:
+### Get Events by Entity
+Request to receive events by the entity with the specified id. Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                            |
-| ----------- | :-------------------------------------------------------- | :-------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.        |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой события. |
+| Title | Type | Description |
+| ----------- | ------ | ------------ |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing events. |
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id сущности. |
-| **type** | `string` (required) *Example: product* тип сущности.                             |
+| Parameter | Description |
+| ------- | ------------ |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* entity id. |
+| **type** | `string` (required) *Example: product* entity type. |
 
-> Получить События по Сущности
+> Get Events by Entity
 
 ```shell
 curl -X GET
@@ -408,8 +408,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка событий.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of events.
 
 ```json
 {
@@ -466,120 +466,120 @@ curl -X GET
 }
 ```
 
-### Фильтры
+### Filters
 
-В JSON API сервиса МойСклад предусмотрена возможность фильтрации [Контекстов аудита](../notification/#audit-audit-kontexty) с помощью url параметр ``filter``.
-Подробнее про данный параметр можно посмотреть в разделе [Фильтрация выборки с помощью параметра filter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
-Фильтрация может осуществляться по полям, описанным ниже.
+The JSON API of the MySklad service provides the ability to filter [Audit contexts](../notification/#audit-audit-kontexty) using the ``filter`` url parameter.
+More details about this parameter can be found in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
+Filtering can be done by the fields described below.
 
-##### Атрибуты сущности
+##### Entity attributes
 
-+ **moment** - 
-  Параметр строкового типа. В качестве значения должна быть передана строка в формате
-  дата + время с точностью до секунд.
++ **moment**-
+   String type parameter. The value must be a string in the format
+   date + time accurate to seconds.
 
-  Допустимые операторы для фильтрации по атрибуту ``moment`` : ``['>=', '<=']``
+   Valid operators for filtering on the ``moment`` attribute: ``['>=', '<=']``
 
-   Формат строки : `ГГГГ-ММ-ДД ЧЧ:ММ:СС[.ммм]`, Часовой пояс: `MSK` (Московское время)
+    String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time)
 
-+ **employee** - 
-  Параметр строкового типа. В качестве значения должен быть передан ``href`` сущности сотрудника.
-  В отфильтрованную выборку попадут все сущности аудита, автором изменений которых является данный пользователь.
++ **employee**-
+   String type parameter. The ``href`` of the employee entity must be passed as the value.
+   The filtered selection will include all audit entities whose changes were made by this user.
 
-   Формат строки : `href`
+    Line format : `href`
 
-+ **eventType** - 
-  Параметр строкового типа. В качестве значения должен быть передан [тип События](../notification/#audit-audit-sobytiq-tipy-sobytij), по которому
-  должны быть отфильтрованы сущности аудита. Список возможных значений параметра:
++ **eventType** -
+   String type parameter. The [Event type](../notification/#audit-audit-sobytiq-tipy-sobytij) should be passed as a value, according to which
+   audit entities should be filtered. List of possible parameter values:
 
-| Значение параметра eventType | Описание                      |
-| ---------------------------- | :---------------------------- |
-| **registration**             | Регистрация                   |
-| **bulkoperation**            | Массовая операция             |
-| **closepublication**         | Удаление публикации           |
-| **create**                   | Создание сущностей            |
-| **delete**                   | Удаление сущностей            |
-| **openpublication**          | Создание публикации           |
-| **print**                    | Печать документа              |
-| **puttoarchive**             | Помещение в архив             |
-| **puttorecyclebin**          | Помещение в корзину           |
-| **replacetoken**             | Смена токена для Точки продаж |
-| **restorefromarchive**       | Извлечение из архива          |
-| **restorefromrecyclebin**    | Извлечение из корзины         |
-| **sendemailfromentity**      | Отправка письма               |
-| **update**                   | Изменение сущностей           |
+| The value of the eventType parameter | Description |
+| ---------------------------------- | ----------- |
+| **registration** | Registration |
+| **bulk operation** | Bulk operation |
+| **closepublication** | Deleting a post |
+| **create** | Creation of entities |
+| **delete** | Deleting entities |
+| **openpublication** | Create a post |
+| **print** | Document printing |
+| **puttoarchive** | Placement in the archive |
+| **puttorecyclebin** | Placement in the basket |
+| **replacetoken** | Change of token for Point of sale |
+| **restorefromarchive** | Extract from the archive |
+| **restorefromrecyclebin** | Retrieve from cart |
+| **sendmailfromentity** | Sending a letter |
+| **update** | Changing entities |
 
 + **source** - 
-  Параметр строкового типа. В качестве значения должен быть передан тип действия, по которому
-  должны быть отфильтрованы сущности аудита. Список возможных значений параметра:
+  String type parameter. The value must be the type of action by which
+   audit entities should be filtered. List of possible parameter values:
 
-| Значение параметра source      | Описание                         |
-| ------------------------------ | :------------------------------- |
-| **registration**               | Регистрация аккаунта             |
-| **clearrecyclebin**            | Автоматическая очистка корзины   |
-| **combine**                    | Объединение                      |
-| **connectors**                 | Синхронизация с ИМ               |
-| **copy**                       | Копирование                      |
-| **emailsend**                  | Отправка сообщения               |
-| **evotor**                     | Синхронизация с Эвотор           |
-| **export**                     | Экспорт                          |
-| **exportediclient1c**          | Экспорт в 1С Клиент ЭДО          |
-| **import**                     | Импорт                           |
-| **importediclient1c**          | Импорт в 1С Клиент ЭДО           |
-| **jsonapi**                    | JSON API                         |
-| **loginlogout**                | Вход или выход из МоегоСклада    |
-| **phone-1.0**                  | Phone API                        |
-| **posapi**                     | POS API                          |
-| **restapi**                    | REST API                         |
-| **retail**                     | Точка продаж                     |
-| **scriptor**                   | Работа со сценариями             |
+| The value of the source parameter | Description |
+| ------------------------------ | ---------------|
+| **registration** | Account registration |
+| **clearrecyclebin** | Automatic emptying of the basket |
+| **combine** | Association |
+| **connectors** | Synchronization with MI |
+| **copy** | Copy |
+| **emailsend** | Sending a message |
+| **evotor** | Synchronization with Evotor |
+| **export** | Export |
+| **exportediclient1c** | Export to 1C Client EDO |
+| **import** | Import |
+| **importediclient1c** | Import to 1C Client EDO |
+| **jsonapi** | JSON API |
+| **loginlogout** | Entering or exiting MyWarehouse |
+| **phone-1.0** | Phone API |
+| **posapi** | POS API |
+| **restapi** | REST API |
+| **retail** | Point of sale |
+| **scriptor** | Working with scripts |
 
-+ **uid** - 
-  Параметр строкового типа. В качестве значения должен быть передан логин сотрудника, по которому
-  должны быть отфильтрованы события аудита.
-+ **entityType** - 
-  Параметр строкового типа. В качестве значения должно быть передано название сущности, по которой
-  должны быть отфильтрованы сущности аудита. В качестве параметра может быть передано наименование из JSON API сущности/документа (move, enter, customerorder и т.д.) либо одно из значений следующего списка:
++ **uid**-
+   String type parameter. The value must be the username of the employee who
+   audit events must be filtered out.
++ **entityType** -
+   String type parameter. The value must be the name of the entity by which
+   audit entities should be filtered. The name from the JSON API of the entity/document can be passed as a parameter (move, enter, customerorder, etc.) or one of the values from the following list:
 
-| Значение параметра entityType  | Описание                                |
-| ------------------------------ | :-------------------------------------- |
-| **accountrole**                | Роль                                    |
-| **amiroconnectorsettings**     | Настройка синхронизации (Amiro)         |
-| **cmlconnectorsettings**       | Настройка синхронизации (CML)           |
-| **crptcancellation**           | Списание кодов маркировки               |
-| **crptdemand**                 | Отгрузка маркированной продукции        |
-| **crptpackagecreation**        | Формирование упаковки                   |
-| **crptpackagedisaggregation**  | Расформирование упаковки                |
-| **crptpackageitemremoval**     | Изъятие из упаковки                     |
-| **ecwidconnectorsettings**     | Настройка синхронизации (Ecwid)         |
-| **entitysettings**             | Настройки сущностей                     |
-| **evotorsetting**              | Настройка обмена с Эвотор               |
-| **processingplanfolder**       | Группа тех.карт                         |
-| **scripttemplate**             | Сценарий                                |
-| **smartwebconnectorsettings**  | Настройка синхронизации (SmartWeb)      |
-| **statesettings**              | Настройки статусов                      |
-| **templatesettings**           | Настройки шаблонов                      |
-| **user**                       | Пользователь                            |
-| **usersettings**               | Настройки пользователя                  |
-| **vkconnectorsettings**        | Настройка синхронизации (Вконтакте)     |
-| **yandexconnectorsettings**    | Настройка синхронизации (Яндекс.Маркет) |
-| **ymlconnectorsettings**       | Настройка синхронизации (YML)           |
+| The value of the entityType | Description |
+| ---------------------- | ----------|
+| **accountrole** | Role |
+| **amiroconnectorsettings** | Synchronization setup (Amiro) |
+| **cmlconnectorsettings** | Synchronization Setup (CML) |
+| **crptcancellation** | Writing off marking codes |
+| **crptdemand** | Shipment of marked products |
+| **crptpackagecreation** | Formation of packaging |
+| **crptpackagedisaggregation** | Unpacking |
+| **crptpackageitemremoval** | Unpacking |
+| **ecwidconnectorsettings** | Setting up synchronization (Ecwid) |
+| **entitysettings** | Entity settings |
+| **evotorsetting** | Setting up an exchange with Evotor |
+| **processingplanfolder** | Dashboard group |
+| **scripttemplate** | Scenario |
+| **smartwebconnectorsettings** | Setting up synchronization (SmartWeb) |
+| **statesettings** | Status settings |
+| **templatesettings** | Template settings |
+| **user** | User |
+| **usersettings** | User settings |
+| **vkconnectorsettings** | Setting up synchronization (Vkontakte) |
+| **yandexconnectorsettings** | Setting up synchronization (Yandex.Market) |
+| **ymlconnectorsettings** | Synchronization setup (YML) |
 
-Также можно отфильтровать контексты аудита по пользовательскому справочнику. Для этого в качестве параметра **entityType** необходимо передать href пользовательского справочника.
-Пример: https://app.kladana.in/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045
+You can also filter audit contexts by custom lookup. To do this, you must pass the href of the custom directory as the **entityType** parameter.
+Example: https://app.kladana.in/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045
 
-### Получить Фильтры 
+### Get Filters
 
-Запрос всех фильтров аудита, доступных пользователю.
-Результат: Объект JSON, включающий в себя поля:
+Query all audit filters available to the user.
+Result: JSON object including fields:
 
-| Название                       | Описание                                                                |
-| ------------------------------ | :---------------------------------------------------------------------- |
-| **eventType**                  | действия, по которым могут быть отфильтрованы сущности аудита           |
-| **source**                     | типы действий, по которым могут быть отфильтрованы сущности аудита      |
-| **entityType**                 | названия сущностей, по которым могут быть отфильтрованы сущности аудита |
+| Title | Description |
+| ------| ------------|
+| **eventType** | actions by which audit entities can be filtered |
+| **source** | types of actions by which audit entities can be filtered |
+| **entityType** | names of entities by which audit entities can be filtered |
 
-> Получить Фильтры
+> Get Filters
 
 ```shell
 curl -X GET
@@ -587,8 +587,8 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Фильтров аудита.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Audit Filters.
 
 ```json
 {
@@ -616,8 +616,6 @@ curl -X GET
     "organization",
     "employee",
     "store",
-    "retailstore",
-    "retailshift",
     "retaildemand",
     "retailsalesreturn",
     "retaildrawercashin",
@@ -626,15 +624,10 @@ curl -X GET
     "invoicein",
     "supply",
     "purchasereturn",
-    "facturein",
     "customerorder",
     "invoiceout",
     "demand",
-    "commissionreportin",
-    "commissionreportout",
     "salesreturn",
-    "factureout",
-    "pricelist",
     "loss",
     "enter",
     "move",

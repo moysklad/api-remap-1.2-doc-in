@@ -282,7 +282,6 @@ curl -X PUT
 + **importer_csv_agent**
 + **importer_csv_customerorder**
 + **importer_csv_purchaseorder**
-+ **importer_csv_pricelist**
 + **importer_ms_xml**
 + **importer_1c_client_bank**
 + **import_alfa_payments**

@@ -48,7 +48,6 @@
 | Возвраты предоплат                     | prepaymentreturn              |
 | Воронка продаж                         | purchasefunnel                |
 | Вывод из оборота                       | retireorder                   |
-| Выданные отчеты комиссионера           | commissionreportout           |
 | Выплаты                                | retaildrawercashout           |
 | Движение денежных средств              | cashflow                      |
 | Договоры                               | contract                      |
@@ -90,8 +89,6 @@
 | Платежи                                | finance                       |
 | Подписка                               | payments                      |
 | Показатели                             | dashboard                     |
-| Полученные отчеты комиссионера         | commissionreportin            |
-| Прайс-листы                            | pricelist                     |
 | Предоплаты                             | prepayment                    |
 | Прибыли и убытки                       | pnl3                          |
 | Прибыльность                           | pnl                           |
@@ -108,7 +105,6 @@
 | Синхронизация                          | connectorsettings             |
 | Скидки                                 | discount                      |
 | Склады                                 | warehouse                     |
-| Смены                                  | retailshift                   |
 | События обмена с Эвотор                | evotorevent                   |
 | Сотрудники                             | employee                      |
 | Спецпредложения                        | specialoffers                 |
@@ -118,13 +114,10 @@
 | Сценарии                               | scripttemplate                |
 | Счета покупателям                      | invoiceout                    |
 | Счета поставщиков                      | invoicein                     |
-| Счета-фактуры выданные                 | factureout                    |
-| Счета-фактуры полученные               | facturein                     |
 | Тех. карты                             | processingplan                |
 | Тех. операции                          | processing                    |
 | Товары и услуги                        | good                          |
 | Товары на реализации                   | commissiongoods               |
-| Точки продаж                           | retailstore                   |
 | Уведомления                            | notifications                 |
 | Управление закупками                   | purchasecontrol               |
 | Учетная запись                         | account                       |

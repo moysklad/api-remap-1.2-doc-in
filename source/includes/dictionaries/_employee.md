@@ -43,14 +43,6 @@
 Поля **owner**, **group** и **archived** может изменять только администратор. Поле **email** может изменять администратор и сам сотрудник.
 
 #### Атрибуты вложенных сущностей
-##### Кассир
-
-| Название        | Тип                                                       | Описание                                                                                                               |
-| --------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| **accountId**   | UUID                                                      | ID учетной записи Кассира<br>`+Обязательное при ответе` `+Только для чтения`                                           |
-| **employee**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные сотрудника, которого представляет собой кассир<br>`+Обязательное при ответе` `+Только для чтения` `+Expand` |
-| **id**          | UUID                                                      | ID Кассира<br>`+Обязательное при ответе` `+Только для чтения`                                                          |
-| **retailStore** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные точки продаж, к которой прикреплен кассир<br>`+Обязательное при ответе` `+Только для чтения` `+Expand`      |
 
 ##### Фотография сотрудника: структура и загрузка.
 Структура поля **image**, которое вы получите при запросе сотрудника с фотографией:
@@ -879,8 +871,6 @@ curl -X GET
 | **cashIn**                    | OPERATION            | Все ALL                                     | Приходной ордер                        |
 | **cashOut**                   | OPERATION            | Все ALL                                     | Расходной ордер                        |
 | **cashboxAdjustment**         | DICTIONARY           | Все ALL                                     | Корректировка остатков в кассе         |
-| **commissionReportIn**        | OPERATION            | Все ALL                                     | Полученный отчет комиссионера          |
-| **commissionReportOut**       | OPERATION            | Все ALL                                     | Выданный отчет комиссионер             |
 | **company**                   | DICTIONARY           | Все ALL                                     | Контрагенты                            |
 | **contract**                  | DICTIONARY           | Все ALL                                     | Договоры                               |
 | **counterpartyAdjustment**    | DICTIONARY           | Все ALL                                     | Корректировка баланса контрагента      |
@@ -900,8 +890,6 @@ curl -X GET
 | **employee**                  | BASE                 | Все ALL                                     | Сотрудники                             |
 | **enrollOrder**               | DICTIONARY           | Все NO                                      | Ввод в оборот кодов маркировки         |
 | **enter**                     | OPERATION            | Все ALL                                     | Оприходование                          |
-| **factureIn**                 | OPERATION            | Все ALL                                     | Счета-фактуры полученные               |
-| **factureOut**                | OPERATION            | Все ALL                                     | Счета-фактуры выданные                 |
 | **good**                      | DICTIONARY           | Все ALL                                     | Товары и Услуги                        |
 | **internalOrder**             | OPERATION            | Все ALL                                     | Внутренние заказы                      |
 | **inventory**                 | DICTIONARY           | Все ALL                                     | Инвентаризация                         |
@@ -914,7 +902,6 @@ curl -X GET
 | **paymentOut**                | OPERATION            | Все ALL                                     | Исходящий платеж                       |
 | **prepayment**                | OPERATION            | Все ALL                                     | Предоплаты                             |
 | **prepaymentReturn**          | OPERATION            | Все ALL                                     | Возврат предоплаты                     |
-| **priceList**                 | OPERATION            | Все ALL                                     | Прайс-лист                             |
 | **processing**                | BASE                 | Все ALL                                     | Тех. операции                          |
 | **processingOrder**           | OPERATION            | Все ALL                                     | Заказ на производство                  |
 | **processingPlan**            | BASE                 | Все ALL                                     | Тех. Карты                             |
@@ -929,8 +916,6 @@ curl -X GET
 | **retailDrawerCashIn**        | OPERATION            | Все ALL                                     | Внесения                               |
 | **retailDrawerCashOut**       | OPERATION            | Все ALL                                     | Выплаты                                |
 | **retailSalesReturn**         | OPERATION            | Все ALL                                     | Возвраты                               |
-| **retailShift**               | DICTIONARY           | Все ALL                                     | Смены                                  |
-| **retailStore**               | BASE                 | Все ALL                                     | Точка продаж                           |
 | **retireOrder**               | DICTIONARY           | Все NO                                      | Вывод из оборота                       |
 | **salesReturn**               | OPERATION            | Все ALL                                     | Возврат покупателя                     |
 | **supply**                    | OPERATION            | Все ALL                                     | Приемки                                |
@@ -1142,14 +1127,6 @@ curl -X GET
               "update": "NO",
               "delete": "NO"
             },
-            "commissionReportOut": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
             "myCompany": {
                 "view": "ALL",
                 "create": "NO",
@@ -1164,14 +1141,7 @@ curl -X GET
                 "delete": "ALL",
                 "approve": "ALL"
             },
-            "commissionReportIn": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
+           
             "warehouse": {
                 "view": "ALL",
                 "create": "ALL",
@@ -1186,14 +1156,7 @@ curl -X GET
                 "delete": "ALL",
                 "approve": "ALL"
             },
-            "factureIn": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
+        
             "retailDrawerCashIn": {
                 "view": "ALL",
                 "print": "ALL",
@@ -1239,14 +1202,6 @@ curl -X GET
                 "create": "NO",
                 "update": "NO",
                 "delete": "NO"
-            },
-            "priceList": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
             },
             "crptPackageItemRemoval": {
                 "view": "NO",
@@ -1453,21 +1408,6 @@ curl -X GET
             },
             "retailStore": {
                 "view": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL"
-            },
-            "factureOut": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
-            "retailShift": {
-                "view": "ALL",
-                "print": "ALL",
                 "create": "ALL",
                 "update": "ALL",
                 "delete": "ALL"

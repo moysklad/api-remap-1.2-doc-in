@@ -9,7 +9,7 @@
 | **employee**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные сотрудника, которого представляет собой кассир<br>`+Обязательное при ответе` `+Expand` |
 | **id**          | UUID                                                      | ID Кассира<br>`+Обязательное при ответе` `+Только для чтения`                                     |
 | **meta**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Кассира<br>`+Обязательное при ответе` `+Только для чтения`                             |
-| **retailStore** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные точки продаж, к которой прикреплен кассир<br>`+Обязательное при ответе` `+Expand`      |
+
 
 
 
@@ -171,5 +171,5 @@ curl -X GET
       "uuidHref": "https://app.kladana.in/app/#retailstore/edit?id=ea05e0c9-8667-11e7-8a7f-40d000000060"
     }
   }
-}
+
 ```

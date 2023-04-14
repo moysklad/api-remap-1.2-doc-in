@@ -21,7 +21,6 @@ includes:
   - documents/purchase_return
   - documents/prepayment_return
   - documents/payment_in
-  - documents/commissionreportout
   - documents/retaildrawercashout
   - documents/processingorder
   - documents/customerOrder
@@ -32,23 +31,15 @@ includes:
   - documents/enter
   - documents/demand
   - documents/move
-  - documents/commissionreportin
-  - documents/pricelist
   - documents/prepayment
   - documents/supply
   - documents/cashin
   - documents/cashout
-  - documents/retaildemand
-  - documents/retailshift
-  - documents/retail_sales_return
   - documents/loss
   - documents/invoice_out
   - documents/invoice_in
-  - documents/factureout
-  - documents/facturein
   - documents/processingplan
   - documents/processingplanfolder
-  - documents/processing
   - documents/rate
   
 search: true

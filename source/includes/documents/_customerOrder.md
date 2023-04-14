@@ -1,5 +1,5 @@
-## Sales Orders
-### Sales Orders
+## Sales Order
+### Sales Order
 
 Kladana JSON API allows you to create and update information about Sales Orders, request lists of Sales Orders, and information on individual Sales Orders. You can manage Sales Order items as part of a Sales Order or separately with item managing means. The entity code for a Sales Order in the JSON API is the **customerorder** keyword. Sales Order also supports the widget updates notification protocol - **change-handler**. Learn more about [Sales Orders](https://support.moysklad.ru/hc/ru/articles/203248133-%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9) and [widgets](https://dev.moysklad.ru/doc/api/vendor/1.0/#kak-rabotaut-widzhety).
 

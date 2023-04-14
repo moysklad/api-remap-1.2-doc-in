@@ -42,9 +42,8 @@
 
 #### Связи с другими документами
 
-| Название                       | Описание                                                                                                                                |
-| ------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| **factureOut**                 | Ссылка на Счет-фактуру выданный, с которым связан этот платеж в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| Название | Описание  |
+| ---------| --------- |
 | **operations**                 | Массив ссылок на связанные операции в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)                           |
 
 Разрешенные типы связанных операций:
@@ -53,7 +52,6 @@
 + Приемка (supply)
 + Счет поставщика (invoicein)
 + Заказ поставщику (purchaseorder)
-+ Выданный отчет комиссионера (commissionreportout)
 
 О работе с доп. полями Исходящих  платежей  можно прочитать [здесь](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
@@ -1342,129 +1340,6 @@ curl -X GET
   }
 }
 ```
-
-> Запрос на получение шаблона исходящего платежа на основе выданного отчета комиссионера.
-
-```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/paymentout/new"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "operations": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/commissionreportout/394e3f39-b322-11e6-8a84-bae50000009e",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/commissionreportout/metadata",
-                  "type": "commissionreportout",
-                  "mediaType": "application/json"
-                }
-              }
-            ]
-          }'  
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление предзаполненного исходящего платежа.
-
-```json
-{
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-11-25 18:19:15",
-  "applicable": true,
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 10200850,
-  "contract": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/contract/c3057574-ab01-11e6-8a84-bae500000070",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
-      "type": "contract",
-      "mediaType": "application/json"
-    }
-  },
-  "project": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
-      "type": "project",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "paymentPurpose": "Оплата по выданному отчету комиссионера № 0000000000000000002 от 2016-11-25 18:16:00. Сумма: 102 008,50 без НДС",
-  "vatSum": 0,
-  "operations": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/commissionreportout/394e3f39-b322-11e6-8a84-bae50000009e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/commissionreportout/metadata",
-        "type": "commissionreportout",
-        "mediaType": "application/json"
-      },
-      "linkedSum": 10200850
-    }
-  ],
-  "expenseItem": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-      "type": "expenseitem",
-      "mediaType": "application/json"
-    }
-  }
-}
-```
-
 ### Исходящий платеж
   
 ### Получить Исходящий платеж
