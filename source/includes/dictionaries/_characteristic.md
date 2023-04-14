@@ -14,7 +14,7 @@
 | **type**     | String(255)                                               | Тип значения Характеристики, всегда имеет значение string<br>`+Обязательное при ответе` `+Только для чтения`                         |
 
 Посмотреть списки существующих характеристик можно в контексте метаданных
-модификаций, например сделав GET запрос по URL http://app.kladana.in/api/remap/1.2/entity/variant/metadata или http://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics
+модификаций, например сделав GET запрос по URL http://online.moysklad.ru/api/remap/1.2/entity/variant/metadata или http://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics
 Список характеристик модификаций будет выведен в коллекции characteristics.
 
 ### Получить метаданные
@@ -23,7 +23,7 @@
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant/metadata"
+  "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -32,13 +32,13 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant",
     "mediaType": "application/json"
   },
   "characteristics": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/4f70c518-60a1-11e7-6adb-ede500000003",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/4f70c518-60a1-11e7-6adb-ede500000003",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
@@ -49,7 +49,7 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/3b6eb61a-60c5-11e7-6adb-ede500000001",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/3b6eb61a-60c5-11e7-6adb-ede500000001",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
@@ -75,7 +75,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+    "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -89,7 +89,7 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
     "type": "attributemetadata",
     "mediaType": "application/json"
   },
@@ -108,7 +108,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+    "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '[
@@ -128,7 +128,7 @@ curl -X GET
 [
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
       "type": "attributemetadata",
       "mediaType": "application/json"
     },
@@ -139,7 +139,7 @@ curl -X GET
   },
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
       "type": "attributemetadata",
       "mediaType": "application/json"
     },
@@ -165,7 +165,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
+  "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -175,7 +175,7 @@ curl -X GET
 ```json
 {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
       "type": "attributemetadata",
       "mediaType": "application/json"
     },

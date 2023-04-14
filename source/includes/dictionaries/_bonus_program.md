@@ -53,7 +53,7 @@
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
+  "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -65,16 +65,16 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
     "type": "bonusprogram",
     "mediaType": "application/json",
     "size": 2,
@@ -84,11 +84,11 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
         "type": "bonusprogram",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+        "uuidHref": "https://online.moysklad.ru/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
       },
       "id": "1223d051-ba76-11e8-3353-995e0000005a",
       "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
@@ -107,11 +107,11 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+        "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
         "type": "bonusprogram",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+        "uuidHref": "https://online.moysklad.ru/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
       },
       "id": "87c69fae-c1ad-4700-a852-f21939470760",
       "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
@@ -143,7 +143,7 @@ curl -X GET
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
+    "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -166,11 +166,11 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
     "type": "bonusprogram",
     "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+    "uuidHref": "https://online.moysklad.ru/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
   },
   "id": "87c69fae-c1ad-4700-a852-f21939470760",
   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
@@ -200,7 +200,7 @@ curl -X GET
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+    "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -216,11 +216,11 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
     "type": "bonusprogram",
     "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
+    "uuidHref": "https://online.moysklad.ru/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
   },
   "id": "87c69fae-c1ad-4700-a852-f21939470760",
   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
@@ -248,7 +248,7 @@ curl -X GET
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+  "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
   -H "Authorization: Basic <Credentials>"
 ```
   
@@ -258,11 +258,11 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
     "type": "bonusprogram",
     "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+    "uuidHref": "https://online.moysklad.ru/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
   },
   "id": "87c69fae-c1ad-4700-a852-f21939470760",
   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
@@ -292,7 +292,7 @@ curl -X GET
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+  "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -307,21 +307,21 @@ curl -X DELETE
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/delete"
+  "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/delete"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '[
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
             "type": "bonusprogram",
             "mediaType": "application/json"
         },
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+            "href": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
+            "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/bonusprogram/metadata",
             "type": "bonusprogram",
             "mediaType": "application/json"
         }
