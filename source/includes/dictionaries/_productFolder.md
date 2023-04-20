@@ -1,662 +1,662 @@
-## Группа товаров
-### Группы товаров 
-Средствами JSON API можно создавать и обновлять сведения о Группах товаров, запрашивать списки Групп товаров и сведения по отдельным Группам товаров. Кодом сущности для Группы товаров в составе JSON API является ключевое слово **productfolder**.
-По данной сущности можно осуществлять контекстный поиск с помощью специального параметра `search`. Подробнее можно узнать по [ссылке](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+## Product group
+### Product groups
+Using the JSON API, you can create and update information about Product Groups, request lists of Product Groups, and information on individual Product Groups. The entity code for a Product Group in the JSON API is the **productfolder** keyword.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
 
-Поиск среди объектов групп товаров на соответствие поисковой строке будет осуществлен по следующим полям:
+The search among the objects of product groups to match the search string will be carried out using the following fields:
 
-+ по наименованию Группы товаров (name)
-+ по коду Группы товаров (code)
++ by name Product group (name)
++ by code Group of goods (code)
 
-#### Атрибуты сущности
-| Название                | Тип                                                       | Фильтрация                  | Описание                                                                                                                                                                                                                          |
-| ----------------------- | :-------------------------------------------------------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**           | UUID                                                      | `=` `!=`                    | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                              |
-| **archived**            | Boolean                                                   | `=` `!=`                    | Добавлена ли Группа товаров в архив<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                            |
-| **code**                | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Код Группы товаров                                                                                                                                                                                                                |
-| **description**         | String(4096)                                              | `=` `!=` `~` `~=` `=~`      | Описание Группы товаров                                                                                                                                                                                                           |
-| **effectiveVat**        | Int                                                       |                             | Реальный НДС %<br>`+Только для чтения`                                                                                                                                                                                            |
-| **effectiveVatEnabled** | Boolean                                                   |                             | Дополнительный признак для определения разграничения реального НДС = 0 или "без НДС". (effectiveVat = 0, effectiveVatEnabled = false) -> "без НДС", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Только для чтения` |
-| **externalCode**        | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Внешний код Группы товаров<br>`+Обязательное при ответе`                                                                                                                                                                          |
-| **group**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                    | Метаданные отдела сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                                                                                              |
-| **id**                  | UUID                                                      | `=` `!=`                    | ID Группы товаров<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                              |
-| **meta**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные Группы товаров<br>`+Обязательное при ответе`                                                                                                                                                                           |
-| **name**                | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Наименование Группы товаров<br>`+Обязательное при ответе` `+Необходимо при создании`                                                                                                                                              |
-| **owner**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                    | Метаданные владельца (Сотрудника)<br>`+Expand`                                                                                                                                                                                    |
-| **pathName**            | String                                                    | `=` `!=` `~` `~=` `=~`      | Наименование Группы товаров, в которую входит данная Группа товаров<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                            |
-| **productFolder**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Ссылка на Группу товаров, в которую входит данная Группа товаров, в формате Метаданных<br>`+Expand`                                                                                                                               |
-| **shared**              | Boolean                                                   | `=` `!=`                    | Общий доступ<br>`+Обязательное при ответе`                                                                                                                                                                                        |
-| **taxSystem**           | Enum                                                      |                             | Код системы налогообложения. [Подробнее тут](../dictionaries/#suschnosti-gruppa-towarow-kod-sistemy-nalogooblozheniq)                                                                                                             |
-| **updated**             | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`  | Момент последнего обновления сущности<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                          |
-| **useParentVat**        | Boolean                                                   |                             | Используется ли ставка НДС родительской группы. Если true для единицы ассортимента будет применена ставка, установленная для родительской группы.<br>`+Обязательное при ответе`                                                   |
-| **vat**                 | Int                                                       |                             | НДС %                                                                                                                                                                                                                             |
-| **vatEnabled**          | Boolean                                                   |                             | Включен ли НДС для группы. С помощью этого флага для группы можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.                             |
+#### Entity attributes
+| Title | Type | Filtration | Description |
+| ----- | ------ |------- | ------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | `=` `!=` | Has the Product group been added to the archive<br>`+Required when replying` `+Read-only` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product group code |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Product groups |
+| **effectiveVat** | int | | Real VAT %<br>`+Read only` |
+| **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of Product group<br>`+Required when replying` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Product Group ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Product Group Metadata<br>`+Required when replying` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product Group Name<br>`+ Mandatory forresponse` `+Required when creating` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
+| **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
+| **productFolder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-gruppa-towarow-kod-sistemy-nalogooblozheniq) |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
+| **vat** | int | | VAT % |
+| **vatEnabled** | Boolean | | Is VAT included for the group. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for a group. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
 
-### Код системы налогообложения
-Значения поля taxSystem.
+### Tax system code
+The values of the taxSystem field.
 
-| Значение                                 | Описание                     |
-| ---------------------------------------- | :--------------------------- |
-| **GENERAL_TAX_SYSTEM**                   | ОСН                          |
-| **PATENT_BASED**                         | Патент                       |
-| **PRESUMPTIVE_TAX_SYSTEM**               | ЕНВД                         |
-| **SIMPLIFIED_TAX_SYSTEM_INCOME**         | УСН. Доход                   |
-| **SIMPLIFIED_TAX_SYSTEM_INCOME_OUTCOME** | УСН. Доход-Расход            |
-| **TAX_SYSTEM_SAME_AS_GROUP**             | Совпадает с группой          |
-| **UNIFIED_AGRICULTURAL_TAX**             | ЕСХН                         |
+| Value | Description |
+| ------- | ------------ |
+| **GENERAL_TAX_SYSTEM** | DOS |
+| **PATENT_BASED** | Patent |
+| **PRESUMPTIVE_TAX_SYSTEM** | UTII |
+| **SIMPLIFIED_TAX_SYSTEM_INCOME** | USN. Income |
+| **SIMPLIFIED_TAX_SYSTEM_INCOME_OUTCOME** | USN. Income-Expense |
+| **TAX_SYSTEM_SAME_AS_GROUP** | Same as group |
+| **UNIFIED_AGRICULTURAL_TAX** | ESHN |
 
-### Получить список групп товаров 
-Запрос всех Групп товаров на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Get a list of product groups
+Query all Product Groups on a given account.
+Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                                   |
-| ----------- | :-------------------------------------------------------- | :--------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                       |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.               |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой группы товаров. |
+| Title | Type | Description |
+| ------- | ------------ |-------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing product groups. |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description|
+| ------- | ------------ |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить список групп товаров
+> Get a list of product groups
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/productfolder"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Групп товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Product Groups.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productFolder",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productFolder/metadata",
-    "type": "productfolder",
-    "mediaType": "application/json",
-    "size": 2,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-        "type": "productfolder",
-        "mediaType": "application/json"
-      },
-      "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
-      "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-06-07 15:42:07",
-      "name": "Овощи",
-      "code": "13321Fruits1",
-      "externalCode": "mRQao-5IgY3soIY1EaI083",
-      "archived": false,
-      "pathName": "",
-      "vatEnabled": false,
-      "useParentVat": true
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-        "type": "productfolder",
-        "mediaType": "application/json"
-      },
-      "id": "275961ab-2cad-11e6-8a84-bae50000001a",
-      "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-      "updated": "2016-06-07 15:41:28",
-      "name": "Фрукты",
-      "code": "13321Fruits",
-      "externalCode": "extFruits",
-      "archived": false,
-      "pathName": "",
-      "vat": 3,
-      "vatEnabled": true,
-      "useParentVat": false,
-      "effectiveVat": 3,
-      "effectiveVatEnabled": true,
-      "taxSystem": "GENERAL_TAX_SYSTEM"
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productFolder",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productFolder/metadata",
+     "type": "productfolder",
+     "mediaType": "application/json",
+     size: 2
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "type": "productfolder",
+         "mediaType": "application/json"
+       },
+       "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
+       "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-06-07 15:42:07",
+       "name": "Vegetables",
+       "code": "13321Fruits1",
+       "externalCode": "mRQao-5IgY3soIY1EaI083",
+       archived: false
+       "pathName": "",
+       "vatEnabled": false,
+       "useParentVat": true
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "type": "productfolder",
+         "mediaType": "application/json"
+       },
+       "id": "275961ab-2cad-11e6-8a84-bae50000001a",
+       "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+       "updated": "2016-06-07 15:41:28",
+       "name": "Fruits",
+       "code": "13321Fruits",
+       "externalCode": "extFruits",
+       archived: false
+       "pathName": "",
+       vat: 3,
+       "vatEnabled": true
+       "useParentVat": false,
+       "effectiveVat": 3,
+       "effectiveVatEnabled": true,
+       "taxSystem": "GENERAL_TAX_SYSTEM"
+     }
+   ]
 }
 ```
 
-### Создать новую группу товаров
+### Create a new product group
  
-Запрос на создание новой Группы товаров.
-Обязательные для создания Группы товаров поля:
+Request to create a new Product Group.
+Mandatory fields for creating a Group of goods:
 
-| Название       | Описание                            |
-| -------------- | ----------------------------------- |
-| **name**       | Наименование Группы товаров         |
+| Title | Description |
+| ------------- | ------------|
+| **name** | Product group name |
 
-> Пример создания новой Группы товаров с телом запроса, содержащим только поле name.
+> An example of creating a new Product Group with a request body containing only the name field.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/productfolder"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Овощи"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Vegetables"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной Группы товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Product Group.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-    "type": "productfolder",
-    "mediaType": "application/json"
-  },
-  "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
-  "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-06-07 15:42:07",
-  "name": "Овощи",
-  "code": "13321Fruits1",
-  "externalCode": "mRQao-5IgY3soIY1EaI083",
-  "archived": false,
-  "pathName": "",
-  "vatEnabled": false,
-  "useParentVat": true
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "type": "productfolder",
+     "mediaType": "application/json"
+   },
+   "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
+   "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared:false,
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-06-07 15:42:07",
+   "name": "Vegetables",
+   "code": "13321Fruits1",
+   "externalCode": "mRQao-5IgY3soIY1EaI083",
+   archived: false
+   "pathName": "",
+   "vatEnabled": false,
+   "useParentVat": true
 }
 ```
 
-> Пример создания новой Группы товаров с более насыщенным телом запроса.
+> An example of creating a new Product Group with a richer request body.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/productfolder"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Фрукты",
-            "code": "13321Fruits",
-            "externalCode": "extFruits",
-            "vat": 3,
-            "effectiveVat": 3
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Fruits",
+             "code": "13321Fruits",
+             "externalCode": "extFruits",
+             vat: 3,
+             "effectiveVat": 3
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной Группы товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Product Group.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-    "type": "productfolder",
-    "mediaType": "application/json"
-  },
-  "id": "275961ab-2cad-11e6-8a84-bae50000001a",
-  "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-06-07 15:41:28",
-  "name": "Фрукты",
-  "code": "13321Fruits",
-  "externalCode": "extFruits",
-  "archived": false,
-  "pathName": "",
-  "vat": 3,
-  "vatEnabled": true,
-  "useParentVat": false,
-  "effectiveVat": 3,
-  "effectiveVatEnabled": true
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "type": "productfolder",
+     "mediaType": "application/json"
+   },
+   "id": "275961ab-2cad-11e6-8a84-bae50000001a",
+   "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-06-07 15:41:28",
+   "name": "Fruits",
+   "code": "13321Fruits",
+   "externalCode": "extFruits",
+   archived: false
+   "pathName": "",
+   vat: 3,
+   "vatEnabled": true
+   "useParentVat": false,
+   "effectiveVat": 3,
+   "effectiveVatEnabled": true
 }
 ```
 
-### Массовое создание и обновление Групп товаров 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Групп товаров.
-В теле запроса нужно передать массив, содержащий JSON представления Групп товаров, которые вы хотите создать или обновить.
-Обновляемые Группы товаров должны содержать идентификатор в виде метаданных.
+### Product group bulk creating an update
+[Product group bulk creating ang update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+In the body of the request, you need to pass an array containing the JSON representation of the Product Groups that you want to create or update.
+Updated Product Groups must contain the identifier in the form of metadata.
 
-> Пример создания и обновления нескольких Групп товаров
+> Example of creating and updating several Product Groups
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/productfolder"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "Овощи"
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-                "type": "productfolder",
-                "mediaType": "application/json"
-              },
-              "name": "Группа Овощи",
-              "code": "vegetableFolderCode",
-              "externalCode": "extVegCode",
-              "vat": 5,
-              "effectiveVat": 5
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "Vegetables"
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                 "type": "productfolder",
+                 "mediaType": "application/json"
+               },
+               "name": "Group Vegetables",
+               "code": "vegetableFolderCode",
+               "externalCode": "extVegCode",
+               vat: 5,
+               "effectiveVat": 5
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Групп товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the created and updated Product Groups.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-      "type": "productfolder",
-      "mediaType": "application/json"
-    },
-    "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
-    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-06-07 15:42:07",
-    "name": "Овощи",
-    "code": "13321Fruits1",
-    "externalCode": "mRQao-5IgY3soIY1EaI083",
-    "archived": false,
-    "pathName": "",
-    "vatEnabled": false,
-    "useParentVat": true,
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-      "type": "productfolder",
-      "mediaType": "application/json"
-    },
-    "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
-    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-06-07 15:45:28",
-    "name": "Группа Овощи",
-    "code": "vegetableFolderCode",
-    "externalCode": "extVegCode",
-    "archived": false,
-    "pathName": "",
-    "vat": 5,
-    "vatEnabled": true,
-    "useParentVat": false,
-    "effectiveVat": 5,
-    "effectiveVatEnabled": true
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+       "type": "productfolder",
+       "mediaType": "application/json"
+     },
+     "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-06-07 15:42:07",
+     "name": "Vegetables",
+     "code": "13321Fruits1",
+     "externalCode": "mRQao-5IgY3soIY1EaI083",
+     archived: false
+     "pathName": "",
+     "vatEnabled": false,
+     "useParentVat": true,
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+       "type": "productfolder",
+       "mediaType": "application/json"
+     },
+     "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-06-07 15:45:28",
+     "name": "Group Vegetables",
+     "code": "vegetableFolderCode",
+     "externalCode": "extVegCode",
+     archived: false
+     "pathName": "",
+     vat: 5,
+     "vatEnabled": true
+     "useParentVat": false,
+     "effectiveVat": 5,
+     "effectiveVatEnabled": true
+   }
 ]
-```  
+```
 
-### Удалить Группу товаров 
+### Delete Product Group
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                               |
-| :------- | :------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Группы товаров. |
+| Parameter | Description |
+| ------- | ------------ |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product group id. |
 
-> Запрос на удаление Группы товаров с указанным id.
+> Request to delete the Group of goods with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Группы товаров.
+> Response 200(application/json)
+Successful deletion of the Product group.
 
-### Массовое удаление Групп товаров
+### Bulk deletion of Product group
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Групп товаров, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Product Groups that you want to remove.
 
 
-> Запрос на массовое удаление Групп товаров. 
+> Request for bulk deletion of Product Groups.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/productfolder/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-            "type": "productfolder",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-            "type": "productfolder",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/productfolder/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+             "type": "productfolder",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+             "type": "productfolder",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Групп товаров.
+> Successful request. Result - JSON information about deleting Product Groups.
 
 ```json
 [
-  {
-    "info":"Сущность 'productfolder' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'productfolder' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+   },
+   {
+     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   }
 ]
-```  
+```
 
-### Метаданные Групп товаров 
-#### Метаданные Групп товаров
+### Product Group Metadata
+#### Product Group Metadata
  
-Запрос на получение метаданных Групп товаров. Результат - объект JSON, включающий в себя:
+Request to get metadata of Product Groups. The result is a JSON object including:
 
-| Название       | Тип                                                       | Описание                                               |
-| -------------- | :-------------------------------------------------------- | :----------------------------------------------------- |
-| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Групп товаров<br>`+Обязательное при ответе` |
-| **attributes** | Array(Object)                                             | Коллекция доп. полей                                   |
+| Title | Type | Description |
+| ------- | ------------ |---- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Product Groups Metadata<br>`+Required when replying` |
+| **attributes** | Array(Object) | Collection of add. fields |
 
-Структура отдельного объекта, представляющего доп. поле подробно описана в разделе [Работа с дополнительными полями](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-> Получить метаданные Групп товаров
+> Get product group metadata
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. полей Групп товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the add. Product Group fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": [
-    {
-      "id": "5290a290-0313-11e6-9464-e4de00000020",
-      "name": "attribute_name",
-      "type": "boolean",
-      "required": false
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": [
+     {
+       "id": "5290a290-0313-11e6-9464-e4de00000020",
+       "name": "attribute_name",
+       "type": "boolean",
+       "required": false
+     }
+   ]
 }
 ```
   
-### Отдельное доп. поле
+### Separate additional field
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id Доп. поля. |
+| Parameter | Description |
+| ------- | ------------ |
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id fields. |
 
-#### Отдельное доп. поле
+#### Separate add. field
  
-> Запрос на получение информации по отдельному дополнительному полю.
+> Request for information on a separate additional field.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного доп. поля.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "5290a290-0313-11e6-9464-e4de00000020",
-  "name": "attribute_name",
-  "type": "boolean",
-  "required": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "type": "attributemetadata",
+     "mediaType": "application/json"
+   },
+   "id": "5290a290-0313-11e6-9464-e4de00000020",
+   "name": "attribute_name",
+   "type": "boolean",
+   "required": false
 }
 ```
  
-### Группа товаров 
+### Product group
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                               |
-| :------- | :------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Группы товаров. |
+| Parameter | Description |
+| ------- | ------------ |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product group id. |
 
-### Получить Группу товаров
+### Get Product Group
  
-> Запрос на получение отдельной группы товаров с указанным id.
+> Request to receive a separate group of goods with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Группы товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Product Group.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-    "type": "productfolder",
-    "mediaType": "application/json"
-  },
-  "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
-  "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-06-07 15:42:07",
-  "name": "Овощи",
-  "code": "13321Fruits1",
-  "externalCode": "mRQao-5IgY3soIY1EaI083",
-  "archived": false,
-  "pathName": "",
-  "vatEnabled": false,
-  "useParentVat": true,
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "type": "productfolder",
+     "mediaType": "application/json"
+   },
+   "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
+   "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-06-07 15:42:07",
+   "name": "Vegetables",
+   "code": "13321Fruits1",
+   "externalCode": "mRQao-5IgY3soIY1EaI083",
+   archived: false
+   "pathName": "",
+   "vatEnabled": false,
+   "useParentVat": true,
 }
 ```
 
-### Изменить Группу товаров
+### Change Product Group
  
-Запрос на обновление Группы товаров с указанным id.
-В теле запроса можно указать только те поля, которые необходимо изменить у Группы товаров, кроме тех, что
-помечены `Только для чтения` в описании [атрибутов Группы товаров](../dictionaries/#suschnosti-gruppa-towarow).
-Для обновления поля **pathName** нужно обновить ссылку на родительскую Группу товаров, т.е. обновить поле
+Request to update the Product group with the specified id.
+In the request body, you can specify only those fields that need to be changed for the Product group, except for those that
+are marked `Read Only` in the description of [Product Group attributes](../dictionaries/#suschnosti-gruppa-towarow).
+To update the **pathName** field, you need to update the link to the parent Product Group, i.e. update field
 **productFolder**
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                               |
-| :------- | :------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Группы товаров. |
+| Parameter | Description |
+| ------- | ------------ |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product group id. |
 
-> Пример запроса на обновление конкретной Группы товаров.
+> An example of a request to update a specific Product Group.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Группа Овощи",
-            "code": "vegetableFolderCode",
-            "externalCode": "extVegCode",
-            "vat": 5,
-            "effectiveVat": 5
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Group Vegetables",
+             "code": "vegetableFolderCode",
+             "externalCode": "extVegCode",
+             vat: 5,
+             "effectiveVat": 5
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной Группы товаров.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Product Group.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-    "type": "productfolder",
-    "mediaType": "application/json"
-  },
-  "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
-  "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-06-07 15:45:28",
-  "name": "Группа Овощи",
-  "code": "vegetableFolderCode",
-  "externalCode": "extVegCode",
-  "archived": false,
-  "pathName": "",
-  "vat": 5,
-  "vatEnabled": true,
-  "useParentVat": false,
-  "effectiveVat": 5,
-  "effectiveVatEnabled": true
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "type": "productfolder",
+     "mediaType": "application/json"
+   },
+   "id": "3ea73e1a-2cad-11e6-8a84-bae50000001d",
+   "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-06-07 15:45:28",
+   "name": "Group Vegetables",
+   "code": "vegetableFolderCode",
+   "externalCode": "extVegCode",
+   archived: false
+   "pathName": "",
+   vat: 5,
+   "vatEnabled": true
+   "useParentVat": false,
+   "effectiveVat": 5,
+   "effectiveVatEnabled": true
 }
 ```

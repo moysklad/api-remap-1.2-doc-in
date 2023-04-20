@@ -1,980 +1,933 @@
-## Сотрудник
-### Сотрудники 
-Средствами JSON API можно запрашивать списки Сотрудников и сведения по отдельным Сотрудникам. Кодом сущности для Сотрудника в составе JSON API является ключевое слово **employee**. Больше о Сотрудниках и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по [этой ссылке](https://support.moysklad.ru/hc/ru/articles/204019656-%D0%A1%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8).
-По данной сущности можно осуществлять контекстный поиск с помощью специального параметра `search`. Подробнее можно узнать по [ссылке](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+## Employee
+### Employees
+Using the JSON API, you can request lists of Employees and information on individual Employees. The entity code for an Employee in the JSON API is the **employee** keyword. 
+Learn more about [Employees](https://kladana.zendesk.com/hc/en-us/articles/7583130803857-Manage-user-access-).
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
 
-Поиск среди объектов сотрудников на соответствие поисковой строке будет осуществлен по следующим полям:
+The search among employee objects for matching the search string will be carried out using the following fields:
 
-+ По имени Сотрудника **name**
-+ По адресу электронной почты **email**
-+ По номеру телефона **phone**
++ By employee name **name**
++ By e-mail address **email**
++ By phone number **phone**
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название         | Тип                                                       | Фильтрация                                                                                                                                        | Описание                                                                                                                                                            |
-| ---------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **accountId**    | UUID                                                      | `=` `!=`                                                                                                                                          | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                |
-| **archived**     | Boolean                                                   | `=` `!=`                                                                                                                                          | Добавлен ли Сотрудник в архив<br>`+Обязательное при ответе`                                                                                                         |
-| **attributes**   | Array(Object)                                             | [Операторы доп. полей](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Дополнительные поля Сотрудника                                                                                                                                      |
-| **cashiers**     | MetaArray                                                 |                                                                                                                                                   | Массив кассиров. [Подробнее тут](../dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-kassir)<br>`+Только для чтения` `+Expand`         |
-| **code**         | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Код Сотрудника                                                                                                                                                      |
-| **created**      | DateTime                                                  |                                                                                                                                                   | Момент создания Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                       |
-| **description**  | String(4096)                                              | `=` `!=` `~` `~=` `=~`                                                                                                                            | Комментарий к Сотруднику                                                                                                                                            |
-| **email**        | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Электронная почта сотрудника                                                                                                                                        |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Внешний код Сотрудника<br>`+Обязательное при ответе`                                                                                                                |
-| **firstName**    | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Имя                                                                                                                                                                 |
-| **fullName**     | String(255)                                               |                                                                                                                                                   | Имя Отчество Фамилия<br>`+Только для чтения`                                                                                                                        |
-| **group**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                                            |
-| **id**           | UUID                                                      | `=` `!=`                                                                                                                                          | ID Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                    |
-| **image**        | Object                                                    |                                                                                                                                                   | Фотография сотрудника. [Подробнее тут](../dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
-| **inn**          | String(255)                                               |                                                                                                                                                   | ИНН сотрудника (в формате ИНН физического лица)                                                                                                                     |
-| **lastName**     | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Фамилия<br>`+Обязательное при ответе` `+Необходимо при создании`                                                                                                    |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные Сотрудника<br>`+Обязательное при ответе`                                                                                                                 |
-| **middleName**   | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Отчество                                                                                                                                                            |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Наименование Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                                          |
-| **owner**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                                                                                        |
-| **phone**        | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Телефон сотрудника                                                                                                                                                  |
-| **position**     | String(255)                                               |                                                                                                                                                   | Должность сотрудника                                                                                                                                                |
-| **shared**       | Boolean                                                   | `=` `!=`                                                                                                                                          | Общий доступ<br>`+Обязательное при ответе`                                                                                                                          |
-| **shortFio**     | String(255)                                               |                                                                                                                                                   | Краткое ФИО<br>`+Только для чтения`                                                                                                                                 |
-| **uid**          | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Логин Сотрудника<br>`+Только для чтения`                                                                                                                            |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего обновления Сотрудника<br>`+Обязательное при ответе` `+Только для чтения`                                                                          |
+| Title | Type | Filtration | Description |
+| ------- | -------- |---------- | --------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
+| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional fields Employee |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Code |
+| **created** | datetime | | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Employee |
+| **email** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Email |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
+| **firstName** | String(255) | `=` `!=` `~` `~=` `=~`| Name |
+| **fullName** | String(255) | | First name Middle name Last name<br>`+Read only` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
+| **images** | object | | Photo of an employee. [More here](../dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
+| **inn** | String(255) | | TIN of the employee (in the format of the TIN of an individual) |
+| **lastName** | String(255) | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Employee Metadata<br>`+Required when responding` |
+| **middleName** | String(255) | `=` `!=` `~` `~=` `=~` | Middle name |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **phone** | String(255) | `=` `!=` `~` `~=` `=~` | Employee phone |
+| **position** | String(255) | | Employee position |
+| **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` |
+| **shortFio** | String(255) | | Short Name<br>`+Read Only` |
+| **id** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
 
-Поля **owner**, **group** и **archived** может изменять только администратор. Поле **email** может изменять администратор и сам сотрудник.
+The **owner**, **group** and **archived** fields can only be modified by an administrator. The **email** field can be changed by the administrator and the employee himself.
 
-#### Атрибуты вложенных сущностей
+#### Nested entity attributes
 
-##### Фотография сотрудника: структура и загрузка.
-Структура поля **image**, которое вы получите при запросе сотрудника с фотографией:
+##### Employee photo: structure and loading.
+The structure of the **image** field that you will receive when requesting an employee with a photo:
 
-| Название      | Тип                                                       | Описание                                                          |
-| ------------- | :-------------------------------------------------------- | :---------------------------------------------------------------- |
-| **filename**  | String(255)                                               | Имя файла<br>`+Обязательное при ответе`                           |
-| **meta**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные объекта<br>`+Обязательное при ответе`                  |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные миниатюры изображения<br>`+Обязательное при ответе`    |
-| **size**      | Int                                                       | Размер файла в байтах<br>`+Обязательное при ответе`               |
-| **tiny**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные уменьшенного изображения<br>`+Обязательное при ответе` |
-| **title**     | String(255)                                               | Название Изображения<br>`+Обязательное при ответе`                |
-| **updated**   | DateTime                                                  | Время последнего изменения<br>`+Обязательное при ответе`          |
+| Title | Type | Description |
+| ------- | -------- |---------- |
+| **filename** | String(255) | File name<br>`+Required when replying` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **size** | int | File size in bytes<br>`+Required when replying` |
+| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata<br>`+Required when replying` |
+| **title** | String(255) | Image Title<br>`+Required when replying` |
+| **updated** | datetime | Last modified time<br>`+Required when replying` |
 
-#### Загрузка
-Для загрузки фотографии сотрудника необходимо сформировать запрос на [обновление](../dictionaries/#suschnosti-sotrudnik-izmenit-sotrudnika) сотрудника (PUT) и в теле запроса
-указать поле **image** со следующими атрибутами:
+#### Loading
+To upload a photo of an employee, you need to create a request for [update](../dictionaries/#suschnosti-sotrudnik-izmenit-sotrudnika) employee (PUT) and in the request body
+specify the **image** field with the following attributes:
 
-| Название              | Описание                                          |
-| --------------------- | :------------------------------------------------ |
-| **filename**          | имя файла с расширением. Например - "cashier.png" |
-| **content**           | Изображение, закодированное в формате Base64      |
+| Title | Description |
+| ------- | -------- |
+| **filename** | filename with extension . For example - "admin.png" |
+| **content** | Base64 encoded image |
 
-Если в запросе на обновление не будет полей **filename** и **content**, то весь объект **image**, если он присутствует в Body,
-будет проигнорирован, т.к. сервер посчитает, что его обновление не требуется.
+If there are no **filename** and **content** fields in the update request, then the entire **image** object, if it is present in the Body,
+will be ignored because the server will consider that its update is not required.
 
-О работе с доп. полями Сотрудников можно прочитать [здесь](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Employee fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
+### Get Employees
+Request to get a list of all employees for this account.
+Result: JSON object including fields:
 
-### Получить Сотрудников 
-Запрос на получение списка всех сотрудников для данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+| Title | Type | Description |
+| ------- | -------- | ----------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Employee. |
 
-| Название    | Тип                                                       | Описание                                         |
-| ----------- | :-------------------------------------------------------- | :----------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                             |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.     |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих Сотрудника. |
+**Parameters**
 
-**Параметры**
+| Parameter | Description|
+| ------- | -------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-
-> Получить Сотрудников
+> Get Employees
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/employee"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/employee"
+   -H "Authorization: Basic <Credentials>"
 ```
  
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Сотрудников.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Employees.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-    "type": "employee",
-    "mediaType": "application/json",
-    "size": 2,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      },
-      "id": "84f88b2f-f504-11e5-8a84-bae500000138",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "updated": "2016-03-28 19:45:46",
-      "name": "Администратор",
-      "externalCode": "4A039QXHgbZdAHdXbcUI71",
-      "archived": false,
-      "uid": "admin@reqwy1",
-      "email": "asdad@sfasf.erq",
-      "lastName": "Администратор",
-      "fullName": "Администратор",
-      "shortFio": "Администратор",
-      "cashiers": [
-        {
-          "meta": {
-            "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/8d2f2a2e-d6a1-11e7-9464-e4de00000060/cashiers/8d2f3fe1-d6a1-11e7-9464-e4de00000061",
-            "type": "cashier",
-            "mediaType": "application/json"
-          }
-        },
-        {
-          "meta": {
-            "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/cashiers/58dfeb3e-df24-11e7-9464-e4de00000004",
-            "type": "cashier",
-            "mediaType": "application/json"
-          }
-        }
-      ],
-      "retailStore": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
-          "type": "retailstore",
-          "mediaType": "application/json"
-        }
-      },
-      "inn": "222490425273",
-      "position": "Директор"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9e00ad58-0302-11e6-9464-e4de00000076",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      },
-      "id": "9e00ad58-0302-11e6-9464-e4de00000076",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "updated": "2016-04-15 15:07:25",
-      "name": "Друганов Л. А.",
-      "externalCode": "4pGL0jazh3dGTpJfdcP1a1",
-      "archived": false,
-      "uid": "employee@company",
-      "email": "company@company.ru",
-      "phone": "8 800 250-04-32",
-      "firstName": "Леонид",
-      "middleName": "Андреевич",
-      "lastName": "Друганов",
-      "fullName": "Леонид Андреевич Друганов",
-      "shortFio": "Друганов Л. А.",
-      "attributes": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
-          "name": "AttributeName1",
-          "type": "long",
-          "value": 200
-        }
-      ]
-    }
-  ]
+   context: {
+     "employee": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "type": "employee",
+     "mediaType": "application/json",
+     size: 2
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       },
+       "id": "84f88b2f-f504-11e5-8a84-bae500000138",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "updated": "2016-03-28 19:45:46",
+       "name": "Administrator",
+       "externalCode": "4A039QXHgbZdAHdXbcUI71",
+       archived: false
+       "uid": "admin@reqwy1",
+       "email": "asdad@sfasf.erq",
+       "lastName": "Administrator",
+       "fullName": "Administrator",
+       "shortFio": "Administrator",
+       "retail store": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+           "type": "retailstore",
+           "mediaType": "application/json"
+         }
+       },
+       "inn": "222490425273",
+       "position": "Director"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9e00ad58-0302-11e6-9464-e4de00000076",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       },
+       "id": "9e00ad58-0302-11e6-9464-e4de00000076",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "updated": "2016-04-15 15:07:25",
+       "name": "Druganov L. A.",
+       "externalCode": "4pGL0jazh3dGTpJfdcP1a1",
+       archived: false
+       "uid": "employee@company",
+       "email": "company@company.ru",
+       "phone": "8 800 250-04-32",
+       "firstName": "Leonid",
+       "middleName": "Andreevich",
+       "lastName": "Druganov",
+       "fullName": "Leonid Andreevich Druganov",
+       "shortFio": "Druganov L.A.",
+       "attributes": [
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
+           "name": "AttributeName1",
+           "type": "long",
+           value: 200
+         }
+       ]
+     }
+   ]
 }
 
 ```
 
-### Массовое обновление Сотрудников 
-[Массовое обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Сотрудников.
-В теле запроса нужно передать массив, содержащий JSON представления Сотрудников, которые вы хотите обновить.
-Обновляемые Сотрудники должны содержать идентификатор в виде метаданных.
+### Bulk update of Employees
+[Bulk update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Employees.
+In the body of the request, you need to pass an array containing the JSON representation of the Employees you want to update.
+Updated Employees must contain the identifier in the form of metadata.
 
-> Пример обновления нескольких Сотрудников
+> Example of updating multiple Employees
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/employee"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                "type": "employee",
-                "mediaType": "application/json"
-              },
-              "firstName": "Петр",
-              "middleName": "Иванович",
-              "lastName": "Мойскладкин",
-              "inn": "222490425273",
-              "position": "Директор"
-            },
-            {
-              "firstName": "Иван",
-              "middleName": "Петрович",
-              "lastName": "Мойскладкин"
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/employee"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                 "type": "employee",
+                 "mediaType": "application/json"
+               },
+               "firstName": "Peter",
+               "middleName": "Ivanovich",
+               "lastName": "Moyskladkin",
+               "inn": "222490425273",
+               "position": "Director"
+             },
+             {
+               "firstName": "Ivan",
+               "middleName": "Petrovich",
+               "lastName": "Moyskladkin"
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений обновленных Сотрудников.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the updated Employees.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    },
-    "id": "7944ef04-f831-11e5-7a69-971500188b19",
-    "accountId": "ef07c35a-d1f6-11e8-7a33-904100000002",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2018-10-17 14:51:30",
-    "name": "Мойскладкин П. И.",
-    "externalCode": "wNxghfHlg5n2rJGO9Lpud0",
-    "archived": false,
-    "created": "2018-10-17 13:25:14",
-    "uid": "admin@company",
-    "email": "company@mail.ru",
-    "firstName": "Петр",
-    "middleName": "Иванович",
-    "lastName": "Мойскладкин",
-    "fullName": "Петр Иванович Мойскладкин",
-    "shortFio": "Мойскладкин П. И.",
-    "cashiers": [
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/eff1b7cc-d1f6-11e8-7a33-904100000062/cashiers/eff1c76b-d1f6-11e8-7a33-904100000063",
-          "type": "cashier",
-          "mediaType": "application/json"
-        }
-      }
-    ],
-    "inn": "222490425273",
-    "position": "Директор"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/fc86b89c-d202-11e8-7a33-90410000004a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    },
-    "id": "fc86b89c-d202-11e8-7a33-90410000004a",
-    "accountId": "ef07c35a-d1f6-11e8-7a33-904100000002",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2018-10-17 14:51:30",
-    "name": "Мойскладкин И. П.",
-    "externalCode": "0freFxtniG9a1MNZ7ADin2",
-    "archived": false,
-    "created": "2018-10-17 14:51:30",
-    "firstName": "Иван",
-    "middleName": "Петрович",
-    "lastName": "Мойскладкин",
-    "fullName": "Иван Петрович Мойскладкин",
-    "shortFio": "Мойскладкин И. П."
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     },
+     "id": "7944ef04-f831-11e5-7a69-971500188b19",
+     "accountId": "ef07c35a-d1f6-11e8-7a33-904100000002",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2018-10-17 14:51:30",
+     "name": "Moyskladkin P.I.",
+     "externalCode": "wNxghfHlg5n2rJGO9Lpud0",
+     archived: false
+     "created": "2018-10-17 13:25:14",
+     "uid": "admin@company",
+     "email": "company@mail.ru",
+     "firstName": "Peter",
+     "middleName": "Ivanovich",
+     "lastName": "Moyskladkin",
+     "fullName": "Pyotr Ivanovich Moiskkin",
+     "shortFio": "Moyskladkin P.I.",
+     "inn": "222490425273",
+     "position": "Director"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/fc86b89c-d202-11e8-7a33-90410000004a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     },
+     "id": "fc86b89c-d202-11e8-7a33-90410000004a",
+     "accountId": "ef07c35a-d1f6-11e8-7a33-904100000002",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2018-10-17 14:51:30",
+     "name": "Moyskladkin I.P.",
+     "externalCode": "0freFxtniG9a1MNZ7ADin2",
+     archived: false
+     "created": "2018-10-17 14:51:30",
+     "firstName": "Ivan",
+     "middleName": "Petrovich",
+     "lastName": "Moyskladkin",
+     "fullName": "Ivan Petrovich Moyskladkin",
+     "shortFio": "Moyskladkin I.P."
+   }
 ]
 ```
 
-### Удалить Сотрудника
+### Delete Employee
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
 
-> Запрос на удаление Сотрудника с указанным id.
+> Request to delete an Employee with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Сотрудника.
+> Response 200(application/json)
+Successful removal of the Employee.
 
-### Массовое удаление Сотрудников
+### Bulk removal of Employees
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Сотрудников, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Employees that you want to remove.
 
-> Запрос на массовое удаление Сотрудников. 
+> Request for mass deletion of Employees.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/employee/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-            "type": "employee",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-            "type": "employee",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/employee/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1","metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "type": "employee",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "type": "employee",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Сотрудников.
+> Successful request. The result is JSON information about the removal of Employees.
 
 ```json
 [
-  {
-    "info":"Сущность 'employee' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'employee' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   },
+   {
+     "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   }
 ]
 ```
 
-### Метаданные Сотрудников 
-#### Метаданные Сотрудников 
-Запрос на получение метаданных Сотрудников. Результат - объект JSON, включающий в себя:
+### Employee metadata
+#### Employee Metadata
 
-| Название         | Тип                                                       | Описание                                                                                                         |
-| ---------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на метаданные Сотрудников                                                                                 |
-| **attributes**   | Array(Object)                                             | Массив объектов доп. полей Сотрудников в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **createShared** | Boolean                                                   | Создавать новых Сотрудников с меткой "Общий"                                                                     |
+Request to get employee metadata. The result is a JSON object including:
 
-Структура отдельного объекта, представляющего доп. поле подробно описана в разделе [Работа с дополнительными полями](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+| Title | Type | Description |
+| ------- | -------- | -------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to employee metadata |
+| **attributes** | Array(Object) | Array of objects add. Employee fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **createShared** | Boolean | Create new Employees labeled "General" |
 
-> Метаданные Сотрудников
+The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-```shell
-curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/employee/metadata"
-  -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. полей Сотрудников.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": [
-    {
-      "id": "5290a290-0313-11e6-9464-e4de00000020",
-      "name": "AttributeName1",
-      "type": "boolean",
-      "required": false
-    }
-  ],
-  "createShared": true
-}
-```
-
-### Отдельное доп. поле
-
-**Параметры**
-
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id Доп. поля. |
-
-#### Отдельное доп. поле 
-> Запрос на получение информации по отдельному дополнительному полю.
+> Employee Metadata
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/employee/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного доп. поля.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the add. employee fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "5290a290-0313-11e6-9464-e4de00000020",
-  "name": "AttributeName1",
-  "type": "boolean",
-  "required": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": [
+     {
+       "id": "5290a290-0313-11e6-9464-e4de00000020",
+       "name": "AttributeName1",
+       "type": "boolean",
+       "required": false
+     }
+   ],
+   "createShared": true
 }
 ```
 
-### Сотрудник
+### Separate additional field
 
-### Получить Сотрудника
- 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id fields. |
 
-> Запрос на получение отдельного сотрудника с указанным id.
+#### Separate add. field
+> Request for information on a separate additional field.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Сотрудника.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate add. fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-    "type": "employee",
-    "mediaType": "application/json"
-  },
-  "id": "84f88b2f-f504-11e5-8a84-bae500000138",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "updated": "2016-03-28 19:45:46",
-  "name": "Администратор",
-  "externalCode": "4A039QXHgbZdAHdXbcUI71",
-  "archived": false,
-  "uid": "admin@reqwy1",
-  "email": "asdad@sfasf.erq",
-  "lastName": "Администратор",
-  "fullName": "Администратор",
-  "shortFio": "Администратор",
-  "cashiers": [
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/8d2f2a2e-d6a1-11e7-9464-e4de00000060/cashiers/8d2f3fe1-d6a1-11e7-9464-e4de00000061",
-        "type": "cashier",
-        "mediaType": "application/json"
-      }
-    },
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/cashiers/58dfeb3e-df24-11e7-9464-e4de00000004",
-        "type": "cashier",
-        "mediaType": "application/json"
-      }
-    }
-  ],
-  "retailStore": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
-      "type": "retailstore",
-      "mediaType": "application/json"
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
-      "name": "AttributeName1",
-      "type": "long",
-      "value": 200
-    }
-  ],
-  "inn": "222490425273",
-  "position": "Директор"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "type": "attributemetadata",
+     "mediaType": "application/json"
+   },
+   "id": "5290a290-0313-11e6-9464-e4de00000020",
+   "name": "AttributeName1",
+   "type": "boolean",
+   "required": false
 }
 ```
 
-### Создать Сотрудника
-Запрос на создание сотрудника. Обязательные для создания поля:
+### Employee
 
-| Название              | Описание    |
-| --------------------- | :---------- |
-| **lastName**          | Фамилия     |
+### Get Employee
  
-> Пример запроса на создание Сотрудника.
+**Parameters**
+
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
+
+> Request to get an individual employee with the specified id.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/employee/"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "firstName": "Петр",
-            "middleName": "Иванович",
-            "lastName": "Мойскладкин",
-            "inn": "222490425273",
-            "position": "Директор",
-            "phone": "+7(999)888-7766",
-            "description": "Описание",
-            "attributes": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": "Строковое доп поле"
-              }
-            ]
-          }'  
+curl -X GET
+   "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Сотрудника.  
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Employee.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/bc962452-cd64-11e8-ac12-000800000000",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-    "type": "employee",
-    "mediaType": "application/json"
-  },
-  "id": "bc962452-cd64-11e8-ac12-000800000000",
-  "accountId": "ffb8f6b1-cd3a-11e8-ac12-000700000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/00f76fbb-cd3b-11e8-ac12-00080000002d",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/ffbc0889-cd3a-11e8-ac12-000700000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2018-10-11 17:48:37",
-  "name": "Мойскладкин П. И.",
-  "description": "Описание",
-  "externalCode": "tJfzU8g2hVgXFOiFGTMIe3",
-  "archived": false,
-  "created": "2018-10-11 17:48:37",
-  "phone": "+7(999)888-7766",
-  "firstName": "Петр",
-  "middleName": "Иванович",
-  "lastName": "Мойскладкин",
-  "fullName": "Петр Иванович Мойскладкин",
-  "shortFio": "Мойскладкин П. И.",
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "ed14b498-cae3-11e8-9dd2-f3a300000044",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "Строковое доп поле"
-    }
-  ],
-  "inn": "222490425273",
-  "position": "Директор"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "type": "employee",
+     "mediaType": "application/json"
+   },
+   "id": "84f88b2f-f504-11e5-8a84-bae500000138",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "updated": "2016-03-28 19:45:46",
+   "name": "Administrator",
+   "externalCode": "4A039QXHgbZdAHdXbcUI71",
+   archived: false
+   "uid": "admin@reqwy1",
+   "email": "asdad@sfasf.erq",
+   "lastName": "Administrator",
+   "fullName": "Administrator",
+   "shortFio": "Administrator",
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
+         "type": "admin",
+         "mediaType": "application/json"
+       }
+     }
+   ],
+   "retail store": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+       "type": "retailstore",
+       "mediaType": "application/json"
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
+       "name": "AttributeName1",
+       "type": "long",
+       value: 200
+     }
+   ],
+   "inn": "222490425273",
+   "position": "Director"
 }
 ```
 
-### Изменить Сотрудника 
-Запрос на обновление существующего Сотрудника. В теле запроса обязательно следует указать поле **lastName**.
+### Create Employee
+Request to create an employee. Mandatory fields to create:
 
-**Параметры**
-
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
-
-> Пример запроса на обновление Сотрудника.
+| Title | Description |
+| ------- | -------- |
+| **lastName** | Surname |
+ 
+> An example of a request to create an Employee.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "firstName": "Петр",
-            "middleName": "Иванович",
-            "lastName": "Мойскладкин",
-            "inn": "222490425273",
-            "position": "Директор",
-            "phone": "+7(999)888-7766",
-            "description": "Описание",
-            "attributes": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": "Строковое доп поле"
-              }
-            ]
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/employee/"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "firstName": "Peter",
+             "middleName": "Ivanovich",
+             "lastName": "Moyskladkin",
+             "inn": "222490425273",
+             "position": "Director",
+             "phone": "+7(999)888-7766",
+             "description": "Description",
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "String extra field"
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Сотрудника.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Employee.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-    "type": "employee",
-    "mediaType": "application/json"
-  },
-  "id": "7944ef04-f831-11e5-7a69-971500188b19",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "updated": "2016-03-28 19:45:46",
-  "name": "Мойскладкин П. И.",
-  "description": "Описание",
-  "externalCode": "4A039QXHgbZdAHdXbcUI71",
-  "archived": false,
-  "phone": "+7(999)888-7766",
-  "uid": "admin@reqwy1",
-  "email": "asdad@sfasf.erq",
-  "firstName": "Петр",
-  "middleName": "Иванович",
-  "lastName": "Мойскладкин",
-  "fullName": "Петр Иванович Мойскладкин",
-  "shortFio": "Мойскладкин П. И.",
-  "cashier": {
-    "id": "851fa2f7-f504-11e5-8a84-bae50000016d",
-    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "retailStore": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
-        "type": "retailstore",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
-      "name": "AttributeName1",
-      "type": "long",
-      "value": 200
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "ed14b498-cae3-11e8-9dd2-f3a300000044",
-      "name": "AttributeName2",
-      "type": "string",
-      "value": "Строковое доп поле"
-    }
-  ],
-  "inn": "222490425273",
-  "position": "Директор"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/bc962452-cd64-11e8-ac12-000800000000",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "type": "employee",
+     "mediaType": "application/json"
+   },
+   "id": "bc962452-cd64-11e8-ac12-000800000000",
+   "accountId": "ffb8f6b1-cd3a-11e8-ac12-000700000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/00f76fbb-cd3b-11e8-ac12-00080000002d",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/ffbc0889-cd3a-11e8-ac12-000700000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2018-10-11 17:48:37",
+   "name": "Moyskladkin P.I.",
+   "description": "Description",
+   "externalCode": "tJfzU8g2hVgXFOiFGTMIe3",
+   archived: false
+   "created": "2018-10-11 17:48:37",
+   "phone": "+7(999)888-7766",
+   "firstName": "Peter",
+   "middleName": "Ivanovich",
+   "lastName": "Moyskladkin",
+   "fullName": "Pyotr Ivanovich Moiskkin",
+   "shortFio": "Moyskladkin P.I.",
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "ed14b498-cae3-11e8-9dd2-f3a300000044",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "String extra field"
+     }
+   ],
+   "inn": "222490425273",
+   "position": "Director"
 }
 ```
 
-### Работа с правами Сотрудника
+### Change Employee
+Request to update an existing Employee. The **lastName** field must be specified in the request body.
 
-В данном разделе приведены примеры запросов на получение и изменение прав сотрудника. Получать и изменять права может только 
-сотрудник с правами `Системный администратор`.
+**Parameters**
 
-#### Атрибуты сущности
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
 
-| Название                | Тип           | Описание                                                                          |
-| ----------------------- | :------------ | :-------------------------------------------------------------------------------- |
-| **authorizedHosts**     | Array(String) | Список ipv4 адресов, с которых разрешен доступ на аккаунт                         |
-| **authorizedIpNetmask** | String(255)   | Маска подсети с правом доступа на аккаунт                                         |
-| **authorizedIpNetwork** | String(255)   | Ipv4 адрес, идентифицирующий соответствующую подсеть, с правом доступа на аккаунт |
-| **email**               | String(255)   | Почта сотрудника                                                                  |
-| **group**               | Object        | Метаданные Группы, а также ее идентификатор и имя<br>`+Обязательное при ответе`   |
-| **isActive**            | Boolean       | Доступ к сервису МойСклад<br>`+Обязательное при ответе`                           |
-| **login**               | String(255)   | Логин сотрудника для входа в МойСклад                                             |
-| **role**                | Object        | Информация о роли Сотрудника                                                      |
-
-#### Атрибуты вложенных сущностей
-##### Роль
-
-Роли бывают четырех типов: `Системный администратор`, `Кассир`, `Пользовательская роль` и `Индивидуальная роль`. Использовать
-`Индивидуальную роль` (с пермиссиями не по умолчанию) и `Пользовательскую роль` можно только на тарифах `Профессиональный` 
-или `Корпоративный`. Для `Индивидуальной роли` можно настраивать список пермиссий, заполняя поле `permissions`.
-Если в поле `permissions` указывать не все пермиссии, то не переданные будут выключены. 
-Значения по умолчанию выставляются, если пользователь, не указывая индивидуальные пермиссии, задает индивидуальную роль сотруднику, 
-у которого ранее не было задано индивидуальных пермиссий.
-
-| Название        | Тип                                                       | Описание                                      |
-| --------------- | :-------------------------------------------------------- | :-------------------------------------------- |
-| **meta**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные роли<br>`+Обязательное при ответе` |
-| **permissions** | Array(Object)                                             | Список пермиссий                              |
-
-###### Список пользовательских пермиссий 
-
-| Название                            | Возможные значения   | Значение по умолчанию  | Описание                                             |
-|-------------------------------------| :------------------- | :--------------------- | :--------------------------------------------------- |
-| **apiRequest**                      | Boolean              | true                   | Доступ по АПИ                                        |
-| **deleteFromRecycleBin**            | Boolean              | true                   | Очищать корзину                                      |
-| **editCurrencyRateOfDocument**      | Boolean              | true                   | Редактировать курс валюты документа                  |
-| **editDocumentTemplates**           | Boolean              | true                   | Редактировать шаблоны документов и отчетов           |
-| **editDocumentsOfRestrictedPeriod** | Boolean              | false                  | Редактировать документы закрытого периода            |
-| **exportData**                      | Boolean              | true                   | Экспортировать данные                                |
-| **importData**                      | Boolean              | true                   | Импортировать данные                                 |
-| **listenCalls**                     | Boolean              | true                   | Прослушивание звонков                                |
-| **onlineShops**                     | Boolean              | true                   | Интернет магазины                                    |
-| **purchaseControl**                 | Boolean              | true                   | Управление закупками                                 |
-| **restoreFromRecycleBin**           | Boolean              | true                   | Восстанавливать документы                            |
-| **sendEmail**                       | Boolean              | true                   | Отправлять почту                                     |
-| **subscriptionControl**             | Boolean              | false                  | Управление подпиской                                 |
-| **viewAudit**                       | Boolean              | false                  | Просматривать аудит                                  |
-| **viewCashFlow**                    | Boolean              | true                   | Просматривать движение денежных средств              |
-| **viewCommissionGoods**             | Boolean              | true                   | Просматривать товары на реализации                   |
-| **viewCompanyCRM**                  | Boolean              | true                   | Просматривать показатели                             |
-| **viewCustomerBalanceList**         | Boolean              | true                   | Просматривать взаиморасчеты                          |
-| **viewDashboard**                   | Boolean              | true                   | Просматривать показатели                             |
-| **viewMoneyDashboard**              | Boolean              | false                  | Видеть остатки денег                                 |
-| **viewProductCostAndProfit**        | Boolean              | true                   | Видеть себестоимость, цену закупки и прибыль товаров |
-| **viewProfitAndLoss**               | Boolean              | true                   | Просматривать прибыль и убытки                       |
-| **viewPurchaseFunnel**              | Boolean              | true                   | Просматривать воронку продаж                         |
-| **viewRecycleBin**                  | Boolean              | true                   | Просматривать корзину                                |
-| **viewSaleProfit**                  | Boolean              | true                   | Просматривать прибыльность                           |
-| **viewSerialNumbers**               | Boolean              | true                   | Просматривать серийные номера                        |
-| **viewStockReport**                 | Boolean              | true                   | Просматривать остатки по товарам                     |
-| **viewTurnover**                    | Boolean              | true                   | Просматривать обороты                                |
-
-###### Список пермиссий сущностей
-
-Имеется три возможных типа значений пермиссий сущности: `OPERATION`, `DICTIONARY`, `BASE`.
-Данные типы имеют следующие поля:
-
-| типы значений пермиссий сущности | view       | create      | update        | delete      | print       | approve     |
-| -------------------------------- | :--------- | :---------- | :------------ | :---------- | :---------- | :---------- |
-| OPERATION                        | +          | +           | +             | +           | +           | +           |
-| DICTIONARY                       | +          | +           | +             | +           | +           | -           |
-| BASE                             | +          | +           | +             | +           | -           | -           |
-
-
-| Название         | Описание             | Ограничения                         |
-| ---------------- | :------------------- | :---------------------------------- |
-| **view**         | Смотреть             | нет                                 |
-| **create**       | Создавать            | совпадает с view или отсутствует    |
-| **update**       | Редактировать        | не шире, чем у view или отсутствует |
-| **delete**       | Удалять              | совпадает с update или отсутствует  |
-| **print**        | Печатать             | совпадает с view или отсутствует    |
-| **approve**      | Проводить            | совпадает с view или отсутствует    |
-
-Возможные значения полей `view`, `create`, `update`, `delete`, `approve`, `print`:
-
-| Название             | На кого распространяется |
-| -------------------- | :----------------------- |
-| **NO**               | Ни на кого               |
-| **OWN**              | Только свои              |
-| **OWN_SHARED**       | Свои и общие             |
-| **OWN_GROUP**        | Свои и отдела            |
-| **OWN_GROUP_SHARED** | Свои, отдела и общие     |
-| **ALL**              | Все                      |
-
-Значения в порядке их расширения области действия: `NO` &#8594; `OWN` &#8594;  `OWN_SHARED` &#8594; `OWN_GROUP_SHARED` &#8594; `ALL` и 
-`NO` &#8594; `OWN` &#8594; `OWN_GROUP` &#8594; `OWN_GROUP_SHARED` &#8594; `ALL`  
- Если не указывать одно из полей, то данное действие будет запрещено к выполнению для данного сотрудника. 
- 
- Список пермиссий сущностей
- 
-
-| Название                      | Возможные значения   | Значение по умолчанию                       | Описание                               |
-|-------------------------------|:---------------------|:--------------------------------------------|:---------------------------------------|
-| **GTINList**                  | view, create, delete | Все NO                                      | Список GTIN                            |
-| **accountAdjustment**         | DICTIONARY           | Все ALL                                     | Корректировка остатков на счете        |
-| **bonusTransaction**          | OPERATION            | Все ALL                                     | Бонусные баллы                         |
-| **cashIn**                    | OPERATION            | Все ALL                                     | Приходной ордер                        |
-| **cashOut**                   | OPERATION            | Все ALL                                     | Расходной ордер                        |
-| **cashboxAdjustment**         | DICTIONARY           | Все ALL                                     | Корректировка остатков в кассе         |
-| **company**                   | DICTIONARY           | Все ALL                                     | Контрагенты                            |
-| **contract**                  | DICTIONARY           | Все ALL                                     | Договоры                               |
-| **counterpartyAdjustment**    | DICTIONARY           | Все ALL                                     | Корректировка баланса контрагента      |
-| **country**                   | BASE                 | Все ALL                                     | Страны                                 |
-| **crptCancellation**          | DICTIONARY           | Все NO                                      | Списание кодов маркировки              |
-| **crptPackageCreation**       | DICTIONARY           | Все NO                                      | Формирование упаковки                  |
-| **crptPackageDisaggregation** | DICTIONARY           | Все NO                                      | Расформирование упаковки               |
-| **crptPackageItemRemoval**    | DICTIONARY           | Все NO                                      | Изъятие из упаковки                    |
-| **currency**                  | BASE                 | Все ALL                                     | Валюты                                 |
-| **customEntity**              | BASE                 | Все ALL                                     | Элементы пользовательских справочников |
-| **customerOrder**             | OPERATION            | Все ALL                                     | Заказ покупателям                      |
-| **demand**                    | OPERATION            | Все ALL                                     | Отгрузка                               |
-| **emissionOrder**             | DICTIONARY           | Все NO                                      | Заказ кодов маркировки                 |
-| **utilizationReport**         | DICTIONARY           | Все NO                                      | Отчет об использовании                 |
-| **atkAggregation**            | DICTIONARY           | Все NO                                      | Формирование АТК                       |
-| **retireOrderOSU**            | DICTIONARY           | Все NO                                      | Вывод из оборота ОСУ                   |
-| **employee**                  | BASE                 | Все ALL                                     | Сотрудники                             |
-| **enrollOrder**               | DICTIONARY           | Все NO                                      | Ввод в оборот кодов маркировки         |
-| **enter**                     | OPERATION            | Все ALL                                     | Оприходование                          |
-| **good**                      | DICTIONARY           | Все ALL                                     | Товары и Услуги                        |
-| **internalOrder**             | OPERATION            | Все ALL                                     | Внутренние заказы                      |
-| **inventory**                 | DICTIONARY           | Все ALL                                     | Инвентаризация                         |
-| **invoiceIn**                 | OPERATION            | Все ALL                                     | Счет поставщику                        |
-| **invoiceOut**                | OPERATION            | Все ALL                                     | Счет покупателям                       |
-| **loss**                      | OPERATION            | Все ALL                                     | Списание                               |
-| **move**                      | OPERATION            | Все ALL                                     | Перемещение                            |
-| **myCompany**                 | BASE                 | view: ALL, create: NO, edit: NO, delete: NO | Юр. Лица                               |
-| **paymentIn**                 | OPERATION            | Все ALL                                     | Входящий платеж                        |
-| **paymentOut**                | OPERATION            | Все ALL                                     | Исходящий платеж                       |
-| **prepayment**                | OPERATION            | Все ALL                                     | Предоплаты                             |
-| **prepaymentReturn**          | OPERATION            | Все ALL                                     | Возврат предоплаты                     |
-| **processing**                | BASE                 | Все ALL                                     | Тех. операции                          |
-| **processingOrder**           | OPERATION            | Все ALL                                     | Заказ на производство                  |
-| **processingPlan**            | BASE                 | Все ALL                                     | Тех. Карты                             |
-| **processingStage**           | BASE                 | Все ALL                                     | Этапы производства                     |
-| **processingProcess**         | BASE                 | Все ALL                                     | Тех. процессы                          |
-| **project**                   | BASE                 | Все ALL                                     | Проекты                                |
-| **purchaseOrder**             | OPERATION            | Все ALL                                     | Заказ поставщикам                      |
-| **purchaseReturn**            | OPERATION            | Все ALL                                     | Возврат поставщику                     |
-| **remainsOrder**              | DICTIONARY           | Все NO                                      | Описание остатков                      |
-| **remarkingOrder**            | DICTIONARY           | Все NO                                      | Перемаркировка                         |
-| **retailDemand**              | OPERATION            | Все ALL                                     | Продажи                                |
-| **retailDrawerCashIn**        | OPERATION            | Все ALL                                     | Внесения                               |
-| **retailDrawerCashOut**       | OPERATION            | Все ALL                                     | Выплаты                                |
-| **retailSalesReturn**         | OPERATION            | Все ALL                                     | Возвраты                               |
-| **retireOrder**               | DICTIONARY           | Все NO                                      | Вывод из оборота                       |
-| **salesReturn**               | OPERATION            | Все ALL                                     | Возврат покупателя                     |
-| **supply**                    | OPERATION            | Все ALL                                     | Приемки                                |
-| **taxrate**                   | BASE                 | Все ALL                                     | Ставки НДС                             |
-| **trackingCodeList**          | view, print          | Все NO                                      | Коды маркировки                        |
-| **uom**                       | BASE                 | Все ALL                                     | Единицы измерения                      |
-| **warehouse**                 | BASE                 | Все ALL                                     | Склады                                 |
-
-Для пермиссий `currency`, `country`, `taxrate` и `uom` значение `view` не изменяемое и равно `ALL`. При попытке изменить значение `view`
- для данных пермиссий, будет возвращена ошибка.
- 
-Для пермиссий `GTINList`, `trackingCodeList` возможные значения полей - `ALL` или `NO`.
-
-###### Пермиссии для задач
-
-Пермиссии `script` для задач имеют следующие поля:
-
-| Название         | Описание             | Ограничения                                  | Возможные значения                    |
-| ---------------- | :------------------- | :------------------------------------------- | :------------------------------------ |
-| **view**         | Смотреть             | нет                                          | NO, AUTHOR_OR_ASSIGNEE, ALL           |
-| **create**       | Создавать            | не шире, чем у view или отсутствует          | NO, ALL                               |
-| **update**       | Редактировать        | не шире, чем у view или отсутствует          | NO, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL   |
-| **delete**       | Удалять              | не шире значения поля update или отсутствует | NO, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL   |
-| **done**         | Выполнять            | не шире, чем у view или отсутствует          | NO, ASSIGNEE, AUTHOR_OR_ASSIGNEE, ALL |
-
-Значение `NO` допустимо для `view` и `done` только если все остальные значения `NO`. 
-В случае, если значение поле `view` отлично от `NO`, то поле `done` обязательно к передаче и значение должно совпадать, 
-со значением поля `view`.
-
-Возможные значения полей `view`, `create`, `update`, `delete`, `done`:
-
-| Название               | На какие задачи распространяется                   |
-| ---------------------- | :------------------------------------------------- |
-| **NO**                 | Нет прав ни на какие задачи                        |
-| **AUTHOR_OR_ASSIGNEE** | Созданные пользователем и назначенные ему          |
-| **ASSIGNEE**           | Назначенные                                        |
-| **AUTHOR**             | Созданные пользователем                            |
-| **ALL**                | Возможность совершать действие над любыми задачами |
-
-### Получить информацию о правах Сотрудника
-
-Запрос на получение информации о правах Сотрудника.
-
-**Параметры**
-
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
-
-> Пример запроса на получения информации о правах Сотрудника.
+> An example of a request to update an Employee.
 
 ```shell
-  curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
-    -H "Authorization: Basic <Credentials>"
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "firstName": "Peter",
+             "middleName": "Ivanovich",
+             "lastName": "Moyskladkin",
+             "inn": "222490425273",
+             "position": "Director",
+             "phone": "+7(999)888-7766",
+             "description": "Description",
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "String extra field"
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление информации о правах Сотрудника с пользовательской ролью.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Employee.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "type": "employee",
+     "mediaType": "application/json"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b19",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "updated": "2016-03-28 19:45:46",
+   "name": "Moyskladkin P.I.",
+   "description": "Description",
+   "externalCode": "4A039QXHgbZdAHdXbcUI71",
+   archived: false
+   "phone": "+7(999)888-7766",
+   "uid": "admin@reqwy1",
+   "email": "asdad@sfasf.erq",
+   "firstName": "Peter",
+   "middleName": "Ivanovich",
+   "lastName": "Moyskladkin",
+   "fullName": "Pyotr Ivanovich Moiskkin",
+   "shortFio": "Moyskladkin P.I.",
+     "retail store": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+         "type": "retailstore",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
+       "name": "AttributeName1",
+       "type": "long",
+       value: 200
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "ed14b498-cae3-11e8-9dd2-f3a300000044",
+       "name": "AttributeName2",
+       "type": "string",
+       "value": "String extra field"
+     }
+   ],
+   "inn": "222490425273",
+   "position": "Director"
+}
+```
+
+### Work with Employee rights
+
+This section provides examples of requests to obtain and change employee rights. Only the
+employee with `System Administrator` rights.
+
+#### Entity attributes
+
+| Title | Type | Description |
+| ----- | -------- | ----------- |
+| **authorizedHosts** | Array(String) | List of ipv4 addresses from which account access is allowed |
+| **authorizedIpNetmask** | String(255) | Subnet mask with account access rights |
+| **authorizedIpNetwork** | String(255) | Ipv4 address identifying the corresponding subnet, with the right to access the account |
+| **email** | String(255) | Employee mail |
+| **group** | object | Metadata of the Group, as well as its ID and name<br>`+Required when replying` |
+| **isActive** | Boolean | Access to Kladana<br>`+Required when replying` |
+| **login** | String(255) | Employee login to enter Kladana |
+| **role** | object | Information about the role of the Employee |
+
+#### Nested entity attributes
+##### Role
+
+There are four types of roles: `System Administrator`, `User Role` and `Individualrole`. Use
+`Individual role` (with non-default permissions) and `User role` is possible only on `Professional` tariffs
+or `Corporate`. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
+If not all permissions are specified in the `permissions` field, then those not transferred will be turned off.
+Default values are set if the user, without specifying individual permissions, sets an individual role for an employee,
+for which no individual permissions were previously set.
+
+| Title | Type | Description |
+| ------| ------ | ------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Role metadata<br>`+Required when replying` |
+| **permissions** | Array(Object) | Permission list |
+
+###### List of user permissions
+
+| Title | Possible values | Default value | Description |
+|-------| ------ | ------ | --------- |
+| **apiRequest** | Boolean | true | API access |
+| **deleteFromRecycleBin** | Boolean | true | Empty cart |
+| **editCurrencyRateOfDocument** | Boolean | true | Edit document currency rate |
+| **editDocumentTemplates** | Boolean | true | Edit document and report templates |
+| **editDocumentsOfRestrictedPeriod** | Boolean | false | Edit closed period transactions |
+| **exportData** | Boolean | true | Export data |
+| **importdata** | Boolean | true | Import data |
+| **listenCalls** | Boolean | true | Listening to calls |
+| **onlineShops** | Boolean | true | Internet shops |
+| **purchaseControl** | Boolean | true | Purchasing management |
+| **restoreFromRecycleBin** | Boolean | true | Restore transactions|
+| **sendEmail** | Boolean | true | Send mail |
+| **subscriptionControl** | Boolean | false | Subscription Management |
+| **viewAudit** | Boolean | false | View audit |
+| **viewCashFlow** | Boolean | true | View cash flow |
+| **viewCommissionGoods** | Boolean | true | View items for sale |
+| **viewCompanyCRM** | Boolean | true | View metrics |
+| **viewCustomerBalanceList** | Boolean | true | View settlements |
+| **viewDashboard** | Boolean | true | View metrics |
+| **viewMoneyDashboard** | Boolean | false | See money balances |
+| **viewProductCostAndProfit** | Boolean | true | See the cost price, purchase price and profit of goods |
+| **viewProfitAndLoss** | Boolean | true | View profit and loss |
+| **viewPurchaseFunnel** | Boolean | true | View the sales funnel |
+| **viewRecycleBin** | Boolean | true | View Cart |
+| **viewSaleProfit** | Boolean | true | View profitability |
+| **viewSerialNumbers** | Boolean |true | View serial numbers |
+| **viewStockReport** | Boolean | true | View balances by product |
+| **viewTurnover** | Boolean | true | View turnovers |
+
+###### List of entity permissions
+
+There are three possible types of entity permission values: `OPERATION`, `DICTIONARY`, `BASE`.
+These types have the following fields:
+
+| entity permission value types | view | create | update | delete | print | approve |
+| ---------| --------- | ---------- | ------------ | --------- | --------- | --------- |
+| OPERATION | + | + | + | + | + | + |
+| DICTIONARY | + | + | + | + | + | - |
+| base | + | + | + | + | - | - |
+
+
+| Title | Description | Restrictions |
+| ------- | -------- | -------- |
+| **view** | Watch | no |
+| **create** | Create | matches view or missing |
+| **update** | Edit | not wider than view or missing |
+| **delete** | Delete | matches update or missing |
+| **print** | Print | matches view or missing |
+| **approve** | Conduct | matches view or missing |
+
+Possible values of the fields `view`, `create`, `update`, `delete`, `approve`, `print`:
+
+| Title | To whom does |
+| ------- | -------- |
+| **NO** | To no one |
+| **OWN** | Only their |
+| **OWN_SHARED** | Own and common |
+| **OWN_GROUP** | Own and department |
+| **OWN_GROUP_SHARED** | Own, department and general |
+| **ALL** | All |
+
+Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED` &#8594; `OWN_GROUP_SHARED` &#8594; `ALL` and
+`NO` &#8594; `OWN` &#8594; `OWN_GROUP` &#8594; `OWN_GROUP_SHARED` &#8594; `ALL`
+  If one of the fields is not specified, then this action will be prohibited for this employee.
+ 
+  Entity Permission List
+ 
+
+| Title | Possible values | Default value | Description |
+| ------- | -------- | ------- | -------- |
+| **GTINList** | view, create, delete | All NO | GTIN List |
+| **accountAdjustment** | DICTIONARY | All ALL | Adjustment of account balances |
+| **bonustransaction** | OPERATION | All ALL | Bonus points |
+| **cashIn** | OPERATION | All ALL | Receipt order |
+| **cashOut** | OPERATION | All ALL | Disbursement order |
+| **cashboxAdjustment** | DICTIONARY | All ALL | Adjustment of cash balances |
+| **company** | DICTIONARY | All ALL | Contractors |
+| **contract** | DICTIONARY | All ALL | Contracts |
+| **counterpartyAdjustment** | DICTIONARY | All ALL | Counterparty balance adjustment |
+| **country** | base | All ALL | Countries |
+| **crptCancellation** | DICTIONARY | All NO | Writing off marking codes |
+| **crptPackageCreation** | DICTIONARY | All NO | Formation of packaging |
+| **crptPackageDisaggregation** | DICTIONARY | All NO | Unpacking |
+| **crptPackageItemRemoval** | DICTIONARY | All NO | Unpacking |
+| **currency** | base| All ALL | Currencies |
+| **customEntity** | base | All ALL | Elements of user directories |
+| **customerOrder** | OPERATION | All ALL | Order to buyers |
+| **demand** | OPERATION | All ALL | Shipment |
+| **emissionOrder** | DICTIONARY | All NO | Order marking codes |
+| **utilizationReport** | DICTIONARY | All NO | Usage Report |
+| **atkAggregation** | DICTIONARY | All NO | Formation of ATK |
+| **retireOrderOSU** | DICTIONARY | All NO | Withdrawal from circulation OSU |
+| **employees** | base | All ALL | Employees |
+| **enrollOrder** | DICTIONARY | All NO | Introduction of marking codes into circulation |
+| **enter** | OPERATION | All ALL | Posting |
+| **good** | DICTIONARY | All ALL | Goods and Services |
+| **internalOrder** | OPERATION | All ALL | Domestic orders |
+| **inventory** | DICTIONARY | All ALL | Inventory |
+| **invoiceIn** | OPERATION | All ALL | Supplier invoice |
+| **invoiceOut** | OPERATION | All ALL | Account for buyers |
+| **loss** | OPERATION | All ALL | Write-off |
+| **move** | OPERATION | All ALL | Moving |
+| **myCompany** | base | view: ALL, create: NO, edit: NO, delete: NO | Jur. Faces |
+| **paymentIn** | OPERATION | All ALL | Incoming payment |
+| **paymentOut** | OPERATION | All ALL | Outgoing payment |
+| **prepayment** | OPERATION | All ALL | Prepayments |
+| **prepaymentReturn** | OPERATION | All ALL | Return of prepayment |
+| **processing** | base | All ALL | Those. operations |
+| **processingOrder** | OPERATION | All ALL | Production order |
+| **processingPlan** | base | All ALL | Those. Maps |
+| **processingStage** | base | All ALL | Stages of production |
+| **processingProcess** | base | All ALL | Those. processes |
+| **project** | base | All ALL | Projects |
+| **purchaseOrder** | OPERATION | All ALL | Order to suppliers |
+| **purchaseReturn** | OPERATION | All ALL | Return to supplier |
+| **remainsOrder** | DICTIONARY | All NO | Description of residues |
+| **remarkingOrder** | DICTIONARY | All NO | Relabeling |
+| **retailDemand** | OPERATION | All ALL | Sales |
+| **retailDrawerCashIn** | OPERATION | All ALL | Applications || **retailDrawerCashOut** | OPERATION | All ALL | Payouts |
+| **retailSalesReturn** | OPERATION | All ALL | Returns |
+| **retireOrder** | DICTIONARY | All NO | Withdrawal from circulation |
+| **salesReturn** | OPERATION | All ALL | Buyer Return |
+| **supply** | OPERATION | All ALL | Acceptances |
+| **trackingCodeList** | view, print | All NO | Marking codes |
+| **wom** | base | All ALL | Units of measure |
+| **warehouse** | base | All ALL | Warehouses |
+
+For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`
+  for these permissions, an error will be returned.
+ 
+For `GTINList`, `trackingCodeList` permissions, the possible field values are `ALL` or `NO`.
+
+###### Permissions for tasks
+
+`script` permissions for tasks have the following fields:
+
+| Title | Description | Restrictions | Possible values |
+| ------- | -------- | ------- | -------- |
+| **view** | Watch | no | NO, AUTHOR_OR_ASSIGNEE, ALL |
+| **create** | Create | not wider than view or missing | NO, ALL |
+| **update** | Edit | not wider than view or missing | NO, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL |
+| **delete** | Delete | not wider than the value of the update field or missing | NO, AUTHOR, AUTHOR_OR_ASSIGNEE, ALL |
+| **done** | Execute | not wider than view or missing | NO, ASSIGNEE, AUTHOR_OR_ASSIGNEE, ALL |
+
+The value `NO` is valid for `view` and `done` only if all other values are `NO`.
+If the value of the `view` field is different from `NO`, then the `done` field must be passed and the value must match,
+with the value of the `view` field.
+
+Possible values of the fields `view`, `create`, `update`, `delete`, `done`:
+
+| Title | What tasks is covered by |
+| ------- | -------- |
+| **NO** | No permissions for any tasks |
+| **AUTHOR_OR_ASSIGNEE** | Created by the user and assigned to him |
+| **ASSIGNEE** | Appointed |
+| **AUTHOR** | Created by user |
+| **ALL** | The ability to perform an action on any tasks |
+
+### Get information about the Employee's rights
+
+Request for information about the rights of the Employee.
+
+**Parameters**
+
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
+
+> An example of a request for information about the rights of an Employee.
+
+```shell
+   curl -X GET
+     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
+     -H "Authorization: Basic <Credentials>"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of information about the rights of an Employee with a custom role.
 
 ```json
 {
@@ -989,7 +942,7 @@ curl -X GET
             "mediaType": "application/json"
         },
         "id": "f4b74c5e-443a-11eb-ac12-001000000002",
-        "name": "Основной"
+        "name": "Main"
     },
     "authorizedHosts": [
         "1.15.15.5"
@@ -1462,257 +1415,227 @@ curl -X GET
                 "done": "AUTHOR_OR_ASSIGNEE",
                 "update": "AUTHOR",
                 "delete": "AUTHOR"
-            },
-            "taxrate": {
-             "view": "ALL",
-             "create": "ALL",
-             "update": "ALL",
-             "delete": "ALL"
             }
         }
     }
 }
 ```
 
-### Изменить информацию о правах Сотрудника
+### Change information about Employee's rights
 
-Запрос на изменение информации о правах Сотрудника.
+Request to change information about the rights of the Employee.
 
-Если у пользователя есть возможность настраивать пермиссии для индивидуальной роли, 
-то при установке индивидуальной роли пермиссии выставятся в соответствии с теми, что были переданы в поле `permissions`, остальные пермиссии 
-будут выставлены в `NO`, кроме `view` равное `ALL` для `currency`, `country` и `uom`. В случае отсутствия поля `permissions` 
-будут заданы значения пермиссий, которые были у сотрудника до смены роли (по умолчанию, если не были).
+If the user has the ability to set up permissions for an individual role,
+then when installing an individual role, the permissions will be set in accordance with those that were passed in the `permissions` field, the rest of the permissions
+will be set to `NO`, except for `view` being `ALL` for `currency`, `country` and `uom`. If there is no `permissions` field
+the values of the permissions that the employee had before the role change will be set (by default, if they were not).
 
-Если тариф не позволяет менять пермиссии и переданные или ранее выставленные пермиссии отличаются от значений по умолчанию, то вернётся ошибка без смены роли.
+If the tariff does not allow changing permissions and the transferred or previously issued permissions differ from the default values, then an error will be returned without changing the role.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
+| Parameter | Description |
+| ------- | -------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
 
-> Пример запроса на изменение информации о правах Сотрудника.
+> An example of a request to change information about the rights of an Employee.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "group": {
-                "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-                    "type": "group",
-                    "mediaType": "application/json"
-                }
-            },
-            "authorizedHosts": [
-                "20.20.15.5"
-            ],
-            "role": {
-                "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-                    "type": "systemrole",
-                    "mediaType": "application/json"
-                }
-            }
-          }'
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             group: {
+                 "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                     "type": "group",
+                     "mediaType": "application/json"
+                 }
+             },
+             "authorizedHosts": [
+                 "20.20.15.5"
+             ],
+             role: {
+                 "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
+                     "type": "system role",
+                     "mediaType": "application/json"
+                 }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной информации о правах Сотрудника с ролью администратора.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of updated information about the rights of an Employee with an administrator role.
 
 ```json
 {
-    "isActive": true,
-    "login": "example@lognex",
-    "email": "example@example.ru",
-    "group": {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-            "type": "group",
-            "mediaType": "application/json"
-        },
-        "id": "f4b74c5e-443a-11eb-ac12-001000000003",
-        "name": "Новая группа"
-    },
-    "authorizedHosts": [
-        "20.20.15.5"
-    ],
-    "authorizedIpNetwork": "80.8.8.8",
-    "authorizedIpNetmask": "1.8.8.8",
-    "role": {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-            "type": "systemrole",
-            "mediaType": "application/json"
-        }
-    }
+     "isActive": true
+     "login": "example@lognex",
+     "email": "example@example.ru",
+     group: {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+             "type": "group",
+             "mediaType": "application/json"
+         },
+         "id": "f4b74c5e-443a-11eb-ac12-001000000003",
+         "name": "New group"
+     },
+     "authorizedHosts": [
+         "20.20.15.5"
+     ],
+     "authorizedIpNetwork": "80.8.8.8",
+     "authorizedIpNetmask": "1.8.8.8",
+     role: {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
+             "type": "system role",
+             "mediaType": "application/json"
+         }
+     }
 }
 ```
 
-### Активация Сотрудника
+### Employee Activation
 
-Запрос на активацию Сотрудника в сервисе МойСклад.
+Request to activate an Employee in Kladana.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
+| Parameter | Description |
+| ------- | ---------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
 
-Если пользователь ранее не был активным, то при запросе необходимо указать поле `login`. Формат поля аналогичен формату 
-в сервисе МойСклад. Успешным результатом выполнения запроса будет json, содержащий поле `mailActivationRequired` со значением 
-true. Это означает, что на указанную у сотрудника почту было выслано письмо со ссылкой на вход для сотрудника.
+If the user was not previously active, then the `login` field must be specified when prompted. The field format is similar to the format in Kladana. A successful result of the request will be json containing the `mailActivationRequired` field with the value
+true. This means that an email was sent to the email specified by the employee with a link to the employee's login.
 
-Если пользователь уже был ранее активным, то при активации не нужно указывать поле `login`. 
-Успешным результатом выполнения запроса будет json, содержащий поле `mailActivationRequired` со значением false. В данном 
-случае можно использовать ранее заданный пароль для данного пользователя.
+If the user was previously active, then the `login` field does not need to be specified during activation.
+A successful result of the request will be a json containing a `mailActivationRequired` field with a value of false. In this
+In this case, you can use the previously set password for this user.
 
-> Пример запроса на активацию Сотрудника.
+> An example of an Employee activation request.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "login": "newcashier@lognex",
-            "group": {
-                "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-                    "type": "group",
-                    "mediaType": "application/json"
-                }
-            },
-            "role": {
-                "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/role/cashier",
-                    "type": "systemrole",
-                    "mediaType": "application/json"
-                }
-            }
-          }'
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "login": "newmanager@lognex",
+             group: {
+                 "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                     "type": "group",
+                     "mediaType": "application/json"
+                 }
+             },
+             role: {
+                 "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/role/manager",
+                     "type": "system role",
+                     "mediaType": "application/json"
+                 }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной информации об активированном Сотруднике с ролью кассира.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of updated information about the activated Employee with the manager role.
 
 ```json
 {
-    "mailActivationRequired": true
+     "mailActivationRequired": true
 }
 ```
 
-### Деактивация Сотрудника
+### Employee deactivation
 
-Запрос на деактивацию Сотрудника в сервисе МойСклад.
+Request to deactivate an Employee in Kladana.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
+| Parameter | Description |
+| ------ | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
 
-> Пример запроса на деактивацию Сотрудника.
+> An example of a request to deactivate an Employee.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate"
-    -H "Authorization: Basic <Credentials>"
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate"
+     -H "Authorization: Basic <Credentials>"
 ```
 
 > Response 204
 
-### Сброс пароля Сотрудника
+### Reset employee password
 
-Запрос на сброс пароля Сотрудника в сервисе МойСклад. Новый пароль буде выслан на почту, указанную у данного сотрудника.
+Password Reset Request for Employee in Kladana. A new password will be sent to the email specified by this employee.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Сотрудника. |
+| Parameter | Description |
+| ------- | ------ |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Employee id. |
 
-> Пример запроса на сброс пароля Сотрудника.
+> An example of a request to reset an Employee's password.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword"
-    -H "Authorization: Basic <Credentials>"
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword"
+     -H "Authorization: Basic <Credentials>"
 ```
 
 > Response 204
 
 
-### Запрос на получение роли админа
+### Admin role request
 
-> Пример запроса на получение роли админа.
+> An example of a request for an admin role.
 
 ```shell
-  curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/role/admin"
-    -H "Authorization: Basic <Credentials>"
+   curl -X GET
+     "https://app.kladana.in/api/remap/1.2/entity/role/admin"
+     -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление информации о роли админа.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of information about the admin role.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-    "type": "systemrole",
-    "mediaType": "application/json"
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
+     "type": "system role",
+     "mediaType": "application/json"
+   }
 }
 ```
 
-### Запрос на получение индивидуальной роли
+### Request for an individual role
 
-> Пример запроса на получение индивидуальной роли.
+> An example of a request for an individual role.
 
 ```shell
-  curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/role/individual"
-    -H "Authorization: Basic <Credentials>"
+   curl -X GET
+     "https://app.kladana.in/api/remap/1.2/entity/role/individual"
+     -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление информации индивидуальной роли.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the individual role information.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/role/individual",
-    "type": "individualrole",
-    "mediaType": "application/json"
-  }
-}
-```
-
-### Запрос на получение роли кассира
-
-> Пример запроса на получение роли кассира.
-
-```shell
-  curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/role/cashier"
-    -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление информации о роли кассира
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/role/cashier",
-    "type": "systemrole",
-    "mediaType": "application/json"
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/role/individual",
+     "type": "individual role",
+     "mediaType": "application/json"
+   }
 }
 ```

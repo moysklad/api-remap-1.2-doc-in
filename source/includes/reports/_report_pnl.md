@@ -1,69 +1,70 @@
-## Отчет Прибыльность
-Средствами JSON API можно запросить отчет "Прибыльность" по всем товарам, услугам, модификациям, сотрудникам, покупателям и каналам продаж. 
-Для доступа к отчету через API требуется право на просмотр отчета *Прибыли и убытки*.
-О том, что представляет собой отчет "Прибыльность" вы можете прочитать по [этой ссылке](https://support.moysklad.ru/hc/ru/articles/203025326-%D0%9E%D1%82%D1%87%D0%B5%D1%82-%D0%9F%D1%80%D0%B8%D0%B1%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C).
+## Profitability Report 
 
-#### Прибыльность по товарам 
-#### Атрибуты объекта отчета:
-
-| Название           | Тип    | Описание                                                                                                                                                                         |
-| ------------------ | :----- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **assortment**     | Object | Краткое представление Товара или Услуги в отчете. [Подробнее тут](../dictionaries/#suschnosti-towar) и [тут](../dictionaries/#suschnosti-usluga)<br>`+Обязательное при ответе` |
-| **margin**         | Float  | Рентабельность<br>`+Обязательное при ответе`                                                                                                                                     |
-| **profit**         | Float  | Прибыль<br>`+Обязательное при ответе`                                                                                                                                            |
-| **returnCost**     | Float  | Себестоимость возвратов<br>`+Обязательное при ответе`                                                                                                                            |
-| **returnCostSum**  | Float  | Сумма себестоимостей возвратов<br>`+Обязательное при ответе`                                                                                                                     |
-| **returnPrice**    | Float  | Цена возвратов<br>`+Обязательное при ответе`                                                                                                                                     |
-| **returnQuantity** | Int    | Количество возвратов<br>`+Обязательное при ответе`                                                                                                                               |
-| **returnSum**      | Float  | Сумма возвратов<br>`+Обязательное при ответе`                                                                                                                                    |
-| **sellCost**       | Float  | Себестоимость<br>`+Обязательное при ответе`                                                                                                                                      |
-| **sellCostSum**    | Float  | Сумма себестоимостей продаж<br>`+Обязательное при ответе`                                                                                                                        |
-| **sellPrice**      | Float  | Цена продаж (средняя)<br>`+Обязательное при ответе`                                                                                                                              |
-| **sellQuantity**   | Int    | Проданное количество<br>`+Обязательное при ответе`                                                                                                                               |
-| **sellSum**        | Float  | Сумма продаж<br>`+Обязательное при ответе`                                                                                                                                       |
-
-#### Структура объекта assortment
-
-| Название    | Тип                                                       | Описание                                                     |
-| ----------- | :-------------------------------------------------------- | :----------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Товара или Услуги<br>`+Обязательное при ответе`   |
-| **name**    | String(255)                                               | Наименование Товара или Услуги<br>`+Обязательное при ответе` |
-| **code**    | String(255)                                               | Код товара или услуги                                        |
-| **uom**     | Object                                                    | Единица измерения                                            |
-| **article** | String(255)                                               | Артикул товара                                               |
-| **image**   | Object                                                    | Изображение товара                                           |
-
-#### Атрибуты доступные для фильтрации
-
-Результаты отчета можно отфильтровать, используя параметр filter.
-Для каждого параметра, кроме канала продаж, можно указать только одно значение.
-Нельзя указывать пустые значения.
-
-| Название          | Тип         | Фильтрация | Описание                                                                                                                                                                                                                                                                                  |
-|-------------------|:------------|:-----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **product**       | Object      | `=` `!=`   | ссылка на товар, услугу, комплект, модификацию или серию, по которой нужно произвести фильтрацию. Можно передать несколько значений.                                                                                                                                                      |
-| **productFolder** | Object      | `=` `!=`   | параметр для фильтрации по нескольким группам товаров. Значение параметра - ссылка на группу товаров, которая должна быть включена в выборку или исключена из нее. Можно передать несколько значений.                                                                                     |
-| **withSubFolders**| Boolean     | `=`        | параметр учета вложенных подгрупп. Работает только при наличии фильтра по `productFolder`. По умолчанию `true`, выводятся товары из дочерних подгрупп фильтруемой группы / групп товаров. При передаче `false` выводятся только товары из фильтруемой группы / групп, без учета подгрупп. |
-| **agentTag**      | String(255) | `=`        | строка с названием группы контрагентов, по которой нужно произвести фильтрацию.                                                                                                                                                                                                           |
-| **counterparty**  | Object      | `=`        | ссылка на контрагента, по которому нужно произвести фильтрацию.                                                                                                                                                                                                                           |
-| **organization**  | Object      | `=`        | ссылка на юрлицо, по которому нужно произвести фильтрацию.                                                                                                                                                                                                                                |
-| **store**         | Object      | `=`        | ссылка на склад, по которому нужно произвести фильтрацию.                                                                                                                                                                                                                                 |
-| **project**       | Object      | `=`        | ссылка на проект, по которому нужно произвести фильтрацию.                                                                                                                                                                                                                                |
-| **retailStore**   | Object      | `=`        | ссылка на точку продаж, по которой нужно произвести фильтрацию.                                                                                                                                                                                                                           |
-| **supplier**      | Object      | `=`        | параметр для фильтрации по поставщику. Значение параметра - ссылка на контрагента или организацию. В выборку будут включены товары с указанным поставщиком.                                                                                                                               |
-| **salesChannel**  | Object      | `=`        | ссылка на канал продаж, по которому нужно провести фильтрацию. Допустимо повторное использование фильтра, когда требуется фильтрация по нескольким каналам продаж.                                                                                                                        |
-
-Одновременная фильтрация по **product** и **productFolder** не поддерживается.
+Using the JSON API, you can request a "Profitability" report for all products, services, modifications, employees, customers, and sales channels.
+To access the report via the API, you need the right to view the *Profit and Loss* report.
 
 
-Примеры фильтрации:
+#### Profitability by goods
+#### Report object attributes
+
+| Title | Type | Description |
+| --------- | -----|---------|
+| **assortment** | object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#suschnosti-towar) and [here](../dictionaries/#suschnosti-usluga)<br>`+Required when answering` |
+| **margin** | float | Profitability<br>`+Required when answering` |
+| **profit** | float | Profit<br>`+Required when answering` |
+| **returnCost** | float | Cost of returns<br>`+Required when replying` |
+| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnprice** | float | Price returns<br>`+Required when replying` |
+| **returnQuantity** | int | Number of returns<br>`+Required when replying` |
+| **returnSum** | float | Refund amount<br>`+Required when replying` |
+| **sellCost** | float | Cost price<br>`+Required when answering` |
+| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellprice** | float | Sales price (average)<br>`+Required when answering` |
+| **sellQuantity** | int | Quantity sold<br>`+Required when replying` |
+| **sellSum** | float | Sales amount<br>`+Required when answering` |
+
+#### Assortment object structure
+
+| Title | Type | Description |
+| -----|---------|--------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Product or Service<br>`+Required when replying` |
+| **name** | String(255) | Name of Goods or Services<br>`+Required when answering` |
+| **code** | String(255) | Product or service code |
+| **wom** | object | Unit of measurement |
+| **article** | String(255) | Product SKU |
+| **images** | object | Product Image |
+
+#### Attributes available for filtering
+
+The report results can be filtered using the filter parameter.
+Only one value can be specified for each parameter, except for the sales channel.
+You cannot specify empty values.
+
+| Title | Type | Filtration | Description|
+|------------| -----|---------|------------|
+| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
+| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | object | `=` | link to the legal entity by which you want to filter. |
+| **store** | object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | object | `=` | a link to the project by which you want to filter. |
+| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
+
+Simultaneous filtering by **product** and **productFolder** is not supported.
+
+
+Filtering examples:
 
 - `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
 - `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
 - `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
@@ -72,222 +73,222 @@
 - `filter=agentTag=favorites`
 - `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003;store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Получить Прибыльность по товарам
+### Get Product Profitability
 
-Отчет прибыльности по товарам включает: товары, комплекты, услуги. В товаре учитывается прибыльность по его модификациям, но без указания самих модификаций.
+Profitability report for goods includes: goods, kits, services. The product takes into account the profitability of its modifications, but without specifying the modifications themselves.
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                          |
-| ------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.                                            |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                            |
-| **momentFrom**                 | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo**                   | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-При отсутствии параметров **momentFrom** и **momentTo** отображаются отчеты за последний месяц.  
-При отсутствии параметра **momentFrom** и указании параметра **momentTo** отображаются отчеты с начала текущего года по **momentTo**.  
-При отсутствии параметра **momentTo** и указании параметра **momentFrom** отображаются отчеты с **momentFrom** по текущий день.  
+| Parameter | Description |
+| -----|---------|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
+If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Запрос на получение отчета "Прибыльность по товарам".
+> Request for a "Profitability by Products" report.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/profit/byproduct"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/profit/byproduct"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct",
-    "type": "salesbyproduct",
-    "mediaType": "application/json",
-    "size": 5,
-    "limit": 2,
-    "offset": 0,
-    "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct?limit=2&offset=2"
-  },
-  "rows": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/6af0f1c9-4814-11e6-8a84-bae5000006b4",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        },
-        "name": "Курево",
-        "code": "00067",
-        "uom": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-            "type": "uom",
-            "mediaType": "application/json"
-          },
-          "name": "шт"
-        }
-      },
-      "sellQuantity": 8643,
-      "sellPrice": 216174.97396737244,
-      "sellCost": 0,
-      "sellSum": 1868400300,
-      "sellCostSum": 0,
-      "returnQuantity": 0,
-      "returnPrice": 0.0,
-      "returnCost": 0,
-      "returnSum": 0,
-      "returnCostSum": 0,
-      "profit": 1868400300,
-      "margin": 0
-    },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/6a9bdfe4-4814-11e6-8a84-bae500000503",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        },
-        "name": "Ногтеточка",
-        "code": "00198",
-        "uom": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-            "type": "uom",
-            "mediaType": "application/json"
-          },
-          "name": "шт"
-        }
-      },
-      "sellQuantity": 4765,
-      "sellPrice": 100000000.0,
-      "sellCost": 0,
-      "sellSum": 476500000000,
-      "sellCostSum": 0,
-      "returnQuantity": 0,
-      "returnPrice": 0.0,
-      "returnCost": 0,
-      "returnSum": 0,
-      "returnCostSum": 0,
-      "profit": 476500000000,
-      "margin": 0
-    },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "service",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=3412d794-484e-11e8-6a80-332a0000008f"
-        },
-        "name": "Заточка коньков",
-        "code": "00045",
-        "uom": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-            "type": "uom",
-            "mediaType": "application/json"
-          },
-          "name": "шт"
-        }
-      },
-      "sellQuantity": 10,
-      "sellPrice": 500000.0,
-      "sellCost": 300000,
-      "sellSum": 5000000,
-      "sellCostSum": 3000000,
-      "returnQuantity": 3,
-      "returnPrice": 500000.0,
-      "returnCost": 300000,
-      "returnSum": 1500000,
-      "returnCostSum": 900000,
-      "profit": 1400000,
-      "margin": 0.6666666666666666
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct",
+     "type": "salesbyproduct",
+     "mediaType": "application/json",
+     size: 5
+     limit: 2
+     offset: 0
+     "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct?limit=2&offset=2"
+   },
+   rows: [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/6af0f1c9-4814-11e6-8a84-bae5000006b4",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         },
+         "name": "Smoke",
+         "code": "00067",
+         "uom": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "type": "uom",
+             "mediaType": "application/json"
+           },
+           "name": "pcs"
+         }
+       },
+       "sellQuantity": 8643,
+       "sellPrice": 216174.97396737244,
+       "sellCost": 0
+       "sellSum": 1868400300,
+       "sellCostSum": 0,
+       "returnQuantity": 0,
+       "returnPrice": 0.0
+       "returnCost": 0,
+       "returnSum": 0,
+       "returnCostSum": 0,
+       "profit": 1868400300,
+       margin: 0
+     },
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/6a9bdfe4-4814-11e6-8a84-bae500000503",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         },
+         "name": "Nail Post",
+         "code": "00198",
+         "uom": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "type": "uom",
+             "mediaType": "application/json"
+           },
+           "name": "pcs"
+         }
+       },
+       "sellQuantity": 4765,
+       "sellPrice": 100000000.0
+       "sellCost": 0
+       "sellSum": 476500000000,
+       "sellCostSum": 0,
+       "returnQuantity": 0,
+       "returnPrice": 0.0
+       "returnCost": 0,
+       "returnSum": 0,
+       "returnCostSum": 0,
+       "profit": 476500000000,
+       margin: 0
+     },
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "service",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=3412d794-484e-11e8-6a80-332a0000008f"
+         },
+         "name": "Sharpening skates",
+         "code": "00045",
+         "uom": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "type": "uom",
+             "mediaType": "application/json"
+           },
+           "name": "pcs"
+         }
+       },
+       "sellQuantity": 10
+       "sellPrice": 500000.0,
+       sellCost: 300000
+       "sellSum": 5000000,
+       "sellCostSum": 3000000,
+       "returnQuantity": 3,
+       "returnPrice": 500000.0,
+       returnCost: 300000
+       "returnSum": 1500000,
+       "returnCostSum": 900000,
+       "profit": 1400000,
+       margin: 0.6666666666666666
+     }
+   ]
 }
 ```
 
-#### Прибыльность по модификациям 
-#### Атрибуты объекта отчета:
+#### Profitability by modifications
+#### Report object attributes:
 
-| Название           | Тип    | Описание                                                                                                                                                                                                                                          |
-| ------------------ | :----- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **assortment**     | Object | Краткое представление Модификации, Услуги или Комплекта в отчете. [Подробнее тут](../dictionaries/#suschnosti-modifikaciq), [тут](../dictionaries/#suschnosti-usluga) и [тут](../dictionaries/#suschnosti-komplekt)<br>`+Обязательное при ответе` |
-| **margin**         | Float  | Рентабельность<br>`+Обязательное при ответе`                                                                                                                                                                                                      |
-| **profit**         | Float  | Прибыль<br>`+Обязательное при ответе`                                                                                                                                                                                                             |
-| **returnCost**     | Float  | Себестоимость возвратов<br>`+Обязательное при ответе`                                                                                                                                                                                             |
-| **returnCostSum**  | Float  | Сумма себестоимостей возвратов<br>`+Обязательное при ответе`                                                                                                                                                                                      |
-| **returnPrice**    | Float  | Цена возвратов<br>`+Обязательное при ответе`                                                                                                                                                                                                      |
-| **returnQuantity** | Int    | Количество возвратов<br>`+Обязательное при ответе`                                                                                                                                                                                                |
-| **returnSum**      | Float  | Сумма возвратов<br>`+Обязательное при ответе`                                                                                                                                                                                                     |
-| **sellCost**       | Float  | Себестоимость<br>`+Обязательное при ответе`                                                                                                                                                                                                       |
-| **sellCostSum**    | Float  | Сумма себестоимостей продаж<br>`+Обязательное при ответе`                                                                                                                                                                                         |
-| **sellPrice**      | Float  | Цена продаж (средняя)<br>`+Обязательное при ответе`                                                                                                                                                                                               |
-| **sellQuantity**   | Int    | Проданное количество<br>`+Обязательное при ответе`                                                                                                                                                                                                |
-| **sellSum**        | Float  | Сумма продаж<br>`+Обязательное при ответе`                                                                                                                                                                                                        |
+| Title | Type | Description |
+| -----|---------|----- |
+| **assortment** | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#suschnosti-modifikaciq), [here](../dictionaries/#suschnosti-usluga) and [here](../dictionaries/#suschnosti-komplekt)<br>`+ Mandatory when replying` |
+| **margin** | float | Profitability<br>`+Required when answering` |
+| **profit** | float | Profit<br>`+Required when answering` |
+| **returnCost** | float | Cost of returns<br>`+Required when replying` |
+| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering`|
+| **returnprice** | float | Price returns<br>`+Required when replying` |
+| **returnQuantity** | int | Number of returns<br>`+Required when replying` |
+| **returnSum** | float | Refund amount<br>`+Required when replying` |
+| **sellCost** | float | Cost price<br>`+Required when answering` |
+| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellprice** | float | Sales price (average)<br>`+Required when answering` |
+| **sellQuantity** | int | Quantity sold<br>`+Required when replying` |
+| **sellSum** | float | Sales amount<br>`+Required when answering` |
 
-#### Структура объекта assortment
+#### Assortment object structure
 
-| Название    | Тип                                                       | Описание                                                                   |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Модификации, Услуги или Комплекта<br>`+Обязательное при ответе` |
-| **name**    | String(255)                                               | Наименование сущности<br>`+Обязательное при ответе`                        |
-| **code**    | String(255)                                               | Код сущности<br>`+Обязательное при ответе`                                 |
-| **article** | String(255)                                               | Артикул Модификации или Комплекта<br>`+Обязательное при ответе`            |
-| **image**   | Object                                                    | Изображение Модификации<br>`+Обязательное при ответе`                      |
+| Title | Type | Description |
+| -----|---------|-------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Modification, Service, or Bundle Metadata<br>`+Required when responding` |
+| **name** | String(255) | Entity name<br>`+Required when replying` |
+| **code** | String(255) | Entity code<br>`+Required for response` |
+| **article** | String(255) | Article of Modification or Kit<br>`+Required when answering` |
+| **images** | object | Image Modifications<br>`+Required when answering` |
 
-#### Атрибуты доступные для фильтрации
+#### Attributes available for filtering
 
-Результаты отчета можно отфильтровать, используя параметр filter.
-Для каждого параметра, кроме канала продаж, можно указать только одно значение.
-Нельзя указывать пустые значения.
+The report results can be filtered using the filter parameter.
+Only one value can be specified for each parameter, except for the sales channel.
+You cannot specify empty values.
 
-| Название          | Тип         | Фильтрация | Описание                                                                                                                                                           |
-|-------------------| :-----------|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **product**       | Object      | `=` `!=`   | ссылка на товар, услугу, комплект, модификацию или серию, по которой нужно произвести фильтрацию. Можно передать несколько значений.                                                                                                                                                      |
-| **productFolder** | Object      | `=` `!=`   | параметр для фильтрации по нескольким группам товаров. Значение параметра - ссылка на группу товаров, которая должна быть включена в выборку или исключена из нее. Можно передать несколько значений.                                                                                     |
-| **withSubFolders**| Boolean     | `=`        | параметр учета вложенных подгрупп. Работает только при наличии фильтра по `productFolder`. По умолчанию `true`, выводятся товары из дочерних подгрупп фильтруемой группы / групп товаров. При передаче `false` выводятся только товары из фильтруемой группы / групп, без учета подгрупп. |
-| **agentTag**      | String(255) | `=`        | строка с названием группы контрагентов, по которой нужно произвести фильтрацию.                                                                                                                                                                                                           |
-| **counterparty**  | Object      | `=`        | ссылка на контрагента, по которому нужно произвести фильтрацию.                                                                                                    |
-| **organization**  | Object      | `=`        | ссылка на юрлицо, по которому нужно произвести фильтрацию.                                                                                                         |
-| **store**         | Object      | `=`        | ссылка на склад, по которому нужно произвести фильтрацию.                                                                                                          |
-| **project**       | Object      | `=`        | ссылка на проект, по которому нужно произвести фильтрацию.                                                                                                         |
-| **retailStore**   | Object      | `=`        | ссылка на точку продаж, по которой нужно произвести фильтрацию.                                                                                                    |
-| **supplier**      | Object      | `=`        | параметр для фильтрации по поставщику. Значение параметра - ссылка на контрагента или организацию. В выборку будут включены товары с указанным поставщиком.        |
-| **salesChannel**  | Object      | `=`        | ссылка на канал продаж, по которому нужно провести фильтрацию. Допустимо повторное использование фильтра, когда требуется фильтрация по нескольким каналам продаж. |
+| Title | Type | Filtration | Description |
+|-------| ------|--------|-------|
+| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
+| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | object | `=` | link to the legal entity by which you want to filter. |
+| **store** | object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | object | `=` | a link to the project by which you want to filter. |
+| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
-Одновременная фильтрация по **product** и **productFolder** не поддерживается.
+Simultaneous filtering by **product** and **productFolder** is not supported.
 
 
-Примеры фильтрации:
+Filtering examples:
 
 - `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
 - `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
 - `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
@@ -296,217 +297,216 @@ curl -X GET
 - `filter=agentTag=favorites`
 - `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003;store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Получить Прибыльность по модификациям
+### Get Profit by modifications
 
-Отчет прибыльности по товарам включает: товары, комплекты, услуги и модификации (выводится сама модификация, не родительский товар).
+The product profitability report includes: products, kits, services and modifications (the modification itself is displayed, not the parent product).
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                          |
-| ------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.                                            |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                            |
-| **momentFrom**                 | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo**                   | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-При отсутствии параметров **momentFrom** и **momentTo** отображаются отчеты за последний месяц.  
-При отсутствии параметра **momentFrom** и указании параметра **momentTo** отображаются отчеты с начала текущего года по **momentTo**.  
-При отсутствии параметра **momentTo** и указании параметра **momentFrom** отображаются отчеты с **momentFrom** по текущий день.  
+| Parameter | Description |
+| -----|---------|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
+If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Запрос на получение отчета "Прибыльность по модификациям".
+> Request for the report "Profitability by modifications".
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/profit/byvariant"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/profit/byvariant"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant",
-    "type": "salesbyvariant",
-    "mediaType": "application/json",
-    "size": 5,
-    "limit": 2,
-    "offset": 0,
-    "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant?limit=2&offset=2"
-  },
-  "rows": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6af0f1c9-4814-11e6-8a84-bae5000006b4?expand=product.supplier",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-          "type": "variant",
-          "mediaType": "application/json"
-        },
-        "name": "Курево (Африка, 0.2, Комбайны)",
-        "code": "00067",
-        "uom": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-            "type": "uom",
-            "mediaType": "application/json"
-          },
-          "name": "шт"
-        }
-      },
-      "sellQuantity": 8643,
-      "sellPrice": 216174.97396737244,
-      "sellCost": 0,
-      "sellSum": 1868400300,
-      "sellCostSum": 0,
-      "returnQuantity": 0,
-      "returnPrice": 0.0,
-      "returnCost": 0,
-      "returnSum": 0,
-      "returnCostSum": 0,
-      "profit": 1868400300,
-      "margin": 0
-    },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6a9bdfe4-4814-11e6-8a84-bae500000503?expand=product.supplier",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-          "type": "variant",
-          "mediaType": "application/json"
-        },
-        "name": "Ногтеточка (Белый, 20, Нет, 1000)",
-        "code": "00198",
-        "uom": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-            "type": "uom",
-            "mediaType": "application/json"
-          },
-          "name": "шт"
-        }
-      },
-      "sellQuantity": 4765,
-      "sellPrice": 100000000.0,
-      "sellCost": 0,
-      "sellSum": 476500000000,
-      "sellCostSum": 0,
-      "returnQuantity": 0,
-      "returnPrice": 0.0,
-      "returnCost": 0,
-      "returnSum": 0,
-      "returnCostSum": 0,
-      "profit": 476500000000,
-      "margin": 0
-    },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "service",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=3412d794-484e-11e8-6a80-332a0000008f"
-        },
-        "name": "Заточка коньков",
-        "code": "00045",
-        "uom": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-            "type": "uom",
-            "mediaType": "application/json"
-          },
-          "name": "шт"
-        }
-      },
-      "sellQuantity": 10,
-      "sellPrice": 500000.0,
-      "sellCost": 300000,
-      "sellSum": 5000000,
-      "sellCostSum": 3000000,
-      "returnQuantity": 3,
-      "returnPrice": 500000.0,
-      "returnCost": 300000,
-      "returnSum": 1500000,
-      "returnCostSum": 900000,
-      "profit": 1400000,
-      "margin": 0.6666666666666666
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant",
+     "type": "salesbyvariant",
+     "mediaType": "application/json",
+     size: 5
+     limit: 2
+     offset: 0
+     "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant?limit=2&offset=2"
+   },
+   rows: [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6af0f1c9-4814-11e6-8a84-bae5000006b4?expand=product.supplier",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+           "type": "variant",
+           "mediaType": "application/json"
+         },
+         "name": "Smoking (Africa, 0.2, Harvesters)",
+         "code": "00067",
+         "uom": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "type": "uom",
+             "mediaType": "application/json"
+           },
+           "name": "pcs"
+         }
+       },
+       "sellQuantity": 8643,
+       "sellPrice": 216174.97396737244,
+       "sellCost": 0
+       "sellSum": 1868400300,
+       "sellCostSum": 0,
+       "returnQuantity": 0,
+       "returnPrice": 0.0
+       "returnCost": 0,
+       "returnSum": 0,
+       "returnCostSum": 0,
+       "profit": 1868400300,
+       margin: 0
+     },
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6a9bdfe4-4814-11e6-8a84-bae500000503?expand=product.supplier",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+           "type": "variant",
+           "mediaType": "application/json"
+         },
+         "name": "Nail Post (White, 20, No, 1000)",
+         "code": "00198",
+         "uom": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "type": "uom",
+             "mediaType": "application/json"
+           },
+           "name": "pcs"
+         }
+       },
+       "sellQuantity": 4765,
+       "sellPrice": 100000000.0
+       "sellCost": 0
+       "sellSum": 476500000000,
+       "sellCostSum": 0,
+       "returnQuantity": 0,
+       "returnPrice": 0.0
+       "returnCost": 0,
+       "returnSum": 0,
+       "returnCostSum": 0,
+       "profit": 476500000000,
+       margin: 0
+     },
+     {
+       "assortment": {"meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "service",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=3412d794-484e-11e8-6a80-332a0000008f"
+         },
+         "name": "Sharpening skates",
+         "code": "00045",
+         "uom": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "type": "uom",
+             "mediaType": "application/json"
+           },
+           "name": "pcs"
+         }
+       },
+       "sellQuantity": 10
+       "sellPrice": 500000.0,
+       sellCost: 300000
+       "sellSum": 5000000,
+       "sellCostSum": 3000000,
+       "returnQuantity": 3,
+       "returnPrice": 500000.0,
+       returnCost: 300000
+       "returnSum": 1500000,
+       "returnCostSum": 900000,
+       "profit": 1400000,
+       margin: 0.6666666666666666
+     }
+   ]
 }
 ```
 
-#### Прибыльность по сотрудникам 
-#### Атрибуты объекта отчета:
+#### Profitability by employee
+#### Report object attributes
 
-| Название           | Тип    | Описание                                                                                                                                                                            |
-| ------------------ | :----- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **employee**       | Object | Краткое представление Сотрудника в отчете. [Подробнее тут](../dictionaries/#suschnosti-sotrudnik)<br>`+Обязательное при ответе` |
-| **margin**         | Float  | Рентабельность<br>`+Обязательное при ответе`                                                                                                                                        |
-| **profit**         | Float  | Прибыль<br>`+Обязательное при ответе`                                                                                                                                               |
-| **returnAvgCheck** | Float  | Средний чек возврата<br>`+Обязательное при ответе`                                                                                                                                  |
-| **returnCostSum**  | Float  | Сумма себестоимостей возвратов<br>`+Обязательное при ответе`                                                                                                                        |
-| **returnCount**    | Int    | Количество возвратов<br>`+Обязательное при ответе`                                                                                                                                  |
-| **returnSum**      | Float  | Сумма возвратов<br>`+Обязательное при ответе`                                                                                                                                       |
-| **salesAvgCheck**  | Float  | Средний чек продаж<br>`+Обязательное при ответе`                                                                                                                                    |
-| **salesCount**     | Int    | Количество продаж<br>`+Обязательное при ответе`                                                                                                                                     |
-| **sellCostSum**    | Float  | Сумма себестоимостей продаж<br>`+Обязательное при ответе`                                                                                                                           |
-| **sellSum**        | Float  | Сумма продаж<br>`+Обязательное при ответе`                                                                                                                                          |
+| Title | Type | Description |
+| -----|---------|------ |
+| **employees** | object | Brief representation of the Employee in the report. [More details here](../dictionaries/#suschnosti-sotrudnik)<br>`+Required when answering` |
+| **margin** | float | Profitability<br>`+Required when answering` |
+| **profit** | float | Profit<br>`+Required when answering` |
+| **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
+| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCount** | int | Number of returns<br>`+Required when replying` |
+| **returnSum** | float | Refund amount<br>`+Required when replying` |
+| **salesAvgCheck** | float | Average sales receipt<br>`+Required when answering` |
+| **salesCount** | int | Number of sales<br>`+Required when answering` |
+| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellSum** | float | Sales amount<br>`+Required when answering` |
 
-#### Структура объекта employee
+#### Employee object structure
 
-| Название | Тип                                                       | Описание                                            |
-| -------- | :-------------------------------------------------------- | :-------------------------------------------------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Сотрудника<br>`+Обязательное при ответе` |
-| **name** | String(255)                                               | Имя Сотрудника<br>`+Обязательное при ответе`        |
+| Title | Type | Description |
+| -----|---------|---------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee Metadata<br>`+Required when responding` |
+| **name** | String(255) | Employee Name<br>`+Required when replying` |
 
-#### Атрибуты доступные для фильтрации
+#### Attributes available for filtering
 
-Результаты отчета можно отфильтровать, используя параметр filter.
-Для каждого параметра, кроме канала продаж, можно указать только одно значение.
-Нельзя указывать пустые значения.
+The report results can be filtered using the filter parameter.
+Only one value can be specified for each parameter, except for the sales channel.
+You cannot specify empty values.
 
-| Название          | Тип         | Фильтрация | Описание                                                                                                                                                           |
-|-------------------| :-----------|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **product**       | Object      | `=` `!=`   | ссылка на товар, услугу, комплект, модификацию или серию, по которой нужно произвести фильтрацию. Можно передать несколько значений.                                                                                                                                                      |
-| **productFolder** | Object      | `=` `!=`   | параметр для фильтрации по нескольким группам товаров. Значение параметра - ссылка на группу товаров, которая должна быть включена в выборку или исключена из нее. Можно передать несколько значений.                                                                                     |
-| **withSubFolders**| Boolean     | `=`        | параметр учета вложенных подгрупп. Работает только при наличии фильтра по `productFolder`. По умолчанию `true`, выводятся товары из дочерних подгрупп фильтруемой группы / групп товаров. При передаче `false` выводятся только товары из фильтруемой группы / групп, без учета подгрупп. |
-| **agentTag**      | String(255) | `=`        | строка с названием группы контрагентов, по которой нужно произвести фильтрацию.                                                                                                                                                                                                           |
-| **counterparty**  | Object      | `=`        | ссылка на контрагента, по которому нужно произвести фильтрацию.                                                                                                    |
-| **organization**  | Object      | `=`        | ссылка на юрлицо, по которому нужно произвести фильтрацию.                                                                                                         |
-| **store**         | Object      | `=`        | ссылка на склад, по которому нужно произвести фильтрацию.                                                                                                          |
-| **project**       | Object      | `=`        | ссылка на проект, по которому нужно произвести фильтрацию.                                                                                                         |
-| **retailStore**   | Object      | `=`        | ссылка на точку продаж, по которой нужно произвести фильтрацию.                                                                                                    |
-| **supplier**      | Object      | `=`        | параметр для фильтрации по поставщику. Значение параметра - ссылка на контрагента или организацию. В выборку будут включены товары с указанным поставщиком.        |
-| **salesChannel**  | Object      | `=`        | ссылка на канал продаж, по которому нужно провести фильтрацию. Допустимо повторное использование фильтра, когда требуется фильтрация по нескольким каналам продаж. |
+| Title | Type | Filtration | Description |
+|-------| -----|----------|------|
+| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
+| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | object | `=` | link to the legal entity by which you want to filter. |
+| **store** | object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | object | `=` | a link to the project by which you want to filter. |
+| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
-Одновременная фильтрация по **product** и **productFolder** не поддерживается.
+Simultaneous filtering by **product** and **productFolder** is not supported.
 
 
-Примеры фильтрации:
+Filtering examples:
 
 - `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
 - `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
 - `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
@@ -515,135 +515,135 @@ curl -X GET
 - `filter=agentTag=favorites`
 - `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003;store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Получить Прибыльность по сотрудникам
+### Get Profitability by Employee
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                          |
-| ------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.                                            |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                            |
-| **momentFrom**                 | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo**                   | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-При отсутствии параметров **momentFrom** и **momentTo** отображаются отчеты за последний месяц.  
-При отсутствии параметра **momentFrom** и указании параметра **momentTo** отображаются отчеты с начала текущего года по **momentTo**.  
-При отсутствии параметра **momentTo** и указании параметра **momentFrom** отображаются отчеты с **momentFrom** по текущий день.  
+| Parameter | Description |
+| ---------| ---- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
+If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Запрос на получение отчета "Прибыльность по сотрудникам".
+> Request for a Profitability by Employee report.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/profit/byemployee"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/profit/byemployee"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/report/profit/byEmployee",
-    "type": "salesbyemployee",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "employee": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/3c9ef5be-4814-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        },
-        "name": "Администратор"
-      },
-      "salesCount": 3,
-      "salesAvgCheck": 104498369718788910,
-      "sellSum": 313495109156366700,
-      "sellCostSum": 0,
-      "returnCount": 0,
-      "returnAvgCheck": 0,
-      "returnSum": 0,
-      "returnCostSum": 0,
-      "profit": 313495109156366700,
-      "margin": 0
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/report/profit/byEmployee",
+     "type": "salesbyemployee",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "employee": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/3c9ef5be-4814-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         },
+         "name": "Administrator"
+       },
+       "salesCount": 3,
+       "salesAvgCheck": 104498369718788910,
+       "sellSum": 313495109156366700,
+       "sellCostSum": 0,
+       returnCount: 0
+       "returnAvgCheck": 0,
+       "returnSum": 0,
+       "returnCostSum": 0,
+       "profit": 313495109156366700,
+       margin: 0
+     }
+   ]
 }
 ```
 
-#### Прибыльность по покупателям 
-#### Атрибуты объекта отчета:
+#### Profitability by customers
+#### Report object attributes:
 
-| Название           | Тип    | Описание                                                                                                                                                                            |
-| ------------------ | :----- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **counterparty**   | Object | Краткое представление Покупателя в отчете. [Подробнее тут](../dictionaries/#suschnosti-kontragent)<br>`+Обязательное при ответе` |
-| **margin**         | Float  | Рентабельность<br>`+Обязательное при ответе`                                                                                                                                        |
-| **profit**         | Float  | Прибыль<br>`+Обязательное при ответе`                                                                                                                                               |
-| **returnAvgCheck** | Float  | Средний чек возврата<br>`+Обязательное при ответе`                                                                                                                                  |
-| **returnCostSum**  | Float  | Сумма себестоимостей возвратов<br>`+Обязательное при ответе`                                                                                                                        |
-| **returnCount**    | Int    | Количество возвратов<br>`+Обязательное при ответе`                                                                                                                                  |
-| **returnSum**      | Float  | Сумма возвратов<br>`+Обязательное при ответе`                                                                                                                                       |
-| **salesAvgCheck**  | Float  | Средний чек продаж<br>`+Обязательное при ответе`                                                                                                                                    |
-| **salesCount**     | Int    | Количество продаж<br>`+Обязательное при ответе`                                                                                                                                     |
-| **sellCostSum**    | Float  | Сумма себестоимостей продаж<br>`+Обязательное при ответе`                                                                                                                           |
-| **sellSum**        | Float  | Сумма продаж<br>`+Обязательное при ответе`                                                                                                                                          |
+| Title | Type | Description |
+| ------- | ----- | ------ |
+| **counterparty** | object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#suschnosti-kontragent)<br>`+Required when answering` |
+| **margin** | float | Profitability<br>`+Required when answering`|
+| **profit** | float | Profit<br>`+Required when answering` |
+| **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
+| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCount** | int | Number of returns<br>`+Required when replying` |
+| **returnSum** | float | Refund amount<br>`+Required when replying` |
+| **salesAvgCheck** | float | Average sales receipt<br>`+Required when answering` |
+| **salesCount** | int | Number of sales<br>`+Required when answering` |
+| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellSum** | float | Sales amount<br>`+Required when answering` |
 
-#### Структура объекта counterparty
+#### Structure of the counterparty object
 
-| Название | Тип                                                       | Описание                                              |
-| -------- | :-------------------------------------------------------- | :---------------------------------------------------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Покупателя<br>`+Обязательное при ответе`   |
-| **name** | String(255)                                               | Наименование Покупателя<br>`+Обязательное при ответе` |
+| Title | Type | Description |
+| ---------| ---- |------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Buyer Metadata<br>`+Required when replying` |
+| **name** | String(255) | Name of the Buyer<br>`+Required when replying` |
 
-#### Атрибуты доступные для фильтрации
+#### Attributes available for filtering
 
-Результаты отчета можно отфильтровать, используя параметр filter.
-Для каждого параметра, кроме канала продаж, можно указать только одно значение.
-Нельзя указывать пустые значения.
+The report results can be filtered using the filter parameter.
+Only one value can be specified for each parameter, except for the sales channel.
+You cannot specify empty values.
 
-| Название          | Тип         | Фильтрация | Описание                                                                                                                                                           |
-|-------------------| :-----------|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **product**       | Object      | `=` `!=`   | ссылка на товар, услугу, комплект, модификацию или серию, по которой нужно произвести фильтрацию. Можно передать несколько значений.                                                                                                                                                      |
-| **productFolder** | Object      | `=` `!=`   | параметр для фильтрации по нескольким группам товаров. Значение параметра - ссылка на группу товаров, которая должна быть включена в выборку или исключена из нее. Можно передать несколько значений.                                                                                     |
-| **withSubFolders**| Boolean     | `=`        | параметр учета вложенных подгрупп. Работает только при наличии фильтра по `productFolder`. По умолчанию `true`, выводятся товары из дочерних подгрупп фильтруемой группы / групп товаров. При передаче `false` выводятся только товары из фильтруемой группы / групп, без учета подгрупп. |
-| **agentTag**      | String(255) | `=`        | строка с названием группы контрагентов, по которой нужно произвести фильтрацию.                                                                                                                                                                                                           |
-| **counterparty**  | Object      | `=`        | ссылка на контрагента, по которому нужно произвести фильтрацию.                                                                                                    |
-| **organization**  | Object      | `=`        | ссылка на юрлицо, по которому нужно произвести фильтрацию.                                                                                                         |
-| **store**         | Object      | `=`        | ссылка на склад, по которому нужно произвести фильтрацию.                                                                                                          |
-| **project**       | Object      | `=`        | ссылка на проект, по которому нужно произвести фильтрацию.                                                                                                         |
-| **retailStore**   | Object      | `=`        | ссылка на точку продаж, по которой нужно произвести фильтрацию.                                                                                                    |
-| **supplier**      | Object      | `=`        | параметр для фильтрации по поставщику. Значение параметра - ссылка на контрагента или организацию. В выборку будут включены товары с указанным поставщиком.        |
-| **salesChannel**  | Object      | `=`        | ссылка на канал продаж, по которому нужно провести фильтрацию. Допустимо повторное использование фильтра, когда требуется фильтрация по нескольким каналам продаж. |
+| Title | Type | Filtration | Description |
+|--------| ------|--------| ---- |
+| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
+| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | object | `=` | link to the legal entity by which you want to filter. |
+| **store**| object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | object | `=` | a link to the project by which you want to filter. |
+| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
-Одновременная фильтрация по **product** и **productFolder** не поддерживается.
+Simultaneous filtering by **product** and **productFolder** is not supported.
 
 
-Примеры фильтрации:
+Filtering examples:
 
 - `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
 - `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
 - `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
@@ -652,136 +652,136 @@ curl -X GET
 - `filter=agentTag=favorites`
 - `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003;store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Получить Прибыльность по покупателям
+### Get Profitability by Customers
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                          |
-| ------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.                                            |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                            |
-| **momentFrom**                 | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo**                   | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-При отсутствии параметров **momentFrom** и **momentTo** отображаются отчеты за последний месяц.  
-При отсутствии параметра **momentFrom** и указании параметра **momentTo** отображаются отчеты с начала текущего года по **momentTo**.  
-При отсутствии параметра **momentTo** и указании параметра **momentFrom** отображаются отчеты с **momentFrom** по текущий день.  
+| Parameter | Description |
+| ---------| ---- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
+If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Запрос на получение отчета "Прибыльность по покупателям".
+> Request for a "Profitability by Buyers" report.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty",
-    "type": "salesbyCounterparty",
-    "mediaType": "application/json",
-    "size": 3,
-    "limit": 1,
-    "offset": 0,
-    "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty?limit=1&offset=1"
-  },
-  "rows": [
-    {
-      "counterparty": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/3cd88c00-4814-11e6-8a84-bae500000053",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-          "type": "counterparty",
-          "mediaType": "application/json"
-        },
-        "name": "ООО \"Покупатель\""
-      },
-      "salesCount": 1,
-      "salesAvgCheck": 310390615323104640,
-      "sellSum": 310390615323104640,
-      "sellCostSum": 0,
-      "returnCount": 0,
-      "returnAvgCheck": 0,
-      "returnSum": 0,
-      "returnCostSum": 0,
-      "profit": 310390615323104640,
-      "margin": 0
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty",
+     "type": "salesbyCounterparty",
+     "mediaType": "application/json",
+     size: 3
+     limit: 1
+     offset: 0
+     "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty?limit=1&offset=1"
+   },
+   rows: [
+     {
+       "counterparty": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/3cd88c00-4814-11e6-8a84-bae500000053",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "type": "counter party",
+           "mediaType": "application/json"
+         },
+         "name": "LLC \"Buyer\""
+       },
+       "salesCount": 1,
+       "salesAvgCheck": 310390615323104640,
+       "sellSum": 310390615323104640,
+       "sellCostSum": 0,
+       returnCount: 0
+       "returnAvgCheck": 0,
+       "returnSum": 0,
+       "returnCostSum": 0,
+       "profit": 310390615323104640,
+       margin: 0
+     }
+   ]
 }
 ```
 
-#### Прибыльность по каналам продаж
-#### Атрибуты объекта отчета:
+#### Profitability by sales channel
+#### Report object attributes
 
-| Название           | Тип    | Описание                                                                                                                               |
-|--------------------|:-------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| **salesChannel**   | Object | Краткое представление Канала продаж в отчете. [Подробнее тут](../dictionaries/#suschnosti-kanal-prodazh)<br>`+Обязательное при ответе` |
-| **margin**         | Float  | Рентабельность<br>`+Обязательное при ответе`                                                                                           |
-| **profit**         | Float  | Прибыль<br>`+Обязательное при ответе`                                                                                                  |
-| **returnAvgCheck** | Float  | Средний чек возврата<br>`+Обязательное при ответе`                                                                                     |
-| **returnCostSum**  | Float  | Сумма себестоимостей возвратов<br>`+Обязательное при ответе`                                                                           |
-| **returnCount**    | Int    | Количество возвратов<br>`+Обязательное при ответе`                                                                                     |
-| **returnSum**      | Float  | Сумма возвратов<br>`+Обязательное при ответе`                                                                                          |
-| **salesAvgCheck**  | Float  | Средний чек продаж<br>`+Обязательное при ответе`                                                                                       |
-| **salesCount**     | Int    | Количество продаж<br>`+Обязательное при ответе`                                                                                        |
-| **sellCostSum**    | Float  | Сумма себестоимостей продаж<br>`+Обязательное при ответе`                                                                              |
-| **sellSum**        | Float  | Сумма продаж<br>`+Обязательное при ответе`                                                                                             |
+| Title | Type | Description |
+| ---------| ---- |----------|
+| **salesChannel** | object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#suschnosti-kanal-prodazh)<br>`+Required when replying` |
+| **margin** | float | Profitability<br>`+Required when answering` |
+| **profit** | float | Profit<br>`+Required when answering` |
+| **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
+| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCount** | int | Number of returns<br>`+Required when replying` |
+| **returnSum** | float | Refund amount<br>`+Required when replying` |
+| **salesAvgCheck** | float | Average sales receipt<br>`+Required when answering` |
+| **salesCount** | int | Number of sales<br>`+Required when answering` |
+| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellSum** | float | Sales amount<br>`+Required when answering` |
 
-#### Структура объекта salesChannel
+#### SalesChannel object structure
 
-| Название | Тип                                                       | Описание                                                                                                                                      |
-|----------|:----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Канала продаж<br>`+Обязательное при ответе`                                                                                        |
-| **name** | String(255)                                               | Наименование Канала продаж<br>`+Обязательное при ответе`                                                                                      |
-| **type** | Enum                                                      | Тип Канала продаж [Подробнее тут](../dictionaries/#suschnosti-kanal-prodazh-kanaly-prodazh-tip-kanala-prodazh)<br>`+Обязательное при ответе ` |
+| Title | Type | Description |
+| ---------| ---- |---------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Sales Channel Metadata<br>`+Required when responding` |
+| **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
+| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#suschnosti-kanal-prodazh-kanaly-prodazh-tip-kanala-prodazh)<br>`+Required when answering ` |
 
-#### Атрибуты доступные для фильтрации
+#### Attributes available for filtering
 
-Результаты отчета можно отфильтровать, используя параметр filter.
-Для каждого параметра, кроме канала продаж, можно указать только одно значение.
-Нельзя указывать пустые значения.
+The report results can be filtered using the filter parameter.
+Only one value can be specified for each parameter, except for the sales channel.
+You cannot specify empty values.
 
-| Название          | Тип         | Фильтрация | Описание                                                                                                                                                           |
-|-------------------| :-----------|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **product**       | Object      | `=` `!=`   | ссылка на товар, услугу, комплект, модификацию или серию, по которой нужно произвести фильтрацию. Можно передать несколько значений.                                                                                                                                                      |
-| **productFolder** | Object      | `=` `!=`   | параметр для фильтрации по нескольким группам товаров. Значение параметра - ссылка на группу товаров, которая должна быть включена в выборку или исключена из нее. Можно передать несколько значений.                                                                                     |
-| **withSubFolders**| Boolean     | `=`        | параметр учета вложенных подгрупп. Работает только при наличии фильтра по `productFolder`. По умолчанию `true`, выводятся товары из дочерних подгрупп фильтруемой группы / групп товаров. При передаче `false` выводятся только товары из фильтруемой группы / групп, без учета подгрупп. |
-| **agentTag**      | String(255) | `=`        | строка с названием группы контрагентов, по которой нужно произвести фильтрацию.                                                                                                                                                                                                           |
-| **counterparty**  | Object      | `=`        | ссылка на контрагента, по которому нужно произвести фильтрацию.                                                                                                    |
-| **organization**  | Object      | `=`        | ссылка на юрлицо, по которому нужно произвести фильтрацию.                                                                                                         |
-| **store**         | Object      | `=`        | ссылка на склад, по которому нужно произвести фильтрацию.                                                                                                          |
-| **project**       | Object      | `=`        | ссылка на проект, по которому нужно произвести фильтрацию.                                                                                                         |
-| **supplier**      | Object      | `=`        | параметр для фильтрации по поставщику. Значение параметра - ссылка на контрагента или организацию. В выборку будут включены товары с указанным поставщиком.        |
-| **salesChannel**  | Object      | `=`        | ссылка на канал продаж, по которому нужно провести фильтрацию. Допустимо повторное использование фильтра, когда требуется фильтрация по нескольким каналам продаж. |
+| Title | Type | Filtration | Description |
+|--------------------|-----------|-----------|---------|
+| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
+| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | object | `=` | link to the legal entity by which you want to filter. |
+| **store** | object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | object | `=` | a link to the project by which you want to filter. |
+| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
-Одновременная фильтрация по **product** и **productFolder** не поддерживается.
+Simultaneous filtering by **product** and **productFolder** is not supported.
 
 
-Примеры фильтрации:
+Filtering examples:
 
 - `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
 - `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
 - `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
 - `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
@@ -789,76 +789,76 @@ curl -X GET
 - `filter=agentTag=favorites`
 - `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
 - `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003;store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Получить Прибыльность по каналам продаж
+### Get Profitability by Sales Channels
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                                                                                                          |
-|----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **limit**      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.                                            |
-| **offset**     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                            |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo**   | `date` (optional) *Example: 2016-04-15 15:48:46* Один из [параметров фильтрации выборки](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-При отсутствии параметров **momentFrom** и **momentTo** отображаются отчеты за последний месяц.  
-При отсутствии параметра **momentFrom** и указании параметра **momentTo** отображаются отчеты с начала текущего года по **momentTo**.  
-При отсутствии параметра **momentTo** и указании параметра **momentFrom** отображаются отчеты с **momentFrom** по текущий день.
+| Parameter | Description |
+| ---------| ---- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
+If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Запрос на получение отчета "Прибыльность по каналам продаж".
+> Request for a Profitability by Sales Channel report.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/profit/bysaleschannel"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/profit/bysaleschannel"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-  "context" : {
-    "employee" : {
-      "meta" : {
-        "href" : "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type" : "employee",
-        "mediaType" : "application/json"
-      }
-    }
-  },
-  "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/report/profit/bysaleschannel",
-    "type" : "salesbysaleschannel",
-    "mediaType" : "application/json",
-    "size" : 1,
-    "limit" : 1000,
-    "offset" : 0
-  },
-  "rows" : [ {
-    "salesChannel" : {
-      "meta" : {
-        "href" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/656c4032-8552-11e6-8a84-bae500000044",
-        "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-        "type" : "saleschannel",
-        "mediaType" : "application/json",
-        "uuidHref" : "https://app.kladana.in/app/#saleschannel/edit?id=656c4032-8552-11e6-8a84-bae500000044"
-      },
-      "name" : "ijk-shop.ru",
-      "type" : "ECOMMERCE"
-    },
-    "salesCount" : 1.0,
-    "salesAvgCheck" : 252500.0,
-    "sellSum" : 252500.0,
-    "sellCostSum" : 0.0,
-    "returnCount" : 0.0,
-    "returnAvgCheck" : 0.0,
-    "returnSum" : 0.0,
-    "returnCostSum" : 0.0,
-    "profit" : 252500.0,
-    "margin" : 0.0
-  } ]
+   "context" : {
+     "employee" : {
+       "meta" : {
+         "href" : "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type" : "employee",
+         "mediaType" : "application/json"
+       }
+     }
+   },
+   "meta" : {
+     "href" : "https://app.kladana.in/api/remap/1.2/report/profit/bysaleschannel",
+     "type" : "salesbysaleschannel",
+     "mediaType" : "application/json",
+     "size" : 1,
+     "limit" : 1000
+     "offset" : 0
+   },
+   "rows" : [{
+     "salesChannel" : {
+       "meta" : {
+         "href" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/656c4032-8552-11e6-8a84-bae500000044",
+         "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+         "type" : "sales channel",
+         "mediaType" : "application/json",
+         "uuidHref" : "https://app.kladana.in/app/#saleschannel/edit?id=656c4032-8552-11e6-8a84-bae500000044"
+       },
+       "name" : "ijk-shop.ru",
+       "type" : "ECOMMERCE"
+     },
+     "salesCount" : 1.0,
+     "salesAvgCheck" : 252500.0,
+     "sellSum" : 252500.0,
+     "sellCostSum" : 0.0,
+     "returnCount" : 0.0,
+     "returnAvgCheck" : 0.0,
+     "returnSum" : 0.0,
+     "returnCostSum" : 0.0,
+     "profit" : 252500.0,
+     "margin" : 0.0
+   } ]
 }
 ```

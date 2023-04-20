@@ -1,266 +1,266 @@
-## Отчет Деньги
-Средствами JSON API можно запросить отчеты, отражающие движение денежных средств за заданный период и текущие остатки средств по кассам и счетам.
-Для доступа к отчету через API требуется право на просмотр показателей `viewDashboard` и право "Видеть остатки денег" `viewMoneyDashboard`.
+## Money Report
 
-### Движение денежных средств
-#### Атрибуты отчета:
+Using the JSON API, you can request reports that reflect the movement of funds for a given period and current cash and account balances.
+Access to the report via the API requires the right to view indicators `viewDashboard` and the right "See money balances" `viewMoneyDashboard`.
 
-| Название   | Тип           | Описание                                                                   |
-| ---------- | :------------ | :------------------------------------------------------------------------- |
-| **credit** | Float         | Доход<br>`+Обязательное при ответе`                                        |
-| **debit**  | Float         | Расход<br>`+Обязательное при ответе`                                       |
-| **series** | Array(Object) | Массив показателей. Подробнее в таблице ниже<br>`+Обязательное при ответе` |
+### Flow of funds
+#### Report attributes
 
-#### Показатели (series)
+| Title | Type | Description |
+| ---------- | ------------ | ------ |
+| **credit** | float | Income<br>`+Required when answering` |
+| **debit** | float | Cost<br>`+Required when answering` |
+| **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when answering` |
 
-| Название    | Тип      | Описание                                            |
-| ----------- | :------- | :-------------------------------------------------- |
-| **date**    | DateTime | Дата<br>`+Обязательное при ответе`                  |
-| **credit**  | Float    | Доход за период<br>`+Обязательное при ответе`       |
-| **debit**   | Float    | Расход за период<br>`+Обязательное при ответе`      |
-| **balance** | Float    | Баланс (доход-расход)<br>`+Обязательное при ответе` |
+#### Indicators (series)
 
-#### Параметры доступные для фильтрации
+| Title | Type | Description |
+| ----------- |  ------------ | ------ |
+| **date** | datetime | Date<br>`+Required when replying` |
+| **credit** | float | Income for the period<br>`+Required when answering` |
+| **debit** | float | Expense for the period<br>`+Required when answering` |
+| **balance** | float | Balance (income-expense)<br>`+Required when answering` |
 
-Документы, попадающие в отчет, можно отфильтровать, используя параметр **filter**. Для каждого параметра можно указать несколько значений. Нельзя указывать пустые значения.
+#### Parameters available for filtering
 
-| Название                       | Тип    | Фильтрация | Описание                     |
-| ------------------------------ | :----- | :--------- | :--------------------------- |
-| **organization**               | Object | `=`        | ссылка на юр. лицо           |
-| **project**                    | Object | `=`        | ссылка на проект             |
+Transactions included in the report can be filtered using the **filter** parameter. You can specify multiple values for each parameter. You cannot specify empty values.
+
+| Title | Type | Filtration | Description |
+| ------ |------| ------------ | ------ |
+| **organization** | object | `=` | link to legal face |
+| **project** | object | `=` | project link |
 
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **momentFrom**                 | `date` (required) *Example: 2018-09-01 00:00:00* Начало периода отчета                                                                                                                 |
-| **momentTo**                   | `date` (required) *Example: 2018-10-01 00:00:00* Конец периода отчета                                                                                                                  |
-| **interval**                   | `string` (required) Интервал, с которым будет построен отчет. Может принимать значения *hour*, *day*, *month* для разбиения указанного периода по часам, дням и месяцам соответственно |
+| Parameter | Description |
+| ------------ | ------ |
+| **momentFrom** | `date` (required) *Example: 2018-09-01 00:00:00* Report period start |
+| **momentTo** | `date` (required) *Example: 2018-10-01 00:00:00* Report period end |
+| **interval** | `string` (required) The interval at which the report will be built. Can take the values *hour*, *day*, *month* to split the specified period into hours, days and months, respectively |
 
-**Заголовки**
+**Headers**
 
-| Заговок                        | Описание                                                                                                                                                                                                                                                                                    |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **X-Lognex-Accept-Timezone**   | Опциональный заголовок, в котором указана текущая дата на клиенте в RFC 3522. Таймзону обязательно указывать в формате знак и 4 символа (не в Obsolete Date and Time). Пример даты: `Wed, 16 Aug 2017 23:07:01 +0700`. При подсчете показателей даты операций смещаются в таймзону клиента. |
-| **X-Lognex-Content-Timezone**  | Заголовок ответа. В нем указывается (как думает сервер) текущая дата на клиенте в RFC 3522.                                                                                                                                                                                                 |
+| Header | Description |
+| ------------ | ------ |
+| **X-Lognex-Accept-Timezone** | An optional header that specifies the current date on the client in RFC 3522. The time zone must be specified in the format sign and 4 characters (not in Obsolete Date and Time). Date example: `Wed, 16 Aug 2017 23:07:01 +0700`. When calculating indicators, the dates of transactions are shifted to the client's time zone. |
+| **X-Lognex-Content-Timezone** | Response header. It specifies (as the server thinks) the current date on the client in RFC 3522. |
 
-> Запрос на получение графика движения денежных средств
+> Request for a cash flow chart
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
-{  
-  "context":{  
-    "employee":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type":"employee",
-        "mediaType":"application/json"
-      }
-    }
-  },
-  "meta":{  
-    "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day",
-    "type":"moneyplotseries",
-    "mediaType":"application/json"
-  },
-  "credit":400,
-  "debit":200,
-  "series":[  
-    {  
-      "date":"2018-09-01 00:00:00",
-      "credit":100,
-      "debit":50,
-      "balance":50
-    },
-    {  
-      "date":"2018-09-02 00:00:00",
-      "credit":100,
-      "debit":50,
-      "balance":50
-    },
-    {  
-      "date":"2018-09-03 00:00:00",
-      "credit":100,
-      "debit":50,
-      "balance":50
-    },
-    {  
-      "date":"2018-09-04 00:00:00",
-      "credit":100,
-      "debit":50,
-      "balance":50
-    }
-  ]
+{
+   "context":{
+     "employee":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type":"employee",
+         "mediaType":"application/json"
+       }
+     }
+   },
+   "meta":{
+     "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day",
+     "type":"moneyplotseries",
+     "mediaType":"application/json"
+   },
+   "credit":400,
+   "debit":200,
+   "series":[
+     {
+       "date":"2018-09-01 00:00:00",
+       "credit":100,
+       "debit":50,
+       balance:50
+     },
+     {
+       "date":"2018-09-02 00:00:00",
+       "credit":100,
+       "debit":50,
+       balance:50
+     },
+     {
+       "date":"2018-09-03 00:00:00",
+       "credit":100,
+       "debit":50,
+       balance:50
+     },
+     {
+       "date":"2018-09-04 00:00:00",
+       "credit":100,
+       "debit":50,
+       balance:50
+     }
+   ]
 }
 ```
 
-> Запрос графика с фильтрацией
+> Graph request with filtering
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in /api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34 -5acf000c8448"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
-{  
-  "context":{  
-    "employee":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type":"employee",
-        "mediaType":"application/json"
-      }
-    }
-  },
-  "meta":{  
-    "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448",
-    "type":"moneyplotseries",
-    "mediaType":"application/json"
-  },
-  "credit":60,
-  "debit":20,
-  "series":[  
-    {  
-      "date":"2018-09-01 00:00:00",
-      "credit":50,
-      "debit":0,
-      "balance":50
-    },
-    {  
-      "date":"2018-09-02 00:00:00",
-      "credit":10,
-      "debit":20,
-      "balance":-10
-    },
-    {  
-      "date":"2018-09-03 00:00:00",
-      "credit":0,
-      "debit":0,
-      "balance":0
-    },
-    {  
-      "date":"2018-09-04 00:00:00",
-      "credit":0,
-      "debit":0,
-      "balance":0
-    }
-  ]
+{
+   "context":{
+     "employee":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type":"employee",
+         "mediaType":"application/json"
+       }
+     }
+   },
+   "meta":{
+     "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app .kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897 -11e7-7a34-5acf000c8448",
+     "type":"moneyplotseries",
+     "mediaType":"application/json"
+   },
+   "credit":60,
+   "debit":20,
+   "series":[
+     {
+       "date":"2018-09-01 00:00:00",
+       "credit":50,
+       "debit":0,
+       balance:50
+     },
+     {
+       "date":"2018-09-02 00:00:00",
+       "credit":10,
+       "debit":20,
+       "balance":-10
+     },
+     {
+       "date":"2018-09-03 00:00:00",
+       credit:0,
+       "debit":0,
+       balance:0
+     },
+     {
+       "date":"2018-09-04 00:00:00",
+       credit:0,
+       "debit":0,
+       balance:0
+     }
+   ]
 }
 ```
 
-### Остатки денежных средств
-#### Атрибуты объекта отчета:
+### Cash balances
+#### Report object attributes:
 
-#### Единица измерения
-| Название         | Тип    | Описание                                                                                                                                                                                                                       |
-| ---------------- | :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **account**      | Object | Счет организации (не выводится для остатка кассы, так как касса одна на организацию). [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Обязательное при ответе` |
-| **organization** | Object | Организация. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Обязательное при ответе`                                                                          |
-| **balance**      | Float  | Текущий остаток денежных средств<br>`+Обязательное при ответе`                                                                                                                                                                 |
+#### Unit
+| Title | Type | Description |
+| ------------ | ------ |----- |
+| **account** | object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **organization** | object | Organization. [More details here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **balance** | float | Current balance<br>`+Required when answering` |
 
-#### Счет организации
+#### Organization account
 
-| Название | Тип                                                       | Описание                                             |
-| -------- | :-------------------------------------------------------- | :--------------------------------------------------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные организации<br>`+Обязательное при ответе` |
-| **name** | String(255)                                               | Номер счета<br>`+Обязательное при ответе`            |
+| Title | Type | Description |
+| ------------ | ------ |--------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata<br>`+Required when replying` |
+| **name** | String(255) | Account number<br>`+Required when replying` |
 
-#### Организация
+#### Organization
 
-| Название | Тип                                                       | Описание                                               |
-| -------- | :-------------------------------------------------------- | :----------------------------------------------------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные организации<br>`+Обязательное при ответе`   |
-| **name** | String(255)                                               | Наименование организации<br>`+Обязательное при ответе` |
+| Title | Type | Description |
+| ------------ | ------ |---- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata<br>`+Required when replying` |
+| **name** | String(255) | Organization name<br>`+Required when answering` |
 
-> Запрос на получение остатков денежных средств по кассам и счетам
+> Request for receipt of cash balances on cash desks and accounts
 
 ```shell
-curl -X GET
-  "https://app.kladana.in/api/remap/1.2/report/money/byaccount"
-  -H "Authorization: Basic <Credentials>"
+curl -X GET"https://app.kladana.in/api/remap/1.2/report/money/byaccount"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отчета.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the report.
 
 ```json
-{  
-  "context":{  
-    "employee":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type":"employee",
-        "mediaType":"application/json"
-      }
-    }
-  },
-  "meta":{  
-    "href":"https://app.kladana.in/api/remap/1.2/report/money/byaccount",
-    "type":"moneyreport",
-    "mediaType":"application/json"
-  },
-  "rows":[  
-    {  
-      "organization":{  
-        "meta":{  
-          "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type":"organization",
-          "mediaType":"application/json"
-        },
-        "name":"OOO Ромашка"
-      },
-      "balance":100
-    },
-    {  
-      "organization":{  
-        "meta":{  
-          "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type":"organization",
-          "mediaType":"application/json"
-        },
-        "name":"OOO Серьезное Юридическое Лицо"
-      },
-      "balance":100
-    },
-    {  
-      "account":{  
-        "meta":{  
-          "href":"https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
-          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type":"account",
-          "mediaType":"application/json"
-        },
-        "name":"00000"
-      },
-      "organization":{  
-        "meta":{  
-          "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type":"organization",
-          "mediaType":"application/json"
-        },
-        "name":"OOO Серьезное Юридическое Лицо"
-      },
-      "balance":200
-    }
-  ]
+{
+   "context":{
+     "employee":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type":"employee",
+         "mediaType":"application/json"
+       }
+     }
+   },
+   "meta":{
+     "href":"https://app.kladana.in/api/remap/1.2/report/money/byaccount",
+     "type":"moneyreport",
+     "mediaType":"application/json"
+   },
+   "rows":[
+     {
+       organization:{
+         "meta":{
+           "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type":"organization",
+           "mediaType":"application/json"
+         },
+         "name":"OOO Chamomile"
+       },
+       balance:100
+     },
+     {
+       organization:{
+         "meta":{
+           "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type":"organization",
+           "mediaType":"application/json"
+         },
+         "name":"OOO Serious Legal Entity"
+       },
+       balance:100
+     },
+     {
+       "account":{
+         "meta":{
+           "href":"https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
+           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type":"account",
+           "mediaType":"application/json"
+         },
+         "name":"00000"
+       },
+       organization:{
+         "meta":{
+           "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type":"organization",
+           "mediaType":"application/json"
+         },
+         "name":"OOO Serious Legal Entity"
+       },
+       balance:200
+     }
+   ]
 }
 ```

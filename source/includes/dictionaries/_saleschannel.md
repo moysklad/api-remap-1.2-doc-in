@@ -1,524 +1,523 @@
-## Канал продаж
-### Каналы продаж
-Средствами JSON API можно создавать и обновлять сведения о Каналах продаж, запрашивать списки Каналов продаж и сведения по отдельным Каналам продаж. Кодом сущности для Канала продаж в составе JSON API является ключевое слово **saleschannel**. Больше о Каналах продаж и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по [этой ссылке](https://support.moysklad.ru/hc/ru/articles/4403265549585).
-По данной сущности можно осуществлять контекстный поиск с помощью специального параметра `search`. Подробнее можно узнать по [ссылке](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). Поиск с параметром search отличается от других тем, что поиск не префиксный, без токенизации и идет только по одному полю одновременно. Ищет такие строки, в которые входит значение строки поиска.
+## Sales channel
+### Sales channels
+You can use the JSON API to create and update Sales Channel information, query lists of Sales Channels, and query individual Sales Channels. The entity code for the Sales Channel in the JSON API is the **saleschannel** keyword.
 
-Поиск среди объектов канала продаж на соответствие поисковой строке будет осуществлен по следующим полям:
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
-+ по наименованию Канала продаж **name**
-+ по описанию Канала продаж **description**
+The search among the objects of the sales channel for matching the search string will be carried out using the following fields:
 
-#### Атрибуты сущности
-| Название         | Тип                                                       | Фильтрация                  | Описание                                                                                                                                                                |
-| ---------------- | :-------------------------------------------------------- | :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**    | UUID                                                      | `=` `!=`                    | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                    |
-| **archived**     | Boolean                                                   | `=` `!=`                    | Добавлен ли Канал продаж в архив<br>`+Обязательное при ответе`                                                                                                          |
-| **code**         | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Код Канала продаж                                                                                                                                                       |
-| **description**  | String(4096)                                              | `=` `!=` `~` `~=` `=~`      | Описание Канала продаж                                                                                                                                                  |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Внешний код Канала продаж<br>`+Обязательное при ответе`                                                                                                                 |
-| **group**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                    | Метаданные отдела сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                                    |
-| **id**           | UUID                                                      | `=` `!=`                    | ID Канала продаж<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                     |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные Канала продаж<br>`+Обязательное при ответе`                                                                                                                  |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Наименование Канала продаж<br>`+Обязательное при ответе` `+Необходимо при создании`                                                                                     |
-| **owner**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                    | Метаданные владельца (Сотрудника)<br>`+Expand`                                                                                                                          |
-| **shared**       | Boolean                                                   | `=` `!=`                    | Общий доступ<br>`+Обязательное при ответе`                                                                                                                              |
-| **type**         | Enum                                                      | `=` `!=`                    | Тип Канала продаж [Подробнее тут](../dictionaries/#suschnosti-kanal-prodazh-kanaly-prodazh-tip-kanala-prodazh)<br>`+Обязательное при ответе` `+Необходимо при создании` |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`  | Момент последнего обновления сущности<br>`+Обязательное при ответе` `+Только для чтения`                                                                                |
++ by Sales Channel name **name**
++ according to Sales Channel description **description**
 
-#### Тип канала продаж
-Перечисление значений, представляющих тип Канала продаж:
+#### Entity attributes
+| Title | Type | Filtration | Description |
+| -------| ---------| -------| ---------|
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | `=` `!=` | Has the Sales Channel been archived<br>`+Required when replying` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Channel Code |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Channel Description |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Channel External Code<br>`+Required when replying` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Sales Channel ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Sales Channel Metadata<br>`+Required when responding` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when replying` `+Required when creating` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **type** | Enum | `=` `!=` | Sales Channel Type [Details here](../dictionaries/#suschnosti-kanal-prodazh-kanaly-prodazh-tip-kanala-sale)<br>`+Required when answering` `+Required when creating` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
-| Название                       | Описание                                                                        |
-| ------------------------------ | :------------------------------------------------------------------------------ |
-| **MESSENGER**                  | Мессенджер                                                                      |
-| **SOCIAL_NETWORK**             | Социальная сеть                                                                 |
-| **MARKETPLACE**                | Маркетплейс                                                                     |
-| **ECOMMERCE**                  | Интернет-магазин                                                                |
-| **CLASSIFIED_ADS**             | Доска объявлений                                                                |
-| **DIRECT_SALES**               | Прямые продажи                                                                  |
-| **OTHER**                      | Другое                                                                          |
+#### Sales channel type
+An enumeration of values representing the Sales Channel type:
 
-#### Атрибуты доступные для фильтрации
+| Title | Description |
+| ------ | ------ |
+| **Messenger** | Messenger|
+| **SOCIAL_NETWORK** | Social network |
+| **MARKETPLACE** | Marketplace |
+| **ECOMERCE** | Online store |
+| **CLASSIFIED_ADS** | Board of announcements |
+| **DIRECT_SALES** | Direct sales |
+| **OTHER** | Other |
 
-| Значение                       | Описание                                                             |
-| ------------------------------ | :------------------------------------------------------------------- |
-| **accountId**                  | ID учетной записи                                                    |
-| **archived**                   | Добавлен ли Канал продаж в архив                                     |
-| **description**                | Описание Канала продаж                                               |
-| **externalCode**               | Внешний код Канала продаж                                            |
-| **group**                      | Отдел сотрудника                                                     |
-| **id**                         | ID Канала продаж                                                     |
-| **name**                       | Наименование Канала продаж                                           |
-| **owner**                      | Ссылка на Владельца (Сотрудника)                                     |
-| **shared**                     | Общий доступ                                                         |
-| **type**                       | Тип Канала продаж                                                    |
-| **updated**                    | Момент последнего обновления сущности                                |
+#### Attributes available for filtering
+
+| Value| Description |
+| ------ | ------ |
+| **accountId** | Account ID |
+| **archived** | Is the Sales Channel archived |
+| **description** | Sales Channel Description |
+| **externalCode** | Sales Channel External Code |
+| **group** | Employee department |
+| **id** | Sales Channel ID |
+| **name** | Sales Channel Name |
+| **owner** | Link to Owner (Employee) |
+| **shared** | Sharing |
+| **type** | Sales Channel Type |
+| **updated** | The moment when the entity was last updated |
 
 
-### Получить Каналы продаж
-Запрос на получение списка всех каналов продаж на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Get Sales Channels
+Request to get a list of all sales channels on this account.
+Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                                  |
-| ----------- | :-------------------------------------------------------- | :-------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                      |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.              |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой каналы продаж. |
+| Title | Type | Description |
+| ------ | ------ |------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing sales channels. |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description |
+| ------ | ------ |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить Каналы продаж
+> Get Sales Channels
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/saleschannel"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/saleschannel"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка каналов продаж.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of sales channels.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-    "type": "saleschannel",
-    "mediaType": "application/json",
-    "size": 2,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/51f263f9-0307-11e6-9464-e4de0000007c",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-        "type": "saleschannel",
-        "mediaType": "application/json"
-      },
-      "id": "51f263f9-0307-11e6-9464-e4de0000007c",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2021-04-15 15:41:05",
-      "name": "Магазин на Тверской",
-      "description": "Прямые продажи, без предзаказа",
-      "type": "DIRECT_SALES",
-      "externalCode": "HZV7dGc8iAnf0aNjrvQvN0",
-      "archived": false
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/8477d916-0aef-11e6-9464-e4de00000103",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-        "type": "saleschannel",
-        "mediaType": "application/json"
-      },
-      "id": "8477d916-0aef-11e6-9464-e4de00000103",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2021-04-25 17:10:51",
-      "name": "Заказы из ИМ",
-      "type": "ECOMMERCE",
-      "externalCode": "lv7MmPK4jvaqq-nA3g3NL2",
-      "archived": false
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+     "type": "sales channel",
+     "mediaType": "application/json",
+     size: 2
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/51f263f9-0307-11e6-9464-e4de0000007c",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+         "type": "sales channel",
+         "mediaType": "application/json"
+       },
+       "id": "51f263f9-0307-11e6-9464-e4de0000007c",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008","owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2021-04-15 15:41:05",
+       "name": "Shop on Tverskaya",
+       "description": "Direct sales, no pre-order",
+       "type": "DIRECT_SALES",
+       "externalCode": "HZV7dGc8iAnf0aNjrvQvN0",
+       "archived": false
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/8477d916-0aef-11e6-9464-e4de00000103",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+         "type": "sales channel",
+         "mediaType": "application/json"
+       },
+       "id": "8477d916-0aef-11e6-9464-e4de00000103",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: true
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2021-04-25 17:10:51",
+       "name": "Orders from IM",
+       "type": "ECOMMERCE",
+       "externalCode": "lv7MmPK4jvaqq-nA3g3NL2",
+       "archived": false
+     }
+   ]
 }
 ```
 
-### Создать Канал продаж
-Запрос на создание нового канала продаж. Необходимыми полями в теле запроса
-для создания канала продаж являются **name** и **type**.
+### Create Sales Channel
+Request to create a new sales channel. Required fields in the request body
+to create a sales channel are **name** and **type**.
 
-> Пример запроса на создание нового канала продаж.
+> An example of a request to create a new sales channel.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/saleschannel"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Телефонный звонок",
-            "description": "Позвонить клиенту",
-            "type": "OTHER"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/saleschannel"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Phone call",
+             "description": "Call customer",
+             "type": "OTHER"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного канала продаж.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created sales channel.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/53d1ff92-202b-11ec-0a82-050800000007",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-    "type": "saleschannel",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#saleschannel/edit?id=53d1ff92-202b-11ec-0a82-050800000007"
-  },
-  "id": "53d1ff92-202b-11ec-0a82-050800000007",
-  "accountId": "4fcbb42c-1d41-11ec-0a82-06530000009e",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe1932a-1d41-11ec-0a81-04b600001980",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-09-28 10:11:40.322",
-  "name": "Телефонный звонок",
-  "description":"Позвонить клиенту",
-  "type":"OTHER",
-  "externalCode": "mZ9phAmxjBs5OgEvelcw20",
-  "archived": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/53d1ff92-202b-11ec-0a82-050800000007",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+     "type": "sales channel",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#saleschannel/edit?id=53d1ff92-202b-11ec-0a82-050800000007"
+   },
+   "id": "53d1ff92-202b-11ec-0a82-050800000007",
+   "accountId": "4fcbb42c-1d41-11ec-0a82-06530000009e",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe1932a-1d41-11ec-0a81-04b600001980",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-09-28 10:11:40.322",
+   "name": "Phone call",
+   "description":"Call customer",
+   "type":"OTHER",
+   "externalCode": "mZ9phAmxjBs5OgEvelcw20",
+   "archived": false
 }
 ```
 
 
-### Массовое создание и обновление Каналов продаж
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Каналов продаж.
-В теле запроса нужно передать массив, содержащий JSON представления Каналов продаж, которые вы хотите создать или обновить.
-Обновляемые Каналы продаж должны содержать идентификатор в виде метаданных. Для Каналов продаж, созданных при подключении интернет-магазина, нельзя обновить тип. При изменении наименования таких каналов продаж наименование связанного интернет-магазина изменится.
+### Bulk creation and update of Sales Channels
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Sales channels.
+In the body of the request, you need to pass an array containing the JSON representation of the Sales Channels that you want to create or update.
+Updated Sales Channels must contain the identifier in the form of metadata. For Sales Channels created when connecting an online store, you cannot update the type. If you change the name of such sales channels, the name of the associated online store will change.
 
-> Пример создания и обновления нескольких Каналов продаж
+> Example of creating and updating multiple Sales Channels
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/saleschannel"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name":"Акция",
-              "description":"Создание канала продаж",
-              "type":"OTHER"
-            },
-            {
-              "meta":{
-                "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/da7a89fd-202b-11ec-0a82-05080000000a",
-                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-                "type":"saleschannel",
-                "mediaType":"application/json"
-              },
-              "description":"Обновление описания канала продаж"
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/saleschannel"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type:application/json"
+       -d'[
+             {
+               "name":"Promotion",
+               "description":"Creating a sales channel",
+               "type":"OTHER"
+             },
+             {
+               "meta":{
+                 "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/da7a89fd-202b-11ec-0a82-05080000000a",
+                 "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+                 "type":"sales channel",
+                 "mediaType":"application/json"
+               },
+               "description":"Update sales channel description"
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Каналов продаж.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the created and updated Sales Channels.
 
 ```json
 [
-  {
-    "meta":{
-      "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/286e7bd0-2032-11ec-9621-0242ac130002",
-      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-      "type":"saleschannel",
-      "mediaType":"application/json",
-      "uuidHref":"https://app.kladana.in/app/#saleschannel/edit?id=286e7bd0-2032-11ec-9621-0242ac130002"
-    },
-    "id":"286e7bd0-2032-11ec-9621-0242ac130002",
-    "accountId":"4fcbb42c-1d41-11ec-0a82-06530000009e",
-    "owner":{
-      "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/employee/6c771d3c-2032-11ec-9621-0242ac130002",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type":"employee",
-        "mediaType":"application/json",
-        "uuidHref":"https://app.kladana.in/app/#employee/edit?id=6c771d3c-2032-11ec-9621-0242ac130002"
-      }
-    },
-    "shared":true,
-    "group":{
-      "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type":"group",
-        "mediaType":"application/json"
-      }
-    },
-    "updated":"2021-09-28 10:49:04.228",
-    "name":"Акция",
-    "description":"Создание канала продаж",
-    "type":"OTHER",
-    "externalCode":"814fhsaf124",
-    "archived":false
-  },
-  {
-    "meta":{
-      "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/5ca09f14-2032-11ec-9621-0242ac130002",
-      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-      "type":"saleschannel",
-      "mediaType":"application/json",
-      "uuidHref":"https://app.kladana.in/app/#saleschannel/edit?id=5ca09f14-2032-11ec-9621-0242ac130002"
-    },
-    "id":"5ca09f14-2032-11ec-9621-0242ac130002",
-    "accountId":"4fcbb42c-1d41-11ec-0a82-06530000009e",
-    "owner":{
-      "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/employee/6c771d3c-2032-11ec-9621-0242ac130002",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type":"employee",
-        "mediaType":"application/json",
-        "uuidHref":"https://app.kladana.in/app/#employee/edit?id=6c771d3c-2032-11ec-9621-0242ac130002"
-      }
-    },
-    "shared":true,
-    "group":{
-      "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type":"group",
-        "mediaType":"application/json"
-      }
-    },
-    "updated":"2021-09-28 10:49:04.313",
-    "name":"Звонок",
-    "description":"Обновление описания канала продаж",
-    "type":"DIRECT_SALES",
-    "externalCode":"df2DGFSG44",
-    "archived":false
-  }
+   {
+     "meta":{
+       "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/286e7bd0-2032-11ec-9621-0242ac130002",
+       "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+       "type":"sales channel",
+       "mediaType":"application/json",
+       "uuidHref":"https://app.kladana.in/app/#saleschannel/edit?id=286e7bd0-2032-11ec-9621-0242ac130002"
+     },
+     "id":"286e7bd0-2032-11ec-9621-0242ac130002",
+     "accountId":"4fcbb42c-1d41-11ec-0a82-06530000009e",
+     "owner":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/employee/6c771d3c-2032-11ec-9621-0242ac130002",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type":"employee",
+         "mediaType":"application/json",
+         "uuidHref":"https://app.kladana.in/app/#employee/edit?id=6c771d3c-2032-11ec-9621-0242ac130002"
+       }
+     },
+     "shared":true,
+     "group":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type":"group",
+         "mediaType":"application/json"
+       }
+     },
+     "updated":"2021-09-28 10:49:04.228",
+     "name":"Promotion",
+     "description":"Creating a sales channel",
+     "type":"OTHER",
+     "externalCode":"814fhsaf124",
+     "archived":false
+   },
+   {
+     "meta":{
+       "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/5ca09f14-2032-11ec-9621-0242ac130002",
+       "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+       "type":"sales channel",
+       "mediaType":"application/json",
+       "uuidHref":"https://app.kladana.in/app/#saleschannel/edit?id=5ca09f14-2032-11ec-9621-0242ac130002"
+     },
+     "id":"5ca09f14-2032-11ec-9621-0242ac130002",
+     "accountId":"4fcbb42c-1d41-11ec-0a82-06530000009e",
+     "owner":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/employee/6c771d3c-2032-11ec-9621-0242ac130002",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type":"employee",
+         "mediaType":"application/json",
+         "uuidHref":"https://app.kladana.in/app/#employee/edit?id=6c771d3c-2032-11ec-9621-0242ac130002"
+       }
+     },
+     "shared":true,
+     "group":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type":"group",
+         "mediaType":"application/json"
+       }
+     },
+     "updated":"2021-09-28 10:49:04.313",
+     "name":"Call",
+     "description":"Update sales channel description",
+     "type":"DIRECT_SALES",
+     "externalCode":"df2DGFSG44",
+     "archived":false
+   }
 ]
 ```
 
-### Удалить Канал продаж
+### Delete Sales Channel
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                              |
-| :------- | :------------------------------------------------------------------------------------ |
-| **id**   | `string` (required) *Example: d94605a8-2033-11ec-9621-0242ac130002* id Канала продаж. |
+| Parameter | Description |
+| ------ | ------ |
+| **id** | `string` (required) *Example: d94605a8-2033-11ec-9621-0242ac130002* Sales channel id. |
 
-> Запрос на удаление Канала продаж с указанным id.
+> Request to delete the Sales Channel with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Канала продаж.
+> Response 200(application/json)
+Successful deletion of Sales Channel.
 
-### Массовое удаление Каналов продаж
+### Bulk deletion of Sales Channels
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Каналов продаж, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Sales Channels that you want to remove.
 
 
-> Запрос на массовое удаление Каналов продаж.
+> Bulk delete request for Sales Channels.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/saleschannel/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta":{
-            "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/fe8188dc-2034-11ec-9621-0242ac130002",
-            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-            "type":"saleschannel",
-            "mediaType":"application/json"
-          }
-        },
-        {
-          "meta":{
-            "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/0657ff6e-2035-11ec-9621-0242ac130002",
-            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-            "type":"saleschannel",
-            "mediaType":"application/json"
-          }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/saleschannel/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta":{
+             "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/fe8188dc-2034-11ec-9621-0242ac130002",
+             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+             "type":"sales channel",
+             "mediaType":"application/json"
+           }
+         },
+         {
+           "meta":{"href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/0657ff6e-2035-11ec-9621-0242ac130002",
+             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+             "type":"sales channel",
+             "mediaType":"application/json"
+           }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Каналов продаж.
+> Successful request. The result is JSON information about deleting Sales Channels.
 
 ```json
 [
-  {
-    "info":"Сущность 'saleschannel' с UUID: fe8188dc-2034-11ec-9621-0242ac130002 успешно удалена"
-  },
-  {
-    "info":"Сущность 'saleschannel' с UUID: 0657ff6e-2035-11ec-9621-0242ac130002 успешно удалена"
-  }
+   {
+     "info":"Entity 'saleschannel' with UUID: fe8188dc-2034-11ec-9621-0242ac130002 was deleted successfully"
+   },
+   {
+     "info":"Entity 'saleschannel' with UUID: 0657ff6e-2035-11ec-9621-0242ac130002 was deleted successfully"
+   }
 ]
 ```
 
-### Канал продаж
+### Sales channel
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                              |
-| :------- | :------------------------------------------------------------------------------------ |
-| **id**   | `string` (required) *Example: d94605a8-2033-11ec-9621-0242ac130002* id Канала продаж. |
+| Parameter | Description |
+| ------ | ------ |
+| **id** | `string` (required) *Example: d94605a8-2033-11ec-9621-0242ac130002* Sales channel id. |
 
-### Получить Канал продаж
-> Запрос на получение отдельного канала продаж с указанным id.
+### Get Sales Channel
+> Request to get a separate sales channel with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление канала продаж.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the sales channel.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/08624a82-2038-11ec-9621-0242ac130002",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-    "type": "saleschannel",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#saleschannel/edit?id=08624a82-2038-11ec-9621-0242ac130002"
-  },
-  "id": "08624a82-2038-11ec-9621-0242ac130002",
-  "accountId": "4fcbb42c-1d41-11ec-0a82-06530000009e",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe1932a-1d41-11ec-0a81-04b600001980",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-09-28 10:49:04.228",
-  "name": "Продажа в магазине",
-  "type": "DIRECT_SALES",
-  "externalCode": "814fhsafiwb124",
-  "archived": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/08624a82-2038-11ec-9621-0242ac130002",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+     "type": "sales channel",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#saleschannel/edit?id=08624a82-2038-11ec-9621-0242ac130002"
+   },
+   "id": "08624a82-2038-11ec-9621-0242ac130002",
+   "accountId": "4fcbb42c-1d41-11ec-0a82-06530000009e",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe1932a-1d41-11ec-0a81-04b600001980",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-09-28 10:49:04.228",
+   "name": "Shop Sale",
+   "type": "DIRECT_SALES",
+   "externalCode": "814fhsafiwb124",
+   "archived": false
 }
 ```
 
-### Изменить Канал продаж
-Запрос на изменение объекта Канала продаж. Для Каналов продаж, которые были созданы при подключении интернет-магазина, нельзя изменить тип. Если изменить наименование такого Канала продаж, то будет изменено наименование связанного интернет-магазина.
+### Change Sales Channel
+Request to change the Sales Channel object. For Sales Channels that were created when connecting an online store, you cannot change the type. If you change the name of such a Sales Channel, the name of the associated online store will be changed.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                              |
-| :------- | :------------------------------------------------------------------------------------ |
-| **id**   | `string` (required) *Example: b2dc42f0-203e-11ec-9621-0242ac130002* id Канала продаж. |
+| Parameter | Description |
+| ------ | ------ |
+| **id** | `string` (required) *Example: b2dc42f0-203e-11ec-9621-0242ac130002* Sales channel id. |
 
-> Пример запроса на обновление существующего канала продаж.
+> Sample request to update an existing sales channel.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/saleschannel/b2dc42f0-203e-11ec-9621-0242ac130002"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Обмен по CommerceML"
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/saleschannel/b2dc42f0-203e-11ec-9621-0242ac130002"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "CommerceML Exchange"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного канала продаж.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated sales channel.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/08624a82-2038-11ec-9621-0242ac130002",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-    "type": "saleschannel",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#saleschannel/edit?id=08624a82-2038-11ec-9621-0242ac130002"
-  },
-  "id": "08624a82-2038-11ec-9621-0242ac130002",
-  "accountId": "4fcbb42c-1d41-11ec-0a82-06530000009e",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe1932a-1d41-11ec-0a81-04b600001980",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-09-28 10:49:04.228",
-  "name": "Обмен по CommerceML",
-  "type": "ECOMMERCE",
-  "externalCode": "814fhsafiwb124",
-  "archived": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/08624a82-2038-11ec-9621-0242ac130002",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+     "type": "sales channel",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#saleschannel/edit?id=08624a82-2038-11ec-9621-0242ac130002"
+   },
+   "id": "08624a82-2038-11ec-9621-0242ac130002",
+   "accountId": "4fcbb42c-1d41-11ec-0a82-06530000009e",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe1932a-1d41-11ec-0a81-04b600001980",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-09-28 10:49:04.228",
+   "name": "Comme ExchangerceML",
+   "type": "ECOMMERCE",
+   "externalCode": "814fhsafiwb124",
+   "archived": false
 }
 ```

@@ -1,208 +1,208 @@
-## Тех. процесс
-Средствами JSON API можно создавать и обновлять сведения о Тех. процессах, запрашивать списки Тех. процессов и сведения по отдельным Тех. процессам. 
-Позициями Тех. процессов можно управлять как в составе отдельного Тех. процесса, так и отдельно - с помощью специальных ресурсов для управления позициями Тех. процессов. 
-Кодом сущности для Тех. процессов в составе JSON API является ключевое слово **processingprocess**. Больше о Тех. процессах и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по [этой ссылке](https://support.moysklad.ru/hc/ru/articles/4407869768593-%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0#1).
+## Routing
+Using the JSON API, you can create and update information about Routings, query lists of Routings, and query individual Routings.
+Routings positions can be managed both as part of a separate Routing, and separately - using special resources for managing Routings positions.
+The entity code for Routings as part of the JSON API is the **processingprocess** keyword. Learn more about [Routings](https://kladana.zendesk.com/hc/en-us/articles/8082376915857-Production-Operations-and-Routings#2).
 
-### Тех. процессы  
-#### Атрибуты сущности
+### Routings
+#### Entity attributes
 
-| Название         | Тип                                                       | Фильтрация                 | Описание                                                                                             |
-|------------------|:----------------------------------------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------|
-| **accountId**    | UUID                                                      | `=` `!=`                   | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                 |
-| **archived**     | Boolean                                                   | `=` `!=`                   | Добавлен ли Тех. процесс в архив<br>`+Обязательное при ответе`                                       |
-| **description**  | String(4096)                                              | `=` `!=` `~` `~=` `=~`     | Комментарий Тех. процесса                                                                            |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Внешний код Тех. процесса<br>`+Обязательное при ответе`                                              |
-| **group**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                   | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                             |
-| **id**           | UUID                                                      | `=` `!=`                   | ID Тех. процесса<br>`+Обязательное при ответе` `+Только для чтения`                                  |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                            | Метаданные Тех. процесса<br>`+Обязательное при ответе` `+Только для чтения`                          |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Наименование Тех. процесса<br>`+Обязательное при ответе` `+Необходимо при создании`                  |
-| **owner**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                   | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                         |
-| **positions**    | MetaArray                                                 |                            | Метаданные позиций Тех. процесса<br>`+Обязательное при ответе` `+Необходимо при создании` `+Expand`  |
-| **shared**       | Boolean                                                   | `=` `!=`                   | Общий доступ<br>`+Обязательное при ответе`                                                           |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=` | Момент последнего обновления сущности<br>`+Обязательное при ответе` `+Только для чтения`             |
+| Title | Type | Filtration| Description | 
+|------------|-----------|-------|---------------|
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Routing |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required for response` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Routing Metadata<br>`+Required in response` `+Read-only` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **positions** | MetaArray | | Routing position metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
-#### Атрибуты вложенных сущностей
-##### Позиции Тех. процесса
-Позиции Тех. процесса - это список этапов, который входят в Тех. процесс. У Тех. процесса может быть от 1 до 100 позиций.
-Объект позиции Тех. процесса содержит следующие поля:
+#### Nested entity attributes
+##### Routing Positions
+Routing Positions is a list of stages that are included in Routing. Routing can have from 1 to 100 positions.
+The Routing position object contains the following fields:
 
-| Название            | Тип                                                       | Описание                                                                                      |
-|---------------------|:----------------------------------------------------------|:----------------------------------------------------------------------------------------------|
-| **accountId**       | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                          |
-| **id**              | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения`                                 |
-| **meta**            | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные позиции Тех. процесса<br>`+Обязательное при ответе` `+Только для чтения`           |
-| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa)    | Метаданные этапа, который представляет собой позиция<br>`+Обязательное при ответе` `+Необходимо при создании` `+Expand` |
+| Title | Type | Description |
+|------------|-----------|-------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing position metadata<br>`+Required for response` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a position<br>`+Required when responding` `+Required when creating` `+Expand` |
 
-### Получить список Тех. процессов
+### Get the list of Routings
 
-Запрос всех Тех. процессов на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+Query all Routings on a given account.
+Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                                 |
-| ----------- | :-------------------------------------------------------- |:---------------------------------------------------------|
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче                                      |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос              |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Тех. процессы |
+| Title | Type | Description |
+|------------|-----------|-------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the employee who made the request |
+| **rows** | Array(Object) | An array of JSON objects representing Routings |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter |Description |
+| ------------| --------------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Запрос на получение списка Тех. процессов
-
-```shell
-curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess"
-  -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Тех. процессов.
-
-```json
-{
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess",
-    "type": "processingprocess",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-        "type": "processingprocess",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=d5174779-862b-11eb-ac14-000900000007"
-      },
-      "id": "d5174779-862b-11eb-ac14-000900000007",
-      "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/872559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=872559f1-cbf3-11e1-9eb9-889ffa6f49fd"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f7eb1e3b-fd2a-42f7-b799-b3d1e6b3bf43",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2021-03-16 10:47:18.160",
-      "name": "Основной техпроцесс",
-      "externalCode": "F1l43a3ojXZShfnzJCKsG3",
-      "archived": false,
-      "positions": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007/positions",
-          "type": "processingprocessposition",
-          "mediaType": "application/json",
-          "size": 1,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    }
-  ]
-}
-```
-
-### Получить Тех. процесс
-
-**Параметры**
-
-| Параметр | Описание                                                                              |
-| :------- |:--------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* id Тех. процесса. |
-
-> Запрос на получение отдельного Тех. процесса с указанным id.
+> Request for list of Routings
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Routings list.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-    "type": "processingprocess",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=d5174779-862b-11eb-ac14-000900000007"
-  },
-  "id": "d5174779-862b-11eb-ac14-000900000007",
-  "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/872559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=872559f1-cbf3-11e1-9eb9-889ffa6f49fd"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f7eb1e3b-fd2a-42f7-b799-b3d1e6b3bf43",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-03-16 10:47:18.160",
-  "name": "Основной техпроцесс",
-  "externalCode": "F1l43a3ojXZShfnzJCKsG3",
-  "archived": false,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007/positions",
-      "type": "processingprocessposition",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess",
+     "type": "processing",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+         "type": "processing",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=d5174779-862b-11eb-ac14-000900000007"
+       },
+       "id": "d5174779-862b-11eb-ac14-000900000007",
+       "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/872559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=872559f1-cbf3-11e1-9eb9-889ffa6f49fd"
+         }
+       },
+       shared: true
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f7eb1e3b-fd2a-42f7-b799-b3d1e6b3bf43",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2021-03-16 10:47:18.160",
+       "name": "Main workflow",
+       "externalCode": "F1l43a3ojXZShfnzJCKsG3",
+       archived: false
+       positions: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007/positions",
+           "type": "processingprocessposition",
+           "mediaType": "application/json",
+           size: 1
+           limit: 1000
+           offset: 0
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Создать Тех. процесс
-Запрос на создание нового Тех. процесса.
-Обязательные для создания поля:
+### Get Routing
 
-+ **name** - Название Тех. процесса
-+ **positions** - Ссылки на позиции Тех. процесса в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)
+**Parameters**
 
-> Запрос на создание нового Тех. процесса с телом запроса, содержащим только необходимые поля.
+| Parameter | Description |
+| ------- |------------|
+| **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* Routing ID. |
+
+> Request to get a separate Routing with the specified ID.
+
+```shell
+curl -X GET
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   -H "Authorization: Basic <Credentials>"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a Routing.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+     "type": "processing",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=d5174779-862b-11eb-ac14-000900000007"
+   },
+   "id": "d5174779-862b-11eb-ac14-000900000007",
+   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/872559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=872559f1-cbf3-11e1-9eb9-889ffa6f49fd"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f7eb1e3b-fd2a-42f7-b799-b3d1e6b3bf43",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-03-16 10:47:18.160",
+   "name": "Main workflow",
+   "externalCode": "F1l43a3ojXZShfnzJCKsG3",
+   archived: false
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007/positions",
+       "type": "processingprocessposition",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   }
+}
+```
+
+### Create Routing
+Request to create a new Routing.
+Required fields for creating:
+
++ **name** - Routing name
++ **positions** - Links to Routing positions in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format
+
+> Request to create a new Routing with a request body containing only the required fields.
 
 ```shell
 curl -X POST
@@ -210,624 +210,629 @@ curl -X POST
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-	"name": "Изготавливаем двигатель",
-	"positions": [
-		{
-			"processingstage": {
-				"meta": {
-					"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
-					"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-					"type": "processingstage",
-					"mediaType": "application/json",
-					"uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
-				}
-			}
-		}
-	]
+"name": "We make the engine",
+"positions": [
+{
+"processing stage": {
+"meta": {
+"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
+"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+"type": "processing stage",
+"mediaType": "application/json",
+"uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
+         }
+       }
+     }
+   ]
 }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Routing.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/63b86a2e-a6ac-11ed-ac12-00090000000a",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-    "type": "processingprocess",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=63b86a2e-a6ac-11ed-ac12-00090000000a"
-  },
-  "id": "63b86a2e-a6ac-11ed-ac12-00090000000a",
-  "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2023-02-07 08:58:05.574",
-  "name": "Изготавливаем двигатель",
-  "externalCode": "Jsi3Cs2fipoDAZcFrrxX01",
-  "archived": false,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/63b86a2e-a6ac-11ed-ac12-00090000000a/positions",
-      "type": "processingprocessposition",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/63b86a2e-a6ac-11ed-ac12-00090000000a",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+     "type": "processing",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=63b86a2e-a6ac-11ed-ac12-00090000000a"
+   },
+   "id": "63b86a2e-a6ac-11ed-ac12-00090000000a",
+   "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2023-02-07 08:58:05.574",
+   "name": "We make the engine",
+   "externalCode": "Jsi3Cs2fipoDAZcFrrxX01",
+   archived: false
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/63b86a2e-a6ac-11ed-ac12-00090000000a/positions",
+       "type": "processingprocessposition",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Изменить Тех. процесс
-В теле запроса указать поля, которые необходимо изменить у Тех. процесса.
+### Change Routing
+In the body of the request, specify the fields that need to be changed for Routing
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                              |
-| :------- |:--------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 117cae13-a612-11ed-ac12-000900000022* id Тех. процесса. |
+| Parameter | Description |
+| ------- |-----------|
+| **id** | `string` (required) *Example: 117cae13-a612-11ed-ac12-000900000022* Routing ID. |
 
-> Запрос на обновление Тех. процесса с заменой этапа у существующей позиции и создание новой позиции.
+> Request to update Routing with the replacement of the stage of the existing position and the creation of a new position.
 
 ```shell
 curl -X PUT
 "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
--d '
+-d'
 {
-	"name": "Изготавливаем двигатель №2",
-	"externalCode": "dfsafsfsd1231231",
-	"archived": false,
-	"positions": [
-		{
-			"meta": {
-				"href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions/117cb64b-a612-11ed-ac12-000900000024",
-				"type": "processingprocessposition",
-				"mediaType": "application/json"
-			},
-			"processingstage": {
-				"meta": {
-					"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/c18373c0-9aea-11ed-ac12-000e000000c2",
-					"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-					"type": "processingstage",
-					"mediaType": "application/json"
-				}
-			}
-		},
-		{
-			"processingstage": {
-				"meta": {
-					"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
-					"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-					"type": "processingstage",
-					"mediaType": "application/json"
-				}
-			}
-		}
-	]
+"name": "We are making engine #2",
+"externalCode": "dfsafsfsd1231231",
+archived: false
+"positions": [
+{
+"meta": {
+"href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions/117cb64b-a612-11ed-ac12-000900000024",
+"type": "processingprocessposition",
+"mediaType": "application/json"
+},
+"processing stage": {
+"meta": {
+"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/c18373c0-9aea-11ed-ac12-000e000000c2",
+"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+"type": "processing stage",
+"mediaType": "application/json"
+     }
+   }
+},
+{
+"processing stage": {
+"meta": {
+"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
+"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+"type": "processing stage",
+"mediaType": "application/json"
+         }
+       }
+     }
+   ]
 }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Routing.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-    "type": "processingprocess",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=117cae13-a612-11ed-ac12-000900000022"
-  },
-  "id": "117cae13-a612-11ed-ac12-000900000022",
-  "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2023-02-07 09:43:38.713",
-  "name": "Изготавливаем двигатель №2",
-  "externalCode": "dfsafsfsd1231231",
-  "archived": false,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions",
-      "type": "processingprocessposition",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+     "type": "processing",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=117cae13-a612-11ed-ac12-000900000022"
+   },
+   "id": "117cae13-a612-11ed-ac12-000900000022",
+   "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2023-02-07 09:43:38.713",
+   "name": "We are making engine #2",
+   "externalCode": "dfsafsfsd1231231",
+   archived: false
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions",
+       "type": "processingprocessposition",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Удалить Тех. процесс
+### Remove Routing
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                              |
-| :------- |:--------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* id Тех. процесса. |
+| Parameter | Description |
+| ------- |----------|
+| **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* Routing ID. |
 
-> Запрос на удаление Тех. процесса с указанным id.
+> Request to remove the Routing with the specified ID.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Тех. процесса
+> Response 200(application/json)
+Successful removal of Routing
 
-### Позиции Тех. процесса
+### Positions Routing
 
-В сущности установлен лимит на позиции в размере 100 элементов. Более подробно о лимитах на количество строк и работе с
-большим количеством позиций можно прочитать на примере работы с позициями документов [тут](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+In essence, a position limit of 100 items is set. Learn more about line limits and working with
+a large number of positions can be read on the example of working with document positions [here] (../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
 
-#### Атрибуты позиции Тех. процесса
-| Название            | Тип                                                       | Описание                                                                                                                |
-|---------------------|:----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|
-| **accountId**       | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                    |
-| **id**              | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения`                                                           |
-| **meta**            | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные позиции Тех. процесса<br>`+Обязательное при ответе` `+Только для чтения`                                     |
-| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa)    | Метаданные этапа, который представляет собой позиция<br>`+Обязательное при ответе` `+Необходимо при создании` `+Expand` |
+#### Routing position attributes
+| Title | Type | Description |
+|----------|--------|----------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing position metadata<br>`+Required for response` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a position<br>`+Required when responding` `+Required when creating` `+Expand` |
 
-### Получить позиции Тех. процесса
-Запрос на получение списка всех позиций данного Тех. процесса.
+### Get Routing positions
+Request to get a list of all positions of this Routing.
 
-| Название    | Тип                                                       | Описание                                                          |
-| ----------- | :-------------------------------------------------------- |:------------------------------------------------------------------|
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                              |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                      |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой позиции Тех. процесса. |
+| Title | Type | Description |
+|----------|--------|----------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing Routing positions. |
 
-**Параметры**
+**Parameters**
 
-| Параметр   | Описание                                                                                                                              |
-| :--------- |:--------------------------------------------------------------------------------------------------------------------------------------|
-| **id**     | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* id Тех. процесса.                                                 |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.|
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                |
+| Parameter | Description |
+|----------|--------|
+| **id** | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* Routing ID.|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Allowed values are 1 - 1000`.|
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Запрос на получение списка позиций Тех. процесса
+> Request for a list of positions Routing
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка позиций отдельного Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of individual Routing positions.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions",
-    "type": "processingprocessposition",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a",
-        "type": "processingprocessposition",
-        "mediaType": "application/json"
-      },
-      "id": "d5069da5-988e-11ed-ac19-00040000002a",
-      "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-      "processingstage": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/d4fed5b7-988e-11ed-ac19-000400000023",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-          "type": "processingstage",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d4fed5b7-988e-11ed-ac19-000400000023"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "hauto_awesome
+Translate from: English
+5,000 / 5,000
+Translation results
+Translation result
+ttps://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions",
+     "type": "processingprocessposition",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a",
+         "type": "processingprocessposition",
+         "mediaType": "application/json"
+       },
+       "id": "d5069da5-988e-11ed-ac19-00040000002a",
+       "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+       "processing stage": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/d4fed5b7-988e-11ed-ac19-000400000023",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+           "type": "processing stage",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d4fed5b7-988e-11ed-ac19-000400000023"
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Получить отдельную позицию Тех. процесса
+### Get Routing line item
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                     |
-| :------- |:---------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* id Тех. процесса.        |
-| **positionID**   | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* id позиция Тех. процесса.|
+| Parameter | Description|
+|----------|--------|
+| **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
+| **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing position ID.|
 
-> Запрос на получение отдельной позиции Тех. процесса с указанным id.
+> Request to get an individual Routing item with the specified ID.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного позиции Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a single Routing item.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043",
-    "type": "processingprocessposition",
-    "mediaType": "application/json"
-  },
-  "id": "23a62e19-a6bb-11ed-ac12-000900000043",
-  "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-  "processingstage": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-      "type": "processingstage",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043",
+     "type": "processingprocessposition",
+     "mediaType": "application/json"
+   },
+   "id": "23a62e19-a6bb-11ed-ac12-000900000043",
+   "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+   "processing stage": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+       "type": "processing stage",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
+     }
+   }
 }
 ```
 
-### Создать позиции Тех. процесса
+### Create Routing Items
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                     |
-| :------- |:---------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* id Тех. процесса.        |
+| Parameter | Description |
+|----------|--------|
+| **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
 
-> Запрос на создание позиций Тех. процесса
+> Request to create Routing positions
 
 ```shell
 curl -X POST
 "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
--d '
-[
-	{
-		"processingstage": {
-			"meta": {
-				"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-				"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-				"type": "processingstage",
-				"mediaType": "application/json"
-			}
-		}
-	}
+-d'
+   [
+{
+"processing stage": {
+"meta": {
+"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+"type": "processing stage",
+"mediaType": "application/json"
+        }
+      }
+   }
 ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданных позиций Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Routing positions.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043",
-      "type": "processingprocessposition",
-      "mediaType": "application/json"
-    },
-    "id": "23a62e19-a6bb-11ed-ac12-000900000043",
-    "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-    "processingstage": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-        "type": "processingstage",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043",
+       "type": "processingprocessposition",
+       "mediaType": "application/json"
+     },
+     "id": "23a62e19-a6bb-11ed-ac12-000900000043",
+     "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+     "processing stage": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+         "type": "processing stage",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
+       }
+     }
+   }
 ]
 ```
 
-### Изменить позицию Тех. процесса
+### Change Routing Position
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                      |
-| :------- |:----------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* id Тех. процесса.         |
-| **positionID**   | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* id позиции Тех. процесса.|
+| Parameter | Description |
+|----------|--------|
+| **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
+| **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing position ID.|
 
-> Запрос на обновление позиции Тех. процесса
+> Request to update position Routing
 
 ```shell
 curl -X PUT
 "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
--d '
+-d'
 {
-	"processingstage": {
-		"meta": {
-			"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-			"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-			"type": "processingstage",
-			"mediaType": "application/json"
-		}
-	}
+"processing stage": {
+"meta": {
+"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+"type": "processing stage",
+"mediaType": "application/json"
+   }
+ }
 }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной позиции Тех. процесса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Routing position.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043",
-    "type": "processingprocessposition",
-    "mediaType": "application/json"
-  },
-  "id": "23a62e19-a6bb-11ed-ac12-000900000043",
-  "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-  "processingstage": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-      "type": "processingstage",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043",
+     "type": "processingprocessposition",
+     "mediaType": "application/json"
+   },
+   "id": "23a62e19-a6bb-11ed-ac12-000900000043",
+   "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+   "processing stage": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+       "type": "processing stage",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
+     }
+   }
 }
 ```
 
-### Удалить позицию Тех. процесса
+### Delete position Routing
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                      |
-| :------- |:----------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* id Тех. процесса.         |
-| **positionID**   | `string` (required) *Example: d5069da5-988e-11ed-ac19-00040000002a* id позиции Тех. процесса.|
+| Parameter | Description |
+|----------|--------|
+| **id** | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* Routing ID. |
+| **positionID** | `string` (required) *Example: d5069da5-988e-11ed-ac19-00040000002a* Routing position ID.|
 
-> Запрос на удаление позиции Тех. процесса с указанным id.
+> Request to delete the Routing item with the specified ID.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление отдельной позиции Тех. процесса
+> Response 200(application/json)
+Successful deletion of line item Routing
 
-### Массовое создание и обновление Тех. процессов
-При [массовом создании и обновлении](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Тех. процессов в теле запроса нужно передать массив, 
-содержащий JSON представления Тех. процессов, которые вы хотите создать или обновить. Идентификатором у обновляемых Тех. процессов является [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye).
+### Routings bulk creation and update
+With [bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Routings, an array must be passed in the request body,
+containing the JSON representation of the Routings you want to create or update. The identifier for updated Routings is [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye).
 
-> Запрос на создание и обновление нескольких Тех. процессов
+> Request to create and update multiple Routings
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingprocess"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-    -d '
-    [
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-          "type": "processingprocess",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
-        },
-        "name": "Штамповка"
-      },
-      {
-        "name": "Оцинковка",
-        "positions": [
-          {
-            "processingstage": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                "type": "processingstage",
-                "mediaType": "application/json",
-                "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
-              }
-            }
-          }
-        ]
-      }
-    ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingprocess"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+     -d'
+     [
+       {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+           "type": "processing",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
+         },
+         "name": "Punch"
+       },
+       {
+         "name": "Galvanized",
+         "positions": [
+           {
+             "processing stage": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                 "type": "processing stage",
+                 "mediaType": "application/json",
+                 "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
+               }
+             }
+           }
+         ]
+       }
+     ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Тех. процессов.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the generated and updated Routings.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-      "type": "processingprocess",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
-    },
-    "id": "1d4adde5-a6bb-11ed-ac12-00090000003f",
-    "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2023-02-07 13:21:36.610",
-    "name": "Штамповка",
-    "externalCode": "qcz9MXKjgZ4CAXXXzvrXK2",
-    "archived": false,
-    "positions": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions",
-        "type": "processingprocessposition",
-        "mediaType": "application/json",
-        "size": 2,
-        "limit": 1000,
-        "offset": 0
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-      "type": "processingprocess",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=33d6ee5c-a6d1-11ed-ac12-000900000046"
-    },
-    "id": "33d6ee5c-a6d1-11ed-ac12-000900000046",
-    "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2023-02-07 13:21:36.637",
-    "name": "Оцинковка",
-    "externalCode": "94GR5hU-hmU7wkVnkS8D53",
-    "archived": false,
-    "positions": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046/positions",
-        "type": "processingprocessposition",
-        "mediaType": "application/json",
-        "size": 1,
-        "limit": 1000,
-        "offset": 0
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+       "type": "processing",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
+     },
+     "id": "1d4adde5-a6bb-11ed-ac12-00090000003f",
+     "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
+       }
+     },
+     "shared": true
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2023-02-07 13:21:36.610",
+     "name": "Punch",
+     "externalCode": "qcz9MXKjgZ4CAXXXzvrXK2",
+     archived: false
+     positions: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions",
+         "type": "processingprocessposition",
+         "mediaType": "application/json",
+         size: 2
+         limit: 1000
+         offset: 0
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+       "type": "processing",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=33d6ee5c-a6d1-11ed-ac12-000900000046"
+     },
+     "id": "33d6ee5c-a6d1-11ed-ac12-000900000046",
+     "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c0f98b1e-9aea-11ed-ac12-000e00000050",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2023-02-07 13:21:36.637",
+     "name": "Galvanized",
+     "externalCode": "94GR5hU-hmU7wkVnkS8D53",
+     archived: false
+     positions: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046/positions",
+         "type": "processingprocessposition",
+         "mediaType": "application/json",
+         size: 1
+         limit: 1000
+         offset: 0
+       }
+     }
+   }
 ]
 ```
 
-### Массовое удаление Тех. процессов
+### Routings bulk deletion
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Тех. процессов, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON of the Routings metadata that you want to remove.
 
-> Запрос на массовое удаление Тех. процессов.
+> Request for Routings bulk deletion.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '
-  [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-        "type": "processingprocess",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-        "type": "processingprocess",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=33d6ee5c-a6d1-11ed-ac12-000900000046"
-      }
-    }
-  ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/processingprocess/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'
+   [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+         "type": "processing",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+         "type": "processing",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=33d6ee5c-a6d1-11ed-ac12-000900000046"
+       }
+     }
+   ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Тех. процессов.
+> Successful request. The result is JSON information about the deletion of the Technical Processes.
 
 ```json
 [
-  {
-    "info": "Сущность 'processingprocess' с UUID: 1d4adde5-a6bb-11ed-ac12-00090000003f успешно удалена"
-  },
-  {
-    "info": "Сущность 'processingprocess' с UUID: 33d6ee5c-a6d1-11ed-ac12-000900000046 успешно удалена"
-  }
+   {
+     "info": "Entity 'processingprocess' with UUID: 1d4adde5-a6bb-11ed-ac12-00090000003f successfully deleted"
+   },
+   {
+     "info": "Entity 'processingprocess' with UUID: 33d6ee5c-a6d1-11ed-ac12-000900000046 successfully deleted"
+   }
 ]
-``` 
+```

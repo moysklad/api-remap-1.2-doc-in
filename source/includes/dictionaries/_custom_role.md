@@ -1,36 +1,36 @@
-## Пользовательские роли
-### Пользовательская роль
+## User roles
+### User Role
 
-Средствами JSON API можно запрашивать и изменять пользовательские роли.
-Получать и изменять роли можно от лица сотрудника с правами `Системного администратора` или от лица `Приложения`.
+Using the JSON API, you can query and change user roles.
+You can receive and change roles on behalf of an employee with `System Administrator` rights or on behalf of `Applications`.
+ 
+#### Entity attributes
 
-#### Атрибуты сущности
+| Title | Type | Description |
+| --------------- | ----------- | ------------- |
+| **id** | UUID | User role ID<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Custom role metadata<br>`+Required when replying` |
+| **name** | String(255) | User role name<br>`+Required when replying` `+Required when creating` |
+| **permissions** | Array(Object) | List of permissions<br>`+Required when replying` |
 
-| Название        | Тип                                                       | Описание                                                                                    |
-| --------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| **id**          | UUID                                                      | ID пользовательской роли<br>`+Обязательное при ответе` `+Только для чтения`                 |
-| **meta**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные пользовательской роли<br>`+Обязательное при ответе`                              |
-| **name**        | String(255)                                               | Наименование пользовательской роли<br>`+Обязательное при ответе` `+Необходимо при создании` |
-| **permissions** | Array(Object)                                             | Список пермиссий<br>`+Обязательное при ответе`                                              |
+### Get user role
 
-### Получить пользовательскую роль
+**Parameters**
 
-**Параметры**
+| Parameter | Description |
+| ------- | ---------------- |
+| **id** | `string` (required) *Example: 736da682-ad8b-11eb-0a80-17ef000000d4* Role id. |
 
-| Параметр | Описание                                                                     |
-| :------- | :--------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 736da682-ad8b-11eb-0a80-17ef000000d4* id Роли. |
-
-> Запрос на получение пользовательской роли с указанным id.
+> Request to get a custom role with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление пользовательской роли.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the custom role.
 
 ```json
 {
@@ -396,29 +396,23 @@ curl -X GET
       "done": "AUTHOR_OR_ASSIGNEE",
       "update": "AUTHOR",
       "delete": "AUTHOR"
-    },
-    "taxrate": {
-      "view": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL"
     }
   }
 }
 ```
 
-### Получить все пользовательские роли
+### Get all user roles
 
-> Запрос на получение пользовательских ролей.
+> Request for user roles.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/role/"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/role/"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление пользовательских ролей.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of user roles.
 
 ```json
 {
@@ -803,12 +797,6 @@ curl -X GET
           "done": "AUTHOR_OR_ASSIGNEE",
           "update": "AUTHOR",
           "delete": "AUTHOR"
-        },
-        "taxrate": {
-          "view": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL"
         }
       }
     }
@@ -816,9 +804,9 @@ curl -X GET
 }
 ```
 
-### Создать пользовательскую роль
+### Create user role
 
-> Запрос на создание пользовательской роли.
+> Request to create a user role.
 
 ```shell
 curl -X POST
@@ -861,7 +849,7 @@ curl -X POST
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной роли.
+Successful request. The result is a JSON representation of the created role.
 
 ```json
 {
@@ -1227,26 +1215,20 @@ curl -X POST
       "done": "NO",
       "update": "NO",
       "delete": "NO"
-    },
-    "taxrate": {
-      "view": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL"
     }
   }
 }
 ```
 
-### Обновить пользовательскую роль
+### Update user role
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                     |
-| :------- | :--------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 736da682-ad8b-11eb-0a80-17ef000000d4* id Роли. |
+| Parameter | Description |
+| ------- | ------------- |
+| **id** | `string` (required) *Example: 736da682-ad8b-11eb-0a80-17ef000000d4* Role id. |
 
-> Запрос на обновление пользовательской роли.
+> Request to upgrade a user role.
 
 ```shell
 curl -X PUT
@@ -1289,7 +1271,7 @@ curl -X PUT
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной роли.
+Successful request. The result is a JSON representation of the updated role.
 
 ```json
 {
@@ -1655,33 +1637,27 @@ curl -X PUT
       "done": "NO",
       "update": "NO",
       "delete": "NO"
-    },
-    "taxrate": {
-      "view": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL"
     }
   }
 }
 ```
 
 
-### Удалить пользовательскую роль
+### Delete user role
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                     |
-| :------- | :--------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: ae6e61ad-ad8c-11eb-0a80-380e00001e6c* id Роли. |
+| Parameter | Description |
+| ------ |------ |
+| **id** | `string` (required) *Example: ae6e61ad-ad8c-11eb-0a80-380e00001e6c* Role id. |
 
-> Запрос на удаление пользовательской роли.
+> Request to remove a custom role.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
-  -H "Authorization: Basic <Credentials>
+   "https://app.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
+   -H "Authorization: Basic <Credentials>
 ```
 
-> Response 200 (application/json)
-Успешный запрос.
+> Response 200(application/json)
+Successful request.

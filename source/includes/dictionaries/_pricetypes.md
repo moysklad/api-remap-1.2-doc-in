@@ -1,243 +1,244 @@
-## Типы цен
-### Типы цен 
+## Price types
+### Price types
 
-Средствами JSON API можно создавать и обновлять сведения о Типах цен, запрашивать списки Типов цен и сведения по отдельным Типам цен по id.
-Кодом сущности для Типа цен в составе JSON API является ключевое слово **pricetype**. 
+Using the JSON API, you can create and update information about Price Types, request lists of Price Types and information on individual Price Types by id.
+The entity code for the Price Type in the JSON API is the **pricetype** keyword.
 
-#### Атрибуты сущности
-| Название         | Тип                                                       | Описание                                                                        |
-| ---------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------ |
-| **externalCode** | String(255)                                               | Внешний код Типа цены<br>`+Обязательное при ответе`                             |
-| **id**           | UUID                                                      | ID типа цены<br>`+Обязательное при ответе` `+Только для чтения`                 |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Типа цены<br>`+Обязательное при ответе` `+Только для чтения`         |
-| **name**         | String(255)                                               | Наименование Типа цены<br>`+Обязательное при ответе` `+Необходимо при создании` |
+#### Entity attributes
 
-### Получить список всех типов цен
+| Title| Type| description |
+| ---------| -----| ----------|
+| **externalCode** | String(255) | Price Type External Code<br>`+Required when replying` |
+| **id** | UUID | Price type ID<br>`+Required for response` `+Read only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
+| **name** | String(255) | Price Type Name<br>`+Required when replying` `+Required when creating` |
+
+### Get a list of all price types
  
-> Получить список всех типов цен
+> Get a list of all price types
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив всех типов цен
+> Response 200(application/json)
+Successful request. The result is an array of all price types
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-      "type": "pricetype",
-      "mediaType": "application/json"
-    },
-    "id": "a8967d6b-b026-11e7-9464-d04800000000",
-    "name": "Цена продажи",
-    "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
-      "type": "pricetype",
-      "mediaType": "application/json"
-    },
-    "id": "5fc65f53-a470-11e7-9464-d04800000035",
-    "name": "Цена для друзей",
-    "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+       "type": "pricetype",
+       "mediaType": "application/json"
+     },
+     "id": "a8967d6b-b026-11e7-9464-d04800000000",
+     "name": "Sale price",
+     "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+       "type": "pricetype",
+       "mediaType": "application/json"
+     },
+     "id": "5fc65f53-a470-11e7-9464-d04800000035",
+     "name": "Price for friends",
+     "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
+   }
 ]
 ```
         
-### Редактирование списка типов цен 
+### Editing the list of price types
 
-Типы цен возможно редактировать только полным списком.
+Price types can only be edited as a complete list.
 
-+ Для создания нового типа цены, необходимо передать существующий список типов цен и новый объект, 
-содержащий наименование нового типа цены.
-+ Для обновления существующего типа цены необходимо передать мету этого типа цены, а также новое наименование.
-+ Для удаления типа цены нужно исключить объект из передаваемого списка.
-+ При сохранении списка типов цен сохраняется и порядок их следования.
-+ Тип цены, указанный в списке первым элементом, становится типом цены по умолчанию.
++ To create a new price type, you must pass an existing list of price types and a new object,
+containing the name of the new price type.
++ To update an existing price type, you must pass the meta of this price type, as well as the new name.
++ To remove the price type, you need to exclude the object from the transferred list.
++ When you save a list of price types, the order in which they appear is also saved.
++ The price type specified as the first item in the list becomes the default price type.
 
-Ограничения:
+Restrictions:
 
-+ Нельзя создать более 100 типов цен.
-+ Нельзя удалить все типы цен.
-+ При создании нового типа цены наименование должно быть уникальным.
-+ При создании нового типа наименование не должно быть пустым или отсутствовать.
-+ Внешний код нельзя удалить. При передаче пустой строки при редактировании типа цены будет сгенерирован случайный внешний код.
++ You cannot create more than 100 price types.
++ You cannot delete all types of prices.
++ When creating a new price type, the name must be unique.
++ When creating a new type, the name must not be empty or missing.
++ External code cannot be deleted. Passing an empty string when editing a price type will generate a random external code.
 
-> Пример создания нового типа цены.
+> An example of creating a new price type.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-    -d '[
-          {
-            "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-              "type": "pricetype",
-              "mediaType": "application/json"
-            },
-            "id": "a8967d6b-b026-11e7-9464-d04800000000",
-            "name": "Цена продажи",
-            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-          },
-          {
-            "name": "Цена для друзей",
-            "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
-          }
-        ]'
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+     -d'[
+           {
+             "meta": {
+               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+               "type": "pricetype",
+               "mediaType": "application/json"
+             },
+             "id": "a8967d6b-b026-11e7-9464-d04800000000",
+             "name": "Sale price",
+             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+           },
+           {
+             "name": "Price for friends",
+             "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
+           }
+         ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного списка типов цен.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated list of price types.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-      "type": "pricetype",
-      "mediaType": "application/json"
-    },
-    "id": "a8967d6b-b026-11e7-9464-d04800000000",
-    "name": "Цена продажи",
-    "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
-      "type": "pricetype",
-      "mediaType": "application/json"
-    },
-    "id": "5fc65f53-a470-11e7-9464-d04800000035",
-    "name": "Цена для друзей",
-    "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+       "type": "pricetype",
+       "mediaType": "application/json"
+     },
+     "id": "a8967d6b-b026-11e7-9464-d04800000000",
+     "name": "Sale price",
+     "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+       "type": "pricetype",
+       "mediaType": "application/json"
+     },
+     "id": "5fc65f53-a470-11e7-9464-d04800000035",
+     "name": "Price for friends",
+     "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
+   }
 ]
 ```
 
-> Пример обновления существующего списка.
+> An example of updating an existing list.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-    -d '[
-          {
-            "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-              "type": "pricetype",
-              "mediaType": "application/json"
-            },
-            "id": "a8967d6b-b026-11e7-9464-d04800000000",
-            "name": "Цена продажи",
-            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-          },
-          {
-            "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
-              "type": "pricetype",
-              "mediaType": "application/json"
-            },
-            "id": "5fc65f53-a470-11e7-9464-d04800000035",
-            "name": "Цена для друзей",
-            "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
-          }
-        ]'
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+     -d'[
+           {
+             "meta": {
+               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+               "type": "pricetype",
+               "mediaType": "application/json"
+             },
+             "id": "a8967d6b-b026-11e7-9464-d04800000000",
+             "name": "Sale price",
+             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+           },
+           {
+             "meta": {
+               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+               "type": "pricetype",
+               "mediaType": "application/json"
+             },
+             "id": "5fc65f53-a470-11e7-9464-d04800000035",
+             "name": "Price for friends",
+             "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
+           }
+         ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного списка типов цен.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated list of price types.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-      "type": "pricetype",
-      "mediaType": "application/json"
-    },
-    "id": "a8967d6b-b026-11e7-9464-d04800000000",
-    "name": "Цена продажи",
-    "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
-      "type": "pricetype",
-      "mediaType": "application/json"
-    },
-    "id": "5fc65f53-a470-11e7-9464-d04800000035",
-    "name": "Цена для друзей",
-    "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+       "type": "pricetype",
+       "mediaType": "application/json"
+     },
+     "id": "a8967d6b-b026-11e7-9464-d04800000000",
+     "name": "Sale price",
+     "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+       "type": "pricetype",
+       "mediaType": "application/json"
+     },
+     "id": "5fc65f53-a470-11e7-9464-d04800000035",
+     "name": "Price for friends",
+     "externalCode": "3ea345e3-b56c-457a-bc77-3658546eb2bf"
+   }
 ]
 ```
 
-### Тип цены 
-### Получить тип цены по ID
+### Price type
+### Get price type by ID
  
-Получить тип цены по ID
+Get price type by ID
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                         |
-| ------------------------------ | :------------------------------------------------------------------------------- |
-| **id**                         | `string` (required) *Example: a8967d6b-b026-11e7-9464-d04800000000* id типа цены |
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: a8967d6b-b026-11e7-9464-d04800000000* price type ID |
 
-> Получить тип цены по ID
+> Get price type by ID
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - обновленный тип цены.
+> Response 200(application/json)
+Successful request. The result is an updated price type.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-    "type": "pricetype",
-    "mediaType": "application/json"
-  },
-  "id": "a8967d6b-b026-11e7-9464-d04800000000",
-  "name": "Цена продажи",
-  "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+     "type": "pricetype",
+     "mediaType": "application/json"
+   },
+   "id": "a8967d6b-b026-11e7-9464-d04800000000",
+   "name": "Sale price",
+   "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
 }
 ```
 
-### Получить тип цены по умолчанию
+### Get the default price type
  
-> Получить тип цены по умолчанию
+> Get default price type
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/default"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/default"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - тип цены по умолчанию.
+> Response 200(application/json)
+Successful request. The result is the default price type.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
-    "type": "pricetype",
-    "mediaType": "application/json"
-  },
-  "id": "a8967d6b-b026-11e7-9464-d04800000000",
-  "name": "Цена продажи",
-  "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+     "type": "pricetype",
+     "mediaType": "application/json"
+   },
+   "id": "a8967d6b-b026-11e7-9464-d04800000000",
+   "name": "Sale price",
+   "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
 }
 ```

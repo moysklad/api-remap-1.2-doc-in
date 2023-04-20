@@ -1,187 +1,188 @@
-## Характеристики модификаций
+## Characteristics of variants
 
-С помощью json api можно добавлять новые Характеристики модификаций 
+Using the json api, you can add new variant characteristics.
 
-### Характеристики 
-#### Атрибуты сущности
+### Variant characteristics
+#### Entity attributes
 
-| Название     | Тип                                                       | Описание                                                                                                                             |
-| ------------ | :-------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| **id**       | UUID                                                      | ID соответствующей Характеристики<br>`+Обязательное при ответе` `+Только для чтения`                                                 |
-| **meta**     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные характеристики<br>`+Обязательное при ответе` `+Только для чтения`                                                         |
-| **name**     | String(255)                                               | Наименование Характеристики<br>`+Обязательное при ответе` `+Необходимо при создании`                                                 |
-| **required** | Boolean                                                   | Обязательность указания Характеристики в модификации, всегда имеет значение false<br>`+Обязательное при ответе` `+Только для чтения` |
-| **type**     | String(255)                                               | Тип значения Характеристики, всегда имеет значение string<br>`+Обязательное при ответе` `+Только для чтения`                         |
+| Title | Type | Description |
+| ---------|--------|--------|
+| **id** | UUID | ID of the corresponding Feature<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Feature metadata<br>`+Required for response` `+Read-only` |
+| **name** | String(255) | Name Characteristics<br>`+Required when answering` `+Required when creating` |
+| **required** | Boolean | Mandatory specification of Characteristics in the variant, always set to false<br>`+Required when answering` `+Read-only` |
+| **type** | String(255) | Value type Characteristics, always has the value string<br>`+Required for response` `+Read-only` |
 
-Посмотреть списки существующих характеристик можно в контексте метаданных
-модификаций, например сделав GET запрос по URL http://app.kladana.in/api/remap/1.2/entity/variant/metadata или http://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics
-Список характеристик модификаций будет выведен в коллекции characteristics.
+You can view lists of existing characteristics in the context of metadata
+variants, for example by making a GET request to the URL http://app.kladana.in/api/remap/1.2/entity/variant/metadata or http://app.kladana.in/api/remap/1.2/entity/variant/ metadata/characteristics
+The list of variant characteristics will be displayed in the characteristics collection.
 
-### Получить метаданные
+### Get metadata
 
-> Получить метаданные и в том числе Характеристики
+> Get metadata and including Characteristics
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/variant/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
+> Response 200(application/json)
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant",
-    "mediaType": "application/json"
-  },
-  "characteristics": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/4f70c518-60a1-11e7-6adb-ede500000003",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "4f70c518-60a1-11e7-6adb-ede500000003",
-      "name": "Размер",
-      "type": "string",
-      "required": false
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/3b6eb61a-60c5-11e7-6adb-ede500000001",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "3b6eb61a-60c5-11e7-6adb-ede500000001",
-      "name": "Цвет",
-      "type": "string",
-      "required": false
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant",
+     "mediaType": "application/json"
+   },
+   "characteristics": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/4f70c518-60a1-11e7-6adb-ede500000003",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "4f70c518-60a1-11e7-6adb-ede500000003",
+       "name": "Size",
+       "type": "string",
+       "required": false
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/3b6eb61a-60c5-11e7-6adb-ede500000001",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "3b6eb61a-60c5-11e7-6adb-ede500000001",
+       "name": "Color",
+       "type": "string",
+       "required": false
+     }
+   ]
 }
 ```
 
-### Создать характеристику 
-Создать новую характеристику.
-#### Описание
-Характеристика создается на основе переданного объекта JSON,
-который содержит представление новой Характеристики.
-Результат - JSON представление созданной Характеристики. Для создания новой Характеристики,
-необходимо и достаточно указать в переданном объекте непустое поле `name`.
-Пользователь, от лица которого выполняется запрос, должен обладать правами на редактирование товаров.  
+### Create feature
+Create a new feature.
 
-> Создание одной характеристики.
+#### Description
+The characteristic is created based on the passed JSON object,
+which contains the representation of the new Feature.
+The result is a JSON representation of the generated Feature. To create a new Feature,
+it is necessary and sufficient to specify a non-empty `name` field in the passed object.
+The user on whose behalf the request is made must have the rights to edit products.
+
+> Creation of one characteristic.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Размер"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Size"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной Характеристики.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Feature.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "6262b270-60c3-11e7-6adb-ede50000000d",
-  "name": "Размер",
-  "type": "string",
-  "required": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
+     "type": "attributemetadata",
+     "mediaType": "application/json"
+   },
+   "id": "6262b270-60c3-11e7-6adb-ede50000000d",
+   "name": "Size",
+   "type": "string",
+   "required": false
 }
 ```
 
-### Массовое создание Характеристик 
-[Массовое создание](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Характеристик.
-В теле запроса нужно передать массив, содержащий JSON представления Характеристик, которые вы хотите создать.
+### Mass Creation of Characteristics
+[Mass Creation](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow)
+In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
 
-> Пример создания нескольких Характеристик
+> Example of creating multiple Characteristics
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "Размер"
-            },
-            {
-              "name": "Цвет"
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "Size"
+             },
+             {
+               "name": "Color"
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных Характеристик.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the generated Features.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
-      "type": "attributemetadata",
-      "mediaType": "application/json"
-    },
-    "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
-    "name": "Размер",
-    "type": "string",
-    "required": false
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
-      "type": "attributemetadata",
-      "mediaType": "application/json"
-    },
-    "id": "b56215dc-60c3-11e7-6adb-ede500000013",
-    "name": "Цвет",
-    "type": "string",
-    "required": false
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+       "type": "attributemetadata",
+       "mediaType": "application/json"
+     },
+     "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
+     "name": "Size",
+     "type": "string",
+     "required": false
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
+       "type": "attributemetadata",
+       "mediaType": "application/json"
+     },
+     "id": "b56215dc-60c3-11e7-6adb-ede500000013",
+     "name": "Color",
+     "type": "string",
+     "required": false
+   }
 ]
 ```
 
-### Характеристика 
+### Feature
 
-### Получить Характеристику
+### Get Feature
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                               |
-| :------- | :------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Характеристики. |
+| Parameter | Description |
+| ------- | ------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Features. |
 
-> Запрос на получение отдельной Характеристики с указанным id.
+> Request for a separate Feature with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Характеристики.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Feature.
 
 ```json
 {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
-      "type": "attributemetadata",
-      "mediaType": "application/json"
-    },
-    "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
-    "name": "Размер",
-    "type": "string",
-    "required": false
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+       "type": "attributemetadata",
+       "mediaType": "application/json"
+     },
+     "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
+     "name": "Size",
+     "type": "string",
+     "required": false
 }
 ```

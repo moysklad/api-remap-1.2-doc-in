@@ -1,71 +1,71 @@
-## Бонусная операция
-### Бонусные операции 
+## Bonus operation
+### Bonus operations
 
-Средствами JSON API можно создавать и обновлять сведения о Бонусных операциях, запрашивать списки Бонусных операций и сведения по отдельным Бонусым операциям. Кодом сущности для Бонусной операции в составе JSON API является ключевое слово **bonustransaction**.
+Using the JSON API, you can create and update information about Bonus Operations, request lists of Bonus Operations and information on individual Bonus Operations. The entity code for a Bonus Transaction as part of the JSON API is the **bonustransaction** keyword.
 
-##### Атрибуты сущности
+##### Entity attributes
 
-| Название              | Тип                                                       |Фильтрация                 | Описание                                                                                                                   |
-| --------------------- | :-------------------------------------------------------- |:--------------------------| :------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**         | UUID                                                      |`=` `!=`                   | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                       |
-| **agent**             | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=`                   | Метаданные Контрагента, связанного с бонусной операцией<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` |
-| **applicable**        | Boolean                                                   |`=` `!=`                   | Отметка о проведении<br>`+Обязательное при ответе`                                                                         |
-| **bonusProgram**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=`                   | Метаданные бонусной программы<br>`+Expand`                                                                                 |
-| **bonusValue**        | Int                                                       |`=` `!=` `<` `>` `<=` `>=` | Количество бонусных баллов                                                                                                 |
-| **categoryType**      | Enum                                                      |                           | Категория бонусной операции. Возможные значения: `REGULAR`, `WELCOME`<br>`+Только для чтения`                              |
-| **code**              | String(255)                                               |`=` `!=` `~` `~=` `=~`     | Код Бонусной операции                                                                                                      |
-| **created**           | DateTime                                                  |`=` `!=` `<` `>` `<=` `>=` | Момент создания Бонусной операции<br>`+Обязательное при ответе`                                                            |
-| **executionDate**     | DateTime                                                  |                           | Дата начисления бонусной операции.                                                                                         |
-| **externalCode**      | String(255)                                               |`=` `!=` `~` `~=` `=~`     | Внешний код Бонусной операции<br>`+Обязательное при ответе`                                                                |
-| **group**             | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=`                   | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                   |
-| **id**                | UUID                                                      |`=` `!=`                   | ID Бонусной операции<br>`+Обязательное при ответе` `+Только для чтения`                                                    |
-| **meta**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                           | Метаданные Бонусной операции<br>`+Обязательное при ответе`                                                                 |
-| **moment**            | DateTime                                                  |`=` `!=` `<` `>` `<=` `>=` | Время проведения бонусной операции                                                                                         |
-| **name**              | String(255)                                               |`=` `!=` `~` `~=` `=~`     | Наименование Бонусной операции                                                                                             |
-| **organization**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=`                   | Метаданные юрлица<br>`+Expand`                                                                                             |
-| **owner**             | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=`                   | Владелец (Сотрудник)<br>`+Expand`                                                                                          |
-| **parentDocument**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                           | Метаданные связанного документа бонусной операции<br>`+Expand`                                                             |
-| **shared**            | Boolean                                                   |`=` `!=`                   | Общий доступ<br>`+Обязательное при ответе`                                                                                 |
-| **transactionStatus** | Enum                                                      |                           | Статус бонусной операции. Возможные значения: `WAIT_PROCESSING`, `COMPLETED`, `CANCELED`<br>`+Только для чтения`           |
-| **transactionType**   | Enum                                                      |                           | Тип бонусной операции. Возможные значения: `EARNING`, `SPENDING`<br>`+Обязательное при ответе` `+Необходимо при создании`  |
-| **updated**           | DateTime                                                  |`=` `!=` `<` `>` `<=` `>=` | Момент последнего обновления Бонусной операции<br>`+Обязательное при ответе`                                               |
-| **updatedBy**         | UID                                                       |`=` `!=`                   | Автор последнего обновления бонусной операции в формате `uid` (`admin@admin`) (Атрибут используется только для фильтрации) |
+| Title | Type | Filtering | Description |
+| ---------------------- |----------- |-------------| ------------- |
+| **accountId** | UUID |`=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **applicable** | Boolean |`=` `!=` | Check mark<br>`+Required when answering` |
+| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Bonus program metadata<br>`+Expand` |
+| **bonusValue** | Int |`=` `!=` `<` `>` `<=` `>=` | Number of bonus points |
+| **categoryType** | Enum | | Bonus operation category. Possible values: `REGULAR`, `WELCOME`<br>`+Read Only` |
+| **code** | String(255) |`=` `!=` `~` `~=` `=~` | Bonus Transaction Code |
+| **created** | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when answering` |
+| **executionDate** | datetime | | Date of the bonus operation. |
+| **externalCode** | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when replying` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID |`=` `!=` | Bonus transaction ID<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Bonus operation metadata<br>`+Required when replying` |
+| **moment** | DateTime |`=` `!=` `<` `>` `<=` `>=` | Time of the bonus operation |
+| **name** | String(255) |`=` `!=` `~` `~=` `=~` | Name of the Bonus transaction |
+| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Legal entity metadata<br>`+Expand` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Owner (Employee)<br>`+Expand` |
+| **parentDocument** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | St. Metadataof the linked document of the bonus operation<br>`+Expand` |
+| **shared** | Boolean |`=` `!=` | Sharing<br>`+Required when replying` |
+| **transactionStatus** | Enum | | Status of the bonus operation. Possible values: `WAIT_PROCESSING`, `COMPLETED`, `CANCELED`<br>`+Read Only` |
+| **transactionType** | Enum | | Type of bonus operation. Possible values: `EARNING`, `SPENDING`<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Bonus operation<br>`+Required when answering` |
+| **updatedBy** | UID |`=` `!=` | The author of the last update of the bonus operation in the format `uid` (`admin@admin`) (The attribute is used only for filtering) |
 
-##### Атрибут "executionDate".
-При создании или редактировании бонусной операции начисления данный атрибут позволяет указать дату обработки операции.
-Если атрибут не указан, то операция будет обработана сразу, без задержки.
+##### The "executionDate" attribute
+When creating or editing a bonus accrual transaction, this attribute allows you to specify the transaction processing date.
+If the attribute is not specified, then the operation will be processed immediately, without delay.
 
-Для возможности указания даты обработки в будущем должна быть включена тарифная опция "Расширенная бонусная программа".
+To be able to specify the date of processing in the future, the tariff option "Extended bonus program" must be enabled.
 
 
-### Получить Бонусные операции
+### Get Bonus Transactions
 
-Запрос на получение списка всех Бонусных операций для данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+Request for a list of all Bonus Operations for this account.
+Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                                |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------------ |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                    |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.            |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих Бонусные операции. |
+| Title | Type | Description |
+| ----------- | ------------- | -------------------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing Bonus Operations. |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description |
+| --------- | ------------|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить Бонусные операции
+> Get Bonus Transactions
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/bonustransaction"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/bonustransaction"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Бонусных операций.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Bonus Operations.
 
 ```json
 {
@@ -267,18 +267,18 @@ curl -X GET
 }
 ```
 
-### Создать Бонусную операцию
+### Create Bonus Transaction
 
-Запрос на создание новой бонусной операции на данной учетной записи.
-Обязательные для создания поля:
+Request to create a new bonus operation on this account.
+Mandatory fields to create:
 
-| Название            | Тип                                                       | Описание                                                                                                                   |
-| ------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
-| **agent**           | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Контрагента, связанного с бонусной операцией<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` |
-| **bonusProgram**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Бонусной программы<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании`                           |
-| **transactionType** | Enum                                                      | Тип бонусной операции<br>`+Обязательное при ответе` `+Необходимо при создании`                                             |
+| Title | Type | Description |
+| -------------------- | --------------------- | --------------------- |
+| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Bonus Program Metadata<br>`+Required when answering` `+Expand` `+Required when creating` |
+| **transactionType** | Enum | Type of bonus operation<br>`+Required when replying` `+Required when creating` |
 
-> Пример запроса на создание новой бонусной операции.
+> An example of a request to create a new bonus operation.
 
 ```shell
   curl -X POST
@@ -315,7 +315,7 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной бонусной операции.
+Successful request. The result is a JSON representation of the created bonus operation.
 
 ```json
 {
@@ -387,13 +387,13 @@ curl -X GET
 }
 ```
 
-### Массовое создание и обновление Бонусных операций
+### Bonus operations bulk creation and update
 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Бонусных операций.
-В теле запроса нужно передать массив, содержащий JSON представления Бонусных операций, которые вы хотите создать или обновить.
-Обновляемые Бонусные операции должны содержать идентификатор в виде метаданных.
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Bonus operations.
+In the body of the request, you need to pass an array containing JSON representations of the Bonus Operations that you want to create or update.
+Updated Bonus Transactions must contain the identifier in the form of metadata.
 
-> Пример создания и обновления нескольких Бонусных операций
+> An example of creating and updating several Bonus Operations
 
 ```shell
   curl -X POST
@@ -462,7 +462,7 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Бонусных операций.
+Successful request. The result is a JSON array of representations of the created and updated Bonus Operations.
 
 ```json
 [
@@ -643,31 +643,31 @@ curl -X GET
 ]
 ```
 
-### Удалить Бонусную операцию
+### Delete Bonus operation
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                  |
-| :------- | :---------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Бонусной операции. |
+| Parameter | Description |
+| ------- | --------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bonus transaction id. |
 
-> Запрос на удаление бонусной операции.
+> Request to delete a bonus operation.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Бонусной операции.
+> Response 200(application/json)
+Successful removal of the Bonus operation.
 
-### Массовое удаление Бонусных операций
+### Bulk deletion of Bonus Operations
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Бонусных операций, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Bonus Operations that you want to remove.
 
 
-> Запрос на массовое удаление Бонусных операций. 
+> Request for bulk deletion of Bonus Transactions.
 
 ```shell
 curl -X POST
@@ -692,39 +692,39 @@ curl -X POST
       ]'
 ```        
 
-> Успешный запрос. Результат - JSON информация об удалении Бонусных операций.
+> Successful request. Result - JSON information about deleting Bonus transactions.
 
 ```json
 [
-  {
-    "info":"Сущность 'bonustransaction' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'bonustransaction' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'bonustransaction' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   },
+   {
+     "info":"Entity 'bonustransaction' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
+   }
 ]
 ```
 
-### Бонусная операция
+### Bonus operation
 
-### Получить Бонусную операцию
+### Get Bonus operation
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                  |
-| :------- | :---------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Бонусной операции. |
+| Parameter | Description |
+| ------- | ------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bonus transaction id. |
 
-> Запрос на получение бонусной операции с указанным id.
+> Request for a bonus transaction with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Бонусной операции с указанным id.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Bonus transaction with the specified ID.
 
 ```json
 {
@@ -796,17 +796,17 @@ curl -X GET
 }
 ```
 
-### Изменить Бонусную операцию
+### Change Bonus operation
 
-Запрос на изменение объекта, представляющего собой бонусную операцию. Невозможно изменение типа бонусной операции.
+A request to change an object representing a bonus operation. It is not possible to change the type of bonus operation.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                  |
-| :------- | :---------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Бонусной операции. |
+| Parameter | Description |
+| ------- | ----------- |
+| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bonus operation ID. |
 
-> Пример запроса на обновление Бонусной операции.
+> An example of a request to update a Bonus operation.
 
 ```shell
   curl -X PUT
@@ -819,7 +819,7 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной Бонусной операции.
+Successful request. The result is a JSON representation of the updated Bonus operation.
 
 ```json
 {

@@ -52,7 +52,6 @@
 | **accountId**  | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                                                                                                                         |
 | **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара/услуги/серии/модификации, которую представляет собой позиция<br>`+Обязательное при ответе` `+Expand` `+Change-handler` `+Update-provider`                                                                                                                                                                                                                    |
 | **country**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные страны<br>`+Expand`                                                                                                                                                                                                                                                                                                                                                 |
-| **gtd**        | Object                                                    | ГТД. [Подробнее тут](../dictionaries/#suschnosti-gruzowaq-tamozhennaq-deklaraciq-gtd)                                                                                                                                                                                                                                                                                          |
 | **id**         | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                                                                                                                                |
 | **overhead**   | Int                                                       | Накладные расходы. [Подробнее тут](../dictionaries/#dokumenty-oprihodowanie-oprihodowaniq-nakladnye-rashody). Если Позиции Оприходования не заданы, то накладные расходы нельзя задать<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                      |
 | **pack**       | Object                                                    | Упаковка Товара. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) <br> `+Change-handler` `+Update-provider`                                                                                                                                                                                                           |
@@ -1322,20 +1321,6 @@ curl -X GET
           "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
         }
       },
-      "gtd": {
-        "name": "12345678/121217/1212321"
-      },
-      "country": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-          "type": "country",
-          "mediaType": "application/json"
-        }
-      },
-      "reason": "ЧТо то не так",
-      "overhead": 0
-    },
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/2e12f062-5338-11e6-8a84-bae500000090",
@@ -1418,21 +1403,7 @@ curl -X GET
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#good/edit?id=3bad99f1-2842-11e9-ac12-000c0000005c"
         }
-      },
-      "gtd": {
-        "name": "12345678/121217/1235362"
-      },
-      "country": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-          "type": "country",
-          "mediaType": "application/json"
-        }
-      },
-      "reason": "АБЫР",
-      "overhead": 0
-    }
+      }
   ]
 }
 ```
@@ -1442,7 +1413,7 @@ curl -X GET
 Для успешного создания необходимо в теле запроса указать следующие поля:
 
 + **assortment** - Ссылка на товар/услугу/серию/модификацию, которую представляет собой позиция.
-Также можно указать поле с именем **service**, **consignment**, **variant** в соответствии с тем,
+Также можно указать поле с именем **service**, **variant** в соответствии с тем,
 чем является указанная позиция. Подробнее об этом поле можно прочитать в описании [позиции Оприходования](../documents/#dokumenty-oprihodowanie-oprihodowaniq-pozicii-oprihodowaniq)
 + **quantity** - Количество указанной позиции. Должно быть положительным, иначе возникнет ошибка.
 Одновременно можно создать как одну так и несколько позиций Оприходования. Все созданные данным запросом позиции

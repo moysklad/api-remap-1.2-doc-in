@@ -1,94 +1,91 @@
 # Entities
 
-## Ассортимент
+## Assortment
 
-### Ассортимент
+### Assortment
 
-Сущность assortment представляет собой список всех товаров, услуг, комплектов, серий и модификаций с полями `stock`,
-`reserve`, `inTransit`, `quantity`, показывающими остаток, резерв, ожидание и доступно каждой из сущностей (для комплектов и услуг эти поля не выводятся).
-Данные поля могут быть рассчитаны в зависимости от даты и склада с использованием параметров фильтрации `stockMoment` и `stockStore`.
+The 'Assortment' entity is the list of all products, variants, services, and bundles with the fields: `stock`, `reserve`, `inTransit`, `quantity`. The fields show the number of items reserved, awaiting, available, in stock, and in transit. The fields are not available for bundles and services. The data in the fields can be calculated depending on the date and stock using the `stockMoment` and `stockStore` filtering options.
 
-#### Атрибуты доступные для фильтрации
+#### Attributes available for filtering
 
-Результаты запроса можно отфильтровать, используя параметр filter.
+The query results can be filtered using the 'filter' parameter.
 
-| Название              | Описание                                                                                                                                                                                                                                                                                                                                           |
-| --------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **alcoholic.type**    | параметр для фильтрации по коду вида алкогольной продукции. Можно использовать операторы `=` и `!=`. Значение параметра - целое число. Можно передать пустое значение, тогда в выборку попадут товары с заполненным или незаполненным значением кода вида продукции.                                                                               |
-| **archived**          | параметр для фильтрации по признаку архивности товаров. Возможные значения: true, false. Для выдачи как обычных, так и товаров в архиве, нужно передать сразу два значения true и false. По умолчанию в выдачу попадают только обычные товары.                                                                                                     |
-| **article**           | параметр для фильтрации по артикулам товаров и комплектов. Можно использовать операторы `=`, `!=`, `~`, `~=`, `=~`. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                                              |
-| **barcode**           | параметр для фильтрации по штрихкодам сущностей. Допустимый оператор - `=`. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                                                                                      |
-| **code**              | параметр для фильтрации по кодам сущностей. Можно использовать операторы `=`, `!=`, `~`, `~=`, `=~`. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                                                             |
-| **description**       | параметр для фильтрации по описаниям сущностей. Можно использовать операторы `=`, `!=`, `~`, `~=`, `=~`. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                                                         |
-| **externalCode**      | параметр для фильтрации по внешним кодам сущностей. Можно использовать операторы `=`, `!=`, `~`, `~=`, `=~`. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                                                     |
-| **group**             | параметр для фильтрации по владельцу-отделу. Можно использовать операторы `=` и `!=`. Значение параметра - ссылка на отдел. Можно передать несколько значений.                                                                                                                                                                                     |
-| **id**                | параметр для фильтрации по идентификаторам сущностей. Можно использовать операторы `=` и `!=`. Можно передать несколько значений.                                                                                                                                                                                                                  |
-| **isSerialTrackable** | параметр для фильтрации по использованию серийных номеров                                                                                                                                                                                                                                                                                          |
-| **name**              | параметр для фильтрации по наименованиям сущностей. Можно использовать операторы `=`, `!=`, `~`, `~=`, `=~`. Можно передать несколько значений.                                                                                                                                                                                                    |
-| **owner**             | параметр для фильтрации по владельцу-сотруднику. Можно использовать операторы `=` и `!=`. Значение параметра - ссылка на сотрудника. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                             |
-| **pathname**          | параметр для фильтрации по наименованию групп товаров. Можно использовать операторы `=`, `!=`, `~`, `~=`, `=~`. Можно передать несколько значений. Можно указать пустое значение.                                                                                                                                                                  |
-| **productFolder**     | параметр для фильтрации по нескольким группам товаров. Можно использовать операторы `=` и `!=`. Значение параметра - ссылка на группу товаров, которая должна быть включена в выборку или исключена из нее. Можно передать несколько значений. В выборку попадут товары, которые находятся (или не находятся) непосредственно в указанных группах. |
-| **quantityMode**      | параметр для фильтрации по значению доступно. Значение по умолчанию all. [Доступные значения](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-quantitymode)                                                                                                                                      |
-| **search**            | префиксный поиск по строковым полям, выводимым в ассортименте. Для данного параметра нужно использовать оператор `=`. Поиск по штрихкодам выполняется по полному соотвествию. Можно передать только одно значение.[Подробнее тут](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-search)        |
-| **shared**            | параметр для фильтрации по признаку общего доступа. Возможные значения: true, false.                                                                                                                                                                                                                                                               |
-| **stockMode**         | параметр для фильтрации по значению остатка. Значение по умолчанию all. [Доступные значения](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode)                                                                                                                                          |
-| **stockMoment**       | момент времени, на который нужно вывести остатки. Передается в виде строки в [формате дата-время](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni)                                                                                                                                                                                    |
-| **stockStore**        | параметр для фильтрации по нескольким складам. Можно использовать операторы `=` и `!=`. Значение параметра - ссылка на склад, который должен быть учтен в выборке или исключен из нее. Можно передать несколько значений.                                                                                                                          |
-| **supplier**          | параметр для фильтрации по нескольким поставщикам. Можно использовать операторы `=` и `!=`. Значение параметра - ссылка на контрагента или организацию. В выборку будут включены или исключены товары с указанными поставщиками. Можно передать пустое значение, тогда в выборку попадут товары с незаполненным или заполненным поставщиком.       |
-| **type**              | параметр для фильтрации по типу сущности (product, service, bundle, variant, consignment). Используется с оператором `=`. Можно передать несколько значений.                                                                                                                                                                                       |
-| **updated**           | параметр для фильтрации по времени последнего обновления сущностей. Можно использовать операторы `=`, `<`, `<=`, `>`, `>=`. Действие строгих операторов синонимично нестрогим. Передается в виде строки в [формате дата-время](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni).                                                      |
-| **updatedBy**         | параметр для фильтрации по автору последнего обновления. Можно использовать операторы `=` и `!=`. Значение параметра - `uid` (`admin@admin`). Можно передать несколько значений.                                                                                                                                                                   |
-| **weighed**           | параметр для фильтрации по признаку весового товара. Возможные значения: true, false.                                                                                                                                                                                                                                                              |
-| **доп. поле(url)**    | параметром фильтрации служит url дополнительного поля. Оператор фильтрации зависит от типа доп. поля. [Подробнее тут](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm-dostupnye-operatory-dlq-fil-tracii-dop-polej).                                                                                                                                                                                                                       |
+| Title | Description |
+| ---------|-------|
+| **alcoholic.type** | parameter for filtering by the code of the type of alcoholic product. You can use the `=` and `!=` operators. The value of the parameter is an integer. You can pass an empty value, then the selection will include products with a filled or empty value of the product type code. |
+| **archived** | parameter for filtering on the basis of archived goods. Possible values: true, false. To display both regular and archived products, you need to pass two values at once, true and false. By default, only regular products are included in the search results. |
+| **article** | parameter for filtering by article numbers of goods and kits. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **barcode** | parameter for filtering by entity barcodes. A valid operator is `=`. You can pass multiple values. You can specify an empty value. |
+| **code** | parameter for filtering by entity codes. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **description** | parameter for filtering by entity descriptions. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **externalCode** | parameter for filtering by external entity codes. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **group** | parameter to filter by owner-department. You can use the `=` and `!=` operators. The value of the parameter is a link to the department. You can pass multiple values. |
+| **id** | parameter for filtering by entity IDs. You can use the `=` and `!=` operators. You can pass multiple values. |
+| **isSerialTrackable** | parameter to filter by using serial numbers |
+| **name** | parameter for filtering by entity names. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. |
+| **owner** | parameter to filter by owner-employee. You can use the `=` and `!=` operators. The value of the parameter is a link to the employee. You can pass multiple values. You can specify an empty value. |
+| **pathname** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that shouldbe included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
+| **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-quantitymode) |
+| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-search) |
+| **shared** | parameter for filtering based on shared access. Possible values: true, false. |
+| **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
+| **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni) |
+| **stockstore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
+| **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
+| **type** | parameter for filtering by entity type (product, service, bundle, variant). Used with the `=` operator. You can pass multiple values. |
+| **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni). |
+| **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
+| **weighed** | parameter for filtering by weight item. Possible values: true, false. |
+| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm-dostupnye-operatory -dlq-fil-tracii-dop-polej). |
 
-Также доступна фильтрация по доп. полям. Подробнее про фильтрацию по доп. полям можно посмотреть в соответствующем [разделе](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm).
+Filtering by additional fields is also available. [Learn more](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po- dopolnitel-nym-polqm) details about filtering by additional fields.
 
-##### Доступные значения для stockMode
-Значение по умолчанию all.
+##### Available values for stockMode
+The default value is all.
 
-| Значение         | Описание                            |
-| ---------------- | ----------------------------------- |
-| **all**          | Любое значение остатка              |
-| **positiveOnly** | Положительный остаток               |
-| **negativeOnly** | Отрицательный остаток               |
-| **empty**        | Нулевой остаток                     |
-| **nonEmpty**     | Ненулевой остаток                   |
-| **underMinimum** | Остаток ниже неснижаемого остатка   |
+| Meaning | Description |
+| --------|---------|
+| **all** | Any value of the remainder |
+| **positiveOnly** | Positive balance |
+| **negativeOnly** | Negative balance |
+| **empty** | Zero balance |
+| **nonEmpty** | Non-zero remainder |
+| **underMinimum** | Balance below minimum balance |
 
-##### Доступные значения для quantityMode
-Значение по умолчанию all.
+##### Available values for quantityMode
+The default value is all.
 
-| Значение         | Описание                            |
-| ---------------- | ----------------------------------- |
-| **all**          | Любое значение остатка              |
-| **positiveOnly** | Положительный остаток               |
-| **negativeOnly** | Отрицательный остаток               |
-| **empty**        | Нулевой остаток                     |
-| **nonEmpty**     | Ненулевой остаток                   |
-| **underMinimum** | Остаток ниже неснижаемого остатка   |
+| Meaning | Description |
+| --------| ------------|
+| **all** | Any value of the remainder |
+| **positiveOnly** | Positive balance |
+| **negativeOnly** | Negative balance |
+| **empty** | Zero balance |
+| **nonEmpty** | Non-zero remainder |
+| **underMinimum** | Balance below minimum balance |
   
-##### Доступные значения для search
-Для данного параметра нужно использовать оператор `=`. Поиск по штрихкодам выполняется по полному соотвествию. Можно передать только одно значение.
+##### Available values for search
+For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.
 
-   + по наименованию элемента Ассортимента **name**
-   + по имени модификации **name**
-   + по коду **code**
-   + по коду модификации **code**
-   + по артикулу **article**
-   + по штрихкоду **barcode**
-   + по штрихкоду модификации **barcode**
-   + по штрихкоду упаковок товаров **barcode**  
-   + по штрихкоду упаковок модификаций **barcode**
+    + by the name of the Assortment item **name**
+    + by modification name **name**
+    + by code **code**
+    + by modification code **code**
+    + by article **article**
+    + by barcode **barcode**
+    + by modification barcode **barcode**
+    + by barcode of product packages **barcode**
+    + by the barcode of packages of modifications **barcode**
  
 
-При использовании фильтров **alcoholic.type**, **weighed** и фильтров **stockMode**, **quantityMode** со значениями, отличными от all, в выдачу не попадают услуги и комлекты.
+When using filters **alcoholic.type**, **weighed** and filters **stockMode**, **quantityMode** with values other than all, services and bundles are not included in the search results.
 
-##### Фильтрация доп. полей
+##### Filtering additional fields
 
-Подробнее функциональность описана в разделе [Фильтрация по дополнительным полям](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm).
+The functionality is described in more detail in the section [Filtering by additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel- nym-polqm). 
 
-
-Примеры фильтрации: 
+Filtering examples:
 
 - `filter=stockStore=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
 - `filter=id=677c4032-8667-11e6-8a84-bae500003344`
@@ -117,56 +114,56 @@
 - `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
 
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                                                                                                                                       |
-| ------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`.                                                                                                         |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                                                                                                                         |
-| **groupBy**                    | `string` (optional) Параметр группировки. Принимает одно из значений: `product` - будут выведены только товары, `variant` - будут выведены товары и модификации (аналогично отсутствию параметра), `consignment` - будут выведены все сущности |
+| Parameter | Description |
+| -------------------- | --------------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **groupBy** | `string` (optional) Grouping parameter. Takes one of the following values: `product` - only products will be displayed, `variant` - products and modifications will be displayed (similar to the absence of a parameter)|
 
 
-#### Настройки справочника 
+#### Directory settings
 
-Под сущностями справочника товаров подразумеваются товары, услуги, комплекты и группы товаров. 
-Настройки справочника позволяют пользователю менять проверку уникальности кода, установку уникального кода при создании сущностей, установку уникального штрихкода EAN13, использование префиксов штрихкода для весовых товаров и настройку общего доступа к этим сущностям.
+Goods directory entities are goods, services, kits and groups of goods.
+The directory settings allow the user to change the code uniqueness checking, setting a unique code when creating entities, setting a unique EAN13 barcode, using barcode prefixes for bulk goods, and configuring the sharing of these entities.
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название            | Тип                                                       | Описание                                                                                                                                                                                                                                                     |
-| ------------------- | :-------------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **meta**            | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Настроек справочника<br>`+Обязательное при ответе`                                                                                                                                                                                                |
-| **uniqueCodeRules** | Object                                                    | Настройки уникальности кода для сущностей справочника. [Подробнее тут](../dictionaries/#suschnosti-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-unikal-nosti-koda-dlq-suschnostej-sprawochnika)<br>`+Обязательное при ответе`                       |
-| **barcodeRules**    | Object                                                    | Настройки правил штрихкодов для сущностей справочника. [Подробнее тут](../dictionaries/#suschnosti-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Обязательное при ответе`                     |
-| **createdShared**   | Boolean                                                   | Создавать новые документы с меткой «Общий»<br>`+Обязательное при ответе`                                                                                                                                                                                     |
+| Title | Type | Description |
+| ------------ | ------------- |-------------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Dictionary settings metadata<br>`+Required when replying` |
+| **uniqueCodeRules** | object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#suschnosti-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-unikal-nosti-koda-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#suschnosti-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
-#### Атрибуты вложенных сущностей
-##### Настройки уникальности кода для сущностей справочника
+#### Nested entity attributes
+##### Code uniqueness settings for lookup entities
 
-| Название            | Тип     | Описание                                                                                                       |
-| ------------------- | :------ | :------------------------------------------------------------------------------------------------------------- |
-| **checkUniqueCode** | Boolean | Проверка уникальности кода сущностей справочника товаров<br>`+Обязательное при ответе`                         |
-| **fillUniqueCode**  | Boolean | Устанавливать уникальный код при создании создании сущностей справочника товаров<br>`+Обязательное при ответе` |
+| Title | Type | Description |
+| ------------ | ------ | ------------- |
+| **checkUniqueCode** | Boolean | Checking the uniqueness of the entity code of the product directory<br>`+Required when replying` |
+| **fillUniqueCode** | Boolean | Set a unique code when creating the creation of goods directory entities<br>`+Required when replying` |
 
-##### Настройки правил штрихкодов для сущностей справочника
+##### Settings for barcode rules for lookup entities
 
-| Название                | Тип     | Описание                                                                                                                |
-| ----------------------- | :------ | :---------------------------------------------------------------------------------------------------------------------- |
-| **fillEAN13Barcode**    | Boolean | Автоматически создавать штрихкод EAN13 для новых товаров, комплектов, модификаций и услуг<br>`+Обязательное при ответе` |
-| **weightBarcode**       | Boolean | Использовать префиксы штрихкодов для весовых товаров<br>`+Обязательное при ответе`                                      |
-| **weightBarcodePrefix** | Int     | Префикс штрихкодов для весовых товаров. Возможные значения: число формата X или XX<br>`+Обязательное при ответе`        |
+| Title | Type | Description |
+| ----------- | ------ | -------- |
+| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, kits, modifications and services<br>`+Required when replying` |
+| **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when replying` |
+| **weightBarcodePrefix** | int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
 
-### Получить Ассортимент
+### Get Assortment
 
-> Запрос на получение всех товаров, услуг, комплектов, модификаций и серий в виде списка.
+> Request to receive all goods, services, kits, modifications and series in the form of a list.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/assortment"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/assortment"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json). Успешный запрос. Результат - JSON представление списка всех товаров, услуг, модификация и серий.
+> Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, modifications and series.
   
 ```json
 {
@@ -274,7 +271,7 @@ curl -X GET
               "mediaType": "application/json"
             },
             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
+            "name": "Selling price",
             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
           }
         }
@@ -313,28 +310,6 @@ curl -X GET
       "inTransit": 0,
       "quantity": 0
     },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/c66f4b17-36e7-11e7-8a7f-40d000000113",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
-        "type": "consignment",
-        "mediaType": "application/json"
-      },
-      "id": "c66f4b17-36e7-11e7-8a7f-40d000000113",
-      "accountId": "103bff1b-36e7-11e7-8a7f-40d000000004",
-      "updated": "2017-05-12 10:51:15",
-      "name": "product / consignment",
-      "code": "1012",
-      "externalCode": "g9BOLNRZglk9NMOHxcrVV0",
-      "label": "consignment",
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        }
-      },
       "stock": 0,
       "reserve": 0,
       "inTransit": 0,
@@ -414,7 +389,7 @@ curl -X GET
               "mediaType": "application/json"
             },
             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
+            "name": "Selling price",
             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
           }
         }
@@ -520,7 +495,7 @@ curl -X GET
               "mediaType": "application/json"
             },
             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
+            "name": "Selling price",
             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
           }
         }
@@ -623,7 +598,7 @@ curl -X GET
               "mediaType": "application/json"
             },
             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
+            "name": "Selling price",
             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
           }
         }
@@ -698,7 +673,7 @@ curl -X GET
               "mediaType": "application/json"
             },
             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
+            "name": "Selling price",
             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
           }
         }
@@ -765,7 +740,7 @@ curl -X GET
               "mediaType": "application/json"
             },
             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
+            "name": "Selling price",
             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
           }
         }
@@ -792,12 +767,12 @@ curl -X GET
 }
 ```
 
-### Массовое удаление позиций в Ассортименте
+### Bulk deletion of items in the Assortment
 
-В теле запроса нужно передать массив, содержащий JSON метаданных позиций в Ассортименте, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON of the metadata of the positions in the Assortment that you want to remove.
 
 
-> Запрос на массовое удаление позиций в Ассортименте. 
+> Request for mass deletion of items in the Assortment.
 
 ```shell
 curl -X POST
@@ -822,31 +797,31 @@ curl -X POST
       ]'
 ```        
 
-> Успешный запрос. Результат - JSON информация об удалении позиций в Ассортименте.
+> Successful request. The result is JSON information about deleting items in the Assortment.
 
 ```json
 [
-  {
-    "info":"Сущность 'service' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  },
-  {
-    "info":"Сущность 'product' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  }
+   {
+     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   },
+   {
+     "info":"Entity 'product' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   }
 ]
-```  
+```
 
-### Получить Настройки справочника товаров
+### Get Product directory settings
 
-> Запрос на получение настроек справочника товаров
+> Request to get product directory settings
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/assortment/settings"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/assortment/settings"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление настроек компании.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the company settings.
 
 ```json
 {
@@ -868,13 +843,13 @@ curl -X GET
 }
 ```
 
-### Изменить настройки справочника товаров 
+### Change product directory settings
 
-В теле запроса нужно передать объект, содержащий новый JSON настроек справочника.
-Изменять настройки можно частично, для этого в тело запроса нужно добавить лишь те поля, которые необходимо обновлять, остальные поля останутся прежними. Каждое поле является необязательным.
-В ответе придет полная сущность, даже если обновление было частичным. 
+In the body of the request, you need to pass an object containing a new JSON of the directory settings.
+You can partially change the settings, for this you need to add only those fields that need to be updated to the request body, the rest of the fields will remain the same. Each field is optional.
+The response will return the full entity, even if the update was partial.
 
-> Запрос на изменение метаданных справочника товаров.
+> Request to change the metadata of the product directory.
 
 ```shell
 curl -X PUT
@@ -895,7 +870,7 @@ curl -X PUT
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление настроек справочника товаров.
+Successful request. The result is a JSON representation of the product directory settings.
 
 ```json
 {

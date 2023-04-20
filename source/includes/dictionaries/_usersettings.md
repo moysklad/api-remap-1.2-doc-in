@@ -1,287 +1,289 @@
-## Настройки пользователя
-Средствами JSON API можно получать и редактировать настройки пользователя.
-#### Настройки пользователя 
+## User Settings
 
-#### Атрибуты сущности
+Using the JSON API, you can get and edit user settings.
 
-| Название                        | Тип                                                       | Описание                                                                                                                                        |
-| ------------------------------- | :-------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------|
-| **autoShowReports**             | Boolean                                                   | Строить ли отчеты автоматически при переходе на вкладку с отчетом<br>`+Обязательное при ответе`                                                 |
-| **defaultCompany**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Организации, которая будет использоваться по умолчанию в документах<br>`+Обязательное при ответе`                                    |
-| **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Покупателя, который будет использоваться по умолчанию в документах раздела "Продажи"<br>`+Обязательное при ответе`                   |
-| **defaultPlace**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Склада, который будет использоваться по умолчанию в документах<br>`+Обязательное при ответе`                                         |
-| **defaultProject**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Проекта, который будет использоваться по умолчанию в документах<br>`+Обязательное при ответе`                                        |
-| **defaultPurchaseCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Поставщика, который будет использоваться по умолчанию в документах раздела "Закупки"<br>`+Обязательное при ответе`                   |
-| **defaultScreen**               | Enum                                                      | [Страница, которая открывается у пользователя при логине](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran)<br>`+Обязательное при ответе`   |
-| **fieldsPerRow**                | Int                                                       | Количество столбцов, в которых будут располагаться дополнительные поля в документах<br>`+Обязательное при ответе`                               |
-| **locale**                      | Enum                                                      | Язык системы. Допустимые значения "ru_RU" и "en_US"<br>`+Обязательное при ответе`                                                               |
-| **mailFooter**                  | Boolean                                                   | Подставляется в подпись в письмах, отправляемых из МС<br>`+Обязательное при ответе`                                                             |
-| **meta**                        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные настроек<br>`+Обязательное при ответе`                                                                                               |
-| **printFormat**                 | Enum                                                      | [Правила печати документов](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow)<br>`+Обязательное при ответе`                      |
+#### User Settings
+#### Entity attributes
 
-#### Правила печати документов
-Допустимые правила печати:
+| Title | Type | Description |
+| ---------| ---- |----------|
+| **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report<br>`+Required when replying` |
+| **defaultCompany** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata to be used by default in documents<br>`+Required when replying` |
+| **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section<br>`+Required when replying` |
+| **defaultPlace** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Warehouse metadata that will be used by default in documents<br>`+Required when replying` |
+| **defaultProject** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Project metadata to be used by default in documents<br>`+Required when replying` |
+| **defaultPurchaseCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section<br>`+Required when replying` |
+| **defaultscreen** | Enum | [The page that opens when the user logs in](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran)<br>`+Required when replying` |
+| **fieldsPerRow** | int | The number of columns in which additional fields will be placed in documents<br>`+Required when answering` |
+| **locale** | Enum | System language. Valid values are "ru_RU" and "en_US"<br>`+Required when replying` |
+| **mailFooter** | Boolean | Substituted in the signature in letters sent from MS<br>`+Required when replying` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Settings metadata<br>`+Required when replying` |
+| **printFormat** | Enum | [Document Printing Rules](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow)<br>`+Required when replying` |
 
-| Правила печати документов           | Значение поля printFormat    |
-| ----------------------------------- | :--------------------------- |
-| Скачать в формате PDF               | pdf                          |
-| Скачать в формате Excel             | xls                          |
-| Скачать в формате Open Office Calc  | ods                          |
-| Предлагать выбор                    | "" (пустая строка)           |
-| Открыть в браузере                  | individual                   |
+#### Rules for printing documents
 
-#### Стартовый экран 
-Допустимые значения стартового экрана:
+Valid print rules:
 
-| Стартовый экран                        | Значение поля defaultScreen   |
-| -------------------------------------- | :---------------------------- |
-| Аудит                                  | audit                         |
-| Валюты                                 | currency                      |
-| Ввод в оборот кодов маркировки         | enrollorder                   |
-| Взаиморасчеты                          | customersbalancelist          |
-| Внесения                               | retaildrawercashin            |
-| Внутренние заказы                      | internalorder                 |
-| Возврат в оборот                       | enrollreturn                  |
-| Возвраты                               | retailsalesreturn             |
-| Возвраты покупателей                   | salesreturn                   |
-| Возвраты поставщикам                   | purchasereturn                |
-| Возвраты предоплат                     | prepaymentreturn              |
-| Воронка продаж                         | purchasefunnel                |
-| Вывод из оборота                       | retireorder                   |
-| Выплаты                                | retaildrawercashout           |
-| Движение денежных средств              | cashflow                      |
-| Договоры                               | contract                      |
-| Документы                              | operation                     |
-| Единицы измерения                      | uom                           |
-| Журнал запросов в ИС МП                | crptlog                       |
-| Журнал запросов в систему лояльности   | loyaltylog                    |
-| Задачи                                 | purpose                       |
-| Заказ кодов маркировки                 | crptdemand                    |
-| Заказы на производство                 | processingorder               |
-| Заказы покупателей                     | customerorder                 |
-| Заказы поставщикам                     | purchaseorder                 |
-| Запросы                                | evotorrequest                 |
-| Звонки                                 | phonecall                     |
-| Изъятие из упаковки                    | crptpackageitemremoval        |
-| Импорт                                 | import                        |
-| Импорт из Excel                        | importgoods                   |
-| Импорт приемки                         | importedo                     |
-| Импорт справочника                     | importcustom                  |
-| Инвентаризации                         | inventory                     |
-| Контрагенты                            | company                       |
-| Корзина                                | recyclebin                    |
-| Корректировки                          | adjustment                    |
-| Массовое редактирование                | bulkEdit                      |
-| Настройка обмена с Эвотор              | evotormapping                 |
-| Настройки                              | companysettings               |
-| Новости                                | feed                          |
-| Обороты                                | turnover                      |
-| Операции с баллами                     | bonustransaction              |
-| Описание остатков                      | remainsorder                  |
-| Оприходования                          | enter                         |
-| Остатки                                | stockreport                   |
-| Отгрузки                               | demand                        |
-| Отчеты комиссионера                    | commissionreport              |
-| Очередь облачных чеков                 | fiscalevent                   |
-| Очередь облачных чеков                 | fiscalqueue                   |
-| Перемаркировка                         | remarkingorder                |
-| Перемещения                            | move                          |
-| Платежи                                | finance                       |
-| Подписка                               | payments                      |
-| Показатели                             | dashboard                     |
-| Предоплаты                             | prepayment                    |
-| Прибыли и убытки                       | pnl3                          |
-| Прибыльность                           | pnl                           |
-| Приемки                                | supply                        |
-| Приложения                             | apps                          |
-| Приложения                             | embed-apps                    |
-| Проверка комплектации                  | checkequipment                |
-| Продажи                                | retaildemand                  |
-| Проекты                                | project                       |
-| Просмотр информации о КМ или ТУ        | trackingidentify              |
-| Расформирование упаковки               | crptpackagedisaggregation     |
-| Сбор заказа                            | orderassembly                 |
-| Сер. номера                            | serialnumbers                 |
-| Синхронизация                          | connectorsettings             |
-| Скидки                                 | discount                      |
-| Склады                                 | warehouse                     |
-| События обмена с Эвотор                | evotorevent                   |
-| Сотрудники                             | employee                      |
-| Спецпредложения                        | specialoffers                 |
-| Списание кодов маркировки              | crptcancellation              |
-| Списания                               | loss                          |
-| Страны                                 | country                       |
-| Сценарии                               | scripttemplate                |
-| Счета покупателям                      | invoiceout                    |
-| Счета поставщиков                      | invoicein                     |
-| Тех. карты                             | processingplan                |
-| Тех. операции                          | processing                    |
-| Товары и услуги                        | good                          |
-| Товары на реализации                   | commissiongoods               |
-| Уведомления                            | notifications                 |
-| Управление закупками                   | purchasecontrol               |
-| Учетная запись                         | account                       |
-| Формирование упаковки                  | crptpackagecreation           |
-| Характеристика                         | feature                       |
-| Экспорт                                | export                        |
-| Юр. лица                               | mycompany                     |
+| Document Printing Rules | The value of the printFormat field |
+| ------------------------------------ | --------------------- |
+| Download PDF | pdf |
+| Download in Excel format | xls |
+| Download in Open Office Calc format | ods |
+| Offer a choice | "" (empty string) |
+| Open in browser | individual |
 
-### Получить Настройки пользователя 
-> Запрос на получение Настроек пользователя:
+#### Start screen
+Valid start screen values:
+
+| Start screen | The value of the defaultScreen |
+| ------------ | ------------------------------ |
+| Audit | audit |
+| Currencies | currency |
+| Introduction of marking codes into circulation | enroll order |
+| Mutual settlements | customerbalancelist |
+| Applications | retail drawer cashin |
+| Domestic orders | internal order |
+| Return to circulation | enrollreturn |
+| Returns | retail sales return |
+| Buyer Returns | sales return |
+| Returns to suppliers | purchase return |
+| Prepayment refunds | payment return |
+| Sales funnel | purchasefunnel |
+| Withdrawal from circulation | retire order |
+| Payouts | retail drawer cashout |
+| Cash flow | cashflow |
+| Contracts| contract |
+| Documents | operation |
+| Units of measure | wom |
+| Log of requests in IS MP | crpt log |
+| Log of requests to the loyalty system | loyaltylog |
+| Tasks | purpose |
+| Order marking codes | crptdemand |
+| Production Orders | processing order |
+| Buyer orders | customer order |
+| Orders to suppliers | purchase order |
+| Requests | evotorrequest |
+| Calls | phonecall |
+| Unpacking | crptpackageitemremoval |
+| Import | import |
+| Import from Excel | import goods |
+| Acceptance Import | imported |
+| Directory import | import custom |
+| Inventory | inventory |
+| Contractors | company |
+| Cart | recyclebin |
+| Adjustments | adjustment |
+| Bulk edit | bulkEdit |
+| Setting up an exchange with Evotor | evotormapping |
+| Settings | company settings |
+| News | feed |
+| Turnovers | turnover |
+| Operations with points | bonus transaction |
+| Description of residues | remains order |
+| Posting | enter |
+| Remains | stock report |
+| Shipments | demand |
+| Agent Reports | commission report |
+| Queue of cloud receipts | fiscalevent |
+| Queue of cloud receipts | fiscal queue |
+| Relabeling | remarking order |
+| Travel | move |
+| Payments | finance |
+| Subscription | payments |
+| Indicators | dashboard |
+| Prepayments | payment |
+| Profits and Losses | pnl3 |
+| Profitability | pnl |
+| Acceptances | supplies |
+| Applications | apps |
+| Applications | embed apps |
+| Checking the contents | checkequipment |
+| Sales | retail demand |
+| Projects | project |
+| Viewing information about a KM or TU | trackingidentify |
+| Unpacking | crptpackagedisaggregation |
+| Order picking | order assembly |
+| Serial numbers | serial numbers |
+| Synchronization | connectorsettings |
+| Discounts | discount |
+| Warehouses | warehouse |
+| Exchange events with Evotor | evotorevent |
+| Employees | employee |
+| Special offers | special offers |
+| Writing off marking codes | crptcancellation |
+| Write-offs | loss |
+| Countries | country |
+| Scenarios | scripttemplate |
+| Invoices for buyers | invoiceout |
+| Supplier invoices | invoicein |
+| Bills of Materials | processing plan |
+| Routing | processing |
+| Products and services | good|
+| Goods for sale | commissiongoods |
+| Notifications | notifications |
+| Purchasing management | purchasecontrol |
+| Account | account |
+| Formation of packaging | crptpackagecreation |
+| Feature | feature |
+| Export | export |
+| Legal entities | mycompany |
+
+### Get User Settings
+> Request for User Settings:
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/context/usersettings"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/context/usersettings"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Настроек компании:
+> Response 200(application/json)
+Successful request. The result is a JSON representation of Company Settings:
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/usersettings",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/context/usersettings/metadata",
-    "type": "usersettings",
-    "mediaType": "application/json"
-  },
-  "defaultCompany": {
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "defaultCustomerCounterparty": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
-    "type": "counterparty",
-    "mediaType": "application/json"
-  },
-  "defaultPurchaseCounterparty": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
-    "type": "counterparty",
-    "mediaType": "application/json"
-  },
-  "defaultProject": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
-    "type": "project",
-    "mediaType": "application/json"
-  },
-  "defaultPlace": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
-    "type": "store",
-    "mediaType": "application/json"
-  },
-  "locale": "ru_RU",
-  "mailFooter": "подпись в письме",
-  "fieldsPerRow": 3,
-  "defaultScreen": "importcustom",
-  "printFormat": "pdf",
-  "autoShowReports": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/usersettings",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/usersettings/metadata",
+     "type": "usersettings",
+     "mediaType": "application/json"
+   },
+   "defaultCompany": {
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "defaultCustomerCounterparty": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
+     "type": "counter party",
+     "mediaType": "application/json"
+   },
+   "defaultPurchaseCounterparty": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
+     "type": "counter party",
+     "mediaType": "application/json"
+   },
+   "defaultProject": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
+     "type": "project",
+     "mediaType": "application/json"
+   },
+   "defaultPlace": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
+     "type": "store",
+     "mediaType": "application/json"
+   },
+   "locale": "ru_RU",
+   "mailFooter": "mail signature",
+   "fieldsPerRow": 3,
+   "defaultScreen": "importcustom",
+   "printFormat": "pdf",
+   "autoShowReports": false
 }
 ```
 
-### Изменить Настройки пользователя 
-Редактировать можно следующие настройки пользователя:
+### Change User Settings
+You can edit the following user settings:
 
-| Название                        | Тип                                                       | Описание                                                                                                          |
-| ------------------------------- | :-------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------|
-| **autoShowReports**             | Boolean                                                   | Строить ли отчеты автоматически при переходе на вкладку с отчетом                                                 |
-| **defaultCompany**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Организации, которая будет использоваться по умолчанию в документах                                    |
-| **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Покупателя, который будет использоваться по умолчанию в документах раздела "Продажи"                   |
-| **defaultPlace**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Склада, который будет использоваться по умолчанию в документах                                         |
-| **defaultProject**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Проекта, который будет использоваться по умолчанию в документах                                        |
-| **defaultPurchaseCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Поставщика, который будет использоваться по умолчанию в документах раздела "Закупки"                   |
-| **defaultScreen**               | Enum                                                      | [Страница, которая открывается у пользователя при логине](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran)   |
-| **fieldsPerRow**                | Int                                                       | Количество столбцов, в которых будут располагаться дополнительные поля в документах                               |
-| **locale**                      | Enum                                                      | Язык системы. Допустимые значения "ru_RU" и "en_US"                                                               |
-| **mailFooter**                  | Boolean                                                   | Подставляется в подпись в письмах, отправляемых из МС                                                             |
-| **printFormat**                 | Enum                                                      | [Правила печати документов](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow)                      |
+| Title | Type | Description |
+| ----------------| ------------- |--------------|
+| **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report |
+| **defaultCompany** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata to be used by default in documents |
+| **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section |
+| **defaultPlace** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Warehouse metadata to be used by default in documents |
+| **defaultProject** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Project metadata to be used by default in documents |
+| **defaultPurchaseCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section |
+| **defaultscreen** | Enum | [The page that opens when the user logs in](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran) |
+| **fieldsPerRow** | int | The number of columns in which additional fields will be located in documents |
+| **locale** | Enum | System language. Valid values "ru_RU" and "en_US" |
+| **mailFooter** | Boolean | Substituted in the signature in letters sent from MS |
+| **printFormat** | Enum | [Document printing rules](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow) |
 
-Допускается частичное редактирование - отредактированы будут только присутствующие в запросе поля.
-> Запрос на изменение настроек пользователя:
+Partial editing is allowed - only the fields present in the request will be edited.
+
+> Request to change user settings:
 
 ```shell
 curl -X PUT
-  "https://app.kladana.in/api/remap/1.2/context/usersettings"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-      -d '{
-  "defaultCompany": {
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "defaultCustomerCounterparty": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
-    "type": "counterparty",
-    "mediaType": "application/json"
-  },
-  "defaultPurchaseCounterparty": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
-    "type": "counterparty",
-    "mediaType": "application/json"
-  },
-  "defaultProject": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
-    "type": "project",
-    "mediaType": "application/json"
-  },
-  "defaultPlace": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
-    "type": "store",
-    "mediaType": "application/json"
-  },
-  "locale": "ru_RU",
-  "mailFooter": "подпись в письме",
-  "fieldsPerRow": 3,
-  "defaultScreen": "importcustom",
-  "printFormat": "pdf",
-  "autoShowReports": false
-}
-'
+   "https://app.kladana.in/api/remap/1.2/context/usersettings"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+       -d '{
+   "defaultCompany": {
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "defaultCustomerCounterparty": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
+     "type": "counter party",
+     "mediaType": "application/json"
+   },
+   "defaultPurchaseCounterparty": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
+     "type": "counter party",
+     "mediaType": "application/json"
+   },
+   "defaultProject": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
+     "type": "project",
+     "mediaType": "application/json"
+   },
+   "defaultPlace": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
+     "type": "store",
+     "mediaType": "application/json"
+   },
+   "locale": "ru_RU",
+   "mailFooter": "mail signature",
+   "fieldsPerRow": 3,
+   "defaultScreen": "importcustom",
+   "printFormat": "pdf",
+   "autoShowReports": false
+}'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Настроек пользователя.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the User Settings.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/usersettings",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/context/usersettings/metadata",
-    "type": "usersettings",
-    "mediaType": "application/json"
-  },
-  "defaultCompany": {
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "defaultCustomerCounterparty": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
-    "type": "counterparty",
-    "mediaType": "application/json"
-  },
-  "defaultPurchaseCounterparty": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
-    "type": "counterparty",
-    "mediaType": "application/json"
-  },
-  "defaultProject": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
-    "type": "project",
-    "mediaType": "application/json"
-  },
-  "defaultPlace": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
-    "type": "store",
-    "mediaType": "application/json"
-  },
-  "locale": "ru_RU",
-  "mailFooter": "подпись в письме",
-  "fieldsPerRow": 3,
-  "defaultScreen": "importcustom",
-  "printFormat": "pdf",
-  "autoShowReports": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/usersettings",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/usersettings/metadata",
+     "type": "usersettings",
+     "mediaType": "application/json"
+   },
+   "defaultCompany": {
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "defaultCustomerCounterparty": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
+     "type": "counter party",
+     "mediaType": "application/json"
+   },
+   "defaultPurchaseCounterparty": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
+     "type": "counter party",
+     "mediaType": "application/json"
+   },
+   "defaultProject": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
+     "type": "project",
+     "mediaType": "application/json"
+   },
+   "defaultPlace": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
+     "type": "store",
+     "mediaType": "application/json"
+   },
+   "locale": "ru_RU",
+   "mailFooter": "mail signature",
+   "fieldsPerRow": 3,
+   "defaultScreen": "importcustom",
+   "printFormat": "pdf",
+   "autoShowReports": false
 }
 ```

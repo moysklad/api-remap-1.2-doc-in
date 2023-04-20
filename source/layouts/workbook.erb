@@ -56,28 +56,28 @@ under the License.
       <% if current_page.data.search %>
         <div class="search">
           <%= image_tag "search.svg", class: 'loupe' %>
-          <input type="text" class="search" id="input-search" placeholder="По ключевому слову">
+          <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <% end %>
       <ul id="toc" class="toc-list-h1">
         <li class="toc-other-page">
-          <a href="../" class="toc-h1 toc-link">МойСклад JSON API</a>
+          <a href="../" class="toc-h1 toc-link">Kladana JSON API</a>
         </li>
         <li class="toc-other-page">
-          <a href="../dictionaries/" class="toc-h1 toc-link">Сущности</a>
+          <a href="../dictionaries/" class="toc-h1 toc-link">Entities</a>
         </li>
         <li class="toc-other-page">
-          <a href="../documents/" class="toc-h1 toc-link">Документы</a>
+          <a href="../documents/" class="toc-h1 toc-link">Transactions</a>
         </li>
         <li class="toc-other-page">
-          <a href="../reports/" class="toc-h1 toc-link">Отчеты</a>
+          <a href="../reports/" class="toc-h1 toc-link">Reports</a>
         </li>
         <li class="toc-other-page">
-          <a href="../audit/" class="toc-h1 toc-link">Аудит</a>
+          <a href="../audit/" class="toc-h1 toc-link">Audit</a>
         </li>
         <li class="toc-other-page">
-          <a href="../notification/" class="toc-h1 toc-link">Уведомления</a>
+          <a href="../notification/" class="toc-h1 toc-link">Notifications</a>
         </li>
         <% toc_data(page_content).each do |h1| %>
           <li class="toc-list-h1-title">
