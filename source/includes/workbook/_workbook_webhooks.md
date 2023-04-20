@@ -1,256 +1,261 @@
-## Вебхуки
-Механизм вебхуков в МоемСкладе представляет собой мощный и легкий в использовании инструмент для отслеживания изменений в вашем аккаунте. 
-Мы советуем использовать вебхуки, чтобы контролировать взаимодействие МоегоСклада с вашим интернет-магазином или приложением в реальном времени, и вы могли 
-избавиться от периодических запросов изменений.
+## Webhooks
 
-### Что такое вебхук?
-Вебхук - это механизм отправки уведомлений при наступлении в системе события, на которое подписано клиентское приложение. 
-Под событием понимается изменение состояния системы. Например, событиями являются: создание нового товара, изменение полей 
-у контрагента, удаление заказа покупателя. Уведомлением будет запрос метода POST, который будет содержать следующую 
-информацию о наступившем событии: его тип и ссылку на изменившийся объект. Например, при изменении наименования товара, 
-будет отправлено уведомление, которое будет содержать ссылку на измененный товар.
+The webhook mechanism in Kladana is a powerful and easy-to-use tool for tracking changes in your account. Use webhooks to control the interaction of Kladana and your system in real time, so that you can get rid of periodic change requests.
 
-Непосредственно сам вебхук содержит описание изменения (тип объекта и ссылку на изменившийся объект), которое отправляется на указанный url.
+### Webhook
 
-> Пример тела запроса вебхука:
+A webhook is a mechanism for sending notifications when an event occurs in the system, to which the client application is subscribed.
+
+An event is a change in the state of a system. For example, events are: creation of a new product, change of fields
+at the counterparty, deleting the buyer's order. The notification will be a POST method request that will contain the following information about the occurred event: its type and a link to the changed object. For example, when changing the product name, a notification will be sent containing a link to the modified product.
+
+The webhook itself contains a description of the change (object type and a link to the changed object), which is sent to the specified url.
+
+> Sample webhook request body:
 
 ```json
 {
-  "url": "http://www.example.com",
-  "action": "CREATE",
-  "entityType": "supply"
+   "url": "http://www.example.com",
+   "action": "CREATE",
+   "entityType": "supply"
 }
 ```
 
-#### В чем разница между АПИ и вебхуками
-Есть 2 подхода для получения сведений об изменениях в системе: опрос через АПИ (polling) и подписка на вебхуки.
-Опрос через АПИ предполагает циклические запросы, чтобы получить изменения. Подписка на вебхуки предполагает получение уведомления об изменении
- в системе. 
-Можно провести следующую аналогию. Предположим вы заказали товар, но его не оказалось в наличии, поэтому вы каждый день звоните в магазин, 
-чтобы узнать о появлении товара, это похоже на опрос через АПИ. Но вы можете просто попросить менеджера в магазине позвонить вам по указанному 
-номеру телефона, когда товар появится, это подписка на вебхуки.
-Очевидно, что подписка на вебхуки эффективнее и проще, так как гарантируется оперативное получение изменений в системе и меньшая нагрузка на 
-клиентское приложение.
+#### Difference between API and webhooks
 
-#### Когда нужно использовать АПИ, а когда вебхук
-Несмотря на преимущество использования вебхуков, важно понимать, что подписка на вебхуки это всего лишь форма уведомления об изменениях в системе. 
-Действия с сущностями (CRUD) необходимо выполнять с помощью АПИ.
+There are two approaches to get information about changes in the system: polling via API (polling) and subscribing to webhooks.
 
-Возможные сценарии, когда подписка на вебхуки выглядит предпочтительнее опросов через JSON API:
+API polling involves round-robin requests to get changes. Subscribing to webhooks involves receiving a change notification in the system.
 
-* создание заказов покупателей и изменение их статусов
-* изменение цены товара
-* обновление номера телефона контрагента
+We can draw the following analogy. Suppose you ordered a product, but it was out of stock, so you call the store every day, to find out when a product is available, it's like an API survey. But you can just ask the manager in the store to call you at the indicated phone number when the product appears, this is a subscription to webhooks.
 
-### Как использовать вебхуки через JSON API
-#### Вебхуки в JSON API
-Работа с вебхуками в МоемСкладе возможна только через JSON API. Методы работы с вебхуками позволяют создать, удалить, обновить, получить и 
-отключить вебхуки.
+Obviously, subscribing to webhooks is more efficient and easier, as it guarantees prompt receipt of changes in the system and less load on
+client application.
 
-Ключевыми признаками вебхука являются адрес отправки (url), тип сущности (entityType) и тип события (action). Пара признаков (entityType и action) 
-должна быть уникальной, т.е. не может повторяться в других вебхуках.
-Существуют следующие типы событий (action):
+#### Using API and Webhooks
+
+Despite the benefits of using webhooks, it's important to understand that subscribing to webhooks is just a form of notification of system changes. Entity actions (CRUD) must be performed using the API.
+
+Possible scenarios where subscribing to webhooks seems preferable to polling via the JSON API:
+
+* creating customer orders and changing their statuses
+* change in the price of the goods
+* updating the phone number of the counterparty
+
+### How to use webhooks via JSON API
+#### Webhooks in JSON API
+
+Working with webhooks in Kladana is possible only through the JSON API. Webhook methods allow you to create, delete, update, get, and
+disable webhooks.
+
+The key features of a webhook are the sending address (url), entity type (entityType) and event type (action). A pair of features (entityType and action)
+must be unique, i.e. cannot be repeated in other webhooks.
+There are following types of events (action):
 
 * CREATE
 * UPDATE
 * DELETE
 
-Данные типы событий могут быть применимы ко всем типам сущностей - basic entities and transactions. Reports and Audit are not the entities. 
+These event types can be applied to all types of entities - basic entities and transactions. Reports and Audit are not the entities.
 
-Рассмотрим методы работы с вебхуками.
-Для создания вебхука достаточно указать url, entityType и action, как в примере ниже
+Consider methods of working with webhooks.
+To create a webhook, just specify the url, entityType and action, as in the example below
 
-> Запрос
-
-```shell
-curl -X POST 
-  https://app.kladana.in/api/remap/1.2/entity/webhook 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-  -d '{
-  "url": "http://www.example.com",
-  "action": "CREATE",
-  "entityType": "service"
-}'
-```
-
-В ответ должен придти json, содержащий описание вебхука
-
-> Ответ
-
-```json
-{
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-        "type": "webhook",
-        "mediaType": "application/json"
-    },
-    "id": "a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
-    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
-    "entityType": "service",
-    "url": "http://www.example.com",
-    "method": "POST",
-    "enabled": true,
-    "action": "CREATE"
-}
-```
-
-Как и в других запросах сущностей JSON API другие действия над вебхуками возможны только при указании идентификатора.
- В полученном json поле id. Пример получения вебхука по идентификатору.
-
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-  https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-```
-
-У вебхука можно изменить поля, указанные при создании, а также включить/отключить его. Для этого выполняется PUT запрос с указанием идентификатора. 
-Пример запроса с изменением события
-
-> Запрос
-
-```shell
-curl -X PUT 
-  https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-  -d '{
-  "action": "UPDATE"
-}'
-```
-
-> Пример запроса с отключением вебхука.
-
-```shell
-curl -X PUT 
-  https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-  -d '{
-  "enabled": false
-}'
-```
-
-> Удаление вебхука выполняется по аналогии, но только используется метод DELETE.
-
-```shell
-curl -X DELETE 
-  https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-```
-
-> Получить все вебхуки можно с помощью типичного GET запроса.
-
-```shell
-curl -X GET 
-  https://app.kladana.in/api/remap/1.2/entity/webhook 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-```
-
-> В ответ придет коллекция вебхуков.
-
-```json
-{
-   "context":{
-      "employee":{
-         "meta":{
-            "href":"https://app.kladana.in/api/remap/1.2/context/employee",
-            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-            "type":"employee",
-            "mediaType":"application/json"
-         }
-      }
-   },
-   "meta":{
-      "href":"https://app.kladana.in/api/remap/1.2/entity/webhook",
-      "type":"webhook",
-      "mediaType":"application/json",
-      "size":1,
-      "limit":25,
-      "offset":0
-   },
-   "rows":[
-      {
-         "meta":{
-            "href":"https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
-            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-            "type":"webhook",
-            "mediaType":"application/json"
-         },
-         "id":"a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
-         "accountId":"45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
-         "entityType":"service",
-         "url":"http://www.example.com",
-         "method":"POST",
-         "enabled":true,
-         "action":"CREATE"
-      }
-   ]
-}
-```
-
-#### Ограничения при работе с вебхуками
-При работе с вебхуками есть ряд важных замечаний:
-
-* вебхуки доступны только на платном тарифе
-* работа с вебхуками доступна только администратору аккаунта
-* работа с вебхуками возможна только через JSON API
-
-#### Отправка вебхука в клиентское приложение
-Kladana отправляет вебхук в клиентское приложение с помощью метода POST, указывая заголовок _User-Agent_ со значением _MoySklad webhook touch agent
- 2.0 (/https://www.moysklad.ru)_.  Kladana добавляет к указанному адресу отправки (url) параметр запроса _requestId_ - идентификатор уведомления.
-
-При отправке уведомления вебхука, Kladana ожидает ответ от клиентского приложения со статусом 200 или 204 в течение 1500 миллисекунд, чтобы считать 
-уведомление доставленным. При невалидном ответе от клиентского приложения наша система осуществляет еще 3 попытки отправки.
-Данные попытки осуществляются последовательно, без таймаутов между ними. Если все попытки закончились неудачно или истекло время ожидания ответа -
-данное уведомление считается неотправленным и в дальнейшем удаляется, в клиентское приложение оно отправлено не будет,
-т.к. проблема на стороне клиентского приложения. Чтобы избежать неудачи при отправке уведомления из-за истечения времени ожидания ответа сервером и повторной отправки того же уведомления, рекомендуется разделить прием вебхуков и их обработку. Понять, что уведомление о событии было отправлено повторно, можно по параметру запроса _requestId_ - при повторной отправке уведомления идентификатор останется прежним.
-
-### Как проверить, что вебхук работает?
-Для проверки работоспособности вебхука удобен сервис <a href="https://webhook.site/" target="_blank">https://webhook.site/</a>.  Он создает 
-уникальный тестовый url, который необходимо указать в вебхуке, и интерактивно показывает входящие запросы, т.е. уведомления вебхуков.
-
-1. Переходим на <a href="https://webhook.site/" target="_blank">сайт</a>
- ![useful image](../../images/webhooks/step-1.png?raw=true)
-2. Получаем уникальный url. Необходимо скопировать его, чтобы использовать при создании вебхука.
- ![useful image](../../images/webhooks/step-2.png?raw=true)
- 
- > Запрос на создание вебхука на создание услуги
- 
- ```shell
- curl -X POST 
-   https://app.kladana.in/api/remap/1.2/entity/webhook 
-   -H 'Authorization: Bearer <Access-Token>' 
-   -H 'Cache-Control: no-cache' 
-   -H 'Content-Type: application/json' 
+curl -X POST
+   https://app.kladana.in/api/remap/1.2/entity/webhook
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
    -d '{
-   "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
+   "url": "http://www.example.com",
    "action": "CREATE",
    "entityType": "service"
- }'
- ```
- 
-<p>3. Создаем вебхук, в примере ниже вебхук на создание услуги</p>
-
-> Запрос на создание услуги
-
-```shell
-curl -X POST 
-  https://app.kladana.in/api/remap/1.2/entity/service 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Content-Type: application/json' 
-  -d '{
-  "name": "Заточка коньков"
 }'
 ```
 
-<p>4. Создаем услугу в МоемСкладе, в примере ниже создание услуги через JSON API</p>
+The response should be json containing a description of the webhook
 
-<p>5. На наш уникальный  адрес пришло уведомление!</p>
- ![useful image](../images/webhooks/step-5.png?raw=true)
+> Reply
+
+```json
+{
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+         "type": "webhook",
+         "mediaType": "application/json"
+     },
+     "id": "a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
+     "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
+     "entityType": "service",
+     "url": "http://www.example.com",
+     "method": "POST",
+     "enabled": true
+     "action": "CREATE"
+}
+```
+
+As with other JSON API entity requests, other actions on webhooks are only possible when an identifier is specified.
+  In the received json field id. An example of getting a webhook by ID.
+
+> Request
+
+```shell
+curl -X GET
+   https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
+```
+
+For a webhook, you can change the fields specified during creation, as well as enable/disable it. To do this, a PUT request is made with an identifier.
+Example of a request with an event change
+
+> Request
+
+```shell
+curl -X PUT
+   https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
+   -d '{
+   "action": "UPDATE"
+}'
+```
+
+> Sample request with webhook disabled.
+
+```shell
+curl -X PUT
+   https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
+   -d '{
+   "enabled": false
+}'
+```
+
+> Deleting a webhook is done in the same way, but only using the DELETE method.
+
+```shell
+curl -X DELETE
+   https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
+```
+
+> You can get all webhooks with a typical GET request.
+
+```shell
+curl -X GET
+   https://app.kladana.in/api/remap/1.2/entity/webhook
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
+```
+
+> A collection of webhooks will come in response.
+
+```json
+{
+    "context":{
+       "employee":{
+          "meta":{
+             "href":"https://app.kladana.in/api/remap/1.2/context/employee",
+             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "type":"employee",
+             "mediaType":"application/json"
+          }
+       }
+    },
+    "meta":{
+       "href":"https://app.kladana.in/api/remap/1.2/entity/webhook",
+       "type":"webhook",
+       "mediaType":"application/json",
+       "size":1,
+       "limit":25,
+       "offset":0
+    },
+    "rows":[
+       {
+          "meta":{
+             "href":"https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
+             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+             "type":"webhook",
+             "mediaType":"application/json"
+          },
+          "id":"a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
+          "accountId":"45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
+          "entityType":"service",
+          "url":"http://www.example.com",
+          "method":"POST",
+          "enabled":true
+          "action":"CREATE"
+       }
+    ]
+}
+```
+
+#### Webhook limits
+
+There are a number of important things to keep in mind when working with webhooks:
+
+* webhooks are only available on a paid plan
+* working with webhooks is available only to the account administrator
+* work with webhooks is possible only through JSON API
+
+#### Sending webhooks to the client application
+
+Kladana sends the webhook to the client application using the POST method, specifying the _User-Agent_ header with the value _Kladana webhook touch agent
+  2.0 (/https://www.kladana.in)_. Kladana adds the request parameter _requestId_ to the specified sending address (url) - the notification identifier.
+
+When sending a webhook notification, Kladana waits for a response from the client application with status 200 or 204 within 1500 milliseconds to read notification delivered. With an invalid response from the client application, our system makes 3 more attempts to send. These attempts are made sequentially, with no timeouts between them. 
+
+If all attempts fail or time out waiting for a response -
+this notification is considered unsent and is subsequently deleted; it will not be sent to the client application,
+because The problem is on the client side. 
+
+To avoid sending notifications failing because the server timed out for a response and resending the same notification, we recommend separating receiving webhooks from processing them. You can understand that the event notification was resent by the _requestId_ request parameter - when the notification is resent, the identifier will remain the same.
+
+### How to check a webhook working
+
+The service <a href="https://webhook.site/" target="_blank">https://webhook.site/</a> is convenient for checking the performance of a webhook. He creates
+a unique test url that must be specified in the webhook and interactively shows incoming requests, i.e. webhook notifications.
+
+1. Go to <a href="https://webhook.site/" target="_blank">webhook</a>.
+2. We get a unique url. You need to copy it to use when creating a webhook.
+  ![useful image](../../images/webhooks/step-2.png?raw=true)
+ 
+  > Request to create a webhook to create a service
+ 
+  ```shell
+  curl -X POST
+    https://app.kladana.in/api/remap/1.2/entity/webhook
+    -H 'Authorization: Bearer <Access-Token>'
+    -H 'Cache-Control: no-cache'
+    -H 'Content-Type: application/json'
+    -d '{
+    "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
+    "action": "CREATE",
+    "entityType": "service"
+  }'
+  ```
+ 
+<p>3. Create a webhook, in the example below, a webhook for creating a service.</p>
+
+> Request to create a service
+
+```shell
+curl -X POST
+   https://app.kladana.in/api/remap/1.2/entity/service
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Content-Type: application/json'
+   -d '{
+   "name": "Sharpening skates"
+}'
+```
+
+<p>4. We create a service in Kladana, in the example below, the creation of a service through the JSON API.</p>
+
+<p>5. We've received a notification to our unique address.</p>
+  

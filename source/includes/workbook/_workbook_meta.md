@@ -1,797 +1,804 @@
-## Метаданные
-Одним из ключевых понятий при работе с JSON API является понятие метаданных. 
-В JSON API существует несколько типов метаданных:
+## Metadata
 
-* метаданные объекта,
-* метаданные коллекции,
-* метаданные сущности.
+One of the key concepts when working with the JSON API is the concept of metadata.
+There are several types of metadata in the JSON API:
 
-Под метаданными объекта (конкретный объект в МоемСкладе, например, товар "Мяч футбольный") понимается краткое представление этого самого объекта в 
-поле `meta`.
-Метаданные коллекции представляют элемент, описывающий размер коллекции, размер выборки, который вернулся запросом, пагинацию.
-Метаданные сущности описывают поля, относящиеся ко всему классу (например, ко всем товарам): статусы, типы цен, доп.поля и т.д.
+* object metadata,
+* collection metadata,
+* entity metadata.
+
+The metadata of an object (a specific object in MyWarehouse, for example, the product "Soccer ball") is a brief representation of this very object in
+the `meta` field.
+
+The collection metadata represents an element that describes the size of the collection, the size of the sample returned by the query, pagination.
+
+Entity metadata describes fields related to the entire class (for example, to all products): statuses, price types, additional fields, etc.
  
-Рассмотрим перечисленные типы метаданных подробнее.
+Let's consider the listed types of metadata in more detail.
 
-### Метаданные объекта
-Возвращаемые JSON API объекты содержат поле `meta`, которое, по сути, является ссылкой на объект. Однако, `meta` не простое поле, a составной 
-json-элемент, содержащий краткое описание объекта.
-Поле `meta` состоит из следующих атрибутов:
+### Object metadata
 
-* `href` - ссылка на объект;
-* `metadataHref` - cсылка на метаданные сущности;
-* `downloadHref` - ссылка на скачивание
-* `type` - тип объекта;
-* `mediaType` - тип данных, который приходят в ответ от сервиса, либо отправляется в теле запроса;
-* `uuidHref` - cсылка на объект в веб-версии МоегоСклада. Присутствует не во всех сущностях.
+The objects returned by the JSON API contain a `meta` field, which is essentially a reference to the object. However, `meta` is not a simple field, but a compound one.
+json element containing a brief description of the object.
+The `meta` field consists of the following attributes:
 
-Рассмотрим запрос контрагента `ООО "Поставщик"`
+* `href` - link to the object;
+* `metadataHref` - link to entity metadata;
+* `downloadHref` - download link
+* `type` - object type;
+* `mediaType` - data type that comes in response from the service, or is sent in the request body;
+* `uuidHref` - link to the object in the web version of MyWarehouse. Not present in all entities.
 
-> Запрос
+Consider the request of the counterparty `Supplier LLC`
+
+> Request
 
 ```shell
-curl -X GET 
-  https://app.kladana.in/api/remap/1.2/entity/counterparty/ab4dd5fc-d100-11e8-ac12-00080000006d 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache'
+curl -X GET
+   https://app.kladana.in/api/remap/1.2/entity/counterparty/ab4dd5fc-d100-11e8-ac12-00080000006d
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
 ```
 
-> Ответ
+> Reply
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-    "type": "counterparty",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
-  },
-  "id": "d92bcdc1-b0e2-11ea-ac12-000d00000073",
-  "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2020-06-18 00:38:14.083",
-  "name": "ООО \"Поставщик\"",
-  "externalCode": "nv4UeR5dhAStZ4X-5-ojn2",
-  "archived": false,
-  "created": "2020-06-18 00:38:14.083",
-  "companyType": "legal",
-  "legalTitle": "Общество с ограниченной ответственностью \"Поставщик\"",
-  "legalAddress": "г.Москва, ул.Строителей, д.12",
-  "legalAddressFull": {
-    "addInfo": "г.Москва, ул.Строителей, д.12"
-  },
-  "inn": "7736570901",
-  "kpp": "773601001",
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "tags": [],
-  "contactpersons": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/contactpersons",
-      "type": "contactperson",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "notes": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/notes",
-      "type": "note",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "salesAmount": 0.0
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+     "type": "counter party",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
+   },
+   "id": "d92bcdc1-b0e2-11ea-ac12-000d00000073",
+   "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2020-06-18 00:38:14.083",
+   "name": "LLC \"Supplier\"",
+   "externalCode": "nv4UeR5dhAStZ4X-5-ojn2",
+   archived: false
+   "created": "2020-06-18 00:38:14.083",
+   "companyType": "legal",
+   "legalTitle": "Limited Liability Company \"Supplier\"",
+   "legalAddress": "Moscow, Stroiteley st., 12",
+   "legalAddressFull": {
+     "addInfo": "Moscow, Stroiteley st., 12"
+   },
+   "inn": "7736570901",
+   "kpp": "773601001",
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/accounts",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "tags": [],
+   "contactpersons": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/contactpersons",
+       "type": "contactperson",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   notes: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/notes",
+       "type": "note",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   salesAmount: 0.0
 }
 ```
 
-В ответе содержится несколько полей `meta`.
-Вначале описывается сам объект, с указанием типа объекта, ссылки в JSON API и ссылки на веб-версию
+The response contains several `meta` fields.
+First, the object itself is described, indicating the type of object, links in the JSON API and links to the web version.
 
-> Метаданные поставщика
-
-```json
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-    "type": "counterparty",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
-  }
-```
-
-Ссылки на сотрудника, создавшего контрагента, и отдел сотрудника указаны в полях `owner` и `group`, и содержат также поля `meta`.
-
-> Метаданные сорудника и его отдела
+> Developer metadata
 
 ```json
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-    }
-  },
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+     "type": "counter party",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
+   }
 ```
 
-Очевидно, что поля `href` и `uuidHref` содержат url для доступа к объектам и могут быть использованы для запроса.
-Например, используя значение поля `href`, запросим данные сотрудника
+Links to the employee who created the account and the employee's department are specified in the `owner` and `group` fields, and also contain the `meta` fields.
 
-> Запрос
+> Metadata of an employee and his department
+
+```json
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+     }
+   },
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   }
+```
+
+Obviously, the `href` and `uuidHref` fields contain the url to access the objects and can be used to make a request.
+For example, using the value of the `href` field, we will request employee data.
+
+> Request
 
 ```shell
-curl -X GET 
-  https://app.kladana.in/api/remap/1.2/entity/employee/ab306d83-d100-11e8-ac12-000800000042 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache'
+curl -X GET
+   https://app.kladana.in/api/remap/1.2/entity/employee/ab306d83-d100-11e8-ac12-000800000042
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
 ```
 
-> Ответ
+> Reply
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-    "type": "employee",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-  },
-  "id": "d8ed648c-b0e2-11ea-ac12-000d00000034",
-  "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2020-06-18 00:38:13.655",
-  "name": "123",
-  "externalCode": "bCdnwOjliLRTxAp8277Xm1",
-  "archived": false,
-  "created": "2020-06-18 00:38:13.655",
-  "uid": "admin@123",
-  "email": "123@123.ru",
-  "lastName": "123",
-  "fullName": "123",
-  "shortFio": "123",
-  "cashiers": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/d9ba0e32-b0e2-11ea-ac12-000d00000086/cashiers/d9ba22fe-b0e2-11ea-ac12-000d00000087",
-        "type": "cashier",
-        "mediaType": "application/json"
-      }
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "type": "employee",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+   },
+   "id": "d8ed648c-b0e2-11ea-ac12-000d00000034",
+   "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2020-06-18 00:38:13.655",
+   "name": "123",
+   "externalCode": "bCdnwOjliLRTxAp8277Xm1",
+   archived: false
+   "created": "2020-06-18 00:38:13.655",
+   "uid": "admin@123",
+   "email": "123@123.ru",
+   "lastName": "123",
+   "fullName": "123",
+   "shortFio": "123",
+   "cashiers": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/d9ba0e32-b0e2-11ea-ac12-000d00000086/cashiers/d9ba22fe-b0e2-11ea-ac12-000d00000087",
+         "type": "cashier",
+         "mediaType": "application/json"
+       }
+     }
+   ]
 }
 ```
-Аналогично и для значения из поля `uuidHref` можно открыть объект в веб-версии.
-![useful image](../../images/meta/owner.png?raw=true)
+Similarly, for the value from the `uuidHref` field, you can open the object in the web version.
 
-#### Использование meta при создании/изменении объекта
-`meta` используется в качестве ссылки на другой объект, рассмотрим на примерах.
+#### Using meta when creating and changing an object
 
-Имея метаданные товара
+`meta` is used as a reference to another object, let's look at examples.
+
+> Get product metadata
+
 ```json
 "meta":{
-   "href":"https://app.kladana.in/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021",
-   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-   "type":"product",
-   "mediaType":"application/json",
-   "uuidHref":"https://app.kladana.in/app/#good/edit?id=3b335997-d10a-11e8-ac12-000b0000001f"
+    "href":"https://app.kladana.in/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021",
+    "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+    "type":"product",
+    "mediaType":"application/json",
+    "uuidHref":"https://app.kladana.in/app/#good/edit?id=3b335997-d10a-11e8-ac12-000b0000001f"
 }
 ```
-выполним запрос на создание комплекта, указав товар в компонентах
+Execute a request to create a bundle, specifying the product in the components.
 
-> Запрос
+> Request
 
 ```shell
-curl -X POST 
-  'https://app.kladana.in/api/remap/1.2/entity/bundle?expand=components' 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache' 
-  -H 'Content-Type: application/json' 
-  -d '{
-   "name":"Набор карандашей",
-   "components":[
-      {
-         "assortment":{
-            "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-               "type":"product",
-               "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
-            }
+curl -X POST
+   'https://app.kladana.in/api/remap/1.2/entity/bundle?expand=components'
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
+   -H 'Content-Type: application/json'
+   -d '{
+    "name":"Pencil set",
+    "components":[
+       {
+          "assortment":{
+             "meta":{
+                "href":"https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
+                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type":"product",
+                "mediaType":"application/json",
+                "uuidHref":"https://app.kladana.in/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
+             }
+          },
+          "quantity":10
+       }
+    ]
+}'
+```
+
+In response, we will receive a new set that contains the specified product
+
+> Result
+
+```json
+
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "type": "bundle",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#good/edit?id=e5d864ae-b152-11ea-ac12-000c00000000"
+   },
+   "id": "e5da18eb-b152-11ea-ac12-000c00000002",
+   "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2020-06-18 14:00:18.664",
+   "name": "Pencil set",
+   "code": "00002",
+   "externalCode": "V1kq3O3YhBcImmYCE7jxf3",
+   archived: false
+   "pathName": "",
+   "images": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002/images",
+       "type": "image",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "minprice": {
+     value: 0.0
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+       }
+     }
+   },
+   "salePrices": [
+     {
+       value: 0.0
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+         }
+       },
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/d97f0826-b0e2-11ea-ac12-000d00000078",
+           "type": "pricetype",
+           "mediaType": "application/json"
          },
-         "quantity":10
-      }
-   ]
-}'
-```
-
-В ответ получим новый комплект, который содержит указанный товар
-
-> Результат
-
-```json
-
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-    "type": "bundle",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#good/edit?id=e5d864ae-b152-11ea-ac12-000c00000000"
-  },
-  "id": "e5da18eb-b152-11ea-ac12-000c00000002",
-  "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2020-06-18 14:00:18.664",
-  "name": "Набор карандашей",
-  "code": "00002",
-  "externalCode": "V1kq3O3YhBcImmYCE7jxf3",
-  "archived": false,
-  "pathName": "",
-  "images": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002/images",
-      "type": "image",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "minPrice": {
-    "value": 0.0,
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
-      }
-    }
-  },
-  "salePrices": [
-    {
-      "value": 0.0,
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
-        }
-      },
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/d97f0826-b0e2-11ea-ac12-000d00000078",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "d97f0826-b0e2-11ea-ac12-000d00000078",
-        "name": "Цена продажи",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-      }
-    }
-  ],
-  "barcodes": [
-    {
-      "ean13": "2000000000039"
-    }
-  ],
-  "paymentItemType": "GOOD",
-  "discountProhibited": false,
-  "weight": 0.0,
-  "volume": 0.0,
-  "trackingType": "NOT_TRACKED",
-  "components": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002/components",
-      "type": "bundlecomponent",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
-}
-```
-
-Изменим товар, указав ему единицу измерения. При условии, что у товара еще не указана единица измерения.
-
-> Запрос
-
-```shell
-curl -X PUT 
-  https://app.kladana.in/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache' 
-  -H 'Content-Type: application/json' 
-  -d '{
-   "uom":{
-      "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/uom/061721df-9197-49a5-b637-7f5b4d3be969",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-         "type":"uom",
-         "mediaType":"application/json"
-      }
+         "id": "d97f0826-b0e2-11ea-ac12-000d00000078",
+         "name": "Sale price",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+       }
+     }
+   ],
+   "barcodes": [
+     {
+       "ean13": "2000000000039"
+     }
+   ],
+   "paymentItemType": "GOOD",
+   "discountProhibited": false,
+   weight: 0.0
+   volume: 0.0
+   "trackingType": "NOT_TRACKED",
+   components: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002/components",
+       "type": "bundlecomponent",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
    }
+}
+```
+
+Let's change the product by specifying a unit of measure for it. Provided that the product does not yet have a unit of measurement.
+
+> Request
+
+```shell
+curl -X PUT
+   https://app.kladana.in/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
+   -H 'Content-Type: application/json'
+   -d '{
+    "uom":{
+       "meta":{
+          "href":"https://app.kladana.in/api/remap/1.2/entity/uom/061721df-9197-49a5-b637-7f5b4d3be969",
+          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+          "type":"uom",
+          "mediaType":"application/json"
+       }
+    }
 }'
 ```
 
-В ответе видно, что единица измерения, поле `uom`, изменилось на переданный объект.
+In the response, you can see that the unit of measure, the `uom` field, has changed to the passed object.
 
-> Ответ
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-    "type": "product",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
-  },
-  "id": "0884d27a-b0e3-11ea-ac12-000b00000002",
-  "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2020-06-18 00:39:33.163",
-  "name": "чудо товар",
-  "code": "00001",
-  "externalCode": "XwJmEyYOhI-Gx9HOtBxih2",
-  "archived": false,
-  "pathName": "",
-  "images": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002/images",
-      "type": "image",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "minPrice": {
-    "value": 0.0,
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
-      }
-    }
-  },
-  "salePrices": [
-    {
-      "value": 0.0,
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
-        }
-      },
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/d97f0826-b0e2-11ea-ac12-000d00000078",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "d97f0826-b0e2-11ea-ac12-000d00000078",
-        "name": "Цена продажи",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-      }
-    }
-  ],
-  "buyPrice": {
-    "value": 0.0,
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
-      }
-    }
-  },
-  "barcodes": [
-    {
-      "ean13": "2000000000015"
-    }
-  ],
-  "paymentItemType": "GOOD",
-  "discountProhibited": false,
-  "weight": 0.0,
-  "volume": 0.0,
-  "variantsCount": 0,
-  "isSerialTrackable": false,
-  "trackingType": "NOT_TRACKED"
-}
-```
-
-### Метаданные коллекции
-Для работы с пагинацией у коллекций в JSON API формируется несколько иное поле `meta`.
-Поле `meta` коллекций содержит частично те же атрибуты (`href`, `type`, `mediaType`), что и `meta` объектов, и ряд собственных атрибутов:
-
-* `size` - количество элементов в коллекции,
-* `limit` - максмимальное число элементов в коллекции, возвращаемых за один запрос,
-* `offset` - смещение выборки коллекции от первого элемента.
-
-Например, при запросе вебхуков
-
-> Запрос
-
-```shell
-curl -X GET 
-  https://app.kladana.in/api/remap/1.2/entity/webhook 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache'
-```
-
-будет следующий ответ
-
-> Ответ
+> Reply
 
 ```json
 {
-    "context": {
-        "employee": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                "type": "employee",
-                "mediaType": "application/json"
-            }
-        }
-    },
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook",
-        "type": "webhook",
-        "mediaType": "application/json",
-        "size": 1,
-        "limit": 25,
-        "offset": 0
-    },
-    "rows": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/01205b84-072c-11e8-6b01-4b1d0010fff6",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-                "type": "webhook",
-                "mediaType": "application/json"
-            },
-            "id": "01205b84-072c-11e8-6b01-4b1d0010fff6",
-            "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
-            "entityType": "product",
-            "url": "https://webhook.site/40adcf20-83de-4bb0-9072-6a98fe96bc44",
-            "method": "POST",
-            "enabled": false,
-            "action": "CREATE"
-        }
-    ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "type": "product",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
+   },
+   "id": "0884d27a-b0e3-11ea-ac12-000b00000002",
+   "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2020-06-18 00:39:33.163",
+   "name": "wonder product",
+   "code": "00001",
+   "externalCode": "XwJmEyYOhI-Gx9HOtBxih2",
+   archived: false
+   "pathName": "",
+   "images": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002/images",
+       "type": "image",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "minprice": {
+     value: 0.0
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+       }
+     }
+   },
+   "salePrices": [
+     {
+       value: 0.0
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+         }
+       },
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/d97f0826-b0e2-11ea-ac12-000d00000078",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "d97f0826-b0e2-11ea-ac12-000d00000078",
+         "name": "Sale price",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+       }
+     }
+   ],
+   "buyprice": {
+     value: 0.0
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+       }
+     }
+   },
+   "barcodes": [
+     {
+       "ean13": "2000000000015"
+     }
+   ],
+   "paymentItemType": "GOOD",
+   "discountProhibited": false,
+   weight: 0.0
+   volume: 0.0
+   "variantsCount": 0,
+   "isSerialTrackable": false
+   "trackingType": "NOT_TRACKED"
 }
 ```
 
-где видно, что коллекция содержит один элемент, и `size` также имеет значение равное 1.
+### Collection metadata
 
-Если значение атрибута `size` больше `limit`, то дополнительно выводятся атрибуты пагинации:
+To work with pagination, collections in the JSON API form a slightly different `meta` field.
+The `meta` field of collections contains partially the same attributes (`href`, `type`, `mediaType`) as `meta` objects, and a number of its own attributes:
 
-* `nextHref` - ссылка на следующую страницу коллекции,
-* `previousHref` - ссылка на предыдущую страницу коллекции.
+- `size` - the number of elements in the collection,
+- `limit` - the maximum number of elements in the collection returned in one request,
+- `offset` - collection selection offset from the first element.
 
-Добавим новые вебхуки и запросим их, но с лимитом равным 1
+For example, when requesting webhooks:
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-  'https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1' 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache'
-  ```
+curl -X GET
+   https://app.kladana.in/api/remap/1.2/entity/webhook
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
+```
+
+> Response
+
+```json
+{
+     context: {
+         "employee": {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                 "type": "employee",
+                 "mediaType": "application/json"
+             }
+         }
+     },
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook",
+         "type": "webhook",
+         "mediaType": "application/json",
+         size: 1
+         limit: 25
+         offset: 0
+     },
+     rows: [
+         {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/01205b84-072c-11e8-6b01-4b1d0010fff6",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+                 "type": "webhook",
+                 "mediaType": "application/json"
+             },
+             "id": "01205b84-072c-11e8-6b01-4b1d0010fff6",
+             "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
+             "entityType": "product",
+             "url": "https://webhook.site/40adcf20-83de-4bb0-9072-6a98fe96bc44",
+             "method": "POST",
+             "enabled": false
+             "action": "CREATE"
+         }
+     ]
+}
+```
+
+In the Response you can see that the collection contains one element, and `size` also has the value of 1.
+
+If the value of the `size` attribute is greater than `limit`, then additional pagination attributes are displayed:
+
+- `nextHref` - link to the next page of the collection;
+- `previousHref` - link to the previous page of the collection.
+
+Add new webhooks and request them, but with a limit of 1
+
+> Request
+
+```shell
+curl -X GET
+   'https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1'
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
+   ```
   
-> Ответ  
+> Reply
   
 ```json
 {
-    "context": {
-        "employee": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                "type": "employee",
-                "mediaType": "application/json"
-            }
-        }
-    },
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1",
-        "type": "webhook",
-        "mediaType": "application/json",
-        "size": 3,
-        "limit": 1,
-        "offset": 0,
-        "nextHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1"
-    },
-    "rows": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/01205b84-072c-11e8-6b01-4b1d0010fff6",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-                "type": "webhook",
-                "mediaType": "application/json"
-            },
-            "id": "01205b84-072c-11e8-6b01-4b1d0010fff6",
-            "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
-            "entityType": "product",
-            "url": "https://webhook.site/40adcf20-83de-4bb0-9072-6a98fe96bc44",
-            "method": "POST",
-            "enabled": false,
-            "action": "CREATE"
-        }
-    ]
+     context: {
+         "employee": {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                 "type": "employee",
+                 "mediaType": "application/json"}
+         }
+     },
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1",
+         "type": "webhook",
+         "mediaType": "application/json",
+         size: 3
+         limit: 1
+         offset: 0
+         "nextHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1"
+     },
+     rows: [
+         {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/01205b84-072c-11e8-6b01-4b1d0010fff6",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+                 "type": "webhook",
+                 "mediaType": "application/json"
+             },
+             "id": "01205b84-072c-11e8-6b01-4b1d0010fff6",
+             "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
+             "entityType": "product",
+             "url": "https://webhook.site/40adcf20-83de-4bb0-9072-6a98fe96bc44",
+             "method": "POST",
+             "enabled": false
+             "action": "CREATE"
+         }
+     ]
 }
 ```
 
-Применив лимит, была сформирована ссылка пагинации `nextHref` на следующую страницу коллекции. Перейдем по ней.
+By applying the limit, a `nextHref` pagination link to the next page of the collection was generated. Let's go over it.
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-  'https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1' 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache'
-``` 
+curl -X GET
+   'https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1'
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
+```
 
-> Ответ
+> Reply
 
 ```json
 {
-    "context": {
-        "employee": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                "type": "employee",
-                "mediaType": "application/json"
-            }
-        }
-    },
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1",
-        "type": "webhook",
-        "mediaType": "application/json",
-        "size": 3,
-        "limit": 1,
-        "offset": 1,
-        "nextHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?offset=2&limit=1",
-        "previousHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?offset=0&limit=1"
-    },
-    "rows": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/07598ccd-072c-11e8-7a6c-d2a90010c896",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-                "type": "webhook",
-                "mediaType": "application/json"
-            },
-            "id": "07598ccd-072c-11e8-7a6c-d2a90010c896",
-            "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
-            "entityType": "variant",
-            "url": "https://webhook-convert.ru/ms2s/T053UB0V8/B7WHWQTFF/yiTBjO5xoeuv6pXJOH1TLeBe",
-            "method": "POST",
-            "enabled": false,
-            "action": "UPDATE"
-        }
-    ]
+     context: {
+         "employee": {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                 "type": "employee",
+                 "mediaType": "application/json"
+             }
+         }
+     },
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1",
+         "type": "webhook",
+         "mediaType": "application/json",
+         size: 3
+         limit: 1
+         offset: 1
+         "nextHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?offset=2&limit=1",
+         "previousHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?offset=0&limit=1"
+     },
+     rows: [
+         {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/07598ccd-072c-11e8-7a6c-d2a90010c896",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+                 "type": "webhook",
+                 "mediaType": "application/json"
+             },
+             "id": "07598ccd-072c-11e8-7a6c-d2a90010c896",
+             "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
+             "entityType": "variant",
+             "url": "https://webhook-convert.ru/ms2s/T053UB0V8/B7WHWQTFF/yiTBjO5xoeuv6pXJOH1TLeBe",
+             "method": "POST",
+             "enabled": false
+             "action": "UPDATE"
+         }
+     ]
 }
 ```
-Как видим, были сформированы ссылки пагинации, доступные для перехода на следующую и предыдущую страницы коллекции.
+As you can see, pagination links have been formed that are available for going to the next and previous pages of the collection.
 
-### Метаданные сущности
-Кроме использования поля метаданных в качестве внешней ссылки и представления коллекции, метаданные могут описывать непосредственно сами сущности.
-Как правило, это описание вложенных сущностей, коллекций и дополнительных полей. 
-Чтобы получить метаданные сущности, необходимо использовать ссылку из поля `metadataHref`.
-Запросим метаданные сущности контрагента из примера выше
+### Entity metadata
 
-> Запрос
+In addition to using a metadata field as an external reference and a collection representation, metadata can directly describe the entities themselves.
+
+As a rule, this is a description of nested entities, collections, and additional fields.
+
+To get the metadata of an entity, you need to use a link from the `metadataHref` field.
+Request the metadata of the counterparty entity from the example above.
+
+> Request
 
 ```shell
-curl -X GET 
-  https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata 
-  -H 'Authorization: Bearer <Access-Token>' 
-  -H 'Cache-Control: no-cache'
+curl -X GET
+   https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata
+   -H 'Authorization: Bearer <Access-Token>'
+   -H 'Cache-Control: no-cache'
 ```
 
-> Ответ
+> Reply
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes",
-      "type": "attributemetadata",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "states": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9ddf453-b0e2-11ea-ac12-000d0000008c",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "d9ddf453-b0e2-11ea-ac12-000d0000008c",
-      "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-      "name": "Новый",
-      "color": 15106326,
-      "stateType": "Regular",
-      "entityType": "counterparty"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de00ec-b0e2-11ea-ac12-000d0000008d",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "d9de00ec-b0e2-11ea-ac12-000d0000008d",
-      "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-      "name": "Выслано предложение",
-      "color": 10774205,
-      "stateType": "Regular",
-      "entityType": "counterparty"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de03fc-b0e2-11ea-ac12-000d0000008e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "d9de03fc-b0e2-11ea-ac12-000d0000008e",
-      "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-      "name": "Переговоры",
-      "color": 40931,
-      "stateType": "Regular",
-      "entityType": "counterparty"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de06e1-b0e2-11ea-ac12-000d0000008f",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "d9de06e1-b0e2-11ea-ac12-000d0000008f",
-      "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-      "name": "Сделка заключена",
-      "color": 8825440,
-      "stateType": "Successful",
-      "entityType": "counterparty"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de09b0-b0e2-11ea-ac12-000d00000090",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "d9de09b0-b0e2-11ea-ac12-000d00000090",
-      "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
-      "name": "Сделка не заключена",
-      "color": 15280409,
-      "stateType": "Unsuccessful",
-      "entityType": "counterparty"
-    }
-  ],
-  "createShared": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes",
+       "type": "attributemetadata",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "states": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9ddf453-b0e2-11ea-ac12-000d0000008c",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "d9ddf453-b0e2-11ea-ac12-000d0000008c",
+       "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+       "name": "New",
+       "color": 15106326,
+       "stateType": "Regular",
+       "entityType": "counterparty"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de00ec-b0e2-11ea-ac12-000d0000008d",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "d9de00ec-b0e2-11ea-ac12-000d0000008d",
+       "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+       "name": "Offer sent",
+       "color": 10774205,
+       "stateType": "Regular",
+       "entityType": "counterparty"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de03fc-b0e2-11ea-ac12-000d0000008e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "d9de03fc-b0e2-11ea-ac12-000d0000008e",
+       "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+       "name": "Negotiations",
+       "color": 40931,
+       "stateType": "Regular",
+       "entityType": "counterparty"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de06e1-b0e2-11ea-ac12-000d0000008f",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "d9de06e1-b0e2-11ea-ac12-000d0000008f",
+       "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+       "name": "Deal Closed",
+       "color": 8825440,
+       "stateType": "Successful",
+       "entityType": "counterparty"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/d9de09b0-b0e2-11ea-ac12-000d00000090",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "d9de09b0-b0e2-11ea-ac12-000d00000090",
+       "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
+       "name": "Deal not closed",
+       "color": 15280409,
+       "stateType": "Unsuccessful",
+       "entityType": "counterparty"
+     }
+   ],
+   "createShared": false
 }
-``` 
-В данном примере по запросу вернулись значения доп.полей, статусов и групп контрагентов.
-Подробнее о ресурсе метаданных сущностей можно узнать в [документации](../#mojsklad-json-api-obschie-swedeniq-metadannye).
+```
+In this example, the request returned the values of additional fields, statuses, and groups of counterparties.
+
+Learn more about the entity metadata resource in [documentation](../#mojsklad-json-api-obschie-swedeniq-metadannye).

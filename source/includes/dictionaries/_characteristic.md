@@ -101,9 +101,9 @@ Successful request. The result is a JSON representation of the generated Feature
 }
 ```
 
-### Mass Creation of Characteristics
-[Mass Creation](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow)
-In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
+### Bulk Creation of Characteristics
+
+[Bulk Creation](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
 
 > Example of creating multiple Characteristics
 

@@ -864,13 +864,13 @@ curl -X DELETE
 ```
 
 
-When working with special resources, you can request a list of all document positions, create new positions, and update existing ones. When creating new positions using these resources, you can bypass the limit of 1000 positions per document. Also, using this resource, you can manage the mass update of positions. To change information on line items, you must use the document line item management resources that are available by URI:
+When working with special resources, you can request a list of all document positions, create new positions, and update existing ones. When creating new positions using these resources, you can bypass the limit of 1000 positions per document. Also, using this resource, you can manage the bulk update of positions. To change information on line items, you must use the document line item management resources that are available by URI:
 
 + `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
 Both ways of working with positions are also described in the documentation for each of the documents.
 
-It is also possible to mass delete document positions using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of positions to be deleted, specifying the meta field for each of the positions.
+It is also possible to bulk delete document positions using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of positions to be deleted, specifying the meta field for each of the positions.
 
 > An example URL for a request to bulk delete positions using POST:
 

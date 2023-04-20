@@ -772,7 +772,7 @@ curl -X GET
 In the body of the request, you need to pass an array containing JSON of the metadata of the positions in the Assortment that you want to remove.
 
 
-> Request for mass deletion of items in the Assortment.
+> Request for bulk deletion of items in the Assortment.
 
 ```shell
 curl -X POST

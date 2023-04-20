@@ -1,18 +1,20 @@
-## Работа с остатками
-JSON API позволяет получить информацию об остатках в разном виде в зависимости от задачи.
+## Working with the stock
 
-### Полная синхронизация по товарам и остаткам
-Вы можете провести полную синхронизацию с МоимСкладом, чтобы загрузить всю информацию о товарах (штрихкод, цены, описание, изображения) и их остатках. Для этого можно использовать [Расширенный отчет об  остатках](../reports/#otchety-otchet-ostatki-rasshirennyj-otchet-ob-ostatkah) или [Отчет по остаткам в разрезе по складам](../reports/#otchety-otchet-ostatki-ostatki-po-skladam). Также можно провести полную синхронизацию через запрос [ассортимента](../dictionaries/#suschnosti-assortiment).
- 
-Также полную синхронизацию можно периодически проводить в процессе работы, например один раз в день. Однако это достаточно долгий и тяжелый запрос, использовать его часто не рекомендуется. 
+The JSON API allows you to get information about the balances in different ways, depending on the task.
 
-### Обновление информации по остаткам
-Если в процессе работы нужно регулярно обновлять информацию только по остаткам, используйте [Краткий отчет об остатках](../reports/#otchety-otchet-ostatki-kratkij-otchet-ob-ostatkah). Отчет содержит только ID товара и его количество на складе в момент запроса. Используйте отчет, чтобы следить за остатками большого количества товаров. Отчет можно запрашивать раз в несколько минут. 
- 
-Чтобы сократить объем передаваемых данных, при запросе Краткого отчета об остатках
-используйте параметр `changedSince`. Параметр позволяет получать данные об остатках только для тех товаров, чьи остатки изменились за период с `changedSince` по текущий момент. Это значительно сокращает время на обработку запроса. 
- 
-Если заказы, приемки, отгрузки and other transactions создаются нерегулярно, подпишитесь на [Вебхуки на изменение остатков](../dictionaries/#suschnosti-vebhuk-na-izmenenie-ostatkow) по товарам или складам. Вебхуки позволяют получать уведомления об изменениях и запрашивать остатки только тогда, когда есть изменения. Получив уведомление, запросите данные по ссылке в вебхуке.
+### Full synchronization for goods and balances
 
-### Регулярное обновление данных по товарам 
-Если в процессе работы информация о товарах меняется и нужно регулярно отслеживать эти изменения, подпишитесь на [вебхуки](#workbook-vebhuki-chto-takoe-webhuk) создания, изменения, удаления товаров, услуг, модификаций, комплектов.
+You can perform full synchronization with MySklad to download all information about products (barcode, prices, descriptions, images) and their balances. To do this, you can use [Extended balance report](../reports/#otchety-otchet-ostatki-rasshirennyj-otchet-ob-ostatkah) or [Report on balances by warehouses](../reports/#otchety-otchet-ostatki-ostatki-po-skladam). It is also possible to perform full synchronization via the [assortment](../dictionaries/#suschnosti-assortiment) query.
+ 
+Also, full synchronization can be carried out periodically during operation, for example, once a day. However, this is a rather long and heavy request, and it is often not recommended to use it.
+
+### Update information on balances
+
+If in the course of work you need to regularly update information only on balances, use the [Brief report on balances](../reports/#otchety-otchet-ostatki-kratkij-otchet-ob-ostatkah). The report contains only the product ID and its quantity in stock at the time of the request. Use the report to keep track of the balance of a large number of products. The report can be requested every few minutes.
+ 
+To reduce the amount of data transferred, when requesting a Summary of Balances use the `changedSince` parameter. The parameter allows you to get data on the balances only for those products whose balances have changed over the period from `changedSince` to the current moment. This significantly reduces the time it takes to process a request.
+ 
+If orders, receipts, shipments and other transactions are created irregularly, subscribe to [Webhooks for changing stocks](../dictionaries/#suschnosti-vebhuk-na-change-ostatkow) for goods or warehouses. Webhooks allow you to be notified of changes and request the stock only when there are changes. When you receive a notification, request data using the link in the webhook.
+
+### Regular product data update
+If information about products changes in the course of work and you need to regularly monitor these changes, subscribe to [webhooks] (#workbook-vebhuki-chto-takoe-webhuk) for creating, changing, deleting of products, services, product variants, and bundles.

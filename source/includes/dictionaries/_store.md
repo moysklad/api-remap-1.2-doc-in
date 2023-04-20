@@ -903,7 +903,7 @@ Successful deletion of the Warehouse.
 In the body of the request, you need to pass an array containing the JSON metadata of the Warehouses that you want to delete.
 
 
-> Request for mass deletion of Warehouses.
+> Request for bulk deletion of Warehouses.
 
 ```shell
 curl -X POST
@@ -1570,7 +1570,7 @@ Successful request. Result - JSON representation of the created Warehouse Zone.
 
 ### Bulk creation and update of warehouse zones
 
-[Mass creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Warehouse zones.
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Warehouse zones.
 In the body of the request, you need to pass an array containing JSON representations of the Warehouse Zones that you want to create or update.
 Updated Warehouse Zones must contain the identifier in the form of metadata.
 
@@ -1958,7 +1958,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ### Bulk creation and update of storage bins
 
-[Mass creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Storage bins.
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Storage bins.
 In the body of the request, you need to pass an array containing a JSON representation of the Storage Bins that you want to create or update.
 Updated Storage Bins must contain the identifier in the form of metadata.
 
@@ -2041,7 +2041,7 @@ Successful deletion of the Storage Bin.
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Storage Bins that you want to delete.
 
-> Request for mass deletion of storage bins.
+> Request for bulk deletion of storage bins.
 
 ```shell
 curl -X POST

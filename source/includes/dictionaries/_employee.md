@@ -330,7 +330,7 @@ Successful removal of the Employee.
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Employees that you want to remove.
 
-> Request for mass deletion of Employees.
+> Request for bulk deletion of Employees.
 
 ```shell
 curl -X POST
