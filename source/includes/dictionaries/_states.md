@@ -1,294 +1,295 @@
-## Статусы документов
+## Transaction statuses
 
-Статусы можно добавлять, изменять и удалять через api
+Statuses can be added, modified and removed via API.
 
-### Статусы 
-#### Атрибуты сущности
+### Statuses
+#### Entity attributes
 
-| Название       | Тип                                                       | Описание                                                                                                                       |
-| -------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**  | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                           |
-| **color**      | String(255)                                               | Цвет Статуса<br>`+Обязательное при ответе` `+Необходимо при создании`                                                          |
-| **entityType** | String(255)                                               | Тип сущности, к которой относится Статус (ключевое слово в рамках JSON API)<br>`+Обязательное при ответе` `+Только для чтения` |
-| **id**         | UUID                                                      | ID Статуса<br>`+Обязательное при ответе` `+Только для чтения`                                                                  |
-| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Статуса<br>`+Обязательное при ответе` `+Только для чтения`                                                          |
-| **name**       | String(255)                                               | Наименование Статуса<br>`+Обязательное при ответе` `+Необходимо при создании`                                                  |
-| **stateType**  | Enum                                                      | Тип Статуса<br>`+Обязательное при ответе` `+Необходимо при создании`                                                           |
+| Title | Type | Description |
+| ------| -----|-------------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **color** | String(255) | Status Color<br>`+Required when replying` `+Required when creating` |
+| **entityType** | String(255) | Entity type to which Status refers (keyword within the JSON API)<br>`+Required for response` `+Read-only` |
+| **id** | UUID | Status ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Status Metadata<br>`+Required when replying` `+Read Only` |
+| **name** | String(255) | Status Name<br>`+Required when replying` `+Required when creating` |
+| **stateType** | Enum | Status Type<br>`+Required when replying` `+Required when creating` |
 
-##### Тип статуса
-| Название     | Описание                        |
-| :----------- | :------------------------------ |
-| Regular      | Обычный (значение по умолчанию) |
-| Successful   | Финальный положительный         |
-| Unsuccessful | Финальный отрицательный         |
+##### Status type
 
+| Title | Description |
+| ------| ------------|
+| regular | Normal (default) |
+| successful | Final positive |
+| Unsuccessful | Final negative |
 
-Поле **color** передается в АПИ как целое число состоящее из 4х байт.
-Т.к. цвет передается в цветовом пространстве ARGB, каждый байт отвечает за свой
-цвет соответственно: 1 - за прозрачность, 2 - за красный цвет, 3 - за зеленый,
-4 - за синий. Каждый байт принимает значения от 0 до 255 как и цвет в каждом из
-каналов цветового пространства. Получившееся в итоге из 4 записанных последовательно байт
-число, переведенное в 10-чную систему счисления и является представлением цвета статуса в JSON API.
+The **color** field is passed to the API as an integer consisting of 4 bytes.
+Because color is transmitted in the ARGB color space, each byte is responsible for its own
+color respectively: 1 - for transparency, 2 - for red, 3 - for green,
+4 - for blue. Each byte takes values from 0 to 255 as well as the color in each of
+color space channels. The result of 4 consecutive bytes written
+the number converted to 10 is the representation of the status color in the JSON API.
 
-Пример: цвету `rgb(162, 198, 23)` будет соответствовать следующее значение поля `"color": 10667543`.
+Example: the color `rgb(162, 198, 23)` will match the following value of the `"color" field: 10667543`.
 
-Посмотреть списки существующих статусов можно в контексте метаданных
-документа, например сделав GET запрос по URL http://app.kladana.in/api/remap/1.2/entity/demand/metadata
-Список статусов для документа `demand`(Отгрузка) будет выведен в коллекции states.
+You can view lists of existing statuses in the context of transaction metadata, for example by making a GET request to the URL http://app.kladana.in/api/remap/1.2/entity/demand/metadata
+The list of statuses for the `demand` transaction is displayed in the states collection.
 
-### Получить метаданные
+### Get metadata
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                  |
-| :------------- | :-------------------------------------------------------- |
-| **entityType** | `string` (required) *Example: counterparty* тип сущности. |
+| Parameter | Description |
+| ----------| ----------|
+| **entityType** | `string` (required) *Example: counterparty* entity type. |
 
-> Получить метаданные и в том числе статусы
+> Get metadata including statuses
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
+> Response 200(application/json)
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty",
-    "mediaType": "application/json"
-  },
-  "states": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/4f70c518-60a1-11e7-6adb-ede500000003",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "4f70c518-60a1-11e7-6adb-ede500000003",
-      "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-      "name": "Новый",
-      "color": 15106326,
-      "stateType": "Regular",
-      "entityType": "counterparty"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/3b6eb61a-60c5-11e7-6adb-ede500000001",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "3b6eb61a-60c5-11e7-6adb-ede500000001",
-      "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-      "name": "Подписан договор",
-      "color": 10667543,
-      "stateType": "Successful",
-      "entityType": "counterparty"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/3b6fd06a-60c5-11e7-6adb-ede500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "state",
-        "mediaType": "application/json"
-      },
-      "id": "3b6fd06a-60c5-11e7-6adb-ede500000002",
-      "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-      "name": "Отклонен",
-      "color": 10774205,
-      "stateType": "Unsuccessful",
-      "entityType": "counterparty"
-    }
-  ],
-  "createShared": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty",
+     "mediaType": "application/json"
+   },
+   "states": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/4f70c518-60a1-11e7-6adb-ede500000003",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "4f70c518-60a1-11e7-6adb-ede500000003",
+       "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+       "name": "New",
+       "color": 15106326,
+       "stateType": "Regular",
+       "entityType": "counterparty"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/3b6eb61a-60c5-11e7-6adb-ede500000001",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "3b6eb61a-60c5-11e7-6adb-ede500000001",
+       "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+       "name": "Agreement signed",
+       "color": 10667543,
+       "stateType": "Successful",
+       "entityType": "counterparty"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/3b6fd06a-60c5-11e7-6adb-ede500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "state",
+         "mediaType": "application/json"
+       },
+       "id": "3b6fd06a-60c5-11e7-6adb-ede500000002",
+       "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+       "name": "Rejected",
+       "color": 10774205,
+       "stateType": "Unsuccessful",
+       "entityType": "counterparty"
+     }
+   ],
+   "createShared": false
 }
 ```
 
-### Создать статус 
-Создать новый статус.
-#### Описание
-Статус создается на основе переданного объекта JSON,
-который содержит представление нового Статуса.
-Результат - JSON представление созданного Статуса. Для создания нового Статуса,
-необходимо и достаточно указать в переданном объекте не пустые поля `name`, `color`, `stateType`.
+### Create status
 
-**Параметры**
+Create a new status.
 
-| Параметр       | Описание                                                  |
-| :------------- | :-------------------------------------------------------- |
-| **entityType** | `string` (required) *Example: counterparty* тип сущности. |
+#### Description
+The status is created based on the passed JSON object,
+which contains a representation of the new Status.
+The result is a JSON representation of the generated Status. To create a new Status,
+it is necessary and sufficient to specify non-empty fields `name`, `color`, `stateType` in the passed object.
 
-> Создание одного статуса.
+**Parameters**
+
+| Parameter | Description |
+| --------- | ------- |
+| **entityType** | `string` (required) *Example: counterparty* entity type. |
+
+> Create one status.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Одобрено",
-            "color": 69446,
-            "stateType": "Regular"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Approved",
+             "color": 69446,
+             "stateType": "Regular"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Статуса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Status.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/6262b270-60c3-11e7-6adb-ede50000000d",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-    "type": "state",
-    "mediaType": "application/json"
-  },
-  "id": "6262b270-60c3-11e7-6adb-ede50000000d",
-  "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-  "name": "Одобрено",
-  "color": 69446,
-  "stateType": "Regular",
-  "entityType": "counterparty"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/6262b270-60c3-11e7-6adb-ede50000000d",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+     "type": "state",
+     "mediaType": "application/json"
+   },
+   "id": "6262b270-60c3-11e7-6adb-ede50000000d",
+   "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+   "name": "Approved",
+   "color": 69446,
+   "stateType": "Regular",
+   "entityType": "counterparty"
 }
 ```
 
-### Изменить статус 
-Изменить существующий статус.
+### Change status
+Change an existing status.
 
-#### Описание
-Статус меняется на основе переданного объекта JSON.
-Результат - JSON представление обновленного или созданного Статуса.
-Для обновления Статуса, необходимо  указать в переданном объекте
-одно или несколько полей с новыми значениями: `name`, `color`, `stateType`.
+#### Description
+The status changes based on the passed JSON object.
+The result is a JSON representation of the updated or created Status.
+To update the Status, you must specify in the passed object
+one or more fields with new values: `name`, `color`, `stateType`.
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                        |
-| :------------- | :------------------------------------------------------------------------------ |
-| **entityType** | `string` (required) *Example: counterparty* тип сущности.                       |
-| **id**         | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* id Статуса. |
+| Parameter | Description |
+| ----------| ------- |
+| **entityType** | `string` (required) *Example: counterparty* entity type. |
+| **id** | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* Status id. |
 
-> Изменение статуса.
+> Status change.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "color": 255,
-            "stateType": "Regular"
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             color: 255
+             "stateType": "Regular"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление измененного Статуса.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the changed Status.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/6262b270-60c3-11e7-6adb-ede50000000d",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-    "type": "state",
-    "mediaType": "application/json"
-  },
-  "id": "6262b270-60c3-11e7-6adb-ede50000000d",
-  "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-  "name": "Одобрено",
-  "color": 255,
-  "stateType": "Regular",
-  "entityType": "counterparty"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/6262b270-60c3-11e7-6adb-ede50000000d",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+     "type": "state",
+     "mediaType": "application/json"
+   },
+   "id": "6262b270-60c3-11e7-6adb-ede50000000d",
+   "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+   "name": "Approved",
+   color: 255
+   "stateType": "Regular",
+   "entityType": "counterparty"
 }
 ```
 
-### Массовое создание и обновление Статусов 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Статусов.
-В теле запроса нужно передать массив, содержащий JSON представления Статусов, которые вы хотите создать или обновить.
-Обновляемые Статусы должны содержать идентификатор в виде метаданных.
+### Mass creation and updating of Statuses
+[Mass creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Statuses.
+In the body of the request, you need to pass an array containing the JSON representation of the Statuses that you want to create or update.
+Updated Statuses must contain the identifier in the form of metadata.
 
-> Пример создания и обновления нескольких Статусов
+> Example of creating and updating multiple Statuses
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/metadata/states"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "На рассмотрении",
-              "color": 8767198,
-              "stateType": "Regular"
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/b56215dc-60c3-11e7-6adb-ede500000013",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "state",
-                "mediaType": "application/json"
-              },
-              "name": "На подписании",
-              "color": 34617,
-              "stateType": "Regular"
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/metadata/states"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "Pending",
+               "color": 8767198,
+               "stateType": "Regular"
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/b56215dc-60c3-11e7-6adb-ede500000013",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "type": "state",
+                 "mediaType": "application/json"
+               },
+               "name": "On signing",
+               "color": 34617,
+               "stateType": "Regular"
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Статусов.
+> Response 200(application/json)
+Successful requestWith. The result is a JSON array of representations of the created and updated Statuses.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/b55d2ddf-60c3-11e7-6adb-ede500000010",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "state",
-      "mediaType": "application/json"
-    },
-    "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
-    "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-    "name": "На рассмотрении",
-    "color": 8767198,
-    "stateType": "Regular",
-    "entityType": "counterparty"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/b56215dc-60c3-11e7-6adb-ede500000013",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "state",
-      "mediaType": "application/json"
-    },
-    "id": "b56215dc-60c3-11e7-6adb-ede500000013",
-    "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
-    "name": "На подписании",
-    "color": 34617,
-    "stateType": "Regular",
-    "entityType": "counterparty"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/b55d2ddf-60c3-11e7-6adb-ede500000010",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "state",
+       "mediaType": "application/json"
+     },
+     "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
+     "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+     "name": "Pending",
+     "color": 8767198,
+     "stateType": "Regular",
+     "entityType": "counterparty"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/b56215dc-60c3-11e7-6adb-ede500000013",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "state",
+       "mediaType": "application/json"
+     },
+     "id": "b56215dc-60c3-11e7-6adb-ede500000013",
+     "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+     "name": "On signing",
+     "color": 34617,
+     "stateType": "Regular",
+     "entityType": "counterparty"
+   }
 ]
 ```
 
-### Удалить Статус
+### Delete Status
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                        |
-| :------------- | :------------------------------------------------------------------------------ |
-| **entityType** | `string` (required) *Example: counterparty* тип сущности.                       |
-| **id**         | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* id Статуса. |
+| Parameter | Description |
+| ------- | --------- |
+| **entityType** | `string` (required) *Example: counterparty* entity type. |
+| **id** | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* Status id. |
 
-> Запрос на удаление Статуса с указанным id.
+> Request to delete the Status with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Статуса.
+> Response 200(application/json)
+Successful deletion of the Status.

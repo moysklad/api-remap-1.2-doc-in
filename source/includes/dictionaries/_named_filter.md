@@ -1,35 +1,35 @@
-## Сохраненные фильтры
-### Сохраненный фильтр
+## Saved filter
+### Saved filters
 
-Средствами JSON API можно получать сохраненные фильтры по id и в виде списка.
-Сохраненный фильтр - это набор параметров и их значений, настраиваемых пользователями,
-чтобы отфильтровать список из сущностей и документов.
-Сущность представлена в виде идентификатора и наименования. Параметры фильтрации не возвращаются.
+Using the JSON API, you can get saved filters by ID and as a list.
+A saved filter is a set of parameters and their values configured by users,
+to filter the list of entities and documents.
+An entity is represented as an identifier and a name. Filter options are not returned.
 
-Сохраненные фильтры можно повторно применять для фильтрации списка сущностей.   
+Saved filters can be reapplied to filter the list of entities.
 
-Сохраненные фильтры относятся к конкретному типу сущности. 
-Например, можно получить список фильтров для реестра документов Приемки, документов Входящих платежей, 
-справочника Контрагентов. Нельзя получить общий список сохраненных фильтров для всех
-сущностей пользователя.
-Для каждого типа сущности будет свой набор параметров фильтрации.
+The saved filters are specific to the entity type.
+For example, you can get a list of filters for the register of Acceptance documents, Incoming payments documents,
+directory of contractors. Cannot get a general list of saved filters for everyone
+user entities.
+Each entity type will have its own set of filtering options.
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название      | Тип                                                       | Описание                                                                          |
-| ------------- | :-------------------------------------------------------- | :-------------------------------------------------------------------------------- |
-| **accountId** | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`              |
-| **id**        | UUID                                                      | ID фильтра<br>`+Обязательное при ответе` `+Только для чтения`                     |
-| **meta**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные фильтра<br>`+Обязательное при ответе`                                  |
-| **name**      | String                                                    | Название фильтра<br>`+Обязательное при ответе` `+Необходимо при создании`         |
-| **owner**     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Только для чтения` `+Expand` |
+| Title | Type | Description|
+| ---------| -----| ----------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID | Filter ID<br>`+Required for response` `+Read only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Filter metadata<br>`+Required when replying` |
+| **name** | string | Filter name<br>`+Required when replying` `+Required when creating` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Owner (Employee)<br>`+Required when replying` `+Read-only` `+Expand` |
 
-Пример запроса:
-Сущности и документы - ```/entity/[entityType]/namedfilter```
+Request example:
+Entities and documents - ```/entity/[entityType]/namedfilter```
 
-### Получить список фильтров
+### Get a list of filters
 
-> Пример запроса на получение списка фильтров для товаров
+> Sample request to get a list of filters for products
 
 ```shell
   curl -X GET
@@ -84,12 +84,12 @@
 }
 ```
 
-### Получить список фильтров другого пользователя
+### Get another user's list of filters
 
-Пользователь с правами администратора или приложение имеют возможность запрашивать сохраненные фильтры других сотрудников на аккаунте. 
-Для этого нужно в параметрах запроса указать параметр `owner={href сотрудника}`.
+A user with administrator rights or an application has the ability to query the saved filters of other employees on the account.
+To do this, you need to specify the `owner={href of the employee}` parameter in the request parameters.
 
-> Пример запроса на получение списка фильтров другого пользователя
+> Sample request to get another user's filter list
 
 ```shell
   curl -X GET
@@ -144,16 +144,16 @@
 }
 ```
 
-### Получить фильтр по id
+### Get filter by ID
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                        |
-| :------- | :------------------------------------------------------------------------------ |
-| **id**   | `string` (required) *Example: 736da682-ad8b-11eb-0a80-17ef000000d4* id Фильтра. |
+| Parameter | Description|
+| ---------| ---------|
+| **id**   | `string` (required) *Example: 736da682-ad8b-11eb-0a80-17ef000000d4* Filter ID. |
 
 
-> Пример запроса на получение фильтра для товара по id
+> Example of a request to get a filter for a product by ID
 
 ```shell
   curl -X GET
@@ -186,21 +186,21 @@
 }
 ```
 
-### Применение сохраненного фильтра
+### Apply saved filter
 
-Средствами JSON API можно применять сохраненные фильтры ко всем [Сущностям](../dictionaries/), кроме Ассортимента, и [Документам](../documents/). 
-Результатом фильтрации будет список сущностей, удовлетворяющих набору условий, сохраненных в фильтре.
+Using the JSON API, you can apply saved filters to all [Entities](../dictionaries/), except for the Assortment, and [Tranasctions](../documents/).
+The filtering result is a list of entities that match the conditions saved in the filter.
 
-Для применения фильтрации необходимо в специальном параметре запроса `namedfilter` передать ссылку на нужный сохраненный фильтр.
+To apply filtering, you need to pass a link to the required saved filter in the special query parameter `namedfilter`.
 
-Пример url с применением сохраненного фильтра:
-`https://app.kladana.in/api/remap/1.2/entity/product?namedfilter=https://app.kladana.in/api/remap/1.2/entity/product/namedFilter/b5863410-ca86-11eb-ac12-000d00000019`
+An example URL with a saved filter applied:
+`https://app.kladana.in/api/remap/1.2/entity/product?namedfilter=https://app.kladana.in/api/remap/1.2/entity/product/namedFilter/b5863410-ca86-11eb -ac12-000d00000019`
 
 <br>
 
-Ограничения:
+Restrictions:
 
-- Фильтры, созданные другими пользователями может применять только пользователь с правами администратора или приложение.
-- В одном запросе можно применять только один сохраненный фильтр
-- Сохраненный фильтр несовместим с параметрами запроса `filter`, `search`, `order`
-- На эндпоинте можно применять только тот сохраненный фильтр, который можно получить через `/entity/[entityType]/namedfilter`
+- Filters created by other users can only be applied by an administrator user or application.
+- Only one saved filter can be applied per query.
+- Saved filter is incompatible with `filter`, `search`, `order` query parameters.
+- On the endpoint, you can only apply the saved filter that can be obtained through `/entity/[entityType]/namedfilter`.

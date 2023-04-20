@@ -36,7 +36,7 @@
 | <a href="../dictionaries/#suschnosti-tochka-prodazh">Точка продаж</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`, `address`, `active` |
 | <a href="../dictionaries/#suschnosti-zadacha">Задача</a>|`id`, `created`, `version`, `updated`, `description`, `dueToDate`, `done` |
 
-| Endpoint (документы) | Сортируемые поля |
+| Endpoint (transactions) | Сортируемые поля |
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a href="../documents/#dokumenty-roznichnaq-smena">Розничная смена</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `closeDate`|
 | <a href="../documents/#dokumenty-oprihodowanie">Оприходования</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created` |

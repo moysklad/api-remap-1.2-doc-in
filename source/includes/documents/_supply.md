@@ -71,7 +71,6 @@
 | **assortment**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара/услуги/серии/модификации, которую представляет собой позиция<br>`+Обязательное при ответе` `+Expand` `+Change-handler` `+Update-provider`                                                                                                                                   |
 | **country**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные страны<br>`+Expand`                                                                                                                                                                                                                           |
 | **discount**      | Int                                                       | Процент скидки или наценки. Наценка указывается отрицательным числом, т.е. -10 создаст наценку в 10%<br>`+Обязательное при ответе` `+Change-handler` `+Update-provider`                                                                                                                       |
-| **gtd**           | Object                                                    | ГТД. [Подробнее тут](../dictionaries/#suschnosti-gruzowaq-tamozhennaq-deklaraciq-gtd)                                                                                                                                                                                                                                                   |
 | **id**            | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                            |
 | **pack**          | Object                                                    | Упаковка Товара. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider`                                                                                                                               |
 | **price**         | Float                                                     | Цена товара/услуги в копейках<br>`+Обязательное при ответе` `+Change-handler` `+Update-provider`                                                                                                                                                                                              |
@@ -2520,19 +2519,6 @@ curl -X GET
           "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
         }
       },
-      "gtd": {
-        "name": "12345678/121217/1212321"
-      },
-      "country": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-          "type": "country",
-          "mediaType": "application/json"
-        }
-      },
-      "overhead": 0
-    },
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/b100b367-313f-11e6-8a84-bae50000008b",
@@ -2554,20 +2540,7 @@ curl -X GET
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
         }
-      },
-      "gtd": {
-        "name": "12345678/121217/1242523"
-      },
-      "country": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/country/3b1e1f15-2842-11e9-ac12-000c0000002f",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-          "type": "country",
-          "mediaType": "application/json"
-        }
-      },
-      "overhead": 0
-    }
+      }
   ]
 }
 ```
@@ -2780,7 +2753,7 @@ curl --location --request GET 'https://app.kladana.in/api/remap/1.2/entity/suppl
 Для успешного создания необходимо в теле запроса указать следующие поля:
 
 + **assortment** - Ссылка на товар/услугу/серию/модификацию, которую представляет собой позиция.
-Также можно указать поле с именем **service**, **consignment**, **variant** в соответствии с тем,
+Также можно указать поле с именем **service**, **variant** в соответствии с тем,
 чем является указанная позиция. Подробнее об этом поле можно прочитать в описании [позиции Приемки](../documents/#dokumenty-priemka-priemki-pozicii-priemki)
 + **quantity** - Количество указанной позиции. Должно быть положительным, иначе возникнет ошибка.
 Одновременно можно создать как одну так и несколько позиций Приемки. Все созданные данным запросом позиции

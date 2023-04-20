@@ -295,7 +295,7 @@ curl -X GET
           "mediaType": "application/json"
         }
       },
-      "paymentPurpose": "Оплата по счету №19111167 от 19.06.2015 за предоставление услуги \"МойСклад\" по договору оферты на сайте www.moysklad.ru/subscription В том числе НДС (18%), 671.29 руб.",
+      "paymentPurpose": "Оплата по счету №19111167 от 19.06.2015 за предоставление услуги \"Kladana\" по договору оферты на сайте www.moysklad.ru/subscription В том числе НДС (18%), 671.29 руб.",
       "incomingNumber": "408",
       "incomingDate": "2015-06-19 00:00:00",
       "operations": [

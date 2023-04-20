@@ -1,45 +1,45 @@
-## Печать этикеток и ценников
-Средствами JSON API можно запрашивать печать этикеток и ценников с помощью шаблонов печатных форм.
-При запросе на формирование печатной формы сервер (при готовности этикеток и ценников, корректной
-печатной форме и правильном формате запроса) отвечает пустым телом ответа с http кодом 303.
-В заголовке Location ответа содержится адрес временного расположения готовой к загрузке печатной формы.
-Файл во временном расположении доступен для загрузки в течение 5 минут.
+## Print labels and price tags
+### Print labels and price tags
+Using the JSON API, you can request the printing of labels and price tags using printable templates.
+When requesting the formation of a printed form, the server (when labels and price tags are ready, correct
+printed form and the correct request format) responds with an empty response body with a 303 http code.
+The Location header of the response contains the address of the temporary location of the printed form that is ready to be loaded.
+The file in the temporary location is available for download for 5 minutes.
 
-Сервер может вернуть ответ 202 и заголовок Location с адресом для опроса готовности печатной формы к загрузке.
-Данный вариант будет реализован позже.
+The server MAY return a 202 response and a Location header with an address to poll for the printable to be ready for download.
+This option will be implemented later.
 
-Печать этикеток и ценников доступна для товаров, услуг, комплектов и модификаций.
+Printing labels and price tags is available for products, services, kits and modifications.
 
-#### Печать этикеток и ценников 
+### Request to print labels and price tags
 
-### Запрос на печать этикеток и ценников 
+Request for printing labels and price tags according to the template of the printed form.
 
-Запрос на печать этикеток и ценников по шаблону печатной формы.
-#### Атрибуты запроса
+#### Request attributes
 
-| Название         | Тип                                                       | Описание                                                                                                                                                                                |
-| ---------------- | :-------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Юрлица<br>`+Обязательное при ответе`                                                                                                                                         |
-| **count**        | Int                                                       | Количество ценников/термоэтикеток. Максимальное количество - `1000`<br>`+Обязательное при ответе`                                                                                       |
-| **salePrice**    | Object                                                    | Цена продажи. [Подробнее тут](../dictionaries/#suschnosti-pechat-atiketok-i-cennikow-zapros-na-pechat-atiketok-i-cennikow-atributy-zaprosa-cena-prodazhi)<br>`+Обязательное при ответе` |
-| **template**     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Шаблона печати<br>`+Обязательное при ответе` `+Expand`                                                                                                                       |
+| Title| Type| Description|
+| ---------| -----| ----------|
+| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Legal entity metadata<br>`+Required when replying` |
+| **count** | int | Number of price tags / thermal labels. Maximum number - `1000`<br>`+Required when replying` |
+| **saleprice** | object | Selling price. [More details here](../dictionaries/#suschnosti-pechat-atiketok-i-cennikow-zapros-na-pechat-atiketok-i-cennikow-atributy-zaprosa-cena-prodazhi)<br>`+Required when answering` |
+| **template** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Print Template Metadata<br>`+Required in response` `+Expand` |
 
-##### Цена продажи
-Атрибуты вложенной сущности
+#### Selling price
+Nested entity attributes
 
-| Название      | Тип                                                       | Описание                                           |
-| ------------- | :-------------------------------------------------------- | :------------------------------------------------- |
-| **priceType** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные типа цены<br>`+Обязательное при ответе` |
+| Title| Type| Description|
+| ---------| -----| ----------|
+| **priceType** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Price type metadata<br>`+Required when replying` |
 
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                                           |
-| :------- | :----------------------------------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* id сущности, для которой запрашивается печать. |
-| **type** | `string` (required) *Example: product* тип сущности, для которой запрашивается печать.                             |
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* id of the entity for which printing is requested. |
+| **type** | `string` (required) *Example: product* the type of the entity for which printing is requested. |
 
-> Пример запроса на печать этикеток и ценников по шаблону печатной формы для товаров.
+> An example of a request to print labels and price tags based on a template for a printed form for products.
 
 ```shell
   curl -X POST
@@ -79,13 +79,13 @@
 > Response 202 Headers
 
 ```json
-  Location: ссылка на статус печати
-  Content-Type: application/json
+Location: link to print status
+   Content-Type: application/json
 ```
 
-> Response 303 Headers
+> Response 303 headers
 
 ```json
-  Location: ссылка на файл
+   Location: file link
   Content-Type: application/json
 ```

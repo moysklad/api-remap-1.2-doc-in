@@ -1,539 +1,539 @@
-## Вебхуки
-С помощью средств JSON API можно работать с вебхуками. 
+## Webhooks
+Using the JSON API, you can work with webhooks.
 
-Вебхук — это механизм отправки уведомлений. Уведомление отправляется при наступлении в системе изменения, которое отслеживает вебхук. Например, если подключить вебхук на товары, при изменении наименования товара, вы получаете уведомление со ссылкой на измененный товар. Подробнее о работе с вебхуками читайте [Вебхуки](../workbook/#workbook-vebhuki).
+A webhook is a mechanism for sending notifications. A notification is sent when there is a change in the system that tracks the webhook. For example, if you enable a product webhook, when you change the product name, you receive a notification with a link to the changed product. Read more about working with webhooks in [Webhooks](../workbook/#workbook-vebhuki).
 
-С помощью API версии 1.2 можно просматривать, изменять, удалять вебхуки, созданные только с помощью API версии 1.2. 
+Using API version 1.2, you can view, modify, delete webhooks created only using API version 1.2.
 
-Набор возможностей также зависит от вашего тарифа. При бесплатном тарифе отправка вебхуков не производится, нельзя создать новый или изменить существующий вебхук. 
+The set of features also depends on your tariff. The free plan does not send webhooks, you cannot create a new webhook or modify an existing one.
 
-Управление вебхуками доступно **только администратору аккаунта**. 
+Webhook management is available to **account administrator only**.
 
-### Пример вебхука
+### Webhook example
 
-Пример того, в каком виде будут передаваться данные:
+An example of how the data will be transmitted:
 
 > POST https://example.com/webhook_path?requestId=640569eb-522d-427a-b07e-fa757c5d4217
 
 ```json
 {
-  "auditContext": {
-    "meta": {
-      "type": "audit",
-      "href": "https://app.kladana.in/api/remap/1.2/audit/75fe3b73-db16-11eb-c0a8-800d00000004"
-    },
-    "moment": "2021-07-21 15:51:16",
-    "uid": "test@test"
-  },
-  "events": [
-    {
-      "meta": {
-        "type": "product",
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/75c896d0-db16-11eb-c0a8-800d00000002"
-      },
-      "updatedFields": ["name", "description"],
-      "action": "UPDATE",
-      "accountId": "9171a53c-b719-11eb-c0a8-800d00000001"
-    }
-  ]
+   auditContext: {
+     "meta": {
+       "type": "audit",
+       "href": "https://app.kladana.in/api/remap/1.2/audit/75fe3b73-db16-11eb-c0a8-800d00000004"
+     },
+     "moment": "2021-07-21 15:51:16",
+     "uid": "test@test"
+   },
+   "events": [
+     {
+       "meta": {
+         "type": "product",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/75c896d0-db16-11eb-c0a8-800d00000002"
+       },
+       "updatedFields": ["name", "description"],
+       "action": "UPDATE",
+       "accountId": "9171a53c-b719-11eb-c0a8-800d00000001"
+     }
+   ]
 }
 ```
 
-#### Атрибуты сущности отправляемого вебхука
+#### Entity attributes of the sent webhook
 
-| Название         | Тип    | Описание                                                                        |
-| ---------------- | :----- | :------------------------------------------------------------------------------ |
-| **events**       | Object | Данные о событии, вызвавшем срабатывание вебхука<br>`+Обязательное при ответе` |
-| **auditContext** | Object | Контекст аудита, соответствующий событию вебхука                               |
+| Title | Type | Description |
+| ------- | ------- |---------- |
+| **events** | object | Data about the event that triggered the webhook<br>`+Required for response` |
+| **auditContext** | object | Audit context corresponding to the webhook event |
 
-#### Атрибуты сущности событие
+#### Event entity attributes
 
-| Название          | Тип                                                       | Описание                                                                                                                                 |
-| ----------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| **meta**          | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные измененной сущности<br>`+Обязательное при ответе`                                                                             |
-| **action**        | Enum                                                      | Действие, которое вызвало срабатывание вебхука. Возможные значения: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Обязательное при ответе` |
-| **accountId**     | UUID                                                      | ID учетной записи Кассира<br>`+Обязательное при ответе`                                                                                  |
-| **updatedFields** | Array(String)                                             | Поля сущности, измененные пользователем                                                                                                  |
+| Title | Type | Description |
+| ------- | ------- |--------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Changed entity metadata<br>`+Required when replying` |
+| **action** | Enum | The action that triggered the webhook. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Required for response` |
+| **accountId** | UUID | Cashier account ID<br>`+Required when replying` |
+| **updatedFields** | Array(String) | Entity fields modified by the user |
 
-Для отображения атрибута сущности событие **updatedFields** нужно, чтобы вебхук имел **diffType=FIELDS** и **action=UPDATE** 
+To display an entity attribute, the **updatedFields** event needs the webhook to have **diffType=FIELDS** and **action=UPDATE**
 
-#### Атрибуты сущности контекст аудита
-| Название   | Тип                                                       | Описание                                                            |
-| ---------- | :-------------------------------------------------------- | :------------------------------------------------------------------ |
-| **meta**   | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные контекста аудита<br>`+Обязательное при ответе`           |
-| **uid**    | String(255)                                               | Логин Сотрудника<br>`+Обязательное при ответе` `+Только для чтения` |
-| **moment** | DateTime                                                  | Дата изменения<br>`+Обязательное при ответе` `+Только для чтения`   |
+#### Audit context entity attributes
+| Title | Type | Description |
+| ------- | ------- |--------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Audit context metadata<br>`+Required in response` |
+| **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
+| **moment** | datetime | Modified date<br>`+Required when replying` `+Read only` |
 
-В массиве **events** может быть несколько объектов. Параметр запроса **requestId** - идентификатор уведомления.
+There can be several objects in the **events** array. Request parameter **requestId** - notification identifier.
 
-В ответ на наш запрос мы ожидаем получить ответ с HTTP статусом 200 или 204 в течение 1500 миллисекунд.
-При невалидном ответе от клиентского приложения наша система осуществляет еще 3 попытки отправки.
+In response to our request, we expect to receive a response with HTTP status 200 or 204 within 1500 milliseconds.
+With an invalid response from the client application, our system makes 3 more attempts to send.
 
-Данные попытки осуществляются последовательно, без таймаутов между ними. Если все попытки закончились неудачно или истекло время ожидания ответа - 
-данное уведомление считается неотправленным и в дальнейшем удаляется, в клиентское приложение оно отправлено не будет,
-т.к. проблема на стороне клиентского приложения.
+These attempts are made sequentially, with no timeouts between them. If all attempts fail or time out waiting for a response -
+this notification is considered unsent and is subsequently deleted; it will not be sent to the client application,
+because The problem is on the client side.
 
-Чтобы попытки отправки уведомления не заканчивались неудачей из-за истечения времени ожидания ответа сервером, рекомендуется разделить прием вебхуков и их обработку.
-Понять, что уведомление о событии было отправлено повторно, можно по параметру запроса **requestId** - при повторной отправке уведомления идентификатор останется прежним.
+To ensure that attempts to send a notification do not fail due to a server timeout, it is recommended toshare the reception of webhooks and their processing.
+You can understand that the event notification was resent by the request parameter **requestId** - when the notification is resent, the identifier will remain the same.
 
-С помощью API версии 1.2 можно просматривать, изменять, удалять вебхуки созданные только с помощью API версии 1.2.
+Using API version 1.2, you can view, modify, delete webhooks created only using API version 1.2.
 
-#### Заголовок временного отключения через API
-Через JSON API или POS API при запросах можно отключить уведомления вебхуков в контексте данного запроса. Для этого нужно указать заголовок `X-Lognex-WebHook-Disable` с произвольным значением.
+#### Temporary disable header via API
+Through the JSON API or POS API, when making requests, you can disable webhook notifications in the context of a given request. To do this, you need to specify the `X-Lognex-WebHook-Disable` header with an arbitrary value.
 
-Отключать уведомления вебхуков следует только в случае крайней необходимости, так как это может повлиять на работу интеграций или отключить отправку критически важных уведомлений.
+Disabling webhook notifications should only be done when absolutely necessary, as this may affect integrations or disable critical notifications.
 
-#### SSL Handshake
-Если на адресе получателя используется SSL сертификат, то необходимо удостовериться, что сертификат имеет корректные Certification Paths. Проверить сертификат можно в сервисе https://www.ssllabs.com/ssltest/index.html
+#### SSL handshake
+If the recipient's address uses an SSL certificate, then you need to make sure that the certificate has the correct Certification Paths. You can check the certificate in the service https://www.ssllabs.com/ssltest/index.html
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название               | Тип                                                       | Описание                                                                                                                                                                                                                                                                                                           |
-|------------------------| :-------------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**          | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе`                                                                                                                                                                                                                                                                    |
-| **action**             | Enum                                                      | Действие, которое отслеживается вебхуком. Возможные значения: `[CREATE, UPDATE, DELETE, PROCESSED]`. Задать значение `PROCESSED` возможно только для [асинхронных задач](../#mojsklad-json-api-asinhronnyj-obmen)<br>`+Обязательное при ответе` `+Необходимо при создании` |
-| **authorApplication**  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Приложения, создавшего вебхук<br>                                                                                                                                                                                                                                                                      |
-| **diffType**           | Enum                                                      | Режим отображения изменения сущности. Указывается только для действия `UPDATE`. Возможные значения: `[NONE, FIELDS]` (по умолчанию `NONE`)                                                                                                                                                                         |
-| **enabled**            | Boolean                                                   | Флажок состояние вебхука (включен / отключен)<br>`+Обязательное при ответе`                                                                                                                                                                                                                                       |
-| **entityType**         | String(255)                                               | Тип сущности, к которой привязан вебхук<br>`+Обязательное при ответе` `+Необходимо при создании`                                                                                                                                                                                                                  |
-| **id**                 | UUID                                                      | ID вебхука<br>`+Обязательное при ответе`                                                                                                                                                                                                                                                                          |
-| **meta**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные вебхука<br>`+Обязательное при ответе`                                                                                                                                                                                                                                                                  |
-| **method**             | Enum                                                      | HTTP метод, с которым будет происходить запрос. Возможные значения: `POST`<br>`+Обязательное при ответе`                                                                                                                                                                                                           |
-| **url**                | URL                                                       | URL, по которому будет происходить запрос. Допустимая длина до 255 символов<br>`+Обязательное при ответе` `+Необходимо при создании`                                                                                                                                                                                |
+| Title | Type | Description |
+| ------- | ------- |---------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` |
+| **action** | Enum | The action that the webhook is tracking. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`. Setting `PROCESSED` is only possible for [asynchronous tasks](../#mojsklad-json-api-asinhronnyj-obmen)<br>`+Required when responding` `+Required when creating` |
+| **authorApplication** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Application that created the webhook<br> |
+| **diffType** | Enum | Entity change display mode. Only specified for the `UPDATE` action. Possible values: `[NONE, FIELDS]` (default `NONE`) |
+| **enabled** | Boolean | Webhook status checkbox (enabled / disabled)<br>`+Required when replying` |
+| **entityType** | String(255) | The type of the entity that the webhook is bound to<br>`+Required when responding` `+Required when creating` |
+| **id** | UUID | Webhook ID<br>`+Required when replying` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Webhook metadata<br>`+Required when replying` |
+| **method** | Enum| The HTTP method with which the request will be made. Possible values: `POST`<br>`+Required when replying` |
+| **url** | URL | The URL to which the request will be made. Allowed length is up to 255 characters<br>`+Required when replying` `+Required when creating` |
 
-#### Доступные типы сущностей
-Создание вебхуков доступно для всех типов сущностей и документов, кроме следующих:
+#### Available entity types
+Creating webhooks is available for all entity and document types, except for the following:
 
 * `webhook`
-* `discount`
+*`discount`
 
-### Получить список вебхуков 
-> Запрос на получение всех вебхуков на данной учетной записи.
+### Get a list of webhooks
+> Request to get all webhooks on this account.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/webhook"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/webhook"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка вебхуков.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of webhooks.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/webhook",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-    "type": "webhook",
-    "mediaType": "application/json",
-    "size": 3,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-        "type": "webhook",
-        "mediaType": "application/json"
-      },
-      "authorApplication" : {
-        "meta" : {
-          "href" : "https://app.kladana.in/api/remap/1.2/entity/application/9e1ad712-3e45-4679-8896-7159973a8ef5",
-          "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/application/metadata",
-          "type" : "application",
-          "mediaType" : "application/json"
-        }
-      },
-      "id": "aec51463-bbd2-11e6-8a84-bae500000003",
-      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-      "entityType": "demand",
-      "url": "http://www.example.com",
-      "method": "POST",
-      "enabled": true,
-      "action": "CREATE"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-        "type": "webhook",
-        "mediaType": "application/json"
-      },
-      "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
-      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-      "entityType": "supply",
-      "url": "http://www.example.com",
-      "method": "POST",
-      "enabled": true,
-      "action": "CREATE"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d946c7ff-bbd2-11e6-8a84-bae500000005",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-        "type": "webhook",
-        "mediaType": "application/json"
-      },
-      "id": "d946c7ff-bbd2-11e6-8a84-bae500000005",
-      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-      "entityType": "cashin",
-      "url": "http://www.example.com",
-      "method": "POST",
-      "enabled": true,
-      "action": "UPDATE",
-      "diffType": "NONE"
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/webhook",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+     "type": "webhook",
+     "mediaType": "application/json",
+     size: 3
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+         "type": "webhook",
+         "mediaType": "application/json"
+       },
+       "authorApplication" : {
+         "meta" : {
+           "href" : "https://app.kladana.in/api/remap/1.2/entity/application/9e1ad712-3e45-4679-8896-7159973a8ef5",
+           "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/application/metadata",
+           "type" : "application",
+           "mediaType" : "application/json"
+         }
+       },
+       "id": "aec51463-bbd2-11e6-8a84-bae500000003",
+       "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+       "entityType": "demand",
+       "url": "http://www.example.com",
+       "method": "POST",
+       "enabled": true
+       "action": "CREATE"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+         "type": "webhook",
+         "mediaType": "application/json"
+       },
+       "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
+       "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+       "entityType": "supply",
+       "url": "http://www.example.com",
+       "method": "POST",
+       "enabled": true
+       "action": "CREATE"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d946c7ff-bbd2-11e6-8a84-bae500000005",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+         "type": "webhook",
+         "mediaType": "application/json"
+       },
+       "id": "d946c7ff-bbd2-11e6-8a84-bae500000005",
+       "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+       "entityType": "cash",
+       "url": "http://www.example.com",
+       "method": "POST",
+       "enabled": true
+       "action": "UPDATE",
+       "diffType": "NONE"
+     }
+   ]
 }
 ```
 
-### Создать вебхук 
-Пример запроса на создание нового вебхука. Убедитесь, что создаете еще не существующий вебхук:
-сочетание **entityType**, **action**, **url** должно быть уникальным. Всего на одно уникальное сочетание **entityType**, 
-**action** может быть создано не более 5 вебхуков с разными **url** для пользователей и не более 1 для приложения.
+### Create webhook
+An example of a request to create a new webhook. Make sure you're creating a webhook that doesn't exist yet:
+combination of **entityType**, **action**, **url** must be unique. Just one unique combination of **entityType**,
+**action** can be created no more than 5 webhooks with different **url** for users and no more than 1 for application.
 
-> Пример запроса на создание нового вебхука.
+> Sample request to create a new webhook.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/webhook"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "url": "http://www.example.com",
-            "action": "CREATE",
-            "entityType": "supply"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/webhook"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "url": "http://www.example.com",
+             "action": "CREATE",
+             "entityType": "supply"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного вебхука.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created webhook.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-    "type": "webhook",
-    "mediaType": "application/json"
-  },
-  "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "entityType": "supply",
-  "url": "http://www.example.com",
-  "method": "POST",
-  "enabled": true,
-  "action": "CREATE"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+     "type": "webhook",
+     "mediaType": "application/json"
+   },
+   "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "entityType": "supply",
+   "url": "http://www.example.com",
+   "method": "POST",
+   "enabled": true
+   "action": "CREATE"
 }
 ```
 
-> Пример запроса на создание нового вебхука с отображением измененных полей.
+> An example of a request to create a new webhook showing the changed fields.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/webhook"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "url": "http://www.example.com",
-            "action": "UPDATE",
-            "entityType": "supply",
-            "diffType": "FIELDS"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/webhook"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "url": "http://www.example.com",
+             "action": "UPDATE",
+             "entityType": "supply",
+             "diffType": "FIELDS"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного вебхука.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created webhook.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-    "type": "webhook",
-    "mediaType": "application/json"
-  },
-  "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "entityType": "supply",
-  "url": "http://www.example.com",
-  "method": "POST",
-  "enabled": true,
-  "action": "UPDATE",
-  "diffType": "FIELDS"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+     "type": "webhook",
+     "mediaType": "application/json"
+   },
+   "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "entityType": "supply",
+   "url": "http://www.example.com",
+   "method": "POST",
+   "enabled": true
+   "action": "UPDATE",
+   "diffType": "FIELDS"
 }
 ```
 
-### Массовое создание и обновление вебхуков 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) вебхуков.
-В теле запроса нужно передать массив, содержащий JSON представления вебхуков, которые вы хотите создать или обновить.
-Обновляемые вебхуки должны содержать идентификатор в виде метаданных.
+### Bulk create and update webhooks
+[Bulk create and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) webhooks.
+In the body of the request, you need to pass an array containing the JSON representation of the webhooks you want to create or update.
+Updated webhooks must contain the ID as metadata.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id вебхука. |
+| Parameter | Description |
+| ------- | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
 
-> Пример создания и обновления нескольких вебхуков
+> Example of creating and updating multiple webhooks
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "url": "http://www.example.com",
-              "action": "CREATE",
-              "entityType": "supply"
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-                "type": "webhook",
-                "mediaType": "application/json"
-              },
-              "url": "http://www.example.com",
-              "action": "DELETE"
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "url": "http://www.example.com",
+               "action": "CREATE",
+               "entityType": "supply"
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+                 "type": "webhook",
+                 "mediaType": "application/json"
+               },
+               "url": "http://www.example.com",
+               "action": "DELETE"
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных вебхуков.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the created and updated webhooks.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-      "type": "webhook",
-      "mediaType": "application/json"
-    },
-    "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
-    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-    "entityType": "supply",
-    "url": "http://www.example.com",
-    "method": "POST",
-    "enabled": true,
-    "action": "CREATE"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-      "type": "webhook",
-      "mediaType": "application/json"
-    },
-    "id": "aec51463-bbd2-11e6-8a84-bae500000003",
-    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-    "entityType": "demand",
-    "url": "http://www.example.com",
-    "method": "POST",
-    "enabled": true,
-    "action": "DELETE"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/d08f9217-bbd2-11e6-8a84-bae500000004",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+       "type": "webhook",
+       "mediaType": "application/json"
+     },
+     "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
+     "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+     "entityType": "supply",
+     "url": "http://www.example.com",
+     "method": "POST",
+     "enabled": true
+     "action": "CREATE"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+       "type": "webhook",
+       "mediaType": "application/json"
+     },
+     "id": "aec51463-bbd2-11e6-8a84-bae500000003",
+     "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+     "entityType": "demand",
+     "url": "http://www.example.com",
+     "method": "POST",
+     "enabled": true
+     "action": "DELETE"
+   }
 ]
 
 ```
 
-### Получить отдельный вебхук
+### Get a separate webhook
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id вебхука. |
+| Parameter | Description |
+| ------- | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
  
-> Запрос на получение отдельного вебхука с указанным id.
+> Request to get a single webhook with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление вебхука с указанным id.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the webhook with the specified id.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-    "type": "webhook",
-    "mediaType": "application/json"
-  },
-  "id": "aec51463-bbd2-11e6-8a84-bae500000003",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "entityType": "demand",
-  "url": "http://www.example.com",
-  "method": "POST",
-  "enabled": true,
-  "action": "CREATE"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+     "type": "webhook",
+     "mediaType": "application/json"
+   },
+   "id": "aec51463-bbd2-11e6-8a84-bae500000003",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "entityType": "demand",
+   "url": "http://www.example.com",
+   "method": "POST",
+   "enabled": true
+   "action": "CREATE"
 }
 ```
 
-### Изменить вебхук 
-Пример запроса на изменение сведений о вебхуке.
+### Edit webhook
+An example request to change webhook details.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id вебхука. |
+| Parameter | Description |
+| ------- | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
 
-> Пример запроса на изменение вебхука.
+> Webhook change request example.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "url": "http://www.example.com",
-            "action": "DELETE"
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "url": "http://www.example.com",
+             "action": "DELETE"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление измененного вебхука.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the modified webhook.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-    "type": "webhook",
-    "mediaType": "application/json"
-  },
-  "id": "aec51463-bbd2-11e6-8a84-bae500000003",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "entityType": "demand",
-  "url": "http://www.example.com",
-  "method": "POST",
-  "enabled": true,
-  "action": "DELETE"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+     "type": "webhook",
+     "mediaType": "application/json"
+   },
+   "id": "aec51463-bbd2-11e6-8a84-bae500000003",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "entityType": "demand",
+   "url": "http://www.example.com",
+   "method": "POST",
+   "enabled": true
+   "action": "DELETE"
 }
 ```
 
-### Отключить вебхук 
-Пример запроса на отключение вебхука.
+### Disable webhook
+An example request to disable a webhook.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id вебхука. |
+| Parameter | Description |
+| ------- | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
 
-> Пример запроса на отключение вебхука.
+> Sample request to disable a webhook.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "enabled": false
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "enabled": false
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отключенного вебхука.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the disabled webhook.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-    "type": "webhook",
-    "mediaType": "application/json"
-  },
-  "id": "aec51463-bbd2-11e6-8a84-bae500000003",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "entityType": "demand",
-  "url": "http://www.example.com",
-  "method": "POST",
-  "enabled": false,
-  "action": "DELETE"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+     "type": "webhook",
+     "mediaType": "application/json"
+   },
+   "id": "aec51463-bbd2-11e6-8a84-bae500000003",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "entityType": "demand",
+   "url": "http://www.example.com",
+   "method": "POST",
+   "enabled": false
+   "action": "DELETE"
 }
 ```
 
-### Удалить вебхук 
+### Remove webhook
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id вебхука. |
+| Parameter | Description |
+| ------- | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
 
-> Пример запроса на удаление вебхука с указанным id.
+> An example request to remove a webhook with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление вебхука.
+> Response 200(application/json)
+Successful deletion of the webhook.
 
-### Массовое удаление вебхуков
+### Bulk removal of webhooks
 
-В теле запроса нужно передать массив, содержащий JSON метаданных вебхуков, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON of the webhook metadata that you want to remove.
 
 
-> Запрос на массовое удаление вебхуков. 
+> Request to bulk remove webhooks.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/webhook/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-            "type": "webhook",
-            "mediaType": "application/json"
-          }
-        },  
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
-            "type": "webhook",
-            "mediaType": "application/json"
-          }
-        }  
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/webhook/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+             "type": "webhook",
+             "mediaType": "application/json"
+           }
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
+             "type": "webhook",
+             "mediaType": "application/json"
+           }
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении вебхуков.
+> Successful request. The result is JSON information about removing webhooks.
 
 ```json
 [
-  {
-    "info":"Сущность 'webhook' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'webhook' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'webhook' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+   },
+   {
+     "info":"Entity 'webhook' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
+   }
 ]
 ```

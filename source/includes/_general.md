@@ -358,7 +358,7 @@ The list of available entity types is listed [here](#mojsklad-json-api-obschie-s
 
 The structure of the object add. fields are described in detail in the section [Working with additional fields](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-**Options**
+**Parameters**
 
 | Parameter | Description |
 | ----------| ------------|
@@ -1910,7 +1910,6 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | Whether the Employee was added to the archive<br>`+Required when replying` `+Read Only` |
 | **attributes** | Array(Object) | Additional Employee fields<br>`+Read-only` |
-| **cashiers** | MetaArray | Array of cashiers. [More here](dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-kassir)<br>`+Read-only` `+Expand` |
 | **code** | String(255) | Employee Code<br>`+Read Only` |
 | **created** | datetime | Employee Creation Time<br>`+Required for response` `+Read Only` |
 | **description** | String(4096) | Employee Comment<br>`+Read Only` |
@@ -2120,15 +2119,6 @@ Successful request. The result is a JSON representation of information about the
     "lastName": "Administrator",
     "fullName": "Administrator",
     "shortFio": "Administrator",
-    "cashiers": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/5d9c8f7a-204c-11ec-c0a8-300d00000096/cashiers/5d9ce2d8-204c-11ec-c0a8-300d00000097",
-                "type": "cashier",
-                "mediaType": "application/json"
-            }
-        }
-    ],
     "permissions": {
         "currency": {
             "view": "ALL",
@@ -2164,13 +2154,6 @@ Successful request. The result is a JSON representation of information about the
             "print": "ALL"
         },
         "service": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "print": "ALL"
-        },
-        "consignment": {
             "view": "ALL",
             "create": "ALL",
             "update": "ALL",
@@ -2576,7 +2559,7 @@ curl -X GET
 #### Getting the entity of the installed application
 Returns the parameters of the installed application by the id of the application installed on the account.
 
-**Options**
+**Parameters**
 
 | Parameter | Description |
 | ------- | -------- |

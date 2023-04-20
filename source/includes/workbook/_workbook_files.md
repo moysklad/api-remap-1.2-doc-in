@@ -1,6 +1,6 @@
 ## Работа с Файлами в Документах, Номенклатуре и Контрагентах
 
-Для расширенного описания и дополнения сущностей информацией, в сервисе МойСклад есть возможность работы с 
+Для расширенного описания и дополнения сущностей информацией, in Kladana есть возможность работы с 
 [Файлами](../dictionaries/#suschnosti-fajly) в 
 [Документах](../documents/#dokumenty), 
 Номенклатуре ([Товары](../dictionaries/#suschnosti-towar), 
@@ -23,7 +23,7 @@
 Например, нужно создать товар и прикрепить к нему инструкцию. Это можно сделать несколькими способами: через интерфейс
 сайта https://www.moysklad.ru или используя JSON API.
 
-В сервисе [МойСклад](https://www.moysklad.ru) добавить, удалить или отредактировать список файлов товара можно через 
+В сервисе [Kladana](https://www.moysklad.ru) добавить, удалить или отредактировать список файлов товара можно через 
 окно `Карточки товара`.
 
  ![useful image](../../images/files/good_files.png?raw=true)
@@ -361,12 +361,10 @@ curl -X GET
 }
  ```
 
-Теперь рассмотрим другой вариант работы с файлами в Товарах. Предположим, со временем понадобилось обновить список 
-файлов для Товара. Например устарела инструкция и нужно 
-удалить старую и прикрепить новую. Это можно сделать через сервис МойСклад, как было указано ранее или воспользоваться 
-средствами JSON API.
+Consider another option for working with files in Products.
+For instance, you need to update the list of product files. In Kladana, it can be performed in two ways: as described earlier, or using the JSON API.
 
-> Запрос на обновление списка файлов у Товара
+> Request to update the list of files for the Product
 
   ```shell
   curl -X POST

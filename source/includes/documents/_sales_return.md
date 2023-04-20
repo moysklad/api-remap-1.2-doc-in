@@ -61,7 +61,6 @@
 | **cost**       | Int                                                       | Себестоимость (выводится, если документ был создан без основания)                                                                                                                                                                                                          |
 | **country**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Страны<br>`+Expand`                                                                                                                                                                                                                                             |
 | **discount**   | Int                                                       | Процент скидки или наценки. Наценка указывается отрицательным числом, т.е. -10 создаст наценку в 10%<br>`+Обязательное при ответе` `+Change-handler`                                                                                                                       |
-| **gtd**        | Object                                                    | ГТД. [Подробнее тут](../dictionaries/#suschnosti-gruzowaq-tamozhennaq-deklaraciq-gtd)                                                                                                                                                                                      |
 | **id**         | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                            |
 | **pack**       | Object                                                    | Упаковка Товара. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) <br>`+Change-handler`                                                                                                                           |
 | **price**      | Float                                                     | Цена товара/услуги в копейках<br>`+Обязательное при ответе` `+Change-handler`                                                                                                                                                                                              |
@@ -1783,19 +1782,6 @@ curl -X GET
           "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
         }
       },
-      "gtd": {
-        "name": "12345678/121217/1212321"
-      },
-      "country": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-          "type": "country",
-          "mediaType": "application/json"
-        }
-      },
-      "cost": 10
-    },
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f3fc5f-3f80-11e6-8a84-bae5000000ae",
@@ -1866,19 +1852,6 @@ curl -X GET
           "uuidHref": "https://app.kladana.in/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
         }
       },
-      "gtd": {
-        "name": "12345678/121217/1212321"
-      },
-      "country": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-          "type": "country",
-          "mediaType": "application/json"
-        }
-      },
-      "cost": 10
-    },
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f4218b-3f80-11e6-8a84-bae5000000b1",
@@ -1937,7 +1910,7 @@ curl -X GET
 Для успешного создания необходимо в теле запроса указать следующие поля:
 
 + **assortmet** - Ссылка на товар/услугу/серию/модификацию, которую представляет собой позиция.
-Также можно указать поле с именем **service**, **consignment**, **variant** в соответствии с тем,
+Также можно указать поле с именем **service**, **variant** в соответствии с тем,
 чем является указанная позиция. Подробнее об этом поле можно прочитать в описании [позиции Возврата покупателей](../documents/#dokumenty-vozwrat-pokupatelq-vozwraty-pokupatelej-pozicii-vozwrata-pokupatelq).
 + **quantity** - Количество указанной позиции. Должно быть положительным, иначе возникнет ошибка.
 Одновременно можно создать как одну так и несколько позиций Возврата покупателей. Все созданные данным запросом позиции

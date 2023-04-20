@@ -1,1911 +1,1908 @@
-## Юрлицо
-Средствами JSON API можно создавать и обновлять сведения о юрлицах, запрашивать списки юрлиц и сведения по отдельным юрлицам. С помощью специального ресурса можно управлять счетами отдельного юрлица. Кодом сущности для юрлица в составе JSON API является ключевое слово **organization**.
-По данной сущности можно осуществлять контекстный поиск с помощью специального параметра `search`. Подробнее можно узнать по [ссылке](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+## Entity
+Using the JSON API, you can create and update information about legal entities, request lists of legal entities and information on individual legal entities. With the help of a special resource, you can manage the accounts of a separate legal entity. The entity code for a legal entity in the JSON API is the **organization** keyword.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
 
-Поиск среди объектов юрлиц на соответствие поисковой строке будет осуществлен по следующим полям:
+Search among objects of legal entities to match the search string will be carried out in the following fields:
 
-+ По наименованию Юрлица **name**
-+ По коду Юрлица **code**
-+ По полному наименованию Юрлица **legalTitle**
-+ По адресу электронной почты **email**
-+ По номеру городского телефона **phone**
-+ По номеру дисконтной карты
++ By the name of the legal entity **name**
++ By legal entity code **code**
++ By the full name of the legal entity **legalTitle**
++ By e-mail address **email**
++ By landline phone number **phone**
++ By discount card number
 
-### Юрлица
+### Legal entity
 
-| Название                   | Тип                                                       | Фильтрация                  | Описание                                                                                                                                                                                                         |
-| -------------------------- | :-------------------------------------------------------- | :-------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**              | UUID                                                      | `=` `!=`                    | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                             |
-| **actualAddress**          | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Фактический адрес Юрлица                                                                                                                                                                                         |
-| **actualAddressFull**      | Object                                                    |                             | Фактический адрес Юрлица с детализацией по отдельным полям. [Подробнее тут](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres)                                                              |
-| **archived**               | Boolean                                                   | `=` `!=`                    | Добавлено ли Юрлицо в архив<br>`+Обязательное при ответе`                                                                                                                                                        |
-| **bonusPoints**            | Int                                                       |                             | Бонусные баллы по активной бонусной программе<br>`+Только для чтения`                                                                                                                                            |
-| **bonusProgram**           | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные активной бонусной программы<br>`+Expand`                                                                                                                                                              |
-| **code**                   | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Код Юрлица                                                                                                                                                                                                       |
-| **companyType**            | Enum                                                      | `=` `!=`                    | Тип Юрлица . В зависимости от значения данного поля набор выводимых реквизитов контрагента может меняться. [Подробнее тут](../dictionaries/#suschnosti-jurlico-jurlica-tip-urlica)<br>`+Обязательное при ответе` |
-| **created**                | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`  | Дата создания<br>`+Обязательное при ответе`                                                                                                                                                                      |
-| **description**            | String(4096)                                              | `=` `!=` `~` `~=` `=~`      | Комментарий к Юрлицу                                                                                                                                                                                             |
-| **externalCode**           | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Внешний код Юрлица<br>`+Обязательное при ответе`                                                                                                                                                                 |
-| **group**                  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                                                                                         |
-| **id**                     | UUID                                                      | `=` `!=`                    | ID Юрлица<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                     |
-| **meta**                   | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные Юрлица<br>`+Обязательное при ответе`                                                                                                                                                                  |
-| **name**                   | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Наименование Юрлица<br>`+Обязательное при ответе` `+Необходимо при создании`                                                                                                                                     |
-| **owner**                  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                    | Владелец (Сотрудник)<br>`+Expand`                                                                                                                                                                                |
-| **shared**                 | Boolean                                                   | `=` `!=`                    | Общий доступ<br>`+Обязательное при ответе`                                                                                                                                                                       |
-| **syncId**                 | UUID                                                      | `=` `!=`                    | ID синхронизации<br>`+После заполнения недоступно для изменения`                                                                                                                                                 |
-| **trackingContractDate**   | DateTime                                                  |                             | Дата договора с ЦРПТ                                                                                                                                                                                             |
-| **trackingContractNumber** | String(255)                                               |                             | Номер договора с ЦРПТ                                                                                                                                                                                            |
-| **updated**                | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`  | Момент последнего обновления Юрлица<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                           |
+| Title | Type | Filtration | Description |
+| ----------|----| -------- | ------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
+| **actualAddressFull** | object | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres) |
+| **archived** | Boolean | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
+| **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
+| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the active bonus program<br>`+Expand` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Legal entity code |
+| **companyType** | Enum | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#suschnosti-jurlico-jurlica-tip-urlica)<br>`+Required when answering` |
+| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity metadata<br>`+Required when replying` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
+| **trackingContractDate** | datetime | | Date of agreement with CRPT |
+| **trackingContractNumber** | String(255) | | Contract number with CRPT |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when replying` `+Read-only` |
 
-#### Поля реквизитов
+#### Detail fields
 
-| Название              | Тип           | Фильтрация                                                                                                                                        | Описание                                                                                                                              |
-| --------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------ |
-| **accounts**          | Array(Object) |                                                                                                                                                   | Метаданные счетов юрлица<br>`+Обязательное при ответе` `+Expand`                                                                      |
-| **attributes**        | Array(Object) | [Операторы доп. полей](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Массив метаданных дополнительных полей юрлица                                                                                         |
-| **certificateDate**   | DateTime      |                                                                                                                                                   | Дата свидетельства                                                                                                                    |
-| **certificateNumber** | String(255)   |                                                                                                                                                   | Номер свидетельства                                                                                                                   |
-| **chiefAccountSign**  | Object        |                                                                                                                                                   | Подпись главного бухгалтера. [Подробнее тут](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
-| **chiefAccountant**   | String(255)   |                                                                                                                                                   | Главный бухгалтер                                                                                                                     |
-| **director**          | String(255)   |                                                                                                                                                   | Руководитель                                                                                                                          |
-| **directorPosition**  | String(255)   |                                                                                                                                                   | Должность руководителя                                                                                                                |
-| **directorSign**      | Object        |                                                                                                                                                   | Подпись руководителя. [Подробнее тут](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat)        |
-| **email**             | String(255)   | `=` `!=` `~` `~=` `=~`                                                                                                                            | Адрес электронной почты                                                                                                               |
-| **fax**               | String(255)   | `=` `!=` `~` `~=` `=~`                                                                                                                            | Номер факса                                                                                                                           |
-| **fsrarId**           | String(255)   |                                                                                                                                                   | Идентификатор в ФСРАР                                                                                                                 |
-| **inn**               | String(255)   | `=` `!=` `~` `~=` `=~`                                                                                                                            | ИНН                                                                                                                                   |
-| **isEgaisEnable**     | Boolean       |                                                                                                                                                   | Включен ли ЕГАИС для данного юрлица                                                                                                   |
-| **kpp**               | String(255)   | `=` `!=` `~` `~=` `=~`                                                                                                                            | КПП                                                                                                                                   |
-| **legalAddress**      | String(255)   | `=` `!=` `~` `~=` `=~`                                                                                                                            | Юридический адреса Юрлица                                                                                                             |
-| **legalAddressFull**  | Object        |                                                                                                                                                   | Юридический адрес Юрлица с детализацией по отдельным полям                                                                            |
-| **legalFirstName**    | String(255)   |                                                                                                                                                   | Имя для Юрлица типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Юрлиц типа `[Юридическое лицо]`             |
-| **legalLastName**     | String(255)   |                                                                                                                                                   | Фамилия для Юрлица типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Юрлиц типа `[Юридическое лицо]`         |
-| **legalMiddleName**   | String(255)   |                                                                                                                                                   | Отчество для Юрлица типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Юрлиц типа `[Юридическое лицо]`        |
-| **legalTitle**        | String(4096)  | `=` `!=` `~` `~=` `=~`                                                                                                                            | Полное наименование. Игнорируется, если передано одно из значений для ФИО. Формируется автоматически на основе получаемых ФИО Юрлица  |
-| **ogrn**              | String(255)   |                                                                                                                                                   | ОГРН                                                                                                                                  |
-| **ogrnip**            | String(255)   |                                                                                                                                                   | ОГРНИП                                                                                                                                |
-| **okpo**              | String(255)   |                                                                                                                                                   | ОКПО                                                                                                                                  |
-| **payerVat**          | Boolean       |                                                                                                                                                   | Является ли данное юрлицо плательщиком НДС                                                                                            |
-| **phone**             | String(255)   | `=` `!=` `~` `~=` `=~`                                                                                                                            | Номер городского телефона                                                                                                             |
-| **stamp**             | Object        |                                                                                                                                                   | Печать. [Подробнее тут](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat)                      |
-| **utmUrl**            | String(255)   |                                                                                                                                                   | IP-адрес УТМ                                                                                                                          |
+| Title | Type | Filtration | Description |
+| ----------|----| -------- | ------- |
+| **accounts** | Array(Object) | | Legal entity accounts metadata<br>`+Required when replying` `+Expand` |
+| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional fields of a legal entity |
+| **certificatedate** | datetime | | Date of certificate |
+| **certificateNumber** | String(255) | | Certificate number |
+| **ChiefAccountSign** | object | | Signature of the chief accountant. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **ChiefAccountant** | String(255) | | Chief accountant |
+| **director** | String(255) || Head |
+| **directorPosition** | String(255) | | Head position |
+| **directorSign** | object | | Leader's signature. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
+| **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
+| **fsrarId** | String(255) | | Identifier in FSRAR |
+| **inn** | String(255) | `=` `!=` `~` `~=` `=~` | TIN |
+| **isEgaisEnable** | Boolean | | Is EGAIS enabled for this legal entity |
+| **kpp** | String(255) | `=` `!=` `~` `~=` `=~` | Checkpoint |
+| **legalAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Legal address Legal entity |
+| **legalAddressFull** | object | | Legal address of a legal entity with details on individual fields |
+| **legalFirstName** | String(255) | | Name for a Legal entity of type `[Individual entrepreneur, Individual]`. Ignored for legal entities of type `[Legal entity]` |
+| **legalLastName** | String(255) | | Surname for a Legal entity of type `[Individual entrepreneur, Individual]`. Ignored for legal entities of type `[Legal entity]` |
+| **legalMiddleName** | String(255) | | Middle name for a legal entity of the type `[Individual Entrepreneur, Individual]`. Ignored for legal entities of type `[Legal entity]` |
+| **legal title** | String(4096) | `=` `!=` `~` `~=` `=~` | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
+| **ogrn** | String(255) || OGRN |
+| **ogrnip** | String(255) | | OGRNIP |
+| **okpo** | String(255) | | OKPO |
+| **payerVat** | Boolean | | Is this legal entity a VAT payer |
+| **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
+| **stamp** | object | | Seal. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **utmUrl** | String(255) | | UTM IP address |
 
-#### Атрибуты вложенных сущностей
-#### Аттрибуты сущности Адрес
+#### Nested entity attributes
+#### Attributes of entity Address
 
-| Название       | Тип                                                       | Описание           |
-| -------------- | :-------------------------------------------------------- | :----------------- |
-| **addInfo**    | String(255)                                               | Другое             |
-| **apartment**  | String(30)                                                | Квартира           |
-| **city**       | String(255)                                               | Город              |
-| **comment**    | String(255)                                               | Комментарий        |
-| **country**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные страны  |
-| **house**      | String(30)                                                | Дом                |
-| **postalCode** | String(6)                                                 | Почтовый индекс    |
-| **region**     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные региона |
-| **street**     | String(255)                                               | Улица              |
+| Title | Type | Description|
+| ---------| -----| ----------|
+| **addInfo** | String(255) | Other |
+| **apartment** | String(30) | Apartment |
+| **city** | String(255) | City |
+| **comment** | String(255) | Comment |
+| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country metadata |
+| **house** | String(30) | House |
+| **postalCode** | String(6) | Postcode |
+| **region** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Region metadata |
+| **street** | String(255) | Street |
 
-Строка адреса является конкатенацией полей структурированного адреса в следующем порядке: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, используя запятую в качестве разделителя.
-При передаче в МойСклад сущностей с адресом используйте либо строковый адрес, либо структурированный.
-При передаче обоих адресов строковый будет игнорирован.
-При передаче только строкового он будет отражаться как в строковом поле так и в addInfo структурированного адреса.
-Для адреса не поддерживается [значение `null`](../#mojsklad-json-api-obschie-swedeniq-podderzhka-null). Передача `null` этому аттрибуту не приведет к его удалению.
-Для удаления адреса необходимо в строковое поле `actualAddress` передать пустую строку `""`.
+The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
+When transferring entities with an address to MySklad, use either a string address or a structured one.
+When passing both addresses, the string will be ignored.
+When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
+[`null` value](../#mojsklad-json-api-obschie-swedeniq-podderzhka-null) is not supported for address. Passing `null` to this attribute will not remove it.
+To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
 
-##### Подписи и печать
+##### Signatures and seal
 
-| Название      | Тип                                                       | Описание                                                       |
-| ------------- | :-------------------------------------------------------- | :------------------------------------------------------------- |
-| **meta**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные объекта<br>`+Обязательное при ответе`               |
-| **title**     | String(255)                                               | Название Изображения<br>`+Обязательное при ответе`             |
-| **filename**  | String(255)                                               | Имя файла<br>`+Обязательное при ответе`                        |
-| **size**      | Int                                                       | Размер файла в байтах<br>`+Обязательное при ответе`            |
-| **updated**   | DateTime                                                  | Время загрузки файла на сервер<br>`+Обязательное при ответе`   |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные миниатюры изображения<br>`+Обязательное при ответе` |
+| Title | Type | Description|
+| ---------| -----| ----------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **title** | String(255) | Image Title<br>`+Required when replying` |
+| **filename** | String(255) | File name<br>`+Required when replying` |
+| **size** | int | File size in bytes<br>`+Required when replying` |
+| **updated** | datetime | File upload time to server<br>`+Required when replying` |
+| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
 
-##### Счета юрлица
+##### Legal entity accounts
 
-| Название                 | Тип                                                       | Описание                                                                               |
-| ------------------------ | :-------------------------------------------------------- | :------------------------------------------------------------------------------------- |
-| **accountId**            | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                   |
-| **accountNumber**        | String(255)                                               | Номер счета<br>`+Обязательное при ответе` `+Необходимо при создании`                   |
-| **agent**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные юрлица<br>`+Обязательное при ответе`                                        |
-| **bankLocation**         | String(255)                                               | Адрес банка                                                                            |
-| **bankName**             | String(255)                                               | Наименование банка                                                                     |
-| **bic**                  | String(255)                                               | БИК                                                                                    |
-| **correspondentAccount** | String(255)                                               | Корр счет                                                                              |
-| **id**                   | UUID                                                      | ID Счета<br>`+Обязательное при ответе` `+Только для чтения`                            |
-| **isDefault**            | Boolean                                                   | Является ли счет основным счетом юрлица<br>`+Обязательное при ответе`                  |
-| **updated**              | DateTime                                                  | Момент последнего обновления юрлица<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description|
+| ---------| -----| ----------|
+| **accountId** | UUID |Account ID<br>`+Required when replying` `+Read Only` |
+| **accountNumber** | String(255) | Account number<br>`+Required when replying` `+Required when creating` |
+| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Legal entity metadata<br>`+Required when replying` |
+| **bankLocation** | String(255) | Bank address |
+| **bankName** | String(255) | Bank name |
+| **bic** | String(255) | BIC |
+| **correspondentAccount** | String(255) | Corr account |
+| **id** | UUID | Account ID<br>`+Required when replying` `+Read only` |
+| **isDefault** | Boolean | Is the account the main account of a legal entity<br>`+Required when answering` |
+| **updated** | datetime | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
 
-#### Тип юрлица
-В зависимости от типа юрлица **companyType** в составе его объекта будут выводиться разные наборы реквизитов.
-Типы юрлица и соответствующие значения, которые могут быть переданы в значение данного поля:
+#### Legal entity type
+Depending on the legal entity type **companyType**, its object will display different sets of details.
+Legal entity types and corresponding values that can be passed to the value of this field:
 
-| Значение поля companyType      | Тип контрагента                |
-| ------------------------------ | :----------------------------- |
-| **legal**                      | Юридическое лицо               |
-| **entrepreneur**               | Индивидуальный предприниматель |
-| **individual**                 | Физическое лицо                |
-
-<br>
-
-Если тип юрлица `Юридическое лицо`, будут выведены следующие поля реквизитов:
-
-| Название         | Описание                   |
-| ---------------- | -------------------------- |
-| **legalTitle**   | Полное наименование юрлица |
-| **legalAddress** | Юридического адреса юрлица |
-| **inn**          | ИНН                        |
-| **kpp**          | КПП                        |
-| **ogrn**         | ОГРН                       |
-| **okpo**         | ОКПО                       |
+| CompanyType field value | Counterparty type |
+| ------------------------------ | ------------------------------ |
+| **legal** | Legal entity |
+| **entrepreneur** | Individual entrepreneur |
+| **individual** | Individual |
 
 <br>
 
+If the legal entity type is `Legal entity`, the following fields of details will be displayed:
 
-Если тип юрлица `Индивидуальный предприниматель`, будут выведены следующие поля реквизитов:
-
-| Название              | Описание                                                                                                                                   |
-| --------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
-| **certificateDate**   | Дата свидетельства                                                                                                                         |
-| **certificateNumber** | Номер свидетельства                                                                                                                        |
-| **inn**               | ИНН                                                                                                                                        |
-| **legalAddress**      | Юридического адреса юрлица                                                                                                                 |
-| **legalAddressFull**  | Юридический адрес Контрагента с детализацией по отдельным полям                                                                            |
-| **legalFirstName**    | Имя для Контрагента типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Контрагентов типа `[Юридическое лицо]`      |
-| **legalLastName**     | Фамилия для Контрагента типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Контрагентов типа `[Юридическое лицо]`  |
-| **legalMiddleName**   | Отчество для Контрагента типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Контрагентов типа `[Юридическое лицо]` |
-| **legalTitle**        | Полное наименование. Игнорируется, если передано одно из значений для ФИО. Формируется автоматически на основе получаемых ФИО Юрлица       |
-| **ogrnip**            | ОГРНИП                                                                                                                                     |
-| **okpo**              | ОКПО                                                                                                                                       |
+| title| description |
+| ---------|----------|
+| **legal title** | Full name of the legal entity |
+| **legalAddress** | Legal address of a legal entity |
+| **inn** | TIN |
+| **kpp** | Checkpoint |
+| **ogrn** | OGRN |
+| **okpo** | OKPO |
 
 <br>
 
-Если тип юрлица `Физическое лицо`, будут выведены следующие поля реквизитов:
 
-| Название            | Описание                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **legalTitle**      | Полное наименование. Игнорируется, если передано одно из значений для ФИО. Формируется автоматически на основе получаемых ФИО Юрлица       |
-| **legalLastName**   | Фамилия для Контрагента типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Контрагентов типа `[Юридическое лицо]`  |
-| **legalFirstName**  | Имя для Контрагента типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Контрагентов типа `[Юридическое лицо]`      |
-| **legalMiddleName** | Отчество для Контрагента типа `[Индивидуальный предприниматель, Физическое лицо]`. Игнорируется для Контрагентов типа `[Юридическое лицо]` |
-| **legalAddress**    | Юридического адреса юрлица                                                                                                                 |
-| **inn**             | ИНН                                                                                                                                        |
+If the legal entity type is `Individual Entrepreneur`, the following fields of details will be displayed:
 
-О работе с доп. полями юрлиц можно прочитать [здесь](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+| Title | Description|
+| ---------|----------|
+| **certificatedate** | Date of certificate |
+| **certificateNumber** | Certificate number |
+| **inn** | TIN |
+| **legalAddress** | Legal address of a legal entity |
+| **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
+| **legalFirstName** | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName** | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legal title** | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
+| **ogrnip** | OGRNIP |
+| **okpo** | OKPO |
+
+<br>
+
+If the legal entity type is `Individual`, the following fields of details will be displayed:
+
+| Title | Description|
+| ---------|----------|
+| **legal title** | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
+| **legalLastName** | Surnamefor a Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalFirstName** | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalAddress** | Legal address of a legal entity |
+| **inn** | TIN |
+
+About working with fields of legal entities can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
 
-### Получить список юрлиц
-Запрос на получение списка юрлиц на данной учетной записи.
+### Get a list of legal entities
+Request to get a list of legal entities on this account.
 
-| Название    | Тип                                                       | Описание                                           |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                               |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.       |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой юрлица. |
+| Title | Type | Description|
+| ---------| -----| ----------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing a legal entity. |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description|
+| ---------| ---------|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить список юрлиц
+> Get a list of legal entities
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/organization"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/organization"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос.Результат: Объект JSON, включающий в себя поля:
+> Response 200(application/json)
+Successful request. Result: JSON object including fields:
 
 ```json
 {
-  "context": {
-    "employee": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json"
-      },
-      "id": "850c8195-f504-11e5-8a84-bae50000015e",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-04-18 17:26:20",
-      "name": "ООО ОАО ООО ОАО",
-      "description": "юрлицо, делающее основнуб прибыль",
-      "code": "1214124",
-      "externalCode": "6IRv89VSgKY7yQAmAuV7n0",
-      "archived": false,
-      "created": "2007-02-07 17:16:41",
-      "trackingContractNumber": "12345678",
-      "trackingContractDate": "2007-02-07 00:00:00",
-      "legalTitle": "ООО Великое объединение любителей великих объединений",
-      "legalAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 123, addInfo",
-      "legalAddressFull": {
-        "postalCode": "125009",
-        "country": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-            "type": "country",
-            "mediaType": "application/json"
-          }
-        },
-        "region": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-            "type": "region",
-            "mediaType": "application/json"
-          }
-        },
-        "city": "Москва",
-        "street": "ул Тверская",
-        "house": "1",
-        "apartment": "123",
-        "addInfo": "addinfo",
-        "comment": "some words about address"
-      },
-      "actualAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 111, addInfo",
-      "actualAddressFull": {
-        "postalCode": "125009",
-        "country": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-            "type": "country",
-            "mediaType": "application/json"
-          }
-        },
-        "region": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-            "type": "region",
-            "mediaType": "application/json"
-          }
-        },
-        "city": "Москва",
-        "street": "ул Тверская",
-        "house": "1",
-        "apartment": "111",
-        "addInfo": "addinfo",
-        "comment": "some words about address"
-      },
-      "inn": "8274424278",
-      "kpp": "123456789",
-      "ogrn": "121410924",
-      "okpo": "1241252156",
-      "email": "asdad@sfasf.erq",
-      "phone": "fawofyho21f1",
-      "fax": "feisafhn0e12f31",
-      "accounts": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "account",
-          "mediaType": "application/json",
-          "size": 2,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "isEgaisEnable": true,
-      "fsrarId": "1963703",
-      "payerVat": true,
-      "utmUrl": "10.250.110.81",
-      "bonusProgram": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-          "type": "bonusprogram",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
-        }
-      },
-      "bonusPoints": 0
-    }
-  ]
+   context: {
+     "employee": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json"
+       },
+       "id": "850c8195-f504-11e5-8a84-bae50000015e",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-04-18 17:26:20",
+       "name": "OOO OAO OOO OAO",
+       "description": "legal entity making the main profit",
+       "code": "1214124",
+       "externalCode": "6IRv89VSgKY7yQAmAuV7n0",
+       archived: false
+       "created": "2007-02-07 17:16:41",
+       "trackingContractNumber": "12345678",
+       "trackingContractDate": "2007-02-07 00:00:00",
+       "legalTitle": "OOO Great Union of Great Union Lovers",
+       "legalAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
+       "legalAddressFull": {
+         "postalCode": "125009",
+         country: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+             "type": "country",
+             "mediaType": "application/json"
+           }
+         },
+         region: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+             "type": "region",
+             "mediaType": "application/json"
+           }
+         },
+         "city": "Moscowwa",
+         "street": "Tverskaya street",
+         "house": "1",
+         "apartment": "123",
+         "addInfo": "addinfo",
+         "comment": "some words about address"
+       },
+       "actualAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
+       "actualAddressFull": {
+         "postalCode": "125009",
+         country: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+             "type": "country",
+             "mediaType": "application/json"
+           }
+         },
+         region: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+             "type": "region",
+             "mediaType": "application/json"
+           }
+         },
+         "city": "Moscow",
+         "street": "Tverskaya street",
+         "house": "1",
+         "apartment": "111",
+         "addInfo": "addinfo",
+         "comment": "some words about address"
+       },
+       "inn": "8274424278",
+       "kpp": "123456789",
+       "ogrn": "121410924",
+       "okpo": "1241252156",
+       "email": "asdad@sfasf.erq",
+       "phone": "fawofyho21f1",
+       "fax": "feisafhn0e12f31",
+       "accounts": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "account",
+           "mediaType": "application/json",
+           size: 2
+           limit: 1000
+           offset: 0
+         }
+       },
+       "isEgaisEnable": true,
+       "fsrarId": "1963703",
+       payerVat: true
+       "utmUrl": "10.250.110.81",
+       "bonusprogram": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+           "type": "bonus program",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
+         }
+       },
+       "bonus points": 0
+     }
+   ]
 }
 ```
 
-### Создать юрлицо 
-Запрос на создание нового юрлица.
-#### Описание
-Юрлицо создается на основе переданного объекта JSON,
-который содержит представление нового юрлица.
+### Create a legal entity
+Request to create a new legal entity.
+#### Description
+The legal entity is created based on the passed JSON object,
+which contains a representation of the new legal entity.
 
-> Пример создания нового юрлица.
+> An example of creating a new legal entity.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/organization"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{  
-  "name":"ОАО СветПром",
-  "description":"юрлицо, делающее маленькую прибыль",
-  "code":"666",
-  "externalCode":"666АААА666",
-  "archived":false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle":"ООО Великое Свет Пром",
-  "legalAddressFull":{  
-    "postalCode":"125009",
-    "country":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type":"country",
-        "mediaType":"application/json"
-      }
-    },
-    "region":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type":"region",
-        "mediaType":"application/json"
-      }
-    },
-    "city":"Москва",
-    "street":"ул Тверская",
-    "house":"1",
-    "apartment":"123",
-    "addInfo":"addinfo",
-    "comment":"some words about address"
-  },
-  "actualAddressFull":{  
-    "postalCode":"125009",
-    "country":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type":"country",
-        "mediaType":"application/json"
-      }
-    },
-    "region":{  
-      "meta":{  
-        "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type":"region",
-        "mediaType":"application/json"
-      }
-    },
-    "city":"Москва",
-    "street":"ул Тверская",
-    "house":"1",
-    "apartment":"111",
-    "addInfo":"addinfo",
-    "comment":"some words about address"
-  },
-  "inn":"87654321",
-  "kpp":"15312532",
-  "ogrn":"12345",
-  "okpo":"12345",
-  "email":"svetprom@mail.svet",
-  "phone":"22222222",
-  "fax":"bello123",
-  "isEgaisEnable":true,
-  "fsrarId":"1963703",
-  "payerVat":true,
-  "utmUrl":"10.250.110.81",
-  "director":"Кипелова Александра",
-  "directorPosition":"Руководитель отдела",
-  "directorSign" : {
-      "filename": "directorSignTest.png",
-      "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
-  },
-  "chiefAccountant":"Подкупников Иван",
-  "chiefAccountSign" : {
-      "filename": "chiefAccountSignTest.png",
-      "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg=="
-  },
- "stamp" : {
-    "filename": "stampTest.png",
-    "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
- }
-}'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+   "name":"JSC SvetProm",
+   "description":"legal entity making small profits",
+   "code":"666",
+   "externalCode":"666AAAA666",
+   "archived":false,
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle":"Great Light Prom LLC",
+   "legalAddressFull":{
+     "postalCode":"125009",
+     "country":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type":"country",
+         "mediaType":"application/json"
+       }
+     },
+     "region":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type":"region",
+         "mediaType":"application/json"
+       }
+     },
+     "city":"Moscow",
+     "street": "Tverskaya street",
+     "house":"1",
+     "apartment":"123",
+     "addinfo":"addinfo",
+     "comment":"some words about address"
+   },
+   "actualAddressFull":{
+     "postalCode":"125009",
+     "country":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type":"country",
+         "mediaType":"application/json"
+       }
+     },
+     "region":{
+       "meta":{
+         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type":"region",
+         "mediaType":"application/json"
+       }
+     },
+     "city":"Moscow",
+     "street": "Tverskaya street",
+     "house":"1",
+     "apartment":"111",
+     "addinfo":"addinfo",
+     "comment":"some words about address"
+   },
+   "inn":"87654321",
+   "kpp":"15312532",
+   "ogrn":"12345",
+   "okpo":"12345",
+   "email":"svetprom@mail.svet",
+   "phone":"22222222",
+   "fax":"bello123",
+   "isEgaisEnable":true,
+   "fsrarId":"1963703",
+   "payerVat":true,
+   "utmUrl":"10.250.110.81",
+   director:"Kipelova Alexandra",
+   "directorPosition":"Head of department",
+   "directorSign" : {
+       "filename": "directorSignTest.png",
+       "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
+   },
+   "chiefAccountant":"Podkupnikov Ivan",
+   "chiefAccountSign" : {
+       "filename": "chiefAccountSignTest.png",
+       "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg=="
+   },
+  "stamp" : {
+     "filename": "stampTest.png",
+     "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+  }
+}'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного юрлица.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created legal entity.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-04-18 17:53:21",
-  "name": "ОАО СветПром",
-  "description": "юрлицо, делающее маленькую прибыль",
-  "code": "666",
-  "externalCode": "666АААА666",
-  "archived": false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "legalAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 123, addInfo",
-  "legalAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "123",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "actualAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 111, addInfo",
-  "actualAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "111",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetprom@mail.svet",
-  "phone": "22222222",
-  "fax": "bello123",
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "isEgaisEnable": true,
-  "fsrarId": "1963703",
-  "payerVat": true,
-  "utmUrl": "10.250.110.81",
-  "director":"Кипелова Александра",
-   "directorPosition":"Руководитель отдела",
-   "directorSign" : {
-       "meta" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13",
-         "mediaType" : "application/octet-stream"~~~~
-       },
-       "title" : "directorSignTest",
-       "filename" : "directorSignTest.png",
-       "size" : 70,
-       "updated" : "2020-09-23 07:37:26.417",
-       "miniature" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
-         "mediaType" : "image/png",
-         "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
-       }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
    },
-   "chiefAccountant":"Подкупников Иван",
-   "chiefAccountSign" : {
-       "meta" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769",
-         "mediaType" : "application/octet-stream"
-       },
-       "title" : "chiefAccountSignTest",
-       "filename" : "chiefAccountSignTest.png",
-       "size" : 70,
-       "updated" : "2020-09-23 07:37:26.434",
-       "miniature" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
-         "mediaType" : "image/png",
-         "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
-       }
+   "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
    },
-   "stamp" : {
-       "meta" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383",
-         "mediaType" : "application/octet-stream"
-       },
-       "title" : "stampTest",
-       "filename" : "stampTest.png",
-       "size" : 70,
-       "updated" : "2020-09-23 07:37:26.443",
-       "miniature" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
-         "mediaType" : "image/png",
-         "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-04-18 17:53:21",
+   "name": "JSC SvetProm",
+   "description": "legal entity making small profits",
+   "code": "666",
+   "externalCode": "666AAAA666",
+   archived: false
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "legalAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
+   "legalAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
        }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "123",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "actualAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
+   "actualAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "111",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetprom@mail.svet",
+   "phone": "22222222",
+   "fax": "bello123",
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   "isEgaisEnable": true,
+   "fsrarId": "1963703",
+   payerVat: true
+   "utmUrl": "10.250.110.81",
+   "director":"Kipelova Alexandra",
+    "directorPosition":"Head of department",
+    "directorSign" : {
+        "meta" : {
+          "href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13",
+          "mediaType" : "application/octet-stream"~~~~
+        },
+        "title" : "directorSignTest",
+        "filename" : "directorSignTest.png",
+        "size" : 70,
+        "updated" : "2020-09-23 07:37:26.417",
+        "miniature" : {"href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
+          "mediaType" : "image/png",
+          "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+        }
+    },
+    "chiefAccountant":"Podkupnikov Ivan",
+    "chiefAccountSign" : {
+        "meta" : {
+          "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769",
+          "mediaType" : "application/octet-stream"
+        },
+        "title" : "chiefAccountSignTest",
+        "filename" : "chiefAccountSignTest.png",
+        "size" : 70,
+        "updated" : "2020-09-23 07:37:26.434",
+        "miniature" : {
+          "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
+          "mediaType" : "image/png",
+          "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+        }
+    },
+    "stamp" : {
+        "meta" : {
+          "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383",
+          "mediaType" : "application/octet-stream"
+        },
+        "title" : "stampTest",
+        "filename" : "stampTest.png",
+        "size" : 70,
+        "updated" : "2020-09-23 07:37:26.443",
+        "miniature" : {
+          "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
+          "mediaType" : "image/png",
+          "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+        }
+    }
+}
+```
+
+> An example of a request to create a legal entity with legal details for the type Individual Entrepreneur.
+
+```shell
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "IP Ivanov",
+             "code" : "someCode",
+             "externalCode" : "extCode",
+             "companyType": "entrepreneur",
+             "legalLastName": "Ivanov",
+             "legalFirstName": "Ivan",
+             "legalMiddleName": "Ivanovich",
+             "actualAddress": "Moscow, Academician Mil street, 15/21",
+             "legalAddress": "Moscow, Aviastroiteley street 93/12",
+             "inn": "87654321",
+             "kpp": "15312532",
+             "ogrn": "12345",
+             "okpo": "12345",
+             "ogrnip": "58632598y21jk"
+           }'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created legal entity.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=713e2125-b147-11ea-0a80-163500000006"
+   },
+   "id": "713e2125-b147-11ea-0a80-163500000006",
+   "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   version: 0
+   "updated": "2020-06-18 12:38:18",
+   "name": "IP Ivanov",
+   "code": "someCode",
+   "externalCode": "extCode",
+   archived: false
+   "created": "2020-06-18 12:38:18",
+   "companyType": "entrepreneur",
+   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
+   "legalAddress": "Moscow, Aviastroiteley street 93/12",
+   "legalAddressFull": {
+     "addInfo": "Moscow, Aviastroiteley street 93/12"
+   },
+   "actualAddress": "Moscow, Academician Mil street, 15/21",
+   "actualAddressFull": {
+     "addInfo": "Moscow, Academician Mil street 15/21"
+   },
+   "inn": "87654321",
+   "okpo": "12345",
+   "ogrnip": "58632598y21jk",
+   "legalLastName": "Ivanov",
+   "legalFirstName": "Ivan",
+   "legalMiddleName": "Ivanovich",
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006/accounts",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 0
+       limit: 100
+       offset: 0
+     }
+   },
+   "isEgaisEnable":false,
+   payerVat: true
+   "trackingContractDate": null
+}
+```
+
+> An example of creating a new legal entity with additional fields in the request body.
+
+```shell
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+   "name": "JSC SvetProm",
+   "description": "New legal entity",
+   "code": "666",
+   archived: false
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetprom@mail.svet",
+   "phone": "22222222",
+   "fax": "bello123",
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "value": "String value"
+     }
+   ]
+}'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created legal entity.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "id": "bf182d24-12d7-11e6-9464-e4de00000012",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-05-05 18:40:51",
+   "name": "JSC SvetProm",
+   "description": "New legal entity",
+   "code": "666",
+   "externalCode": "sfwafn22-124124sa",
+   archived: false
+   "created": "2007-02-07 17:16:41",
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "legalAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
+   "legalAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "123",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "actualAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
+   "actualAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "111",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetpromgazkamaz@mail.svet",
+   "phone": "22222222",
+   "fax": "belwo123",
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "7f4a6b38-12bb-11e6-9464-e4de00000076",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "String value"
+     }
+   ],
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
    }
 }
 ```
 
-> Пример запроса на создание юрлица с указанием юридических реквизитов для типа Индивидуальный Предприниматель.
+### Legal entities bulk creation and update
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) legal entities.
+In the body of the request, you need to pass an array containing the JSON representation of the legal entities that you want to create or update.
+Updated legal entities must contain the identifier in the form of metadata.
+
+> An example of creating and updating several legal entities
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/organization"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "ИП Иванов",
-            "code" : "someCode",
-            "externalCode" : "extCode",
-            "companyType": "entrepreneur",
-            "legalLastName": "Иванов",
-            "legalFirstName": "Иван",
-            "legalMiddleName": "Иванович",
-            "actualAddress": "г.Москва ул Академика Миля дом 15 к 21",
-            "legalAddress": "г.Москва ул Авиастроителей д 93 к 12",
-            "inn": "87654321",
-            "kpp": "15312532",
-            "ogrn": "12345",
-            "okpo": "12345",
-            "ogrnip": "58632598y21jk"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+   {
+     "name": "JSC SvetProm",
+     "description": "legal entity making small profits",
+     "code": "666",
+     "externalCode": "666AAAA666",
+     archived: false
+     "trackingContractNumber": "12345678",
+     "trackingContractDate": "2007-02-07 00:00:00",
+     "legalTitle": "Great Light Prom LLC",
+     "legalAddress": "Moscow, Lenin street, 42/685",
+     "actualAddress": "Perm Stalin street 75",
+     "inn": "87654321",
+     "kpp": "15312532",
+     "ogrn": "12345",
+     "okpo": "12345",
+     "email": "svetprom@mail.svet",
+     "phone": "22222222",
+     "fax": "bello123",
+     "isEgaisEnable": true,
+     "fsrarId": "1963703",
+     payerVat: true
+     "utmUrl": "10.250.110.81",
+     "director": "Kipelova Alexandra",
+     "chiefAccountant": "Podkupnikov Ivan"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     },
+     "name": "JSC SvetProm",
+     "description": "legal entity making small profits",
+     "code": "666",
+     "externalCode": "666AAAA666",
+     archived: false
+     "trackingContractNumber": "12345678",
+     "trackingContractDate": "2007-02-07 00:00:00",
+     "legalTitle": "Great Light Prom LLC",
+     "legalAddress": "Moscow, Lenin street, 42/685",
+     "actualAddress": "Ufa, Mayakovskogo str. 65",
+     "inn": "87654321",
+     "kpp": "15312532",
+     "ogrn": "12345",
+     "okpo": "12345",
+     "email": "svetprom@mail.svet",
+     "phone": "22222222",
+     "fax": "bello123",
+     payerVat: false
+     "director": "Vzdryzhzhenov Ivan Valerievich",
+     "chiefAccountant": "Kulumbekova Vasilisa Iismailovna"
+   }
+]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного юрлица.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=713e2125-b147-11ea-0a80-163500000006"
-  },
-  "id": "713e2125-b147-11ea-0a80-163500000006",
-  "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "version": 0,
-  "updated": "2020-06-18 12:38:18",
-  "name": "ИП Иванов",
-  "code": "someCode",
-  "externalCode": "extCode",
-  "archived": false,
-  "created": "2020-06-18 12:38:18",
-  "companyType": "entrepreneur",
-  "legalTitle": "Индивидуальный предприниматель Иванов Иван Иванович",
-  "legalAddress": "г.Москва ул Авиастроителей д 93 к 12",
-  "legalAddressFull": {
-    "addInfo": "г.Москва ул Авиастроителей д 93 к 12"
-  },
-  "actualAddress": "г.Москва ул Академика Миля дом 15 к 21",
-  "actualAddressFull": {
-    "addInfo": "г.Москва ул Академика Миля дом 15 к 21"
-  },
-  "inn": "87654321",
-  "okpo": "12345",
-  "ogrnip": "58632598y21jk",
-  "legalLastName": "Иванов",
-  "legalFirstName": "Иван",
-  "legalMiddleName": "Иванович",
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "isEgaisEnable": false,
-  "payerVat": true,
-  "trackingContractDate": null
-}
-```
-
-> Пример создания нового юрлица с доп полями в теле запроса.
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/organization"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-  "name": "ОАО СветПром",
-  "description": "Новое юрлицо",
-  "code": "666",
-  "archived": false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetprom@mail.svet",
-  "phone": "22222222",
-  "fax": "bello123",
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "value": "Строковое значение"
-    }
-  ]
-}'  
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного юрлица.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "id": "bf182d24-12d7-11e6-9464-e4de00000012",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-05-05 18:40:51",
-  "name": "ОАО СветПром",
-  "description": "Новое юрлицо",
-  "code": "666",
-  "externalCode": "sfwafn22-124124sa",
-  "archived": false,
-  "created": "2007-02-07 17:16:41",
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "legalAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 123, addInfo",
-  "legalAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "123",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "actualAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 111, addInfo",
-  "actualAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "111",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetpromgazkamaz@mail.svet",
-  "phone": "22222222",
-  "fax": "belwo123",
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "7f4a6b38-12bb-11e6-9464-e4de00000076",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "Строковое значение"
-    }
-  ],
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
-}
-```
-
-### Массовое создание и обновление юрлиц 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) юрлиц.
-В теле запроса нужно передать массив, содержащий JSON представления юрлиц, которые вы хотите создать или обновить.
-Обновляемые юрлица должны содержать идентификатор в виде метаданных.
-
-> Пример создания и обновления нескольких юрлиц
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/organization"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-  {
-    "name": "ОАО СветПром",
-    "description": "юрлицо, делающее маленькую прибыль",
-    "code": "666",
-    "externalCode": "666АААА666",
-    "archived": false,
-    "trackingContractNumber": "12345678",
-    "trackingContractDate": "2007-02-07 00:00:00",
-    "legalTitle": "ООО Великое Свет Пром",
-    "legalAddress": "г Москва ул Ленин д 42/685",
-    "actualAddress": "г Пермь ул Сталина д 75",
-    "inn": "87654321",
-    "kpp": "15312532",
-    "ogrn": "12345",
-    "okpo": "12345",
-    "email": "svetprom@mail.svet",
-    "phone": "22222222",
-    "fax": "bello123",
-    "isEgaisEnable": true,
-    "fsrarId": "1963703",
-    "payerVat": true,
-    "utmUrl": "10.250.110.81",
-    "director": "Кипелова Александра",
-    "chiefAccountant": "Подкупников Иван"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    },
-    "name": "ОАО СветПром",
-    "description": "юрлицо, делающее маленькую прибыль",
-    "code": "666",
-    "externalCode": "666АААА666",
-    "archived": false,
-    "trackingContractNumber": "12345678",
-    "trackingContractDate": "2007-02-07 00:00:00",
-    "legalTitle": "ООО Великое Свет Пром",
-    "legalAddress": "г Москва ул Ленин д 42/685",
-    "actualAddress": "г Уфа ул Маяковского д 65",
-    "inn": "87654321",
-    "kpp": "15312532",
-    "ogrn": "12345",
-    "okpo": "12345",
-    "email": "svetprom@mail.svet",
-    "phone": "22222222",
-    "fax": "bello123",
-    "payerVat": false,
-    "director": "Вздрыжженов Иван Валерьевич",
-    "chiefAccountant": "Кулумбекова Василиса Иисмаиловна"
-  }
-]'  
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных юрлиц.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of created and updated legal entities.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    },
-    "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
-    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-04-18 17:53:21",
-    "name": "ОАО СветПром",
-    "description": "юрлицо, делающее маленькую прибыль",
-    "code": "666",
-    "externalCode": "666АААА666",
-    "archived": false,
-    "trackingContractNumber": "12345678",
-    "trackingContractDate": "2007-02-07 00:00:00",
-    "legalTitle": "ООО Великое Свет Пром",
-    "legalAddress": "г Москва ул Ленин д 42/685",
-    "actualAddress": "г Пермь ул Сталина д 75",
-    "inn": "87654321",
-    "kpp": "15312532",
-    "ogrn": "12345",
-    "okpo": "12345",
-    "email": "svetprom@mail.svet",
-    "phone": "22222222",
-    "fax": "bello123",
-    "accounts": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "account",
-        "mediaType": "application/json",
-        "size": 1,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "isEgaisEnable": true,
-    "fsrarId": "1963703",
-    "payerVat": true,
-    "utmUrl": "10.250.110.81"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    },
-    "id": "bf182d24-12d7-11e6-9464-e4de00000012",
-    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-05-05 18:40:51",
-    "name": "ОАО СветГАЗКАМАЗПром",
-    "description": "Новое юрлицо",
-    "code": "666",
-    "externalCode": "sfwafn22-124124sa",
-    "archived": false,
-    "created": "2007-02-07 17:16:41",
-    "trackingContractNumber": "12345678",
-    "trackingContractDate": "2007-02-07 00:00:00",
-    "legalTitle": "ООО Великое Сообщество КАМАЗ ПРОМ",
-    "legalAddress": "г Москва ул Ленина д 42/685",
-    "actualAddress": "г Уфа ул Маяковского д 65",
-    "inn": "87654321",
-    "kpp": "15312532",
-    "ogrn": "12345",
-    "okpo": "12345",
-    "email": "svetpromgazkamaz@mail.svet",
-    "phone": "22222222",
-    "fax": "belwo123",
-    "accounts": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
-        "type": "account",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "payerVat": false,
-    "director": "Вздрыжженов Иван Валерьевич",
-    "chiefAccountant": "Кулумбекова Василиса Иисмаиловна"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     },
+     "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
+     "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-04-18 17:53:21",
+     "name": "JSC SvetProm",
+     "description": "legal entity making small profits",
+     "code": "666",
+     "externalCode": "666AAAA666",
+     archived: false
+     "trackingContractNumber": "12345678",
+     "trackingContractDate": "2007-02-07 00:00:00",
+     "legalTitle": "Great Light Prom LLC",
+     "legalAddress": "Moscow, Lenin street, 42/685",
+     "actualAddress": "Perm Stalin street 75",
+     "inn": "87654321",
+     "kpp": "15312532",
+     "ogrn": "12345",
+     "okpo": "12345",
+     "email": "svetprom@mail.svet",
+     "phone": "22222222",
+     "fax": "bello123",
+     "accounts": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "account",
+         "mediaType": "application/json",
+         size: 1
+         limit: 1000
+         offset: 0
+       }
+     },
+     "isEgaisEnable": true,
+     "fsrarId": "1963703",
+     payerVat: true
+     "utmUrl": "10.250.110.81"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata","type": "organization",
+       "mediaType": "application/json"
+     },
+     "id": "bf182d24-12d7-11e6-9464-e4de00000012",
+     "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-05-05 18:40:51",
+     "name": "JSC SvetGAZKAMAZProm",
+     "description": "New legal entity",
+     "code": "666",
+     "externalCode": "sfwafn22-124124sa",
+     archived: false
+     "created": "2007-02-07 17:16:41",
+     "trackingContractNumber": "12345678",
+     "trackingContractDate": "2007-02-07 00:00:00",
+     "legalTitle": "LLC Great Community KAMAZ PROM",
+     "legalAddress": "Moscow, Lenin street, 42/685",
+     "actualAddress": "Ufa, Mayakovskogo str. 65",
+     "inn": "87654321",
+     "kpp": "15312532",
+     "ogrn": "12345",
+     "okpo": "12345",
+     "email": "svetpromgazkamaz@mail.svet",
+     "phone": "22222222",
+     "fax": "belwo123",
+     "accounts": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
+         "type": "account",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     },
+     payerVat: false
+     "director": "Vzdryzhzhenov Ivan Valerievich",
+     "chiefAccountant": "Kulumbekova Vasilisa Iismailovna"
+   }
 ]
 ```
 
-### Удалить юрлицо
+### Delete legal entity
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                       |
-| :------- | :----------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id юрлица. |
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID. |
 
-> Запрос на удаление юрлица с указанным id.
+> Request to delete a legal entity with the specified ID.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление юрлица.
+> Response 200(application/json)
+Successful deletion of the legal entity.
 
-### Массовое удаление Организаций
+### Mass removal of Organizations
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Организаций, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Organizations that you want to remove.
 
 
-> Запрос на массовое удаление Организаций. 
+> Request for mass deletion of Organizations.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/organization/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-            "type": "organization",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-            "type": "organization",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/organization/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+             "type": "organization",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+             "type": "organization",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Организаций.
+> Successful request. The result is JSON information about deleting Organizations.
 
 ```json
 [
-  {
-    "info":"Сущность 'organization' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'organization' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'organization' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   },
+   {
+     "info":"Entity 'organization' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   }
 ]
 ```
 
-### Метаданные юрлиц
-Запрос на получение метаданных юрлиц. Результат - объект JSON, включающий в себя:
+### Legal entities metadata
+Request for obtaining metadata of legal entities. The result is a JSON object including:
 
-| Название         | Тип                                                       | Описание                                                                                                   |
-| ---------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на метаданные юрлиц                                                                                 |
-| **attributes**   | Array(Object)                                             | Массив объектов доп. полей юрлиц в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **createShared** | Boolean                                                   | Создавать новые юрлица с меткой "Общий"                                                                    |
+| Title| Type| Description |
+| ---------| -----| ----------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata of legal entities |
+| **attributes** | Array(Object) | Array of objects add. legal entity fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **createShared** | Boolean | Create new legal entities labeled "General" |
 
-Структура отдельного объекта, представляющего доп. поле подробно описана в разделе [Работа с дополнительными полями](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-> Метаданные юрлиц
-
-```shell
-curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/organization/metadata"
-  -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. полей юрлиц.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": [
-    {
-      "id": "5290a290-0313-11e6-9464-e4de00000020",
-      "name": "AttributeName1",
-      "type": "boolean",
-      "required": false
-    }
-  ],
-  "createShared": true
-}
-```
-
-### Отдельное доп. поле
-
-**Параметры**
-
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id Доп. поля. |
-
-> Запрос на получение информации по отдельному дополнительному полю.
+> Metadata of legal entities
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/organization/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного доп. поля.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the add. fields of legal entities.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "5290a290-0313-11e6-9464-e4de00000020",
-  "name": "AttributeName1",
-  "type": "boolean",
-  "required": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": [
+     {
+       "id": "5290a290-0313-11e6-9464-e4de00000020",
+       "name": "AttributeName1",
+       "type": "boolean",
+       "required": false
+     }
+   ],
+   "createShared": true
 }
 ```
 
-### Юрлицо
+### Separate additional field
 
-### Получить юрлицо 
-Запрос на получение юрлица с указанным id.
+**Parameters**
 
-**Параметры**
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* ID fields. |
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id юрлица.                                                         |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-
-> Пример 1
+> Request for information on a separate additional field.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление юрлица с указанным id.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate add. fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-04-18 17:57:27",
-  "name": "ОАО СветПром",
-  "description": "юрлицо, делающее маленькую прибыль",
-  "code": "666",
-  "externalCode": "666АААА666",
-  "archived": false,
-  "created": "2007-02-07 17:16:41",
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "legalAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 123, addInfo",
-  "legalAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "123",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "actualAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 111, addInfo",
-  "actualAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "111",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "ogrnip": "58632598y21jk",
-  "certificateNumber": "klghvew983412",
-  "certificateDate": "2016-04-30 00:00:00",
-  "email": "svetprom@mail.svet",
-  "phone": "22222222",
-  "fax": "bello123",
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "isEgaisEnable": true,
-  "fsrarId": "1963703",
-  "payerVat": true,
-  "utmUrl": "10.250.110.81",
-  "director": "Администратор",
-  "chiefAccountant": "Администратор",
-  "bonusProgram": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-      "type": "bonusprogram",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
-    }
-  },
-  "bonusPoints": 0
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "type": "attributemetadata",
+     "mediaType": "application/json"
+   },
+   "id": "5290a290-0313-11e6-9464-e4de00000020",
+   "name": "AttributeName1",
+   "type": "boolean",
+   "required": false
 }
 ```
 
-> Пример 2
+### Entity
+
+### Get a legal entity
+Request for obtaining a legal entity with the specified ID.
+
+**Parameters**
+
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+
+> Example 1
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление юрлица с указанным id.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the legal entity with the specified ID.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
-  },
-  "id": "7944ef04-f831-11e5-7a69-971500188b19",
-  "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "version": 0,
-  "updated": "2020-06-18 12:38:18",
-  "name": "ИП Иванов",
-  "code": "someCode",
-  "externalCode": "extCode",
-  "archived": false,
-  "created": "2020-06-18 12:38:18",
-  "companyType": "entrepreneur",
-  "legalTitle": "Индивидуальный предприниматель Иванов Иван Иванович",
-  "legalAddress": "г.Москва ул Авиастроителей д 93 к 12",
-  "legalAddressFull": {
-    "addInfo": "г.Москва ул Авиастроителей д 93 к 12"
-  },
-  "actualAddress": "г.Москва ул Академика Миля дом 15 к 21",
-  "actualAddressFull": {
-    "addInfo": "г.Москва ул Академика Миля дом 15 к 21"
-  },
-  "inn": "87654321",
-  "okpo": "12345",
-  "ogrnip": "58632598y21jk",
-  "legalLastName": "Иванов",
-  "legalFirstName": "Иван",
-  "legalMiddleName": "Иванович",
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "isEgaisEnable": false,
-  "payerVat": true,
-  "trackingContractDate": null
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-04-18 17:57:27",
+   "name": "JSC SvetProm",
+   "description": "legal entity making small profits",
+   "code": "666",
+   "externalCode": "666AAAA666",
+   archived: false
+   "created": "2007-02-07 17:16:41",
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "legalAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
+   "legalAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "123",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "actualAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
+   "actualAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "111",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "ogrnip": "58632598y21jk",
+   "certificateNumber": "klghvew983412",
+   "certificateDate": "2016-04-30 00:00:00",
+   "email": "svetprom@mail.svet",
+   "phone": "22222222",
+   "fax": "bello123",
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   "isEgaisEnable": true,
+   "fsrarId": "1963703",
+   payerVat: true
+   "utmUrl": "10.250.110.81",
+   "director": "Administrator",
+   "chiefAccountant": "Administrator",
+   "bonusprogram": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+       "type": "bonus program",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
+     }
+   },
+   "bonus points": 0
 }
 ```
 
-### Изменить юрлицо 
-Запрос на обновление юрлица с указанным id.
-
-**Параметры**
-
-| Параметр                       | Описание                                                                       |
-| ------------------------------ | :----------------------------------------------------------------------------- |
-| **id**                         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id юрлица. |
-
-> Пример запроса на обновление юрлица с указанным id.
+> Example 2
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-  "name": "ОАО СветПром",
-  "description": "юрлицо, делающее маленькую прибыль",
-  "code": "666",
-  "externalCode": "666АААА666",
-  "archived": false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "legalAddress": "г Москва ул Ленин д 42/685",
-  "actualAddress": "г Пермь ул Сталина д 75",
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetprom@mail.svet",
-  "phone": "22222222",
-  "fax": "bello123",
-  "isEgaisEnable": true,
-  "fsrarId": "1963703",
-  "payerVat": true,
-  "utmUrl": "10.250.110.81",
-  "director": "Кипелова Александра",
-  "chiefAccountant": "Подкупников Иван"
-}'  
+curl -X GET
+   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON обновленного юрлица.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the legal entity with the specified ID.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-04-18 17:53:21",
-  "name": "ОАО СветПром",
-  "description": "юрлицо, делающее маленькую прибыль",
-  "code": "666",
-  "externalCode": "666АААА666",
-  "archived": false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "legalAddress": "г Москва ул Ленин д 42/685",
-  "actualAddress": "г Пермь ул Сталина д 75",
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetprom@mail.svet",
-  "phone": "22222222",
-  "fax": "bello123",
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "isEgaisEnable": true,
-  "fsrarId": "1963703",
-  "payerVat": true,
-  "utmUrl": "10.250.110.81"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b19",
+   "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   version: 0
+   "updated": "2020-06-18 12:38:18",
+   "name": "IP Ivanov",
+   "code": "someCode",
+   "externalCode": "extCode",
+   archived: false
+   "created": "2020-06-18 12:38:18",
+   "companyType": "entrepreneur",
+   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
+   "legalAddress": "Moscow, Aviastroiteley street 93/12",
+   "legalAddressFull": {
+     "addInfo": "Moscow, Aviastroiteley street 93/12"
+   },
+   "actualAddress": "Moscow, Academician Mil street, 15/21",
+   "actualAddressFull": {
+     "addInfo": "Moscow, Academician Mil street 15/21"
+   },
+   "inn": "87654321",
+   "okpo": "12345",
+   "ogrnip": "58632598y21jk",
+   "legalLastName": "Ivanov",
+   "legalFirstName": "Ivan",
+   "legalMiddleName": "Ivanovich",
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 0
+       limit: 100
+       offset: 0
+     }
+   },
+   "isEgaisEnable": false,
+   payerVat: true
+   "trackingContractDate": null
 }
 ```
 
-> Пример запроса на обновление юрлица с указанным id.
+### Change legal entity
+Request to update the legal entity with the specified ID.
+
+**Parameters**
+
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID. |
+
+> An example of a request to update a legal entity with the specified ID.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-  "name": "ОАО СветПром",
-  "description": "юрлицо, делающее маленькую прибыль",
-  "code": "666",
-  "externalCode": "666АААА666",
-  "archived": false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "legalTitle": "ООО Великое Свет Пром",
-  "legalAddressFull": {
-  "postalCode": "125009",
-  "country": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-      "type": "country",
-      "mediaType": "application/json"
-    }
-  },
-  "region": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-      "type": "region",
-      "mediaType": "application/json"
-    }
-  },
-  "city": "Москва",
-  "street": "ул Тверская",
-  "house": "1",
-  "apartment": "123",
-  "addInfo": "addinfo",
-  "comment": "some words about address"
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+   "name": "JSC SvetProm",
+   "description": "legal entity making small profits",
+   "code": "666",
+   "externalCode": "666AAAA666",
+   archived: false
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "legalAddress": "Moscow, Lenin street, 42/685",
+   "actualAddress": "g PermSt. Stanislav d 75",
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetprom@mail.svet",
+   "phone": "22222222",
+   "fax": "bello123",
+   "isEgaisEnable": true,
+   "fsrarId": "1963703",
+   payerVat: true
+   "utmUrl": "10.250.110.81",
+   "director": "Kipelova Alexandra",
+   "chiefAccountant": "Podkupnikov Ivan"
+}'
+```
+
+> Response 200(application/json)
+Successful request. The result is JSON of the updated legal entity.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "id": "4b9d5bec-0575-11e6-9464-e4de00000008",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-04-18 17:53:21",
+   "name": "JSC SvetProm",
+   "description": "legal entity making small profits",
+   "code": "666",
+   "externalCode": "666AAAA666",
+   archived: false
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "legalAddress": "Moscow, Lenin street, 42/685",
+   "actualAddress": "Perm Stalin street 75",
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetprom@mail.svet",
+   "phone": "22222222",
+   "fax": "bello123",
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   "isEgaisEnable": true,
+   "fsrarId": "1963703",
+   payerVat: true
+   "utmUrl": "10.250.110.81"
+}
+```
+
+> An example of a request to update a legal entity with the specified ID.
+
+```shell
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+   "name": "JSC SvetProm",
+   "description": "legal entity making small profits",
+   "code": "666",
+   "externalCode": "666AAAA666",
+   archived: false
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "legalTitle": "Great Light Prom LLC",
+   "legalAddressFull": {
+   "postalCode": "125009",
+   country: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+       "type": "country",
+       "mediaType": "application/json"
+     }
+   },
+   region: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+       "type": "region",
+       "mediaType": "application/json"
+     }
+   },
+   "city": "Moscow",
+   "street": "Tverskaya street",
+   "house": "1",
+   "apartment": "123",
+   "addInfo": "addinfo",
+   "comment": "some words about address"
 },
 "actualAddressFull": {
-  "postalCode": "125009",
-  "country": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-      "type": "country",
-      "mediaType": "application/json"
-    }
-  },
-  "region": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-      "type": "region",
-      "mediaType": "application/json"
-    }
-  },
-  "city": "Москва",
-  "street": "ул Тверская",
-  "house": "1",
-  "apartment": "111",
-  "addInfo": "addinfo",
-  "comment": "some words about address"
+   "postalCode": "125009",
+   country: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+       "type": "country",
+       "mediaType": "application/json"
+     }
+   },
+   region: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+       "type": "region",
+       "mediaType": "application/json"
+     }
+   },
+   "city": "Moscow",
+   "street": "Tverskaya street",
+   "house": "1",
+   "apartment": "111",
+   "addInfo": "addinfo",
+   "comment": "some words about address"
 },
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetprom@mail.svet",
-  "phone": "22222222",
-  "fax": "bello123",
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "value": "Такая Строка"
-    }
-  ],
-  "payerVat": false,
-  "director": "Вздрыжженов Иван Валерьевич",
-  "chiefAccountant": "Кулумбекова Василиса Иисмаиловна"
-}'  
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetprom@mail.svet",
+   "phone": "22222222",
+   "fax": "bello123",
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"},
+       "value": "Such String"
+     }
+   ],
+   payerVat: false
+   "director": "Vzdryzhzhenov Ivan Valerievich",
+   "chiefAccountant": "Kulumbekova Vasilisa Iismailovna"
+}'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON обновленного юрлица.
+> Response 200(application/json)
+Successful request. The result is JSON of the updated legal entity.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "organization",
-    "mediaType": "application/json"
-  },
-  "id": "bf182d24-12d7-11e6-9464-e4de00000012",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-05-05 18:40:51",
-  "name": "ОАО СветГАЗКАМАЗПром",
-  "description": "Новое юрлицо",
-  "code": "666",
-  "externalCode": "sfwafn22-124124sa",
-  "archived": false,
-  "trackingContractNumber": "12345678",
-  "trackingContractDate": "2007-02-07 00:00:00",
-  "created": "2007-02-07 17:16:41",
-  "legalTitle": "ООО Великое Сообщество КАМАЗ ПРОМ",
-  "legalAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 123, addInfo",
-  "legalAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "123",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "actualAddress": "125009, Россия, г Москва, Москва, ул Тверская, 1, 111, addInfo",
-  "actualAddressFull": {
-    "postalCode": "125009",
-    "country": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-        "type": "country",
-        "mediaType": "application/json"
-      }
-    },
-    "region": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-        "type": "region",
-        "mediaType": "application/json"
-      }
-    },
-    "city": "Москва",
-    "street": "ул Тверская",
-    "house": "1",
-    "apartment": "111",
-    "addInfo": "addinfo",
-    "comment": "some words about address"
-  },
-  "inn": "87654321",
-  "kpp": "15312532",
-  "ogrn": "12345",
-  "okpo": "12345",
-  "email": "svetpromgazkamaz@mail.svet",
-  "phone": "22222222",
-  "fax": "belwo123",
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "7f4a6b38-12bb-11e6-9464-e4de00000076",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "Строковое значение"
-    }
-  ],
-  "accounts": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payerVat": false,
-  "director": "Вздрыжженов Иван Валерьевич",
-  "chiefAccountant": "Кулумбекова Василиса Иисмаиловна"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "organization",
+     "mediaType": "application/json"
+   },
+   "id": "bf182d24-12d7-11e6-9464-e4de00000012",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-05-05 18:40:51",
+   "name": "JSC SvetGAZKAMAZProm",
+   "description": "New legal entity",
+   "code": "666",
+   "externalCode": "sfwafn22-124124sa",
+   archived: false
+   "trackingContractNumber": "12345678",
+   "trackingContractDate": "2007-02-07 00:00:00",
+   "created": "2007-02-07 17:16:41",
+   "legalTitle": "LLC Great Community KAMAZ PROM",
+   "legalAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
+   "legalAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "123",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "actualAddress": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
+   "actualAddressFull": {
+     "postalCode": "125009",
+     country: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "type": "country",
+         "mediaType": "application/json"
+       }
+     },
+     region: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "type": "region",
+         "mediaType": "application/json"
+       }
+     },
+     "city": "Moscow",
+     "street": "Tverskaya street",
+     "house": "1",
+     "apartment": "111",
+     "addInfo": "addinfo",
+     "comment": "some words about address"
+   },
+   "inn": "87654321",
+   "kpp": "15312532",
+   "ogrn": "12345",
+   "okpo": "12345",
+   "email": "svetpromgazkamaz@mail.svet",
+   "phone": "22222222",
+   "fax": "belwo123",
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "7f4a6b38-12bb-11e6-9464-e4de00000076",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "String value"
+     }
+   ],
+   "accounts": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
+       "type": "account",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   payerVat: false
+   "director": "Vzdryzhzhenov Ivan Valerievich",
+   "chiefAccountant": "Kulumbekova Vasilisa Iismailovna"
 }
 ```
 
-### Счета юрлица
+### Legal entity accounts
 
-### Получить список счетов юрлица 
-Возвращает массив JSON представлений счетов юрлица.
+### Get a list of accounts of a legal entity
+Returns a JSON array of legal entity account representations.
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id юрлица.                                                         |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить список счетов юрлица
+> Get a list of accounts of a legal entity
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+   -H "Authorization: Basic <Credentials>"
 ```
  
-> Response 200 (application/json)
-Успешный запрос.
+> Response 200(application/json)
+Successful request.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-    "type": "account",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "account",
-        "mediaType": "application/json"
-      },
-      "id": "4b9d69b7-0575-11e6-9464-e4de00000009",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "updated": "2016-04-18 17:53:21",
-      "isDefault": true,
-      "agent": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "type": "account",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "account",
+         "mediaType": "application/json"
+       },
+       "id": "4b9d69b7-0575-11e6-9464-e4de00000009",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "updated": "2016-04-18 17:53:21",
+       isDefault: true
+       agent: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Изменить счета юрлица
-#### Описание
-Обновляются счета юрлица с указанным id.
-Обновляются все поля, указанные в JSON объекте запроса, кроме
-помеченных `Только для чтения` в описании [атрибутов счетов юрлица](../dictionaries/#suschnosti-jurlico-scheta-urlica).
-Поля, которые не были указаны в JSON запроса, не изменяются.
+### Change legal entity accounts
+#### Description
+The accounts of the legal entity with the specified ID are updated.
+All fields specified in the request JSON object are updated, except for
+marked `Read only` in the description of [legal entity account attributes](../dictionaries/#suschnosti-jurlico-scheta-urlica).
+Fields that were not specified in the request JSON are not changed.
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                       |
-| ------------------------------ | :----------------------------------------------------------------------------- |
-| **id**                         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id юрлица. |
+| Parameter | Description|
+| ---------| ---------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID. |
 
-> Изменить счета юрлица
+> Change legal entity accounts
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
-      "type": "account",
-      "mediaType": "application/json"
-    },
-    "id": "d9560d0e-6703-11e7-9464-e4de00000052",
-    "isDefault": false,
-    "accountNumber": "1234567876543",
-    "bankName": "\"ОАО Сбербm;анк\"",
-    "bankLocation": "г Моl;;lсква",
-    "correspondentAccount": "12314124jkjj2451",
-    "bic": "21412hhhh4"
-  },
-  {
-    "isDefault": false,
-    "accountNumber": "1234567876543",
-    "bankName": "\"ОАО БАНК\"",
-    "bankLocation": "г Москва",
-    "correspondentAccount": "12314124jkjj2451",
-    "bic": "21412555554"
-  }
-]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+       "type": "account",
+       "mediaType": "application/json"
+     },
+     "id": "d9560d0e-6703-11e7-9464-e4de00000052",
+     isDefault: false
+     "accountNumber": "1234567876543",
+     "bankName": "\"JSC Sberbm;ank\"",
+     "bankLocation": "g Mol;;lskva",
+     "correspondentAccount": "12314124jkjj2451",
+     "bic": "21412hhhh4"
+   },
+   {
+     isDefault: false
+     "accountNumber": "1234567876543",
+     "bankName": "\"JSC BANK\"",
+     "bankLocation": "Moscow",
+     "correspondentAccount": "12314124jkjj2451",
+     "bic": "21412555554"
+   }
+]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос.
+> Response 200(application/json)
+Successful request.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
-      "type": "account",
-      "mediaType": "application/json"
-    },
-    "id": "d9560d0e-6703-11e7-9464-e4de00000052",
-    "accountId": "d8a2e973-6703-11e7-9464-e4de00000001",
-    "updated": "2017-07-12 16:13:08",
-    "isDefault": true,
-    "accountNumber": "1234567876543",
-    "bankName": "\"ОАО Сбербm;анк\"",
-    "bankLocation": "г Моl;;lсква",
-    "correspondentAccount": "12314124jkjj2451",
-    "bic": "21412hhhh4"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/97fc6499-b96f-11e7-9464-e4de00000006",
-      "type": "account",
-      "mediaType": "application/json"
-    },
-    "id": "97fc6499-b96f-11e7-9464-e4de00000006",
-    "accountId": "d8a2e973-6703-11e7-9464-e4de00000001",
-    "updated": "2017-10-25 13:31:00",
-    "isDefault": false,
-    "accountNumber": "1234567876543",
-    "bankName": "\"ОАО БАНК\"",
-    "bankLocation": "г Москва",
-    "correspondentAccount": "12314124jkjj2451",
-    "bic": "21412555554"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+       "type": "account",
+       "mediaType": "application/json"
+     },
+     "id": "d9560d0e-6703-11e7-9464-e4de00000052",
+     "accountId": "d8a2e973-6703-11e7-9464-e4de00000001",
+     "updated": "2017-07-12 16:13:08",
+     isDefault: true
+     "accountNumber": "1234567876543",
+     "bankName": "\"JSC Sberbm;ank\"",
+     "bankLocation": "g Mol;;lskva",
+     "correspondentAccount": "12314124jkjj2451",
+     "bic": "21412hhhh4"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/97fc6499-b96f-11e7-9464-e4de00000006",
+       "type": "account",
+       "mediaType": "application/json"
+     },
+     "id": "97fc6499-b96f-11e7-9464-e4de00000006",
+     "accountId": "d8a2e973-6703-11e7-9464-e4de00000001",
+     "updated": "2017-10-25 13:31:00",
+     isDefault: false
+     "accountNumber": "1234567876543",
+     "bankName": "\"JSC BANK\"",
+     "bankLocation": "Moscow",
+     "correspondentAccount": "12314124jkjj2451",
+     "bic": "21412555554"
+   }
 ]
 ```

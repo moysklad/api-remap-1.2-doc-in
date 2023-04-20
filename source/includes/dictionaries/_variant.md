@@ -1,1549 +1,1551 @@
-## Модификация
+## Product variant
+### Product variants
 
-### Модификации 
-Средствами JSON API можно создавать и обновлять сведения о Модификациях товаров, запрашивать списки Модификаций товаров и сведения по отдельным Модификациям. Кодом сущности для Модификации в составе JSON API является ключевое слово **variant**. Больше о Модификациях товаров и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по
- [этой ссылке](https://support.moysklad.ru/hc/ru/articles/203325413-%D0%9C%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2),
- а также больше о работе с товарами [здесь](https://support.moysklad.ru/hc/ru/categories/360001132417).
-По данной сущности можно осуществлять контекстный поиск с помощью специального параметра `search`. Подробнее можно узнать по [ссылке](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). Поиск с параметром search отличается от других тем, что поиск не префиксный, без токенизации и идет только по одному полю одновременно. Ищет такие строки, в которые входит значение строки поиска.
+Using the JSON API, you can create and update information about Product variants, query lists of Product variants, and information on individual Product variants. The entity code for a Product variant in the JSON API is the **variant** keyword.
 
-Поиск среди объектов модификаций на соответствие поисковой строке будет осуществлен по следующим полям:
+Learn more about [Product variants](https://kladana.zendesk.com/hc/en-us/articles/360009722997-Manage-product-variants), [Products](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
-+ по наименованию товара с Модификацией **name**
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
-Возможна фильтрация списка Модификаций по **id** товара - параметр фильтрации **productid**. Доступные операторы фиьтрации `=` `!=` .
-Подробнее про фильтрацию можно прочитать в разделе [Фильтрация выборки с помощью параметра filter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
+The search among the objects of Product variants to match the search string will be carried out in the following fields:
 
-Примеры:
++ by product name with Product variant **name**
+
+It is possible to filter the list of Product variants by product **id** - filtering parameter **productid**. The available filter operators are `=` `!=` .
+You can read more about filtering in the section [Filtering a selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
+
+Examples:
 
 + `filter=productid=677c4032-8667-11e6-8a84-bae500003344`
 + `filter=productid!=677c4032-8667-11e6-8a84-bae500003344`
 + `filter=productid=677c4032-8667-11e6-8a84-bae500003344;productid=421c4032-4709-31e4-1d2r-awe5000025me`
 
-#### Атрибуты Сущности
-| Название               | Тип                                                       | Фильтрация                  | Описание                                                                                                                                                                                                                                    |
-| ---------------------- | :-------------------------------------------------------- | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **accountId**          | UUID                                                      | `=` `!=`                    | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                        |
-| **archived**           | Boolean                                                   | `=` `!=`                    | Добавлен ли товар в архив<br>`+Обязательное при ответе`                                                                                                                                                                                     |
-| **barcodes**           | Array(Object)                                             | `=` `!=` `~` `~=` `=~`                            | Массив штрихкодов модификации. [Подробнее тут](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody)                                                                                             |
-| **buyPrice**           | Object                                                    |                             | Закупочная цена                                                                                                                                                                                                                             |
-| **characteristics**    | Array(Object)                                             |                             | Характеристики Модификации. [Подробнее тут](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Обязательное при ответе` `+Необходимо при создании` |
-| **code**               | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Код Модификации                                                                                                                                                                                                                             |
-| **discountProhibited** | Boolean                                                   |                             | Признак запрета скидок<br>`+Обязательное при ответе`                                                                                                                                                                                        |
-| **externalCode**       | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Внешний код Модификации<br>`+Обязательное при ответе`                                                                                                                                                                                       |
-| **id**                 | UUID                                                      | `=` `!=`                    | ID Модификации<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                           |
-| **images**             | MetaArray                                                 |                             | Массив метаданных [Изображений](../dictionaries/#suschnosti-izobrazhenie) (Максимальное количество изображений - 10)<br>`+Обязательное при ответе` `+Expand`                                                                                |
-| **meta**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные Модификации<br>`+Обязательное при ответе`                                                                                                                                                                                        |
-| **minPrice**           | Object                                                    |                             | Минимальная цена. [Подробнее тут](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena)                                                                                                     |
-| **name**               | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Наименование товара с Модификацией<br>`+Обязательное при ответе`                                                                                                                                                                            |
-| **packs**              | Array(Object)                                             |                             | Упаковки модификации [Подробнее тут](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii)                                                                                              |
-| **product**            | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные [товара](../dictionaries/#suschnosti-towar), к которому привязана Модификация<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании`                                                                                 |
-| **salePrices**         | Array(Object)                                             |                             | Цены продажи. [Подробнее тут](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi)                                                                                                            |
-| **things**             | Array(String)                                             |                             | Серийные номера<br>`+Только для чтения`                                                                                                                                                                                                     |
-| **updated**            | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`  | Момент последнего обновления сущности<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                    |
+#### Entity Attributes
 
-#### Атрибуты доступные для сортировки
+| Title | Type | Filtration | Description |
+| ------| ------- | ------- | ------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | `=` `!=` | Whether the product was added to the archive<br>`+Required when replying` |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody) |
+| **buyprice** | object | | Purchase price |
+| **characteristics** | Array(Object) | | Characteristics Product variants. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Required when answering` `+Required when creating` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product variant Code |
+| **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
+| **id** | UUID | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
+| **images** | MetaArray | | [Images] metadata array(../dictionaries/#suschnosti-izobrazhenie) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Product variant Metadata<br>`+Required when replying` |
+| **minprice** | object | | Minimum price. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
+| **packs** | Array(Object) | | Product variant packages [Details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
+| **product** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the [product](../dictionaries/#suschnosti-towar) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **saleprice** | Array(Object) | | Sale prices. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **things** | Array(String) | | Serial Numbers<br>`+Read Only` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
-| Название         | Описание                            |
-| ---------------- | ----------------------------------- |
-| **code**         | Код Модификации                     |
-| **externalCode** | Внешний код Модификации             |
-| **archived**     | Добавлен ли товар в архив           |
+#### Attributes available for sorting
 
-#### Атрибуты вложенных сущностей
+| Title | Description |
+| ------ | --------- |
+| **code** | Product variant Code |
+| **externalCode** | External Code Product variants |
+| **archived** | Is the product added to the archive |
 
-##### Штрих коды:
-При создании штрихкода требуется описать объект с полем, являющимся форматом представления штрихкода в нижнем регистре, со строковым значением самого штрихкода. Наименование полей отдельного объекта, представляющего штрихкод:
+#### Nested entity attributes
 
-| Название       | Описание                                                                                                          |
-| -------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **ean13**      | штрихкод в формате EAN13, если требуется создать штрихкод в формате EAN13                                         |
-| **ean8**       | штрихкод в формате EAN8, если требуется создать штрихкод в формате EAN8                                           |
-| **code128**    | штрихкод в формате Code128, если требуется создать штрихкод в формате Code128                                     |
-| **gtin**       | штрихкод в формате GTIN, если требуется создать штрихкод в формате GTIN. Валидируется на соответствие формату GS1 |
+##### Barcodes:
+When creating a barcode, you need to describe an object with a field that is a lowercase barcode representation format with the string value of the barcode itself. The names of the fields of a separate object representing a barcode:
 
-Для обновления списка штрихкодов необходимо передавать их полный список, включающий как старые, так и новые значения. 
-Отсутствующие значения штрихкодов при обновлении будут удалены. При обновлении списка штрихкодов валидируются только новые значения. 
-Ранее сохраненные штрихкоды не валидируются. То есть, если один из старых штрихкодов не соответствует требованиям к валидации, то ошибки при обновлении списка не будет. 
-Если на вход передан пустой список штрихкодов или список из пустых значений, то ранее созданные штрихкоды будут удалены.
+| Title | Description |
+| ------ | --------- |
+| **ean13** | barcode in EAN13 format if you want to generate an EAN13 barcode |
+| **ean8** | barcode in EAN8 format if you want to generate an EAN8 barcode |
+| **code128** | barcode in Code128 format, if you want to create a barcode in formsate Code128 |
+| **gtin** | barcode in GTIN format, if you want to generate a barcode in GTIN format. Validated against GS1 format |
 
-Особенности создания списка штрихкодов при создании комплекта:
+To update the list of barcodes, it is necessary to transfer their complete list, including both old and new values.
+Missing barcode values will be removed during the update. When updating the list of barcodes, only new values are validated.
+Previously stored barcodes are not validated. That is, if one of the old barcodes does not meet the validation requirements, then there will be no error when updating the list.
+If an empty list of barcodes or a list of empty values is passed to the input, then the previously created barcodes will be deleted.
 
-+ Если передать список штрихкодов на вход, то полученные значения штрихкодов сохраняются, а пустые значения игнорируются.
-+ Если передать список из пустых значений штрихкодов на вход, то для продукции не будет создано ни одного штрихкода.
-+ Если не передать на вход атрибут barcodes или передать пустой список в нем, то по умолчанию будет создан один случайный штрихкод типа EAN13 для продукции.
+Features of creating a list of barcodes when creating a set:
 
-О работе с доп. полями Комплектов можно прочитать [здесь](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
++ If you pass a list of barcodes to the input, then the received barcode values are saved, and empty values are ignored.
++ If you pass a list of empty barcode values to the input, then no barcodes will be created for the products.
++ If you do not pass the barcodes attribute to the input or pass an empty list in it, then by default one random barcode of the EAN13 type will be created for the product.
 
-##### Метаданные Модификаций
-Метаданные Модификаций содержат информацию о характеристиках Модификаций, а также о типах цен.
-Характеристики Модификации - внутренняя коллекция **characteristics**. Представлена в виде массива объектов с полями:
+About working with Kit fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
-| Название  | Тип                                                       | Описание                                                                         |
-| --------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| **id**    | UUID                                                      | ID соответствующей характеристики<br>`+Обязательное при ответе`                  |
-| **meta**  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные характеристики<br>`+Обязательное при ответе`                          |
-| **name**  | String(255)                                               | Наименование характеристики<br>`+Обязательное при ответе`                        |
-| **value** | String(255)                                               | Значение характеристики<br>`+Обязательное при ответе` `+Необходимо при создании` |
+##### Product variant Metadata
+The Product variant Metadata contains information about the characteristics of the Product variants as well as price types.
+Characteristics Product variants are an internal collection of **characteristics**. Represented as an array of objects with fields:
 
-Посмотреть все созданные в основном интерфейсе характеристики Модификаций,
-а также все типы цен можно с помощью запроса на получение метаданных Модификаций.
-Ответ - объект, со следующей структурой:
+| Title | Type | Description |
+| ------ | --------- |-------- |
+| **id** | UUID | ID of the corresponding feature<br>`+Required when replying` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Characteristic metadata<br>`+Required for response` |
+| **name** | String(255) | Characteristic name<br>`+Required when answering` |
+| **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
 
-| Название            | Тип                                                       | Описание                                                                         |
-| ------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| **meta**            | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные<br>`+Обязательное при ответе`                                         |
-| **characteristics** | Array(Object)                                             | Коллекция всех созданных характеристик Модификаций<br>`+Обязательное при ответе` |
+View all characteristics of Product variants created in the main interface,
+as well as all types of prices, you can use the request to obtain the metadata of Product variants.
+The response is an object, with the following structure:
 
-Структуры отдельных объектов коллекций:
+| Title | Type | Description |
+| ------ | --------- |------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata<br>`+Required when replying` |
+| **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when answering` |
 
-###### Характеристики модификации
-| Название     | Тип                                                       | Описание                                                                          |
-| ------------ | :-------------------------------------------------------- | :-------------------------------------------------------------------------------- |
-| **id**       | UUID                                                      | ID соответствующей характеристики<br>`+Обязательное при ответе`                   |
-| **meta**     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные характеристики<br>`+Обязательное при ответе`                           |
-| **name**     | String(255)                                               | Наименование характеристики<br>`+Обязательное при ответе`                         |
-| **required** | Boolean                                                   | Флаг о том, является ли характеристика обязательной<br>`+Обязательное при ответе` |
-| **type**     | String(255)                                               | Тип значения характеристики<br>`+Обязательное при ответе`                         |
+Structures of individual collection objects:
 
-##### Изображение: структура и загрузка.
-При запросе Модификации с изображениями будет выведено json представление этой Модификации, содержащее поле **images**. Данное поле является 
-массивом элементов. Элементы поля **images** имеют поля:
+###### Characteristics of Product variant
+| Title | Type | Description |
+| ------ | --------- |-------- |
+| **id** | UUID | ID of the corresponding feature<br>`+Required when replying` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Characteristic metadata<br>`+Required for response` |
+| **name** | String(255) | Characteristic name<br>`+Required when answering` |
+| **required** | Boolean | Flag indicating whether the feature is required<br>`+Required for response` |
+| **type** | String(255) | Feature value type<br>`+Required for response` |
 
-| Название      | Тип                                                       | Описание                                                          |
-| ------------- | :-------------------------------------------------------- | :---------------------------------------------------------------- |
-| **filename**  | String(255)                                               | Имя файла<br>`+Обязательное при ответе`                           |
-| **meta**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные объекта<br>`+Обязательное при ответе`                  |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные миниатюры изображения<br>`+Обязательное при ответе`    |
-| **size**      | Int                                                       | Размер файла в байтах<br>`+Обязательное при ответе`               |
-| **tiny**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные уменьшенного изображения<br>`+Обязательное при ответе` |
-| **title**     | String(255)                                               | Название Изображения<br>`+Обязательное при ответе`                |
-| **updated**   | DateTime                                                  | Время загрузки файла на сервер<br>`+Обязательное при ответе`      |
+##### Image: structure and loading.
+When requesting a Product variant with images, a json representation of this Product variant containing the **images** field will be displayed. This field is
+an array of elements. **images** field elements have fields:
 
-<h4>Загрузка</h4>
-Для загрузки изображений нужно в теле запроса на [создание](../dictionaries/#suschnosti-modifikaciq-sozdat-modifikaciu) или [обновление](../dictionaries/#suschnosti-modifikaciq-izmenit-modifikaciu) модификации
-указать поле **images** со списком элементов, имеющих следующие атрибуты:
+| Title | Type | Description |
+| ------ | --------- |-------- |
+| **filename** | String(255) | File name<br>`+Required when replying` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **size** | int | File size in bytes<br>`+Required when replying` |
+| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata<br>`+Required when replying` |
+| **title** | String(255) | Image Title<br>`+Required when replying` |
+| **updated** | datetime | File upload time to server<br>`+Required when replying` |
 
-| Название                       | Описание                                        |
-| ------------------------------ | :---------------------------------------------- |
-| **filename**                   | имя файла с расширением. Например - "банан.png" |
-| **content**                    | Изображение, закодированное в формате Base64.   |
+#### Loading
 
-Если в запросе на обновление **images** будет содержать пустой массив элементов, то все Изображения у Модификации будут удалены, 
-т.к. сервер посчитает, что пользователь хочет обновить список Изображений Модификации.
+To upload images, you need in the body of the request to [create](../dictionaries/#suschnosti-modifikaciq-sozdat-modifikaciu) or [update](../dictionaries/#suschnosti-modifikaciq-izmenit-modifikaciu) Product variants
+specify the **images** field with a list of elements that have the following attributes:
 
-Документация API по работе с Изображениями приведена в главе [Изображение](../dictionaries/#suschnosti-izobrazhenie).
+| Title | Description |
+| ------ | --------- |
+| **filename** | filename with extension . For example - "banana.png" |
+| **content** | Base64 encoded image. |
 
-##### Цены продажи
-Если у модификации не заданы отдельные цены продажи, в ответе будут выведены соответствующие цены продажи товара.
+If in the update request **images** contains an empty array of elements, then all Images from the Product variant will be deleted,
+because the server will assume that the user wants to update the list of Product variant Images.
 
-| Название      | Тип                                                       | Описание                                                                                                                           |
-| ------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| **value**     | Float                                                     | Значение цены<br>`+Обязательное при ответе`                                                                                        |
-| **currency**  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на валюту в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Обязательное при ответе` `+Expand` |
-| **priceType** | Object                                                    | Тип цены<br>`+Обязательное при ответе`                                                                                             |
+The API documentation for working with Images can be found in the [Image](../dictionaries/#suschnosti-izobrazhenie) chapter.
 
-##### Минимальная цена
+##### Sales prices
+If the Product variant does not have separate sales prices, the corresponding sales prices of the product will be displayed in the response.
 
-| Название     | Тип                                                       | Описание                                                                                                                           |
-| ------------ | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| **value**    | Float                                                     | Значение цены<br>`+Обязательное при ответе`                                                                                        |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Ссылка на валюту в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Обязательное при ответе` `+Expand` |
+| Title | Type | Description |
+| ------ | --------- |----- |
+| **value** | float | Price value<br>`+Required when answering` |
+| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **priceType** | object | Price type<br>`+Required when replying` |
 
-##### Упаковки Модификации
+##### Minimum price
 
-| Название       | Тип                                                       | Описание                                                                                                                          |
-| -------------- | :-------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| **barcodes**   | Array(Object)                                             | Массив штрихкодов упаковки модификации. Данный массив может содержать только один штрихкод<br>`+Обязательное при ответе`          |
-| **id**         | UUID                                                      | ID упаковки модификации<br>`+Обязательное при ответе` `+Только для чтения`                                                        |
-| **parentpack** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные родительской упаковки (упаковки товара), для которой переопределяется штрихкод<br>`+Обязательное при ответе` `+Expand` |
+| Title | Type | Description |
+| ------ | --------- |------ |
+| **value** | float | Price value<br>`+Required when answering` |
+| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
 
-### Получить список Модификаций 
-Запрос на получение списка всех Модификаций на данной учетной записи.
-Результат успешного запроса - JSON представление списка Модификаций с перечисленными полями:
+##### Packaging Product variants
 
-| Название    | Тип                                                       | Описание                                                |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------------ |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                    |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.            |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой модификации. |
+| Title | Type | Description |
+| ------ | --------- |------- |
+| **barcodes** | Array(Object) | An array of barcodes for the packaging of the Product variant. This array can contain only one barcode<br>`+Required when replying` |
+| **id** | UUID | Package ID of Product variant<br>`+Required for response` `+Read-only`|
+| **parentpack** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the parent package (product package) for which the barcode is overridden<br>`+Required for response` `+Expand` |
+
+### Get a list of Product variants 
+Request for a list of all Product variants on the account.
+The result of a successful request is a JSON representation of the list of Product variants with the listed fields:
+
+| Title | Type | Description |
+| ------ | --------- |----- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing Product variants. |
 
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description |
+| ------ | --------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить список модификаций
+> Get a list of Product variants
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/variant"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Модификаций.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Product variants.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-    "type": "variant",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/66cc36dc-f7d2-11e5-8a84-bae500000074/671402e4-f7d2-11e5-8a84-bae50000007c",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-        "type": "variant",
-        "mediaType": "application/json"
-      },
-      "id": "671402e4-f7d2-11e5-8a84-bae50000007c",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "updated": "2016-04-01 09:24:34",
-      "name": "ТоварМногоМодификаций (1, 100, 10)",
-      "code": "00005",
-      "externalCode": "rAhHA0T1glL2xY3d1aHFT2",
-      "archived": false,
-      "discountProhibited": false,
-      "characteristics": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
-          "name": "Цвет",
-          "value": "красны"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
-          "name": "Свежесть",
-          "value": "Свежий"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
-          "name": "Вкус",
-          "value": "Вкусный"
-        }
-      ],
-      "images": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c/images",
-          "type": "image",
-          "mediaType": "application/json",
-          "size": 0,
-          "limit": 1000,
-          "offset": 0                                         
-        }
-      },
-      "buyPrice": {
-        "value": 0.0
-      },
-      "salePrices": [
-        {
-          "value": 0.0,
-          "priceType": {
-            "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-              "type": "pricetype",
-              "mediaType": "application/json"
-            },
-            "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "name": "Цена продажи",
-            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-          }
-        },
-        {
-          "value": 0,
-          "priceType": {
-            "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-              "type": "pricetype",
-              "mediaType": "application/json"
-            },
-            "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-            "name": "Цена для друзей",
-            "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-          }
-        },
-        {
-          "value": 0,
-          "priceType": {
-            "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-              "type": "pricetype",
-              "mediaType": "application/json"
-            },
-            "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-            "name": "Цена для конкурентов",
-            "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-          }
-        }
-      ],
-      "barcodes": [
-        {
-          "ean8": "20000000"
-        },
-        {
-          "ean13": "2000000000000"
-        },
-        {
-          "code128": "code128 barcode"
-        },
-        {
-          "gtin": "00000000000130"
-        }
-      ],
-      "product": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/66cc36dc-f7d2-11e5-8a84-bae500000074/671402e4-f7d2-11e5-8a84-bae50000007c",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+         "type": "variant",
+         "mediaType": "application/json"
+       },
+       "id": "671402e4-f7d2-11e5-8a84-bae50000007c",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "updated": "2016-04-01 09:24:34",
+       "name": "ProductManyProduct variants (1, 100, 10)",
+       "code": "00005",
+       "externalCode": "rAhHA0T1glL2xY3d1aHFT2",
+       archived: false
+       "discountProhibited": false,
+       "characteristics": [
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
+           "name": "Color",
+           "value": "red"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
+           "name": "Fresh",
+           "value": "Fresh"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
+           "name": "Taste",
+           "value": "Delicious"
+         }
+       ],
+       "images": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c/images",
+           "type": "image",
+           "mediaType": "application/json",
+           size: 0
+           limit: 1000
+           offset: 0
+         }
+       },
+       "buyprice": {
+         value: 0.0
+       },
+       "salePrices": [
+         {
+           value: 0.0
+           "priceType": {
+             "meta": {
+               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+               "type": "pricetype",
+               "mediaType": "application/json"
+             },
+             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+             "name": "Sale price",
+             "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+           }
+         },
+         {
+           value: 0
+           "priceType": {
+             "meta": {
+               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+               "type": "pricetype",
+               "mediaType": "application/json"
+             },
+             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+             "name": "Price for friends",
+             "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+           }
+         },
+         {
+           value: 0
+           "priceType": {
+             "meta": {
+               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+               "type": "pricetype",
+               "mediaType": "application/json"
+             },
+             "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+             "name": "Price for competitors",
+             "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+           }
+         }
+       ],
+       "barcodes": [
+         {
+           "ean8": "20000000"
+         },
+         {
+           "ean13": "2000000000000"
+         },
+         {
+           "code128": "code128 barcode"
+         },
+         {
+           gtin: "00000000000130"
+         }
+       ],
+       product: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         }
+       }
+     }
+   ]
 }
 ```
 
 
-### Создать Модификацию 
-Создать новую Модификацию. Для создания новой Модификации необходимы поля **product**, **characteristics**.
-Поле **characteristics** указывается как массив объектов со следующей структурой:
+### Create Product variant
+Create a new Product variant. To create a new Product variant, the fields **product**, **characteristics** are required.
+The **characteristics** field is specified as an array of objects with the following structure:
 
-| Название  | Тип         | Описание                                                                         |
-| --------- | :---------- | :------------------------------------------------------------------------------- |
-| **id**    | UUID        | ID характеристики                                                                |
-| **name**  | String(255) | Наименование характеристики                                                      |
-| **value** | String(255) | Значение характеристики<br>`+Обязательное при ответе` `+Необходимо при создании` |
+| Title | Type | Description |
+| ------ | --------- |-------- |
+| **id** | UUID | ID characteristics |
+| **name** | String(255) | Characteristic name |
+| **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
 
-Если поле **id** не указано у какого-либо объекта характеристики, производится поиск соответствующей этому объекту
-характеристики по полю **name**. Если же не указаны ни **id**, ни **name**, то произойдет ошибка.
+If the **id** field is not specified for any object of the characteristic, the corresponding object is searched for
+characteristics by field **name**. If neither **id** nor **name** are specified, then an error will occur.
 
-> Пример запроса на создание новой Модификации, привязанной к существующему товару.
+> An example of a request to create a new Product variant linked to an existing product.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/variant"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "(оверспелый, желтый)",
-            "characteristics": [
-              {
-                "id": "627610e3-2cb1-11e6-8a84-bae500000054",
-                "value": "оверспелый"
-              },
-              {
-                "id": "627617d8-2cb1-11e6-8a84-bae500000055",
-                "value": "черный"
-              }
-            ],
-            "minPrice": {
-              "value": 500.0,
-              "currency": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                  "type": "currency",
-                  "mediaType": "application/json"
-                }
-              }
-            },
-            "buyPrice": {
-              "value": 20.0
-            },
-            "salePrices": [
-              {
-                "value": 900.0,
-                "priceType": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                    "type": "pricetype",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              {
-                "value": 102,
-                "priceType": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                    "type": "pricetype",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              {
-                "value": 200,
-                "priceType": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-                    "type": "pricetype",
-                    "mediaType": "application/json"
-                  }
-                }
-              }
-            ],
-            "barcodes": [
-              {
-                "ean8": "20000000"
-              },
-              {
-                "ean13": "2000000000000"
-              },
-              {
-                "code128": "code128 barcode"
-              },
-              {
-                "gtin": "00000000000130"
-              }
-            ],
-            "product": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "product",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/variant"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "(overripe, yellow)",
+             "characteristics": [
+               {
+                 "id": "627610e3-2cb1-11e6-8a84-bae500000054",
+                 "value": "overripe"
+               },
+               {
+                 "id": "627617d8-2cb1-11e6-8a84-bae500000055",
+                 "value": "black"
+               }
+             ],
+             "minprice": {
+               value: 500.0
+               currency: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                   "type": "currency",
+                   "mediaType": "application/json"
+                 }
+               }
+             },
+             "buyprice": {
+               "value": 20.0
+             },
+             "salePrices": [
+               {
+                 "value": 900.0
+                 "priceType": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                     "type": "pricetype",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               {
+                 value: 102
+                 "priceType": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                     "type": "pricetype",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               {
+                 value: 200
+                 "priceType": {
+                   "meta": {"href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+                     "type": "pricetype",
+                     "mediaType": "application/json"
+                   }
+                 }
+               }
+             ],
+             "barcodes": [
+               {
+                 "ean8": "20000000"
+               },
+               {
+                 "ean13": "2000000000000"
+               },
+               {
+                 "code128": "code128 barcode"
+               },
+               {
+                 gtin: "00000000000130"
+               }
+             ],
+             product: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                 "type": "product",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной Модификации.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Product variant.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-    "type": "variant",
-    "mediaType": "application/json"
-  },
-  "id": "14553caa-2cb2-11e6-8a84-bae500000026",
-  "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-  "updated": "2016-06-07 16:16:43",
-  "name": "Банан (оверспелый, черный)",
-  "code": "00011",
-  "externalCode": "tQcC7LdEjTZMh85Em6FTW1",
-  "archived": false,
-  "discountProhibited": false,
-  "characteristics": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "627610e3-2cb1-11e6-8a84-bae500000054",
-      "name": "Спелость",
-      "value": "оверспелый"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627617d8-2cb1-11e6-8a84-bae500000055",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "627617d8-2cb1-11e6-8a84-bae500000055",
-      "name": "Цвет",
-      "value": "черный"
-    }
-  ],
-  "images": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026/images",
-      "type": "image",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }                                
-  },
-  "minPrice": {
-    "value": 500.0,
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "buyPrice": {
-    "value": 20.0
-  },
-  "salePrices": [
-    {
-      "value": 900.0,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-        "name": "Цена продажи",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-      }
-    },
-    {
-      "value": 102,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-        "name": "Цена для друзей",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-      }
-    },
-    {
-      "value": 200,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-        "name": "Цена для конкурентов",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-      }
-    }
-  ],
-  "barcodes": [
-    {
-      "ean8": "20000000"
-    },
-    {
-      "ean13": "2000000000000"
-    },
-    {
-      "code128": "code128 barcode"
-    },
-    {
-      "gtin": "00000000000130"
-    }
-  ],
-  "product": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json"
+   },
+   "id": "14553caa-2cb2-11e6-8a84-bae500000026",
+   "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+   "updated": "2016-06-07 16:16:43",
+   "name": "Banana (overripe, black)",
+   "code": "00011",
+   "externalCode": "tQcC7LdEjTZMh85Em6FTW1",
+   archived: false
+   "discountProhibited": false,
+   "characteristics": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "627610e3-2cb1-11e6-8a84-bae500000054",
+       "name": "Ripe",
+       "value": "overripe"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627617d8-2cb1-11e6-8a84-bae500000055",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "627617d8-2cb1-11e6-8a84-bae500000055",
+       "name": "Color",
+       "value": "black"
+     }
+   ],
+   "images": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026/images",
+       "type": "image",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "minprice": {
+     value: 500.0
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "buyprice": {
+     "value": 20.0
+   },
+   "salePrices": [
+     {
+       "value": 900.0
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+         "name": "Sale price",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+       }
+     },
+     {
+       value: 102
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "name": "Price for friends",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+       }
+     },
+     {
+       value: 200
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "name": "Price for competitors",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+       }
+     }
+   ],
+   "barcodes": [
+     {
+       "ean8": "20000000"
+     },
+     {
+       "ean13": "2000000000000"
+     },
+     {
+       "code128": "code128 barcode"
+     },
+     {
+       gtin: "00000000000130"
+     }
+   ],
+   product: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Массовое создание и обновление Модификаций 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Модификаций.
-В теле запроса нужно передать массив, содержащий JSON представления Модификаций, которые вы хотите создать или обновить.
-Обновляемые Модификации должны содержать идентификатор в виде метаданных.
+### Product variants bulk creating and update
 
-> Пример создания и обновления нескольких Модификаций
+[Product variants bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+
+In the body of the request, you need to pass an array containing the JSON representation of the Product variants that you want to create or update.
+Updated Product variants must contain the identifier in the form of metadata.
+
+> An example of creating and updating several Product variants
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/variant"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "(оверспелый, желтый)",
-              "characteristics": [
-                {
-                  "id": "627610e3-2cb1-11e6-8a84-bae500000054",
-                  "value": "оверспелый"
-                },
-                {
-                  "id": "627617d8-2cb1-11e6-8a84-bae500000055",
-                  "value": "черный"
-                }
-              ],
-              "minPrice": {
-                "value": 500.0,
-                "currency": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                    "type": "currency",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              "buyPrice": {
-                "value": 20.0
-              },
-              "salePrices": [
-                {
-                  "value": 900.0,
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
-                },
-                {
-                  "value": 102,
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
-                },
-                {
-                  "value": 200,
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
-                }
-              ],
-              "barcodes": [
-                {
-                  "ean8": "20000000"
-                },
-                {
-                  "ean13": "2000000000000"
-                },
-                {
-                  "code128": "code128 barcode"
-                },
-                {
-                  "gtin": "00000000000130"
-                }
-              ],
-              "product": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              }
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                "type": "variant",
-                "mediaType": "application/json"
-              },
-              "characteristics": [
-                {
-                  "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
-                  "value": "Средний"
-                },
-                {
-                  "id": "07e9b661-137b-11e6-9464-e4de000000e8",
-                  "value": "Оранжевый"
-                },
-                {
-                  "id": "60907bc8-137b-11e6-9464-e4de00000155",
-                  "value": "Свежий"
-                }
-              ],
-              "code": "orangeCode",
-              "externalCode": "orange303",
-              "buyPrice": {
-                "value": 700.0
-              },
-              "salePrices": [
-                {
-                  "value": 1100.0,
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
-                },
-                {
-                  "value": 702,
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
-                },
-                {
-                  "value": 200,
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
-                }
-              ],
-              "barcodes": [
-                {
-                  "ean8": "20000000"
-                },
-                {
-                  "ean13": "2000000000000"
-                },
-                {
-                  "code128": "code128 barcode"
-                },
-                {
-                  "gtin": "00000000000130"
-                }
-              ],
-              "minPrice": {
-                "value": 500.0,
-                "currency": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                    "type": "currency",
-                    "mediaType": "application/json"
-                  }
-                }
-              }
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/variant"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "(overripe, yellow)",
+               "characteristics": [
+                 {
+                   "id": "627610e3-2cb1-11e6-8a84-bae500000054",
+                   "value": "overripe"
+                 },
+                 {
+                   "id": "627617d8-2cb1-11e6-8a84-bae500000055",
+                   "value": "black"
+                 }
+               ],
+               "minprice": {
+                 value: 500.0
+                 currency: {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "type": "currency",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               "buyprice": {
+                 "value": 20.0
+               },
+               "salePrices": [
+                 {
+                   "value": 900.0
+                   "priceType": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                       "type": "pricetype",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 },
+                 {
+                   value: 102
+                   "priceType": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                       "type": "pricetype",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 },
+                 {
+                   value: 200
+                   "priceType": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+                       "type": "pricetype",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 }
+               ],
+               "barcodes": [
+                 {
+                   "ean8": "20000000"
+                 },
+                 {
+                   "ean13": "2000000000000"
+                 },
+                 {
+                   "code128": "code128 barcode"
+                 },
+                 {
+                   gtin: "00000000000130"
+                 }
+               ],
+               product: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               }
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                 "type": "variant",
+                 "mediaType": "application/json"
+               },
+               "characteristics": [
+                 {
+                   "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
+                   "value": "Medium"
+                 },
+                 {
+                   "id": "07e9b661-137b-11e6-9464-e4de000000e8",
+                   "value": "orange"
+                 },
+                 {
+                   "id": "60907bc8-137b-11e6-9464-e4de00000155",
+                   "value": "Fresh"
+                 }
+               ],
+               "code": "orangeCode",
+               "externalCode": "orange303",
+               "buyprice": {
+                 "value": 700.0
+               },
+               "salePrices": [
+                 {
+                   "value": 1100.0
+                   "priceType": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                       "type": "pricetype",
+                       "mediaType": "application/json"
+                     }
+                   }},
+                 {
+                   "value": 702
+                   "priceType": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                       "type": "pricetype",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 },
+                 {
+                   value: 200
+                   "priceType": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+                       "type": "pricetype",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 }
+               ],
+               "barcodes": [
+                 {
+                   "ean8": "20000000"
+                 },
+                 {
+                   "ean13": "2000000000000"
+                 },
+                 {
+                   "code128": "code128 barcode"
+                 },
+                 {
+                   gtin: "00000000000130"
+                 }
+               ],
+               "minprice": {
+                 value: 500.0
+                 currency: {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "type": "currency",
+                     "mediaType": "application/json"
+                   }
+                 }
+               }
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Модификаций.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the created and updated Product variants.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-      "type": "variant",
-      "mediaType": "application/json"
-    },
-    "id": "14553caa-2cb2-11e6-8a84-bae500000026",
-    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
-    "updated": "2016-06-07 16:16:43",
-    "name": "Банан (оверспелый, черный)",
-    "code": "00011",
-    "externalCode": "tQcC7LdEjTZMh85Em6FTW1",
-    "archived": false,
-    "discountProhibited": false,
-    "characteristics": [
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-          "type": "attributemetadata",
-          "mediaType": "application/json"
-        },
-        "id": "627610e3-2cb1-11e6-8a84-bae500000054",
-        "name": "Спелость",
-        "value": "оверспелый"
-      },
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627617d8-2cb1-11e6-8a84-bae500000055",
-          "type": "attributemetadata",
-          "mediaType": "application/json"
-        },
-        "id": "627617d8-2cb1-11e6-8a84-bae500000055",
-        "name": "Цвет",
-        "value": "черный"
-      }
-    ],
-    "images": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026/images",
-        "type": "image",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }                                
-    },    
-    "minprice": {
-    "value": 500.0,
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    "buyPrice": {
-      "value": 20.0
-    },
-    "salePrices": [
-      {
-        "value": 900.0,
-        "priceType": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "type": "pricetype",
-            "mediaType": "application/json"
-          },
-          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-          "name": "Цена продажи",
-          "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-        }
-      },
-      {
-        "value": 102,
-        "priceType": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-            "type": "pricetype",
-            "mediaType": "application/json"
-          },
-          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-          "name": "Цена для друзей",
-          "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-        }
-      },
-      {
-        "value": 200,
-        "priceType": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-            "type": "pricetype",
-            "mediaType": "application/json"
-          },
-          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-          "name": "Цена для конкурентов",
-          "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-        }
-      }
-    ],
-    "barcodes": [
-      {
-        "ean8": "20000000"
-      },
-      {
-        "ean13": "2000000000000"
-      },
-      {
-        "code128": "code128 barcode"
-      },
-      {
-        "gtin": "00000000000130"
-      }
-    ],
-    "product": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-      "type": "variant",
-      "mediaType": "application/json"
-    },
-    "id": "b2347044-181d-11e6-9464-e4de00000015",
-    "accountId": "305f25aa-137a-11e6-9464-e4de00000001",
-    "updated": "2016-05-12 11:56:15",
-    "name": "Апельсины (Средний, Оранжевый, Свежий)",
-    "code": "orangeCode",
-    "externalCode": "orange303",
-    "archived": false,
-    "discountProhibited": false,
-    "characteristics": [
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-          "type": "attributemetadata",
-          "mediaType": "application/json"
-        },
-        "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
-        "name": "Размер",
-        "value": "Средний"
-      },
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-          "type": "attributemetadata",
-          "mediaType": "application/json"
-        },
-        "id": "07e9b661-137b-11e6-9464-e4de000000e8",
-        "name": "Цвет",
-        "value": "Оранжевый"
-      },
-      {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-          "type": "attributemetadata",
-          "mediaType": "application/json"
-        },
-        "id": "60907bc8-137b-11e6-9464-e4de00000155",
-        "name": "Свежесть",
-        "value": "Свежий"
-      }
-    ],
-    "images": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015/images",
-        "type": "image",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }                                
-    },    
-    "minprice": {
-    "value": 500.0,
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    "buyPrice": {
-      "value": 700.0
-    },
-    "salePrices": [
-      {
-        "value": 1100.0,
-        "priceType": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-            "type": "pricetype",
-            "mediaType": "application/json"
-          },
-          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-          "name": "Цена продажи",
-          "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-        }
-      },
-      {
-        "value": 702,
-        "priceType": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-            "type": "pricetype",
-            "mediaType": "application/json"
-          },
-          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-          "name": "Цена для друзей",
-          "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-        }
-      },
-      {
-        "value": 200,
-        "priceType": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-            "type": "pricetype",
-            "mediaType": "application/json"
-          },
-          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-          "name": "Цена для конкурентов",
-          "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-        }
-      }
-    ],
-    "barcodes": [
-      {
-        "ean8": "20000000"
-      },
-      {
-        "ean13": "2000000000000"
-      },
-      {
-        "code128": "code128 barcode"
-      },
-      {
-        "gtin": "00000000000130"
-      }
-    ],
-    "product": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/07ed3a66-137b-11e6-9464-e4de000000eb",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+       "type": "variant",
+       "mediaType": "application/json"
+     },
+     "id": "14553caa-2cb2-11e6-8a84-bae500000026",
+     "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
+     "updated": "2016-06-07 16:16:43",
+     "name": "Banana (overripe, black)",
+     "code": "00011",
+     "externalCode": "tQcC7LdEjTZMh85Em6FTW1",
+     archived: false
+     "discountProhibited": false,
+     "characteristics": [
+       {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+           "type": "attributemetadata",
+           "mediaType": "application/json"
+         },
+         "id": "627610e3-2cb1-11e6-8a84-bae500000054",
+         "name": "Ripe",
+         "value": "overripe"
+       },
+       {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627617d8-2cb1-11e6-8a84-bae500000055",
+           "type": "attributemetadata",
+           "mediaType": "application/json"
+         },
+         "id": "627617d8-2cb1-11e6-8a84-bae500000055",
+         "name": "Color",
+         "value": "black"
+       }
+     ],
+     "images": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/14553caa-2cb2-11e6-8a84-bae500000026/images",
+         "type": "image",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     },
+     "minprice": {
+     value: 500.0
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     "buyprice": {
+       "value": 20.0
+     },
+     "salePrices": [
+       {
+         "value": 900.0
+         "priceType": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+             "type": "pricetype",
+             "mediaType": "application/json"
+           },
+           "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "name": "Sale price",
+           "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+         }
+       },
+       {
+         value: 102
+         "priceType": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+             "type": "pricetype",
+             "mediaType": "application/json"
+           },
+           "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "name": "Price for friends",
+           "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+         }
+       },
+       {
+         value: 200
+         "priceType": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+             "type": "pricetype",
+             "mediaType": "application/json"
+           },
+           "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+           "name": "Price for competitors",
+           "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+         }
+       }
+     ],
+     "barcodes": [
+       {
+         "ean8": "20000000"
+       },
+       {
+         "ean13": "2000000000000"
+       },
+       {
+         "code128": "code128 barcode"
+       },
+       {
+         gtin: "00000000000130"
+       }
+     ],
+     product: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/86951fbe-2cb0-11e6-8a84-bae500000043",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+       "type": "variant",
+       "mediaType": "application/json"
+     },
+     "id": "b2347044-181d-11e6-9464-e4de00000015",
+     "accountId": "305f25aa-137a-11e6-9464-e4de00000001",
+     "updated": "2016-05-12 11:56:15",
+     "name": "Oranges (Medium, Orange, Fresh)",
+     "code": "orangeCode",
+     "externalCode": "orange303",
+     archived: false
+     "discountProhibited": false,
+     "characteristics": [
+       {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+           "type": "attributemetadata",
+           "mediaType": "application/json"
+         },
+         "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
+         "name": "Size",
+         "value": "Medium"
+       },
+       {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+           "type": "attributemetadata",
+           "mediaType": "application/json"
+         },
+         "id": "07e9b661-137b-11e6-9464-e4de000000e8",
+         "name": "Color",
+         "value": "orange"
+       },
+       {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+           "type": "attributemetadata",
+           "mediaType": "application/json"
+         },
+         "id": "60907bc8-137b-11e6-9464-e4de00000155",
+         "name": "Fresh",
+         "value": "Fresh"
+       }
+     ],
+     "images": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015/images",
+         "type": "image",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     },
+     "minprice": {
+     value: 500.0
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     "buyprice": {
+       "value": 700.0
+     },
+     "salePrices": [
+       {
+         "value": 1100.0
+         "priceType": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+             "type": "pricetype",
+             "mediaType": "application/json"
+           },
+           "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "name": "Sale price",
+           "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+         }
+       },
+       {
+         "value": 702
+         "priceType": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+             "type": "pricetype",
+             "mediaType": "application/json"
+           },
+           "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "name": "Price for friends",
+           "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+         }
+       },
+       {
+         value: 200
+         "priceType": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+             "type": "pricetype",
+             "mediaType": "application/json"
+           },
+           "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+           "name": "Price for competitors",
+           "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+         }
+       }
+     ],
+     "barcodes": [
+       {
+         "ean8": "20000000"
+       },
+       {
+         "ean13": "2000000000000"
+       },
+       {"code128": "code128 barcode"
+       },
+       {
+         gtin: "00000000000130"
+       }
+     ],
+     product: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/07ed3a66-137b-11e6-9464-e4de000000eb",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     }
+   }
 ]
 ```
 
-### Удалить Модификацию
+### Remove Product variant
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                            |
-| :------- | :---------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id модификации. |
+| Parameter | Description |
+| ------ | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product variant id. |
 
-> Запрос на удаление Модификации с указанным id.
+> Request to remove the Product variant with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Модификации.
+> Response 200(application/json)
+Successful removal of the Mod.
 
-### Массовое удаление Модификаций
+### Product variants bulk removal
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Модификаций, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Product variants that you want to remove.
 
 
-> Запрос на массовое удаление Модификаций. 
+> Request for bulk removal of Product variants.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/variant/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-            "type": "variant",
-            "mediaType": "application/json"
-          }
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-            "type": "variant",
-            "mediaType": "application/json"
-          }
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/variant/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "type": "variant",
+             "mediaType": "application/json"
+           }
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "type": "variant",
+             "mediaType": "application/json"
+           }
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Модификаций.
+> Successful request. The result is JSON information about the removal of Product variants.
 
 ```json
 [
-  {
-    "info":"Сущность 'variant' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'variant' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'variant' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+   },
+   {
+     "info":"Entity 'variant' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
+   }
 ]
 ```
 
-### Метаданные Модификаций 
-#### Метаданные Модификаций 
+### Product variant Metadata
+#### Product variant Metadata
 
-Запрос на получение метаданных Модификаций. Результат - объект JSON, включающий в себя:
+Request to get metadata of Product variants. The result is a JSON object including:
 
-| Название            | Тип                                                       | Описание                                                                         |
-| ------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| **meta**            | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные<br>`+Обязательное при ответе`                                         |
-| **characteristics** | Array(Object)                                             | Коллекция всех созданных характеристик Модификаций<br>`+Обязательное при ответе` |
+| Title | Type | Description |
+| ------ | --------- |------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata<br>`+Required when replying` |
+| **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when answering` |
 
-> Получить метаданные модификаций
+> Get Product variant metadata
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/variant/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление метаданных модификации.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Product variant's metadata.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-    "mediaType": "application/json"
-  },
-  "characteristics": [
-    {
-      "id": "fd68704f-f67d-11e5-8a84-bae50000006b",
-      "name": "feature",
-      "type": "string",
-      "required": false
-    },
-    {
-      "id": "66bcdde0-f7d2-11e5-8a84-bae500000072",
-      "name": "Вес",
-      "type": "string",
-      "required": false
-    },
-    {
-      "id": "66be57d2-f7d2-11e5-8a84-bae500000073",
-      "name": "Размер",
-      "type": "string",
-      "required": false
-    },
-    {
-      "id": "daec003b-fa34-11e5-9464-e4de0000006c",
-      "name": "Мода",
-      "type": "string",
-      "required": false
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+     "mediaType": "application/json"
+   },
+   "characteristics": [
+     {
+       "id": "fd68704f-f67d-11e5-8a84-bae50000006b",
+       "name": "feature",
+       "type": "string",
+       "required": false
+     },
+     {
+       "id": "66bcdde0-f7d2-11e5-8a84-bae500000072",
+       "name": "Weight",
+       "type": "string",
+       "required": false
+     },
+     {
+       "id": "66be57d2-f7d2-11e5-8a84-bae500000073",
+       "name": "Size",
+       "type": "string",
+       "required": false
+     },
+     {
+       "id": "daec003b-fa34-11e5-9464-e4de0000006c",
+       "name": "fashion",
+       "type": "string",
+       "required": false
+     }
+   ]
 }
 ```
 
 
 
-### Модификация 
-Работа с Модификацией с указанным id.
+### Product variant
+Working with Product variant with specified id.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                            |
-| :------- | :---------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id модификации. |
+| Parameter | Description |
+| ------ | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product variant id. |
 
-### Получить Модификацию
+### Get Modified
  
-> Запрос на получение представления Модификации с указанным id.
+> Request to get the Product variant view with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-  Успешный запрос. Результат - JSON представление Модификации.
+> Response 200(application/json)
+   Successful request. The result is a JSON representation of the Product variant.
   
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-    "type": "variant",
-    "mediaType": "application/json"
-  },
-  "id": "7a81082f-3c64-11e6-8a84-bae50000000e",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-06-27 15:41:33",
-  "name": "фацфацфвф (обхец)",
-  "code": "00003",
-  "externalCode": "YQ3kNHfDgtHOVhf20Md7Q0",
-  "archived": false,
-  "discountProhibited": false,
-  "characteristics": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
-      "name": "Цвет",
-      "value": "обхец"
-    }
-  ],
-  "images": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e/images",
-      "type": "image",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }                                
-  },
-  "salePrices": [
-    {
-      "value": 0.0,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-        "name": "Цена продажи",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-      }
-    },
-    {
-      "value": 0,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-        "name": "Цена для друзей",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-      }
-    },
-    {
-      "value": 0,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-        "name": "Цена для конкурентов",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-      }
-    }
-  ],
-  "barcodes": [
-    {
-      "ean8": "20000000"
-    },
-    {
-      "ean13": "2000000000000"
-    },
-    {
-      "code128": "code128 barcode"
-    },
-    {
-      "gtin": "00000000000130"
-    }
-  ],
-  "product": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/7a6f697f-3c64-11e6-8a84-bae500000006",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json"
+   },
+   "id": "7a81082f-3c64-11e6-8a84-bae50000000e",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-06-27 15:41:33",
+   "name": "fatsfatsfvf (obkhets)",
+   "code": "00003",
+   "externalCode": "YQ3kNHfDgtHOVhf20Md7Q0",
+   archived: false
+   "discountProhibited": false,
+   "characteristics": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/7a6078e4-3c64-11e6-8a84-bae500000003",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "7a6078e4-3c64-11e6-8a84-bae500000003",
+       "name": "Color",
+       "value": "obhets"
+     }
+   ],
+   "images": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e/images",
+       "type": "image",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "salePrices": [
+     {
+       value: 0.0
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+         "name": "Sale price",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+       }
+     },
+     {
+       value: 0
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "name": "Price for friends",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+       }
+     },
+     {
+       value: 0
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "name": "Price for competitors",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+       }
+     }
+   ],
+   "barcodes": [
+     {
+       "ean8": "20000000"
+     },
+     {
+       "ean13": "2000000000000"
+     },
+     {
+       "code128": "code128 barcode"
+     },
+     {
+       gtin: "00000000000130"
+     }
+   ],
+   product: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/7a6f697f-3c64-11e6-8a84-bae500000006",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Изменить Модификацию 
-Запрос на обновление Модификации с указанным id.
-Типы цен в ценах продаж обновляются как элементы вложенных коллекций:
+### Change Product variant
+Request to update the Product variant with the specified id.
+Price types in sales prices are updated as elements of nested collections:
 
-+ Если в текущем объекте у какого-то из типов цен нет значения,
-а в переданной коллекции оно есть - значение записывается в тип цены.
-+ Если же у данного атрибута значение уже присутствует - оно перезаписывается на переданное.
-+ Если у данного атрибута в составе объекта значение присутствует, однако оно отсутствует
-в передаваемой в теле запроса коллекции (не передается совсем), то значение атрибута объекта не изменяется.
++ If one of the price types has no value in the current object,
+and in the passed collection it is - the value is written to the price type.
++ If this attribute already has a value, it is overwritten with the one passed.
++ If this attribute has a value in the object, but it is missing
+in the collection passed in the body of the request (not passed at all), then the value of the object attribute is not changed.
 
-При обновлении характеристик Модификации поле **characteristics** указывается как
-массив объектов со следующей структурой:
+When updating the characteristics of a Product variant, the **characteristics** field is specified as
+an array of objects with the following structure:
 
-| Название  | Тип         | Описание                                                                         |
-| --------- | :---------- | :------------------------------------------------------------------------------- |
-| **id**    | UUID        | ID характеристики                                                                |
-| **name**  | String(255) | Наименование характеристики                                                      |
-| **value** | String(255) | Значение характеристики<br>`+Обязательное при ответе` `+Необходимо при создании` |
+| Title | Type | Description |
+| ------ | --------- |------- |
+| **id** | UUID | ID characteristics |
+| **name** | String(255) | Characteristic name |
+| **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
 
-Если поле **id** не указано у какого-либо объекта характеристики, производится поиск соответствующей этому объекту
-характеристики по полю **name**. Если же не указаны ни **id**, ни **name**, то произойдет ошибка.
-При обновлении поле **characteristics** в теле запроса обрабатывается как "все характеристики модификации",
-т.е. полностью заменяет предыдущий массив характеристик. Если какая-то из характеристик, имевшая значение в обновляемом
-объекте, не указана в запросе на обновление, после запроса ее значение будет аннулированно.
+If the **id** field is not specified for any object of the characteristic, the corresponding object is searched for
+characteristics by field **name**. If not a decreeis neither **id** nor **name**, an error will occur.
+When updating, the **characteristics** field in the request body is treated as "all Product variant characteristics",
+those. completely replaces the previous array of characteristics. If any of the characteristics that mattered in the updated
+object is not specified in the update request, its value will be nullified after the request.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                            |
-| :------- | :---------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id модификации. |
+| Parameter | Description |
+| ------ | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product variant id. |
 
-> Пример запроса на обновление Модификации.
+> An example of a request to update the Product variant.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "characteristics": [
-              {
-                "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
-                "value": "Средний"
-              },
-              {
-                "id": "07e9b661-137b-11e6-9464-e4de000000e8",
-                "value": "Оранжевый"
-              },
-              {
-                "id": "60907bc8-137b-11e6-9464-e4de00000155",
-                "value": "Свежий"
-              }
-            ],
-            "discountProhibited": false,
-            "code": "orangeCode",
-            "externalCode": "orange303",
-            "buyPrice": {
-              "value": 700.0
-            },
-            "salePrices": [
-              {
-                "value": 1100.0,
-                "priceType": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                    "type": "pricetype",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              {
-                "value": 702,
-                "priceType": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                    "type": "pricetype",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              {
-                "value": 200,
-                "priceType": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-                    "type": "pricetype",
-                    "mediaType": "application/json"
-                  }
-                }
-              }
-            ],
-            "barcodes": [
-              {
-                "ean8": "20000000"
-              },
-              {
-                "ean13": "2000000000000"
-              },
-              {
-                "code128": "code128 barcode"
-              },
-              {
-                "gtin": "00000000000130"
-              }
-            ],
-            "images": [
-              {
-                "filename":"birdimageNew.png",
-                "content":"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAAEHRFWHRTb2Z0d2FyZQBTaHV0dGVyY4LQCQAAAAxJREFUCNdj+PePAQAE+gH90KA5ZAAAAABJRU5ErkJggg=="
-              }
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "characteristics": [
+               {
+                 "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
+                 "value": "Medium"
+               },
+               {
+                 "id": "07e9b661-137b-11e6-9464-e4de000000e8",
+                 "value": "orange"
+               },
+               {
+                 "id": "60907bc8-137b-11e6-9464-e4de00000155",
+                 "value": "Fresh"
+               }
              ],
-            "minprice": {
-             "value": 500.0,
-              "currency": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                  "type": "currency",
-                  "mediaType": "application/json"
-                }
-              }
-            }
-          }'  
+             "discountProhibited": false,
+             "code": "orangeCode",
+             "externalCode": "orange303",
+             "buyprice": {
+               "value": 700.0
+             },
+             "salePrices": [
+               {
+                 "value": 1100.0
+                 "priceType": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                     "type": "pricetype",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               {
+                 "value": 702
+                 "priceType": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                     "type": "pricetype",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               {
+                 value: 200
+                 "priceType": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+                     "type": "pricetype",
+                     "mediaType": "application/json"
+                   }
+                 }
+               }
+             ],
+             "barcodes": [
+               {
+                 "ean8": "20000000"
+               },
+               {
+                 "ean13": "2000000000000"
+               },
+               {
+                 "code128": "code128 barcode"
+               },
+               {
+                 gtin: "00000000000130"
+               }
+             ],
+             "images": [
+               {
+                 "filename":"birdimageNew.png",
+                 content
+               }
+              ],
+             "minprice": {
+              value: 500.0
+               currency: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                   "type": "currency",
+                   "mediaType": "application/json"
+                 }
+               }
+             }
+           }'
 ```
 
->  Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Модификации.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Product variant.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-    "type": "variant",
-    "mediaType": "application/json"
-  },
-  "id": "b2347044-181d-11e6-9464-e4de00000015",
-  "accountId": "305f25aa-137a-11e6-9464-e4de00000001",
-  "updated": "2016-05-12 11:56:15",
-  "name": "Апельсины (Средний, Оранжевый, Свежий)",
-  "code": "orangeCode",
-  "externalCode": "orange303",
-  "archived": false,
-  "discountProhibited": false,
-  "characteristics": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
-      "name": "Размер",
-      "value": "Средний"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "07e9b661-137b-11e6-9464-e4de000000e8",
-      "name": "Цвет",
-      "value": "Оранжевый"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "60907bc8-137b-11e6-9464-e4de00000155",
-      "name": "Свежесть",
-      "value": "Свежий"
-    }
-  ],
-  "images": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015/images",
-      "type": "image",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }                                
-  },  
-  "minprice": {
-    "value": 500.0,
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "buyPrice": {
-    "value": 700.0
-  },
-  "salePrices": [
-    {
-      "value": 1100.0,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-        "name": "Цена продажи",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-      }
-    },
-    {
-      "value": 702,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-        "name": "Цена для друзей",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-      }
-    },
-    {
-      "value": 200,
-      "priceType": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-          "type": "pricetype",
-          "mediaType": "application/json"
-        },
-        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-        "name": "Цена для конкурентов",
-        "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-      }
-    }
-  ],
-  "barcodes": [
-    {
-      "ean8": "20000000"
-    },
-    {
-      "ean13": "2000000000000"
-    },
-    {
-      "code128": "code128 barcode"
-    },
-    {
-      "gtin": "00000000000130"
-    }
-  ],
-  "product": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/07ed3a66-137b-11e6-9464-e4de000000eb",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json"
+   },
+   "id": "b2347044-181d-11e6-9464-e4de00000015",
+   "accountId": "305f25aa-137a-11e6-9464-e4de00000001",
+   "updated": "2016-05-12 11:56:15",
+   "name": "Oranges (Medium, Orange, Fresh)",
+   "code": "orangeCode",
+   "externalCode": "orange303",
+   archived: false
+   "discountProhibited": false,
+   "characteristics": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "07e9aa56-137b-11e6-9464-e4de000000e7",
+       "name": "Size",
+       "value": "Medium"
+     },
+     {
+       "meta": {
+         "href": "https://app.cladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "07e9b661-137b-11e6-9464-e4de000000e8",
+       "name": "Color",
+       "value": "orange"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "60907bc8-137b-11e6-9464-e4de00000155",
+       "name": "Fresh",
+       "value": "Fresh"
+     }
+   ],
+   "images": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b2347044-181d-11e6-9464-e4de00000015/images",
+       "type": "image",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   "minprice": {
+     value: 500.0
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "buyprice": {
+     "value": 700.0
+   },
+   "salePrices": [
+     {
+       "value": 1100.0
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+         "name": "Sale price",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+       }
+     },
+     {
+       "value": 702
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "name": "Price for friends",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+       }
+     },
+     {
+       value: 200
+       "priceType": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+           "type": "pricetype",
+           "mediaType": "application/json"
+         },
+         "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "name": "Price for competitors",
+         "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+       }
+     }
+   ],
+   "barcodes": [
+     {
+       "ean8": "20000000"
+     },
+     {
+       "ean13": "2000000000000"
+     },
+     {
+       "code128": "code128 barcode"
+     },
+     {
+       gtin: "00000000000130"
+     }
+   ],
+   product: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/07ed3a66-137b-11e6-9464-e4de000000eb",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```

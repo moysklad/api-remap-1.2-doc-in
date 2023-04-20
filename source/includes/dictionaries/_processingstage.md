@@ -1,452 +1,453 @@
-## Этап производства
-Средствами JSON API можно запрашивать и обновлять списки Этапов и сведения по отдельным Этапам. Кодом сущности для Этапов в составе JSON API является ключевое слово **processingstage**. Больше об Этапах и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по
-[этой ссылке](https://support.moysklad.ru/hc/ru/articles/4407869768593-%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0#1).
-### Этапы  
-#### Атрибуты сущности
+## Production Operations
+Using the JSON API, you can query and update lists of Production Operations and information on individual Production Operations. The entity code for Production Operations in the JSON API is the **processingstage** keyword. Learn more about [Production Operations](https://kladana.zendesk.com/hc/en-us/articles/8082376915857-Production-Operations-and-Routings).
 
-| Название                | Тип                                                       | Фильтрация                 | Описание                                                                              |
-| ----------------------- | :-------------------------------------------------------- |:---------------------------|:--------------------------------------------------------------------------------------|
-| **accountId**           | UUID                                                      | `=` `!=`                   | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                  |
-| **archived**            | Boolean                                                   | `=` `!=`                   | Добавлен ли Этап в архив<br>`+Обязательное при ответе`                                |
-| **description**         | String(4096)                                              | `=` `!=` `~` `~=` `=~`     | Комментарий Этапа                                                                     |
-| **externalCode**        | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Внешний код Этапа<br>`+Обязательное при ответе`                                       |
-| **group**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                   | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                              |
-| **id**                  | UUID                                                      | `=` `!=`                   | ID Этапа<br>`+Обязательное при ответе` `+Только для чтения`                           |
-| **meta**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                            | Метаданные Этапа<br>`+Обязательное при ответе` `+Только для чтения`                   |
-| **name**                | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Наименование Этапа<br>`+Обязательное при ответе` `+Необходимо при создании`           |
-| **owner**               | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                   | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                          |
-| **shared**              | Boolean                                                   | `=` `!=`                   | Общий доступ<br>`+Обязательное при ответе`                                            |
-| **updated**             | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=` | Момент последнего обновления Этапа<br>`+Обязательное при ответе` `+Только для чтения` |
+### Production Operations
+#### Entity attributes
 
-### Получить список Этапов
+| Title | Type | Filtration | Description |
+| ------- |----------|---------|-----------|
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when answering` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when answering` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Production Operation ID<br>`+Required for response` `+Read only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Production Operation Metadata<br>`+Required when Response` `+Read Only` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required for response` `+Required for creation` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |
 
-Запрос всех Этапов на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Get the list of Production Operation
 
-| Название    | Тип                                                       | Описание                                        |
-| ----------- | :-------------------------------------------------------- |:------------------------------------------------|
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче                             |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос     |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Этапы|
+Request all Production Operations on this account.
+Result: JSON object including fields:
 
-**Параметры**
+| Title | Type | Description |
+| ------- |----------|------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the employee who made the request |
+| **rows** | Array(Object) | Array of JSON objects representing Production Operations|
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+**Parameters**
 
-> Получить список Этапов
+| Parameter | Description |
+| ------- |----------|
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-```shell
-curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingstage"
-  -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Этапов.
-
-```json
-{
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage",
-    "type": "processingstage",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-        "type": "processingstage",
-        "mediaType": "application/json",
-        "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
-      },
-      "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
-      "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
-      "owner": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json",
-          "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2023-01-11 09:01:18.363",
-      "name": "Основной этап",
-      "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
-      "archived": false
-    }
-  ]
-}
-```
-
-### Создать Этап
-Создать новый Этап.
-#### Описание
-Этап создается на основе переданного объекта JSON, который содержит представление нового Этапа. 
-Результат - JSON представление созданного Этапа.
-Для создания нового Этапа необходимо и достаточно указать в переданном объекте не пустое поле `name`.
-
-> Пример наиболее полного по количеству полей запроса.
-
-  ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingstage"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Этап 1",
-            "externalCode": "456",
-            "description": "Подготовка"
-          }'  
-  ```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Этапа.
-
-```json
-{
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-    "type": "processingstage",
-    "mediaType": "application/json",
-    "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
-  },
-  "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
-  "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
-  "owner": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2023-01-11 09:01:18.363",
-  "name": "Этап 1",
-  "description": "Подготовка",
-  "externalCode": "456",
-  "archived": false
-}
-```
-
-### Массовое создание и обновление этапов
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) этапов.
-В теле запроса нужно передать массив, содержащий JSON представления этапов, которые вы хотите создать или обновить.
-Обновляемые этапы должны содержать идентификатор в виде метаданных.
-
-> Пример создания и обновления нескольких этапов
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingstage"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "Этап 2"
-            },
-            {
-              "meta": {
-                "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-                "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                "type": "processingstage",
-                "mediaType": "application/json",
-                "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
-              },
-              "name": "Этап 1",
-              "description": "Подготовка"
-            }
-          ]'  
-```
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных этапов.
-
-```json
-[
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-      "type": "processingstage",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c2"
-    },
-    "id": "d2308bcc-8fd9-11ed-ac12-000b000000c2",
-    "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
-    "owner": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json",
-        "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2023-01-31 11:47:09.193",
-    "name": "Этап 2",
-    "externalCode": "hsthsrehs",
-    "archived": false
-  },
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-      "type": "processingstage",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
-    },
-    "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
-    "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
-    "owner": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json",
-        "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2023-01-31 11:47:09.559",
-    "name": "Этап 1",
-    "description": "Подготовка",
-    "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
-    "archived": false
-  }
-]
-```
-
-
-### Удалить Этап
-
-**Параметры**
-
-| Параметр | Описание                                                                      |
-| :------- |:------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c2* id Этапа. |
-
-> Запрос на удаление Этапа с указанным id.
-
-```shell
-curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2"
-  -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешное удаление Этапа.
-
-### Массовое удаление Этапов
-
-В теле запроса нужно передать массив, содержащий JSON метаданных Этапов, которые вы хотите удалить.
-
-
-> Запрос на массовое удаление Этапов.
-
-```shell
-curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/processingstage/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
-            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-            "type": "processingstage",
-            "mediaType": "application/json",
-          }
-        },
-        {
-          "meta": {
-            "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-            "type": "processingstage",
-            "mediaType": "application/json",
-          }
-        }
-      ]'
-```        
-
-> Успешный запрос. Результат - JSON информация об удалении Этапов.
-
-```json
-[
-  {
-    "info":"Сущность 'processingstage' с UUID: d2308bcc-8fd9-11ed-ac12-000b000000c2 успешно удалена"
-  },
-  {
-    "info":"Сущность 'processingstage' с UUID: d2308bcc-8fd9-11ed-ac12-000b000000c1 успешно удалена"
-  }
-]
-```  
-
-### Этап
-
-### Получить Этап
-
-**Параметры**
-
-| Параметр | Описание                                                                      |
-| :------- |:------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* id Этапа. |
- 
-> Запрос на получение отдельного Этапа с указанным id.
+> Get a list of Production Operations
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingstage"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Этапа.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Production Operations.
 
 ```json
 {
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-    "type": "processingstage",
-    "mediaType": "application/json",
-    "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
-  },
-  "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
-  "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
-  "owner": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2023-01-11 09:01:18.363",
-  "name": "Основной этап",
-  "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
-  "archived": false
+   context: {
+     "employee": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage",
+     "type": "processing Production Operation",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+         "type": "processing Production Operation",
+         "mediaType": "application/json",
+         "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+       },
+       "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
+       "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
+       "owner": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json",
+           "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+         }
+       },
+       shared: true
+       group: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2023-01-11 09:01:18.363",
+       "name": "Main Production Operation",
+       "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
+       "archived": false
+     }
+   ]
 }
 ```
 
-### Изменить Этап
-Запрос на обновление существующего Этапа.
+### Create Production Operation
 
-**Параметры**
+Create new production operation.
 
-| Параметр | Описание                                                                     |
-| :------- |:-----------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* id Этапа.|
+#### Description
+The Production Operation is created based on the passed JSON object, which contains a representation of the new Production Operation.
+The result is a JSON representation of the created Production Operation.
+To create a new Production Operation, it is necessary and sufficient to specify a non-empty `name` field in the passed object.
 
-> Пример запроса на обновление Этапа
+> An example of the most complete request in terms of the number of fields.
 
- ```shell
-   curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   ```shell
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingstage"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Этап 1.1"
-           }'  
- ```
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Этапа.
+             "name": "Production Operation 1",
+             "externalCode": "456",
+             "description": "Preparation"
+           }'
+   ```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Production Operation.
 
 ```json
 {
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-    "type": "processingstage",
-    "mediaType": "application/json",
-    "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
-  },
-  "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
-  "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
-  "owner": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2023-01-11 09:01:18.363",
-  "name": "Этап 1.1",
-  "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
-  "archived": false
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+     "type": "processing Production Operation",
+     "mediaType": "application/json",
+     "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   },
+   "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
+   "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
+   "owner": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2023-01-11 09:01:18.363",
+   "name": "Production Operation 1",
+   "description": "Preparation",
+   "externalCode": "456",
+   "archived": false
+}
+```
+
+### Production Operations bulk creation and update
+[Production Operations bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+In the body of the request, you need to pass an array containing the JSON representation of the steps you want to create or update.
+Updated Production Operations must contain the identifier in the form of metadata.
+
+> Example of creating and updating multiple Production Operations
+
+```shell
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingstage"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "Production Operation 2"
+             },
+             {
+               "meta": {
+                 "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+                 "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                 "type": "processing Production Operation",
+                 "mediaType": "applicableion/json",
+                 "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+               },
+               "name": "Production Operation 1",
+               "description": "Preparation"
+             }
+           ]'
+```
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the created and updated steps.
+
+```json
+[
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+       "type": "processing Production Operation",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c2"
+     },
+     "id": "d2308bcc-8fd9-11ed-ac12-000b000000c2",
+     "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
+     "owner": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2023-01-31 11:47:09.193",
+     "name": "Step 2",
+     "externalCode": "hsthsrehs",
+     "archived": false
+   },
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+       "type": "processing Production Operation",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+     },
+     "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
+     "owner": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2023-01-31 11:47:09.559",
+     "name": "Production Operation 1",
+     "description": "Preparation",
+     "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
+     "archived": false
+   }
+]
+```
+
+### Delet Production Operation
+
+**Parameters**
+
+| Parameter | Description |
+| ------- |----------|
+| **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c2* Production Operation id. |
+
+> Request to remove the Production Operation with the specified id.
+
+```shell
+curl -X DELETE
+   "https://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2"
+   -H "Authorization: Basic <Credentials>"
+```
+
+> Response 200(application/json)
+Successful deletion of the Production Operation.
+
+### Production Operations bulk deletion
+
+In the body of the request, you need to pass an array containing the JSON metadata of the Production Operations that you want to remove.
+
+
+> Request for mass deletion of Production Operations.
+
+```shell
+curl -X POST
+   "https://app.kladana.in/api/remap/1.2/entity/processingstage/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
+             "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+             "type": "processing Production Operation",
+             "mediaType": "application/json",
+           }
+         },
+         {
+           "meta": {
+             "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+             "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+             "type": "processing Production Operation",
+             "mediaType": "application/json",
+           }
+         }
+       ]'
+```
+
+> Successful request. The result is JSON information about deleting Production Operations.
+
+```json
+[
+   {
+     "info":"Entity 'processingstage' with UUID: d2308bcc-8fd9-11ed-ac12-000b000000c2 successfully removed"
+   },
+   {
+     "info":"Entity 'processingstage' with UUID: d2308bcc-8fd9-11ed-ac12-000b000000c1 was deleted successfully"
+   }
+]
+```
+
+### Production Operation
+
+### Get Production Operation
+
+**Parameters**
+
+| Parameter | Description |
+| ------- |----------|
+| **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* Production Operation id. |
+ 
+> Request to receive a separate Production Operation with the specified id.
+
+```shell
+curl -X GET
+   "https://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   -H "Authorization: Basic <Credentials>"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Production Operation.
+
+```json
+{
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+     "type": "processing Production Operation",
+     "mediaType": "application/json",
+     "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   },
+   "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
+   "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
+   "owner": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2023-01-11 09:01:18.363",
+   "name": "Main Production Operation",
+   "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
+   "archived": false
+}
+```
+
+### Change Production Operation
+Request to update an existing Production Operation.
+
+**Parameters**
+
+| Parameter | Description |
+| ------- |----------|
+| **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* Production Operation id.|
+
+> Sample Production Operation Update Request
+
+  ```shell
+    curl -X PUT
+      "https://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+      -H "Authorization: Basic <Credentials>"
+      -H "Content-Type: application/json"
+        -d '{
+              "name": "Production Operation 1.1"
+            }'
+  ```
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Production Operation.
+
+```json
+{
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+     "type": "processing Production Operation",
+     "mediaType": "application/json",
+     "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   },
+   "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
+   "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
+   "owner": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2023-01-11 09:01:18.363",
+   "name": "Production Operation 1.1",
+   "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
+   "archived": false
 }
 ```

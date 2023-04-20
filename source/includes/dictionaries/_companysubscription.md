@@ -1,48 +1,48 @@
-## Подписка компании
+## Company Subscription
 
-Получить информацию о действующей подписке компании. 
+Get information about the current subscription of the company.
 
-#### Подписка компании
-#### Атрибуты сущности
+#### Company Subscription
+#### Entity attributes
 
-| Название                          | Тип         | Описание                                                                                                                                                        |
-| --------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **role**                          | String(255) | Роль авторизованного пользователя (USER/ADMIN)<br>`+Обязательное при ответе` `+Только для чтения`                                                               |
-| **tariff**                        | String(255) | Действующий тариф Аккаунта<br>`+Обязательное при ответе` `+Только для чтения`                                                                                   |
-| **isSubscriptionChangeAvailable** | Boolean     | Доступность изменения подписки<br>`+Обязательное при ответе` `+Только для чтения`                                                                               |
-| **subscriptionEndDate**           | Long        | Дата (в миллисекундах) окончания действия текущего тарифа, если тариф отличается от “Пробный” и “Бесплатный”<br>`+Обязательное при ответе` `+Только для чтения` |
+| Title | Type | Description |
+| ---------| ----- | ---------- |
+| **role** | String(255) | Authorized user role (USER/ADMIN)<br>`+Required when replying` `+Read-only` |
+| **tariff** | String(255) | Account's current rate<br>`+Required when replying` `+Read only` |
+| **isSubscriptionChangeAvailable** | Boolean | Subscription Change Availability<br>`+Required for Response` `+Read Only` |
+| **subscriptionEndDate** | long | Date (in milliseconds) when the current tariff expires, if the tariff is different from “Trial” and “Free”<br>`+Required when replying` `+Read Only` |
 
-#### Действующий тариф аккаунта
-Значения поля tariff
+#### Current account rate
+Tariff field values
 
-| Значение            | Описание                  |
-| ------------------- | :------------------------ |
-| **BASIC**           | Тариф "Базовый"           |
-| **CORPORATE**       | Тариф "Корпоративный"     |
-| **FREE**            | Тариф "Бесплатный 2014"   |
-| **MINIMAL**         | Тариф "Индивидуальный"    |
-| **PROFESSIONAL**    | Тариф "Профессиональный"  |
-| **RETAIL**          | Тариф "Бесплатный"        |
-| **START**           | Тариф "Старт"             |
-| **TRIAL**           | Тариф "Пробный"           |
+| Meaning | Description |
+| --------- | --------- |
+| **BASIC** | Tariff "Basic" |
+| **CORPORATE** | Tariff "Corporate" |
+| **FREE** | Tariff "Free 2014" |
+| **MINIMAL** | Tariff "Individual" |
+| **PROFESSIONAL** | Tariff "Professional" |
+| **RETAIL** | Tariff "Free" |
+| **START** | Tariff "Start" |
+| **TRIAL** | Tariff "Trial" |
 
-### Получить Подписку компании 
-> Запрос на получение подписки компании.
+### Get Company Subscription
+> Request for a company subscription.
 
 ```shell
-curl -X GET 
-  "https://app.kladana.in/api/remap/1.2/accountSettings/subscription"
-  -H Authorization: Basic <Credentials>
+curl -X GET
+   "https://app.kladana.in/api/remap/1.2/accountSettings/subscription"
+   -H Authorization: Basic <Credentials>
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Подписки компании.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the company's Subscription.
 
 ```json
 {
-    "role": "admin",
-    "tariff": "CORPORATE",
-    "isSubscriptionChangeAvailable": true,
-    "subscriptionEndDate": 1642520241922
+     "role": "admin",
+     "tariff": "CORPORATE",
+     "isSubscriptionChangeAvailable": true,
+     "subscriptionEndDate": 1642520241922
 }
 ```

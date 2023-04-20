@@ -1,444 +1,441 @@
-## Статья расходов
-### Статьи расходов 
-Средствами JSON API можно запрашивать списки Статей расходов и сведения по отдельным Статьям расходов. Кодом сущности для Статей расходов в составе JSON API является ключевое слово **expenseitem**. Больше о Статьях расходов и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по
-[этой ссылке](https://support.moysklad.ru/hc/ru/articles/203325553-%D0%9F%D1%80%D0%B8%D0%B1%D1%8B%D0%BB%D0%B8-%D0%B8-%D1%83%D0%B1%D1%8B%D1%82%D0%BA%D0%B8).
-По данной сущности можно осуществлять контекстный поиск с помощью специального параметра `search`. Подробнее можно узнать по [ссылке](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). Поиск с параметром search отличается от других тем, что поиск не префиксный, без токенизации и идет только по одному полю одновременно. Ищет такие строки, в которые входит значение строки поиска.
+## Expense item
+### Expense items
+Using the JSON API, you can request lists of Expense Items and information on individual Expense Items. The entity code for Expense Items in the JSON API is the **expenseitem** keyword.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
-Поиск среди объектов Статей расходов на соответствие поисковой строке будет осуществлен по следующим полям:
+The search among the objects of the Items of expenditure for matching the search string will be carried out in the following fields:
 
-+ по наименованию Cтатьи расходов **name**
-+ по описанию Cтатьи расходов **description**
++ by name Item of expenditure **name**
++ according to description Expense item **description**
 
-#### Атрибуты сущности
-| Название         | Тип                                                       | Фильтрация                  | Описание                                                                                 |
-| ---------------- | :-------------------------------------------------------- | :-------------------------- | :--------------------------------------------------------------------------------------- |
-| **accountId**    | UUID                                                      | `=` `!=`                    | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                     |
-| **code**         | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Код Статьи расходов                                                                      |
-| **description**  | String(4096)                                              | `=` `!=` `~` `~=` `=~`      | Описание Статьи расходов                                                                 |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Внешний код Статьи расходов<br>`+Обязательное при ответе`                                |
-| **id**           | UUID                                                      | `=` `!=`                    | ID Страны<br>`+Обязательное при ответе` `+Только для чтения`                             |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Метаданные о Статье расходов<br>`+Обязательное при ответе`                               |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`      | Наименование Статьи расходов<br>`+Обязательное при ответе` `+Необходимо при создании`    |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`  | Момент последнего обновления сущности<br>`+Обязательное при ответе` `+Только для чтения` |
+#### Entity attributes
+| Title | Type | Filtration | Description |
+| ---------------- | ---------- | ------- |----------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code Items of expenditure |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Items of expenditure |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Expense item<br>`+Required when replying` |
+| **id** | UUID | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Expense Item Metadata<br>`+Required when replying` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Item of expenses<br>`+Required when replying` `+Required when creating` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
-### Получить Статьи расходов
+### Get Expense Items
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description |
+| ------- | -------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
  
-> Запрос на получение списка статей расходов.
+> Request for a list of expense items.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/expenseitem"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/expenseitem"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Статей расходов.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Expense Items.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-    "type": "expenseitem",
-    "mediaType": "application/json",
-    "size": 8,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "1be2350e-0479-11e5-b03a-448a5b426e7e",
-      "updated": "2015-05-27 17:03:10",
-      "name": "Закупка товаров",
-      "description": "Расходы на закупку товаров учитываются в отчете «Прибыли и убытки» как себестоимость проданных товаров",
-      "code": "1",
-      "externalCode": "1"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "1be2395a-0479-11e5-baee-448a5b426e7e",
-      "updated": "2015-05-27 17:03:10",
-      "name": "Возврат",
-      "description": "Расходы по возвратам не учитываются в отчете «Прибыли и убытки»",
-      "code": "3",
-      "externalCode": "3"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "1be23a18-0479-11e5-a260-448a5b426e7e",
-      "updated": "2015-05-27 17:03:10",
-      "name": "Налоги и сборы",
-      "description": "Расходы по налогам и сборам учитываются как отдельная статья, не включенная в операционные расходы",
-      "code": "2",
-      "externalCode": "2"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "23f05a1e-0479-11e5-8bb9-448a5b426e7e",
-      "updated": "2015-05-27 17:03:24",
-      "name": "Списания",
-      "description": "Списания",
-      "code": "4",
-      "externalCode": "4"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
-      "updated": "2016-06-09 18:40:35",
-      "name": "Перемещение",
-      "description": "Перемещения денег между кассами не учитываются в отчете «Прибыли и убытки».",
-      "code": "5",
-      "externalCode": "5"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0a4b75-2e58-11e6-8a84-bae500000058",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "fb0a4b75-2e58-11e6-8a84-bae500000058",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "updated": "2016-06-09 18:43:58",
-      "name": "Аренда",
-      "description": "Аренда",
-      "code": "Аренда",
-      "externalCode": "IVslr34uhCUuglxPD7Idm0"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0c8620-2e58-11e6-8a84-bae500000059",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "fb0c8620-2e58-11e6-8a84-bae500000059",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "updated": "2016-06-09 18:43:58",
-      "name": "Зарплата",
-      "description": "Зарплата",
-      "code": "Зарплата",
-      "externalCode": "RY7G3TULiTyjqYRrzr3V03"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0dc966-2e58-11e6-8a84-bae50000005a",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-        "type": "expenseitem",
-        "mediaType": "application/json"
-      },
-      "id": "fb0dc966-2e58-11e6-8a84-bae50000005a",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "updated": "2016-06-09 18:43:58",
-      "name": "Маркетинг и реклама",
-      "description": "Маркетинг и реклама",
-      "code": "Маркетинг и реклама",
-      "externalCode": "1PMtKJq-jjVJQbu5OWqBG1"
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+     "type": "expenseitem",
+     "mediaType": "application/json",
+     size: 8
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata""type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "updated": "2015-05-27 17:03:10",
+       "name": "Procurement of goods",
+       "description": "The cost of purchasing goods is accounted for in the Profit and Loss Statement as cost of goods sold",
+       "code": "1",
+       "externalCode": "1"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "1be2395a-0479-11e5-baee-448a5b426e7e",
+       "updated": "2015-05-27 17:03:10",
+       "name": "Return",
+       "description": "Return charges are not included in the Profit and Loss statement",
+       "code": "3",
+       "externalCode": "3"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "1be23a18-0479-11e5-a260-448a5b426e7e",
+       "updated": "2015-05-27 17:03:10",
+       "name": "Taxes and Fees",
+       "description": "Expenses on taxes and fees are accounted for as a separate item, not included in operating expenses",
+       "code": "2",
+       "externalCode": "2"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+       "updated": "2015-05-27 17:03:24",
+       "name": "Write-offs",
+       "description": "Write-offs",
+       "code": "4",
+       "externalCode": "4"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
+       "updated": "2016-06-09 18:40:35",
+       "name": "Move",
+       "description": "Money transfers between cash registers are not included in the Profit and Loss report.",
+       "code": "5",
+       "externalCode": "5"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0a4b75-2e58-11e6-8a84-bae500000058",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "fb0a4b75-2e58-11e6-8a84-bae500000058",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "updated": "2016-06-09 18:43:58",
+       "name": "Rent",
+       "description": "Rent",
+       "code": "Rent",
+       "externalCode": "IVslr34uhCUuglxPD7Idm0"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0c8620-2e58-11e6-8a84-bae500000059",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "fb0c8620-2e58-11e6-8a84-bae500000059",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "updated": "2016-06-09 18:43:58",
+       "name": "Salary",
+       "description": "Salary",
+       "code": "Salary",
+       "externalCode": "RY7G3TULiTyjqYRrzr3V03"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0dc966-2e58-11e6-8a84-bae50000005a",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       },
+       "id": "fb0dc966-2e58-11e6-8a84-bae50000005a",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "updated": "2016-06-09 18:43:58",
+       "name": "Marketing and advertising",
+       "description": "Marketing and advertising",
+       "code": "Marketing and advertising",
+       "externalCode": "1PMtKJq-jjVJQbu5OWqBG1"
+     }
+   ]
 }
 
 ```
 
-### Создать Статью расходов 
-Запрос на создание новой статьи расходов. Обязательное поле для создание статьи расходов - **name**.
+### Create Line Item
+Request to create a new expense item. Mandatory field for creating an expense item is **name**.
 
-> Пример запроса на создание новой статьи расходов.
+> An example of a request to create a new expense item.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/expenseitem"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Налоги и не налоги",
-            "description": "Статья расходов налоги",
-            "code": "nalogi",
-            "externalCode": "wwoaon21431"
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/expenseitem"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Taxes and non-taxes",
+             "description": "Expense item taxes",
+             "code": "tax",
+             "externalCode": "wwoaon21431"}'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной статьи расходов.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated expense item.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/76e88dff-3f9b-11e6-8a84-bae50000009b",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-    "type": "expenseitem",
-    "mediaType": "application/json"
-  },
-  "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "updated": "2016-07-01 17:52:42",
-  "name": "Налоги и не налоги",
-  "description": "Статья расходов налоги",
-  "code": "nalogi",
-  "externalCode": "wwoaon21431"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/76e88dff-3f9b-11e6-8a84-bae50000009b",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+     "type": "expenseitem",
+     "mediaType": "application/json"
+   },
+   "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "updated": "2016-07-01 17:52:42",
+   "name": "Taxes and non-taxes",
+   "description": "Expense item taxes",
+   "code": "tax",
+   "externalCode": "wwoaon21431"
 }
 ```
 
-### Массовое создание и обновление Статей расходов 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Статей расходов.
-В теле запроса нужно передать массив, содержащий JSON представления Статей расходов, которые вы хотите создать или обновить.
-Обновляемые Статьи расходов должны содержать идентификатор в виде метаданных.
+### Bulk creation and updating of Line Items
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Expenses.
+In the body of the request, you must pass an array containing the JSON representation of the Line Items you want to create or update.
+Updated Line Items must contain the identifier in the form of metadata.
 
-> Пример создания и обновления нескольких Статей расходов
+> Example of creating and updating multiple Line Items
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/expenseitem"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "Налоги и не налоги",
-              "description": "Статья расходов налоги",
-              "code": "nalogi",
-              "externalCode": "wwoaon21431"
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-                "type": "expenseitem",
-                "mediaType": "application/json"
-              },
-              "name": "Дополнительные расходы",
-              "description": "Еще дополнительные расходы",
-              "code": "additional",
-              "externalCode": "sdeEfr32rfe"
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/expenseitem"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "Taxes and non-taxes",
+               "description": "Expense item taxes",
+               "code": "tax",
+               "externalCode": "wwoaon21431"
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                 "type": "expenseitem",
+                 "mediaType": "application/json"
+               },
+               "name": "Additional costs",
+               "description": "More additional costs",
+               "code": "additional",
+               "externalCode": "sdeEfr32rfe"
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Статей расходов.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the created and updated Line Items.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/76e88dff-3f9b-11e6-8a84-bae50000009b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-      "type": "expenseitem",
-      "mediaType": "application/json"
-    },
-    "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-    "updated": "2016-07-01 17:52:42",
-    "name": "Налоги и не налоги",
-    "description": "Статья расходов налоги",
-    "code": "nalogi",
-    "externalCode": "wwoaon21431"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-      "type": "expenseitem",
-      "mediaType": "application/json"
-    },
-    "id": "7944ef04-f831-11e5-7a69-971500188b19",
-    "accountId": "7944ef04-f831-11e5-7a69-971500188b19",
-    "updated": "2016-07-01 17:52:42",
-    "name": "Дополнительные расходы",
-    "description": "Еще дополнительные расходы",
-    "code": "additional",
-    "externalCode": "sdeEfr32rfe"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/76e88dff-3f9b-11e6-8a84-bae50000009b",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "type": "expenseitem",
+       "mediaType": "application/json"
+     },
+     "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
+     "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+     "updated": "2016-07-01 17:52:42",
+     "name": "Taxes and non-taxes",
+     "description": "Expense item taxes",
+     "code": "tax",
+     "externalCode": "wwoaon21431"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "type": "expenseitem",
+       "mediaType": "application/json"
+     },
+     "id": "7944ef04-f831-11e5-7a69-971500188b19",
+     "accountId": "7944ef04-f831-11e5-7a69-971500188b19",
+     "updated": "2016-07-01 17:52:42",
+     "name": "Additional costs",
+     "description": "More additional costs",
+     "code": "additional",
+     "externalCode": "sdeEfr32rfe"
+   }
 ]
 ```
 
-### Удалить Статью расходов
+### Delete Line Item
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                |
-| :------- | :-------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Статьи расходов. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
 
-> Запрос на удаление Статьи расходов с указанным id.
+> Request to delete an Expense Item with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление статьи расходов.
+> Response 200(application/json)
+Successful deletion of an expense item.
 
-### Массовое удаление Статей расходов
+### Bulk deletion of Expenses
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Статей расходов, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing the JSON metadata of the Items you want to delete.
 
 
-> Запрос на массовое удаление Статей расходов. 
+> Request for bulk deletion of Line Items.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/expenseitem/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-            "type": "expenseitem",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-            "type": "expenseitem",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/expenseitem/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+             "type": "expenseitem",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+             "type": "expenseitem",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Статей расходов.
+> Successful request. Result - JSON information about deleting Expenses.
 
 ```json
 [
-  {
-    "info":"Сущность 'expenseitem' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'expenseitem' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'expenseitem' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   },
+   {
+     "info":"Entity 'expenseitem' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
+   }
 ]
 ```
 
-### Статья расходов 
+### Expense item
 
-Работа со статьей расходов с указанным id.
+Working with an expense item with the specified id.
 
-### Получить Статью расходов 
+### Get Expense Item
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                |
-| :------- | :-------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Статьи расходов. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
 
 
-> Запрос на получение статьи расходов с указанным id.
+> Request to get an expense item with the specified ID.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Статей расходов.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Expense Items.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0a4b75-2e58-11e6-8a84-bae500000058",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-    "type": "expenseitem",
-    "mediaType": "application/json"
-  },
-  "id": "fb0a4b75-2e58-11e6-8a84-bae500000058",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "updated": "2016-06-09 18:43:58",
-  "name": "Аренда",
-  "description": "Аренда",
-  "code": "Аренда",
-  "externalCode": "IVslr34uhCUuglxPD7Idm0"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/fb0a4b75-2e58-11e6-8a84-bae500000058",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+     "type": "expenseitem",
+     "mediaType": "application/json"
+   },
+   "id": "fb0a4b75-2e58-11e6-8a84-bae500000058",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "updated": "2016-06-09 18:43:58",
+   "name": "Rent",
+   "description": "Rent",
+   "code": "Rent",
+   "externalCode": "IVslr34uhCUuglxPD7Idm0"
 }
 ```
         
-### Изменить Статью расходов 
-Запрос на изменение существующей статьи расходов.
+### Change Line Item
+Request to change an existing expense item.
  
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                |
-| :------- | :-------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Статьи расходов. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
  
-> Пример запроса на обновление статьи расходов.
+> An example of a request to update an expense item.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Не налоги и налоги",
-            "description": "Налоги и не налоги. Такая вот статья",
-            "code": "nalogi i net",
-            "externalCode": "wwoa1142aon21431"
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Not taxes and taxes",
+             "description": "Taxes and non-taxes. Such an article",
+             "code": "nalogi net",
+             "externalCode": "wwoa1142aon21431"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной статьи расходов.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated expense item.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/76e88dff-3f9b-11e6-8a84-bae50000009b",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-    "type": "expenseitem",
-    "mediaType": "application/json"
-  },
-  "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "updated": "2016-07-01 17:52:42",
-  "name": "Не налоги и налоги",
-  "description": "Налоги и не налоги. Такая вот статья",
-  "code": "nalogi i net",
-  "externalCode": "wwoa1142aon21431"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/76e88dff-3f9b-11e6-8a84-bae50000009b",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+     "type": "expenseitem",
+     "mediaType": "application/json"
+   },
+   "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "updated": "2016-07-01 17:52:42",
+   "name": "Not taxes and taxes",
+   "description": "Taxes and non-taxes. Description example",
+   "code": "nalogi net",
+   "externalCode": "wwoa1142aon21431"
 }
 ```

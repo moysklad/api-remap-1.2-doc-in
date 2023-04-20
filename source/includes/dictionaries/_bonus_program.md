@@ -1,342 +1,343 @@
-## Бонусная программа
-### Бонусные программы
+## Bonus program
+### Bonus programs
 
-Кодом сущности для Бонусных программ в составе JSON API является ключевое слово **bonusprogram**. Операции создания и изменения не поддерживаются. Перед работой со скидками настоятельно рекомендуем вам прочитать [вот эту статью](https://support.moysklad.ru/hc/ru/articles/203392253-%D0%A1%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8) на портале поддержки МоегоСклада.
+The entity code for Bonus Programs as part of the JSON API is the **bonusprogram** keyword. Create and update operations are not supported. Before working with discounts learn more about [Discounting](https://kladana.zendesk.com/hc/en-us/sections/360005674458-Discounting).
 
-#### Атрибуты сущности
+#### Entity attributes
 
-| Название                      | Тип                                                       | Описание                                                                                                                                                                                                                            |
-| ----------------------------- | :-------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**                 | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                |
-| **active**                    | Boolean                                                   | Индикатор, является ли бонусная программа активной на данный момент<br>`+Обязательное при ответе`                                                                                                                                   |
-| **agentTags**                 | Array(String)                                             | Тэги контрагентов, к которым применяется бонусная программа. В случае пустого значения контрагентов в результате выводится пустой массив.<br>`+Обязательное при ответе`                                                             |
-| **allAgents**                 | Boolean                                                   | Индикатор, действует ли скидка на всех контрагентов (см. [Скидки](../dictionaries/#suschnosti-skidki))<br>`+Обязательное при ответе`                                                                                                |
-| **allProducts**               | Boolean                                                   | Индикатор, действует ли бонусная программа на все товары (всегда `true`, см. [Скидки](../dictionaries/#suschnosti-skidki))<br>`+Обязательное при ответе`                                                                            |
-| **earnRateRoublesToPoint**    | Int                                                       | Курс начисления                                                                                                                                                                                                                     |
-| **earnWhileRedeeming**        | Boolean                                                   | Разрешить одновременное начисление и списание бонусов. Если `true` - бонусы будут начислены на денежную часть покупки, даже при частичной оплате покупки баллами.<br>`+Обязательное при ответе`                                     |
-| **id**                        | UUID                                                      | ID Бонусной программы<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                            |
-| **maxPaidRatePercents**       | Int                                                       | Максимальный процент оплаты баллами                                                                                                                                                                                                 |
-| **meta**                      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Бонусной программы<br>`+Обязательное при ответе`                                                                                                                                                                         |
-| **name**                      | String(255)                                               | Наименование Бонусной программы                                                                                                                                                                                                     |
-| **postponedBonusesDelayDays** | Int                                                       | Баллы начисляются через [N] дней<br>`+Тарифная опция «Расширенная бонусная программа»`                                                                                                                                              |
-| **spendRatePointsToRouble**   | Int                                                       | Курс списания                                                                                                                                                                                                                       |
-| **welcomeBonusesEnabled**     | Boolean                                                   | Возможность начисления приветственных баллов<br>`+Обязательное при ответе`                                                                                                                                                          |
-| **welcomeBonusesEnabled**     | Enum                                                      | Условие начисления приветственных баллов. Не может быть пустым, если `welcomeBonusesEnabled` = true. [Подробнее тут](../dictionaries/#suschnosti-bonusnaq-programma-bonusnye-programmy-atributy-suschnosti-uslowiq-bonusnyh-ballow) |
-| **welcomeBonusesValue**       | Int                                                       | Количество приветственных баллов, начисляемых участникам бонусной программы. Не может быть отрицательным. Не может быть пустым, если `welcomeBonusesEnabled` = true                                                                 |
+| Title | Type | Description |
+| --------- | ------------ | ------------- |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **active** | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
+| **agenttags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
+| **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#suschnosti-skidki))<br>`+Required when answering` |
+| **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#suschnosti-skidki))<br>`+Required when answering` |
+| **earnRateRoublesToPoint** | int | Accrual rate |
+| **earnWhileRedeeming** | Boolean | Allow simultaneous accrual and write-off of bonuses. If `true` - bonuses will be credited to the monetary part of the purchase, even if the purchase is partially paid with points.<br>`+Required when answering` |
+| **id** | UUID | Bonus Program ID<br>`+Required when replying` `+Read Only` |
+| **maxPaidRatePercents** | int | Maximum percentage of payment by points |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Bonus Program Metadata<br>`+Required when answering` |
+| **name** | String(255) | Name of the Bonus program |
+| **postponedBonusesDelayDays** | int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
+| **spendRatePointsToRouble** | int | Write-off rate |
+| **welcomeBonusesEnabled** | Boolean | Ability to earn welcome points<br>`+Required when answering` |
+| **welcomeBonusesEnabled**| Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#suschnosti-bonusnaq-programma-bonusnye-programmy-atributy-suschnosti-uslowiq-bonusnyh-ballow) |
+| **welcomeBonusesValue** | int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
 
-##### Условия бонусных баллов
+##### Bonus points conditions
 
-| Название                       | Описание                                                                                         |
-| ------------------------------ | :----------------------------------------------------------------------------------------------- |
-| **REGISTRATION**               | Приветственные баллы начисляются участиникам после регистрации в бонусной программе.             |
-| **FIRST_PURCHASE**             | Приветственные баллы начисляются участиникам бонусной программы после совершения первой покупки. |
+| Title | Description |
+| --------- | ------------- |
+| **REGISTRATION** | Welcome points are awarded to participants after registration in the bonus program. |
+| **FIRST_PURCHASE** | Welcome points are awarded to the participants of the bonus program after making the first purchase. |
 
-### Получить все Бонусные программы
+### Get all Bonus Programs
 
-Запрос на получение всех бонусных программ учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+Request to receive all bonus programs of the account.
+Result: JSON object including fields:
 
-| Название    | Тип                                                       | Описание                                                |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------------ |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                    |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.            |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих Бонусные программы |
+| Title | Type | Description |
+| ----------- | -------- | ---------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | Array of JSON objects representing Bonus Programs |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description |
+| --------- | ----------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить все Бонусные программы
-
-```shell
-curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
-  -H "Authorization: Basic <Credentials>"
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - список всех бонусных программ для учетной записи.
-
-```json
-{
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-    "type": "bonusprogram",
-    "mediaType": "application/json",
-    "size": 2,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-        "type": "bonusprogram",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
-      },
-      "id": "1223d051-ba76-11e8-3353-995e0000005a",
-      "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-      "name": "test",
-      "active": true,
-      "allAgents": true,
-      "agentTags": [
-        "группа агентов"
-      ],
-      "earnRateRoublesToPoint": 1,
-      "spendRatePointsToRouble": 1,
-      "maxPaidRatePercents": 100,
-      "welcomeBonusesEnabled": false,
-      "postponedBonusesDelayDays": 14,
-      "earnWhileRedeeming": true
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-        "type": "bonusprogram",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
-      },
-      "id": "87c69fae-c1ad-4700-a852-f21939470760",
-      "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-      "name": "bonusprogram",
-      "active": false,
-      "allAgents": true,
-      "agentTags": [
-        "группа агентов"
-      ],
-      "earnRateRoublesToPoint": 7,
-      "spendRatePointsToRouble": 4,
-      "maxPaidRatePercents": 50,
-      "welcomeBonusesEnabled": true,
-      "welcomeBonusesValue": 100,
-      "welcomeBonusesEnabled": "REGISTRATION",
-      "postponedBonusesDelayDays": 7,
-      "earnWhileRedeeming": true
-    }
-  ]
-}
-```
-
-### Бонусная программа
-
-### Создать Бонусную программу
-Запрос на создание новой бонусной программы. Обязательные поля для заполнения: **name** (имя скидки), **active** (активна ли скидка), **allProducts** (действует ли скидка на все товары), **allAgents** (действует ли скидка на всех контрагентов) **earnRateRoublesToPoint** (курс начисления), **spendRatePointsToRouble** (курс списания), **maxPaidRatePercents** (максимальный процент оплаты баллами)
-
-> Пример создания новой бонусной программы
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-	  "name": "bonusprogram",
-	  "active": true,
-	  "allProducts": true,
-	  "allAgents": false,
-	  "agentTags": ["tag1", "tag2"],
-	  "earnRateRoublesToPoint": 7,
-    "spendRatePointsToRouble": 4,
-    "maxPaidRatePercents": 50,
-    "postponedBonusesDelayDays": 7,
-    "earnWhileRedeeming": false
-	}'
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной бонусной программы.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-    "type": "bonusprogram",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
-  },
-  "id": "87c69fae-c1ad-4700-a852-f21939470760",
-  "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-  "name": "bonusprogram",
-  "active": false,
-  "agentTags": ["tag1", "tag2"],
-  "earnRateRoublesToPoint": 7,
-  "spendRatePointsToRouble": 4,
-  "maxPaidRatePercents": 50,
-  "welcomeBonusesEnabled": false,
-  "postponedBonusesDelayDays": 7,
-  "earnWhileRedeeming": false
-}
-```
-
-### Изменить Бонусную программу 
-
-**Параметры**
-
-| Параметр | Описание                                                                                   |
-| :------- | :----------------------------------------------------------------------------------------- |
-| id       | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* id Бонусной программы. |
-
-Запрос на изменение бонусной программы. В теле запроса необходимо передать поля, которые будут изменены
-
-> Пример изменения бонусной программы
-
-```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-	  "name": "updatedName",
-	  "active": true,
-	  "agentTags": ["tag2"]
-	}'
-```
-
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление измененной бонусной программы.
-
-```json
-{
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-    "type": "bonusprogram",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
-  },
-  "id": "87c69fae-c1ad-4700-a852-f21939470760",
-  "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-  "name": "bonusprogram",
-  "active": true,
-  "agentTags": ["tag2"],
-  "earnRateRoublesToPoint": 7,
-  "spendRatePointsToRouble": 4,
-  "maxPaidRatePercents": 50,
-  "welcomeBonusesEnabled": false,
-  "earnWhileRedeeming": true
-}
-```
-
-
-### Получить Бонусную программу
-
-**Параметры**
-
-| Параметр | Описание                                                                                   |
-| :------- | :----------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* id Бонусной программы. |
-
-> Запрос на получение отдельной бонусной программы с указанным id
+> Get all Bonus Programs
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
+   -H "Authorization: Basic <Credentials>"
+```
+
+> Response 200(application/json)
+Successful request. The result is a list of all bonus programs for the account.
+
+```json
+{
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "type": "bonus program",
+     "mediaType": "application/json",
+     size: 2
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+         "type": "bonus program",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+       },
+       "id": "1223d051-ba76-11e8-3353-995e0000005a",
+       "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+       "name": "test",
+       active: true
+       "allAgents": true
+       "agentTags": [
+         "group of agents"
+       ],
+       "earnRateRoublesToPoint": 1,
+       "spendRatePointsToRouble": 1,
+       "maxPaidRatePercents": 100,
+       "welcomeBonusesEnabled": false,
+       "postponedBonusesDelayDays": 14,
+       "earnWhileRedeeming": true
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+         "type": "bonus program",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+       },
+       "id": "87c69fae-c1ad-4700-a852-f21939470760",
+       "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+       "name": "bonus program",
+       active: false
+       "allAgents": true
+       "agentTags": [
+         "group of agents"
+       ],
+       "earnRateRoublesToPoint": 7,
+       "spendRatePointsToRouble": 4,
+       "maxPaidRatePercents": 50,
+       "welcomeBonusesEnabled": true,
+       "welcomeBonusesValue": 100,
+       "welcomeBonusesEnabled": "REGISTRATION",
+       "postponedBonusesDelayDays": 7,
+       "earnWhileRedeeming": true
+     }
+   ]
+}
+```
+
+### Bonus program
+
+### Create Bonus Program
+
+Request to create a new bonus program. Required fields: **name** (name of the discount), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount active for all counterparties) **earnRateRoublesToPoint** (accrual rate), **spendRatePointsToRouble** (withdrawal rate), **maxPaidRatePercents** (maximum percentage of payment by points).
+
+> An example of creating a new bonus program
+
+```shell
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+"name": "bonus program",
+active: true
+"allProducts": true
+"allAgents": false
+"agentTags": ["tag1", "tag2"],
+"earnRateRoublesToPoint": 7,
+     "spendRatePointsToRouble": 4,
+     "maxPaidRatePercents": 50,
+     "postponedBonusesDelayDays": 7,
+     "earnWhileRedeeming": false
+}'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created bonus program.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "type": "bonus program",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+   },
+   "id": "87c69fae-c1ad-4700-a852-f21939470760",
+   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+   "name": "bonus program",
+   active: false
+   "agentTags": ["tag1", "tag2"],
+   "earnRateRoublesToPoint": 7,
+   "spendRatePointsToRouble": 4,
+   "maxPaidRatePercents": 50,
+   "welcomeBonusesEnabled": false,
+   "postponedBonusesDelayDays": 7,
+   "earnWhileRedeeming": false
+}
+```
+
+### Change Bonus Program
+
+**Parameters**
+
+| Parameter | Description |
+| ------- | ---------- |
+| id | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
+
+Request to change the bonus program. In the body of the request, you must pass the fields that will be changed
+
+> An example of changing the bonus program
+
+```shell
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+"name": "updatedName",
+active: true
+"agentTags": ["tag2"]
+}'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the modified bonus program.
+
+```json
+{
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "type": "bonus program",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
+   },
+   "id": "87c69fae-c1ad-4700-a852-f21939470760",
+   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+   "name": "bonus program",
+   active: true
+   "agentTags": ["tag2"],
+   "earnRateRoublesToPoint": 7,
+   "spendRatePointsToRouble": 4,
+   "maxPaidRatePercents": 50,
+   "welcomeBonusesEnabled": false,
+   "earnWhileRedeeming": true
+}
+```
+
+
+### Get the Bonus Program
+
+**Parameters**
+
+| Parameter | Description |
+| ------- | ------------ |
+| **id** | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
+
+> Request for a separate bonus program with the specified ID
+
+```shell
+curl -X GET
+   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+   -H "Authorization: Basic <Credentials>"
 ```
   
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Бонусной программы с указанным id.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Bonus Program with the specified ID.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-    "type": "bonusprogram",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
-  },
-  "id": "87c69fae-c1ad-4700-a852-f21939470760",
-  "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-  "name": "bonusprogram",
-  "active": false,
-  "agentTags": [
-    "группа агентов"
-  ],
-  "earnRateRoublesToPoint": 7,
-  "spendRatePointsToRouble": 4,
-  "maxPaidRatePercents": 50,
-  "welcomeBonusesEnabled": false,
-  "postponedBonusesDelayDays": 7,
-  "earnWhileRedeeming": true
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "type": "bonus program",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
+   },
+   "id": "87c69fae-c1ad-4700-a852-f21939470760",
+   "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
+   "name": "bonus program",
+   active: false
+   "agentTags": [
+     "group of agents"
+   ],
+   "earnRateRoublesToPoint": 7,
+   "spendRatePointsToRouble": 4,
+   "maxPaidRatePercents": 50,
+   "welcomeBonusesEnabled": false,
+   "postponedBonusesDelayDays": 7,
+   "earnWhileRedeeming": true
 }
 ```
 
-### Удалить Бонусную программу
+### Remove Bonus Program
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                   |
-| :------- | :----------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* id Бонусной программы. |
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
 
-> Запрос на удаление бонусной программы
+> Request to remove bonus program
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Бонусной программы
+> Response 200(application/json)
+Successful removal of the Bonus program
 
-### Массовое удаление Бонусных программ
+### Bulk removal of Bonus programs
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Бонусных программ, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON metadata of the Bonus Programs you wish to remove.
 
-> Запрос на массовое удаление Бонусных программ. 
+> Bulk removal request for Rewards Programs.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-            "type": "bonusprogram",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-            "type": "bonusprogram",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+             "type": "bonus program",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+             "type": "bonus program",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Бонусных программ.
+> Successful request. The result is JSON information about the removal of Bonus programs.
 
 ```json
 [
-  {
-    "info":"Сущность 'bonusprogram' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'bonusprogram' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'bonusprogram' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+   },
+   {
+     "info":"Entity 'bonusprogram' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   }
 ]
 ```

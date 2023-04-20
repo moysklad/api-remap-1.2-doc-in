@@ -1,284 +1,284 @@
-## Настройки компании
+## Company settings
 
-На данный момент можно получить информацию о текущих настройках компании и типах цен товаров. 
+You can get information about company settings and product price types.
 
-#### Настройки компании 
-#### Атрибуты сущности
+#### Company settings
+#### Entity attributes
 
-| Название                     | Тип                                                       | Описание                                                                                                                                                                                                                                       |
-|------------------------------|:----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **checkMinPrice**            | Boolean                                                   | Автоматически устанавливать минимальную цену. Если включено, при сохранении документов продажи с ценами меньше минимальных цен (указанных в карточках товара) цены будут автоматически увеличены до минимальных.<br>`+Обязательное при ответе` |
-| **checkShippingStock**       | Boolean                                                   | Запретить отгрузку отсутствующих товаров. Если запрет установлен (true значение), пользователи не смогут провести отгрузку со склада отсутствующих товаров.<br>`+Обязательное при ответе`                                                      |
-| **companyAddress**           | String(255)                                               | Адрес компании для электронных писем                                                                                                                                                                                                           |
-| **currency**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные стандартной валюты<br>`+Обязательное при ответе`                                                                                                                                                                                    |
-| **discountStrategy**         | Enum                                                      | Совместное применение скидок. [Подробнее тут](../dictionaries/#suschnosti-nastrojki-kompanii-sowmestnoe-primenenie-skidok)<br>`+Обязательное при ответе` `+Необходимо при создании`                                                            |
-| **globalOperationNumbering** | Boolean                                                   | Использовать сквозную нумерацию документов. Если проставлен true, будет установлена сквозная нумерация за всю историю, иначе нумерация документов будет начинаться заново каждый календарный год.<br>`+Обязательное при ответе`                |
-| **meta**                     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Настроек компании<br>`+Обязательное при ответе`                                                                                                                                                                                     |
-| **priceTypes**               | Array(Object)                                             | Коллекция всех существующих типов цен. [Подробнее тут](../dictionaries/#suschnosti-nastrojki-kompanii-tip-ceny)<br>`+Обязательное при ответе`                                                                                                  |
-| **useCompanyAddress**        | Boolean                                                   | Использовать адрес компании для электронных писем. Если включено, письма будут отправляться с адреса, указанного в companyAddress, иначе письма будут отправляться с адреса пользователя.<br>`+Обязательное при ответе`                        |
-| **useRecycleBin**            | Boolean                                                   | Использовать корзину. Если включено, то все документы при удалении будут помещаться в корзину. Также появится возможность восстанавливать ошибочно удаленные документы.<br>`+Обязательное при ответе`                                          |
-| **accountCountry**           | String(255)                                               | Передается для информации о том, какая страновая конфигурация активна на аккаунте пользователя. Возможные значения: RU, BY, KZ.<br>`+Обязательное при ответе` `+Только для чтения`                                                             |
+| Title | Type | Description |
+|----------|-------|------------|
+| **checkMinPrice** | Boolean | Automatically set the minimum price. If enabled, when saving sales documents with prices less than the minimum prices (specified in the item cards), the prices will be automatically increased to the minimum prices.<br>`+Required when replying` |
+| **checkShippingStock** | Boolean | Prohibit shipment of missing items. If the prohibition is set (true value), users will not be able to ship out-of-stock items from the warehouse.<br>`+Required when replying` |
+| **companyAddress** | String(255) | Company email address |
+| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Standard currency metadata<br>`+Required when replying` |
+| **discountStrategy** | Enum | Joint application of discounts. [More details here](../dictionaries/#suschnosti-nastrojki-kompanii-sowmestnoe-primenenie-skidok)<br>`+Required when answering` `+Required when creating` |
+| **globalOperationNumbering** | Boolean | Use consecutive numbering of documents. If true, continuous numbering will be set for the entire history, otherwise the numbering of documents will start anew every calendar year.<br>`+Required when answering` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Company Settings Metadata<br>`+Required when replying` |
+| **priceTypes** | Array(Object) | Collection of all existing price types. [More details here](../dictionaries/#suschnosti-nastrojki-kompanii-tip-ceny)<br>`+Required when answering` |
+| **useCompanyAddress** | Boolean | Use the company address for emails. If enabled, emails will be sent from the address specified in companyAddress, otherwise emails will be sent from the user's address.<br>`+Reply Required` |
+| **useRecycleBin** | Boolean | Use cart. If enabled, all documents will be placed in the trash when they are deleted. It will also be possible to recover erroneously deleted documents.<br>`+Required when replying` |
+| **accountCountry** | String(255) | Passed for information about which country configuration is active on the user's account. Possible values: RU, BY, KZ.<br>`+Required when replying` `+Read only` |
 
-#### Тип цены
-Структура отдельного объекта, представляющего тип цены:
+#### Price type
+The structure of a separate object representing the price type:
 
-| Название         | Тип                                                       | Описание                                                                        |
-| ---------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------ |
-| **externalCode** | String(255)                                               | Внешний код Типа цены<br>`+Обязательное при ответе`                             |
-| **id**           | UUID                                                      | ID Типа цены<br>`+Обязательное при ответе` `+Только для чтения`                 |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Типа цены<br>`+Обязательное при ответе` `+Только для чтения`         |
-| **name**         | String(255)                                               | Наименование Типа цены<br>`+Обязательное при ответе` `+Необходимо при создании` |
+| Title | Type | Description |
+|----------|-------|------------|
+| **externalCode** | String(255) | Price Type External Code<br>`+Required when replying` |
+| **id** | UUID | Price Type ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
+| **name** | String(255) | Price Type Name<br>`+Required when replying` `+Required when creating` |
 
-#### Совместное применение скидок
-Перечисление значений, представляющих совместное применение скидок:
+#### Combined application of discounts
+An enumeration of values representing the combined application of discounts:
 
-| Название                       | Описание                                                                        |
-| ------------------------------ | :------------------------------------------------------------------------------ |
-| **bySum**                      | Сумма скидок. Означает, что должна действовать сумма скидок.                    |
-| **byPriority**                 | Приоритетная. Должна действовать одна, наиболее выгодная для покупателя скидка. |
+| Title | Description |
+|----------|------------|
+| **bySum** | Discount amount. Means that the amount of discounts should apply. |
+| **byPriority** | Priority. There should be one, the most favorable discount for the buyer. |
 
-#### Метаданные настроек
-В метаданных Настроек компании, в поле **customEntities** показан список пользовательских справочников.
-Каждый пользовательский справочник содержит поля:
+#### Settings metadata
+In the Company Settings metadata,the **customEntities** field shows a list of user dictionaries.
+Each user directory contains the fields:
 
-| Название       | Тип                                                       | Описание                                                                                    |
-| -------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные Пользовательского справочника<br>`+Обязательное при ответе` `+Только для чтения` |
-| **entityMeta** | URL                                                       | Ссылка на список сущностей данного пользовательского справочника                            |
-| **name**       | String(255)                                               | Наименование справочника                                                                    |
+| Title | Type | Description |
+|----------|-------|------------|
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the User Directory<br>`+Required when responding` `+Read Only` |
+| **entityMeta** | URL | Link to the list of entities in this user reference |
+| **name** | String(255) | Directory name |
 
-### Получить Настройки компании 
-> Запрос на получение Настроек компании.
+### Get company settings
+> Request for Company Settings.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/context/companysettings"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/context/companysettings"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Настроек компании.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of Company Settings.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata",
-    "type": "companysettings",
-    "mediaType": "application/json"
-  },
-  "currency": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-      "type": "currency",
-      "mediaType": "application/json"
-    },
-    "id": "45ffbac2-24a5-11e6-8a84-bae500000055",
-    "system": true,
-    "name": "руб",
-    "fullName": "Российский рубль",
-    "rate": 1,
-    "multiplicity": 1,
-    "indirect": false,
-    "rateUpdateType": "manual",
-    "code": "643",
-    "isoCode": "RUB",
-    "majorUnit": {
-      "gender": "masculine",
-      "s1": "рубль",
-      "s2": "рубля",
-      "s5": "рублей"
-    },
-    "minorUnit": {
-      "gender": "feminine",
-      "s1": "копейка",
-      "s2": "копейки",
-      "s5": "копеек"
-    },
-    "archived": false,
-    "default": true
-  },
-  "priceTypes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-        "type": "pricetype",
-        "mediaType": "application/json"
-      },
-      "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-      "name": "Цена для друзей",
-      "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-        "type": "pricetype",
-        "mediaType": "application/json"
-      },
-      "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-      "name": "Цена для конкурентов",
-      "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-    }
-  ],
-  "discountStrategy": "bySum",
-   "globalOperationNumbering": true,
-   "checkShippingStock": true,
-   "checkMinPrice": true,
-   "useRecycleBin": true,
-   "useCompanyAddress": true,
-   "companyAddress": "MyCompany@moysklad.ru",
-   "accountCountry": "RU" 
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata",
+     "type": "companysettings",
+     "mediaType": "application/json"
+   },
+   currency: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "type": "currency",
+       "mediaType": "application/json"
+     },
+     "id": "45ffbac2-24a5-11e6-8a84-bae500000055",
+     "system": true
+     "name": "rub",
+     "fullName": "Russian ruble",
+     rate: 1
+     "multiplicity": 1,
+     "indirect": false
+     "rateUpdateType": "manual",
+     "code": "643",
+     "isoCode": "RUB",
+     "majorUnit": {
+       "gender": "masculine",
+       "s1": "ruble",
+       "s2": "ruble",
+       "s5": "rubles"
+     },
+     "minorUnit": {
+       "gender": "feminine",
+       "s1": "penny",
+       "s2": "penny",
+       "s5": "kopecks"
+     },
+     archived: false
+     default: true
+   },
+   "priceTypes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "type": "pricetype",
+         "mediaType": "application/json"
+       },
+       "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+       "name": "Price for friends",
+       "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "type": "pricetype",
+         "mediaType": "application/json"
+       },
+       "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+       "name": "Price for competitors",
+       "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+     }
+   ],
+   "discountStrategy": "bySum",
+    "globalOperationNumbering": true,
+    "checkShippingStock": true,
+    "checkMinPrice": true,
+    "useRecycleBin": true,
+    "useCompanyAddress": true,
+    "companyAddress": "MyCompany@moysklad.ru",
+    "accountCountry": "RU"
 }
 ```
 
-### Изменить Настройки компании
- Редактировать можно следующие настройки компании:
+### Edit Company Settings
+  You can edit the following company settings:
 
-| Название                     | Тип         | Описание                                                                                                                                                                                                         |
-| ---------------------------- | :---------- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **checkMinPrice**            | Boolean     | Автоматически устанавливать минимальную цену. Если включено, при сохранении документов продажи с ценами меньше минимальных цен (указанных в карточках товара) цены будут автоматически увеличены до минимальных. |
-| **checkShippingStock**       | Boolean     | Запретить отгрузку отсутствующих товаров. Если запрет установлен (true значение), пользователи не смогут провести отгрузку со склада отсутствующих товаров.                                                      |
-| **companyAddress**           | String(255) | Адрес компании для электронных писем                                                                                                                                                                             |
-| **discountStrategy**         | Enum        | Совместное применение скидок. [Подробнее тут](../dictionaries/#suschnosti-nastrojki-kompanii-sowmestnoe-primenenie-skidok)                                                                                       |
-| **globalOperationNumbering** | Boolean     | Использовать сквозную нумерацию документов. Если проставлен true, будет установлена сквозная нумерация за всю историю, иначе нумерация документов будет начинаться заново каждый календарный год.                |
-| **useCompanyAddress**        | Boolean     | Использовать адрес компании для электронных писем. Если включено, письма будут отправляться с адреса, указанного в companyAddress, иначе письма будут отправляться с адреса пользователя.                        |
-| **useRecycleBin**            | Boolean     | Использовать корзину. Если включено, то все документы при удалении будут помещаться в корзину. Также появится возможность восстанавливать ошибочно удаленные документы.                                          |
+| Title | Type | Description |
+|----------|-------|------------|
+| **checkMinPrice** | Boolean | Automatically set the minimum price. If enabled, when saving sales documents with prices less than the minimum prices (specified in the item cards), the prices will be automatically increased to the minimum prices. |
+| **checkShippingStock** | Boolean | Prohibit shipment of missing items. If the prohibition is set (true value), users will not be able to ship out-of-stock items from the warehouse. |
+| **companyAddress** | String(255) | Company email address |
+| **discountStrategy** | Enum | Joint application of discounts. [More here](../dictionaries/#suschnosti-nastrojki-kompanii-sowmestnoe-primenenie-skidok) |
+| **globalOperationNumbering** | Boolean | Use consecutive numbering of documents. If true, continuous numbering will be set for the entire history, otherwise the numbering of documents will start anew every calendar year. |
+| **useCompanyAddress** | Boolean | Use the company address for emails. If enabled, emails will be sent from the address specified in companyAddress, otherwise emails will be sent from the user's address. |
+| **useRecycleBin** | Boolean | Use cart. If enabled, all documents will be placed in the trash when they are deleted. It will also be possible to recover mistakenly deleted documents. |
 
-Допускается частичное редактирование - отредактированы будут только присутствующие в запросе поля.
-> Запрос на изменение Настроек компании.
+Partial editing is allowed - only the fields present in the request will be edited.
+> Request to change settingscompanies.
 
 ```shell
 curl -X PUT
-  "https://app.kladana.in/api/remap/1.2/context/companysettings"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-      -d '{
-	  "globalOperationNumbering": true,
-	  "checkShippingStock": true,
-      "checkMinPrice": true,
-      "useRecycleBin": true,
-      "useCompanyAddress": true,
-      "companyAddress": "MyCompany@moysklad.ru",
-      "discountStrategy": "bySum"
+   "https://app.kladana.in/api/remap/1.2/context/companysettings"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+       -d '{
+"globalOperationNumbering": true,
+"checkShippingStock": true,
+       "checkMinPrice": true,
+       "useRecycleBin": true,
+       "useCompanyAddress": true,
+       "companyAddress": "MyCompany@moysklad.ru",
+       "discountStrategy": "bySum"
 }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Настроек компании.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of Company Settings.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata",
-    "type": "companysettings",
-    "mediaType": "application/json"
-  },
-  "currency": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-      "type": "currency",
-      "mediaType": "application/json"
-    },
-    "id": "45ffbac2-24a5-11e6-8a84-bae500000055",
-    "system": true,
-    "name": "руб",
-    "fullName": "Российский рубль",
-    "rate": 1,
-    "multiplicity": 1,
-    "indirect": false,
-    "rateUpdateType": "manual",
-    "code": "643",
-    "isoCode": "RUB",
-    "majorUnit": {
-      "gender": "masculine",
-      "s1": "рубль",
-      "s2": "рубля",
-      "s5": "рублей"
-    },
-    "minorUnit": {
-      "gender": "feminine",
-      "s1": "копейка",
-      "s2": "копейки",
-      "s5": "копеек"
-    },
-    "archived": false,
-    "default": true
-  },
-  "priceTypes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-        "type": "pricetype",
-        "mediaType": "application/json"
-      },
-      "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-      "name": "Цена для друзей",
-      "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-        "type": "pricetype",
-        "mediaType": "application/json"
-      },
-      "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
-      "name": "Цена для конкурентов",
-      "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
-    }
-  ],
-  "discountStrategy": "bySum",
-   "globalOperationNumbering": true,
-   "checkShippingStock": true,
-   "checkMinPrice": true,
-   "useRecycleBin": true,
-   "useCompanyAddress": true,
-   "companyAddress": "MyCompany@moysklad.ru",
-   "accountCountry": "RU"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata",
+     "type": "companysettings",
+     "mediaType": "application/json"
+   },
+   currency: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "type": "currency",
+       "mediaType": "application/json"
+     },
+     "id": "45ffbac2-24a5-11e6-8a84-bae500000055",
+     "system": true
+     "name": "rub",
+     "fullName": "Russian ruble",
+     rate: 1
+     "multiplicity": 1,
+     "indirect": false
+     "rateUpdateType": "manual",
+     "code": "643",
+     "isoCode": "RUB",
+     "majorUnit": {
+       "gender": "masculine",
+       "s1": "ruble",
+       "s2": "ruble",
+       "s5": "rubles"
+     },
+     "minorUnit": {
+       "gender": "feminine",
+       "s1": "penny",
+       "s2": "penny",
+       "s5": "kopecks"
+     },
+     archived: false
+     default: true
+   },
+   "priceTypes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "type": "pricetype",
+         "mediaType": "application/json"
+       },
+       "id": "672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+       "name": "Price for friends",
+       "externalCode": "cbcf493b-55bc-11d9-848a-00112f432222"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "type": "pricetype",
+         "mediaType": "application/json"
+       },
+       "id": "672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+       "name": "Price for competitors",
+       "externalCode": "cbcf493b-55bc-11d9-848a-00112f434444"
+     }
+   ],
+   "discountStrategy": "bySum",
+    "globalOperationNumbering": true,
+    "checkShippingStock": true,
+    "checkMinPrice": true,
+    "useRecycleBin": true,
+    "useCompanyAddress": true,
+    "companyAddress": "MyCompany@moysklad.ru",
+    "accountCountry": "RU"
 }
 ```
 
 
-#### Метаданные настроек компании 
-### Получить метаданные настроек компании 
-> Запрос на получение метаданных Настроек компании.
+#### Company settings metadata
+### Get company settings metadata
+> Request to get company settings metadata.
 
 ```shell
 curl -X GET
-  "ttps://app.kladana.in/api/remap/1.2/context/companysettings/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "ttps://app.kladana.in/api/remap/1.2/context/companysettings/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление метаданных настроек компании.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of company settings metadata.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
-    "mediaType": "application/json"
-  },
-  "customEntities": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
-        "type": "customentitymetadata",
-        "mediaType": "application/json"
-      },
-      "name": "Партнеры",
-      "createShared": true
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
-        "type": "customentitymetadata",
-        "mediaType": "application/json"
-      },
-      "name": "Рекламные агенства",
-      "createShared": true
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
+     "mediaType": "application/json"
+   },
+   "customEntities": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
+         "type": "customer metadata",
+         "mediaType": "application/json"
+       },
+       "name": "Partners",
+       "createShared": true
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
+         "type": "customer metadata",
+         "mediaType": "application/json"
+       },
+       "name": "Advertising Agencies",
+       "createShared": true
+     }
+   ]
 }
 ```

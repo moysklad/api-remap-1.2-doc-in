@@ -44,7 +44,7 @@ Content-Location: https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-
 To execute a request in asynchronous mode, you need to specify `async=true` in the query string parameters.
 Specifying the **offset** and **limit** query string options that are specific to synchronous queries is an error.
 
-**Options**
+**Parameters**
 
 | Parameter | Description |
 | ---------|---------|
