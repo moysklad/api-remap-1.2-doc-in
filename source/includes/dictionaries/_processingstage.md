@@ -296,7 +296,7 @@ Successful deletion of the Production Operation.
 In the body of the request, you need to pass an array containing the JSON metadata of the Production Operations that you want to remove.
 
 
-> Request for mass deletion of Production Operations.
+> Request for bulk deletion of Production Operations.
 
 ```shell
 curl -X POST

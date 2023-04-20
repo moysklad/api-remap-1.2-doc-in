@@ -535,12 +535,12 @@ curl -X DELETE
 > Response 200(application/json)
 Successfully deleting the task.
 
-### Mass deletion of Tasks
+### Bulk deletion of Tasks
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Tasks that you want to delete.
 
 
-> Request for mass deletion of Tasks.
+> Request for bulk deletion of Tasks.
 
 ```shell
 curl -X POST

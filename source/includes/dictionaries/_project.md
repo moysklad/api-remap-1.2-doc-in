@@ -434,7 +434,7 @@ curl -X DELETE
 > Response 200(application/json)
 Successful deletion of the Project.
 
-### Mass deletion of Projects
+### Bulk deletion of Projects
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Projects that you want to delete.
 

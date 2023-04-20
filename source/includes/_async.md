@@ -253,96 +253,93 @@ curl -X GET
   -H "Authorization: Bearer <Access-Token>"
 ```
 
-> Response 200
-Successful request. Result is a file with the result of the execution of the Asynchronous task in json format.
-
-> Example of received report
+> Response 200. Successful request. The result is a file with the result of the execution of the Asynchronous task in json format. 
 
 ```json
 {
   "context": {
-    "employee": {
-      "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
-    "type": "stockbystore",
-    "mediaType": "application/json",
-    "size": 2
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
+      "employee": {
+        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+        "type": "employee",
         "mediaType": "application/json"
       },
-      "stockByStore": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-            "type": "store",
-            "mediaType": "application/json"
-          },
-          "name": "Не основной склад",
-          "stock": -30,
-          "reserve": 0,
-          "inTransit": 0
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-            "type": "store",
-            "mediaType": "application/json"
-          },
-          "name": "Основной склад",
-          "stock": 0,
-          "reserve": 0,
-          "inTransit": 0
-        }
-      ]
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
+      "type": "stockbystore",
+      "mediaType": "application/json",
+      "size": 2
     },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      },
-      "stockByStore": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-            "type": "store",
-            "mediaType": "application/json"
-          },
-          "name": "Not main warehouse",
-          "stock": 0,
-          "reserve": 0,
-          "inTransit": 0
+    "rows": [
+      {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
         },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-            "type": "store",
-            "mediaType": "application/json"
+        "stockByStore": [
+          {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
+              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+              "type": "store",
+              "mediaType": "application/json"
+            },
+            "name": "Not the main warehouse",
+            "stock": -30,
+            "reserve": 0,
+            "inTransit": 0
           },
-          "name": "Main warehouse",
-          "stock": 4,
-          "reserve": 0,
-          "inTransit": 0
-        }
-      ]
-    }
-  ]
+          {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+              "type": "store",
+              "mediaType": "application/json"
+            },
+            "name": "Main warehouse",
+            "stock": 0,
+            "reserve": 0,
+            "inTransit": 0
+          }
+        ]
+      },
+      {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        },
+        "stockByStore": [
+          {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
+              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+              "type": "store",
+              "mediaType": "application/json"
+            },
+            "name": "Not main warehouse",
+            "stock": 0,
+            "reserve": 0,
+            "inTransit": 0
+          },
+          {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+              "type": "store",
+              "mediaType": "application/json"
+            },
+            "name": "Main warehouse",
+            "stock": 4,
+            "reserve": 0,
+            "inTransit": 0
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 

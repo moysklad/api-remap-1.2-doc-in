@@ -1,277 +1,276 @@
-## Сортировка
-Для большинства коллекций, возвращаемых JSON API, доступна сортировка.
+## Sort
 
-Сортировка поддерживается для следующих типов полей:
+Most of the collections returned by the JSON API are sortable.
+Sorting is supported for the following field types:
 
-* числовой, 
-* строковый, 
-* дата-время, 
-* логический,
-* uuid.
+* numeric,
+* string,
+* date-time,
+* logical,
+* uid.
 
-### Доступные поля для сортировки
-В зависимости от вызываемого endpoint'а сортируемые поля могут отличаться.
-В таблицах ниже представлены сортируемые поля справочников и документов.
+### Available fields for sorting
 
-| Endpoint (справочники) | Сортируемые поля |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <a href="../dictionaries/#suschnosti-kontragent">Контрагент</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `phone`, `email`, `fax` |
-| <a href="../dictionaries/#suschnosti-assortiment">Ассортимент</a>| `name`, `code` |
-| <a href="../dictionaries/#suschnosti-valuta">Валюта</a>|`id`, `name`, `archived`, `default`, `fullname`, `code`, `isoCode`, `multiplicity` |
-| <a href="../dictionaries/#suschnosti-towar">Товар</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `isSerialTrackable`, `weighed`, `weight`, `volume`, `syncId` |
-| <a href="../dictionaries/#suschnosti-usluga">Услуга</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `syncId` |
-| <a href="../dictionaries/#suschnosti-komplekt">Комплект</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `pathName`, `article`, `weight`, `volume`,  `syncId` |
-| <a href="../dictionaries/#suschnosti-modifikaciq">Модификация</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`,`externalCode` |
-| <a href="../dictionaries/#suschnosti-gruppa-towarow">Группа товаров</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `externalCode`, `archived`, `pathName` |
-| <a href="../dictionaries/#suschnosti-seriq">Серия</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`,`externalCode` |
-| <a href="../dictionaries/#suschnosti-dogowor">Договор</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `moment` |
-| <a href="../dictionaries/#suschnosti-proekt">Проект</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `code`,`externalCode`, `archived` |
-| <a href="../dictionaries/#suschnosti-stat-q-rashodow">Статья расходов</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`,`externalCode` |
-| <a href="../dictionaries/#suschnosti-strana">Страна</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`,`externalCode` |
-| <a href="../dictionaries/#suschnosti-otdel">Отдел</a>|`id` |
-| <a href="../dictionaries/#suschnosti-edinica-izmereniq">Единица измерения</a>|`id`, `version`, `updated`, `name`, `description`, `code`, `externalCode` |
-| <a href="../dictionaries/#suschnosti-sotrudnik">Сотрудник</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`,`archived`,`email`,`phone`,`lastname`, `firstname`, `middlename`, `uid` |
-| <a href="../dictionaries/#suschnosti-sklad">Склад</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `address`, `archived`, `pathName` |
-| <a href="../dictionaries/#suschnosti-jurlico">Юрлицо</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`,`externalCode`, `archived`, `created`, `inn`, `actualAddress`, `legalTitle`, `legalAddress`, `kpp`, `phone`, `email`, `fax` |
-| <a href="../dictionaries/#suschnosti-tochka-prodazh">Точка продаж</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`, `address`, `active` |
-| <a href="../dictionaries/#suschnosti-zadacha">Задача</a>|`id`, `created`, `version`, `updated`, `description`, `dueToDate`, `done` |
+Depending on the called endpoint, the sorted fields may differ.
+The tables below show the sortable fields of directories and documents.
 
-| Endpoint (transactions) | Сортируемые поля |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <a href="../documents/#dokumenty-roznichnaq-smena">Розничная смена</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `closeDate`|
-| <a href="../documents/#dokumenty-oprihodowanie">Оприходования</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created` |
-| <a href="../documents/#dokumenty-zakaz-pokupatelq">Заказ покупателя</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
-| <a href="../documents/#dokumenty-zakaz-postawschiku">Заказ поставщику</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
-| <a href="../documents/#dokumenty-schet-pokupatelu">Счет покупателю</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `paymentPlannedMoment` |
-| <a href="../documents/#dokumenty-schet-postawschika">Счет поставщика</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingNumber`, `incomingDate`, `paymentPlannedMoment` |
-| <a href="../documents/#dokumenty-vhodqschij-platezh">Входящий платеж</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose`, `incomingNumber`, `incomingDate` |
-| <a href="../documents/#dokumenty-ishodqschij-platezh">Исходящий платеж</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
-| <a href="../documents/#dokumenty-prihodnyj-order">Приходный ордер</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
-| <a href="../documents/#dokumenty-rashodnyj-order">Расходный ордер</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
-| <a href="../documents/#dokumenty-otgruzka">Отгрузка</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-priemka">Приемка</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-spisanie">Списание</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-peremeschenie">Перемещение</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-roznichnaq-prodazha">Розничная продажа</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-roznichnyj-wozwrat">Розничный возврат</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-vnesenie-deneg">Внесение денег</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-vyplata-deneg">Выплата денег</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-vozwrat-pokupatelq">Возврат покупателя</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-vozwrat-postawschiku">Возврат поставщику</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-schet-faktura-wydannyj">Счет-фактура выданный</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-schet-faktura-poluchennyj">Счет-фактура полученный</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-inwentarizaciq">Инвентаризация</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-poluchennyj-otchet-komissionera">Полученный отчет комиссионера</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingDate` |
-| <a href="../documents/#dokumenty-vydannyj-otchet-komissionera">Выданный отчет комиссионера</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-prajs-list">Прайс-лист</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-teh-karta">Тех. карта</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`|
-| <a href="../documents/#dokumenty-zakaz-na-proizwodstwo">Заказ на производство</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `deliveryPlannedMoment`, `quantity`|
-| <a href="../documents/#dokumenty-teh-operaciq">Тех. операция</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
-| <a href="../documents/#dokumenty-vnutrennij-zakaz">Внутренний заказ</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
+| Endpoint (directories) | Sortable fields |
+|----------------|------------- |
+| <a href="../dictionaries/#suschnosti-kontragent">Account</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `phone`, `email`, `fax` |
+| <a href="../dictionaries/#suschnosti-assortiment">Assortment</a>| `name`, `code` |
+| <a href="../dictionaries/#suschnosti-valuta">Currency</a>|`id`, `name`, `archived`, `default`, `fullname`, `code`, `isoCode`, `multiplicity` |
+| <a href="../dictionaries/#suschnosti-towar">Product</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `isSerialTrackable`, `weighed`, `weight`, `volume`, `syncId` |
+| <a href="../dictionaries/#suschnosti-usluga">Service</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `syncId` |
+| <a href="../dictionaries/#suschnosti-komplekt">Kit</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `pathName`, `article`, `weight`, `volume`, `syncId` |
+| <a href="../dictionaries/#suschnosti-modifikaciq">Modification</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
+| <a href="../dictionaries/#suschnosti-gruppa-towarow">Product group</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `externalCode`, ` archived`, `pathName` |
+| <a href="../dictionaries/#suschnosti-seriq">Series</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
+| <a href="../dictionaries/#suschnosti-dogowor">Agreement</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `moment` |
+| <a href="../dictionaries/#suschnosti-proekt">Project</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `code`,`externalCode`, `archived` |
+| <a href="../dictionaries/#suschnosti-stat-q-rashodow">Expense item</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description` , `code`,`externalCode` |
+| <a href="../dictionaries/#suschnosti-strana">Country</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
+| <a href="../dictionaries/#suschnosti-otdel">Department</a>|`id` |
+| <a href="../dictionaries/#suschnosti-edinica-izmereniq">Unit</a>|`id`, `version`, `updated`, `name`, `description`, `code`, ` externalCode` |
+| <a href="../dictionaries/#suschnosti-sotrudnik">Employee</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `archived`,`email`,`phone`,`lastname`, `firstname`, `middlename`, `uid` |
+| <a href="../dictionaries/#suschnosti-sklad">Warehouse</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `address`, `archived`, `pathName` |
+| <a href="../dictionaries/#suschnosti-jurlico">Legal entity</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `inn`, `actualAddress`, `legalTitle`, `legalAddress`, `kpp`, `phone`, `email`, `fax` |
+| <a href="../dictionaries/#suschnosti-tochka-prodazh">Point of sale</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`, `address`, `active` |
+| <a href="../dictionaries/#suschnosti-zadacha">Task</a>|`id`, `created`, `version`, `updated`, `description`, `dueToDate`, `done` |
 
-### Как использовать сортировку через JSON API
-Для применения сортировки к коллекции необходимо добавить в запрос `order=[field name],[asc/desc]`, где field name - имя поля для сортировки. 
-Опционально через запятую можно указать направление сортировки:
+| Endpoint (transactions) | Sortable fields |
+|---------------|---------|
+| <a href="../documents/#dokumenty-roznichnaq-smena">Retail shift</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, ` description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `closeDate`|
+| <a href="../documents/#dokumenty-oprihodowanie">Positions</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created` |
+| <a href="../documents/#dokumenty-zakaz-pokupatelq">Buyer order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, ` description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
+| <a href="../documents/#dokumenty-zakaz-postawschiku">Order to supplier</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
+| <a href="../documents/#dokumenty-schet-pokupatelu">Invoice to buyer</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, ` description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `paymentPlannedMoment` |
+| <a href="../documents/#dokumenty-schet-postawschika">Vendor account</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingNumber`, `incomingDate`, `paymentPlannedMoment` |
+| <a href="../documents/#dokumenty-vhodqschij-platezh">Incoming payment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose`, `incomingNumber`, `incomingDate` |
+| <a href="../documents/#dokumenty-ishodqschij-platezh">Outgoing payment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
+| <a href="../documents/#dokumenty-prihodnyj-order">Incoming Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
+| <a href="../documents/#dokumenty-rashodnyj-order">Disbursement order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
+| <a href="../documents/#dokumenty-otgruzka">Shipping</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-priemka">Acceptance</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-spisanie">Decommission</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-peremeschenie">Moving</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-roznichnaq-prodazha">Retail</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-roznichnyj-wozwrat">Retail return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-vnesenie-deneg">Depositing money</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-vyplata-deneg">Payout</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-vozwrat-pokupatelq">Customer return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-vozwrat-postawschiku">Return to vendor</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-schet-faktura-wydannyj">Invoice issued</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, ` name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-schet-faktura-poluchennyj">Invoice received</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, ` name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-inwentarizaciq">Inventory</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-poluchennyj-otchet-komissionera">Commissioner report received</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name `, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingDate` |
+| <a href="../documents/#dokumenty-vydannyj-otchet-komissionera">Issued commission report</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name `, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-prajs-list">Price List</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`, `moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-teh-karta">Tech. map</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`|
+| <a href="../documents/#dokumenty-zakaz-na-proizwodstwo">Production Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`,`moment`, `applicable`, `sum`, `created`, `deliveryPlannedMoment`, `quantity`|
+| <a href="../documents/#dokumenty-teh-operaciq">Tech. operation</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
+| <a href="../documents/#dokumenty-vnutrennij-zakaz">Internal Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
 
-* `asc` - по возрастанию, значение по умолчанию,
-* `desc` - по убыванию.
+### How to use sorting via JSON API
 
-Например, для сортировки поля `name` по возрастанию нужно использовать `?order=name, asc` или `?order=name`, а по убыванию `?order=name,desc`.
+To apply sorting to a collection, add `order=[field name],[asc/desc]` to the query, where field name is the name of the field to sort. Optionally, you can specify the sort direction separated by commas:
 
-Сортировка также доступна одновременно для нескольких полей, поля для сортировки необходимо указывать через разделитель `;`. 
-Например, `?order=name,asc;code,desc`.
+* `asc` - ascending, default value,
+* `desc` - descending.
 
-Рассмотрим применение сортировки.
-Предварительно создадим товары с различными наименованиями, которые могут начинаться с латиницы, кириллицы, цифр или специальных символов. 
+For example, to sort the `name` field in ascending order, use `?order=name, asc` or `?order=name`, and in descending order `?order=name,desc`.
 
-> Запрос
+Sorting is also available for several fields at the same time, fields for sorting must be specified through the separator `;`.
+For example, `?order=name,asc;code,desc`.
+
+Consider the use of sorting.
+Let's first create products with different names that can start with Latin, Cyrillic, numbers or special characters.
+
+> Request
 
 ```shell
-curl -X POST 
-https://app.kladana.in/api/remap/1.2/entity/product 
--H 'Authorization: Bearer <Access-Token>' 
--H 'Cache-Control: no-cache' 
--H 'Content-Type: application/json' 
--d '[
- {
+curl -X POST
+https://app.kladana.in/api/remap/1.2/entity/product
+-H 'Authorization: Bearer <Access-Token>'
+-H 'Cache-Control: no-cache'
+-H 'Content-Type: application/json'
+-d'[
+  {
 "name":"12345",
-"weight":0.1,
-"weighed":true,
+"weight":0.1
+"weighted":true,
 "syncId":"8b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
-"name":"Pencil",
-"weight":0.01,
+  },
+  {
+"name":"pencil",
+"weight":0.01
 "syncId":"5b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
+  },
+  {
 "name":"Pencil 123",
-"weight":0.01,
+"weight":0.01
 "syncId":"3b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
+  },
+  {
 "name":"Pencil Blue",
-"weight":0.11,
-"weighed":true
- },
- {
+"weight":0.11
+"weighted":true
+  },
+  {
 "name":"Pencil Red",
-"weight":0.2,
+"weight":0.2
 "syncId":"1b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
-"name":"Карандаш",
-"weight":0.1,
+  },
+  {
+"name":"Pencil",
+"weight":0.1
 "syncId":"2b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
-"name":"Карандаш 123",
+  },
+  {
+"name":"Pencil 123",
 "weight":0.32,
 "syncId":"4b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
-"name":"Карандаш желтый",
-"weight":0.12,
-"weighed":true,
+  },
+  {
+"name":"Pencil yellow",
+"weight":0.12
+"weighted":true,
 "syncId":"7b7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
-"name":"Карандаш зеленый",
+  },
+  {
+"name":"Pencil green",
 "weight":0.4,
 "syncId":"8c7c97cf-cf77-4f7e-b200-d264125578ab"
- },
- {
-"name":"!!! Это карандаш",
-"weight":0.1,
+  },
+  {
+"name":"!!! It's a pencil",
+"weight":0.1
 "syncId":"3d7c97cf-cf77-4f7e-b200-d264125578ab"
- }
+  }
 ]'
 ```
 
-Чтобы получить коллекцию товаров, отсортированных по имени, необходимо указать поле `name` и направление сортировки, как в примере ниже
+To get a collection of products sorted by name, you must specify the `name` field and sort direction, as in the example below.
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-'https://app.kladana.in/api/remap/1.2/entity/product?order=name' 
--H 'Authorization: Bearer <Access-Token>' 
+curl -X GET
+'https://app.kladana.in/api/remap/1.2/entity/product?order=name'
+-H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 ```
-Ответ будет содержать следующий порядок по возрастанию:
+The response will contain the following ascending order:
 
 |name|
-|------------------|
+|----|
 | 12345 |
-| Pencil |
+| pencil |
 | Pencil 123 |
 | Pencil Blue |
 | Pencil Red |
-| Карандаш |
-| Карандаш 123 |
-| Карандаш желтый |
-| Карандаш зеленый |
-| !!! Это карандаш |
+| Pencil |
+| Pencil 123 |
+| Yellow pencil |
+| Green pencil |
+| !!! This is a pencil |
 
-Изменим направление сортировки
+Change the sort direction
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-'https://app.kladana.in/api/remap/1.2/entity/product?order=name,desc' 
--H 'Authorization: Bearer <Access-Token>' 
+curl -X GET
+'https://app.kladana.in/api/remap/1.2/entity/product?order=name,desc'
+-H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 ```
 
 |name|
-|------------------|
-| !!! Это карандаш |
-| Карандаш зеленый |
-| Карандаш желтый |
-| Карандаш 123 |
-| Карандаш |
+|-----|
+| !!! This is a pencil |
+| Green pencil |
+| Yellow pencil |
+| Pencil 123 |
+| Pencil |
 | Pencil Red |
 | Pencil Blue |
 | Pencil 123 |
-| Pencil |
+| pencil |
 | 12345 |
 
-Попробуем отсортировать товары одновременно по убыванию логического поля `weighed` и по возрастанию поля `name`.
+Let's try to sort products simultaneously in descending order of the `weighed` logical field and in ascending order of the `name` field.
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-'https://app.kladana.in/api/remap/1.2/entity/product?order=weighed,desc;name' 
--H 'Authorization: Bearer <Access-Token>' 
--H 'Cache-Control: no-cache' 
+curl -X GET
+'https://app.kladana.in/api/remap/1.2/entity/product?order=weighed,desc;name'
+-H 'Authorization: Bearer <Access-Token>'
+-H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
-|weighed|name|
+|weighted|name|
 |------------------|------------------|
 | true | 12345 |
 | true | Pencil Blue |
-| true | Карандаш желтый |
-| false | Pencil |
+| true | Yellow pencil |
+| false | pencil |
 | false | Pencil 123 |
 | false | Pencil Red |
-| false | Карандаш |
-| false | Карандаш 123 |
-| false | Карандаш зеленый |
-| false | !!! Это карандаш |
+| false | Pencil |
+| false | Pencil 123 |
+| false | Green pencil |
+| false | !!! This is a pencil |
 
-Добавим еще сортировку по числовому полю `weight`.
+Let's add sorting by the `weight` numeric field.
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-'https://app.kladana.in/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name' 
--H 'Authorization: Bearer <Access-Token>' 
--H 'Cache-Control: no-cache' 
+curl -X GET
+'https://app.kladana.in/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name'
+-H 'Authorization: Bearer <Access-Token>'
+-H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
-|weighed|weight|name|
-|------------------|------------------|------------------|
-|true|0.12| Карандаш желтый |
+|weighted|weight|name|
+|--------|-------|-----------|
+|true|0.12| Yellow pencil |
 |true|0.11| Pencil Blue |
 |true|0.1| 12345 |
-|false|0.4| Карандаш зеленый |
-|false|0.32| Карандаш 123 |
+|false|0.4| Green pencil |
+|false|0.32| Pencil 123 |
 |false|0.2| Pencil Red |
-|false|0.1| Карандаш |
-|false|0.1| !!! Это карандаш |
-|false|0.01| Pencil |
+|false|0.1| Pencil |
+|false|0.1| !!! This is a pencil |
+|false|0.01| pencil |
 |false|0.01| Pencil 123 |
 
-Кроме текстовых, числовых и логических полей доступна сортировка по полям типов uuid и дата-время.
-Например, применим сортировку по полю `syncId`.
+In addition to text, numeric and boolean fields, sorting by fields of uuid and date-time types is available. For example, let's sort by the `syncId` field.
 
-> Запрос
+> Request
 
 ```shell
-curl -X GET 
-'https://app.kladana.in/api/remap/1.2/entity/product?order=syncId' 
--H 'Authorization: Bearer <Access-Token>' 
--H 'Cache-Control: no-cache' 
+curl -X GET
+'https://app.kladana.in/api/remap/1.2/entity/product?order=syncId'
+-H 'Authorization: Bearer <Access-Token>'
+-H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
 |syncId|name|
-|------------------|------------------|
+|------|-----|
 | 1b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil Red |
-| 2b7c97cf-cf77-4f7e-b200-d264125578ab|Карандаш |
+| 2b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil |
 | 3b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil 123 |
-| 3d7c97cf-cf77-4f7e-b200-d264125578ab|!!! Это карандаш |
-| 4b7c97cf-cf77-4f7e-b200-d264125578ab|Карандаш 123 |
+| 3d7c97cf-cf77-4f7e-b200-d264125578ab|!!! This is a pencil |
+| 4b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil 123 |
 | 5b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil |
-| 7b7c97cf-cf77-4f7e-b200-d264125578ab|Карандаш желтый |
+| 7b7c97cf-cf77-4f7e-b200-d264125578ab|Yellow pencil |
 | 8b7c97cf-cf77-4f7e-b200-d264125578ab|12345 |
-| 8c7c97cf-cf77-4f7e-b200-d264125578ab|Карандаш зеленый |
+| 8c7c97cf-cf77-4f7e-b200-d264125578ab|Green pencil |
 | null |Pencil Blue |
 
-У товара `Pencil Blue` отсутствует значение поля поэтому при сортировке по возрастанию, оно выводится в конце. 
-Аналогичное поведение и для других полей со значением `null`.
+The product `Pencil Blue` does not have a field value, so when sorting in ascending order, it is displayed at the end. Similar behavior for other fields with the value `null`.

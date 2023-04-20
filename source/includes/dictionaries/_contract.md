@@ -832,6 +832,7 @@ Successful request. The result is a JSON representation of the created contract.
 ```
 
 ### Contracts bulk creating and update
+
 [Сontracts bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
 In the body of the request, you need to pass an array containing the JSON representation of the Contracts that you want to create or update.
 Updated Contracts must contain the identifier in the form of metadata.

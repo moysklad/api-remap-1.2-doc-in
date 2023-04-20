@@ -127,7 +127,7 @@ Successful request. The result is a JSON representation of Company Settings.
     "checkMinPrice": true,
     "useRecycleBin": true,
     "useCompanyAddress": true,
-    "companyAddress": "MyCompany@moysklad.ru",
+    "companyAddress": "MyCompany@kladana.in",
     "accountCountry": "RU"
 }
 ```
@@ -159,7 +159,7 @@ curl -X PUT
        "checkMinPrice": true,
        "useRecycleBin": true,
        "useCompanyAddress": true,
-       "companyAddress": "MyCompany@moysklad.ru",
+       "companyAddress": "MyCompany@kladana.in",
        "discountStrategy": "bySum"
 }'
 ```
@@ -235,7 +235,7 @@ Successful request. The result is a JSON representation of Company Settings.
     "checkMinPrice": true,
     "useRecycleBin": true,
     "useCompanyAddress": true,
-    "companyAddress": "MyCompany@moysklad.ru",
+    "companyAddress": "MyCompany@kladana.in",
     "accountCountry": "RU"
 }
 ```

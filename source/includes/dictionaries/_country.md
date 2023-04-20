@@ -376,12 +376,12 @@ You can only delete countries created through the main interface or through the 
 > Response 200(application/json)
 Successful deletion of Retail.
 
-### Mass removal of countries
+### Bulk removal of countries
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Countries that you want to remove.
 
 
-> Request for mass deletion of countries.
+> Request for bulk deletion of countries.
 
 ```shell
 curl -X POST

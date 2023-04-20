@@ -158,7 +158,7 @@ Depending on the counterparty type **companyType**, its object will display diff
 Counterparty types and corresponding values that can be passed in this field:
 
 | CompanyType field value | Counterparty type |
-| ------------------------------ | :------------------------------------ |
+| --------| ---------- |
 | **legal** | Legal entity |
 | **entrepreneur** | Individual entrepreneur |
 | **individual** | Individual |

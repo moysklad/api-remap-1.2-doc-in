@@ -1,390 +1,378 @@
-## Работа с дополнительными полями через JSON API
+## Working with additional fields via JSON API
 
-Для задания дополнительных свойств объекта in Kladana есть возможность работы с дополнительными полями (атрибутами). 
-Они представляют собой свойства сущности (объекта или документа), которые формируются пользователем и могут быть использованы для более 
-подробного описания объекта или фильтрации по значениям этих полей. Подробнее о типах и свойствах дополнительных полей можно прочитать 
-в [документации](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+To set additional properties of an object in Kladana, it is possible to work with additional fields (attributes).
+They are properties of an entity (object or document) that are formed by the user and can be used for more
+a detailed description of the object or filtering by the values of these fields. You can read more about the types and properties of additional fields
+in [documentation](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-В данной статье рассмотрим на примере магазина ноутбуков просмотр, создание, редактирование и удаление дополнительных полей средствами JSON API.
+In this article, we will use the example of a laptop store to view, create, edit, and delete additional fields using the JSON API.
 
-Значения дополнительных полей можно менять, обращаясь к конкретному объекту (документу). Это подробно описано в 
-статье [Дополнительные поля](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi). 
+The values of additional fields can be changed by referring to a specific object (document). This is detailed in
+article [Additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-Предположим, что нам необходимо выбирать и сортировать ноутбуки по некоторым характеристикам, которых нет в свойствах товара по умолчанию. 
-Например, материал корпуса, наличие CD/DVD-Rom, наличие разъема Type-C и т.д. Нужна возможность создавать, редактировать и удалять свойства товаров. 
-Присваивать конкретным товарам значения этих свойств, а также осуществлять фильтрацию по ним. Фильтрация по значениям дополнительных полей в 
-JSON API описана в статье [Дополнительные поля](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm).
-Для создания указанных характеристик будем использовать дополнительные поля (атрибуты) товара.
+Suppose we need to select and sort laptops by some characteristics that are not in the product properties by default.
+For example, the case material, the presence of a CD/DVD-Rom, the presence of a Type-C connector, etc. You need the ability to create, edit and delete product properties.
+Assign the values of these properties to specific products, as well as filter by them. Filtering by the values of additional fields in
+JSON API is described in the article [Additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym- polqm).
+To create these characteristics, we will use additional fields (attributes) of the product.
 
-В web-приложении атрибуты объектов назначаются на странице списка объектов при нажатии на кнопку с шестеренкой справа. 
-Открывается окно редактирования свойств объектов, где последним пунктом идет "Дополнительные поля". Здесь доступен просмотр, создание, 
-редактирование и удаление атрибутов объекта. Весь этот функционал доступен и через JSON API. 
+In the web application, object attributes are assigned on the object list page by clicking the gear button on the right.
+A window for editing the properties of objects opens, where the last item is "Additional fields". Here you can view, create, editing and deleting object attributes. All this functionality is available through the JSON API.
 
-Процесс создания атрибута товара через UI
-![Settings UI](../../images/attributes/Screenshot_1.jpg?raw=true)
+### Additional fields for Services, Modifications and Kits
+Additional fields for Goods, Services, Modifications and Kits are common and are located in the Goods metadata.
 
-![Creating attribute](../../images/attributes/Screenshot_2.jpg?raw=true)
+### Creating a new additional field via the JSON API
+Consider the task of adding new attributes to an entity (product). Suppose we want for existing and purchased in the future laptops
+indicate the body material. To specify it, we will use an additional field of the string type. This example is discussed in
+screenshots of the web application above. Now let's try to do the same through the JSON API.
 
-![Created attribute](../../images/attributes/Screenshot_3.jpg?raw=true)
+Let's execute a POST request, in the body of which we indicate the name and type of the additional field (attribute). To do this, it is enough to specify in the body of the request
+required fields "name" and "type". In this case, let's add a string field that describes the material of the laptop case.
 
-![UI filter](../../images/attributes/Screenshot_7.jpg?raw=true)
+In addition to the name and type, the attribute being created has the following fields:
 
-### Дополнительные поля Услуг, Модификаций и Комплектов
-Дополнительные поля у Товаров, Услуг, Модификаций и Комплектов общие и располагаются в метаданных Товаров.
+* *meta* - metadata set, filled in automatically upon creation,
+* *id* - attribute id, filled in automatically upon creation,
+* *required* - the attribute's mandatory flag, if true - the attribute's value must be filled in when creating or modifying the entity. (Default is false. For attributes of type Checkbox cannot be changed)
 
-### Создание нового дополнительного поля через JSON API
-Рассмотрим задачу добавления новых атрибутов к сущности (товару). Предположим, что хотим для имеющихся и закупаемых в будущем ноутбуков 
-указывать материал корпуса. Для его указания будем пользоваться дополнительным полем типа строка. Этот пример рассмотрен в 
-скриншотах web-приложения выше. Теперь попробуем сделать то же через JSON API.
+Creating two additional fields with the same name is not allowed.
 
-Выполним POST-запрос, в теле которого укажем название и тип дополнительного поля (атрибута). Для этого достаточно в теле запроса указать 
-обязательные поля "name" и "type". В данном случае добавим строковое поле, описывающее материал корпуса ноутбука.
-
-Кроме имени и типа у создаваемого атрибута есть следующие поля:
-
-* *meta* - набор метаданных, заполняется автоматически при создании,
-* *id* - id атрибута, заполняется автоматически при создании,
-* *required* - флаг обязательности атрибута, если равен true - значение атрибута должно быть заполнено при создании или изменении сущности. (По умолчанию false. Для атрибутов типа Флажок не может быть изменен)
-
-Создание двух дополнительных полей с одинаковыми именами запрещено.
-
-> Запрос
+> Request
 
 ```shell
-curl -X POST 
-  -u login:password 
-  -H 'Accept: application/json' 
-  -H 'Content-Type: application/json' 
-  "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes" 
-  -d '{
-    "name": "Материал корпуса",
-    "type": "string"
-    }'
+curl -X POST
+   -u login:password
+   -H 'Accept: application/json'
+   -H 'Content-Type: application/json'
+   "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
+   -d '{
+     "name": "Hull Material",
+     "type": "string"
+     }'
 ```
 
-> Результат:
+> Result:
 
 ```json
 {
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-    },
-    "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
-    "name": "Материал корпуса",
-    "type": "string",
-    "required": false
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+     },
+     "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
+     "name": "Hull Material",
+     "type": "string",
+     "required": false
 }
 ```
 
-Создано дополнительное поле (атрибут), ему автоматически присвоен id. Значение свойства required по умолчанию устанавливается 
-в false, что делает созданный атрибут не обязательным для заполнения при создании товара.
+An additional field (attribute) has been created, it is automatically assigned an id. The value of the required property is set by default
+to false, which makes the created attribute optional when creating a product.
 
-### Создание нового дополнительного поля типа Справочник через JSON API
-Стоит обратить внимание на создание атрибута с типом Справочник. Этот тип позволяет атрибуту принимать в качестве значения другие объекты, 
-в том числе и пользовательские. 
+### Creating a new additional field of the Reference type via the JSON API
+It is worth paying attention to the creation of an attribute with the Directory type. This type allows an attribute to take other objects as its value,
+including custom ones.
 
-Описание атрибутов типа Справочник в [документации](../workbook/#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) 
+Description of Handbook type attributes in [documentation](../workbook/#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
-Предположим, что в нашем магазине есть также чехлы для ноутбуков. Создадим атрибут Справочник типа Товар. Теперь Появилась возможность для 
-каждого ноутбука указать подходящий ему чехол как одно из свойств ноутбука.
+Let's assume that our store also has laptop cases. Let's create a Catalog attribute of the Product type. Now there is an opportunity for
+for each laptop, specify the appropriate case for itl as one of the properties of the laptop.
 
-Для создания атрибута Справочник типа товар нужно указать в поле "type" значение "product". В поле "name" укажем "Чехол".
+To create an attribute of the Catalog type product, you need to specify the value "product" in the "type" field. In the "name" field, specify "Cover".
 
-> Запрос
+> Request
 
 ```shell
-curl -X POST 
-  -u login:password 
-  -H 'Accept: application/json' 
-  -H 'Content-Type: application/json' 
-  "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes" 
-  -d '{
-    "name": "Чехол",
-    "type": "product"
-    }'
+curl -X POST
+   -u login:password
+   -H 'Accept: application/json'
+   -H 'Content-Type: application/json'
+   "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
+   -d '{
+     "name": "Case",
+     "type": "product"
+     }'
 ```
 
-> Результат:
+> Result:
 
 ```json
 {
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/cc8ff599-c5c0-11e9-0a80-06b000000000",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-    },
-    "id": "cc8ff599-c5c0-11e9-0a80-06b000000000",
-    "name": "Чехол",
-    "type": "productfolder",
-    "required": false
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/cc8ff599-c5c0-11e9-0a80-06b000000000",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+     },
+     "id": "cc8ff599-c5c0-11e9-0a80-06b000000000",
+     "name": "Case",
+     "type": "productfolder",
+     "required": false
 }
 ```
 
-Создан атрибут, в значение которого для каждого товара можно записать другой товар. Теперь можно, например, предлагать сразу приобрести 
-чехол для выбранного покупателем ноутбука. 
+An attribute has been created, in the value of which for each product you can write another product. Now you can, for example, offer to immediately purchase
+case for the laptop selected by the buyer.
 
-### Массовое создание(обновление) дополнительных полей через JSON API
+### Bulk creation and update of additional fields via JSON API
 
-С приходом в магазин новых моделей ноутбуков может появиться необходимость в создании новых атрибутов. Например, тип разъемов на ноутбуках 
-некоторых производителей меняется с такой частотой, что предугадать заранее их тип и наличие невозможно. В таком случае может понадобиться 
-добавление новых и редактирование существующих атрибутов.
+With the advent of new models of laptops in the store, it may be necessary to create new attributes. For example, the type of connectors on laptops
+some manufacturers change with such frequency that it is impossible to predict their type and availability in advance. In this case, you may need
+adding new and editing existing attributes.
 
-В JSON API доступно массовое создание дополнительных полей. Для этого надо передать в теле POST-запроса массив со свойствами каждого из создаваемых атрибутов.
-Массив должен содержать данные по каждому создаваемому полю, перечисленные через запятую и заключенные в фигурные скобки. Обязательные к передаче 
-свойства - это имя и тип поля. Если добавить к ним "meta" существующего дополнительного поля, то оно будет изменено.
-Сформируем тело запроса из 3 элементов. Для поля "Материал корпуса" укажем его "meta", свойство "name" изменим на "Материал корпуса (дополнение)". 
-Новое значение свойства "name" не должно совпадать с существующими. Свойство "type" не может быть изменено. Два других элемента массива будут 
-созданы, им автоматически присвоятся метаданные.
+The JSON API allows bulk creation of additional fields. To do this, you need to pass in the body of the POST request an array with the properties of each of the created attributes.
+The array must contain data for each created field, separated by commas and enclosed in curly braces. Mandatory to transfer
+properties are the name and type of the field. If you add "meta" of an existing additional field to them, then it will be changed.
 
-> Запрос
+Let's form the request body from 3 elements. For the "Hull material" field, specify its "meta", change the "name" property to "Hull material (addition)".
+The new value of the "name" property must not match the existing ones. The "type" property cannot be changed. The other two array elements will be created, they will automatically be assigned metadata.
+
+> Request
 
 ```shell
-curl -X POST 
-  -u login:password 
-  -H 'Accept: application/json' 
-  -H 'Content-Type: application/json' 
-  "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes" 
-  -d '[
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "Материал корпуса (дополнение)",
-            "type": "string"
-        },
-        {
-            "name": "Наличие CD-Rom",
-            "type": "boolean"
-        },
-        {
-            "name": "Наличие type-C разъема",
-            "type": "boolean"
-        }
-      ]'
+curl -X POST
+   -u login:password
+   -H 'Accept: application/json'
+   -H 'Content-Type: application/json'
+   "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
+   -d'[
+         {
+             "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+                 "type": "attributemetadata",
+                 "mediaType": "application/json"
+             },
+             "name": "Hull material (add-on)",
+             "type": "string"
+         },
+         {
+             "name": "CD-Rom available",
+             "type": "boolean"
+         },
+         {
+             "name": "Presence of type-C connector",
+             "type": "boolean"
+         }
+       ]'
 ```
 
-> Результат:
+> Result:
 
 ```json
 [
-    {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
-        "name": "Материал корпуса (дополнение)",
-        "type": "string",
-        "required": false
-    },
-    {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "33b2fe47-b465-11e9-7ae5-884b0001562f",
-        "name": "Наличие CD-Rom",
-        "type": "boolean",
-        "required": false
-    },
-    {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "33b30b2e-b465-11e9-7ae5-884b00015630",
-        "name": "Наличие type-C разъема",
-        "type": "boolean",
-        "required": false
-    }
+     {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
+         "name": "Hull material (add-on)",
+         "type": "string",
+         "required": false
+     },
+     {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "33b2fe47-b465-11e9-7ae5-884b0001562f",
+         "name": "CD-Rom available",
+         "type": "boolean",
+         "required": false
+     },
+     {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "33b30b2e-b465-11e9-7ae5-884b00015630",
+         "name": "Presence of type-C connector",
+         "type": "boolean",
+         "required": false
+     }
 ]
 ```
 
-После выполнения данного запроса поле "Материал корпуса" обновится на "Материал корпуса (дополнение)". Добавятся новые поля "Наличие CD-Rom" и 
-"Наличие type-C разъема" с типом флажок.
+After executing this query, the "Body Material" field will be updated to "Body Material (Additional)". New fields "Presence of CD-Rom" and
+"Presence of a type-C connector" with a type checkbox.
 
-### Вывод дополнительных полей через JSON API
+### Display additional fields via JSON API
 
-Для отображения списка атрибутов сущности (в данном случае товара) нужно выполнить GET-запрос 
+To display a list of attributes of an entity (in this case, a product), you need to execute a GET request
 
-> Запрос
+> Request
 
 ```shell
-curl 
-    -X GET 
-    -u login:password 
-    -H "Lognex-Pretty-Print-JSON: true" 
-    "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
+curl
+     -X GET
+     -u login:password
+     -H "Lognex-Pretty-Print-JSON: true"
+     "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
 ```
 
-> В ответ получим список созданных атрибутов
+> In response, we get a list of created attributes
 
 
 ```json
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
-        "type": "attributemetadata",
-        "mediaType": "application/json",
-        "size": 3,
-        "limit": 1000,
-        "offset": 0
-    },
-    "rows": [
-        {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
-        "name": "Материал корпуса (дополнение)",
-        "type": "string",
-        "required": false
-    	},
-    	{
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "33b2fe47-b465-11e9-7ae5-884b0001562f",
-        "name": "Наличие CD-Rom",
-        "type": "boolean",
-        "required": false
-    	},
-   	 	{
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "33b30b2e-b465-11e9-7ae5-884b00015630",
-        "name": "Наличие type-C разъема",
-        "type": "boolean",
-        "required": false
-    	}
-    ]
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
+         "type": "attributemetadata",
+         "mediaType": "application/json",
+         size: 3
+         limit: 1000
+         offset: 0},
+     rows: [
+         {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
+         "name": "Hull material (add-on)",
+         "type": "string",
+         "required": false
+     },
+     {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "33b2fe47-b465-11e9-7ae5-884b0001562f",
+         "name": "CD-Rom available",
+         "type": "boolean",
+         "required": false
+     },
+    {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "33b30b2e-b465-11e9-7ae5-884b00015630",
+         "name": "Presence of type-C connector",
+         "type": "boolean",
+         "required": false
+     }
+     ]
 
 ```
 
-Если указать в запросе id конкретного атрибута, то получим только его.
+If you specify the id of a specific attribute in the request, then we will get only it.
 
-> Запрос
+> Request
 
 ```shell
-curl 
-    -X GET 
-    -u login:password 
-    -H "Lognex-Pretty-Print-JSON: true" 
-    "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002"
+curl
+     -X GET
+     -u login:password
+     -H "Lognex-Pretty-Print-JSON: true"
+     "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002"
 ```
 
-> Результат
+> Result
 
 ```json
-      {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-        },
-        "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
-        "name": "Материал корпуса (дополнение)",
-        "type": "string",
-        "required": false
-      }
+       {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+         },
+         "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
+         "name": "Hull material (add-on)",
+         "type": "string",
+         "required": false
+       }
 ```
 
-### Редактирование дополнительных полей через JSON API
+### Editing additional fields via JSON API
 
-Если нужно изменить одно дополнительное поле без затрагивания существующих, удобно пользоваться следующим запросом. Например, нужно изменить 
-название атрибута, чтоб сделать его блоее полным. Изменим название атрибута "Наличие CD-Rom" на "Наличие CD/DVD-Rom".
+If you need to change one additional field without affecting the existing ones, it is convenient to use the following query. For example, you need to change
+attribute name to make it more complete. Let's change the name of the attribute "Presence of CD-Rom" to "Presence of CD/DVD-Rom".
 
-Для изменения свойств существующего дополнительного поля необходимо выполнить PUT-запрос, содержащий его id, а в теле запроса передать изменяемые 
-свойства. Следует учесть, что свойство "type" не может быть изменено. Изменим название атрибута "Наличие CD-Rom":
+To change the properties of an existing additional field, you must execute a PUT request containing its id, and pass the changeable values in the request body.
+properties. Note that the "type" property cannot be changed. Change the name of the attribute "Presence of CD-Rom":
 
-> Запрос
+> Request
 
 ```shell
-curl -X PUT 
-  -u login:password 
-  -H 'Accept: application/json' 
-  -H 'Content-Type: application/json' 
-  "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f" 
-  -d '{
-        "name":"Наличие CD/DVD-Rom"
-      }'
+curl -X PUT
+   -u login:password
+   -H 'Accept: application/json'
+   -H 'Content-Type: application/json'
+   "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f"
+   -d '{
+         "name":"CD/DVD-Rom available"
+       }'
 ```
 
-> Результат:
+> Result:
 
 ```json
 {
-    "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-    },
-    "id": "9e9baa04-b455-11e9-7ae5-884b0000c7d9",
-    "name": "Наличие CD/DVD-Rom",
-    "type": "boolean",
-    "required": false
+     "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+     },
+     "id": "9e9baa04-b455-11e9-7ae5-884b0000c7d9",
+     "name": "Presence of CD/DVD-Rom",
+     "type": "boolean",
+     "required": false
 }
 ```
-Поле "Наличие CD-Rom" изменено на "Наличие CD/DVD-Rom". Неуказанные свойства останутся без изменений.
+The field "Presence of CD-Rom" is changed to "Presence of CD/DVD-Rom". Unspecified properties will remain unchanged.
 
-### Удаление дополнительного поля через JSON API
+### Removing an additional field via JSON API
 
-Некоторые атрибуты могут стать неактуальными. Например такую полезную вещь как DVD-привод найти становится всё труднее. Такие дополнительные поля 
-можно удалить, даже если они были назначены обязательными и были заполнены.
-Для удаления дополнительного поля через JSON API необходимо выполнить DELETE-запрос, содержащий id поля.
+Some attributes may become irrelevant. For example, such a useful thing as a DVD drive is becoming increasingly difficult to find. Such additional fields
+can be deleted even if they have been made mandatory and have been completed.
+To remove an additional field via the JSON API, you must execute a DELETE request containing the field id.
 
-> Запрос
+> Request
 
 ```shell
-curl -X DELETE 
-  -u login:password 
-  -H 'Accept: application/json' 
-  -H 'Content-Type: application/json' 
-  "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f" 
+curl -X DELETE
+   -u login:password
+   -H 'Accept: application/json'
+   -H 'Content-Type: application/json'
+   "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f"
 ```
 
-Получим пустой ответ со статусом 200. Атрибут с указанным id будет удален.
+We will receive an empty response with a status of 200. The attribute with the specified id will be removed.
 
-### Массовое удаление дополнительных полей через JSON API
-Для удаления сразу нескольких атрибутов нужно выполнить следующий POST-запрос, указав в теле meta-данные удаляемых полей:
+### Bulk removal of additional fields via JSON API
+To delete several attributes at once, you need to execute the following POST request, specifying the meta data of the fields to be deleted in the body:
 
-> Запрос
+> Request
 
 ```shell
-curl -X POST 
-  -u login:password 
-  -H 'Accept: application/json' 
-  -H 'Content-Type: application/json' 
-  "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/delete" 
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          }
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          }
-        }
-      ]'
-``` 
+curl -X POST
+   -u login:password
+   -H 'Accept: application/json'
+   -H 'Content-Type: application/json'
+   "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/delete"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           }
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           }}
+       ]'
+```
 
-Также получим пустой ответ со статусом 200. В результате удалены указанные атрибуты. Если в теле такого запроса указать meta несуществующего атрибута, то весь запрос не выполнится, даже если в нем присутствуют существующие meta.
+We will also receive an empty response with a status of 200. As a result, the specified attributes have been removed. If you specify the meta of a non-existent attribute in the body of such a request, then the entire request will not be executed, even if it contains existing meta.

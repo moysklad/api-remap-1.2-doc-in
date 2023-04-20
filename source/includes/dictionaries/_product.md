@@ -1892,12 +1892,12 @@ curl -X DELETE
 > Response 200(application/json)
 Successful deletion of the Product.
 
-### Mass removal of Products
+### Bulk removal of Products
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Products you want to delete.
 
 
-> Request for mass deletion of Products.
+> Request for bulk deletion of Products.
 
 ```shell
 curl -X POST

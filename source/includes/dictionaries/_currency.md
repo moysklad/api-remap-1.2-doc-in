@@ -329,12 +329,12 @@ Successful request. The result is a JSON representation of the generated Currenc
 }
 ```
 
-### Mass creation and updating of Currencies
-[Mass creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow)
+### Bulk creation and updating of Currencies
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow)
 In the body of the request, you need to pass an array containing the JSON representation of the Currencies that you want to create or update.
 Updated Currencies must contain the identifier in the form of metadata.
 
-> Mass creation and update of Currencies
+> Bulk creation and update of Currencies
 
 ```shell
 curl -X POST
@@ -444,12 +444,12 @@ curl -X DELETE
 > Response 200(application/json)
 Successful deletion of Currency
 
-### Mass deletion of Currencies
+### Bulk deletion of Currencies
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Currencies that you want to remove.
 
 
-> Request for mass deletion of Currencies
+> Request for bulk deletion of Currencies
 
 ```shell
 curl -X POST

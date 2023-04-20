@@ -1081,12 +1081,12 @@ curl -X DELETE
 > Response 200(application/json)
 Successful deletion of the legal entity.
 
-### Mass removal of Organizations
+### Bulk removal of Organizations
 
 In the body of the request, you need to pass an array containing the JSON metadata of the Organizations that you want to remove.
 
 
-> Request for mass deletion of Organizations.
+> Request for bulk deletion of Organizations.
 
 ```shell
 curl -X POST
