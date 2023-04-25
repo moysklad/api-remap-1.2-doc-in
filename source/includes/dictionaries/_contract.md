@@ -21,7 +21,7 @@ The search among contract objects for matching the search string will be carried
 | **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Required when replying` `+Expand` |
 | **archived** | Boolean | `=` `!=` | Has the Contract been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) |[Additional Operators fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of add. fields |
+| **attributes** | Array(Object) |[Additional Operators fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contract Code |
 | **contractType** | Enum | | Contract type. Possible values: `Commission contract`, `Purchase and sale contract`<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the Contract |
@@ -1005,12 +1005,12 @@ Request for obtaining the metadata of the Contracts. The result is a JSON object
 
 | Title | Type | Description |
 | ------- | ---------- | ---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Buyer's Order Metadata<br>`+Required when replying` |
-| **attributes** | Array(Object) | Collection of add. fields |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Sales Order Metadata<br>`+Required when replying` |
+| **attributes** | Array(Object) | Collection of additional fields |
 | **states** | Array(Object) | Array of contract statuses |
 | **createShared** | Boolean | Create new contracts with the label "General"<br>`+Required when replying` |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Obtaining methodical contracts
  
@@ -1021,7 +1021,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. fields of the Contracts.
+Successful request. The result is a JSON representation of the additional fields of the Contracts.
 
 ```json
 {
@@ -1088,7 +1088,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a separate add. fields.
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {

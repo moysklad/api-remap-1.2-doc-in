@@ -948,10 +948,10 @@ Request to get Warehouse metadata. The result is a JSON object including:
 | Title | Type | Description |
 | --------|-------| ---------|
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to Warehouse metadata |
-| **attributes** | Array(Object) | Array of objects add. Warehouse fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array(Object) | Array of objects of additional Warehouse fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
 | **createShared** | Boolean | create new Warehouses labeled "General" |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Warehouse Metadata
 
@@ -962,7 +962,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. Warehouse fields.
+Successful request. The result is a JSON representation of the additional Warehouse fields.
 
 ```json
 {
@@ -982,7 +982,7 @@ Successful request. The result is a JSON representation of the add. Warehouse fi
 }
 ```
 
-### Separate add. field
+### Separate additional field
 
 
  
@@ -1001,7 +1001,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a separate add. fields.
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {

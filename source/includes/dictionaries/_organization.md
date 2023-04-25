@@ -42,7 +42,7 @@ Search among objects of legal entities to match the search string will be carrie
 | Title | Type | Filtration | Description |
 | ----------|----| -------- | ------- |
 | **accounts** | Array(Object) | | Legal entity accounts metadata<br>`+Required when replying` `+Expand` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional fields of a legal entity |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional fields of a legal entity |
 | **certificatedate** | datetime | | Date of certificate |
 | **certificateNumber** | String(255) | | Certificate number |
 | **ChiefAccountSign** | object | | Signature of the chief accountant. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
@@ -574,7 +574,7 @@ Successful request. The result is a JSON representation of the created legal ent
         "updated" : "2020-09-23 07:37:26.417",
         "miniature" : {"href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
           "mediaType" : "image/png",
-          "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+          "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     },
     "chiefAccountant":"Podkupnikov Ivan",
@@ -590,7 +590,7 @@ Successful request. The result is a JSON representation of the created legal ent
         "miniature" : {
           "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
           "mediaType" : "image/png",
-          "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+          "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     },
     "stamp" : {
@@ -605,7 +605,7 @@ Successful request. The result is a JSON representation of the created legal ent
         "miniature" : {
           "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
           "mediaType" : "image/png",
-          "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+          "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     }
 }
@@ -1130,10 +1130,10 @@ Request for obtaining metadata of legal entities. The result is a JSON object in
 | Title| Type| Description |
 | ---------| -----| ----------|
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata of legal entities |
-| **attributes** | Array(Object) | Array of objects add. legal entity fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array(Object) | Array of objects additional legal entity fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
 | **createShared** | Boolean | Create new legal entities labeled "General" |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Metadata of legal entities
 
@@ -1144,7 +1144,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. fields of legal entities.
+Successful request. The result is a JSON representation of the additional fields of legal entities.
 
 ```json
 {
@@ -1181,7 +1181,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a separate add. fields.
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {

@@ -16,15 +16,11 @@ read in the section [Files](../dictionaries/#suschnosti-fajly).
 
 
 Sometimes, in order to describe a product, it is required, in addition to specifying the fields, to attach some file, for example, a certificate for this
-product or instructions for use. It is most convenient to keep such files next to the description of the product to which they are
-relate. To do this, you can use the new
-functionality - [Working with Files](../dictionaries/#suschnosti-fajly).
+product or instructions for use. It is most convenient to keep such files next to the description of the product to which they are relate. To do this, you can use [Working with Files](../dictionaries/#suschnosti-fajly).
 
-For example, you need to create a product and attach instructions to it. This can be done in several ways: through the interface
-site https://www.moysklad.ru or using the JSON API.
+For example, you need to create a product and attach the instruction. It can be done on the [Kladana website](https://www.kladana.in/), or with the JSON API. 
 
-In the [Kladana](https://www.moysklad.ru) service, you can add, delete or edit the list of product files via
-window `Product cards`.
+In [Kladana](https://app.kladana.in/), you can add, delete or edit the list of product files in Product cards.
  
 To add a file via the JSON API, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
 
@@ -322,7 +318,7 @@ curl -X GET
                      "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
                      "type": "files",
                      "mediaType": "image/png",
-                     "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+                     "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
                  },
                  "tiny": {
                      "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
@@ -421,7 +417,7 @@ For instance, you need to update the list of product files. In Kladana, it can b
          "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
          "type": "files",
          "mediaType": "image/png",
-         "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+         "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
      },
      "tiny": {
          "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",

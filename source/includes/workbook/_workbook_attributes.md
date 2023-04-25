@@ -8,7 +8,7 @@ As part of the JSON API, you can create additional fields and edit existing ones
 
 ### Getting additional fields
 
-Add. the fields are located in the metadata of the required entity.
+Additional the fields are located in the metadata of the required entity.
 An example of getting additional product fields:
 
 > Request

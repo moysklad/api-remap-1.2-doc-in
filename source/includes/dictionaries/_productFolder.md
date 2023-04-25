@@ -461,9 +461,9 @@ Request to get metadata of Product Groups. The result is a JSON object including
 | Title | Type | Description |
 | ------- | ------------ |---- |
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Product Groups Metadata<br>`+Required when replying` |
-| **attributes** | Array(Object) | Collection of add. fields |
+| **attributes** | Array(Object) | Collection of additional fields |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Get product group metadata
 
@@ -474,7 +474,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. Product Group fields.
+Successful request. The result is a JSON representation of the additional Product Group fields.
 
 ```json
 {
@@ -501,7 +501,7 @@ Successful request. The result is a JSON representation of the add. Product Grou
 | ------- | ------------ |
 | **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id fields. |
 
-#### Separate add. field
+#### Separate additional field
  
 > Request for information on a separate additional field.
 

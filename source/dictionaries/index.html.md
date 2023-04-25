@@ -30,6 +30,7 @@ includes:
   - dictionaries/group
   - dictionaries/labels
   - dictionaries/companysubscription
+  - dictionaries/consignment
   - dictionaries/custom_role
   - dictionaries/customentity
   - dictionaries/project

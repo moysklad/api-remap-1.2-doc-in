@@ -1,2747 +1,2757 @@
-## Счет покупателю
-### Счета покупателям 
-Средствами JSON API можно создавать и обновлять сведения о Счете покупателю, запрашивать списки Счетов и сведения по отдельным Счетам Покупателям. Позициями Счетов можно управлять как в составе отдельного Счета, так и отдельно - с помощью специальных ресурсов для управления позициями Счета. Кодом сущности для Счета покупателю в составе JSON API является ключевое слово **invoiceout**. Больше о Счетах Покупателям и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по [этой ссылке](https://support.moysklad.ru/hc/ru/articles/203053496-%D0%A1%D1%87%D0%B5%D1%82%D0%B0-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D0%BC).
+## Sales Invoice
+### Sales Invoices
 
-#### Атрибуты сущности
+Using the JSON API, you can create and update information about the Sales Invoice and request lists of Sales Invoices. Sales Invoice items can be managed both as part of a Sales Invoice, and separately - with the help of special resources for managing Sales Invoice items. The entity code for the Sales Invoice as part of the JSON API is the **invoiceout** keyword. Learn more about [Sales Invoice](https://kladana.zendesk.com/hc/en-us/articles/360012048298).
 
-| Название                 | Тип                                                       | Фильтрация                                                                                                                                        | Описание                                                                                                                                      |
-| ------------------------ | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**            | UUID                                                      | `=` `!=`                                                                                                                                          | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                         |
-| **agent**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные контрагента<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` `+Change-handler`                                                     |
-| **agentAccount**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные счета контрагента<br>`+Expand` `+Change-handler`                                                                                                    |
-| **applicable**           | Boolean                                                   | `=` `!=`                                                                                                                                          | Отметка о проведении<br>`+Обязательное при ответе` `+Change-handler`                                                                                            |
-| **attributes**           | Array(Object)                                             | [Операторы доп. полей](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Коллекция метаданных доп. полей. [Поля объекта](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) `+Change-handler`                       |
-| **code**                 | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Код Счета покупателю                                                                                                                          |
-| **contract**             | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные договора<br>`+Expand` `+Change-handler`                                                                                                              |
-| **created**              | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата создания<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                              |
-| **deleted**              | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего удаления Счета покупателю<br>`+Только для чтения`                                                                           |
-| **description**          | String(4096)                                              | `=` `!=` `~` `~=` `=~`                                                                                                                            | Комментарий Счета покупателю<br> `+Change-handler`                                                                                                                  |
-| **externalCode**         | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Внешний код Счета покупателю<br>`+Обязательное при ответе` `+Change-handler`                                                                                    |
-| **files**                | MetaArray                                                 |                                                                                                                                                   | Метаданные массива [Файлов](../dictionaries/#suschnosti-fajly) (Максимальное количество файлов - 100)<br>`+Обязательное при ответе` `+Expand` |
-| **group**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                      |
-| **id**                   | UUID                                                      | `=` `!=`                                                                                                                                          | ID Счете покупателю<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                        |
-| **meta**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные Счета покупателю<br>`+Обязательное при ответе` `+Change-handler`                                                                                     |
-| **moment**               | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата документа<br>`+Обязательное при ответе` `+Change-handler`                                                                                                  |
-| **name**                 | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Наименование Счета покупателю<br>`+Обязательное при ответе` `+Change-handler`                                                                                   |
-| **organization**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные юрлица<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` `+Change-handler`                                                          |
-| **organizationAccount**  | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные счета юрлица<br>`+Expand` `+Change-handler`                                                                                                          |
-| **owner**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                                                                  |
-| **payedSum**             | Float                                                     |                                                                                                                                                   | Сумма входящих платежей по Счету покупателю<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                |
-| **paymentPlannedMoment** | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Планируемая дата оплаты<br>`+Change-handler`                                                                                                                       |
-| **positions**            | MetaArray                                                 |                                                                                                                                                   | Метаданные позиций Счета покупателю<br>`+Обязательное при ответе` `+Expand` `+Change-handler`                                                                   |
-| **printed**              | Boolean                                                   | `=` `!=`                                                                                                                                          | Напечатан ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                      |
-| **project**              | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные проекта<br>`+Expand` `+Change-handler`                                                                                                               |
-| **published**            | Boolean                                                   | `=` `!=`                                                                                                                                          | Опубликован ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                    |
-| **rate**                 | Object                                                    |                                                                                                                                                   | Валюта. [Подробнее тут](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Обязательное при ответе` `+Change-handler`                               |
-| **salesChannel**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные канала продаж<br>`+Expand`                                                                                                         |
-| **shared**               | Boolean                                                   | `=` `!=`                                                                                                                                          | Общий доступ<br>`+Обязательное при ответе`                                                                                                    |
-| **shippedSum**           | Float                                                     |                                                                                                                                                   | Сумма отгруженного<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                         |
-| **state**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные статуса счета<br>`+Expand` `+Change-handler`                                                                                                         |
-| **store**                | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные склада<br>`+Expand` `+Change-handler`                                                                                                                |
-| **sum**                  | Int                                                       | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Сумма Счета в установленной валюте<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                         |
-| **syncId**               | UUID                                                      | `=` `!=`                                                                                                                                          | ID синхронизации. После заполнения недоступен для изменения                                                                                   |
-| **updated**              | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего обновления Счета покупателю<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                              |
-| **vatEnabled**           | Boolean                                                   |                                                                                                                                                   | Учитывается ли НДС<br>`+Обязательное при ответе` `+Change-handler`                                                                                              |
-| **vatIncluded**          | Boolean                                                   |                                                                                                                                                   | Включен ли НДС в цену<br>`+Change-handler`                                                                                                                         |
-| **vatSum**               | Float                                                     |                                                                                                                                                   | Сумма НДС<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                  |
+#### Entity attributes
 
-#### Связи с другими документами
-| Название                       | Описание                                                                                                                                    |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| **customerOrder**              | Ссылка на Заказ Покупателя, с которым связан этот Счет покупателю в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **payments**                   | Массив ссылок на связанные операции в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Только для чтения`           |
-| **demands**                    | Массив ссылок на связанные отгрузки в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)                               |
+| Title | Type | Filtration | Description |
+| ---------| -------- | -------- | ------- |
+| **accountId** | UUID | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales Invoice metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
+| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty Sales Invoice metadata<br>`+Expand` `+Change-handler` |
+| **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) `+Change-handler` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Invoice Code |
+| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
+| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Sales Invoice<br>`+Read Only` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Invoice Comment<br> `+Change-handler` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Sales Invoice code<br>`+Required when replying` `+Change-handler` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read Only` `+Change-handler |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Sales Invoice Metadata<br>`+Required when replying` `+Change-handler` |
+| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Invoice name<br>`+Required when replying` `+Change-handler` |
+| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity Sales Invoice metadata<br>`+Expand` `+Change-handler` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **paidSum** | float | | Amount of incoming payments on the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **paymentPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
+| **positions** | MetaArray | | Sales Invoice Metadata<br>`+Required for response` `+Expand` `+Change-handler` |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
+| **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
+| **rate** | object || Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
+| **salesChannel** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales channel metadata<br>`+Expand` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shippedSum** | float | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales Invoice status metadata<br>`+Expand` `+Change-handler` |
+| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Warehouse metadata<br>`+Expand` `+Change-handler` |
+| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatEnabled** | Boolean | | Is VAT taken into Sales Invoice<br>`+Required when replying` `+Change-handler` |
+| **vatIncluded** | Boolean | | Is VAT included in the price<br>`+Change-handler` |
+| **vatSum** | float | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
-#### Позиции Счета покупателю
-Позиции Счета - это список товаров/услуг/модификаций/серий/комплектов.
-Объект позиции Счета содержит следующие поля:
+#### Links to other transactions
 
-| Название       | Тип                                                       | Описание                                                                                                                                                                                                                                                 |
-| -------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**  | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                     |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара/услуги/серии/модификации, которую представляет собой позиция<br>`+Обязательное при ответе` `+Expand` `+Change-handler`                                                                                                                                   |
-| **discount**   | Int                                                       | Процент скидки или наценки. Наценка указывается отрицательным числом, т.е. -10 создаст наценку в 10%<br>`+Обязательное при ответе` `+Change-handler`                                                                                                                       |
-| **id**         | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                            |
-| **pack**       | Object                                                    | Упаковка Товара. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler`                                                                                                                               |
-| **price**      | Float                                                     | Цена товара/услуги в копейках<br>`+Обязательное при ответе` `+Change-handler`                                                                                                                                                                                              |
-| **quantity**   | Int                                                       | Количество товаров/услуг данного вида в позиции. Если позиция - товар, у которого включен учет по серийным номерам, то значение в этом поле всегда будет равно количеству серийных номеров для данной позиции в документе.<br>`+Обязательное при ответе` `+Change-handler` |
-| **vat**        | Int                                                       | НДС, которым облагается текущая позиция<br>`+Обязательное при ответе` `+Change-handler`                                                                                                                                                                                    |
-| **vatEnabled** | Boolean                                                   | Включен ли НДС для позиции. С помощью этого флага для позиции можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Обязательное при ответе` `+Change-handler`                    |
+| Title | Description |
+| ---------- | --------- |
+| **customerOrder** | Purchase Order Link of the buyer with whom the Sales Invoice is linked in the format of [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **payments** | An array of references to related operations in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Read-only` |
+| **demands** | An array of links to related shipments in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
 
-С позициями можно работать с помощью специальных ресурсов для управления позициями Счета,
-а также в составе отдельного Счета покупателю. При работе в составе отдельного Счета покупателю,
-вы можете отправлять запросы на создание отдельного Счета покупателю с включенным в тело запроса
-массивом позиций Счета. Если количество позиций превышает максимально допустимое, то для
-дальнейшего пополнения позиций нужно будет работать со специальным ресурсом "Позиции Счета покупателю".
-Также, при работе в составе отдельного Счета покупателю, можно отправлять запросы на обновление списка позиций
-с включенным в тело запроса массивом позиций Счета. При этом важно помнить, что коллекция позиций будет
-восприниматься как "все позиции Счета" и полностью заменит уже существующую коллекцию при обновлении объекта - лишние
-позиции будут удалены, новые добавлены, существующие - изменены.
+#### Sales Invoice items
 
-О работе с доп. полями Счетов покупателям можно прочитать [здесь](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+Invoice Items is a list of products, product variants, bundles, and services. The Sales Invoice item object contains the following fields:
+
+| Title | Type | Description |
+| ---------- | --------- |-------- |
+| **accountId** | UUID | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
+| **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **pack** | object | Product packaging. [Read more here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
+| **price** | float | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
+| **quantity** | int | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
+| **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
+
+You can work with items using special resources for managing items Sales Invoices,
+as well as as part of a separate Sales Invoice. When working as part of a separate Sales Invoice,
+you can send requests to create a separate Sales Invoice  with included in the request body
+an array of Sales Invoice items. If the number of items exceeds the maximum allowed, then for
+further replenishment of items, you will need to work with a special resource "Items of the Sales Invoice".
+
+Also, when working as part of a separate Sales Invoice, you can send requests to update the list of items with an array of Sales Invoice items included in the request body. 
+
+It is important to remember that the collection of items will
+be perceived as "All items of the Sales Invoice" and will completely replace the already existing collection when updating the object - superfluous
+items will be deleted, new ones added, existing ones changed.
+
+About working with Sales Invoice fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
 
-### Получить Счета покупателям 
-Запрос всех Счетов покупателям на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Get Sales Invoices
 
-| Название    | Тип                                                       | Описание                                                      |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------------------ |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                          |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                  |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Счета покупателям. |
+Query: all Sales Invoices.
+Result: JSON object including fields:
 
-**Параметры**
+| Title | Type | Description |
+| ---------- | --------- |------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing Sales Invoices. |
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-| **search**                     | `string` (optional) *Example: 0001* Фильтр документов по указанной поисковой строке.                                                   |
+**Parameters**
 
-> Получить Счета покупателям
+| Parameter | Description |
+| ---------- | --------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string. |
+
+> Get Sales Invoice
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Счетов покупателям.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of Sales Invoices.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json",
-    "size": 3,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceout",
-        "mediaType": "application/json"
-      },
-      "id": "0cb8d047-f664-11e5-8a84-bae500000095",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-      "updated": "2016-03-30 16:48:13",
-      "name": "00001",
-      "externalCode": "TAXyoccKiJPtMhcBAsqqw1",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "moment": "2016-03-30 13:41:00",
-      "applicable": true,
-      "printed": true,
-      "published": true,
-      "rate": {
-        "currency": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-            "type": "currency",
-            "mediaType": "application/json"
-          }
-        }
-      },
-      "sum": 123000,
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      },
-      "store": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-          "type": "store",
-          "mediaType": "application/json"
-        }
-      },
-      "agent": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-          "type": "counterparty",
-          "mediaType": "application/json"
-        }
-      },
-      "organizationAccount": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-          "type": "account",
-          "mediaType": "application/json"
-        }
-      },
-      "agentAccount": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-          "type": "account",
-          "mediaType": "application/json"
-        }
-      },
-      "positions": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095/positions",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-          "type": "invoiceposition",
-          "mediaType": "application/json",
-          "size": 6,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "payedSum": 0,
-      "shippedSum": 0,
-      "salesChannel": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-          "type": "saleschannel",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/2ee1ce22-019e-11e6-9464-e4de0000007d",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceout",
-        "mediaType": "application/json"
-      },
-      "id": "2ee1ce22-019e-11e6-9464-e4de0000007d",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "updated": "2016-04-22 15:00:07",
-      "name": "13212",
-      "externalCode": "Vv-7tagmi46o0TTT6XI1a0",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "moment": "2016-04-14 11:02:00",
-      "applicable": true,
-      "printed": true,
-      "published": true,
-      "rate": {
-        "currency": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-            "type": "currency",
-            "mediaType": "application/json"
-          }
-        }
-      },
-      "sum": 408739611676,
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      },
-      "store": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-          "type": "store",
-          "mediaType": "application/json"
-        }
-      },
-      "contract": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
-          "type": "contract",
-          "mediaType": "application/json"
-        }
-      },
-      "agent": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-          "type": "counterparty",
-          "mediaType": "application/json"
-        }
-      },
-      "organizationAccount": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-          "type": "account",
-          "mediaType": "application/json"
-        }
-      },
-      "agentAccount": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/account/9794f7a0-f689-11e5-8a84-bae500000079",
-          "type": "account",
-          "mediaType": "application/json"
-        }
-      },
-      "positions": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/2ee1ce22-019e-11e6-9464-e4de0000007d/positions",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-          "type": "invoiceposition",
-          "mediaType": "application/json",
-          "size": 4,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "paymentPlannedMoment": "2016-04-15 11:03:00",
-      "payedSum": 0,
-      "shippedSum": 0,
-      "customerOrder": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-          "type": "customerorder",
-          "mediaType": "application/json"
-        }
-      },
-      "salesChannel": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-          "type": "saleschannel",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/8a7a037d-0564-11e6-9464-e4de000000a2",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceout",
-        "mediaType": "application/json"
-      },
-      "id": "8a7a037d-0564-11e6-9464-e4de000000a2",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "updated": "2016-04-18 15:53:25",
-      "name": "13213",
-      "externalCode": "lLXQLQQrg2s1Q6j8vVt7g2",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "moment": "2016-04-18 15:53:00",
-      "applicable": true,
-      "printed": true,
-      "published": true,
-      "rate": {
-        "currency": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-            "type": "currency",
-            "mediaType": "application/json"
-          }
-        }
-      },
-      "sum": 0,
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      },
-      "store": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-          "type": "store",
-          "mediaType": "application/json"
-        }
-      },
-      "project": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
-          "type": "project",
-          "mediaType": "application/json"
-        }
-      },
-      "agent": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      },
-      "organizationAccount": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
-          "type": "account",
-          "mediaType": "application/json"
-        }
-      },
-      "agentAccount": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
-          "type": "account",
-          "mediaType": "application/json"
-        }
-      },
-      "positions": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/8a7a037d-0564-11e6-9464-e4de000000a2/positions",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-          "type": "invoiceposition",
-          "mediaType": "application/json",
-          "size": 1,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "paymentPlannedMoment": "2016-04-09 15:53:00",
-      "payedSum": 0,
-      "shippedSum": 0,
-      "salesChannel": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-          "type": "saleschannel",
-          "mediaType": "application/json"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json",
+     size: 3
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoiceout",
+         "mediaType": "application/json"
+       },
+       "id": "0cb8d047-f664-11e5-8a84-bae500000095",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+       "updated": "2016-03-30 16:48:13",
+       "name": "00001",
+       "externalCode": "TAXyoccKiJPtMhcBAsqqw1",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "moment": "2016-03-30 13:41:00",
+       "applicable": true
+       "printed": true
+       "published": true
+       rate: {
+         currency: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "type": "currency",
+             "mediaType": "application/json"
+           }
+         }
+       },
+       sum: 123000
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       },
+       store: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "type": "store",
+           "mediaType": "application/json"
+         }
+       },
+       agent: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "type": "counter party",
+           "mediaType": "application/json"
+         }
+       },
+       organizationAccount: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+           "type": "account",
+           "mediaType": "application/json"
+         }
+       },
+       agentAccount: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+           "type": "account",
+           "mediaType": "application/json"
+         }
+       },
+       positions: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095/positions",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+           "type": "invoice position",
+           "mediaType": "application/json",
+           size: 6
+           limit: 1000
+           offset: 0
+         }
+       },
+       "paidSum": 0,
+       "shippedSum": 0,
+       "salesChannel": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+           "type": "sales channel",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/2ee1ce22-019e-11e6-9464-e4de0000007d",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoiceout",
+         "mediaType": "application/json"
+       },
+       "id": "2ee1ce22-019e-11e6-9464-e4de0000007d",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "updated": "2016-04-22 15:00:07",
+       "name": "13212",
+       "externalCode": "Vv-7tagmi46o0TTT6XI1a0",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "moment": "2016-04-14 11:02:00",
+       "applicable": true
+       "printed": true
+       "published": true
+       rate: {
+         currency: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "type": "currency",
+             "mediaType": "application/json"
+           }
+         }
+       },
+       sum: 408739611676,
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       },
+       store: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "type": "store",
+           "mediaType": "application/json"
+         }
+       },
+       contract: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
+           "type": "contract",
+           "mediaType": "application/json"
+         }
+       },
+       agent: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "type": "counter party",
+           "mediaType": "application/json"
+         }
+       },
+       organizationAccount: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+           "type": "account",
+           "mediaType": "application/json"
+         }
+       },
+       agentAccount: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/account/9794f7a0-f689-11e5-8a84-bae500000079",
+           "type": "account",
+           "mediaType": "application/json"
+         }
+       },
+       positions: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/2ee1ce22-019e-11e6-9464-e4de0000007d/positions",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+           "type": "invoice position",
+           "mediaType": "application/json",
+           size: 4
+           limit: 1000
+           offset: 0
+         }
+       },
+       "paymentPlannedMoment": "2016-04-15 11:03:00",
+       "paidSum": 0,
+       "shippedSum": 0,
+       "customerOrder": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+           "type": "customer order",
+           "mediaType": "application/json"
+         }
+       },
+       "salesChannel": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+           "type": "sales channel",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/8a7a037d-0564-11e6-9464-e4de000000a2",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoiceout",
+         "mediaType": "application/json"
+       },
+       "id": "8a7a037d-0564-11e6-9464-e4de000000a2",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+       "updated": "2016-04-18 15:53:25",
+       "name": "13213",
+       "externalCode": "lLXQLQQrg2s1Q6j8vVt7g2",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "moment": "2016-04-18 15:53:00",
+       "applicable": true
+       "printed": true
+       "published": true
+       rate: {
+         currency: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "type": "currency",
+             "mediaType": "application/json"
+           }
+         }
+       },
+       sum: 0
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       },
+       store: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "type": "store",
+           "mediaType": "application/json"
+         }
+       },
+       "project": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+           "type": "project",
+           "mediaType": "application/json"
+         }
+       },
+       agent: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       },
+       organizationAccount: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
+           "type": "account",
+           "mediaType": "application/json"
+         }
+       },
+       agentAccount: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
+           "type": "account",
+           "mediaType": "application/json"
+         }
+       },
+       positions: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/8a7a037d-0564-11e6-9464-e4de000000a2/positions",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+           "type": "invoice position",
+           "mediaType": "application/json",
+           size: 1
+           limit: 1000
+           offset: 0
+         }
+       },
+       "paymentPlannedMoment": "2016-04-09 15:53:00",
+       "paidSum": 0,
+       "shippedSum": 0,
+       "salesChannel": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+           "type": "sales channel",
+           "mediaType": "application/json"
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Создать Счет покупателю 
-Запрос на создание нового Счета покупателю.
-Обязательные для создания поля:
+### Create Sales Invoice
 
-| Параметр                       | Описание                                                                                                     |
-| ------------------------------ | :----------------------------------------------------------------------------------------------------------- |
-| **name**                       | номер Счета покупателю                                                                                       |
-| **organization**               | Ссылка на ваше юрлицо в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)              |
-| **agent**                      | Ссылка на контрагента (покупателя) в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+Request to create a new Sales Invoice.
+Mandatory fields to create:
 
-> Пример создания нового Счета с телом запроса, содержащим только необходимые поля.
+| Parameter | Description |
+| ---------- | --------- |
+| **name** | Sales Invoice number |
+| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **agent** | Link to the Sales Invoice in the format of[Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+
+> An example of creating a new Sales Invoice with a request body containing only the required fields.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "inv_out_name",
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "agent": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "counterparty",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "inv_out_name",
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json"
+               }
+             },
+             agent: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "type": "counter party",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "726e5b8c-0886-11e6-9464-e4de0000002a",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:02:47",
-  "name": "inv_out_name",
-  "externalCode": "BtPDebO1g1PlmStW1jr--2",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-04-22 16:02:47",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "726e5b8c-0886-11e6-9464-e4de0000002a",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:02:47",
+   "name": "inv_out_name",
+   "externalCode": "BtPDebO1g1PlmStW1jr--2",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-04-22 16:02:47",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0
 }
 ```
 
-> Пример создания нового Счета с более насыщенным телом запроса.
+> An example of creating a new Sales Invoice with a larger request body.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "inv_out_name",
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "agent": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "counterparty",
-                "mediaType": "application/json"
-              }
-            },
-            "code": "1243521",
-            "externalCode": "666777666",
-            "moment": "2016-04-19 13:50:24",
-            "applicable": true,
-            "description": "Описание счета",
-            "organizationAccount": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-                "type": "account",
-                "mediaType": "application/json"
-              }
-            },
-            "agentAccount": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-                "type": "account",
-                "mediaType": "application/json"
-              }
-            },
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "salesChannel": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-                "type": "saleschannel",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "inv_out_name",
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json"
+               }
+             },
+             agent: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "type": "counter party",
+                 "mediaType": "application/json"
+               }
+             },
+             "code": "1243521",
+             "externalCode": "666777666",
+             "moment": "2016-04-19 13:50:24",
+             "applicable": true
+             "description": "Account description",
+             organizationAccount: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+                 "type": "account",
+                 "mediaType": "application/json"
+               }
+             },
+             agentAccount: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+                 "type": "account",
+                 "mediaType": "application/json"
+               }
+             },
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "salesChannel": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+                 "type": "sales channel",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/128465fd-0887-11e6-9464-e4de0000002e",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "128465fd-0887-11e6-9464-e4de0000002e",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:07:16",
-  "name": "inv_out_name",
-  "description": "Описание счета",
-  "code": "1243521",
-  "externalCode": "666777666",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-04-19 13:50:24",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/128465fd-0887-11e6-9464-e4de0000002e/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0,
-  "salesChannel": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-      "type": "saleschannel",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/128465fd-0887-11e6-9464-e4de0000002e",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "128465fd-0887-11e6-9464-e4de0000002e",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:07:16",
+   "name": "inv_out_name",
+   "description": "Account description",
+   "code": "1243521",
+   "externalCode": "666777666",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-04-19 13:50:24",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/128465fd-0887-11e6-9464-e4de0000002e/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0,
+   "salesChannel": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+       "type": "sales channel",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-> Пример запроса на создание Счета покупателю с доп. полями.
+> An example of a request to create an Sales Invoice with additional fields.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "inv_out_name",
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "agent": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "counterparty",
-                "mediaType": "application/json"
-              }
-            },
-            "code": "1243521",
-            "externalCode": "666777666",
-            "moment": "2016-04-19 13:50:24",
-            "applicable": true,
-            "description": "Комментарий к счету",
-            "organizationAccount": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-                "type": "account",
-                "mediaType": "application/json"
-              }
-            },
-            "agentAccount": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-                "type": "account",
-                "mediaType": "application/json"
-              }
-            },
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "attributes": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": "значение доп поля"
-              }
-            ],
-            "salesChannel": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-                "type": "saleschannel",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "inv_out_name",
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json"
+               }
+             },
+             agent: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "type": "counter party",
+                 "mediaType": "application/json"
+               }
+             },
+             "code": "1243521",
+             "externalCode": "666777666",
+             "moment": "2016-04-19 13:50:24",
+             "applicable": true
+             "description": "Invoice comment",
+             organizationAccount: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+                 "type": "account",
+                 "mediaType": "application/json"
+               }
+             },
+             agentAccount: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+                 "type": "account",
+                 "mediaType": "application/json"
+               }
+             },
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "additional field value"
+               }
+             ],
+             "salesChannel": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+                 "type": "sales channel",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/c358e3ac-0887-11e6-9464-e4de00000032",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "c358e3ac-0887-11e6-9464-e4de00000032",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:12:12",
-  "name": "inv_out_name2",
-  "description": "Комментарий к счету",
-  "code": "124352133",
-  "externalCode": "666777666",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-04-19 13:50:24",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "51d191f4-0887-11e6-9464-e4de00000079",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "значение доп поля"
-    }
-  ],
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/c358e3ac-0887-11e6-9464-e4de00000032/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0,
-  "salesChannel": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-      "type": "saleschannel",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/c358e3ac-0887-11e6-9464-e4de00000032",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "c358e3ac-0887-11e6-9464-e4de00000032",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:12:12",
+   "name": "inv_out_name2",
+   "description": "Invoice comment",
+   "code": "124352133",
+   "externalCode": "666777666",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-04-19 13:50:24",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "51d191f4-0887-11e6-9464-e4de00000079",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "additional field value"
+     }
+   ],
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/c358e3ac-0887-11e6-9464-e4de00000032/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0,
+   "salesChannel": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+       "type": "sales channel",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-> Пример запроса на создание Счета покупателю с позициями в теле запроса.
+> An example of a request to create an Sales Invoice with items in the body of the request.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "inv_out_name3",
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "agent": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "counterparty",
-                "mediaType": "application/json"
-              }
-            },
-            "code": "12435213322",
-            "externalCode": "666777666",
-            "moment": "2016-04-19 13:50:24",
-            "applicable": true,
-            "description": "Комментарий к счету",
-            "organizationAccount": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-                "type": "account",
-                "mediaType": "application/json"
-              }
-            },
-            "agentAccount": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-                "type": "account",
-                "mediaType": "application/json"
-              }
-            },
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "positions": [
-              {
-                "quantity": 10,
-                "price": 100.0,
-                "discount": 0,
-                "vat": 0,
-                "assortment": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
-                    "type": "product",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              {
-                "quantity": 20,
-                "price": 200.0,
-                "discount": 0,
-                "vat": 21,
-                "assortment": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-                    "type": "product",
-                    "mediaType": "application/json"
-                  }
-                }
-              }
-            ]
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "inv_out_name3",
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organizeion",
+                 "mediaType": "application/json"
+               }
+             },
+             agent: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "type": "counter party",
+                 "mediaType": "application/json"
+               }
+             },
+             "code": "12435213322",
+             "externalCode": "666777666",
+             "moment": "2016-04-19 13:50:24",
+             "applicable": true
+             "description": "Invoice comment",
+             organizationAccount: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+                 "type": "account",
+                 "mediaType": "application/json"
+               }
+             },
+             agentAccount: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+                 "type": "account",
+                 "mediaType": "application/json"
+               }
+             },
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "positions": [
+               {
+                 "quantity": 10,
+                 "price": 100.0
+                 discount: 0
+                 vat: 0
+                 "assortment": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
+                     "type": "product",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               {
+                 quantity: 20
+                 "price": 200.0
+                 discount: 0
+                 vat: 21
+                 "assortment": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                     "type": "product",
+                     "mediaType": "application/json"
+                   }
+                 }
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "6afee657-0888-11e6-9464-e4de00000037",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:16:54",
-  "name": "inv_out_name3",
-  "description": "Комментарий к счету",
-  "code": "12435213322",
-  "externalCode": "666777666",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-04-19 13:50:24",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 5840,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "6afee657-0888-11e6-9464-e4de00000037",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:16:54",
+   "name": "inv_out_name3",
+   "description": "Invoice comment",
+   "code": "12435213322",
+   "externalCode": "666777666",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-04-19 13:50:24",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 5840
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0
 }
 ```
 
-### Массовое создание и обновление Счетов покупателю 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Счетов покупателю.
-В теле запроса нужно передать массив, содержащий JSON представления Счетов покупателю, которые вы хотите создать или обновить.
-Обновляемые Счета покупателю должны содержать идентификатор в виде метаданных.
+### Bulk creating and update of Sales Invoices
 
-> Пример создания и обновления нескольких Счетов покупателю
+[Bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow) of Sales Invoices.
+In the body of the request, you need to pass an array containing the JSON representation of the Sales Invoices that you want to create or update.
+Updated Sales Invoices must contain the identifier in the form of metadata.
+
+> An example of creating and updating multiple Sales Invoices
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "inv_out_name",
-              "organization": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                  "type": "organization",
-                  "mediaType": "application/json"
-                }
-              },
-              "agent": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                  "type": "counterparty",
-                  "mediaType": "application/json"
-                }
-              }
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-                "type": "invoiceout",
-                "mediaType": "application/json"
-              },
-              "name": "change name",
-              "code": "change_code",
-              "externalCode": "666777666",
-              "moment": "2016-04-19 13:50:24",
-              "applicable": false,
-              "description": "Комментарий к счету",
-              "store": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                  "type": "store",
-                  "mediaType": "application/json"
-                }
-              }
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "inv_out_name",
+               organization: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "type": "organization",
+                   "mediaType": "application/json"
+                 }
+               },
+               agent: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                   "type": "counter party",
+                   "mediaType": "application/json"
+                 }
+               }
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+                 "type": "invoiceout",
+                 "mediaType": "application/json"
+               },
+               "name": "change name",
+               "code": "change_code",
+               "externalCode": "666777666",
+               "moment": "2016-04-19 13:50:24",
+               "applicable": false
+               "description": "Invoice comment",
+               store: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                   "type": "store",
+                   "mediaType": "application/json"
+                 }
+               }
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Счетов покупателю.
+> Response 200(application/json)
+Successful request. The result is an array of JSON representations of created and updated Sales Invoices.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceout",
-      "mediaType": "application/json"
-    },
-    "id": "726e5b8c-0886-11e6-9464-e4de0000002a",
-    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-    "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-    "updated": "2016-04-22 16:02:47",
-    "name": "inv_out_name",
-    "externalCode": "BtPDebO1g1PlmStW1jr--2",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "moment": "2016-04-22 16:02:47",
-    "applicable": true,
-    "rate": {
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    "sum": 0,
-    "organization": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json"
-      }
-    },
-    "agent": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "counterparty",
-        "mediaType": "application/json"
-      }
-    },
-    "organizationAccount": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
-        "type": "account",
-        "mediaType": "application/json"
-      }
-    },
-    "agentAccount": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-        "type": "account",
-        "mediaType": "application/json"
-      }
-    },
-    "created": "2016-08-25 19:55:00",
-    "printed": true,
-    "published": true,
-    "positions": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/positions",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceposition",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "payedSum": 0,
-    "shippedSum": 0,
-    "salesChannel": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-        "type": "saleschannel",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceout",
-      "mediaType": "application/json"
-    },
-    "id": "6afee657-0888-11e6-9464-e4de00000037",
-    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-    "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-    "updated": "2016-04-22 16:21:19",
-    "name": "change name",
-    "description": "Комментарий к счету",
-    "code": "change_code",
-    "externalCode": "666777666",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "moment": "2016-04-19 13:50:24",
-    "applicable": false,
-    "rate": {
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    "sum": 5840,
-    "organization": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json"
-      }
-    },
-    "store": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-        "type": "store",
-        "mediaType": "application/json"
-      }
-    },
-    "agent": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "counterparty",
-        "mediaType": "application/json"
-      }
-    },
-    "organizationAccount": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-        "type": "account",
-        "mediaType": "application/json"
-      }
-    },
-    "agentAccount": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-        "type": "account",
-        "mediaType": "application/json"
-      }
-    },
-    "created": "2016-08-25 19:55:00",
-    "printed": true,
-    "published": true,
-    "positions": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceposition",
-        "mediaType": "application/json",
-        "size": 2,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "payedSum": 0,
-    "shippedSum": 0,
-    "salesChannel": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-        "type": "saleschannel",
-        "mediaType": "application/json"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoiceout",
+       "mediaType": "application/json"
+     },
+     "id": "726e5b8c-0886-11e6-9464-e4de0000002a",
+     "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+     "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+     "updated": "2016-04-22 16:02:47",
+     "name": "inv_out_name",
+     "externalCode": "BtPDebO1g1PlmStW1jr--2",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "moment": "2016-04-22 16:02:47",
+     "applicable": true
+     rate: {
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     sum: 0
+     organization: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json"
+       }
+     },
+     agent: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "counter party",
+         "mediaType": "application/json"
+       }
+     },
+     organizationAccount: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/account/3a30e844-016f-11e6-9464-e4de00000068",
+         "type": "account",
+         "mediaType": "application/json"
+       }
+     },
+     agentAccount: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+         "type": "account",
+         "mediaType": "application/json"
+       }
+     },
+     "created": "2016-08-25 19:55:00",
+     "printed": true
+     "published": true
+     positions: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/positions",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoice position",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     },
+     "paidSum": 0,
+     "shippedSum": 0,
+     "salesChannel": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+         "type": "sales channel",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoiceout",
+       "mediaType": "application/json"
+     },
+     "id": "6afee657-0888-11e6-9464-e4de00000037",
+     "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+     "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+     "updated": "2016-04-22 16:21:19",
+     "name": "change name",
+     "description": "Invoice comment",
+     "code": "change_code",
+     "externalCode": "666777666",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "moment": "2016-04-19 13:50:24",
+     "applicable": false
+     rate: {
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     sum: 5840
+     organization: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json"
+       }
+     },
+     store: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     agent: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "counter party",
+         "mediaType": "application/json"
+       }
+     },
+     organizationAccount: {
+       "meta": {"href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+         "type": "account",
+         "mediaType": "application/json"
+       }
+     },
+     agentAccount: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+         "type": "account",
+         "mediaType": "application/json"
+       }
+     },
+     "created": "2016-08-25 19:55:00",
+     "printed": true
+     "published": true
+     positions: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoice position",
+         "mediaType": "application/json",
+         size: 2
+         limit: 1000
+         offset: 0
+       }
+     },
+     "paidSum": 0,
+     "shippedSum": 0,
+     "salesChannel": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+         "type": "sales channel",
+         "mediaType": "application/json"
+       }
+     }
+   }
 ]
 ```
 
-### Удалить Счет покупателю
+### Delete Sales Invoice
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                 |
-| :------- | :--------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателю. |
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
 
-> Запрос на удаление Счета покупателю с указанным id.
+> Request to delete the Sales Invoice with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Счета покупателю.
+> Response 200(application/json)
+Successful deletion of the Sales Invoice.
 
-### Массовое удаление Счетов покупателям
+### Sales Invoice Bulk deletion
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Счетов покупателям, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON of the metadata of the Sales Invoices that you want to delete.
 
 
-> Запрос на массовое удаление Счетов покупателям. 
+> Request for bulk deletion of Sales Invoices.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-            "type": "invoiceout",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-            "type": "invoiceout",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+             "type": "invoiceout",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+             "type": "invoiceout",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Счетов покупателям.
+> Successful request. Result - JSON information about the deletion of Sales Invoices.
 
 ```json
 [
-  {
-    "info":"Сущность 'invoiceout' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'invoiceout' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'invoiceout' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+   },
+   {
+     "info":"Entity 'invoiceout' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 deleted successfully"
+   }
 ]
-``` 
+```
 
-### Метаданные Счетов покупателям 
-#### Метаданные Счетов покупателям 
-Запрос на получение метаданных Счетов покупателям. Результат - объект JSON, включающий в себя:
+### Sales Invoice Metadata
+#### Sales Invoice Metadata
 
-| Параметр                       | Описание                                                                                                                |
-| ------------------------------ | :---------------------------------------------------------------------------------------------------------------------- |
-| **meta**                       | Ссылка на метаданные Счетов покупателям                                                                                 |
-| **attributes**                 | Массив объектов доп. полей Счетов покупателям в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **states**                     | Массив статусов Счетов покупателям                                                                                      |
-| **createShared**               | создавать новые Счета покупателям с меткой "Общий"                                                                      |
+Request for metadata of Sales Invoices. The result is a JSON object including:
 
-Структура отдельного объекта, представляющего доп. поле подробно описана в разделе [Работа с дополнительными полями](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+| Parameter | Description |
+| ---------- | --------- |
+| **meta** | Link to Invoice metadata |
+| **attributes** | Array of objects additional fields of Sales Invoices in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **states** | Array of statuses of Sales Invoices |
+| **createShared** | create new Sales Invoices labeled "General" |
 
-> Метаданные Счетов покупателям
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+
+> Metadata of Sales Invoices
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. полей Счетов покупателям.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the additional fields of Sales Invoices.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/51d191f4-0887-11e6-9464-e4de00000079",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "51d191f4-0887-11e6-9464-e4de00000079",
-      "name": "AttributeName1",
-      "type": "string",
-      "required": false
-    }
-  ],
-  "createShared": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/51d191f4-0887-11e6-9464-e4de00000079",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "51d191f4-0887-11e6-9464-e4de00000079",
+       "name": "AttributeName1",
+       "type": "string",
+       "required": false
+     }
+   ],
+   "createShared": false
 }
 ```
 
-### Отдельное доп. поле
+### Separate additional field
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Доп. поля. |
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
  
-#### Отдельное доп. поле
+#### Separate additional field
  
-> Запрос на получение информации по отдельному дополнительному полю.
+> Request for information on a separate additional field.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного доп. поля.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/d91965f1-558b-11e6-8a84-bae500000087",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "d91965f1-558b-11e6-8a84-bae500000087",
-  "name": "AttributeName1",
-  "type": "double",
-  "required": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/d91965f1-558b-11e6-8a84-bae500000087",
+     "type": "attributemetadata",
+     "mediaType": "application/json"
+   },
+   "id": "d91965f1-558b-11e6-8a84-bae500000087",
+   "name": "AttributeName1",
+   "type": "double",
+   "required": false
 }
 ```
 
-### Шаблон Счета покупателю 
-#### Шаблон Счета покупателю 
-Запрос на получение предзаполненого стандартными значениями шаблона счета покупателю без связи с каким-либо документом.
+### Sales Invoice Template
+#### Sales Invoice Template
 
-> Пустое тело запроса (application/json)
+A request to receive a Sales Invoice template pre-filled with standard values for the buyer without being associated with any transaction.
+
+> Empty request body (application/json)
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/new"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d ''  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/new"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d''
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление предзаполненного счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the prefilled Sales Invoice.
 
 ```json
 {
-  "applicable": false,
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    },
-    "rows": []
-  },
-  "vatEnabled": true,
-  "vatIncluded": true,
-  "payedSum": 0,
-  "shippedSum": 0
+   "applicable": false
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     },
+     rows: []
+   },
+   "vatEnabled": true
+   "vatIncluded": true,
+   "paidSum": 0,
+   "shippedSum": 0
 }
 ```
 
-### Шаблон Счета покупателю на основе 
-Запрос на получение предзаполненного счета покупателю на основе заказа покупателя или отгрузки.
-В результате запроса, будет создан предзаполненный шаблон счета покупателю на основе переданного
-документа.
+### Sales Invoice template based on another transaction
 
-> Запрос на создание счета покупателю на основе заказа покупателя.
+Request a pre-filled Sales invoice based on a Sales Order or shipment. As a result of the request, a pre-filled Sales Invoice template will be created based on the submitted
+document.
+
+> Request to create an Sales Invoice based on the Sales Order.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/new"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "customerOrder": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/451cb4c0-3d1d-11e6-8a84-bae500000004",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-                "type": "customerorder",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/new"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "customerOrder": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/451cb4c0-3d1d-11e6-8a84-bae500000004",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+                 "type": "customer order",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление предзаполненного счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the prefilled Sales invoice.
 
 ```json
 {
-  "applicable": false,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6792c8d5-3d19-11e6-8a84-bae500000005",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e/accounts/fae39d66-2e58-11e6-8a84-bae50000004f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    },
-    "rows": []
-  },
-  "vatEnabled": true,
-  "vatIncluded": true,
-  "payedSum": 0,
-  "shippedSum": 0,
-  "customerOrder": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/451cb4c0-3d1d-11e6-8a84-bae500000004",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-      "type": "customerorder",
-      "mediaType": "application/json"
-    }
-  }
+   "applicable": false
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6792c8d5-3d19-11e6-8a84-bae500000005",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e/accounts/fae39d66-2e58-11e6-8a84-bae50000004f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     },
+     rows: []
+   },
+   "vatEnabled": true
+   "vatIncluded": true,
+   "paidSum": 0,
+   "shippedSum": 0,
+   "customerOrder": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/451cb4c0-3d1d-11e6-8a84-bae500000004",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+       "type": "customer order",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-> Запрос на создание счета покупателю на основе отгрузки.
+> Request to create an Sales Invoice based on the Shipment.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/new"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "demands": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/demand/94e39314-cba5-11e7-6a80-332a00000035",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-                  "type": "demand",
-                  "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#demand/edit?id=94e39314-cba5-11e7-6a80-332a00000035"
-                }
-              }
-            ]
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/new"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "demands": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/demand/94e39314-cba5-11e7-6a80-332a00000035",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
+                   "type": "demand",
+                   "mediaType": "application/json",
+                   "uuidHref": "https://app.kladana.in/app/#demand/edit?id=94e39314-cba5-11e7-6a80-332a00000035"
+                 }
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление предзаполненного счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the prefilled Sales invoice.
 
 ```json
 {
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/46073d61-ca1f-11e7-6a80-332a0000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=46073d61-ca1f-11e7-6a80-332a0000002a"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/452fb22f-ca1f-11e7-6a80-332a00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "name": "",
-  "moment": "2017-11-22 19:08:56",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/464062ac-ca1f-11e7-6a80-332a00000058",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=464062ac-ca1f-11e7-6a80-332a00000058"
-      }
-    }
-  },
-  "sum": 90000,
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/463f8970-ca1f-11e7-6a80-332a00000053",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=463f8970-ca1f-11e7-6a80-332a00000053"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/463fe231-ca1f-11e7-6a80-332a00000056",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=463fe231-ca1f-11e7-6a80-332a00000056"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/463a706e-ca1f-11e7-6a80-332a00000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=463a706e-ca1f-11e7-6a80-332a00000051"
-    }
-  },
-  "documents": {
-    "rows": []
-  },
-  "positions": {
-    "rows": [
-      {
-        "quantity": 1,
-        "price": 90000.0,
-        "discount": 0,
-        "vat": 0,
-        "vatEnabled": false,
-        "assortment": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b5d328b3-cab0-11e7-6a80-332a0000000d",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-            "type": "variant",
-            "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#feature/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
-          }
-        }
-      }
-    ]
-  },
-  "vatEnabled": true,
-  "vatIncluded": true,
-  "payedSum": 0,
-  "shippedSum": 0,
-  "demands": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/94e39314-cba5-11e7-6a80-332a00000035",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-        "type": "demand",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#demand/edit?id=94e39314-cba5-11e7-6a80-332a00000035"
-      }
-    }
-  ]
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/46073d61-ca1f-11e7-6a80-332a0000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=46073d61-ca1f-11e7-6a80-332a0000002a"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/452fb22f-ca1f-11e7-6a80-332a00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "name": "",
+   "moment": "2017-11-22 19:08:56",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/464062ac-ca1f-11e7-6a80-332a00000058",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=464062ac-ca1f-11e7-6a80-332a00000058"
+       }
+     }
+   },
+   sum: 90000
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/463f8970-ca1f-11e7-6a80-332a00000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=463f8970-ca1f-11e7-6a80-332a00000053"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/463fe231-ca1f-11e7-6a80-332a00000056",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#company/edit?id=463fe231-ca1f-11e7-6a80-332a00000056"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/463a706e-ca1f-11e7-6a80-332a00000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=463a706e-ca1f-11e7-6a80-332a00000051"
+     }
+   },
+   "documents": {
+     rows: []
+   },
+   positions: {
+     rows: [
+       {
+         quantity: 1
+         "price": 90000.0,
+         discount: 0
+         vat: 0
+         "vatEnabled": false,
+         "assortment": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/b5d328b3-cab0-11e7-6a80-332a0000000d",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "type": "variant",
+             "mediaType": "application/json",
+             "uuidHref": "https://app.kladana.in/app/#feature/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
+           }
+         }
+       }
+     ]
+   },
+   "vatEnabled": true
+   "vatIncluded": true,
+   "paidSum": 0,
+   "shippedSum": 0,
+   "demands": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/demand/94e39314-cba5-11e7-6a80-332a00000035",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
+         "type": "demand",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#demand/edit?id=94e39314-cba5-11e7-6a80-332a00000035"
+       }
+     }
+   ]
 }
 ```
 
-### Счет покупателю
+### Sales Invoice
+### Get Sales Invoice
 
-### Получить Счет покупателю
+**Parameters**
 
-**Параметры**
-
-| Параметр | Описание                                                                                 |
-| :------- | :--------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя. |
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
  
-> Запрос на получение отдельного Счета покупателю с указанным id.
+> Request for a separate Sales Invoice with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "0cb8d047-f664-11e5-8a84-bae500000095",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-03-30 16:48:13",
-  "name": "00001",
-  "externalCode": "TAXyoccKiJPtMhcBAsqqw1",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-03-30 13:41:00",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 123000,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 6,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0,
-  "salesChannel": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-      "type": "saleschannel",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "0cb8d047-f664-11e5-8a84-bae500000095",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-03-30 16:48:13",
+   "name": "00001",
+   "externalCode": "TAXyoccKiJPtMhcBAsqqw1",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-03-30 13:41:00",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 123000
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/0cb8d047-f664-11e5-8a84-bae500000095/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 6
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0,
+   "salesChannel": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+       "type": "sales channel",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Изменить Счет покупателю 
-Запрос на обновление Счета покупателю с указанным id.
-В теле запроса можно указать только те поля, которые необходимо изменить у Счета покупателю, кроме тех, что
-помечены `Только для чтения` в описании [атрибутов Счета покупателю](../documents/#dokumenty-schet-pokupatelu).
-При обновлении полей **organization** и **agent** нужно также обновить поля **organizationAccount** и
-**agentAccount** соответственно, иначе произойдет ошибка.
+### Change Sales Invoice
 
-**Параметры**
+Request to update the Sales Invoice with the specified id. In the body of the request, you can specify only those fields that need to be changed for the Sales Invoice, except for those that are marked `Read-Only` in the description of the [Sales Invoice attributes](../documents/#dokumenty-schet-pokupatelu).
 
-| Параметр | Описание                                                                                 |
-| :------- | :--------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя. |
+When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
+**agentAccount** respectively, otherwise an error will occur.
 
-> Пример запроса на обновление отдельного Счета покупателю.
+**Parameters**
+
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
+
+> An example of a request to update a Sales Invoice.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "change name",
-            "code": "change_code",
-            "externalCode": "666777666",
-            "moment": "2016-04-19 13:50:24",
-            "applicable": false,
-            "description": "Комментарий к счету",
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "change name",
+             "code": "change_code",
+             "externalCode": "666777666",
+             "moment": "2016-04-19 13:50:24",
+             "applicable": false
+             "description": "Invoice comment",
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "6afee657-0888-11e6-9464-e4de00000037",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:21:19",
-  "name": "change name",
-  "description": "Комментарий к счету",
-  "code": "change_code",
-  "externalCode": "666777666",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-04-19 13:50:24",
-  "applicable": false,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 5840,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0,
-  "salesChannel": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-      "type": "saleschannel",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "6afee657-0888-11e6-9464-e4de00000037",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:21:19",
+   "name": "change name",
+   "description": "Invoice comment",
+   "code": "change_code",
+   "externalCode": "666777666",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-04-19 13:50:24",
+   "applicable": false
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 5840
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0,
+   "salesChannel": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+       "type": "sales channel",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-> Пример запроса на изменение Счета покупателю с дополнительными полями.
+> An example of a request to change the Sales Invoice with additional fields.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "change name",
-            "code": "change_code",
-            "externalCode": "666777666",
-            "moment": "2016-04-19 13:50:24",
-            "applicable": false,
-            "description": "Комментарий к счету",
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "attributes": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": "new_val"
-              }
-            ]
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "change name",
+             "code": "change_code",
+             "externalCode": "666777666",
+             "moment": "2016-04-19 13:50:24",
+             "applicable": false
+             "description": "Invoice comment",
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "new_val"
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "6afee657-0888-11e6-9464-e4de00000037",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:21:19",
-  "name": "change name",
-  "description": "Комментарий к счету",
-  "code": "change_code",
-  "externalCode": "666777666",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "moment": "2016-04-19 13:50:24",
-  "applicable": false,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 5840,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "51d191f4-0887-11e6-9464-e4de00000079",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "new_val"
-    }
-  ],
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0,
-  "salesChannel": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-      "type": "saleschannel",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "6afee657-0888-11e6-9464-e4de00000037",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:21:19",
+   "name": "change name",
+   "description": "Invoice comment",
+   "code": "change_code",
+   "externalCode": "666777666",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "moment": "2016-04-19 13:50:24",
+   "applicable": false
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 5840
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         type:"attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "51d191f4-0887-11e6-9464-e4de00000079",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "new_val"
+     }
+   ],
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0,
+   "salesChannel": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+       "type": "sales channel",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-> Пример запроса на обновление Счета покупателю с позициями в теле запроса.
+> An example of a request to update the Sales Invoice with items in the body of the request.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "change name again",
-            "code": "change_code_again",
-            "externalCode": "666777666",
-            "moment": "2016-04-19 13:50:24",
-            "applicable": false,
-            "description": "Now with 1 position",
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "attributes": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": "new_val_again"
-              }
-            ],
-            "positions": [
-              {
-                "quantity": 20,
-                "price": 200.0,
-                "discount": 0,
-                "vat": 21,
-                "assortment": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-                    "type": "product",
-                    "mediaType": "application/json"
-                  }
-                }
-              }
-            ]
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "change name again",
+             "code": "change_code_again",
+             "externalCode": "666777666",
+             "moment": "2016-04-19 13:50:24",
+             "applicable": false
+             "description": "Now with 1 item",
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "new_val_again"
+               }
+             ],
+             "positions": [
+               {
+                 quantity: 20
+                 "price": 200.0
+                 discount: 0
+                 vat: 21
+                 "assortment": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                     "type": "product",
+                     "mediaType": "application/json"
+                   }
+                 }
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceout",
-    "mediaType": "application/json"
-  },
-  "id": "6afee657-0888-11e6-9464-e4de00000037",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
-  "updated": "2016-04-22 16:25:06",
-  "name": "change name again",
-  "description": "Now with 1 position",
-  "code": "change_code_again",
-  "externalCode": "666777666",
-  "owner": {
-    "name": "Администратор"
-  },
-  "shared": false,
-  "group": {
-    "name": "Основной"
-  },
-  "moment": "2016-04-19 13:50:24",
-  "applicable": false,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 4000,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "51d191f4-0887-11e6-9464-e4de00000079",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "new_val_again"
-    }
-  ],
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "payedSum": 0,
-  "shippedSum": 0,
-  "salesChannel": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-      "type": "saleschannel",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoiceout",
+     "mediaType": "application/json"
+   },
+   "id": "6afee657-0888-11e6-9464-e4de00000037",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "syncId": "734a9e26-45a2-4ead-849c-e144daeb854d",
+   "updated": "2016-04-22 16:25:06",
+   "name": "change name again",
+   "description": "Now with 1 item",
+   "code": "change_code_again",
+   "externalCode": "666777666",
+   "owner": {
+     "name": "Administrator"
+   },
+   shared: false
+   group: {
+     "name": "Main"
+   },
+   "moment": "2016-04-19 13:50:24",
+   "applicable": false
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 4000
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850c8af2-f504-11e5-8a84-bae50000015f",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/account/850f1eab-f504-11e5-8a84-bae500000164",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "51d191f4-0887-11e6-9464-e4de00000079",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "new_val_again"
+     }
+   ],
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6afee657-0888-11e6-9464-e4de00000037/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   "paidSum": 0,
+   "shippedSum": 0,
+   "salesChannel": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
+       "type": "sales channel",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Позиции Счета покупателю 
-Отдельный ресурс для управления позициями Счета покупателю. С его помощью вы можете управлять позициями большого документа, количество строк в котором превышает лимит на количество строк, сохраняемых вместе с документом. Этот лимит равен 1000. Более подробно о лимитах на количество строк документа и работе с большими документами можно прочитать [тут](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+### Sales Invoice Item
+
+A separate resource for managing the items of the Sales Invoice. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
   
-### Получить позиции Счета покупателю 
-Запрос на получение списка всех позиций данного Счета покупателю.
+### Get Sales Invoice items
 
-| Название    | Тип                                                       | Описание                                                             |
-| ----------- | :-------------------------------------------------------- | :------------------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                                 |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                         |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой позиции Счета покупателю. |
+Request for a list of all items of the Sales Invoice.
 
-**Параметры**
+| Title | Type | Description |
+| ---------- | --------- |-------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the items in the Sales Invoice. |
 
-| Параметр   | Описание                                                                                                                               |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя.                                               |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+**Parameters**
 
-> Получить позиции Счета покупателю
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+
+> Get Sales Invoice
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка позиций отдельного Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of items of a particular Sales Invoice.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceposition",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/90572e91-0889-11e6-9464-e4de00000043",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceposition",
-        "mediaType": "application/json"
-      },
-      "id": "90572e91-0889-11e6-9464-e4de00000043",
-      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-      "quantity": 20,
-      "price": 200.0,
-      "discount": 0,
-      "vat": 0,
-      "vatEnabled": false,
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoice position",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/90572e91-0889-11e6-9464-e4de00000043",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoice position",
+         "mediaType": "application/json"
+       },
+       "id": "90572e91-0889-11e6-9464-e4de00000043",
+       "accountId": "84e60e93-f504-11e5-8a84-bae500000008",quantity: 20
+       "price": 200.0
+       discount: 0
+       vat: 0
+       "vatEnabled": false,
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Добавить позицию в Счет покупателя 
-Запрос на создание новой позиции в Счете покупателю.
-Для успешного создания необходимо в теле запроса указать следующие поля:
+### Add Item to Sales Invoice
 
-+ **assortment** - Ссылка на товар/услугу/серию/модификацию, которую представляет собой позиция.
-Также можно указать поле с именем **service**, **variant** в соответствии с тем,
-чем является указанная позиция. Подробнее об этом поле можно прочитать в описании [позиции Счета](../documents/#dokumenty-schet-pokupatelu-scheta-pokupatelqm-pozicii-scheta-pokupatelu)
-+ **quantity** - Количество указанной позиции. Должно быть положительным, иначе возникнет ошибка.
-Также, как и при работе с [Позициями Заказа Покупателя](../documents/#dokumenty-zakaz-pokupatelq-pozicii-zakaza-pokupatelq), можно создать как одну, так и несколько позиций в одном запросе.
+Request to create a new item in the Sales Invoice.
+For successful creation, the following fields must be specified in the request body:
 
-**Параметры**
++ **assortment** - Link to the product/service/series/modification that the item represents.
+You can also specify a field named **service**, **variant** according to
+what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#dokumenty-schet-pokupatelu-scheta-pokupatelqm-pozicii-scheta-pokupatelu)
++ **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
+Just like when working with [Sales Order Items](../documents/#dokumenty-zakaz-pokupatelq-pozicii-zakaza-pokupatelq), you can create one or more items in one request.
 
-| Параметр | Описание                                                                                 |
-| :------- | :--------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя. |
+**Parameters**
 
-> Пример создания позиции в Счете покупателю.
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
+
+> An example of creating a item in a Sales Invoice.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "quantity": 12,
-            "price": 999.0,
-            "discount": 1,
-            "assortment": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                "type": "variant",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "quantity": 12,
+             "price": 999.0
+             "discount": 1,
+             "assortment": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                 "type": "variant",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной позиции отдельного Счете покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created item of a Sales Invoice.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/8a43c5a3-088a-11e6-9464-e4de00000046",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-      "type": "invoiceposition",
-      "mediaType": "application/json"
-    },
-    "id": "8a43c5a3-088a-11e6-9464-e4de00000046",
-    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-    "quantity": 12,
-    "price": 999.0,
-    "discount": 1,
-    "vat": 0,
-    "vatEnabled": false,
-    "assortment": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-        "type": "variant",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/8a43c5a3-088a-11e6-9464-e4de00000046",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "type": "invoice position",
+       "mediaType": "application/json"
+     },
+     "id": "8a43c5a3-088a-11e6-9464-e4de00000046",
+     "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+     "quantity": 12,
+     "price": 999.0
+     "discount": 1,
+     vat: 0
+     "vatEnabled": false,
+     "assortment": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+         "type": "variant",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+       }
+     }
+   }
 ]
 ```
 
-### Позиция Счета покупателя 
-Отдельная позиция Счета покупателю с указанным id позиции.
+### Sales Invoice Item
+
+Request an item of Sales Invoice with the specified item id.
   
-### Получить позицию Счета
+### Get Sales Invoice Item
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                            |
-| :------------- | :-------------------------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя.            |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* id id позиции Счета покупателю. |
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
  
-> Запрос на получение отдельной позиции Счета с указанным id.
+> Request to receive a separate item of the Sales Invoice with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельной позиции Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the line item of the Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceposition",
-    "mediaType": "application/json"
-  },
-  "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "quantity": 12,
-  "price": 999.0,
-  "discount": 1,
-  "vat": 0,
-  "vatEnabled": false,
-  "assortment": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-      "type": "variant",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoice position",
+     "mediaType": "application/json"
+   },
+   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "quantity": 12,
+   "price": 999.0
+   "discount": 1,
+   vat: 0
+   "vatEnabled": false,
+   "assortment": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+       "type": "variant",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+     }
+   }
 }
 ```
         
-### Изменить позицию Счета 
-Запрос на обновление отдельной позиции Счета. Для обновления позиции нет каких-либо
-обязательных для указания в теле запроса полей. Только те, что вы желаете обновить.
+### Change Sales Invoice Item
 
-**Параметры**
+Request to update a line item in an Invoice. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
 
-| Параметр       | Описание                                                                                            |
-| :------------- | :-------------------------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя.            |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* id id позиции Счета покупателю. |
+**Parameters**
+
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
  
-> Пример запроса на обновление отдельной позиции в Счете покупателю.
+> An example of a request to update a line item in a Sales Invoice.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "quantity": 22,
-            "price": 1000.0,
-            "discount": 0,
-            "vat": 12
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "quantity": 22,
+             "price": 1000.0
+             discount: 0
+             vat: 12
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной позиции Счета покупателю.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Sales Invoice.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-    "type": "invoiceposition",
-    "mediaType": "application/json"
-  },
-  "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-  "quantity": 22,
-  "price": 1000.0,
-  "discount": 0,
-  "vat": 0,
-  "vatEnabled": false,
-  "assortment": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-      "type": "variant",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+     "type": "invoice position",
+     "mediaType": "application/json"
+   },
+   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "quantity": 22,
+   "price": 1000.0
+   discount: 0
+   vat: 0
+   "vatEnabled": false,
+   "assortment": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+       "type": "variant",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+     }
+   }
 }
 ```
 
-### Удалить позицию
+### Delete Item
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                            |
-| :------------- | :-------------------------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Счета покупателя.            |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* id id позиции Счета покупателю. |
+| Parameter | Description |
+| ---------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
  
-> Запрос на удаление отдельной позиции Счета с указанным id.
+> Request to delete a separate item of the Sales Invoice with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление позиции Счета.
+> Response 200(application/json)
+Successful deletion of an Sales Invoice item.

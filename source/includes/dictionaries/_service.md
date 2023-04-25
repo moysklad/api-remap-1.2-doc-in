@@ -1,6 +1,5 @@
 ## Service
-Using the JSON API, you can create and update information about the Services, request lists of Services and information on individual Services. The entity code for a Service in the JSON API is the **service** keyword. Service - a special kind of goods, without a purchase price and packaging. You can read more about Products and working with them in the main interface in our support service in the section
-  [Products and warehouse](https://support.moysklad.ru/hc/ru/articles/115006310327).
+Using the JSON API, you can create and update information about the Services, request lists of Services and information on individual Services. The entity code for a Service in the JSON API is the **service** keyword. Service is a special kind of goods, without a purchase price and packaging. You can read more about Products and working with them in the main interface in our support service in the section [Products and Services](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
 This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
 
@@ -16,7 +15,7 @@ Search among service objects for matching the search string will be carried out 
 | ----- | ------ | ------ | ------ |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of add. fields |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#suschnosti-usluga-uslugi-metadannye-uslug-shtrih-kody) |
 | **buyprice** | object | | Purchasing sale. [More here](../dictionaries/#suschnosti-usluga-uslugi-metadannye-uslug-zakupochnaq-cena) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Service Code |
@@ -761,7 +760,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 }
 ```
 
-> An example of a request to create a Service with add. fields.
+> An example of a request to create a Service with additional fields.
 
 
 ```shell
@@ -1421,8 +1420,8 @@ Successful request. The result is a JSON representation of the Service.
 Update an existing Service.
 Price types in sales prices and additional fields are updated as elements of nested collections:
 
-+ If in the current object some of the add. fields / price types no value,
-and in the passed collection it is - the value is written to the add. field / price type.
++ If in the current object some of the additional fields / price types no value,
+and in the passed collection it is - the value is written to the additional field / price type.
 + If this attribute already has a value, it is overwritten with the one passed.
 + If this attribute has a value in the object, but it is missing
 in the collection passed in the body of the request (not passed at all), then the value of the object attribute is not changed.

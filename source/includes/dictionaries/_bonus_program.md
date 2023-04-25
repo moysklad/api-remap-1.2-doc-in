@@ -138,7 +138,7 @@ Successful request. The result is a list of all bonus programs for the account.
 
 ### Create Bonus Program
 
-Request to create a new bonus program. Required fields: **name** (name of the discount), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount active for all counterparties) **earnRateRoublesToPoint** (accrual rate), **spendRatePointsToRouble** (withdrawal rate), **maxPaidRatePercents** (maximum percentage of payment by points).
+Request to create a new bonus program. Required fields: **name** (name of the discount), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount active for all counterparties) **earnRateRoublesToPoint** (accrual rate), **spendRatePointsToRouble** (write-off rate), **maxPaidRatePercents** (maximum percentage of payment by points).
 
 > An example of creating a new bonus program
 

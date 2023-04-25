@@ -1,1808 +1,1812 @@
-## Списание
-Средствами JSON API можно создавать и обновлять сведения о Списаниях, запрашивать списки Списаний и сведения по отдельным Списаниям. Позициями Списаний можно управлять как в составе отдельного Списания, так и отдельно - с помощью специальных ресурсов для управления позициями Списания. Кодом сущности для Списания в составе JSON API является ключевое слово **loss**. Больше о Списаниях можно прочитать [этой ссылке](https://support.moysklad.ru/hc/ru/articles/203053096-%D0%A1%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D1%80%D0%B8%D1%85%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2).
-### Списания 
-#### Атрибуты сущности
+## Write-off
 
-| Название         | Тип                                                       | Фильтрация                                                                                                                                        | Описание                                                                                                                                      |
-| ---------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**    | UUID                                                      | `=` `!=`                                                                                                                                          | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                        |
-| **applicable**   | Boolean                                                   | `=` `!=`                                                                                                                                          | Отметка о проведении<br>`+Обязательное при ответе` `+Change-handler`                                                                          |
-| **attributes**   | Array(Object)                                             | [Операторы доп. полей](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Коллекция метаданных доп. полей. [Поля объекта](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br> `+Change-handler` |
-| **code**         | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Код Списания                                                                                                                                  |
-| **created**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата создания<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                            |
-| **deleted**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего удаления Списания<br>`+Только для чтения`                                                                                   |
-| **description**  | String(4096)                                              | `=` `!=` `~` `~=` `=~`                                                                                                                            | Комментарий Списания<br>`+Change-handler`                                                                                                     |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Внешний код Списания<br>`+Обязательное при ответе` `+Change-handler`                                                                          |
-| **files**        | MetaArray                                                 |                                                                                                                                                   | Метаданные массива [Файлов](../dictionaries/#suschnosti-fajly) (Максимальное количество файлов - 100)<br>`+Обязательное при ответе` `+Expand` |
-| **group**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                      |
-| **id**           | UUID                                                      | `=` `!=`                                                                                                                                          | ID Списания<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                              |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные Списания<br>`+Обязательное при ответе` `+Change-handler`                                                                           |
-| **moment**       | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата документа<br>`+Обязательное при ответе` `+Change-handler`                                                                                |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Наименование Списания<br>`+Обязательное при ответе` `+Change-handler`                                                                         |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные юрлица<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` `+Change-handler`                                        |
-| **owner**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                                                                  |
-| **positions**    | MetaArray                                                 |                                                                                                                                                   | Метаданные позиций Списания<br>`+Обязательное при ответе` `+Expand` `+Change-handler`                                                         |
-| **printed**      | Boolean                                                   | `=` `!=`                                                                                                                                          | Напечатан ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                      |
-| **project**      | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные проекта<br>`+Expand` `+Change-handler`                                                                                             |
-| **published**    | Boolean                                                   | `=` `!=`                                                                                                                                          | Опубликован ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                    |
-| **rate**         | Object                                                    |                                                                                                                                                   | Валюта. [Подробнее тут](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Обязательное при ответе` `+Change-handler`             |
-| **shared**       | Boolean                                                   | `=` `!=`                                                                                                                                          | Общий доступ<br>`+Обязательное при ответе`                                                                                                    |
-| **state**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные статуса Списания<br>`+Expand` `+Change-handler`                                                                                    |
-| **store**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные склада<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` `+Change-handler`                                        |
-| **sum**          | Int                                                       | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Сумма Списания в копейках<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                |
-| **syncId**       | UUID                                                      | `=` `!=`                                                                                                                                          | ID синхронизации. После заполнения недоступен для изменения                                                                                   |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего обновления Списания<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                    |
+Using the JSON API, you can create and update information about Write-offs, request lists of Write-offs and information on individual Write-offs. Write-off items can be managed both as part of a separate Write-off, and separately - using special resources for managing Write-off items. The **loss** keyword is the entity code for Write-off as part of the JSON API. Learn more about [Write-off](https://kladana.zendesk.com/hc/en-us/articles/4452743258769-Write-off).
 
-#### Связи с другими документами
+### Write-off
+#### Entity attributes
 
-| Название                       | Описание                                                                                                                      |
-| ------------------------------ | :---------------------------------------------------------------------------------------------------------------------------- |
-| **salesReturn**                | Ссылка на связанный со списанием возврат покупателя в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| Title | Type | Filtration| Description |
+| --------- | --------- | --------- | --------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br> `+Change-handler` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Write-off Code |
+| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Write-off<br>`+Read Only` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Write-Off Comment<br>`+Change-handler` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of Write-off<br>`+Required when replying` `+Change-handler` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Write-off ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Write-off Metadata<br>`+Required when replying` `+Change-handler` |
+| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
+| **name** | string(255)| `=` `!=` `~` `~=` `=~` | Write-off Name<br>`+Required when replying` `+Change-handler` |
+| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **positions** | MetaArray | | Write-off item metadata<br>`+Required for response` `+Expand` `+Change-handler` |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
+| **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
+| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
+| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=`| Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
-#### Позиции Списания
-Позиции Списания - это список товаров/модификаций/серий.
-Объект позиции Списания содержит следующие поля:
+#### Links to other documents
 
-| Название       | Тип                                                       | Описание                                                                                                                                                                                                                                                 |
-| -------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**  | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                   |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара/услуги/серии/модификации, которую представляет собой позиция<br>`+Обязательное при ответе` `+Expand` `+Change-handler`                                                                                                                                  |
-| **id**         | UUID                                                      | ID позиции<br>`+Обязательное при ответе` `+Только для чтения` `+Change-handler`                                                                                                                                                                                           |
-| **pack**       | Object                                                    | Упаковка Товара. [Подробнее тут](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler`                                                                                                                               |
-| **price**      | Float                                                     | Цена товара/услуги в копейках<br>`+Обязательное при ответе` `+Change-handler`                                                                                                                                                                                             |
-| **quantity**   | Int                                                       | Количество товаров/услуг данного вида в позиции. Если позиция - товар, у которого включен учет по серийным номерам, то значение в этом поле всегда будет равно количеству серийных номеров для данной позиции в документе.<br>`+Обязательное при ответе` `+Change-handler` |
-| **reason**     | String(255)                                               | Причина списания данной позиции                                                                                                                                                                                                                          |
-| **slot**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Ячейка на складе. [Подробнее тут](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
-| **things**     | Array(String)                                             | Серийные номера. Значение данного атрибута игнорируется, если товар позиции не находится на серийном учете. В ином случае количество товаров в позиции будет равно количеству серийных номеров, переданных в значении атрибута.<br>`+Change-handler`                          |
+| Title | Description |
+| ------- | -------- |
+| **salesReturn** | Link to the related of Sales Return in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format|
 
-С позициями можно работать с помощью [специальных ресурсов для управления позициями Списания](../documents/#dokumenty-spisanie-pozicii-spisaniq),
-а также в составе отдельного Списания. При работе в составе отдельного Списания,
-вы можете отправлять запросы на создание отдельного Списания с включенным в тело запроса
-массивом позиций Списания. Если количество позиций превышает максимально допустимое, то для
-дальнейшего пополнения позиций нужно будет работать со специальным ресурсом "Позиции Списания".
-Также, при работе в составе отдельного Списания, можно отправлять запросы на обновление списка позиций
-с включенным в тело запроса массивом позиций Списания. При этом важно помнить, что коллекция позиций будет
-восприниматься как "все позиции Списания" и полностью заменит уже существующую коллекцию при обновлении объекта - лишние
-позиции будут удалены, новые добавлены, существующие - изменены.
+#### Write-off Items
+Write-off items is a list of goods/modifications/series.
+The Write-off item object contains the following fields:
 
-О работе с доп. полями Списаний можно прочитать [здесь](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+| Title | Type | Description|
+| ------------| ------- | --------- |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **pack** | object | Product packaging. [Read more here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
+| **price** | float | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
+| **quantity** | int | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **reason** | String(255) | Reason for decommissioning this item |
+| **slot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Cell in the warehouse. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.<br>`+Change-handler` |
+
+You can work with items using [special resources for managing Write-off items](../documents/#dokumenty-spisanie-pozicii-spisaniq),
+and also as part of a separate Write-off. When working as part of a separate Write-off,
+you can send requests to create a separate Write-off included in the request body
+an array of write-off items. If the number of items exceeds the maximum allowed, then for
+further replenishment of items, you will need to work with a special resource "Write-off items".
+
+Also, when working as part of a separate Write-off, you can send requests to update the list of items
+with an array of Write-Off items included in the request body. It is important to remember that the collection of items will
+be perceived as "All Write-off items" and will completely replace the existing collection when updating the object. Superfluous
+items will be deleted, new ones added, existing ones changed.
+
+About working with Write-off fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 
 
-### Получить Списания 
-Запрос всех Списаний на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Get Write-offs
 
-| Название    | Тип                                                       | Описание                                             |
-| ----------- | :-------------------------------------------------------- | :--------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                 |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.         |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Списания. |
+Request all Write-offs on this account.
+Result: JSON object including fields:
 
-**Параметры**
+|Title | Type | Description |
+| ------- | -------- |--------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Write-offs. |
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-| **search**                     | `string` (optional) *Example: 0001* Фильтр документов по указанной поисковой строке.                                                   |
+**Parameters**
 
-> Получить Списания
+| Parameter | Description |
+| ------- | -------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string. |
+
+> Get Write-offs
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/loss"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Списаний.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the List of Write-offs.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-    "type": "loss",
-    "mediaType": "application/json",
-    "size": 2,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-        "type": "loss",
-        "mediaType": "application/json"
-      },
-      "id": "6ddca2d7-4f28-11e6-8a84-bae500000066",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-07-21 15:22:54",
-      "name": "00001",
-      "externalCode": "o5GMiWUJhqhq1vmrUWwI-2",
-      "moment": "2016-07-21 12:49:00",
-      "applicable": true,
-      "printed": true,
-      "published": true,
-      "rate": {
-        "currency": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-            "type": "currency",
-            "mediaType": "application/json"
-          }
-        },
-        "value": 63
-      },
-      "sum": 3981730,
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      },
-      "store": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-          "type": "store",
-          "mediaType": "application/json"
-        }
-      },
-      "attributes": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
-          "name": "AttributeName1",
-          "type": "double",
-          "value": 0.2
-        }
-      ],
-      "positions": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066/positions",
-          "type": "lossposition",
-          "mediaType": "application/json",
-          "size": 2,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/9d020efd-4f2a-11e6-8a84-bae500000078",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-        "type": "loss",
-        "mediaType": "application/json"
-      },
-      "id": "9d020efd-4f2a-11e6-8a84-bae500000078",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-07-21 15:23:02",
-      "name": "00002",
-      "externalCode": "08cP74Ftgc7MrBTbGfGVJ3",
-      "moment": "2016-07-21 13:05:00",
-      "applicable": true,
-      "printed": true,
-      "published": true,
-      "rate": {
-        "currency": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-            "type": "currency",
-            "mediaType": "application/json"
-          }
-        }
-      },
-      "sum": 0,
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json"
-        }
-      },
-      "store": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-          "type": "store",
-          "mediaType": "application/json"
-        }
-      },
-      "attributes": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
-          "name": "AttributeName1",
-          "type": "double",
-          "value": 45.2
-        }
-      ],
-      "positions": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/loss/9d020efd-4f2a-11e6-8a84-bae500000078/positions",
-          "type": "lossposition",
-          "mediaType": "application/json",
-          "size": 1,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "salesReturn": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-          "type": "salesreturn",
-          "mediaType": "application/json"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+     "type": "loss",
+     "mediaType": "application/json",
+     size: 2
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+         "type": "loss",
+         "mediaType": "application/json"
+       },
+       "id": "6ddca2d7-4f28-11e6-8a84-bae500000066",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-07-21 15:22:54",
+       "name": "00001",
+       "externalCode": "o5GMiWUJhqhq1vmrUWwI-2",
+       "moment": "2016-07-21 12:49:00",
+       "applicable": true
+       "printed": true
+       "published": true
+       rate: {
+         currency: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "type": "currency",
+             "mediaType": "application/json"
+           }
+         },
+         value: 63
+       },
+       sum: 3981730,
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       },
+       store: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "type": "store",
+           "mediaType": "application/json"
+         }
+       },
+       "attributes": [
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
+           "name": "AttributeName1",
+           "type": "double",
+           value: 0.2
+         }
+       ],
+       positions: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066/positions",
+           "type": "loss position",
+           "mediaType": "application/json",
+           size: 2
+           limit: 1000
+           offset: 0
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/9d020efd-4f2a-11e6-8a84-bae500000078",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+         "type": "loss",
+         "mediaType": "application/json"
+       },
+       "id": "9d020efd-4f2a-11e6-8a84-bae500000078",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-07-21 15:23:02",
+       "name": "00002",
+       "externalCode": "08cP74Ftgc7MrBTbGfGVJ3",
+       "moment": "2016-07-21 13:05:00",
+       "applicable": true
+       "printed": true
+       "published": true
+       rate: {
+         currency: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "type": "currency",
+             "mediaType": "application/json"
+           }
+         }
+       },
+       sum: 0
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json"
+         }
+       },
+       store: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "type": "store",
+           "mediaType": "application/json"
+         }
+       },
+       "attributes": [
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
+           "name": "AttributeName1",
+           "type": "double",
+           value: 45.2
+         }
+       ],
+       positions: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/loss/9d020efd-4f2a-11e6-8a84-bae500000078/positions",
+           "type": "loss position",
+           "mediaType": "application/json",
+           size: 1
+           limit: 1000
+           offset: 0
+         }
+       },
+       salesReturn: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+           "type": "sales return",
+           "mediaType": "application/json"
+         }
+       }
+     }
+   ]
 }
 ```
+### Create Write-off
 
-### Создать Списание 
-Запрос на создание нового Списания. Для успешного создания необходимо в теле запроса указать следующие поля:
+Request to create a new Write-off. For successful creation, the following fields must be specified in the request body:
 
-+ **organization** - Ссылка на ваше юрлицо в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Необходимое`
-+ **store** - Ссылка на склад в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Необходимое`
++ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Required`
++ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Required`
 
-> Пример создания нового Списания.
+> An example of creating a new Write-off.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/loss"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/95920812-9609-11e6-8af5-581e000000d4",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "positions": [
-              {
-                "quantity": 23,
-                "assortment": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                    "type": "product",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              {
-                "quantity": 12,
-                "assortment": {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/987d77f1-9a09-11e6-8af5-581e00000074",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                    "type": "variant",
-                    "mediaType": "application/json"
-                  }
-                }
-              }
-            ]
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/loss"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/95920812-9609-11e6-8af5-581e000000d4",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json"
+               }
+             },
+             "positions": [
+               {
+                 "quantity": 23,
+                 "assortment": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                     "type": "product",
+                     "mediaType": "application/json"
+                   }
+                 }
+               },
+               {
+                 "quantity": 12,
+                 "assortment": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/987d77f1-9a09-11e6-8af5-581e00000074",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                     "type": "variant",
+                     "mediaType": "application/json"
+                   }
+                 }
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Write-off.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-    "type": "loss",
-    "mediaType": "application/json"
-  },
-  "id": "b014dab4-4f42-11e6-8a84-bae500000006",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-07-21 15:57:32",
-  "name": "00005",
-  "externalCode": "itqCvT69hgSZFTJEL9cP70",
-  "moment": "2016-07-21 15:57:32",
-  "applicable": false,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 50000,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
-      "type": "lossposition",
-      "mediaType": "application/json",
-      "size": 3,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "salesReturn": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-      "type": "salesreturn",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+     "type": "loss",
+     "mediaType": "application/json"
+   },
+   "id": "b014dab4-4f42-11e6-8a84-bae500000006",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-07-21 15:57:32",
+   "name": "00005",
+   "externalCode": "itqCvT69hgSZFTJEL9cP70",
+   "moment": "2016-07-21 15:57:32",
+   "applicable": false
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 50000
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
+       "type": "loss position",
+       "mediaType": "application/json",
+       size: 3
+       limit: 1000
+       offset: 0
+     }
+   },
+   salesReturn: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+       "type": "sales return",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Массовое создание и обновление Списаний 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Списаний.
-В теле запроса нужно передать массив, содержащий JSON представления Списаний, которые вы хотите создать или обновить.
-Обновляемые Списания должны содержать идентификатор в виде метаданных.
+### Bulk creation and updating of Write-offs
 
-> Пример создания и обновления нескольких Списаний
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Write-offs.
+In the body of the request, you need to pass an array containing the JSON representation of the Write-offs that you want to create or update.
+Updated Write-offs must contain the identifier in the form of metadata.
+
+> Example of creating and updating multiple Write-offs
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/loss"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "store": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                  "type": "store",
-                  "mediaType": "application/json"
-                }
-              },
-              "organization": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/95920812-9609-11e6-8af5-581e000000d4",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                  "type": "organization",
-                  "mediaType": "application/json"
-                }
-              },
-              "positions": [
-                {
-                  "quantity": 23,
-                  "assortment": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                      "type": "product",
-                      "mediaType": "application/json"
-                    }
-                  }
-                },
-                {
-                  "quantity": 12,
-                  "assortment": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/987d77f1-9a09-11e6-8af5-581e00000074",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                      "type": "variant",
-                      "mediaType": "application/json"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-                "type": "loss",
-                "mediaType": "application/json"
-              },
-              "name": "00606234",
-              "externalCode": "3498142кук",
-              "moment": "2016-07-21 15:57:32",
-              "applicable": true,
-              "sum": 50000,
-              "organization": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                  "type": "organization",
-                  "mediaType": "application/json"
-                }
-              },
-              "store": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                  "type": "store",
-                  "mediaType": "application/json"
-                }
-              },
-              "positions": [],
-              "salesReturn": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-                  "type": "salesreturn",
-                  "mediaType": "application/json"
-                }
-              }
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/loss"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               store: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata","type": "store",
+                   "mediaType": "application/json"
+                 }
+               },
+               organization: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/95920812-9609-11e6-8af5-581e000000d4",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "type": "organization",
+                   "mediaType": "application/json"
+                 }
+               },
+               "positions": [
+                 {
+                   "quantity": 23,
+                   "assortment": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
+                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                       "type": "product",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 },
+                 {
+                   "quantity": 12,
+                   "assortment": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/987d77f1-9a09-11e6-8af5-581e00000074",
+                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                       "type": "variant",
+                       "mediaType": "application/json"
+                     }
+                   }
+                 }
+               ]
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+                 "type": "loss",
+                 "mediaType": "application/json"
+               },
+               "name": "00606234",
+               "externalCode": "3498142cook",
+               "moment": "2016-07-21 15:57:32",
+               "applicable": true
+               sum: 50000
+               organization: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "type": "organization",
+                   "mediaType": "application/json"
+                 }
+               },
+               store: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                   "type": "store",
+                   "mediaType": "application/json"
+                 }
+               },
+               "positions": [],
+               salesReturn: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+                   "type": "sales return",
+                   "mediaType": "application/json"
+                 }
+               }
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Списаний.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of created and updated Write-offs.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-      "type": "loss",
-      "mediaType": "application/json"
-    },
-    "id": "b014dab4-4f42-11e6-8a84-bae500000006",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-07-21 15:57:32",
-    "name": "00005",
-    "externalCode": "itqCvT69hgSZFTJEL9cP70",
-    "moment": "2016-07-21 15:57:32",
-    "applicable": false,
-    "rate": {
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    "sum": 50000,
-    "organization": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json"
-      }
-    },
-    "store": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-        "type": "store",
-        "mediaType": "application/json"
-      }
-    },
-    "created": "2016-08-25 19:55:00",
-    "printed": true,
-    "published": true,
-    "positions": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
-        "type": "lossposition",
-        "mediaType": "application/json",
-        "size": 3,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "salesReturn": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-        "type": "salesreturn",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-      "type": "loss",
-      "mediaType": "application/json"
-    },
-    "id": "b014dab4-4f42-11e6-8a84-bae500000006",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-07-21 16:05:11",
-    "name": "00606234",
-    "externalCode": "3498142кук",
-    "moment": "2016-07-21 15:57:32",
-    "applicable": true,
-    "rate": {
-      "currency": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-          "type": "currency",
-          "mediaType": "application/json"
-        }
-      }
-    },
-    "sum": 0,
-    "organization": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json"
-      }
-    },
-    "store": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-        "type": "store",
-        "mediaType": "application/json"
-      }
-    },
-    "created": "2016-08-25 19:55:00",
-    "printed": true,
-    "published": true,
-    "positions": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
-        "type": "lossposition",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "salesReturn": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-        "type": "salesreturn",
-        "mediaType": "application/json"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+       "type": "loss",
+       "mediaType": "application/json"
+     },
+     "id": "b014dab4-4f42-11e6-8a84-bae500000006",
+     "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-07-21 15:57:32",
+     "name": "00005",
+     "externalCode": "itqCvT69hgSZFTJEL9cP70",
+     "moment": "2016-07-21 15:57:32",
+     "applicable": false
+     rate: {
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     sum: 50000
+     organization: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json"
+       }
+     },
+     store: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     "created": "2016-08-25 19:55:00",
+     "printed": true
+     "published": true
+     positions: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
+         "type": "loss position",
+         "mediaType": "application/json",
+         size: 3
+         limit: 1000
+         offset: 0
+       }
+     },
+     salesReturn: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+         "type": "sales return",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+       "type": "loss",
+       "mediaType": "application/json"
+     },
+     "id": "b014dab4-4f42-11e6-8a84-bae500000006",
+     "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-07-21 16:05:11",
+     "name": "00606234",
+     "externalCode": "3498142cook",
+     "moment": "2016-07-21 15:57:32",
+     "applicable": true
+     rate: {
+       currency: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "type": "currency",
+           "mediaType": "application/json"
+         }
+       }
+     },
+     sum: 0
+     organization: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json"
+       }
+     },
+     store: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     "created": "2016-08-25 19:55:00",
+     "printed": true
+     "published": true
+     positions: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
+         "type": "loss position",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     },
+     salesReturn: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+         "type": "sales return",
+         "mediaType": "application/json"
+       }
+     }
+   }
 ]
 ```
 
-### Удалить Списание
+### Delete of Write-offs
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
 
-> Запрос на удаление Списания с указанным id.
+> Request to delete the Write-off with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Списания.
+> Response 200(application/json)
+Successful deletion of the Write-off.
 
-### Массовое удаление Списаний
+### Bulk deletion of Write-offs
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Списаний, которые вы хотите удалить.
+In the request body, you need to pass an array containing JSON of the Write-offs metadata, whichwhich you want to delete.
 
 
-> Запрос на массовое удаление Списаний. 
+> Request for bulk deletion of Write-offs.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/loss/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-            "type": "loss",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-            "type": "loss",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/loss/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+             "type": "loss",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+             "type": "loss",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Списаний.
+> Successful request. Result - JSON information about deleting Write-offs.
 
 ```json
 [
-  {
-    "info":"Сущность 'loss' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'loss' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'loss' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   },
+   {
+     "info":"Entity 'loss' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   }
 ]
-``` 
+```
 
-### Метаданные Списаний 
-#### Метаданные Списаний 
-Запрос на получение метаданных Списаний. Результат - объект JSON, включающий в себя:
+### Write-off metadata
+#### Write-off Metadata
 
-| Параметр                       | Описание                                                                                                      |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------ |
-| **meta**                       | Ссылка на метаданные Списаний                                                                                 |
-| **attributes**                 | Массив объектов доп. полей Списаний в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **states**                     | Массив статусов Списаний                                                                                      |
-| **createShared**               | создавать новые Списания с меткой "Общий"                                                                     |
+Request to receive the Write-offs metadata. The result is a JSON object including:
 
-Структура отдельного объекта, представляющего доп. поле подробно описана в разделе [Работа с дополнительными полями](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+| Parameter | Description |
+| ------- | -------- |
+| **meta** | Link to Metadata of Write-offs |
+| **attributes** | Array of objects additional Write-off fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **states** | Array of Write-off statuses |
+| **createShared** | create new Write-offs labeled "General" |
 
-> Метаданные Списаний
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+
+> Metadata of Write-offs
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/loss/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление метаданных Списаний.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Write-offs metadata.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0911efc-4f3d-11e6-8a84-bae500000081",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d0911efc-4f3d-11e6-8a84-bae500000081",
-      "name": "AttributeName1",
-      "type": "string",
-      "required": false
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
-      "name": "AttributeName2",
-      "type": "double",
-      "required": true
-    }
-  ],
-  "createShared": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0911efc-4f3d-11e6-8a84-bae500000081",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d0911efc-4f3d-11e6-8a84-bae500000081",
+       "name": "AttributeName1",
+       "type": "string",
+       "required": false
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
+       "name": "AttributeName2",
+       "type": "double",
+       "required": true
+     }
+   ],
+   "createShared": false
 }
 ```
 
-### Отдельное доп. поле
+### Separate additional field
 
+**Parameters**
 
-
-**Параметры**
-
-| Параметр | Описание                                                                          |
-| :------- | :-------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Доп. поля. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
  
-> Запрос на получение информации по отдельному дополнительному полю.
+> Request for information on a separate additional field.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного доп. поля.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
-  "name": "AttributeName1",
-  "type": "double",
-  "required": true
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+     "type": "attributemetadata",
+     "mediaType": "application/json"
+   },
+   "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
+   "name": "AttributeName1",
+   "type": "double",
+   "required": true
 }
 ```
 
-### Шаблон Списания 
-#### Шаблон Списания 
-> Запрос на получение предзаполненого стандартными значениями шаблона списания без связи с каким-либо документом.
+### Write-off Template
+#### Write-off Template
+
+> Request to receive a write-off template pre-filled with standard values without connection to any document.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/loss/new"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d ''  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/loss/new"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d''
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление предзаполненного списания.
+> Response 200(application/json)
+Successful request. Result - JSON npresentation of a pre-filled write-off.
 
 ```json
 {
-  "applicable": false,
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2",
-      "type": "lossposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    },
-    "rows": []
-  }
+   "applicable": false
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2",
+       "type": "loss position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     },
+     rows: []
+   }
 }
 ```
 
-### Шаблон Списания на основе 
-Запрос на получение предзаполненного списания на основе возврата покупателя.
-В результате запроса, будет создан предзаполненный шаблон списания на основе переданного
-возврата покупателя.
+### Write-off template based on Sales Return
 
-> Пример с заказом (application/json)
+Request for a prefilled Write-off based on Sales Return.
+As a result of the request, a pre-filled Write-off template will be created based on the passed Sales Return.
+
+> Order example (application/json)
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/loss/new"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "salesReturn": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-                "type": "salesreturn",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/loss/new"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             salesReturn: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+                 "type": "sales return",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление предзаполненного списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the prefilled Write-off.
 
 ```json
 {
-  "applicable": false,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 28000,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2",
-      "type": "lossposition",
-      "mediaType": "application/json",
-      "size": 3,
-      "limit": 1000,
-      "offset": 0
-    },
-    "rows": [
-      {
-        "meta": {
-          "type": "lossposition",
-          "mediaType": "application/json"
-        },
-        "quantity": 1,
-        "price": 20000.0,
-        "assortment": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-            "type": "product",
-            "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-          }
-        }
-      },
-      {
-        "meta": {
-          "type": "lossposition",
-          "mediaType": "application/json"
-        },
-        "quantity": 1,
-        "price": 10000.0,
-        "assortment": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-            "type": "product",
-            "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
-          }
-        }
-      },
-      {
-        "meta": {
-          "type": "lossposition",
-          "mediaType": "application/json"
-        },
-        "quantity": 1,
-        "price": 20000.0,
-        "assortment": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-            "type": "product",
-            "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
-          }
-        }
-      }
-    ]
-  },
-  "salesReturn": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-      "type": "salesreturn",
-      "mediaType": "application/json"
-    }
-  }
+   "applicable": false
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 28000
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2",
+       "type": "loss position",
+       "mediaType": "application/json",
+       size: 3
+       limit: 1000
+       offset: 0
+     },
+     rows: [
+       {
+         "meta": {
+           "type": "loss position",
+           "mediaType": "application/json"
+         },
+         quantity: 1
+         "price": 20000.0
+         "assortment": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+             "type": "product",
+             "mediaType": "application/json",
+             "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+           }
+         }
+       },
+       {
+         "meta": {
+           "type": "loss position",
+           "mediaType": "application/json"
+         },
+         quantity: 1
+         "price": 10000.0
+         "assortment": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+             "type": "product",
+             "mediaType": "application/json",
+             "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+           }
+         }
+       },
+       {
+         "meta": {
+           "type": "loss position",
+           "mediaType": "application/json"
+         },
+         quantity: 1
+         "price": 20000.0
+         "assortment": {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+             "type": "product",
+             "mediaType": "application/json",
+             "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"}
+         }
+       }
+     ]
+   },
+   salesReturn: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+       "type": "sales return",
+       "mediaType": "application/json"
+     }
+   }
 }
 
 ```
 
-### Списание
+### Get Write-off
 
-### Получить Списание
+**Parameters**
 
-**Параметры**
-
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
  
-> Запрос на получение отдельного списания с указанным id.
+> Request to receive a separate Write-off with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Write-off.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-    "type": "loss",
-    "mediaType": "application/json"
-  },
-  "id": "6ddca2d7-4f28-11e6-8a84-bae500000066",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-07-21 15:22:54",
-  "name": "00001",
-  "externalCode": "o5GMiWUJhqhq1vmrUWwI-2",
-  "moment": "2016-07-21 12:49:00",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    },
-    "value": 63
-  },
-  "sum": 3981730,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
-      "name": "AttributeName1",
-      "type": "double",
-      "value": 0.2
-    }
-  ],
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066/positions",
-      "type": "lossposition",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+     "type": "loss",
+     "mediaType": "application/json"
+   },
+   "id": "6ddca2d7-4f28-11e6-8a84-bae500000066",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-07-21 15:22:54",
+   "name": "00001",
+   "externalCode": "o5GMiWUJhqhq1vmrUWwI-2",
+   "moment": "2016-07-21 12:49:00",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     },
+     value: 63
+   },
+   sum: 3981730,
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
+       "name": "AttributeName1",
+       "type": "double",
+       value: 0.2
+     }
+   ],
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066/positions",
+       "type": "loss position",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Изменить Списание
+### Change Write-off
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
  
-Запрос на обновление списания с указанным id.
+Request to update the write-off with the specified id.
 
-> Пример запроса на обновление отдельного Списания.
+> An example of a request to update a separate Write-off.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "00606234",
-            "externalCode": "3498142кук",
-            "moment": "2016-07-21 15:57:32",
-            "applicable": true,
-            "sum": 50000,
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "positions": [],
-            "salesReturn": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-                "type": "salesreturn",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "00606234",
+             "externalCode": "3498142cook",
+             "moment": "2016-07-21 15:57:32",
+             "applicable": true
+             sum: 50000
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json"
+               }
+             },
+             "store": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "positions": [],
+             salesReturn: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+                 "type": "sales return",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Write-off.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-    "type": "loss",
-    "mediaType": "application/json"
-  },
-  "id": "b014dab4-4f42-11e6-8a84-bae500000006",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-07-21 16:05:11",
-  "name": "00606234",
-  "externalCode": "3498142кук",
-  "moment": "2016-07-21 15:57:32",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
-      "type": "lossposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "salesReturn": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-      "type": "salesreturn",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+     "type": "loss",
+     "mediaType": "application/json"
+   },
+   "id": "b014dab4-4f42-11e6-8a84-bae500000006",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-07-21 16:05:11",
+   "name": "00606234",
+   "externalCode": "3498142cook",
+   "moment": "2016-07-21 15:57:32",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
+       "type": "loss position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   salesReturn: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+       "type": "sales return",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-> Пример запроса на изменение Списания с дополнительными полями.
+> An example of a request to change the Write-off with additional fields.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "00606234",
-            "externalCode": "3498142кук",
-            "moment": "2016-07-21 15:57:32",
-            "applicable": true,
-            "sum": 50000,
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
-              }
-            },
-            "store": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-                "type": "store",
-                "mediaType": "application/json"
-              }
-            },
-            "positions": [],
-            "salesReturn": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-                "type": "salesreturn",
-                "mediaType": "application/json"
-              }
-            },
-            "attributes": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": 0.7643
-              },
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0911efc-4f3d-11e6-8a84-bae500000081",
-                  "type": "attributemetadata",
-                  "mediaType": "application/json"
-                },
-                "value": "Строковое значение"
-              }
-            ]
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "00606234",
+             "externalCode": "3498142cook",
+             "moment": "2016-07-21 15:57:32",
+             "applicable": true
+             sum: 50000
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json"
+               }
+             },
+             store: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "type": "store",
+                 "mediaType": "application/json"
+               }
+             },
+             "positions": [],
+             salesReturn: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+                 "type": "sales return",
+                 "mediaType": "application/json"
+               }
+             },
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": 0.7643
+               },
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0911efc-4f3d-11e6-8a84-bae500000081",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "String value"
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Write-off.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-    "type": "loss",
-    "mediaType": "application/json"
-  },
-  "id": "b014dab4-4f42-11e6-8a84-bae500000006",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-07-21 16:05:11",
-  "name": "00606234",
-  "externalCode": "3498142кук",
-  "moment": "2016-07-21 15:57:32",
-  "applicable": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "sum": 0,
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "attributes": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0911efc-4f3d-11e6-8a84-bae500000081",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d0911efc-4f3d-11e6-8a84-bae500000081",
-      "name": "AttributeName1",
-      "type": "string",
-      "value": "Строковое значение"
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
-        "type": "attributemetadata",
-        "mediaType": "application/json"
-      },
-      "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
-      "name": "AttributeName2",
-      "type": "double",
-      "value": 0.7643
-    }
-  ],
-  "created": "2016-08-25 19:55:00",
-  "printed": true,
-  "published": true,
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
-      "type": "lossposition",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "salesReturn": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-      "type": "salesreturn",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+     "type": "loss",
+     "mediaType": "application/json"
+   },
+   "id": "b014dab4-4f42-11e6-8a84-bae500000006",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-07-21 16:05:11",
+   "name": "00606234",
+   "externalCode": "3498142cook",
+   "moment": "2016-07-21 15:57:32",
+   "applicable": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   sum: 0
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "attributes": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0911efc-4f3d-11e6-8a84-bae500000081",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d0911efc-4f3d-11e6-8a84-bae500000081",
+       "name": "AttributeName1",
+       "type": "string",
+       "value": "String value"
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/d0912ad5-4f3d-11e6-8a84-bae500000082",
+         "type": "attributemetadata",
+         "mediaType": "application/json"
+       },
+       "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
+       "name": "AttributeName2",
+       "type": "double",
+       "value": 0.7643
+     }
+   ],
+   "created": "2016-08-25 19:55:00",
+   "printed": true
+   "published": true
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
+       "type": "loss position",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   salesReturn: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+       "type": "sales return",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Позиции Списания 
-Отдельный ресурс для управления позициями Списания. С его помощью вы можете управлять позициями большого документа, количество строк в котором превышает лимит на количество строк, сохраняемых вместе с документом. Этот лимит равен 1000. Более подробно о лимитах на количество строк документа и работе с большими документами можно прочитать [тут](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+### Write-off Items
 
-### Получить позиции Списания 
-Запрос на получение списка всех позиций данного Списания.
+A separate resource for managing Write-Off items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. Learn more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
 
-| Название    | Тип                                                       | Описание                                                     |
-| ----------- | :-------------------------------------------------------- | :----------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                         |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                 |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой позиции Списания. |
+### Get Write-off items
 
-**Параметры**
+Request to receive a list of all items of this Write-off.
 
-| Параметр   | Описание                                                                                                                               |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания.                                                       |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Title | Type | Description |
+| ------- | --------- |------ |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the items of the Debit. |
 
-> Получить позиции Списания
+**Parameters**
+
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+
+> Get Write-Off Items
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка позиций отдельного Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of items of a separate Write-off.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions",
-    "type": "lossposition",
-    "mediaType": "application/json",
-    "size": 3,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
-        "type": "lossposition",
-        "mediaType": "application/json"
-      },
-      "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "quantity": 2,
-      "price": 20000.0,
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b61605f-4f42-11e6-8a84-bae50000008f",
-        "type": "lossposition",
-        "mediaType": "application/json"
-      },
-      "id": "0b61605f-4f42-11e6-8a84-bae50000008f",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "quantity": 6,
-      "price": 10000.0,
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b616604-4f42-11e6-8a84-bae500000090",
-        "type": "lossposition",
-        "mediaType": "application/json"
-      },
-      "id": "0b616604-4f42-11e6-8a84-bae500000090",
-      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-      "quantity": 1,
-      "price": 33000.0,
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions",
+     "type": "loss position",
+     "mediaType": "application/json",
+     size: 3
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
+         "type": "loss position",
+         "mediaType": "application/json"
+       },
+       "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       quantity: 2
+       "price": 20000.0
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b61605f-4f42-11e6-8a84-bae50000008f",
+         "type": "loss position",
+         "mediaType": "application/json"
+       },
+       "id": "0b61605f-4f42-11e6-8a84-bae50000008f",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "quantity": 6,
+       "price": 10000.0
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b616604-4f42-11e6-8a84-bae500000090",
+         "type": "loss position",
+         "mediaType": "application/json"
+       },
+       "id": "0b616604-4f42-11e6-8a84-bae500000090",
+       "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       quantity: 1
+       "price": 33000.0,
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Создать позицию Списания 
-Запрос на создание новой позиции в Списании.
-Для успешного создания необходимо в теле запроса указать следующие поля:
+### Create a Write-off item
 
-+ **assortment** - Ссылка на товар/услугу/серию/модификацию, которую представляет собой позиция.
-Также можно указать поле с именем **service**, **variant** в соответствии с тем,
-чем является указанная позиция. Подробнее об этом поле можно прочитать в описании [позиции Списания](../documents/#dokumenty-spisanie-spisaniq-pozicii-spisaniq)
-+ **quantity** - Количество указанной позиции. Должно быть положительным, иначе возникнет ошибка.
-Одновременно можно создать как одну так и несколько позиций Списания. Все созданные данным запросом позиции
-будут добавлены к уже существующим.
+Request to create a new item in the Write-off.
+For successful creation, the following fields must be specified in the request body:
 
-**Параметры**
++ **assortment** - Link to the product/service/series/modification that the item represents.
+You can also specify a field named **service**, **variant** according to
+what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#dokumenty-spisanie-spisaniq-pozicii-spisaniq)
++ **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
+You can create one or more write-off items at the same time. All items created by this request
+will be added to the existing ones.
 
-| Параметр | Описание                                                                         |
-| :------- | :------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
+**Parameters**
 
-> Пример создания позиций в Списании.
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
+
+> An example of creating items in a write-off.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
-                "type": "lossposition",
-                "mediaType": "application/json"
-              },
-              "quantity": 321,
-              "price": 53000.0,
-              "assortment": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              },
-              "reason": "поломка"
-            },
-            {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
-                "type": "lossposition",
-                "mediaType": "application/json"
-              },
-              "quantity": 12,
-              "price": 2645.0,
-              "assortment": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              },
-              "reason": "брак"
-            }
-          ]
-'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
+                 "type": "loss position",
+                 "mediaType": "application/json"
+               },
+               "quantity": 321,
+               "price": 53000.0,
+               "assortment": {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               },
+               "reason": "breakdown"
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
+                 "type": "loss position",
+                 "mediaType": "application/json"
+               },
+               "quantity": 12,
+               "price": 2645.0,
+               "assortment": {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               },
+               "reason": "marriage"
+             }
+           ]
+'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной позиции отдельного Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created item of a separate Write-off.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
-      "type": "lossposition",
-      "mediaType": "application/json"
-    },
-    "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-    "quantity": 321,
-    "price": 53000.0,
-    "assortment": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-      }
-    },
-    "reason": "поломка"
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
-      "type": "lossposition",
-      "mediaType": "application/json"
-    },
-    "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-    "quantity": 12,
-    "price": 2645.0,
-    "assortment": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
-      }
-    },
-    "reason": "брак"
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
+       "type": "loss position",
+       "mediaType": "application/json"
+     },
+     "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
+     "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+     "quantity": 321,
+     "price": 53000.0,
+     "assortment": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+       }
+     },
+     "reason": "breakdown"
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
+       "type": "loss position",
+       "mediaType": "application/json"
+     },
+     "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
+     "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+     "quantity": 12,
+     "price": 2645.0,
+     "assortment": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
+       }
+     },
+     "reason": "marriage"
+   }
 ]
 ```
 
-### Позиция Списания
+### Write-off Item
  
-### Получить позицию
+### Get Write-off Item
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                         |
-| :------------- | :------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* id позиции.  |
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item id. |
  
-> Запрос на получение отдельной позиции Списания с указанным id.
+> Request to receive a separate Write-off item with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельной позиции Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate Write-off item.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-    "type": "lossposition",
-    "mediaType": "application/json"
-  },
-  "id": "7944ef04-f831-11e5-7a69-971500188b20",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "quantity": 2,
-  "price": 20000.0,
-  "assortment": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+     "type": "loss position",
+     "mediaType": "application/json"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b20",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   quantity: 2
+   "price": 20000.0
+   "assortment": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
+     }
+   }
 }
 ```
 
-### Изменить позицию 
-Запрос на обновление отдельной позиции Списания. Для обновления позиции нет каких-либо
- обязательных для указания в теле запроса полей. Только те, что вы желаете обновить.
+### Change item
 
-**Параметры**
+Request to update a separate line item of the Write-off. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
 
-| Параметр       | Описание                                                                         |
-| :------------- | :------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* id позиции.  |
+**Parameters**
+
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item id. |
  
-> Пример запроса на обновление отдельной позиции в Списании.
+> An example of a request to update a line item in a Write-off.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "quantity": 172,
-            "price": 7777.0,
-            "reason": "Разорван"
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "quantity": 172,
+             "price": 7777.0,
+             "reason": "Broken"
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной позиции Списания.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Write-off item.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-    "type": "lossposition",
-    "mediaType": "application/json"
-  },
-  "id": "7944ef04-f831-11e5-7a69-971500188b20",
-  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-  "quantity": 172,
-  "price": 7777.0,
-  "assortment": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
-    }
-  },
-  "reason": "Разорван"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+     "type": "loss position",
+     "mediaType": "application/json"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b20",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "quantity": 172,
+   "price": 7777.0,
+   "assortment": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
+     }
+   },
+   "reason": "Broken"
 }
 ```
 
-### Удалить позицию
+### Delete item
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                         |
-| :------------- | :------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Списания. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* id позиции.  |
+| Parameter | Description |
+| ------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item id. |
  
-> Запрос на удаление отдельной позиции Списания с указанным id.
+> Request to delete a separate Write-off item with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление позиции Списания.
+> Response 200(application/json)
+Successful deletion of a Write-off item.

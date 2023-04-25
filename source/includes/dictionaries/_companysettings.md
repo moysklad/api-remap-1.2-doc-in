@@ -240,8 +240,6 @@ Successful request. The result is a JSON representation of Company Settings.
 }
 ```
 
-
-#### Company settings metadata
 ### Get company settings metadata
 > Request to get company settings metadata.
 

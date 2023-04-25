@@ -10,7 +10,7 @@ You can see the list of requests for which the ability to work in asynchronous m
 Let's consider the advantage of working with the JSON API in asynchronous mode with some example.
 Suppose you need to obtain information on the balance of the entire range in order to replenish the reserves in stores.
 With a large number of items and warehouses, it was previously necessary to request a [stock balance report] (../reports/#otchety-otchet-ostatki-poluchit-ostatki-po-skladam)
-several times, specifying the **offset** parameter to get reports on all positions. Since the construction of large reports takes
+several times, specifying the **offset** parameter to get reports on all items. Since the construction of large reports takes
 some time, up to 5 minutes, collecting all the information can take a long time.
 In addition, each individual request forces you to keep the connection open while waiting for the result.
 

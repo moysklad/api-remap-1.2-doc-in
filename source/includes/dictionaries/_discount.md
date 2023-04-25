@@ -43,7 +43,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type | Description |
 | -------- |------- | ---------- |
-| **amount** | int | Amount of savings in kopecks<br>`+Required when answering` |
+| **amount** | int | Amount of savings in rupees<br>`+Required when answering` |
 | **discount** | int | Discount percentage corresponding to this amount |
 
 
@@ -314,35 +314,37 @@ curl -X POST
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "discountName",
-active: true
-"allProducts": false
-"allAgents": false
-"agentTags": ["tag1", "tag2"],
-"levels": [
-{
-amount: 100
-discount: 10
-}
+    "name": "discountName",
+    "active": true,
+    "allProducts": false,
+    "allAgents": false,
+    "agentTags": ["tag1", "tag2"],
+    "levels": [
+    {
+    "amount": 100,
+    "discount": 10
+     }
+  ],
+    "assortment": [
+  {
+   "meta": {
+   "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+   "type": "product",
+   "mediaType": "application/json"
+  }
+  }
 ],
-"assortment": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "product",
-"mediaType": "application/json"
-}
-}],
-"productFolders": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "productfolder",
-"mediaType": "application/json"
-}
-}]
+   "productFolders": [
+  {
+   "meta": {
+   "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+   "type": "productfolder",
+   "mediaType": "application/json"
+   }
+  }
+ ]
 }'
 ```
 
@@ -1120,14 +1122,14 @@ curl -X DELETE
 > Response 200(application/json)
 Successful removal of special price
 
-### Change kopeck rounding
-Request to change the rounding of kopecks. In the body of the request, you must pass the fields that will be updated (**name** or **active**). The response will also include the **agentTags** and **allAgents** fields, but they cannot be changed.
+### Change rupees rounding
+Request to change the rounding of rupees. In the body of the request, you must pass the fields that will be updated (**name** or **active**). The response will also include the **agentTags** and **allAgents** fields, but they cannot be changed.
 
 | Parameter | Description |
 | -------- |------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Discount ID for rounding kopecks. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Discount ID for rounding of rupees. |
 
-> Example of updating kopeck rounding
+> Example of rupees rounding updating
 
 ```shell
 curl -X PUT

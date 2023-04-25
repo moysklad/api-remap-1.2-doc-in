@@ -769,7 +769,7 @@ curl -X GET
 
 ### Bulk deletion of items in the Assortment
 
-In the body of the request, you need to pass an array containing JSON of the metadata of the positions in the Assortment that you want to remove.
+In the body of the request, you need to pass an array containing JSON of the metadata of the items in the Assortment that you want to remove.
 
 
 > Request for bulk deletion of items in the Assortment.

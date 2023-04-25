@@ -1,4 +1,4 @@
-## Price types
+## Price type
 ### Price types
 
 Using the JSON API, you can create and update information about Price Types, request lists of Price Types and information on individual Price Types by id.
@@ -182,10 +182,7 @@ Successful request. The result is a JSON representation of the updated list of p
 ]
 ```
 
-### Price type
 ### Get price type by ID
- 
-Get price type by ID
 
 **Parameters**
 

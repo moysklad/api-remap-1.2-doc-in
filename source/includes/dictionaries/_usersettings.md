@@ -33,6 +33,7 @@ Valid print rules:
 | Open in browser | individual |
 
 #### Start screen
+
 Valid start screen values:
 
 | Start screen | The value of the defaultScreen |
@@ -42,14 +43,13 @@ Valid start screen values:
 | Introduction of marking codes into circulation | enroll order |
 | Mutual settlements | customerbalancelist |
 | Applications | retail drawer cashin |
-| Domestic orders | internal order |
+| Internal orders | internal order |
 | Return to circulation | enrollreturn |
 | Returns | retail sales return |
-| Buyer Returns | sales return |
-| Returns to suppliers | purchase return |
-| Prepayment refunds | payment return |
+| Sales returns | sales return |
+| Purchase returns | purchase return |
 | Sales funnel | purchasefunnel |
-| Withdrawal from circulation | retire order |
+| Write-off from circulation | retire order |
 | Payouts | retail drawer cashout |
 | Cash flow | cashflow |
 | Contracts| contract |
@@ -59,25 +59,24 @@ Valid start screen values:
 | Log of requests to the loyalty system | loyaltylog |
 | Tasks | purpose |
 | Order marking codes | crptdemand |
-| Production Orders | processing order |
-| Buyer orders | customer order |
+| Production orders | processing order |
+| Sales orders | customer order |
 | Orders to suppliers | purchase order |
 | Requests | evotorrequest |
 | Calls | phonecall |
 | Unpacking | crptpackageitemremoval |
 | Import | import |
 | Import from Excel | import goods |
-| Acceptance Import | imported |
+| Receiving Import | imported |
 | Directory import | import custom |
 | Inventory | inventory |
 | Contractors | company |
 | Cart | recyclebin |
 | Adjustments | adjustment |
 | Bulk edit | bulkEdit |
-| Setting up an exchange with Evotor | evotormapping |
 | Settings | company settings |
 | News | feed |
-| Turnovers | turnover |
+| Stock Movement | turnover |
 | Operations with points | bonus transaction |
 | Description of residues | remains order |
 | Posting | enter |
@@ -91,10 +90,9 @@ Valid start screen values:
 | Payments | finance |
 | Subscription | payments |
 | Indicators | dashboard |
-| Prepayments | payment |
 | Profits and Losses | pnl3 |
 | Profitability | pnl |
-| Acceptances | supplies |
+| Receivings | supplies |
 | Applications | apps |
 | Applications | embed apps |
 | Checking the contents | checkequipment |
@@ -129,6 +127,7 @@ Valid start screen values:
 | Legal entities | mycompany |
 
 ### Get User Settings
+
 > Request for User Settings:
 
 ```shell
@@ -183,10 +182,11 @@ Successful request. The result is a JSON representation of Company Settings:
 ```
 
 ### Change User Settings
+
 You can edit the following user settings:
 
 | Title | Type | Description |
-| ----------------| ------------- |--------------|
+| ------| -----|-------------|
 | **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report |
 | **defaultCompany** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata to be used by default in documents |
 | **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section |

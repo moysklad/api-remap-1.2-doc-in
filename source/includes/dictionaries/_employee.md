@@ -16,7 +16,7 @@ The search among employee objects for matching the search string will be carried
 | ------- | -------- |---------- | --------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional fields Employee |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional fields Employee |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Code |
 | **created** | datetime | | Employee Creation Time<br>`+Required for response` `+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Employee |
@@ -375,10 +375,10 @@ Request to get employee metadata. The result is a JSON object including:
 | Title | Type | Description |
 | ------- | -------- | -------- |
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to employee metadata |
-| **attributes** | Array(Object) | Array of objects add. Employee fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array(Object) | Array of objects of Employee additional fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
 | **createShared** | Boolean | Create new Employees labeled "General" |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Employee Metadata
 
@@ -389,7 +389,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. employee fields.
+Successful request. The result is a JSON representation of the additional employee fields.
 
 ```json
 {
@@ -417,7 +417,7 @@ Successful request. The result is a JSON representation of the add. employee fie
 | ------- | -------- |
 | **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id fields. |
 
-#### Separate add. field
+#### Separate additional field
 > Request for information on a separate additional field.
 
 ```shell
@@ -427,7 +427,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a separate add. fields.
+Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {
@@ -841,12 +841,12 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **emissionOrder** | DICTIONARY | All NO | Order marking codes |
 | **utilizationReport** | DICTIONARY | All NO | Usage Report |
 | **atkAggregation** | DICTIONARY | All NO | Formation of ATK |
-| **retireOrderOSU** | DICTIONARY | All NO | Withdrawal from circulation OSU |
+| **retireOrderOSU** | DICTIONARY | All NO | Write-off from circulation OSU |
 | **employees** | base | All ALL | Employees |
 | **enrollOrder** | DICTIONARY | All NO | Introduction of marking codes into circulation |
 | **enter** | OPERATION | All ALL | Posting |
 | **good** | DICTIONARY | All ALL | Goods and Services |
-| **internalOrder** | OPERATION | All ALL | Domestic orders |
+| **internalOrder** | OPERATION | All ALL | Internal orders |
 | **inventory** | DICTIONARY | All ALL | Inventory |
 | **invoiceIn** | OPERATION | All ALL | Supplier invoice |
 | **invoiceOut** | OPERATION | All ALL | Account for buyers |
@@ -855,8 +855,6 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **myCompany** | base | view: ALL, create: NO, edit: NO, delete: NO | Jur. Faces |
 | **paymentIn** | OPERATION | All ALL | Incoming payment |
 | **paymentOut** | OPERATION | All ALL | Outgoing payment |
-| **prepayment** | OPERATION | All ALL | Prepayments |
-| **prepaymentReturn** | OPERATION | All ALL | Return of prepayment |
 | **processing** | base | All ALL | Those. operations |
 | **processingOrder** | OPERATION | All ALL | Production order |
 | **processingPlan** | base | All ALL | Those. Maps |
@@ -868,11 +866,10 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **remainsOrder** | DICTIONARY | All NO | Description of residues |
 | **remarkingOrder** | DICTIONARY | All NO | Relabeling |
 | **retailDemand** | OPERATION | All ALL | Sales |
-| **retailDrawerCashIn** | OPERATION | All ALL | Applications || **retailDrawerCashOut** | OPERATION | All ALL | Payouts |
 | **retailSalesReturn** | OPERATION | All ALL | Returns |
-| **retireOrder** | DICTIONARY | All NO | Withdrawal from circulation |
-| **salesReturn** | OPERATION | All ALL | Buyer Return |
-| **supply** | OPERATION | All ALL | Acceptances |
+| **retireOrder** | DICTIONARY | All NO | Write-off from circulation |
+| **salesReturn** | OPERATION | All ALL | Sales Return |
+| **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
 | **wom** | base | All ALL | Units of measure |
 | **warehouse** | base | All ALL | Warehouses |
@@ -1006,28 +1003,12 @@ Successful request. The result is a JSON representation of information about the
                 "update": "ALL",
                 "delete": "ALL"
             },
-            "prepayment": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
             "good": {
                 "view": "ALL",
                 "print": "ALL",
                 "create": "ALL",
                 "update": "ALL",
                 "delete": "ALL"
-            },
-            "prepaymentReturn": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
             },
             "cashboxAdjustment": {
                 "view": "ALL",
@@ -1102,15 +1083,6 @@ Successful request. The result is a JSON representation of information about the
                 "delete": "ALL"
             },
             "purchaseOrder": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
-        
-            "retailDrawerCashIn": {
                 "view": "ALL",
                 "print": "ALL",
                 "create": "ALL",
@@ -1202,14 +1174,6 @@ Successful request. The result is a JSON representation of information about the
                 "approve": "ALL"
             },
             "retailDemand": {
-                "view": "ALL",
-                "print": "ALL",
-                "create": "ALL",
-                "update": "ALL",
-                "delete": "ALL",
-                "approve": "ALL"
-            },
-            "retailDrawerCashOut": {
                 "view": "ALL",
                 "print": "ALL",
                 "create": "ALL",

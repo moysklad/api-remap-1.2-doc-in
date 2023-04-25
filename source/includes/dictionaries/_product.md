@@ -19,7 +19,7 @@ The search among the objects of products to match the search string will be carr
 | **drunk** | object | | An object containing the fields of alcoholic products. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-ob-ekt-soderzhaschij-polq-alkogol-noj-produkcii) |
 | **archived** | Boolean | `=` `!=` | Has the Product been added to the archive<br>`+Required when replying` |
 | **article** | String(255) | `=` `!=` `~` `~=` `=~` | Article |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of add. fields |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-shtrihkody) |
 | **buyprice** | object | | Purchase price. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-zakupochnaq-cena) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product Code |
@@ -194,7 +194,7 @@ The response is an object, with the following structure:
 | Title | Type | Description |
 | ---------| ------- |--------- |
 | **meta** | meta | Metadata<br>`+Required when replying` |
-| **attributes** | Array(Object) | Collection of all existing add. Product fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required` |
+| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required` |
 | **createShared** | Boolean | Create new Products tagged "General"<br>`+Required when replying` |
 
 Structures of objects of individual collections:
@@ -1257,7 +1257,7 @@ Successful request. The result is a JSON representation of the created Product.
 }
 ```
 
-> An example of a request to create a Product with add. fields.
+> An example of a request to create a Product with additional fields.
   
    ```shell
    curl -X POST
@@ -1946,7 +1946,7 @@ Request for obtaining metadata of Products, Bundles and Services. The result is 
 | **attributes** | Array metadata fields of Products |
 | **createShared** | create new kits labeled "General" |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Product Metadata
 
@@ -1957,7 +1957,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. Product fields.
+Successful request. The result is a JSON representation of the additional Product fields.
   
 ```json
 {
@@ -1987,7 +1987,7 @@ Successful request. The result is a JSON representation of the add. Product fiel
 | ---------| ------- |
 | **id** | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - id Extra. fields |
 
-#### Separate add. field
+#### Separate additional field
 > Request for information on a separate additional field.
 
 ```shell
@@ -1997,7 +1997,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a separate add. fields.
+Successful request. The result is a JSON representation of a separate additional fields.
   
 ```json
 {
@@ -2242,8 +2242,8 @@ Successful request. The result is a JSON representation of the Product.
 Request to update an existing Product.
 Price types in sales prices and additional fields are updated as elements of nested collections:
 
-+ If in the current object some of the add. fields / price types no value,
-and in the passed collection it is - the value is written to the add. field / price type.
++ If in the current object some of the additional fields / price types no value,
+and in the passed collection it is - the value is written to the additional field / price type.
 + If this attribute already has a value, it is overwritten with the one passed.
 + If this attribute has a value in the object, but it is missing
 in the collection passed in the body of the request (not passed at all), then the value of the object attribute is not changed.

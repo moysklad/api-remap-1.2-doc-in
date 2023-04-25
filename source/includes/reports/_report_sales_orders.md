@@ -34,7 +34,7 @@ Using the JSON API, you can request sales and orders indicators - the number and
  
 ### Order figures
 
-Orders only count customer orders.
+Orders only count of Sales Orders.
 
 #### Parameters available for filtering
 

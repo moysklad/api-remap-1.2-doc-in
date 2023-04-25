@@ -13,7 +13,7 @@ The search among the project objects for matching the search string will be carr
 | ----- | ------ | ------- | ---------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of add. fields |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Project Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Project Description |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
@@ -232,7 +232,7 @@ Successful request. The result is a JSON representation of the created project.
 ```
 
 
-> An example of a request to create a new project with add. fields in the request body.
+> An example of a request to create a new project with additional fields in the request body.
 
 ```shell
    curl -X POST
@@ -484,10 +484,10 @@ Request for obtaining Projects metadata. The result is a JSON object including:
 | Title | Type | Description |
 | ------- | ---------- |-------- |
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Project Metadata<br>`+Required when replying` |
-| **attributes** | Array(Object) | Collection of add. fields |
+| **attributes** | Array(Object) | Collection of additional fields |
 | **createShared** | Boolean | Create new Projects with tag "General"<br>`+Required when replying` |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 > Project method data
 
@@ -498,7 +498,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. fields of projects.
+Successful request. The result is a JSON representation of the additional fields of projects.
 
 ```json
 {

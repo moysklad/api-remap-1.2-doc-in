@@ -792,7 +792,7 @@ curl -X GET
 
 > Response 200(application/json)
 Successful request. The result is a JSON representation of the report.
-The string with "storeId":null corresponds to a reserve for a Buyer's Order without specifying a warehouse.
+The string with "storeId":null corresponds to a reserve for a Sales Order without specifying a warehouse.
 
 ```json
 [
@@ -829,7 +829,7 @@ which shows the Remaining for each of the goods in each of the warehouses.
 
 | Title | Type | Description |
 | -------| ------------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the position for which the Balance is given<br>`+Required when answering` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the item for which the Balance is given<br>`+Required when answering` |
 | **stockByStore** | object | The rest of the warehouses. [More details here](../reports/#otchety-otchet-ostatki-ostatki-po-skladam-ostatki-po-skladam)<br>`+Required when replying` |
 
 #### Stock balances

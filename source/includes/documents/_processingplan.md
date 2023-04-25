@@ -1,1597 +1,1606 @@
-## Тех. карта
-Средствами JSON API можно создавать и обновлять сведения о Тех. картах, запрашивать списки Тех. карт и сведения по отдельным Тех. картам. Позициями Тех. карт можно управлять как в составе отдельной Тех. карты, так и отдельно - с помощью специальных ресурсов для управления материалами и продуктами Тех. карты. Кодом сущности для Тех. карты в составе JSON API является ключевое слово **processingplan**. Больше о Тех. картах и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по
-[этой ссылке](https://support.moysklad.ru/hc/ru/articles/203325613-%D0%A1%D0%B1%D0%BE%D1%80%D0%BE%D1%87%D0%BD%D1%8B%D0%B5-%D0%B8-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8).
-### Тех. карты 
-#### Атрибуты сущности
+## Bills of Materials
 
-| Название         | Тип                                                       | Фильтрация                 | Описание                                                                                                             |
-| ---------------- | :-------------------------------------------------------- | :------------------------- |:---------------------------------------------------------------------------------------------------------------------|
-| **accountId**    | UUID                                                      | `=` `!=`                   | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                 |
-| **code**         | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Код Тех. карты                                                                                                       |
-| **cost**         | Int                                                       |                            | Стоимость производства                                                                                               |
-| **deleted**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=` | Момент последнего удаления Тех. карты<br>`+Только для чтения`                                                        |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Внешний код Тех. карты<br>`+Обязательное при ответе`                                                                 |
-| **group**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                   | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                             |
-| **id**           | UUID                                                      | `=` `!=`                   | ID Тех. карты<br>`+Обязательное при ответе` `+Только для чтения`                                                     |
-| **materials**    | MetaArray                                                 |                            | Коллекция метаданных материалов Тех. карты<br>`+Обязательное при ответе` `+Expand`                                   |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                            | Метаданные Тех. карты<br>`+Обязательное при ответе`                                                                  |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`     | Наименование Тех. карты<br>`+Обязательное при ответе` `+Необходимо при создании`                                     |
-| **owner**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                   | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                                         |
-| **parent**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                            | Метаданные группы Тех. карты<br>`+Обязательное при ответе` `+Expand`                                                 |
-| **pathName**     | String                                                    |                            | Наименование группы, в которую входит Тех. карта<br>`+Обязательное при ответе` `+Только для чтения`                  |
-| **products**     | MetaArray                                                 |                            | Коллекция метаданных готовых продуктов Тех. карты<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании` |
-| **shared**       | Boolean                                                   | `=` `!=`                   | Общий доступ<br>`+Обязательное при ответе`                                                                           |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=` | Момент последнего обновления Тех. карты<br>`+Обязательное при ответе` `+Только для чтения`                           |
+Using the JSON API, you can create and update information about Bills of Materials, query lists of the Bills of Materials, and information by a Bills of Material. Bills of Materials items can be managed both as part of a separate Bill of Materials, and separately - with the help of special resources for managing materials and products of a Bill of Materials. The entity code for a Bill of Materials in the JSON API is the **processingplan** keyword. Learn more about [Bills of Materials](https://kladana.zendesk.com/hc/en-us/articles/7349036390673-Bills-of-Materials).
 
-#### Материалы Тех. карты
-Материалы Тех. карты - это список товаров/модификаций, используемых для производства готовых продуктов.
-Объект материала Тех. карты содержит следующие поля:
+### Bills of Materials
+#### Entity attributes
 
-| Название                       | Тип                                                       | Описание                                                                                                                                                                                      |
-|--------------------------------| :-------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**                  | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                          |
-| **assortment**                 | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара или модификации позиции<br>`+Обязательное при ответе` `+Expand`                                                                                                             |
-| **id**                         | UUID                                                      | ID Материала<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                               |
-| **product**                    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара позиции. В случае, если в поле **assortment** указана модификация, то это поле содержит товар, к которому относится эта модификация<br>`+Обязательное при ответе` `+Expand` |
-| **quantity**                   | Int                                                       | Количество товаров данного вида в позиции<br>`+Обязательное при ответе`                                                                                                                       |
-| **processingProcessPosititon** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные позиции техпроцесса<br>`+Обязательное при ответе`                                                                                                                                  |
+| Title | Type | Filtration | Description |
+| ------ | ------ | ------ |-----|
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code Bills of Materials |
+| **cost** | int | | Production cost |
+| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last removal Bills of Materials<br>`+Read Only` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when answering` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
+| **materials** | MetaArray | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Bills of Materials<br>`+Required when answering` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **parent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
+| **pathName** | string | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
+| **products** | MetaArray | | Collection of finished products metadata Bills of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when replying` `+Read only` |
 
-Особенности: если при добавлении материала не указывать связь с позицией техпроцесса, то по умолчанию материал будет привязан к первой позиции техпроцесса.
+#### Bills of Materials
 
-#### Продукты Тех. карты
-Продукты Тех. карты - это список товаров/модификаций, получаемых при производстве.
-Объект продукта Тех. карты содержит следующие поля:
+Bills of Materials are a list of products and product variants. Material object of Bills of Materials contains the following fields:
 
-| Название       | Тип                                                       | Описание                                                                                                                                                                                      |
-| -------------- | :-------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**  | UUID                                                      | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                          |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара или модификации позиции<br>`+Обязательное при ответе` `+Expand`                                                                                                             |
-| **id**         | UUID                                                      | ID Продукта<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                |
-| **product**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные товара позиции. В случае, если в поле **assortment** указана модификация, то это поле содержит товар, к которому относится эта модификация<br>`+Обязательное при ответе` `+Expand` |
-| **quantity**   | Int                                                       | Количество товаров данного вида в позиции<br>`+Обязательное при ответе`                                                                                                                       |
+| Title | Type| Description |
+| -------- | -------- |---------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Stuff ID<br>`+Required when replying` `+Read Only` |
+| **product** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
+| **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
+| **processingProcessPosition** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Process item metadata<br>`+Required when replying` |
 
-С материалами и продуктами можно работать с помощью [специальных ресурсов для управления позициями Тех. карты](../documents/#dokumenty-teh-karta-materialy-teh-karty),
-а также в составе отдельной Тех. карты. При работе в составе отдельной Тех. карты,
-вы можете отправлять запросы на создание отдельной Тех. карты с включенными в тело запроса
-массивами материалов и продуктов Тех. карты. Если количество материалов или продуктов превышает максимально допустимое, то для
-дальнейшего пополнения материалов и продуктов нужно будет работать со специальнымы ресурсами "Материалы Тех. карты" и "Продукты Тех. карты".
-Также, при работе в составе отдельной Тех. карты, можно отправлять запросы на обновление списка материалов и продуктов
-с включенными в тело запроса массивами материалов и продуктов Тех. карты. При этом важно помнить, что коллекции материалов и продуктов
-полностью заменят уже существующие коллекции при обновлении объекта - лишние
-позиции будут удалены, новые добавлены, существующие - изменены.
+Peculiarities: if you do not specify a connection with the item of the technological process when adding a material, then by default the material will be linked to the first item of the technological process.
+
+#### Products of Bills of Materials
+
+Products of Bills of Materials are a list of goods / modifications obtained during production.
+Product Object of a Bill of Materials contains the following fields:
+
+| Title | Type | Description |
+| -------- | -------- |------- |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Product ID<br>`+Required when replying` `+Read Only` |
+| **product** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
+| **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
+
+You can work with materials and products using [special resources for managing items of Bills of Materials](../documents/#dokumenty-teh-karta-materialy-teh-karty),
+and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,
+you can send requests to create a separate Bill of Materials included in the request body
+arrays of materials and products of Bills of Materials. If the quantity of materials or products exceeds the maximum allowable, then for
+further replenishment of materials and products will need to workwith special resources "Dashboard Materials" and "Dashboard Products".
+
+Also, when working as part of a separate Bill of Materials, you can send requests to update the list of materials and products
+with arrays of materials and products included in the Bill of Materials request body. 
+
+It is important to remember that collections of materials and products
+will completely replace existing collections when updating an object - superfluous
+items will be deleted, new ones added, existing ones changed.
 
 
-### Получить список Тех. карт 
-Запрос всех Тех. карт на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Get a list of Bills of Materials
 
-| Название    | Тип                                                       | Описание                                               |
-| ----------- | :-------------------------------------------------------- | :----------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                   |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.           |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Тех. карты. |
+Request all Bills of Materials on this account.
+Result: JSON object including fields:
 
-**Параметры**
+| Title | Type | Description |
+| -------- | -------- |---- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Bills of Materials. |
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-| **search**                     | `string` (optional) *Example: 0001* Фильтр документов по указанной поисковой строке.                                                   |
+**Parameters**
 
-> Получить список Тех. карт
+| Parameter | Description |
+| -------- | -------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string. |
+
+> Get a list of Bills of Materials
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Тех. карт.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of Bill of Materials.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-    "type": "processingplan",
-    "mediaType": "application/json",
-    "size": 3,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-        "type": "processingplan",
-        "mediaType": "application/json"
-      },
-      "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
-      "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-      "owner": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-11-21 14:55:08",
-      "name": "Тех. карточка",
-      "externalCode": "4geOQkq5h7d5w1-tUATmt3",
-      "pathName": "",
-      "cost": 1000,
-      "materials": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
-          "type": "processingplanmaterial",
-          "mediaType": "application/json",
-          "size": 1,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "products": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
-          "type": "processingplanresult",
-          "mediaType": "application/json",
-          "size": 2,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-        "type": "processingplan",
-        "mediaType": "application/json"
-      },
-      "id": "6b4ffbf7-ac12-11e6-5bed-427b00000091",
-      "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-      "owner": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-11-17 14:48:32",
-      "name": "Тех. карта",
-      "externalCode": "Lr9zJa9qgpvs6f6laIgtG2",
-      "pathName": "Группа",
-      "folder": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/bfb6c5dc-acbb-11e6-5bed-427b00000001",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
-          "type": "processingplanfolder",
-          "mediaType": "application/json"
-        }
-      },
-      "cost": 2000,
-      "materials": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091/materials",
-          "type": "processingplanmaterial",
-          "mediaType": "application/json",
-          "size": 1,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "products": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091/products",
-          "type": "processingplanresult",
-          "mediaType": "application/json",
-          "size": 1,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-        "type": "processingplan",
-        "mediaType": "application/json"
-      },
-      "id": "c38e50b0-acdc-11e6-5bed-427b0000009e",
-      "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-      "owner": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2016-11-17 18:44:45",
-      "name": "Карта",
-      "externalCode": "QrWcKk6mhnNX2Jhi-WsIh2",
-      "pathName": "Группа",
-      "folder": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/bfb6c5dc-acbb-11e6-5bed-427b00000001",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
-          "type": "processingplanfolder",
-          "mediaType": "application/json"
-        }
-      },
-      "cost": 10000,
-      "materials": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e/materials",
-          "type": "processingplanmaterial",
-          "mediaType": "application/json",
-          "size": 2,
-          "limit": 1000,
-          "offset": 0
-        }
-      },
-      "products": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e/products",
-          "type": "processingplanresult",
-          "mediaType": "application/json",
-          "size": 2,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+     "type": "processing plan",
+     "mediaType": "application/json",
+     size: 3
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+         "type": "processing plan",
+         "mediaType": "application/json"
+       },
+       "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
+       "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+       "owner": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: true
+       group: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-11-21 14:55:08",
+       "name": "Technical card",
+       "externalCode": "4geOQkq5h7d5w1-tUATmt3",
+       "pathName": "",
+       cost: 1000
+       "materials": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
+           "type": "processingplanmaterial",
+           "mediaType": "application/json",
+           size: 1
+           limit: 1000
+           offset: 0
+         }
+       },
+       products: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
+           "type": "processingplanresult",
+           "mediaType": "application/json",
+           size: 2
+           limit: 1000
+           offset: 0
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+         "type": "processing plan",
+         "mediaType": "application/json"
+       },
+       "id": "6b4ffbf7-ac12-11e6-5bed-427b00000091",
+       "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+       "owner": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: true
+       group: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-11-17 14:48:32",
+       "name": "Technical card",
+       "externalCode": "Lr9zJa9qgpvs6f6laIgtG2",
+       "pathName": "Group",
+       folder: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/bfb6c5dc-acbb-11e6-5bed-427b00000001",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+           "type": "processingplanfolder",
+           "mediaType": "application/json"
+         }
+       },
+       cost: 2000
+       "materials": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091/materials",
+           "type": "processingplanmaterial",
+           "mediaType": "application/json",
+           size: 1
+           limit: 1000
+           offset: 0
+         }
+       },
+       products: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091/products",
+           "type": "processingplanresult",
+           "mediaType": "application/json",
+           size: 1
+           limit: 1000
+           offset: 0
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+         "type": "processing plan",
+         "mediaType": "application/json"
+       },
+       "id": "c38e50b0-acdc-11e6-5bed-427b0000009e",
+       "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+       "owner": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       shared: true
+       group: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2016-11-17 18:44:45",
+       "name": "Map",
+       "externalCode": "QrWcKk6mhnNX2Jhi-WsIh2",
+       "pathName": "Group",
+       folder: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/bfb6c5dc-acbb-11e6-5bed-427b00000001",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+           "type": "processingplanfolder",
+           "mediaType": "application/json"
+         }
+       },
+       cost: 10000
+       "materials": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e/materials",
+           "type": "processingplanmaterial",
+           "mediaType": "application/json",
+           size: 2
+           limit: 1000
+           offset: 0
+         }
+       },
+       products: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e/products",
+           "type": "processingplanresult",
+           "mediaType": "application/json",
+           size: 2
+           limit: 1000
+           offset: 0
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Создать Тех. карту
-Запрос на создание новой Тех. карты.
-Обязательные для создания поля:
+### Create Bill of Materials
 
-+ **name** - Наименование Тех. карты
-+ **products** - Список готовых продуктов Тех. карты в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)
+Request for the creation of a new Bill of Materials.
+Mandatory fields to create:
 
-> Пример создания новой Тех.карты с телом запроса, содержащим только необходимые поля.
++ **name** - Bill of Materials Name
++ **products** - List of finished products Bill of Materials in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
+
+> An example of creating a new Dashboard with a request body containing only the required fields.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Example",
-            "cost": 1000,
-            "products": [
-              {
-                "assortment": {
-                  "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/product/0da78cd1-91f2-11e6-5bed-427b0000009a",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                    "type": "product",
-                    "mediaType": "application/json"
-                  }
-                },
-                "quantity": 1
-              },
-              {
-                "assortment": {
-                  "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0da78cd1-91f2-11e6-5bed-427b0000009a",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                    "type": "variant",
-                    "mediaType": "application/json"
-                  }
-                },
-                "quantity": 1
-              }
-            ]
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Example",
+             cost: 1000
+             "products": [
+               {
+                 "assortment": {
+                   "meta": {
+                     "href": "http://app.kladana.in/api/remap/1.2/entity/product/0da78cd1-91f2-11e6-5bed-427b0000009a",
+                     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                     "type": "product",
+                     "mediaType": "application/json"
+                   }
+                 },
+                 quantity: 1
+               },
+               {
+                 "assortment": {
+                   "meta": {
+                     "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0da78cd1-91f2-11e6-5bed-427b0000009a",
+                     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                     "type": "variant",
+                     "mediaType": "application/json"
+                   }
+                 },
+                 quantity: 1
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Bills of Materials.
 
 ```json
 {
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-    "type": "processingplan",
-    "mediaType": "application/json"
-  },
-  "id": "120a488b-b0bd-11e6-5bed-427b00000000",
-  "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-  "owner": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-11-22 17:07:57",
-  "name": "123sdf",
-  "externalCode": "llZWq551h90XDJuYADvry0",
-  "pathName": "",
-  "cost": 1000,
-  "materials": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "products": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products",
-      "type": "processingplanresult",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+     "type": "processing plan",
+     "mediaType": "application/json"
+   },
+   "id": "120a488b-b0bd-11e6-5bed-427b00000000",
+   "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+   "owner": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-11-22 17:07:57",
+   "name": "123sdf",
+   "externalCode": "llZWq551h90XDJuYADvry0",
+   "pathName": "",
+   cost: 1000
+   "materials": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   products: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products",
+       "type": "processingplanresult",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Массовое создание и обновление Тех. карт 
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Тех. карт.
-В теле запроса нужно передать массив, содержащий JSON представления Тех. карт, которые вы хотите создать или обновить.
-Обновляемые Тех. карты должны содержать идентификатор в виде метаданных.
+### Bulk creation and update of Bill of Materials
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of a Bill of Materials.
+In the body of the request, you need to pass an array containing the JSON representation of Bills of Materials you want to create or update.
+Updated Bills of Materials must contain the identifier in the form of metadata.
 
-> Пример создания и обновления нескольких Тех. карт
+> An example of creating and updating several Bills of Materials
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "name": "Example",
-              "cost": 1000,
-              "materials": [
-                {
-                  "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-                  "assortment": {
-                    "meta": {
-                      "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-                      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                      "type": "product",
-                      "mediaType": "application/json"
-                    }
-                  },
-                  "processingProcessPosition": {
-                    "meta": {
-                      "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
-						          "type": "processingprocessposition",
-						          "mediaType": "application/json"
-                    }
-                  },
-                  "quantity": 1
-                }
-              ],
-              "products": [
-                {
-                  "assortment": {
-                    "meta": {
-                      "href": "http://app.kladana.in/api/remap/1.2/entity/product/0da78cd1-91f2-11e6-5bed-427b0000009a",
-                      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                      "type": "product",
-                      "mediaType": "application/json"
-                    }
-                  },
-                  "quantity": 1
-                },
-                {
-                  "assortment": {
-                    "meta": {
-                      "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0da78cd1-91f2-11e6-5bed-427b0000009a",
-                      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                      "type": "variant",
-                      "mediaType": "application/json"
-                    }
-                  },
-                  "quantity": 1
-                }
-              ]
-            },
-            {
-              "meta": {
-                "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
-                "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-                "type": "processingplan",
-                "mediaType": "application/json"
-              },
-              "name": "Тех. карта",
-              "cost": 100000
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "name": "Example",
+               cost: 1000
+               "materials": [
+                 {
+                   "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+                   "assortment": {
+                     "meta": {
+                       "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+                       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                       "type": "product",
+                       "mediaType": "application/json"
+                     }
+                   },
+                   "processingProcessPosition": {
+                     "meta": {
+                       "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
+"type": "processingprocessposition",
+"mediaType": "application/json"
+                     }
+                   },
+                   quantity: 1
+                 }
+               ],
+               "products": [
+                 {
+                   "assortment": {
+                     "meta": {
+                       "href": "http://app.kladana.in/api/remap/1.2/entity/product/0da78cd1-91f2-11e6-5bed-427b0000009a",
+                       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata","type": "product",
+                       "mediaType": "application/json"
+                     }
+                   },
+                   quantity: 1
+                 },
+                 {
+                   "assortment": {
+                     "meta": {
+                       "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0da78cd1-91f2-11e6-5bed-427b0000009a",
+                       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                       "type": "variant",
+                       "mediaType": "application/json"
+                     }
+                   },
+                   quantity: 1
+                 }
+               ]
+             },
+             {
+               "meta": {
+                 "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
+                 "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+                 "type": "processing plan",
+                 "mediaType": "application/json"
+               },
+               "name": "Technical card",
+               "cost": 100000
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Тех. карт.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations created and updated by Bill of Materials.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-      "type": "processingplan",
-      "mediaType": "application/json"
-    },
-    "id": "120a488b-b0bd-11e6-5bed-427b00000000",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "owner": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-11-22 17:07:57",
-    "name": "123sdf",
-    "externalCode": "llZWq551h90XDJuYADvry0",
-    "pathName": "",
-    "cost": 1000,
-    "materials": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials",
-        "type": "processingplanmaterial",
-        "mediaType": "application/json",
-        "size": 1,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "products": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products",
-        "type": "processingplanresult",
-        "mediaType": "application/json",
-        "size": 2,
-        "limit": 1000,
-        "offset": 0
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-      "type": "processingplan",
-      "mediaType": "application/json"
-    },
-    "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "owner": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    },
-    "shared": true,
-    "group": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2016-11-21 14:55:08",
-    "name": "Тех. карта",
-    "externalCode": "4geOQkq5h7d5w1-tUATmt3",
-    "pathName": "",
-    "cost": 100000,
-    "materials": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
-        "type": "processingplanmaterial",
-        "mediaType": "application/json",
-        "size": 1,
-        "limit": 1000,
-        "offset": 0
-      }
-    },
-    "products": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
-        "type": "processingplanresult",
-        "mediaType": "application/json",
-        "size": 2,
-        "limit": 1000,
-        "offset": 0
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+       "type": "processing plan",
+       "mediaType": "application/json"
+     },
+     "id": "120a488b-b0bd-11e6-5bed-427b00000000",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     "owner": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-11-22 17:07:57",
+     "name": "123sdf",
+     "externalCode": "llZWq551h90XDJuYADvry0",
+     "pathName": "",
+     cost: 1000
+     "materials": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials",
+         "type": "processingplanmaterial",
+         "mediaType": "application/json",
+         size: 1
+         limit: 1000
+         offset: 0
+       }
+     },
+     products: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products",
+         "type": "processingplanresult",
+         "mediaType": "application/json",
+         size: 2
+         limit: 1000
+         offset: 0
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+       "type": "processing plan",
+       "mediaType": "application/json"
+     },
+     "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     "owner": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     shared: true
+     group: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2016-11-21 14:55:08",
+     "name": "Technical card",
+     "externalCode": "4geOQkq5h7d5w1-tUATmt3",
+     "pathName": "",
+     "cost": 100000
+     "materials": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
+         "type": "processingplanmaterial",
+         "mediaType": "application/json",
+         size: 1
+         limit: 1000
+         offset: 0
+       }
+     },
+     products: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
+         "type": "processingplanresult",
+         "mediaType": "application/json",
+         size: 2
+         limit: 1000
+         offset: 0
+       }
+     }
+   }
 ]
 ```
 
-### Удалить Тех. карту
+### Delete Bill of Materials
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты. |
+| Parametr | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials id. |
  
-> Запрос на удаление Тех. карты с указанным id.
+> Request for deletion of Bills of Materials with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Тех. карты.
+> Response 200(application/json)
+Successful removal of Bills of Materials.
 
-### Массовое удаление Тех. карт
+### Bills of Materials Bulk deletion
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Тех. карт, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON metadata Bills of Materials you want to delete.
 
 
-> Запрос на массовое удаление Тех. карт. 
+> Bulk Deletion Request of Bills of Materials.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-            "type": "processingplan",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-            "type": "processingplan",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+             "type": "processing plan",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+             "type": "processing plan",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Тех. карт.
+> Successful request. Result - JSON information about deletion of Bills of Materials.
 
 ```json
 [
-  {
-    "info":"Сущность 'processingplan' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'processingplan' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'processingplan' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
+   },
+   {
+     "info":"Entity 'processingplan' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+   }
 ]
-``` 
+```
 
-### Тех. карта
+### Bill of Materials
 
-### Получить Тех. карту
+### Get Bill of Materials
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты. |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bills of Materials id. |
  
-> Запрос на получение отдельной Тех. карты с указанным id.
+> Request for a separate Bill of Materials with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of Bills of Materials.
 
 ```json
 {
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-    "type": "processingplan",
-    "mediaType": "application/json"
-  },
-  "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
-  "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-  "owner": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-11-21 14:55:08",
-  "name": "Тех. карточка",
-  "externalCode": "4geOQkq5h7d5w1-tUATmt3",
-  "pathName": "",
-  "cost": 1000,
-  "materials": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "products": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
-      "type": "processingplanresult",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+     "type": "processing plan",
+     "mediaType": "application/json"
+   },
+   "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
+   "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+   "owner": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-11-21 14:55:08",
+   "name": "Technical card",
+   "externalCode": "4geOQkq5h7d5w1-tUATmt3",
+   "pathName": "",
+   cost: 1000
+   "materials": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   products: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
+       "type": "processingplanresult",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 
 ```
 
-### Изменить Тех. карту 
-Запрос на обновление Тех. карты с указанным id.
-В теле запроса можно указать только те поля, которые необходимо изменить у Тех. карты, кроме тех, что
-помечены `Только для чтения` в описании [атрибутов Тех. карты](../documents/#dokumenty-teh-karta).
+### Edit Bill of Materials
 
-**Параметры**
+Update Request Bills of Materials with the specified id.
+In the body of the request, you can specify only those fields that need to be changed in Bill of Materials other than those
+are marked `Read-Only` in the description of [Bill of Materials Attribute](../documents/#dokumenty-teh-karta).
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты. |
+**Parameters**
 
-> Пример запроса на обновление отдельной Тех. карты.
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials id. |
 
-```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "name": "Тех. карта",
-            "cost": 100000
-          }'  
+> An example of a request to update a separate Bill of Materials.
+
+```shellcurl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "name": "Technical card",
+             "cost": 100000
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Bill of Materials.
 
 ```json
 {
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
-    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-    "type": "processingplan",
-    "mediaType": "application/json"
-  },
-  "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
-  "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-  "owner": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-11-21 14:55:08",
-  "name": "Тех. карта",
-  "externalCode": "4geOQkq5h7d5w1-tUATmt3",
-  "pathName": "",
-  "cost": 100000,
-  "materials": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "products": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
-      "type": "processingplanresult",
-      "mediaType": "application/json",
-      "size": 2,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
+     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
+     "type": "processing plan",
+     "mediaType": "application/json"
+   },
+   "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
+   "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+   "owner": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/d5ad957e-91f1-11e6-5bed-427b0000002a",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: true
+   group: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-11-21 14:55:08",
+   "name": "Technical card",
+   "externalCode": "4geOQkq5h7d5w1-tUATmt3",
+   "pathName": "",
+   "cost": 100000
+   "materials": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/materials",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   products: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064/products",
+       "type": "processingplanresult",
+       "mediaType": "application/json",
+       size: 2
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Материалы Тех. карты 
-Отдельный ресурс для управления материалами Тех. карты. С его помощью вы можете управлять материалами большого документа, количество материалов в котором превышает лимит на количество материалов, сохраняемых вместе с документом. Этот лимит равен 1000. Более подробно о лимитах на количество строк документа и работе с большими документами можно прочитать [тут](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+### Bills of Materials
 
-### Получить материалы Тех. карты 
-Запрос на получение списка всех материалов данной Тех. карты.
+Separate resource for materials management Bill of Materials. With it, you can manage the content of a larger document, the amount of content in which exceeds the limit on the amount of content saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
 
-| Название    | Тип                                                       | Описание                                                         |
-| ----------- | :-------------------------------------------------------- | :--------------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                             |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                     |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой материалы Тех. карты. |
+### Get Bill of Materials
 
-**Параметры**
+Request for a list of all materials of the Bill of Materials.
 
-| Параметр   | Описание                                                                                                                               |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты.                                                     |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Title | Type | Description |
+| -------- | -------- |------ |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Bill of Materials. |
 
-> Получить материалы Тех. карты
+**Parameters**
+
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+
+> Get Bill of Materials
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка материалов отдельной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of materials of a separate Bill of Materials.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials",
-    "type": "processingplanmaterial",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
-        "type": "processingplanmaterial",
-        "mediaType": "application/json"
-      },
-      "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-      "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-      "product": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        }
-      },
-      "assortment": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        }
-      },
-      "quantity": 1,
-      "processingProcessPosition": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
-          "type": "processingprocessposition",
-          "mediaType": "application/json"
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials",
+     "type": "processingplanmaterial",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
+         "type": "processingplanmaterial",
+         "mediaType": "application/json"
+       },
+       "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+       "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+       product: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         }
+       },
+       "assortment": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         }
+       },
+       quantity: 1
+       "processingProcessPosition": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
+           "type": "processingprocessposition",
+           "mediaType": "application/json"
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Создать материал Тех. карты 
-Запрос на создание нового материала в Тех. карте. 
-Если при добавлении материала не указывать связь с позицией техпроцесса, то по умолчанию материал будет привязан к первой позиции техпроцесса.
-Для успешного создания необходимо в теле запроса указать следующие поля:
+### Create Bill of Materials
 
-+ **product** - Ссылка на товар, которую представляет собой позиция.
-+ **quantity** - Количество товаров в позиции.
+Request to create a new material in a Bill of Materials.
+If, when adding a material, you do not specify a link with the item of the technological process, then by default the material will be linked to the first item of the technological process.
+For successful creation, the following fields must be specified in the request body:
 
-**Параметры**
++ **product** - Link to the product, which is a item.
++ **quantity** - Quantity of goods in the item.
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты. |
+**Parameters**
 
-> Пример создания одного материала в Тех. карте.
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials. |
+
+> An example of creating one material in a Bill of Materials.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "assortment": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              },
-              "quantity": 1
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "assortment": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               },
+               quantity: 1
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного материала отдельной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created material of a separate Bill of Materials.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 1,
-    "processingProcessPosition": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
-        "type": "processingprocessposition",
-        "mediaType": "application/json"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 1
+     "processingProcessPosition": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
+         "type": "processingprocessposition",
+         "mediaType": "application/json"
+       }
+     }
+   }
 ]
 ```
 
-> Пример создания сразу нескольких материалов в Тех. карте с привязкой и без привязки к позициям техпроцесса
+> An example of creating several materials at once in a Bill of Materials with and without reference to technical process positions
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "assortment": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              },
-              "quantity": 1,
-              "processingProcessPosition": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/934b5505-ac45-11ed-ac12-000f0000002c",
-                  "type": "processingprocessposition",
-                  "mediaType": "application/json"
-                }
-              }
-            },
-            {
-              "assortment": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000079",
-                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                  "type": "variant",
-                  "mediaType": "application/json"
-                }
-              },
-              "quantity": 2
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "assortment": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               },
+               quantity: 1
+               "processingProcessPosition": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/934b5505-ac45-11ed-ac12-000f0000002c",
+                   "type": "processingprocessposition",
+                   "mediaType": "application/json"
+                 }
+               }
+             },
+             {
+               "assortment": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000079",
+                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                   "type": "variant",
+                   "mediaType": "application/json"
+                 }
+               },
+               quantity: 2
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка созданных материалов отдельной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of created materials of a separate Bill of Materials.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 1,
-    "processingProcessPosition": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/934b5505-ac45-11ed-ac12-000f0000002c",
-        "type": "processingprocessposition",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000002",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000002",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000081",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000079",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-        "type": "variant",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 2,
-    "processingProcessPosition": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
-        "type": "processingprocessposition",
-        "mediaType": "application/json"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 1
+     "processingProcessPosition": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/934b5505-ac45-11ed-ac12-000f0000002c",
+         "type": "processingprocessposition",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000002",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000002",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000081",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000079",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+         "type": "variant",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 2
+     "processingProcessPosition": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
+         "type": "processingprocessposition",
+         "mediaType": "application/json"
+       }
+     }
+   }
 ]
 ```
 
-### Материал Тех. карты
+### Bill of Materials
  
-### Получить материал
+### Get Bill of Materials
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                   |
-| :------------- | :----------------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* id Тех. карты.         |
-| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* id позиции Тех. карты. |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials id. |
+| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Bill of Materials item id. |
  
-> Запрос на получение отдельного материала Тех. карты с указанным id.
+> Request for separate Bill of Materials with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного материала Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a separate Bill of Materials.
 
 ```json
 {
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
-    "type": "processingplanmaterial",
-    "mediaType": "application/json"
-  },
-  "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-  "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-  "product": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json"
-    }
-  },
-  "assortment": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-      "type": "product",
-      "mediaType": "application/json"
-    }
-  },
-  "quantity": 1,
-  "processingProcessPosition": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
-      "type": "processingprocessposition",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
+     "type": "processingplanmaterial",
+     "mediaType": "application/json"
+   },
+   "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+   "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+   product: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json"
+     }
+   },
+   "assortment": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json"
+     }
+   },
+   quantity: 1
+   "processingProcessPosition": {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
+       "type": "processingprocessposition",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Изменить материал 
-Запрос на обновление отдельного материала Тех. карты. Для обновления материала нет каких-либо
- обязательных для указания в теле запроса полей. Только те, что вы желаете обновить.
+### Change material
+Request for updating a separate Bill of Materials. To update the material there is no
+  required fields in the body of the request. Only the ones you want to update.
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                   |
-| :------------- | :----------------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* id Тех. карты.         |
-| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* id позиции Тех. карты. |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials id. |
+| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Bill of Materials item id. |
 
-> Пример запроса на обновление отдельного материала в Тех. карте.
+> An example of a request to update a particular material in a Bill of Materials.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "quantity": 5
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             quantity: 5
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного материала Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Tech material. cards.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanmaterial",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 5,
-    "processingProcessPosition": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
-        "type": "processingprocessposition",
-        "mediaType": "application/json"
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/materials/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanmaterial",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "quantity": 5,
+     "processingProcessPosition": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingprocess/d8da40e9-bbf9-11ed-ac12-0010000000bf/positions/d8da461d-bbf9-11ed-ac12-0010000000c0",
+         "type": "processingprocessposition",
+         "mediaType": "application/json"
+       }
+     }
+   }
 ]
 ```
 
-### Удалить материал 
+### Delete material
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                   |
-| :------------- | :----------------------------------------------------------------------------------------- |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* id Тех. карты.         |
-| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* id позиции Тех. карты. |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials id. |
+| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Bills of Materials item id. |
 
-> Запрос на удаление материала Тех. карты с указанным id.
+> Request to remove a Bill of Materials with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление материала Тех. карты.
+> Response 200(application/json)
+Successful removal of a Bill of Materials.
 
-### Продукты Тех. карты 
-Отдельный ресурс для управления продуктами Тех. карты. С его помощью вы можете управлять продуктами большого документа, количество продуктов в котором превышает лимит на количество продуктов, сохраняемых вместе с документом. Этот лимит равен 1000. Более подробно о лимитах на количество строк документа и работе с большими документами можно прочитать [тут](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+### Bills of Materials Products
+Dedicated resource for product management Bills of Materials. With it, you can manage the products of a larger document, the number of products in which exceeds the limit on the number of products saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
 
-### Получить продукты Тех. карты 
-Запрос на получение списка всех продуктов данной Тех. карты.
+### Get Bills of Materials Products
+Request for a list of all products of the Bill of Materials.
 
-| Название    | Тип                                                       | Описание                                                        |
-| ----------- | :-------------------------------------------------------- | :-------------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                            |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                    |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой продукты Тех. карты. |
+| Title |Type | Description |
+| -------- | -------- |------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the products of Bills of Materials. |
 
-**Параметры**
+**Parameters**
 
-| Параметр   | Описание                                                                                                                               |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты.                                                     |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials id. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Получить продукты Тех. карты
+> Get products Bills of Materials
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка продуктов отдельной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of products of a particular Bill of Materials.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products",
-    "type": "processingplanresult",
-    "mediaType": "application/json",
-    "size": 1,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
-        "type": "processingplanresult",
-        "mediaType": "application/json"
-      },
-      "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-      "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-      "product": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        }
-      },
-      "assortment": {
-        "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json"
-        }
-      },
-      "quantity": 1
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products",
+     "type": "processingplanresult",
+     "mediaType": "application/json",
+     size: 1
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
+         "type": "processingplanresult",
+         "mediaType": "application/json"
+       },
+       "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+       "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+       product: {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         }
+       },
+       "assortment": {
+         "meta": {
+           "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+         }
+       },
+       quantity: 1
+     }
+   ]
 }
 ```
 
-### Создать продукт Тех. карты 
-Запрос на создание нового продукта в Тех. карте.
-Для успешного создания необходимо в теле запроса указать следующие поля:
+### Create Bill of Materials Product
+Request for the creation of a new product in a Bill of Materials.
+For successful creation, the following fields must be specified in the request body:
 
-+ **product** - Ссылка на товар, которую представляет собой позиция.
-+ **quantity** - Количество товаров в позиции.
++ **product** - Link to the product, which is a item.
++ **quantity** - Quantity of goods in the item.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                           |
-| :------- | :--------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Тех. карты. |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials id. |
 
-> Пример создания одного продукта в Тех. карте.
+> An example of creating one product in a Bill of Materials.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "assortment": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              },
-              "quantity": 1
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "assortment": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               },
+               quantity: 1
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного продукта отдельной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created product of a separate Bill of Materials.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanresult",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 1
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanresult",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 1
+   }
 ]
 ```
 
-> Пример создания сразу нескольких продуктов в Тех. карте.
+> An example of creating several products at once in a Bill of Materials.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "assortment": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                  "type": "product",
-                  "mediaType": "application/json"
-                }
-              },
-              "quantity": 1
-            },
-            {
-              "assortment": {
-                "meta": {
-                  "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000081",
-                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                  "type": "variant",
-                  "mediaType": "application/json"
-                }
-              },
-              "quantity": 2
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "assortment": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                   "type": "product",
+                   "mediaType": "application/json"
+                 }
+               },
+               quantity: 1
+             },
+             {
+               "assortment": {
+                 "meta": {
+                   "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000081",
+                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                   "type": "variant",
+                   "mediaType": "application/json"
+                 }
+               },
+               quantity: 2
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка созданных продуктов отдельной Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the list of created products of a particular Bill of Materials.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanresult",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 1
-  },
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000002",
-      "type": "processingplanresult",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000002",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000081",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-        "type": "variant",
-        "mediaType": "application/json"
-      }
-    },
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000079",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 2
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanresult",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 1
+   },
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000002",
+       "type": "processingplanresult",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000002",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/variant/0de151c1-acdc-11e6-5bed-427b00000081",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+         "type": "variant",
+         "mediaType": "application/json"
+       }
+     },
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000079",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 2
+   }
 ]
 ```
 
-### Продукт Тех. карты
+### Bill of Materials Product
  
-### Получить продукт
+### Get Bill of Materials product
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                    |
-| :------------- | :------------------------------------------------------------------------------------------ |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* id Тех. карты.          |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id продукта Тех. карты. |
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials id. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials product id. |
  
-> Запрос на получение отдельного продукта Тех. карты с указанным id.
+> Request for a specific Bill of Materials product with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление отдельного продукта Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a single product Bills of Materials.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanresult",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 1
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanresult",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 1
+   }
 ]
 ```
 
-### Изменить продукт 
-Запрос на обновление отдельного продукта Тех. карты. Для обновления продукта нет каких-либо
- обязательных для указания в теле запроса полей. Только те, что вы желаете обновить.
+### Change product
 
-**Параметры**
+Single Product Update Request Bills of Materials. There is no need to update the product
+  required fields in the body of the request. Only the ones you want to update.
 
-| Параметр       | Описание                                                                                    |
-| :------------- | :------------------------------------------------------------------------------------------ |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* id Тех. карты.          |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id продукта Тех. карты. |
+**Parameters**
 
-> Пример запроса на обновление отдельного продукта в Тех. карте.
+| Parameter | Description |
+| -------- | -------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials id. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials product id. |
+
+> Example of a single product update request in a Bill of Materials.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "quantity": 5
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             quantity: 5
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного продукта Тех. карты.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Bill of Materials products.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
-      "type": "processingplanresult",
-      "mediaType": "application/json"
-    },
-    "id": "120b4591-b0bd-11e6-5bed-427b00000001",
-    "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
-    "product": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "assortment": {
-      "meta": {
-        "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
-        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-        "type": "product",
-        "mediaType": "application/json"
-      }
-    },
-    "quantity": 5
-  }
+   {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000/products/120b4591-b0bd-11e6-5bed-427b00000001",
+       "type": "processingplanresult",
+       "mediaType": "application/json"
+     },
+     "id": "120b4591-b0bd-11e6-5bed-427b00000001",
+     "accountId": "d55cbfba-91f1-11e6-5bed-427b00000000",
+     product: {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     "assortment": {
+       "meta": {
+         "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
+         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "type": "product",
+         "mediaType": "application/json"
+       }
+     },
+     quantity: 5
+   }
 ]
 
 ```
 
-### Удалить продукт
+### Delete product
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                    |
-| :------------- | :------------------------------------------------------------------------------------------ |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* id Тех. карты.          |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id продукта Тех. карты. |
+| Parameter | Description |
+| ---------- | ---------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bills of Materials id. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* product id Bills of Materials. |
  
-> Запрос на удаление продукта Тех. карты с указанным id.
+> Product Removal Request Bills of Materials with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление продукта Тех. карты.
-
+> Response 200(application/json)
+Successful removal of the product Bills of Materials.

@@ -37,7 +37,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
 | **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres) |
 | **archived** | Boolean | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
 | **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor Code |
@@ -137,7 +137,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Contact person of the Counterparty<br>`+Required when replying` |
 | **name** | String(255) | Name of the contact person<br>`+Required when replying` `+Required when creating` |
 | **phone** | String(255) | Phone number of the contact person |
-| **position** | String(255) | Position of contact person |
+| **position** | String(255) | Item of contact person |
 | **updated** | datetime | Moment of last update<br>`+Required when replying` `+Read Only` |
 
 ##### Account incidents
@@ -917,7 +917,7 @@ curl -X POST
 }
 ```
 
-> Пример 2
+> Example 2
 
 ```shell
 curl -X POST
@@ -1737,7 +1737,7 @@ curl -X GET
    -H "Authorization: Basic <Credentials>"
 ```
 
-> Successful request. The result is a JSON representation of the add. Counterparty fields.
+> Successful request. The result is a JSON representation of the additional Counterparty fields.
 
 ```json
 {
@@ -1794,13 +1794,13 @@ Request for obtaining metadata of Counterparties. The result is a JSON object in
 | Parameter | Description |
 | ----- | ------ |
 | **meta** | Link to metadata of Counterparties |
-| **attributes** | Array of objects add. fields of Accounts in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **attributes** | Array of objects additional fields of Accounts in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
 | **states** | Array of Counterparties statuses |
 | **createShared** | create new Counterparties with the label "General" |
 
-The structure of a separate object representing the add. the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-### Separate add. field
+### Separate additional field
  
 
 **Parameters**
@@ -1817,7 +1817,7 @@ curl -X GET
    -H "Authorization: Basic <Credentials>"
 ```
 
->Response 200(application/json). Successful request. The result is a JSON representation of a separate add. fields.
+>Response 200(application/json). Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
 {

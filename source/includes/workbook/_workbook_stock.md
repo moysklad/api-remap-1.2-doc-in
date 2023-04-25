@@ -14,7 +14,8 @@ If in the course of work you need to regularly update information only on balanc
  
 To reduce the amount of data transferred, when requesting a Summary of Balances use the `changedSince` parameter. The parameter allows you to get data on the balances only for those products whose balances have changed over the period from `changedSince` to the current moment. This significantly reduces the time it takes to process a request.
  
-If orders, receipts, shipments and other transactions are created irregularly, subscribe to [Webhooks for changing stocks](../dictionaries/#suschnosti-vebhuk-na-change-ostatkow) for goods or warehouses. Webhooks allow you to be notified of changes and request the stock only when there are changes. When you receive a notification, request data using the link in the webhook.
+If Orders, Receiving, Shipments and other transactions are created irregularly, subscribe to [Webhooks for changing stocks](../dictionaries/#suschnosti-vebhuk-na-change-ostatkow) for goods or warehouses. Webhooks allow you to be notified of changes and request the stock only when there are changes. When you receive a notification, request data using the link in the webhook.
 
 ### Regular product data update
-If information about products changes in the course of work and you need to regularly monitor these changes, subscribe to [webhooks] (#workbook-vebhuki-chto-takoe-webhuk) for creating, changing, deleting of products, services, product variants, and bundles.
+
+If information about products changes in the course of work and you need to regularly monitor these changes, subscribe to [webhooks](#workbook-vebhuki-chto-takoe-webhuk) for creating, changing, deleting of products, services, product variants, and bundles.
