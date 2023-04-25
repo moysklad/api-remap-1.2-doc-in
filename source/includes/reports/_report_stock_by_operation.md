@@ -1,6 +1,6 @@
 ### Transaction balances
 
-The report "Balances by Transactions" is the issuance of Balances for the positions of the specified
+The report "Balances by Transactions" is the issuance of Balances for the items of the specified
 in the transaction path.
 
 Balances can be obtained from the following transactions: Shipment, Sales Order, Supplier Invoice, Sales Invoice, Purchase Order, Receiving, Purchase Return, Sales Return.
@@ -14,14 +14,14 @@ For **Sales Order**, **Sales Invoice**, **Purchase Order** and **Supplier Invoic
 | Value | TPI | Description |
 | ------------- |-----|--------------|
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata, which is a link to the transaction for which Remainings are issued<br>`+Required when replying` |
-| **positions** | Array(Object) | An array of objects representing the Remainder for each position.<br>`+Required when answering` |
+| **positions** | Array(Object) | An array of objects representing the Remainder for each item.<br>`+Required when answering` |
 
-#### Position attributes
+#### Item attributes
 
 | Value | TPI | Description |
 | ------------- |-----|--------------|
-|**meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata, which is a link to the position for which the Remaining is issued<br>`+Required when answering` |
-|**name** | String(255) | Position name<br>`+Required when answering` |
+|**meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata, which is a link to the item for which the Remaining is issued<br>`+Required when answering` |
+|**name** | String(255) | Item name<br>`+Required when answering` |
 |**stock** | float | Remaining<br>`+Required when answering` |
 |**cost** | float | Cost price<br>`+Required when answering` |
 |**inTransit** | float | Waiting<br>`+Required for response` |
@@ -44,7 +44,7 @@ This query works with the following types of transactions:
 + [Purchase Returns](../documents/#dokumenty-vozwrat-postawschiku)
 + [Sales Returns](../documents/#dokumenty-vozwrat-pokupatelq)
 
-The result of the query is the balances on the positions of the transaction, on the date of the transaction, from the warehouse specified in the transaction,
+The result of the query is the balances on the items of the transaction, on the date of the transaction, from the warehouse specified in the transaction,
 as well as the cost price of transaction items according to FIFO, taking into account the quantity.
 
 #### Request examples
@@ -81,7 +81,7 @@ Successful request. The result is a JSON representation of the report.
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerOrder/metadata","type": "customer order",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerOrder/metadata","type": "sales order",
          "mediaType": "application/json"
        },
        "positions": [

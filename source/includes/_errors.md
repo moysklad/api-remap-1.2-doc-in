@@ -16,9 +16,9 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_1009">1009</a> | Editing objects of type '{type}' is not supported | The entity you are trying to update is read-only. Its attributes cannot be changed. || <a name="error_1010">1010</a> | Deleting objects of type '{type}' is not supported | You cannot delete an entity of this type. Check if there is a delete operation among the operations of this entity type. |
 | <a name="error_1011">1011</a> | Creation of objects of type '{type}' is not supported | You cannot create an entity of this type. Check if there is a create operation among the operations of this entity type. |
 | <a name="error_1012">1012</a> | Object identifier not specified | For update and delete operations, you must specify the id of the entity on which the operation is performed. |
-| <a name="error_1013">1013</a> | Removing nested objects is not supported | It is not possible to delete nested entities such as account accounts. If you want to nullify the value of a field: try passing null as the value of the given field in the non-update query. In the case of document positions, you can pass an empty array. This will be equivalent to deleting all positions from the document at once. |
+| <a name="error_1013">1013</a> | Removing nested objects is not supported | It is not possible to delete nested entities such as account accounts. If you want to nullify the value of a field: try passing null as the value of the given field in the non-update query. In the case of transaction items, you can pass an empty array. This will be equivalent to deleting all items from the document at once. |
 | <a name="error_1014">1014</a> | Invalid value '{value}' of filter parameter '{parameter name}' | You specified a value of an unsupported type for the given parameter (for example, you passed an int instead of a boolean). There may be an error in the wrong date and time format. |
-| <a name="error_1015">1015</a> | Wrong version specified in url: {url} | Check the required API version in the url you are making the request to. `online.moysklad.ru/api/1.x/...` API versions differ from each other in the number of available resources, as well as in the way data is processed, and that is why they are an important element in identifying a particular resource. |
+| <a name="error_1015">1015</a> | Wrong version specified in url: {url} | Check the required API version in the url you are making the request to. `app.kladana.in/api/1.x/...` API versions differ from each other in the number of available resources, as well as in the way data is processed, and that is why they are an important element in identifying a particular resource. |
 | <a name="error_1016">1016</a> | Access Denied: You do not have permission to view this item | Your account administrator has restricted your rights to view entities of this type. Contact him for details. |
 | <a name="error_1017">1017</a> | Access denied: You do not have permission to edit this object | Your account administrator has restricted your rights to edit entities of this type. Contact him for details. |
 | <a name="error_1018">1018</a> | Access Denied: You do not have permission to delete this item | Your account administrator has restricted your rights to delete entities of this type. Contact him for details. |
@@ -26,7 +26,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_1020">1020</a> | Parent object with type '{type}' and id '{id}' does not exist| Invalid parent entity id. |
 | <a name="error_1021">1021</a> | Object with type '{type}' and id '{id}' not found | Failed to load entity of given type with given id. Check if the id is correct. Make sure that the entity with the given id is present in the list of entities of the given type (perhaps the entity with the given id has been deleted) |
 | <a name="error_1022">1022</a> | Error creating object | An error occurred while creating an entity of this type. |
-| <a name="error_1023">1023</a> | Error saving object: child object with type '{type}' and id '{id}' is already in use and cannot be deleted | It is not possible to delete an object in a nested collection. it's already in use somewhere. For example, it may occur when deleting a position from a document for which there is a return in which this position is present. |
+| <a name="error_1023">1023</a> | Error saving object: child object with type '{type}' and id '{id}' is already in use and cannot be deleted | It is not possible to delete an object in a nested collection. it's already in use somewhere. For example, it may occur when deleting a item from a document for which there is a return in which this item is present. |
 | <a name="error_1024">1024</a> | Object save error: Standard objects cannot be modified | You are trying to change the entity that is created by default in the MySklad service immediately after registering an account. It is forbidden to do this. (For example, changing default countries and units) |
 | <a name="error_1025">1025</a> | Object deletion error: Standard objects cannot be deleted | Removing standard objects such as standard units of measurement, currencies, countries, etc. not supported. |
 | <a name="error_1026">1026</a> | Updating objects of type '{type}' is not supported | Updating objects of the specified type is not supported in the JSON API. |
@@ -48,13 +48,13 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_1043">1043</a> | Your tariff plan does not allow you to work with CRM | Your tariff is not suitable for working with CRM. |
 | <a name="error_1044">1044</a> | Maximum request size exceeded | The maximum request size is 10 MB. |
 | <a name="error_1045">1045</a> | Access Denied: You do not have permission to create this object | Your account administrator has restricted your rights to create entities of this type. Contact him for details. |
-| <a name="error_1046">1046</a> | A child entity cannot change its parent entity | You may have tried to substitute position(s) from one document to another (Try removing meta, id, accountId from document and position(s)). |
+| <a name="error_1046">1046</a> | A child entity cannot change its parent entity | You may have tried to substitute item(s) from one document to another (Try removing meta, id, accountId from document and item(s)). |
 | <a name="error_1047">1047</a> | You cannot update the syncId field in an entity update request | The syncId field can only be specified when the entity is created. It cannot be changed in an update request. |
 | <a name="error_1048">1048</a> | The limit on the number of attempts to verify the username and password has been exceeded | Exceeded the number of authentication attempts with invalid data. Please try again later with the correct username and password or token. |
 | <a name="error_1052">1052</a> | Invalid UUID format | Check your generated UUIDs for correctness. |
 | <a name="error_1056">1056</a> | Authentication error: {authentication error text} | Check the credentials provided for authentication. This resource may require a different kind of authentication. |
 | <a name="error_1058">1058</a> | Failed to decode request parameters from URL | Check the request. There are probably parameters in the string that have not been urlencoded. |
-| <a name="error_1059">1059</a> | Incorrect server in object id: '{id}'| The object identifier contains a server other than online.moysklad.ru. |
+| <a name="error_1059">1059</a> | Incorrect server in object id: '{id}'| The object identifier contains a server other than app.kladana.in. |
 | <a name="error_1060">1060</a> | Incorrect data type in meta entity, field type | The data type specified in the type field of the entity's metadata does not match the expected type. |
 | <a name="error_1061">1061</a> | No API access for this user | There is no API access for this user - contact your account administrator. |
 | <a name="error_1062">1062</a> | Invalid 'Accept' header value. Only 'application/json;charset=utf-8' | The 'Accept' header value can only be application/json;charset=utf-8. |
@@ -111,7 +111,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_2022">2022</a> | Format Error: Too many subcollection items | A nested collection can have a maximum of 1000 items. |
 | <a name="error_2024">2024</a> | Format error: href points to an entity of the wrong type '<type>', '<type>' is required | The href passed is pointing to an entity of the wrong type. |
 | <a name="error_2027">2027</a> | Format error: href points to entity of invalid type '<type>', valid values: '<valid types>' | The href passed is pointing to an entity of the wrong type. |
-| <a name="error_2028">2028</a> | Format error: Add field '{name of add. fields}' of the entity with id '{id}' contains a non-numeric value | The received object contains an additional field with an incorrect value |
+| <a name="error_2028">2028</a> | Format error: Add field '{name of additional fields}' of the entity with id '{id}' contains a non-numeric value | The received object contains an additional field with an incorrect value |
 
 ### Common validation errors
 
@@ -187,7 +187,7 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_13000">13000</a> | Empty operation identifier | You requested the Operation balances report without specifying the operation id. Make sure id is passed as a parameter. |
 | <a name="error_13001">13001</a> | Operation with the specified identifier was not found | The operation with the specified <i>operation.id</i> could not be found. Check the id you are passing, and also make sure that the operation with the given id has not been deleted. |
-| <a name="error_13002">13002</a> | The operation could not be performed on the specified document type '{document type}' | The Operation balances report is only available for operations of the type `Shipping, Retail, Buyer's order`. |
+| <a name="error_13002">13002</a> | The operation could not be performed on the specified document type '{document type}' | The Operation balances report is only available for operations of the type `Shipment, Retail, Sales order`. |
 | <a name="error_13003">13003</a> | No access to Balances report | The user does not have access to the Remains report. |
 
 ### Error codes for the additional field
@@ -251,38 +251,38 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_17000">17000</a> | Document saving error: Organization account does not belong to the specified organization | Make sure you enter the correct account. If you update the organization field, the organizationAccount field must also be updated along with it.|
 | <a name="error_17001">17001</a> | Document saving error: the account of the counterparty does not belong to the specified counterparty | Make sure you enter the correct account. If you update the agent field, the agentAccount field must also be updated along with it. |
-| <a name="error_17002">17002</a> | Error saving document position: serial number cannot be empty | The serial number cannot be an empty string.|
+| <a name="error_17002">17002</a> | Error saving document item: serial number cannot be empty | The serial number cannot be an empty string.|
 | <a name="error_17003">17003</a> | Error saving document item: quantity of reserved items cannot exceed total quantity | The quantity of the reserved item of the document item cannot exceed the total quantity of the item in the document. |
 | <a name="error_17004">17004</a> | Error saving document item: number of pending items cannot exceed total quantity | The quantity of the expected item of the document item cannot exceed the total quantity of the item in the document.|
 | <a name="error_17005">17005</a> | Error saving linked document: No link to base document | When you save a linked document, you need a reference to the underlying document (for example, when you save a return, you need a reference to the sales). |
 | <a name="error_17006">17006</a> | Error saving linked document: incompatible document types - '<type1>' and '<type2>' | You specified a document of the wrong type as a link. |
-| <a name="error_17007">17007</a> | Error saving document position: VAT cannot be more than 100 | VAT percentage can take values from 0 to 100.|
-| <a name="error_17008">17008</a> | Error saving document position: discount cannot be more than 100 | Discount percentage can take values from 0 to 100. |
+| <a name="error_17007">17007</a> | Error saving document item: VAT cannot be more than 100 | VAT percentage can take values from 0 to 100.|
+| <a name="error_17008">17008</a> | Error saving document item: discount cannot be more than 100 | Discount percentage can take values from 0 to 100. |
 | <a name="error_17009">17009</a> | Error saving document: date '{document type}' does not fall within editable period | This document belongs to the closed period. The document cannot be edited. |
 | <a name="error_17010">17010</a> | Document saving error: You cannot post documents to a receiving warehouse from another department | It is not allowed to post documents with a receiving warehouse from another department in the document metadata. |
 | <a name="error_17011">17011</a> | Document saving error: You cannot post documents to a source warehouse from another department | It is not allowed to post documents with a source warehouse from another department in the document metadata.|
 | <a name="error_17012">17012</a> | Document saving error: You cannot save documents with destination warehouse from another department | It is not allowed to save documents with a destination warehouse from another department in the document metadata. |
 | <a name="error_17013">17013</a> | Document saving error: You cannot save documents with source warehouse from another department | It is not allowed to save documents with a source warehouse from another department in the document metadata. |
 | <a name="error_17014">17014</a> | Error saving document: you cannot unpost a document of type <type> that was checked in | You cannot cancel posting from this document, because a return has already been posted for it. |
-| <a name="error_17016">17016</a> | Error saving document: set cannot be part of item of document of type {document_type} | A kit cannot be an item in the following documents: supplier order, supplier invoice, acceptance, return to supplier, commission agent report issued, commission agent report received, write-off, capitalization, movement, inventory, technical. map, tech. operation, internal order. |
-| <a name="error_17018">17018</a> | Error saving document: Number of kits must be an integer | The number of kits in a position must be an integer|
-| <a name="error_17020">17020</a> | Error saving document position: item of packaging and item of position differ | For a given document position, the goods from the package and the specified goods differ |
-| <a name="error_17021">17021</a> | Error saving document position: if it is indicated that the position is taxable, then the vat field must be filled in. Otherwise, vatEnabled for the position must be false | When passing the field `vatEnabled` = true, the value of VAT must also be specified in the position |
-| <a name="error_17022">17022</a> | Error saving document: {variety type} cannot be part of a position of a document of type {document_type} | Assortment type to be added cannot be an item in this document type |
+| <a name="error_17016">17016</a> | Error saving document: set cannot be part of item of document of type {document_type} | A kit cannot be an item in the following documents: supplier order, supplier invoice, Receiving, return to supplier, commission agent report issued, commission agent report received, write-off, capitalization, movement, inventory, technical. map, internal order. |
+| <a name="error_17018">17018</a> | Error saving document: Number of kits must be an integer | The number of kits in a item must be an integer|
+| <a name="error_17020">17020</a> | Error saving document item: item of packaging and item of item differ | For a given document item, the goods from the package and the specified goods differ |
+| <a name="error_17021">17021</a> | Error saving document item: if it is indicated that the item is taxable, then the vat field must be filled in. Otherwise, vatEnabled for the item must be false | When passing the field `vatEnabled` = true, the value of VAT must also be specified in the item |
+| <a name="error_17022">17022</a> | Error saving document: {variety type} cannot be part of a item of a document of type {document_type} | Assortment type to be added cannot be an item in this document type |
 | <a name="error_17101">17101</a> | Document saving error: item <name of item> has no labeled product attribute. Change the product to save the marking codes | Set the labeled product attribute 'trackingType' of the corresponding category for the product|
 | <a name="error_17102">17102</a> | Error saving document: incorrect marking code format <value KM / KM TU / KM PU> | The marking code for all categories of marked products must follow the format: <ul><li>01+GTIN+21+SERIAL. GTIN - product identifier of 14 digits, SERIAL - serial number of 13 characters. Example: <b><font color='green'>01</font>04630037590265<font color='green'>21</font>K6UT)6\"pIG-<</b></li></ul>Exceptions:<ul></li>Tobacco products, pack: GTIN+SERIAL GTIN - product identifier of 14 digits, SERIAL - serial number of 7 characters</li><li>Tobacco products, unit (package): 01+GTIN+21+SERIAL GTIN is a 14-digit item ID, SERIAL is a 7-character serial number Example: <b>01</b>04630034070029<b>21</b>tXXXu%d</li><li>Cameras and flash lamps: 01+GTIN+21+SERIAL GTIN is a 14-digit product identifier, SERIAL is a 20-character serial number</li><li>The shipping packaging marking code of the product must contain 18 numbers - GS1 format</li></ul> |
-| <a name="error_17103">17103</a> | Error saving the document: there are several identical codes in the document <value KM / KM TU / KM PU> | Among the marking codes there are duplicates. Remove duplicate marking codes to save position |
+| <a name="error_17103">17103</a> | Error saving the document: there are several identical codes in the document <value KM / KM TU / KM PU> | Among the marking codes there are duplicates. Remove duplicate marking codes to save item |
 | <a name="error_17104">17104</a> | Document saving error: marking code <КМ> cannot contain nested codes | It is allowed to save a list of marking codes <b>trackingcode</b>, a list of consumer packages <b>consumerpack</b>, a list of transport packages <b>transportpack</b>, a list of marking codes <b>trackingcode</b> nested into <b>transportpack</b> transport packages or <b>consumerpack</b> consumer packages, list of <b>consumerpack</b> consumer packages nested in <b>transportpack</b> transport packages. Saving other nested structures is not supported |
-| <a name="error_17105">17105</a> | Document saving error: shipping package marking code <КМ ТУ> cannot contain nested shipping package codes | It is acceptable to save a list of <b>trackingcode</b> marking codes or a list of <b>consumerpack</b> consumer packages nested in <b>transportpack</b> transport packages. Shipping packages nested in shipping packages not supported |
+| <a name="error_17105">17105</a> | Document saving error: shipping package marking code <КМ ТY> cannot contain nested shipping package codes | It is acceptable to save a list of <b>trackingcode</b> marking codes or a list of <b>consumerpack</b> consumer packages nested in <b>transportpack</b> transport packages. Shipping packages nested in shipping packages not supported |
 | <a name="error_17106">17106</a> | Document saving error: Consumer packaging label code cannot contain nested codes | It is allowed to save a list of <b>trackingcode</b> marking codes nested in <b>transportpack</b> transport packages. Save codes not supportedmarking <b>trackingcode</b> enclosed in consumer packages <b>consumerpack</b> |
 | <a name="error_17107">17107</a> | Document saving error: shipping package marking code <КМ ТУ> cannot contain nested codes of goods and consumer packages at the same time | It is acceptable to save a list of <b>trackingcode</b> marking codes or a list of <b>consumerpack</b> consumer packages nested in <b>transportpack</b> transport packages. It is not supported to store them at the same time for the same shipping package |
-| <a name="error_17108">17107</a> | Document position of type <type> cannot contain marking codes | Document items of the specified type cannot have marking codes
+| <a name="error_17108">17107</a> | Document item of type <type> cannot contain marking codes | Document items of the specified type cannot have marking codes
 
 ### Error Codes for Sales and Shipments
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_18000">18000</a> | Sale saving error: amount 'cashSum', 'noCashSum', 'qrSum', 'prepaymentCashSum', 'prepaymentNoCashSum' and 'prepaymentQrSum' does not match the document amount | The sum of the fields cashSum, noCashSum, qrSum, prepaymentCashSum and prepaymentNoCashSum, prepaymentQrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all positions in the document. |
+| <a name="error_18000">18000</a> | Sale saving error: amount 'cashSum', 'noCashSum', 'qrSum', 'prepaymentCashSum', 'prepaymentNoCashSum' and 'prepaymentQrSum' does not match the document amount | The sum of the fields cashSum, noCashSum, qrSum, prepaymentCashSum and prepaymentNoCashSum, prepaymentQrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all items in the document. |
 | <a name="error_18002">18002</a> | Document saving error: Shipment under a commission agreement cannot contain a set as part of items | You cannot add a kit to a shipment if it has a contract of the "Commission" type specified for it." |
 | <a name="error_18005">18005</a> | If the 'qrSum' field is filled in, the 'cashSum', 'noCashSum', 'prepaymentCashSum' and 'prepaymentNoCashSum' fields must be empty | Mixed payment with QR code and card or QR code and cash is not allowed. |
 | <a name="error_18006">18006</a> | If the 'prepaymentQrSum' field is filled in, the 'cashSum', 'noCashSum', 'prepaymentCashSum' and 'prepaymentNoCashSum' fields must be empty | In case of prepayment by QR code, payment is possible only by QR code. |
@@ -293,7 +293,7 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_19000">19000</a> | Save Refund Error: Retail Shift Already Closed | You cannot save a return to a closed retail shift. Make sure you are using the active shift ID. |
 | <a name="error_19001">19001</a> | Error saving retail refund: fields 'cashSum' and 'noCashSum' are required for returns without reason | The fields 'cashSum' and 'noCashSum' are required to be returned without a reason. Make sure they are filled out. |
-| <a name="error_19002">19002</a> | Error saving retail refund: amount of 'cashSum', 'noCashSum' and 'qrSum' does not match document amount | The sum of the fields cashSum, noCashSum and qrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all positions in the document. |
+| <a name="error_19002">19002</a> | Error saving retail refund: amount of 'cashSum', 'noCashSum' and 'qrSum' does not match document amount | The sum of the fields cashSum, noCashSum and qrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all items in the document. |
 | <a name="error_19003">19003</a> | Error saving retail return: return is possible only by QR code | Occurs if the sale was made using a QR code, and the return is made in cash or by card. When creating such a return, the 'cashSum' and 'noCashSum' fields must be absent. |
 | <a name="error_19004">19004</a> | Error saving retail refund: QR code refund is only supported for transactions paid by QR code | Occurs if the sale was made for cash or by card, and the return is made using a QR code. When creating such a return, the 'qrSum' field must be absent. |
 
@@ -301,14 +301,14 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_20000">20000</a> | Error saving acceptance: Cannot specify charges with commission agreement | If an agreement of the "Commission agreement" type is attached to the acceptance, then you cannot specify any value in the overhead field. |
+| <a name="error_20000">20000</a> | Receiving Saving Error: Cannot specify Write-offs with commission agreement | If an agreement of the "Commission agreement" type is attached to the Receiving, then you cannot specify any value in the overhead field. |
 
 ### Error codes for Transfers
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
 | <a name="error_21000">21000</a> | Error saving transfer: cannot transfer from warehouse to the same warehouse | Make sure you specify warehouses with different IDs in the sourceStore and targetStore fields. |
-| <a name="error_21001">21001</a> | Error saving move: cannot move to the same cell | Make sure that in the transfer document from the same warehouse, in the sourceSlot and targetSlot fields in the positions, specify cells with different identifiers. |
+| <a name="error_21001">21001</a> | Error saving move: cannot move to the same cell | Make sure that in the transfer document from the same warehouse, in the sourceSlot and targetSlot fields in the items, specify cells with different identifiers. |
 
 ### Error codes for Payments
 
@@ -337,8 +337,8 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_25001">25001</a> | Error saving technological operation: the positions of the operation do not correspond to the positions of those. cards | Check the conformity of products and materials of those. operations and tech. cards. |
-| <a name="error_25002">25002</a> | Error saving technological operation: composition of positions cannot be changed | Composition of products and materials operations cannot be changed. |
+| <a name="error_25001">25001</a> | Error saving technological operation: the items of the operation do not correspond to the items of those. cards | Check the conformity of products and materials of product operations. |
+| <a name="error_25002">25002</a> | Error saving technological operation: composition of items cannot be changed | Composition of products and materials operations cannot be changed. |
 | <a name="error_25030">25030</a> | Save error: number of workflow steps cannot be greater than '100' | The maximum number of stages is 100 per technical process. |
 | <a name="error_25031">25031</a> | Save Error: Workflow cannot contain repetitive manufacturing steps | Each stage of production can occur only once in the process. |
 | <a name="error_25032">25032</a> | Object deletion error: Cannot delete main workflow | Deletion is possible only for custom workflows. |
@@ -416,7 +416,7 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_34000">34000</a> | Posts for type '{type}' are not supported | Postings are only available for the following types: Purchase Order, Purchase Invoice, Shipment, Vendor Order, Vendor Invoice, Receipt, Incoming Payment, Receipt Order, Outgoing Payment, Issue Order, Internal Order, Transfer, Posting, Debit, Invoice Issued, Invoice Invoice Received, Return to Supplier, Return to Buyer, Payout, Deposit of Money, Retail Return, Retail Sale, Contract, Retail Shift, Production Order, Commissioner's Report Received, Commissioner's Report Issued, Inventory, Tech. Operation. |
+| <a name="error_34000">34000</a> | Posts for type '{type}' are not supported | Postings are only available for the following types: Purchase Order, Purchase Invoice, Shipment, Vendor Order, Vendor Invoice, Receiving, Incoming Payment, Receiving, Outgoing Payment, Issue Order, Internal Order, Transfer, Posting, Debit, Invoice Issued, Invoice Invoice Received, Return to Supplier, Return to Buyer, Payout, Deposit of Money, Retail Return, Retail Sale, Contract, Retail Shift, Production Order, Commissioner's Report Received, Commissioner's Report Issued, Inventory. |
 | <a name="error_34001">34001</a> | Failed to create publication. Check if the template is correct. | An error occurred while generating the document. Check the correctness of the passed template.|
 | <a name="error_34002">34002</a> | Error creating a document publication: Your tariff does not allow creating a document publication based on a custom printable template | Your billing plan does not allow you to use custom templates when publishing documents. |
 | <a name="error_34003">34003</a> | Error: You cannot work with the publication of the entity because there is no access to it on '<read, write>'. | User work with document publications is possible if there is a read right and a print right for an entity of this type. |

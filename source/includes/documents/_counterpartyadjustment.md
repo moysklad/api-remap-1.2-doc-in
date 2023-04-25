@@ -1,830 +1,835 @@
-## Корректировка баланса контрагента
-Средствами JSON API можно создавать и обновлять сведения о Корректировках баланса контрагента, запрашивать списки Корректировок баланса контрагента и сведения по отдельным Корректировкам баланса контрагента. 
-Кодом сущности для Корректировки баланса контрагента в составе JSON API является ключевое слово **counterpartyadjustment**. Больше о Корректировках баланса контрагента и работе с ними в основном интерфейсе вы можете прочитать в нашей службе поддержки по  [этой ссылке](https://support.moysklad.ru/hc/ru/articles/360024662574-%D0%9A%D0%BE%D1%80%D1%80%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B0-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D0%B0).
+## Counterparty balance adjustment
 
-### Корректировки баланса контрагента
-#### Атрибуты сущности
+Using the JSON API, you can create and update information about Counterparty Balance Adjustments, query lists of Counterparty Balance Adjustments, and information on individual Counterparty Balance Adjustments.
 
-| Название         | Тип                                                       | Фильтрация                                                                                                                                        | Описание                                                                                                                                      |
-| ---------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId**    | UUID                                                      | `=` `!=`                                                                                                                                          | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                          |
-| **agent**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные контрагента<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании`                                                     |
-| **applicable**   | Boolean                                                   | `=` `!=`                                                                                                                                          | Отметка о проведении<br>`+Обязательное при ответе`                                                                                            |
-| **attributes**   | Array(Object)                                             | [Операторы доп. полей](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Коллекция метаданных доп. полей. [Поля объекта](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)                       |
-| **created**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата создания<br>`+Обязательное при ответе` `+Только для чтения`                                                                              |
-| **deleted**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего удаления Корректировки баланса контрагента<br>`+Только для чтения`                                                          |
-| **description**  | String(4096)                                              | `=` `!=` `~` `~=` `=~`                                                                                                                            | Комментарий Корректировки баланса контрагента                                                                                                 |
-| **externalCode** | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Внешний код Корректировки баланса контрагента<br>`+Обязательное при ответе`                                                                   |
-| **files**        | MetaArray                                                 |                                                                                                                                                   | Метаданные массива [Файлов](../dictionaries/#suschnosti-fajly) (Максимальное количество файлов - 100)<br>`+Обязательное при ответе` `+Expand` |
-| **group**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                      |
-| **id**           | UUID                                                      | `=` `!=`                                                                                                                                          | ID Корректировки баланса контрагента<br>`+Обязательное при ответе` `+Только для чтения`                                                       |
-| **meta**         | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                                                                                                                                                   | Метаданные Корректировки баланса контрагента<br>`+Обязательное при ответе`                                                                    |
-| **moment**       | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Дата документа<br>`+Обязательное при ответе`                                                                                                  |
-| **name**         | String(255)                                               | `=` `!=` `~` `~=` `=~`                                                                                                                            | Наименование Корректировки баланса контрагента<br>`+Обязательное при ответе`                                                                  |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Метаданные юрлица<br>`+Обязательное при ответе` `+Expand` `+Необходимо при создании`                                                          |
-| **owner**        | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`                                                                                                                                          | Владелец (Сотрудник)<br>`+Обязательное при ответе` `+Expand`                                                                                  |
-| **printed**      | Boolean                                                   |                                                                                                                                                   | Напечатан ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                      |
-| **published**    | Boolean                                                   |                                                                                                                                                   | Опубликован ли документ<br>`+Обязательное при ответе` `+Только для чтения`                                                                    |
-| **shared**       | Boolean                                                   | `=` `!=`                                                                                                                                          | Общий доступ<br>`+Обязательное при ответе`                                                                                                    |
-| **sum**          | Int                                                       | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Сумма Корректировки баланса контрагента в копейках<br>`+Обязательное при ответе` `+Только для чтения`                                         |
-| **updated**      | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=`                                                                                                                        | Момент последнего обновления Корректировки баланса контрагента<br>`+Обязательное при ответе` `+Только для чтения`                             |
+The entity code for Counterparty Balance Adjustment as part of the JSON API is the **counterpartyadjustment** keyword. Learn more about [counterparty balance adjusting](https://kladana.zendesk.com/hc/en-us/articles/6512840609821-How-to-adjust-balance-of-counterparty).
 
-### Получить список Корректировок баланса контрагента
-Запрос всех Корректировок баланса контрагента на данной учетной записи.
-Результат: Объект JSON, включающий в себя поля:
+### Counterparty balance adjustments
+#### Entity attributes
 
-| Название    | Тип                                                       | Описание                                                                      |
-| ----------- | :-------------------------------------------------------- | :---------------------------------------------------------------------------- |
-| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о выдаче,                                                          |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Метаданные о сотруднике, выполнившем запрос.                                  |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Корректировки баланса контрагента. |
+| Title | | Filtration | Description |
+| ------- | ---- | ---- | ----- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) |
+| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only` |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Counterparty Balance Adjustment ID<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Counterparty balance adjustments<br>`+Required when replying` |
+| **moment** | datetime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Counterparty balance adjustments<br>`+Required when replying` |
+| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only` |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of Counterparty Balance Adjustment in rupees<br>`+Required when replying` `+Read only` |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only` |
 
-**Параметры**
+### Get a list of Counterparty Balance Adjustments
+Request for all Counterparty Balance Adjustments on a given account.
+Result: JSON object including fields:
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-| **search**                     | `string` (optional) *Example: 0001* Фильтр документов по указанной поисковой строке.                                                   |
+| Title | Type | Description |
+| ----------- | ------- | -------- |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing counterparty balance adjustments. |
 
-> Получить список Корректировок баланса контрагента
+**Parameters**
+
+| Parameter | Description |
+| ------- | -------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| **search** |`string` (optional) *Example: 0001* Filter documents by the specified search string. |
+
+> Get a list of Counterparty Balance Adjustments
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Корректировок баланса контрагента.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of Counterparty Balance Adjustments.
 
 ```json
 {
-  "context": {
-    "employee": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json"
-      }
-    }
-  },
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/",
-    "type": "counterpartyadjustment",
-    "mediaType": "application/json",
-    "size": 2,
-    "limit": 1000,
-    "offset": 0
-  },
-  "rows": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-        "type": "counterpartyadjustment",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=1bb899bc-0b17-11ec-ac16-000a00000006"
-      },
-      "id": "1bb899bc-0b17-11ec-ac16-000a00000006",
-      "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2021-09-01 14:24:01.814",
-      "name": "00002",
-      "externalCode": "uUqTX1fBhBcEReQytuMOa2",
-      "moment": "2021-09-01 14:24:00.000",
-      "applicable": true,
-      "sum": 12.0,
-      "agent": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-          "type": "counterparty",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-        }
-      },
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-        }
-      },
-      "created": "2021-09-01 14:24:01.873",
-      "printed": false,
-      "published": false,
-      "attributes": [
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes/f478774c-0bfb-11ec-ac12-000d000000d1",
-            "type": "attributemetadata",
-            "mediaType": "application/json"
-          },
-          "id": "f478774c-0bfb-11ec-ac12-000d000000d1",
-          "name": "Адрес проживания",
-          "type": "string",
-          "value": "Гороховая улица д. 666"
-        }
-      ],
-      "files": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006/files",
-          "type": "files",
-          "mediaType": "application/json",
-          "size": 0,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-        "type": "counterpartyadjustment",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=24d56ba6-0b14-11ec-ac16-000b00000013"
-      },
-      "id": "24d56ba6-0b14-11ec-ac16-000b00000013",
-      "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-      "owner": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-        }
-      },
-      "shared": false,
-      "group": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
-      "updated": "2021-09-01 14:19:49.993",
-      "name": "00001",
-      "description": "description",
-      "externalCode": "W5JWJ02SgTK5JRdcyQBUN0",
-      "moment": "2021-09-01 14:02:00.000",
-      "applicable": true,
-      "sum": 21300.0,
-      "agent": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-          "type": "counterparty",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-        }
-      },
-      "organization": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-          "type": "organization",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-        }
-      },
-      "created": "2021-09-01 14:02:48.685",
-      "printed": false,
-      "published": false,
-      "files": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013/files",
-          "type": "files",
-          "mediaType": "application/json",
-          "size": 0,
-          "limit": 1000,
-          "offset": 0
-        }
-      }
-    }
-  ]
+   context: {
+     "employee": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     }
+   },
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/",
+     "type": "counterpartyadjustment",
+     "mediaType": "application/json",
+     size: 2
+     limit: 1000
+     offset: 0
+   },
+   rows: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+         "type": "counterpartyadjustment",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=1bb899bc-0b17-11ec-ac16-000a00000006"
+       },
+       "id": "1bb899bc-0b17-11ec-ac16-000a00000006",
+       "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2021-09-01 14:24:01.814",
+       "name": "00002",
+       "externalCode": "uUqTX1fBhBcEReQytuMOa2",
+       "moment": "2021-09-01 14:24:00.000",
+       "applicable": true
+       sum: 12.0
+       agent: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "type": "counter party",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+         }
+       },
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+         }
+       },
+       "created": "2021-09-01 14:24:01.873",
+       "printed": false
+       "published": false
+       "attributes": [
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes/f478774c-0bfb-11ec-ac12-000d000000d1",
+             "type": "attributemetadata",
+             "mediaType": "application/json"
+           },
+           "id": "f478774c-0bfb-11ec-ac12-000d000000d1",
+           "name": "Address of residence",
+           "type": "string",
+           "value": "Gorokhovaya street, 666"
+         }
+       ],
+       "files": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006/files",
+           "type": "files",
+           "mediaType": "application/json",
+           size: 0
+           limit: 1000
+           offset: 0
+         }
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+         "type": "counterpartyadjustment",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=24d56ba6-0b14-11ec-ac16-000b00000013"
+       },
+       "id": "24d56ba6-0b14-11ec-ac16-000b00000013",
+       "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+       "owner": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+         }
+       },
+       shared: false
+       group: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
+       "updated": "2021-09-01 14:19:49.993",
+       "name": "00001",
+       "description": "description",
+       "externalCode": "W5JWJ02SgTK5JRdcyQBUN0",
+       "moment": "2021-09-01 14:02:00.000",
+       "applicable": true
+       sum: 21300.0,
+       agent: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "type": "counter party",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+         }
+       },
+       organization: {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "type": "organization",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+         }
+       },
+       "created": "2021-09-01 14:02:48.685",
+       "printed": false
+       "published": false
+       "files": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013/files",
+           "type": "files",
+           "mediaType": "application/json",
+           size: 0
+           limit: 1000
+           offset: 0
+         }
+       }
+     }
+   ]
 }
 ```
 
-### Создать Корректировку баланса контрагента
-Запрос на создание новой Корректировки баланса контрагента.
-Обязательные для создания поля:
+### Create Counterparty Balance Adjustment
+Request to create a new Counterparty Balance Adjustment.
+Mandatory fields to create:
 
-| Параметр                       | Описание                                                                                        |
-| ------------------------------ | :---------------------------------------------------------------------------------------------- |
-| **organization**               | Ссылка на ваше юрлицо в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent**                      | Ссылка на контрагента в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| Parameter | Description |
+| ------- | -------- |
+| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **agent** | Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
 
-> Пример создания новой Корректировки баланса контрагента.
+> An example of creating a new Counterparty Balance Adjustment.
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "agent": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "counterparty",
-                "mediaType": "application/json",
-                "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-              }
-            },
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json",
-                "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-              }
-            },
-            "sum": 12.5
-          }
-'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             agent: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "type": "counter party",
+                 "mediaType": "application/json",
+                 "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+               }
+             },
+             organization: {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "type": "organization",
+                 "mediaType": "application/json",
+                 "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+               }
+             },
+             sum: 12.5
+           }
+'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданной Корректировки баланса контрагента.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the created Counterparty Balance Adjustment.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-    "type": "counterpartyadjustment",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=2775d672-0b1a-11ec-ac16-000a0000000a"
-  },
-  "id": "2775d672-0b1a-11ec-ac16-000a0000000a",
-  "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-09-01 14:45:50.001",
-  "name": "00003",
-  "externalCode": "TKlkN7I6jVg9lbUPJlvK-0",
-  "moment": "2021-09-01 14:45:00.000",
-  "applicable": true,
-  "sum": 12.5,
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-    }
-  },
-  "created": "2021-09-01 14:45:50.060",
-  "printed": false,
-  "published": false,
-  "files": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a/files",
-      "type": "files",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "type": "counterpartyadjustment",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=2775d672-0b1a-11ec-ac16-000a0000000a"
+   },
+   "id": "2775d672-0b1a-11ec-ac16-000a0000000a",
+   "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-09-01 14:45:50.001",
+   "name": "00003",
+   "externalCode": "TKlkN7I6jVg9lbUPJlvK-0",
+   "moment": "2021-09-01 14:45:00.000",
+   "applicable": true
+   sum: 12.5
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+     }
+   },
+   "created": "2021-09-01 14:45:50.060",
+   "printed": false
+   "published": false
+   "files": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a/files",
+       "type": "files",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Массовое создание и обновление Корректировок баланса контрагента
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Корректировок баланса контрагента.
-В теле запроса нужно передать массив, содержащий JSON представления Корректировок баланса контрагента, которые вы хотите создать или обновить.
-Обновляемые Корректировки баланса контрагента должны содержать идентификатор в виде метаданных.
+### Bulk creation and updating of counterparty balance adjustments
 
-> Пример создания и обновления нескольких Корректировок баланса контрагента
+[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Counterparty balance adjustments.
+In the body of the request, you need to pass an array containing a JSON representation of the Counterparty Balance Adjustments that you want to create or update.
+Updated Counterparty Balance Adjustments must contain the identifier in the form of metadata.
+
+> Example of creating and updating multiple Counterparty Balance Adjustments
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '[
-            {
-              "agent": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                  "type": "counterparty",
-                  "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-                }
-              },
-              "organization": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                  "type": "organization",
-                  "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-                }
-              },
-              "sum": 12.5
-            },
-            {
-              "agent": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                  "type": "counterparty",
-                  "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
-                }
-              },
-              "organization": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                  "type": "organization",
-                  "mediaType": "application/json",
-                  "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
-                }
-              },
-              "sum": 32
-            }
-          ]'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               agent: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                   "type": "counter party",
+                   "mediaType": "application/json",
+                   "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+                 }
+               },
+               organization: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "type": "organization",
+                   "mediaType": "application/json",
+                   "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+                 }
+               },
+               sum: 12.5
+             },
+             {
+               agent: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                   "type": "counter party",
+                   "mediaType": "application/json",
+                   "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
+                 }
+               },
+               organization: {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "type": "organization",
+                   "mediaType": "application/json",
+                   "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
+                 }
+               },
+               sum: 32
+             }
+           ]'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Корректировок баланса контрагента.
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of created and updated Counterparty Balance Adjustments.
 
 ```json
 [
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-      "type": "counterpartyadjustment",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=13bf011a-0b1b-11ec-ac16-000a0000000e"
-    },
-    "id": "13bf011a-0b1b-11ec-ac16-000a0000000e",
-    "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2021-09-01 14:52:26.430",
-    "name": "00004",
-    "externalCode": "WWA5w--1ggqvF29G28atu1",
-    "moment": "2021-09-01 14:52:00.000",
-    "applicable": true,
-    "sum": 12.5,
-    "agent": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "counterparty",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-      }
-    },
-    "organization": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-      }
-    },
-    "created": "2021-09-01 14:52:26.476",
-    "printed": false,
-    "published": false,
-    "files": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e/files",
-        "type": "files",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }
-    }
-  },
-  {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-      "type": "counterpartyadjustment",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=13cc2d25-0b1b-11ec-ac16-000a00000012"
-    },
-    "id": "13cc2d25-0b1b-11ec-ac16-000a00000012",
-    "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-    "owner": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-        "type": "employee",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-      }
-    },
-    "shared": false,
-    "group": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-        "type": "group",
-        "mediaType": "application/json"
-      }
-    },
-    "updated": "2021-09-01 14:52:26.560",
-    "name": "00005",
-    "externalCode": "qDER7dHnjwb-cSk62SHAu2",
-    "moment": "2021-09-01 14:52:00.000",
-    "applicable": true,
-    "sum": 32.0,
-    "agent": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-        "type": "counterparty",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
-      }
-    },
-    "organization": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-        "type": "organization",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
-      }
-    },
-    "created": "2021-09-01 14:52:26.576",
-    "printed": false,
-    "published": false,
-    "files": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012/files",
-        "type": "files",
-        "mediaType": "application/json",
-        "size": 0,
-        "limit": 1000,
-        "offset": 0
-      }
-    }
-  }
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+       "type": "counterpartyadjustment",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=13bf011a-0b1b-11ec-ac16-000a0000000e"
+     },
+     "id": "13bf011a-0b1b-11ec-ac16-000a0000000e",
+     "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2021-09-01 14:52:26.430",
+     "name": "00004",
+     "externalCode": "WWA5w--1ggqvF29G28atu1",
+     "moment": "2021-09-01 14:52:00.000",
+     "applicable": true
+     sum: 12.5
+     agent: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "counter party",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+       }
+     },
+     organization: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+       }
+     },
+     "created": "2021-09-01 14:52:26.476",
+     "printed": false
+     "published": false
+     "files": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e/files",
+         "type": "files",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     }
+   },
+   {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+       "type": "counterpartyadjustment",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=13cc2d25-0b1b-11ec-ac16-000a00000012"
+     },
+     "id": "13cc2d25-0b1b-11ec-ac16-000a00000012",
+     "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+     "owner": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+       }
+     },
+     shared: false
+     group: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
+     "updated": "2021-09-01 14:52:26.560",
+     "name": "00005",
+     "externalCode": "qDER7dHnjwb-cSk62SHAu2",
+     "moment": "2021-09-01 14:52:00.000",
+     "applicable": true
+     sum: 32.0
+     agent: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "counter party",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
+       }
+     },
+     organization: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "type": "organization",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
+       }
+     },
+     "created": "2021-09-01 14:52:26.576",
+     "printed": false
+     "published": false
+     "files": {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012/files",
+         "type": "files",
+         "mediaType": "application/json",
+         size: 0
+         limit: 1000
+         offset: 0
+       }
+     }
+   }
 ]
 ```
 
-### Удалить Корректировку баланса контрагента
+### Delete counterparty balance adjustment
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                                  |
-| :------- | :-------------------------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Корректировки баланса контрагента. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Counterparty balance adjustments. |
 
-> Запрос на удаление Корректировки баланса контрагента с указанным id.
+> Request to delete Account adjustments of the counterparty with the specified id.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешное удаление Корректировки баланса контрагента.
+> Response 200(application/json)
+Successful deletion of Counterparty Balance Adjustments.
 
-### Массовое удаление Корректировок баланса контрагента
+### Bulk deletion of counterparty balance adjustments
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Корректировок баланса контрагента, которые вы хотите удалить.
+In the body of the request, you need to pass an array containing JSON of the metadata of the Counterparty Balance Adjustments that you want to delete.
 
 
-> Запрос на массовое удаление Корректировок баланса контрагента.
+> Request for bulk deletion of counterparty balance adjustments.
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-  -d '[
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-            "type": "counterpartyadjustment",
-            "mediaType": "application/json"
-        },
-        {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-            "type": "counterpartyadjustment",
-            "mediaType": "application/json"
-        }
-      ]'
-```        
+   "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/delete"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+   -d'[
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+             "type": "counterpartyadjustment",
+             "mediaType": "application/json"
+         },
+         {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+             "type": "counterpartyadjustment",
+             "mediaType": "application/json"
+         }
+       ]'
+```
 
-> Успешный запрос. Результат - JSON информация об удалении Корректировок баланса контрагента.
+> Successful request. Result - JSON information about the deletion of counterparty balance adjustments.
 
 ```json
 [
-  {
-    "info":"Сущность 'counterpartyadjustment' с UUID: 7944ef04-f831-11e5-7a69-971500188b1 успешно удалена"
-  },
-  {
-    "info":"Сущность 'counterpartyadjustment' с UUID: 7944ef04-f831-11e5-7a69-971500188b2 успешно удалена"
-  }
+   {
+     "info":"Entity 'counterpartyadjustment' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully removed"
+   },
+   {
+     "info":"Entity 'counterpartyadjustment' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully removed"
+   }
 ]
-``` 
+```
 
-### Метаданные Корректировок баланса контрагента
-#### Метаданные Корректировок баланса контрагента
-Запрос на получение метаданных Корректировок баланса контрагента. Результат - объект JSON, включающий в себя:
+### Metadata of Counterparty Balance Adjustments
+#### Metadata of Counterparty Balance Adjustments
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **meta**                       | Ссылка на метаданные Корректировок баланса контрагента                                                                                 |
-| **attributes**                 | Массив объектов доп. полей Корректировок баланса контрагента в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **createShared**               | создавать новые Корректировки баланса контрагента с меткой "Общий"                                                                     |
+Request to receive metadata of counterparty balance adjustments. The result is a JSON object including:
 
-Структура отдельного объекта, представляющего доп. поле подробно описана в разделе [Работа с дополнительными полями](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+| Parameter | Description |
+| ------- | -------- |
+| **meta** | Link to metadata of counterparty balance adjustments |
+| **attributes** | Array of objects additional counterparty balance adjustment fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **createShared** | create new counterparty balance adjustments labeled "General" |
 
-> Метаданные Корректировок баланса контрагента
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+
+> Metadata of Counterparty Balance Adjustments
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление доп. полей Корректировок баланса контрагента.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the additional counterparty balance adjustment fields.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-    "mediaType": "application/json"
-  },
-  "attributes": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes",
-      "type": "attributemetadata",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "createShared": false
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "mediaType": "application/json"
+   },
+   "attributes": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes",
+       "type": "attributemetadata",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   },
+   "createShared": false
 }
 ```
 
-### Корректировка баланса контрагента
+### Counterparty balance adjustment
 
-### Получить Корректировку баланса контрагента
+### Get counterparty balance adjustment
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                                  |
-| :------- | :-------------------------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Корректировки баланса контрагента. |
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Counterparty balance adjustments. |
 
-> Запрос на получение отдельной Корректировки баланса контрагента с указанным id.
+> Request to receive a separate Counterparty Balance Adjustment with the specified id.
 
 ```shell
 curl -X GET
-  "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+   "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Корректировки баланса контрагента.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of Counterparty Balance Adjustments.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-    "type": "counterpartyadjustment",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
-  },
-  "id": "7944ef04-f831-11e5-7a69-971500188b19",
-  "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-09-01 14:52:26.430",
-  "name": "00004",
-  "externalCode": "WWA5w--1ggqvF29G28atu1",
-  "moment": "2021-09-01 14:52:00.000",
-  "applicable": true,
-  "sum": 12.5,
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-    }
-  },
-  "created": "2021-09-01 14:52:26.476",
-  "printed": false,
-  "published": false,
-  "files": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
-      "type": "files",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "type": "counterpartyadjustment",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b19",
+   "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-09-01 14:52:26.430",
+   "name": "00004",
+   "externalCode": "WWA5w--1ggqvF29G28atu1",
+   "moment": "2021-09-01 14:52:00.000",
+   "applicable": true
+   sum: 12.5
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+     }
+   },
+   "created": "2021-09-01 14:52:26.476",
+   "printed": false
+   "published": false
+   "files": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
+       "type": "files",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```
 
-### Изменить Корректировку баланса контрагента
-Запрос на обновление Корректировки баланса контрагента с указанным id.
-В теле запроса можно указать только те поля, которые необходимо изменить у Корректировки баланса контрагента, кроме тех, что
-помечены `Только для чтения` в описании [атрибутов Корректировки баланса контрагента](../documents/#dokumenty-korrektirowka-balansa-kontragenta).
+### Change counterparty balance adjustment
 
-**Параметры**
+Request to update the balance adjustment of the counterparty with the specified id.
+In the body of the request, you can specify only those fields that need to be changed in the Adjustment of the balance of the counterparty, except for those that
+are marked `Read-only` in the description of [Attributes of Counterparty Balance Adjustment](../documents/#dokumenty-korrektirowka-balansa-kontragenta).
 
-| Параметр | Описание                                                                                                  |
-| :------- | :-------------------------------------------------------------------------------------------------------- |
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Корректировки баланса контрагента. |
+**Parameters**
 
-> Пример запроса на обновление отдельной Корректировки баланса контрагента.
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Counterparty balance adjustments. |
+
+> An example of a request to update a single Counterparty Balance Adjustment.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "sum": 123
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             sum: 123
+           }'
 ```
 
-> Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленной Корректировки баланса контрагента.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the updated Counterparty Balance Adjustment.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-    "type": "counterpartyadjustment",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
-  },
-  "id": "7944ef04-f831-11e5-7a69-971500188b19",
-  "accountId": "9067e733-099c-11ec-ac16-000c00000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2021-09-01 14:52:26.430",
-  "name": "00004",
-  "externalCode": "WWA5w--1ggqvF29G28atu1",
-  "moment": "2021-09-01 14:52:00.000",
-  "applicable": true,
-  "sum": 123.0,
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
-    }
-  },
-  "created": "2021-09-01 14:52:26.476",
-  "printed": false,
-  "published": false,
-  "files": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
-      "type": "files",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 1000,
-      "offset": 0
-    }
-  }
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "type": "counterpartyadjustment",
+     "mediaType": "application/json",
+     "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b19",
+   "accountId": "9067e733-099c-11ec-ac16-000c00000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2021-09-01 14:52:26.430",
+   "name": "00004",
+   "externalCode": "WWA5w--1ggqvF29G28atu1",
+   "moment": "2021-09-01 14:52:00.000",
+   "applicable": true
+   sum: 123.0
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+     }
+   },
+   "created": "2021-09-01 14:52:26.476",
+   "printed": false
+   "published": false
+   "files": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
+       "type": "files",
+       "mediaType": "application/json",
+       size: 0
+       limit: 1000
+       offset: 0
+     }
+   }
 }
 ```

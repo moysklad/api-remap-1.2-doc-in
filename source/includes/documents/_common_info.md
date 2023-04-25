@@ -1,577 +1,577 @@
 # Transactions
-## Общие сведения
-### Шаблоны документов
+## Transaction templates
 
-**Шаблон** - предзаполненный стандартными полями JSON-объект, который затем можно использовать для успешного создания документа.
-Средствами JSON API можно получать предзаполненные шаблоны документов. Они могут быть предзаполнены как на основе других документов, так и стандартными значениями без связей с другими документами.
-Для этого, во всех документах, по которым можно получить шаблон, существует специальный ресурс `Шаблон документа`, адрес которого формируется следующим образом:<br>
-`https://app.kladana.in/api/remap/1.2/entity/<ключевое слово для документа>/new`
-<br>
-В тело PUT запроса по данному ресурсу нужно передать метаданные документа, на основе которого будет создан шаблон нового документа, либо просто передать пустое тело запроса.
-Метаданные должны быть "обернуты" в объект, имя которого есть ключевое слово для документа-основания в JSON API.
-Для каждого из данных ресурсов есть примеры запросов и ответов.<br>
-На данный момент можно получить шаблоны следующих transactions на основании других:
+Transaction template is a JSON object prefilled with standard fields, which can then be used to successfully create a transaction. Using the JSON API, you can get pre-filled transaction templates. They can be pre-filled both on the basis of other Transactions and with standard values without links to other transactions.
 
-| Transaction                                | Основание, на котором он может быть создан                                                                                                                                               |
-| :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cчет покупателю (invoiceout)            | Заказ покупателя (customerorder)                                                                                                                                                         |
-| Возврат покупателя (salesreturn)        | Отгрузка (demand), <br>Розничная продажа (retaildemand)                                                                                                                                  |
-| Возврат поставщику (purchasereturn)     | Приемка (supply)                                                                                                                                                                         |
-| Входящий платеж (paymentin)             | Заказ покупателя (salesreturn), <br>Возврат поставщику (purchasereturn), <br>Отгрузка (demand), <br>Счет покупателю (invoiceout)|
-| Заказ на производство (processingorder) | Тех. карта (processingplan)                                                                                                                                                              |
-| Заказ поставщику (purchaseorder)        | Внутренний заказ (internalorder)                                                                                                                                                         |
-| Исходящий платеж (paymentout)           | Возврат покупателя (salesreturn), <br>Приемка (supply), <br>Счет поставщика (invoicein), <br>Заказ поставщику (purchaseorder) |
-| Оприходование (enter)                   | Инвентаризация(inventory)                                                                                                                                                                |
-| Отгрузка (demand)                       | Заказ покупателя (customerorder)                                                                                                                                                         |
-| Перемещение (move)                      | Внутренний заказ (internalorder)                                                                                                                                                         |
-| Приходный ордер (cashin)                | Заказ покупателя (salesreturn), <br>Возврат поставщику (purchasereturn), <br>Отгрузка (demand), <br>Счет покупателю (invoiceout)|
-| Расходный ордер (cashout)               | Возврат покупателя (salesreturn), <br>Приемка (supply), <br>Счет поставщика (invoicein), <br>Заказ поставщику (purchaseorder)|
-| Розничная продажа (retaildemand)        | Розничная смена, Заказ покупателя                                                                                                                                                        |
-| Списание (loss)                         | Возврат покупателя (salesreturn),<br>инвентаризация(inventory)                                                                                                                           |
-| Счет поставщика (invoicein)             | Заказ поставщику (purchaseorder)                                                                                                                                                         |
-| Тех. операция (processing)              | Заказ на производство (processingorder), Тех. карта (processingplan)                                                                                                                     |
+To do this, in all Transactions from which you can get a template, there is a special resource `Transaction template`, the address of which is formed as following: `https://app.kladana.in/api/remap/1.2/entity/<transaction keyword>/new`.
 
- В результате PUT запроса по /entity/entityName/new НЕ будет создано нового документа.  
- Возвращаемый предзаполненный объект является лишь "болванкой" с некоторыми заполненными полями (поля заполняются по той же логике,
- что и в аналогичной ситуации в основном интерфейсе), облегчающей создание документа. Он не сохраняется в системе. Этот
- объект затем можно передать в теле запроса на создание соответствующего документа и тогда уже документ будет создан, и связан с документом-основанием.
-<br>
-Если послать на данный ресурс пустое тело запроса, то в итоговом шаблоне будут предзаполнены лишь стандартные поля в т.ч. указанные в настройках пользователя в учетной записи Kladana.
+In the body of the PUT request for this resource, you need to pass the metadata of the transaction, on the basis of which the template of the new transaction will be created, or simply pass an empty request body.
 
-В случае если инвентаризация содержит более 500 подходящих позиций, то шаблон списания (loss) и оприходования (entry) будет создан по первым 500 позициям. 
+The metadata must be "wrapped" in an object whose name is the keyword for the base transaction in the JSON API.
+For each of these resources, there are examples of requests and responses.
 
-С подробностями и примерами по каждому из документов можно ознакомиться в соответствующих разделах документации.
-Например, для шаблона отгрузки - смотреть в [Шаблонах отгрузки](../documents/#dokumenty-otgruzka-shablon-otgruzki)
+At the moment, you can get templates for the following transactions based on others:
 
-### Контекстный поиск для документов
+| Transaction | The basis on which it can be created |
+| --------- | --------- |
+| Invoice to the buyer (invoiceout) | Sales Order (customerorder) |
+| Sales Return (sales return) | Shipment (demand), <br>Retail sale (retaildemand) |
+| Return to supplier (purchasereturn) | receiving(supply) |
+| Incoming payment (paymentin) | Sales Order (salesreturn), <br>Return to supplier (purchasereturn), <br>Shipping (demand), <br>Invoice to buyer (invoiceout)|
+| Production order (processingorder) | Those. map (processingplan) |
+| Order to the supplier (purchaseorder) | Internal order (internalorder) |
+| Outgoing payment (paymentout) | Sales Return(salesreturn), <br>Receiving (supply), <br>Vendor Invoice (invoicein), <br>Order to Supplier (purchaseorder) |
+| Stock Adjustment (enter) | Inventory Count(inventory) |
+| Shipment (demand) | Sales Order (customerorder) |
+| Move (move) | Internal order (internalorder) |
+| Credit order (cashin) | Sales Order (salesreturn), <br>Return to supplier (purchasereturn), <br>Shipping (demand), <br>Invoice to buyer (invoiceout)|
+| Cashout |Sales Return (salesreturn), <br>Receiving (supply), <br>Supplier Invoice (invoicein), <br>Order to Supplier (purchaseorder)|
+| Retail sale (retaildemand) | Retail shift, Sales Order |
+| Write-off (loss) | Sales Return (salesreturn),<br>Inventory Count(inventory) |
+| Supplier invoice (invoicein) | Order to the supplier (purchaseorder) |
+| Those. operation (processing) | Production order (processingorder), Bills of Materials (processingplan) |
 
-В JSON API можно осуществлять контекстный поиск среди списка сущностей определенного типа по их строковым полям. Для этого
-используется URI параметр фильтрации **search**.
+As a resultA PUT request to /entity/entityName/new will NOT create a new transaction. The returned pre-filled object is just a "blank" with some fields filled in (the fields are filled in according to the same logic as as in a similar situation in the main interface), which facilitates the creation of a transaction. It is not stored in the system. This the object can then be passed in the body of the request to create the corresponding transaction, and then the transaction will already be created and associated with the base transaction.
+
+If an empty request body is sent to this resource, then only standard fields will be pre-filled in the final template, incl. specified in the user settings in the Kladana account.
+
+If the Inventory Count contains more than 500 suitable items, then the write-off template (loss) and Stock Adjustment (entry) will be created for the first 500 items.
+
+Details and examples for each of the transactions can be found in the relevant sections of the documentation.
+For example, for a shipping template - look in [Shipping Templates](../documents/#dokumenty-otgruzka-shablon-otgruzki)
+
+### Context search for transactions
+
+The JSON API allows you to contextually search a list of entities of a particular type by their string fields. For this
+the URI filter parameter **search** is used.
 
 + **search**
-  Параметр фильтрации, с помощью которого можно осуществить поиск в списке сущностей. Поиск происходит по основным строковым полям сущностей данного
-  типа. Результатом поиска будет отсортированный по релевантности список сущностей данного типа, прошедших фильтрацию по переданной поисковой строке. В отличии от фильтрации выборки
-  с помощью параметра **filter**, при которой значения проверяются на точное совпадение указанным, при контекстном поиске проверка на совпадение не строгая.
-  Таким образом, если осуществлять фильтрацию вида `../entity/<entity_type>?filter=name=иван` в отфильтрованную выборку попадут только те сущности, поле **name**
-  у которых имеет значение `иван` и никакие другие. При контекстном поиске вида `../entity/<entity_type>?search=иван` будут выведены как сущности с **name** равным
-  `иван`, так и сущности, в имени (или в другом строковом поле) которых `иван` просто содержится, например `диван`, `иванова` и т.п.
+   A filtering option that can be used to search the list of entities. The search takes place on the main string fields of the entities of the given
+   type. The search result will be a list of entities of this type, sorted by relevance, that have been filtered by the passed search string. Unlike selection filtering
+   using the **filter** parameter, in which the values are checked for an exact match to the specified ones, with contextual search, the match check is not strict.
+   Thus, if you filter like `../entity/<entity_type>?filter=name=ivan`, only those entities with the **name** field will get into the filtered selection
+   which have the meaning `ivan` and no others. In a contextual search like `../entity/<entity_type>?search=ivan` will be displayed as entities with **name** equal to
+   `ivan`, and entities whose name (or other string field) simply contains `ivan`, for example, `sofa`, `ivanova`, etc.
 
-  Поиск среди документов на соответствие поисковой строке будет осуществлен по следующим полям:
-  + по наименованию (name)
-  + по описанию (description)
-  + по входящему номеру (incomingNumber)
+   Search among transactions for matching the search string will be carried out in the following fields:
+   + by name (name)
+   + by description
+   + by incoming number (incomingNumber)
 
-  + Примеры запросов контекстного поиска (значения должны быть urlencoded):
-    - `https://app.kladana.in/api/remap/1.2/entity/retaildemand?search=100`
-    - `https://app.kladana.in/api/remap/1.2/entity/salesreturn?search=брак`
-    - `https://app.kladana.in/api/remap/1.2/entity/retailshift?search=ночная`
+   + Examples of contextual search queries (values must be urlencoded):
+     - `https://app.kladana.in/api/remap/1.2/entity/retaildemand?search=100`
+     - `https://app.kladana.in/api/remap/1.2/entity/salesreturn?search=marriage`
+     - `https://app.kladana.in/api/remap/1.2/entity/retailshift?search=night`
 
-### Удаление в корзину
+### Removing to trash
 
-Корзина позволяет избежать риска случайного удаления важных документов. Удаление
-в корзину доступно только при наличии у сотрудника соответствующих прав, а также
-настроек компании на использовании корзины.
+The Recycle Bin helps you avoid the risk of accidentally deleting important transactions. Removal
+to the cart is available only if the employee has the appropriate rights, and company settings on the use of the shopping cart.
 
-### Пример удаления Приемки в корзину 
+### Example of deleting Putaway to Trash
 
-> Запрос на удаление Приемки с указанным id в корзину.
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/supply/be3a3a0e-370c-11e7-1542-821d00000001/trash"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d ''  
-```
-
-> Response 200 (application/json)
-Успешное удаление Приемки.
-
-##### Связи документов
-### Привязка документов к документам 
-
-Для того чтобы привязать к уже существующему документу другой документ нужно
-передать **meta** привязываемого документа в коллекцию связанных документов или в единственный документ этого типа.
-Такие поля присутствуют среди аттрибутов документов. В описании сущностей они описаны в секции **Связи с другими документами**.
-Для коллекций каждое поле называется как ключевое слово для типов привязываемых документов во множественном числе. Например поле **invoicesOut** у отгрузок
-отвечает за связи с счетами покупателю. Если вы хотите привязать к отгрузке счет, в это поле, в составе коллекции, нужно положить **meta** счета покупателя который вы хотите привязать,
-Можно привязывать более 1 документа.
-
-### Пример привязки 1 
-
-Привязка внутреннего заказа к перемещению.
-
-> Пример запроса на привязку внутреннего заказа к перемещению.
+> Request to delete the Acceptance with the specified id in the trash.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "internalOrder": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-                "type": "internalorder",
-                "mediaType": "application/json"
-              }
-            }
-          }'  
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/supply/be3a3a0e-370c-11e7-1542-821d00000001/trash"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d''
 ```
 
-> Response 200 (application/json)
-Результат - перемещение с заполненным полем internalOrder.
+> Response 200(application/json)
+Successful deletion of Acceptance.
+
+### Binding transactions to the transactions
+
+In order to link another transaction to an existing transaction, you need to
+pass the **meta** of the linked transaction to the collection of linked transactions, or to a single transaction of that type.
+
+Such fields are present among transaction attributes. In the description of entities, they are described in the section **Links to other transactions**.
+
+For collections, each field is named as a plural keyword for the types of transactions being linked. For example, the **invoicesOut** field for shipments responsible for communications with Sales invoices. If you want to link an invoice to the shipment, in this field, as part of the collection, you need to put **meta** of the Sales invoice that you want to link, you can link more than 1 transaction.
+
+### Binding example 1
+
+Associating an internal order with a transfer.
+
+> An example of a request to link an internal order to a transfer.
+
+```shell
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "internalOrder": {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
+                 "type": "internal order",
+                 "mediaType": "application/json"
+               }
+             }
+           }'
+```
+
+> Response 200(application/json)
+The result is a move with the internalOrder field filled in.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-    "type": "move",
-    "mediaType": "application/json"
-  },
-  "id": "d9318341-b0da-11e6-8a84-bae5000000c7",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-11-22 20:41:07",
-  "name": "00001",
-  "externalCode": "8Fn2HqBbguhZxoYrjWYAf3",
-  "moment": "2016-11-22 20:40:00",
-  "applicable": true,
-  "sum": 0,
-  "project": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
-      "type": "project",
-      "mediaType": "application/json"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2007-02-07 17:16:41",
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7/positions",
-      "type": "moveposition",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "sourceStore": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "targetStore": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "internalOrder": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-      "type": "internalorder",
-      "mediaType": "application/json"
-    }
-  }
+   "meta": {
+     href: "https://app.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+     "type": "move",
+     "mediaType": "application/json"
+   },
+   "id": "d9318341-b0da-11e6-8a84-bae5000000c7",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-11-22 20:41:07",
+   "name": "00001",
+   "externalCode": "8Fn2HqBbguhZxoYrjWYAf3",
+   "moment": "2016-11-22 20:40:00",
+   "applicable": true
+   sum: 0
+   "project": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+       "type": "project",
+       "mediaType": "application/json"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2007-02-07 17:16:41",
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7/positions",
+       "type": "move position",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   sourcestore: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "targetStore": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   "internalOrder": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
+       "type": "internal order",
+       "mediaType": "application/json"
+     }
+   }
 }
 ```
 
-### Пример привязки 2 
+### Binding example 2
 
-Привязка счета покупателю к отгрузке.
+Linking the invoice to the buyer for the Shipment.
 
-> Пример запроса на привязку счета покупателю к отгрузке.
+> An example of a request to link an invoice to a buyer for a shipment.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "invoicesOut": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-                  "type": "invoiceout",
-                  "mediaType": "application/json"
-                }
-              }
-            ]
-          }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "invoicesOut": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+                   "type": "invoiceout",
+                   "mediaType": "application/json"
+                 }
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Результат - отгрузка с новым элементом в коллекции invoicesOut.
+> Response 200(application/json)
+The result is a shipment with a new item in the invoicesOut collection.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-    "type": "demand",
-    "mediaType": "application/json"
-  },
-  "id": "06406b97-9138-11e6-8a84-bae500000000",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-10-13 14:27:29",
-  "name": "000201",
-  "externalCode": "q5Ot--p3gHJrOFylVF2lQ2",
-  "moment": "2016-10-13 12:38:00",
-  "applicable": false,
-  "sum": 0,
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "agentAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "organizationAccount": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
-      "type": "account",
-      "mediaType": "application/json"
-    }
-  },
-  "created": "2007-02-07 17:16:41",
-  "positions": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/positions",
-      "type": "demandposition",
-      "mediaType": "application/json",
-      "size": 1,
-      "limit": 1000,
-      "offset": 0
-    }
-  },
-  "vatEnabled": true,
-  "vatIncluded": true,
-  "vatSum": 0,
-  "payedSum": 0,
-  "invoicesOut": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-        "type": "invoiceout",
-        "mediaType": "application/json"
-      }
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
+     "type": "demand",
+     "mediaType": "application/json"
+   },
+   "id": "06406b97-9138-11e6-8a84-bae500000000",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-10-13 14:27:29",
+   "name": "000201",
+   "externalCode": "q5Ot--p3gHJrOFylVF2lQ2",
+   "moment": "2016-10-13 12:38:00",
+   "applicable": false
+   sum: 0
+   store: {
+     "meta": {"href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   agentAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   organizationAccount: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
+       "type": "account",
+       "mediaType": "application/json"
+     }
+   },
+   "created": "2007-02-07 17:16:41",
+   positions: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/positions",
+       "type": "demand position",
+       "mediaType": "application/json",
+       size: 1
+       limit: 1000
+       offset: 0
+     }
+   },
+   "vatEnabled": true
+   "vatIncluded": true,
+   "vatSum": 0,
+   "paidSum": 0,
+   "invoicesOut": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "type": "invoiceout",
+         "mediaType": "application/json"
+       }
+     }
+   ]
 }
 ```
 
-### Пример привязки 3
+### Binding example 3
 
-Привязка перемещений к заказу покупателя.
+Linking transfers to the Sales Order.
 
-> Пример запроса на привязку перемещений к заказу покупателя.
+> An example of a request to link transfers to a Sales Order.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "moves": [
-                    {
-                        "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-                            "type": "move",
-                            "mediaType": "application/json",
-                            "uuidHref": "https://app.kladana.in/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
-                        }
-                    },
-                    {
-                        "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-                            "type": "move",
-                            "mediaType": "application/json",
-                            "uuidHref": "https://app.kladana.in/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
-                        }
-                    }
-                ]
-        }'  
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             "moves": [
+                     {
+                         "meta": {
+                             "href": "https://app.kladana.in/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
+                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+                             "type": "move",
+                             "mediaType": "application/json",
+                             "uuidHref": "https://app.kladana.in/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
+                         }
+                     },
+                     {
+                         "meta": {
+                             "href": "https://app.kladana.in/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
+                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+                             "type": "move",
+                             "mediaType": "application/json",
+                             "uuidHref": "https://app.kladana.in/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
+                         }
+                     }
+                 ]
+         }'
 ```
 
-> Response 200 (application/json)
-Результат - заказ покупателя с новыми элементами в коллекции moves.
+> Response 200(application/json)
+The result is a Sales Order with new items in the moves collection.
 
 ```json
 {
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "name": "CustomerOrder 1",
-  "moment": "2016-11-25 17:33:33",
-  "applicable": true,
-  "sum": 0,
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "state": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/8c33b721-8782-11ed-c0a8-a00c000000b6",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-      "type": "state",
-      "mediaType": "application/json"
-    }
-  },
-  "printed": false,
-  "published": false,
-  "files": {
-    "rows": []
-  },
-  "positions": {
-    "rows": []
-  },
-  "vatEnabled": true,
-  "vatIncluded": true,
-  "payedSum": 0.0,
-  "shippedSum": 0.0,
-  "invoicedSum": 0.0,
-  "moves": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-        "type": "move",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
-      }
-    },
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-        "type": "move",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
-      }
-    }
-  ]
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "name": "Sales Order 1",
+   "moment": "2016-11-25 17:33:33",
+   "applicable": true
+   sum: 0
+   store: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   state: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/8c33b721-8782-11ed-c0a8-a00c000000b6",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+       "type": "state",
+       "mediaType": "application/json"
+     }
+   },
+   "printed": false
+   "published": false
+   "files": {
+     rows: []
+   },
+   positions: {
+     rows: []
+   },
+   "vatEnabled": true
+   "vatIncluded": true,
+   "paidSum": 0.0,
+   "shippedSum": 0.0
+   "invoicedSum": 0.0,
+   "moves": [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+         "type": "move",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
+       }
+     },
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+         "type": "move",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
+       }
+     }
+   ]
 }
 ```
 
-### Привязка платежей к transactions
+### Linking payments to transactions
 
-К некоторым документам в JSON API могут быть привязаны платежи. Платежи бывают 4-х типов: [Входящий платеж](../documents/#dokumenty-vhodqschij-platezh), [Приходный ордер](../documents/#dokumenty-prihodnyj-order), [Исходящий платеж](../documents/#dokumenty-ishodqschij-platezh), [Расходный ордер](../documents/#dokumenty-rashodnyj-order).
-Transactions, к которым могут быть привязаны платежи содержат вложенную коллекцию **payments** среди атрибутов документа. Платежи в свою очередь содержат коллекцию **operations** - операции, к которым привязан данный платеж. Для того, чтобы привязать платеж к документу, нужно в запросах
-на создание/обновление платежа в составе коллекции **operations** указать **meta** документа. tTansactions в этой коллекции могут иметь разный тип, однако это не значит, что к любому документу можно привязать все 4 типа платежей. Валидные типы платежей определяются самим документом, к которому происходит привязка. К примеру к полученному отчету комиссионера можно привязать только входящий платеж или приходный ордер. <br>
-В результате привзяки платежа, в составе коллекции **operations** платежа появится новый объект, указывающий на документ, а в составе коллекции **payments** у документа, к которому
-привязывается платеж, появится новый элемент ссылающийся на данный платеж.
+Payments can be attached to some transactions in the JSON API. There are 4 types of payments: [Incoming payment](../documents/#dokumenty-vhodqschij-platezh), [Incoming order](../documents/#dokumenty-prihodnyj-order), [Outgoing payment](.. /documents/#dokumenty-ishodqschij-platezh), [Expense order](../documents/#dokumenty-rashodnyj-order).
 
-### Пример привязки платежа  
+Transactions that can be associated with payments contain a subcollection of **payments** among the transaction attributes. 
 
-Привязка приходного ордера к заказу покупателя.
+Payments, in turn, contain the **operations** collection - the operations to which this payment is linked. In order to link a payment to a transaction, you need to
+to create/update a payment as part of the **operations** collection, specify **meta** of the transaction. 
 
-> Пример запроса на привязку приходного ордера к заказу покупателя.
+Tansactions in this collection can have different types, but this does not mean that all 4 types of payments can be attached to any transaction. 
+
+Valid types of payments are determined by the transaction itself, to which the binding takes place. For example, only an incoming payment or incoming order can be linked to the received commission agent's report. 
+
+As a result of linking the payment, a new object will appear in the **operations** collection of the payment, pointing to the transaction, and in the **payments** collection, the transaction to which a payment is attached, a new element will appear referring to this payment.
+
+### An example of linking a payment
+
+Linking a receipt order to a Sales Order.
+
+> An example of a request to link an incoming order to a Sales Order.
 
 ```shell
-  curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19
+   curl -X PUT
+     "https://app.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19
 "
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '{
-            "operations": [
-              {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-                  "type": "customerorder",
-                  "mediaType": "application/json"
-                }
-              }
-            ]
-          }'  
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d '{
+             operations: [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
+                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+                   "type": "sales order",
+                   "mediaType": "application/json"
+                 }
+               }
+             ]
+           }'
 ```
 
-> Response 200 (application/json)
-Результат - приходный ордер с новым элементом в коллекции operations.
+> Response 200(application/json)
+The result is a credit note with a new element in the operations collection.
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/cashin/834d731c-b313-11e6-8a84-bae50000008e",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/cashin/metadata",
-    "type": "cashin",
-    "mediaType": "application/json"
-  },
-  "id": "834d731c-b313-11e6-8a84-bae50000008e",
-  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-  "owner": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "updated": "2016-11-25 16:31:47",
-  "name": "1111",
-  "externalCode": "WpAtzal3hGUnUfQS55x781",
-  "moment": "2016-11-25 16:31:00",
-  "applicable": true,
-  "sum": 32131000,
-  "contract": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/contract/92df2d9c-ab02-11e6-8a84-bae500000084",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
-      "type": "contract",
-      "mediaType": "application/json"
-    }
-  },
-  "project": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
-      "type": "project",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "vatSum": 0,
-  "operations": [
-    {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-        "type": "customerorder",
-        "mediaType": "application/json"
-      },
-      "linkedSum": 0
-    }
-  ]
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/cashin/834d731c-b313-11e6-8a84-bae50000008e",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/cashin/metadata",
+     "type": "cash",
+     "mediaType": "application/json"
+   },
+   "id": "834d731c-b313-11e6-8a84-bae50000008e",
+   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   shared: false
+   group: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
+   "updated": "2016-11-25 16:31:47",
+   "name": "1111",
+   "externalCode": "WpAtzal3hGUnUfQS55x781",
+   "moment": "2016-11-25 16:31:00",
+   "applicable": true
+   sum: 32131000,
+   contract: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/contract/92df2d9c-ab02-11e6-8a84-bae500000084",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
+       "type": "contract",
+       "mediaType": "application/json"
+     }
+   },
+   "project": {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+       "type": "project",
+       "mediaType": "application/json"
+     }
+   },
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json"
+     }
+   },
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json"
+     }
+   },
+   "vatSum": 0,
+   operations: [
+     {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+         "type": "sales order",
+         "mediaType": "application/json"
+       },
+       "linkedSum": 0
+     }
+   ]
 }
 ```
-

@@ -1,6 +1,6 @@
 ## Routing
 Using the JSON API, you can create and update information about Routings, query lists of Routings, and query individual Routings.
-Routings positions can be managed both as part of a separate Routing, and separately - using special resources for managing Routings positions.
+Routings items can be managed both as part of a separate Routing, and separately using special resources for managing Routings items.
 The entity code for Routings as part of the JSON API is the **processingprocess** keyword. Learn more about [Routings](https://kladana.zendesk.com/hc/en-us/articles/8082376915857-Production-Operations-and-Routings#2).
 
 ### Routings
@@ -17,21 +17,22 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Routing Metadata<br>`+Required in response` `+Read-only` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
 | **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **positions** | MetaArray | | Routing position metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **positions** | MetaArray | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Nested entity attributes
-##### Routing Positions
-Routing Positions is a list of stages that are included in Routing. Routing can have from 1 to 100 positions.
-The Routing position object contains the following fields:
+##### Routing Items
+
+Routing items is a list of stages that are included in Routing. Routing can have from 1 to 100 items.
+The Routing item object contains the following fields:
 
 | Title | Type | Description |
 |------------|-----------|-------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing position metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a position<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing item metadata<br>`+Required for response` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
 ### Get the list of Routings
 
@@ -200,7 +201,7 @@ Request to create a new Routing.
 Required fields for creating:
 
 + **name** - Routing name
-+ **positions** - Links to Routing positions in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format
++ **positions** - Links to Routing items in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format
 
 > Request to create a new Routing with a request body containing only the required fields.
 
@@ -285,7 +286,7 @@ In the body of the request, specify the fields that need to be changed for Routi
 | ------- |-----------|
 | **id** | `string` (required) *Example: 117cae13-a612-11ed-ac12-000900000022* Routing ID. |
 
-> Request to update Routing with the replacement of the stage of the existing position and the creation of a new position.
+> Request to update Routing with the replacement of the stage of the existing item and the creation of a new item.
 
 ```shell
 curl -X PUT
@@ -395,27 +396,27 @@ curl -X DELETE
 > Response 200(application/json)
 Successful removal of Routing
 
-### Positions Routing
+### Routing Items
 
-In essence, a position limit of 100 items is set. Learn more about line limits and working with
-a large number of positions can be read on the example of working with document positions [here] (../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+In essence, a item limit of 100 items is set. Learn more about line limits and working with
+a large number of items can be read on the example of working with document items [here] (../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
 
-#### Routing position attributes
+#### Routing item attributes
 | Title | Type | Description |
 |----------|--------|----------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing position metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a position<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing item metadata<br>`+Required for response` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
-### Get Routing positions
-Request to get a list of all positions of this Routing.
+### Get Routing items
+Request to get a list of all items of this Routing.
 
 | Title | Type | Description |
 |----------|--------|----------|
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
 | **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing Routing positions. |
+| **rows** | Array(Object) | An array of JSON objects representing Routing items. |
 
 **Parameters**
 
@@ -425,7 +426,7 @@ Request to get a list of all positions of this Routing.
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Allowed values are 1 - 1000`.|
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Request for a list of positions Routing
+> Request for a list of items Routing
 
 ```shell
 curl -X GET
@@ -434,7 +435,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of individual Routing positions.
+Successful request. The result is a JSON representation of a list of individual Routing items.
 
 ```json
 {
@@ -491,7 +492,7 @@ ttps://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-
 | Parameter | Description|
 |----------|--------|
 | **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
-| **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing position ID.|
+| **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing item ID.|
 
 > Request to get an individual Routing item with the specified ID.
 
@@ -533,7 +534,7 @@ Successful request. The result is a JSON representation of a single Routing item
 |----------|--------|
 | **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
 
-> Request to create Routing positions
+> Request to create Routing items
 
 ```shell
 curl -X POST
@@ -556,7 +557,7 @@ curl -X POST
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the generated Routing positions.
+Successful request. The result is a JSON representation of the generated Routing items.
 
 ```json
 [
@@ -581,16 +582,16 @@ Successful request. The result is a JSON representation of the generated Routing
 ]
 ```
 
-### Change Routing Position
+### Change Routing item
 
 **Parameters**
 
 | Parameter | Description |
 |----------|--------|
 | **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
-| **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing position ID.|
+| **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing item ID.|
 
-> Request to update position Routing
+> Request to update Routing item
 
 ```shell
 curl -X PUT
@@ -611,7 +612,7 @@ curl -X PUT
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the updated Routing position.
+Successful request. The result is a JSON representation of the updated Routing item.
 
 ```json
 {
@@ -634,14 +635,14 @@ Successful request. The result is a JSON representation of the updated Routing p
 }
 ```
 
-### Delete position Routing
+### Delete Routing item
 
 **Parameters**
 
 | Parameter | Description |
 |----------|--------|
 | **id** | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* Routing ID. |
-| **positionID** | `string` (required) *Example: d5069da5-988e-11ed-ac19-00040000002a* Routing position ID.|
+| **positionID** | `string` (required) *Example: d5069da5-988e-11ed-ac19-00040000002a* Routing item ID.|
 
 > Request to delete the Routing item with the specified ID.
 

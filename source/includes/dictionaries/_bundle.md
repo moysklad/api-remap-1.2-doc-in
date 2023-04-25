@@ -10,7 +10,7 @@ Using the JSON API, you can create and update information about Bundles, request
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Has the Bundle been added to the archive<br>`+Required when replying` |
 | **article** | String(255) | `=` `!=` `~` `~=` `=~` | Article |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of add. fields |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Bundles Barcodes [Learn more](../dictionaries/#suschnosti-komplekt-komplekty-komponenty-komplekta-shtrih-kody) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Code |
 | **components** | MetaArray | | Array of components of Bundle<br>`+Expand` |
@@ -91,22 +91,23 @@ The values of the taxSystem field.
 | **UNIFIED_AGRICULTURAL_TAX** | ESHN |
 
 #### Bundle as an item in transaction
-Bundle can act as a document position. It, like goods, services and modifications, can be transferred as part of a position in the metadata format.<br>
-Here are some restrictions associated with using Bundles as items:
+
+Bundle can act as a transaction item. Products, product variants, services of a bundle can be transferred as part of a item in the metadata format.
+
+The restrictions associated with using Bundles as items:
 
 + Number of Bundles must be an integer
-+ Bundles cannot be positions in the following types of documents:
++ Bundles cannot be items in the following types of transactions:
    - Orders to suppliers
    - Supplier invoices
-   - Acceptances
+   - Receivings
    - Returns to suppliers
    - Issued commission agent reports
    - Write-offs
    - Posting
    - Movements
    - Inventory
-   - Tech. cards
-   - Tech. operations
+   - Bills of Materials
    - Internal orders
 + Bundle cannot be a shipment item under a commission agreement:
    - you cannot add a Bundle to a shipment under a commission agreement
@@ -729,7 +730,7 @@ Successful request. The result is a JSON representation of the generated Bundle.
      "miniature": {
        "href": "https://app.kladana.in/api/remap/1.2/download/bd159783-95ee-11e6-8a84-bae500000001?miniature=true",
        "mediaType": "image/png",
-       "downloadHref": "https://miniature-prod.moysklad.ru/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+       "downloadHref": "https://miniature-prod.app.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
      },
      "tiny": {
        "href": "https://app.kladana.in/app/download/bd14f0b6-95ee-11e6-8a84-bae500000000.png",
@@ -1410,8 +1411,8 @@ Successful request. The result is a JSON representation of the Bundle.
 Request to update of an existing Bundle.
 Price types in sales prices, additional fields and components are updated as elements of nested collections:
 
-+ If in the current object some of the add. fields / price types / components no value,
-and in the passed collection it is - the value is written to the add. field / price type / component.
++ If in the current object some of the additional fields / price types / components no value,
+and in the passed collection it is - the value is written to the additional field / price type / component.
 + If this attribute already has a value, it is overwritten with the one passed.
 + If this attribute has a value in the object, but it is missing
 in the collection passed in the body of the request (not passed at all), then the value of the object attribute is not changed.

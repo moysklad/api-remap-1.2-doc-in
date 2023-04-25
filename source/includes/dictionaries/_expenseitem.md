@@ -85,7 +85,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "id": "1be2395a-0479-11e5-baee-448a5b426e7e",
        "updated": "2015-05-27 17:03:10",
        "name": "Return",
-       "description": "Return charges are not included in the Profit and Loss statement",
+       "description": "Return Write-offs are not included in the Profit and Loss statement",
        "code": "3",
        "externalCode": "3"
      },

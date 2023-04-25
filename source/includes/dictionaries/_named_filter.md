@@ -9,9 +9,7 @@ An entity is represented as an identifier and a name. Filter options are not ret
 Saved filters can be reapplied to filter the list of entities.
 
 The saved filters are specific to the entity type.
-For example, you can get a list of filters for the register of Acceptance documents, Incoming payments documents,
-directory of contractors. Cannot get a general list of saved filters for everyone
-user entities.
+For example, you can get a list of filters for the register of Receiving transactions, Incoming payment transactions, the list of counterparties. Cannot get a general list of saved filters for everyone user entities.
 Each entity type will have its own set of filtering options.
 
 #### Entity attributes

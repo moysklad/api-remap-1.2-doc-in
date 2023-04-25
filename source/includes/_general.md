@@ -53,7 +53,7 @@ The Kladana JSON API has the following restrictions:
 - Under 8 Kb in the request header (URL, User-Agent, Authorization, etc). 
 - Under 20 MB of data in a request sent to the server. 
 - Under 4 asynchronous tasks queued for an account. 
-- Under 1000 elements of objects (positions, materials, products) in one array for a request. If the number of elements exceeds the number allowed, an error with status 413 occurs. If the number of positions exceeds the limit, use the resources described separately for each entity.
+- Under 1000 elements of objects (items, materials, products) in one array for a request. If the number of elements exceeds the number allowed, an error with status 413 occurs. If the number of items exceeds the limit, use the resources described separately for each entity.
 
 ### Data types
 
@@ -146,7 +146,7 @@ curl -X GET
 ###### Meta of Collection
 
 **meta** of collections contains all the same attributes as **meta** of entities, however, if more appear in the list
-positions than fit on one page (size > limit) the following are added to the **meta** object. fields:
+items than fit on one page (size > limit) the following are added to the **meta** object. fields:
 
 | Title | Type | Description |
 | ------| ---- | -------------|
@@ -190,7 +190,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **409** | The specified object is in use and cannot be deleted |
 | **410** | API version no longer supported |
 | **412** | A required query string parameter or JSON structure field was not specified |
-| **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of positions passed in the **positions** array exceeds 1000 |
+| **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
 | **429** | Request limit was exceeded |
 | **500** | An unexpected error occurred while processing the request |
 | **502** | Service temporarily unavailable |
@@ -256,11 +256,11 @@ The response contains a description of the additional fields in the form of an *
 
 | Title | Type | Description |
 | ----- | -----| ----------- |
-| **description** | String(4096) | Description of add. fields |
-| **id** | UUID | ID add. fields<br>`+Required for response` `+Read only` |
+| **description** | String(4096) | Description of additional fields |
+| **id** | UUID | Additional fields ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields<br>`+Required when replying` |
-| **name** | String(255) | Name of add. fields<br>`+Required when replying` `+Required when creating` |
-| **required** | Boolean | Is the add. field required<br>`+Required when replying` |
+| **name** | String(255) | Name of additional fields<br>`+Required when replying` `+Required when creating` |
+| **required** | Boolean | Is the additional field required<br>`+Required when replying` |
 | **show** | Boolean | Whether to show additional field on UI. Cannot be hidden and required at the same time. Operations only<br>`+Required when replying` |
 | **type** | Enum | Add-on type fields<br>`+Required when replying` `+Required when creating` `+After filling, unavailable for editing` |
 
@@ -270,10 +270,10 @@ Additional fields of a particular entity is an internal collection of **attribut
 
 | Title | Type | Description |
 | --------- |-------- | ------------------ |
-| **id** | UUID | ID of the corresponding add. fields |
+| **id** | UUID | ID of the corresponding additional fields |
 | **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields |
-| **name** | String(255) | Name of add. fields |
-| **value** | Depends on type, see below | The value specified in the add. field |
+| **name** | String(255) | Name of additional fields |
+| **value** | Depends on type, see below | The value specified in the additional field |
 
 Possible values of the type of additional fields (field **type**) and their corresponding type values in JSON, as well as
 **value** attribute types in the JSON object of the additional field with the corresponding type:
@@ -311,18 +311,18 @@ selected when creating an additional field.
 | [Product] | product |
 | User directory_name | customization |
 
-If as a type of add. field is selected [Entities](dictionaries/#suschnosti-pol-zowatel-skij-sprawochnik), then as part of the object of this
-add. field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
+If as a type of additional field is selected [Entities](dictionaries/#suschnosti-pol-zowatel-skij-sprawochnik), then as part of the object of this
+additional field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
 The full set of attributes fields will look like this:
 
 | Title | Type | Description |
 | -------------------- |--------------------- |------------------- |
 | **customEntityMeta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to user directory metadata |
-| **description** | String(4096) | Description of add. fields |
-| **id** | UUID | ID add. fields |
+| **description** | String(4096) | Description of additional fields |
+| **id** | UUID | ID additional fields |
 | **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields |
-| **name** | String(255) | Name of add. fields |
-| **required** | Boolean | Is the add. field required |
+| **name** | String(255) | Name of additional fields |
+| **required** | Boolean | Is the additional field required |
 | **show** | Boolean | Whether to show additional field on UI. Cannot be hidden and required at the same time. Operations only |
 | **type** | Enum | Add-on type fields |
 
@@ -333,30 +333,30 @@ With the selected type of the 'list' field, the **value** attribute will be an o
 | **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the entity of the corresponding directory |
 | **name** | String(255) | Name of the corresponding entity |
 
-Resetting extra. field type "reference" occurs in the same way as when working with other add. fields.
+Resetting extra. field type "reference" occurs in the same way as when working with other additional fields.
 In the update request, in the **attributes** collection, you must specify the object with the **id** of this field, and pass `null` as **value**.
 
-A collection of fields can only work in the context of a single entity. Add. fields and their values
+A collection of fields can only work in the context of a single entity. Additional fields and their values
 can be passed in the **attributes** collection in the request body for both creating and updating an entity.
 As an indication, for additional fields you need to use the **meta** field.
 In the passed array of objects, you can specify not all the extras. fields - only the specified ones will be initialized/updated.
 
 #### Additional fields of file type
 
-To load the value for add. fields of the file type, you need to specify an object of the following structure in JSON when creating or updating the field value:
+To load the value for additional fields of the file type, you need to specify an object of the following structure in JSON when creating or updating the field value:
 
 | Title | Type | Description |
 | ----- |---- | ---------- |
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
 | **content** | string | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
-An example of specifying a value for add. file type fields are in the [product creation] section (dictionaries/#suschnosti-towar-sozdat-towar)
+An example of specifying a value for additional file type fields are in the [product creation] section (dictionaries/#suschnosti-towar-sozdat-towar)
 
 ### Additional entity fields
 Request for additional entity fields.
 The list of available entity types is listed [here](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
-The structure of the object add. fields are described in detail in the section [Working with additional fields](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of the object additional fields are described in detail in the section [Working with additional fields](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
 
 **Parameters**
 
@@ -373,7 +373,7 @@ Result: JSON object including fields:
 | Title | Type | Description |
 | ------| ------|------------- |
 | **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
-| **rows** | Array(Object) | An array of JSON objects representing the add. fields. |
+| **rows** | Array(Object) | An array of JSON objects representing the additional fields. |
 
 > Get additional shipping fields
 
@@ -384,7 +384,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the list of addons. shipping fields.
+Successful request. The result is a JSON representation of the list of addotional shipping fields.
 
 ```json
 {
@@ -511,7 +511,7 @@ Successful request. The result is a JSON representation of the list of addons. s
 The action is only available to a user with administrative rights.<br>
 Request to create a new fields for the specified entity type.
 
-> Creation of two new add. shipping fields.
+> Creation of two new additional shipping fields.
 
 ```shell
 curl -X POST
@@ -534,7 +534,7 @@ curl -X POST
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the created add. fields.
+Successful request. The result is a JSON representation of the created additional fields.
 
 ```json
 [
@@ -565,7 +565,7 @@ Successful request. The result is a JSON representation of the created add. fiel
   }
 ]
 ```
-> An example of creating a new add. fields of Shipments and updates of the existing one request.
+> An example of creating a new additional fields of Shipments and updates of the existing one request.
 
 ```shell
 curl -X POST
@@ -667,7 +667,7 @@ Successful request. The result is a JSON representation of the generated addon. 
 ```
 #### Remove additional fields
 The action is only available to a user with administrative rights.<br>
-Request to remove multiple addons. shipping fields.
+Request to remove multiple additional shipping fields.
 
 > Removing two extra fields in one request
 
@@ -705,10 +705,11 @@ Successful removal of fields.
 | **id** | `string` (required) *Example: 7bc578d8-6501-11e8-9464-e4de00000004* Additional field ID |
 
 #### Get an additional field
-Request for a separate add. shipment fields with the specified id.
+
+Request for a separate additional shipment fields with the specified id.
 
 
-> Request for a separate add. shipping fields
+> Request for a separate additional shipping fields
 
 ```shell
 curl -X GET
@@ -717,7 +718,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. shipping fields.
+Successful request. The result is a JSON representation of the additional shipping fields.
 
 ```json
 {
@@ -737,9 +738,9 @@ Successful request. The result is a JSON representation of the add. shipping fie
 
 #### Change additional field
 The action is only available to a user with administrative rights.<br>
-Request to update a separate add. fields for the passed entity type.
+Request to update a separate additional fields for the passed entity type.
 
-> Request to update add. shipping fields
+> Request to update additional shipping fields
 
 ```shell
 curl -X PUT
@@ -754,7 +755,7 @@ curl -X PUT
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the add. shipping fields.
+Successful request. The result is a JSON representation of the additional shipping fields.
 
 ```json
 {
@@ -775,7 +776,7 @@ Successful request. The result is a JSON representation of the add. shipping fie
 The action is only available to a user with administrative rights.<br>
 Request for deletion shipment fields with the specified id.
 
-> Request to remove add. shipping fields
+> Request to remove additional shipping fields
 
 ```shell
 curl -X DELETE
@@ -789,7 +790,7 @@ Successful removal of fields.
 ### Update the values of additional fields
 Request to update collection fields of a particular entity.
 
-> Request to update add. shipping fields
+> Request to update additional shipping fields
 
 ```shell
 curl -X PUT
@@ -832,26 +833,38 @@ Successful request. The result is a JSON representation of the shipment with upd
 ...
 }
 ```
-### Working with document positions
+### Working with transaction items
 
-The MySklad service API allows you to operate with such documents as [Shipment](documents/#dokumenty-otgruzka), [Buyer's order](documents/#dokumenty-zakaz-pokupatelq), [Buyer's invoice](documents/#dokumenty-schet-pokupatelu) ,
-[Retail](documents/#dokumenty-roznichnaq-prodazha), [Commissioner report received](documents/#dokumenty-poluchennyj-otchet-komissionera), [Commissioner report issued](documents/#dokumenty-vydannyj-otchet-komissionera) , [Deposit](documents/#dokumenty-oprihodowanie),
-[Internal order](documents/#dokumenty-vnutrennij-zakaz), [Inventory](documents/#dokumenty-inwentarizaciq), [Write-off](documents/#dokumenty-spisanie), [Move](documents/#dokumenty-peremeschenie) , [Price list](documents/#dokumenty-prajs-list),
-[Production order](documents/#dokumenty-zakaz-na-proizwodstwo), [Return to supplier](documents/#dokumenty-vozwrat-postawschiku), [Supplier order](documents/#dokumenty-zakaz-postawschiku),
-[Retail Return](documents/#dokumenty-roznichnyj-wozwrat), [Customer Return](documents/#dokumenty-vozwrat-pokupatelq), [Acceptance](documents/#dokumenty-priemka), [Supplier Invoice](documents/# documenty-schet-postawschika). The listed documents contain items that can be worked with both as part of a separate document,
-and with the help of special resources for managing document positions.
+The Kladana API allows you to operate with the following transactions: 
 
-###### Working with positions within a separate document
+- [Shipment](documents/#dokumenty-otgruzka), 
+- [Sales order](documents/#dokumenty-zakaz-pokupatelq), 
+- [Sales invoice](documents/#dokumenty-schet-pokupatelu), 
+- [Stock Adjustment](documents/#dokumenty-oprihodowanie),
+- [Internal order](documents/#dokumenty-vnutrennij-zakaz), 
+- [Inventory](documents/#dokumenty-inwentarizaciq), 
+- [Write-off](documents/#dokumenty-spisanie), 
+- [Transfer](documents/#dokumenty-peremeschenie), 
+- [Production order](documents/#dokumenty-zakaz-na-proizwodstwo), 
+- [Purchase Return](documents/#dokumenty-vozwrat-postawschiku), 
+- [Purchase Order](documents/#dokumenty-zakaz-postawschiku), 
+- [Sales Return](documents/#dokumenty-vozwrat-pokupatelq), 
+- [Receiving](documents/#dokumenty-priemka), 
+- [Supplier Invoice](documents/#documenty-schet-postawschika). 
 
-When working with positions within a separate document, they can be passed as the **positions** field, which is an array of document positions, as part of the object used
-in a request to modify or create a document. In this case, the array of positions is perceived as a set of all positions of the document
-and completely replaces (in the case of an update request) all already existing positions in the document. In the case of an update request, all positions that previously existed in the document are
-but were not passed in the body of the update request will be deleted, all existing positions whose id matches the id of the transmitted positions in the request body will be updated,
+The transactions contain items that can be worked with both as part of a separate transaction, and with the help of special resources for managing transaction items.
+
+###### Working with items within a separate document
+
+When working with items within a separate document, they can be passed as the **positions** field, which is an array of document items, as part of the object used
+in a request to modify or create a document. In this case, the array of items is perceived as a set of all items of the document
+and completely replaces (in the case of an update request) all already existing items in the document. In the case of an update request, all items that previously existed in the document are
+but were not passed in the body of the update request will be deleted, all existing items whose id matches the id of the transmitted items in the request body will be updated,
 and new items that were not previously among the existing items of the document will be added to the list of items.
 
-###### Working with document positions using special resources
+###### Working with document items using special resources
 
-The JSON API provides special resources for managing document positions. These resources are usually available at the following URI and you can use them to remove items from the document by making a request with the DELETE method to the URL of the corresponding resource with the item id:
+The JSON API provides special resources for managing document items. These resources are usually available at the following URI and you can use them to remove items from the document by making a request with the DELETE method to the URL of the corresponding resource with the item id:
 
 + `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
@@ -864,15 +877,15 @@ curl -X DELETE
 ```
 
 
-When working with special resources, you can request a list of all document positions, create new positions, and update existing ones. When creating new positions using these resources, you can bypass the limit of 1000 positions per document. Also, using this resource, you can manage the bulk update of positions. To change information on line items, you must use the document line item management resources that are available by URI:
+When working with special resources, you can request a list of all document items, create new items, and update existing ones. When creating new items using these resources, you can bypass the limit of 1000 items per document. Also, using this resource, you can manage the bulk update of items. To change information on line items, you must use the document line item management resources that are available by URI:
 
 + `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
-Both ways of working with positions are also described in the documentation for each of the documents.
+Both ways of working with items are also described in the documentation for each of the documents.
 
-It is also possible to bulk delete document positions using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of positions to be deleted, specifying the meta field for each of the positions.
+It is also possible to bulk delete document items using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of items to be deleted, specifying the meta field for each of the items.
 
-> An example URL for a request to bulk delete positions using POST:
+> An example URL for a request to bulk delete items using POST:
 
 ```shell
 curl -X POST
@@ -922,32 +935,29 @@ stock: {
 }
 ```
 
-When requesting and updating documents, it is possible to receive the balances and cost of the positions of these documents.
-To get stock and cost in document positions, you need to pass an additional parameter `fields=stock` in the request.
-For example,
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example,
 
 + `/customerorder/{document id}?fields=stock&expand=positions`
 
-Stock and cost can be obtained from the following documents: `[Shipping, Buyer Order, Retail, Buyer Invoice, Vendor Order, Vendor Invoice, Receipt, Return to Vendor, Return Buyer, Retail Return]`
+Stock and cost can be obtained from the following transactions: `[Shipment, Sales Order, Sales Invoice, Purchase Order, Purchase Invoice, Receiving, Purchase Return, Sales Return]`
 
-Balances and cost price for documents **Shipping**, **Retail**, **Acceptance**, **Return to supplier**, **Return to buyer**, **Retail return** are calculated at the time of the field ** moment** in these documents.
-For **Buyer Order**, **Buyer Invoice**, **Supplier Order**, **Supplier Invoice** are calculated at the current time.
+Balances and cost price for transactions **Shipment**, **Receiving**, **Purchase Return**, **Sales Return** are calculated at the time of the field **moment** in the transactions. For **Sales Order**, **Sales Invoice**, **Purchase Order**, **Purchase Invoice** are calculated at the current time.
 
 You can get balances with cost for the following queries:
 
 + Getting a list of operations
 + Getting a single operation
-+ Getting operation positions
++ Getting operation items
 + Retrieve a line item of an operation
 + Update operation
-+ Position update
++ Item update
 
 When compiling a request to get a list of operations, you must additionally pass the `limit` parameter with a value not exceeding 100.
 For example,
 
 + `/customerorder?fields=stock&expand=positions&limit=100`
 
-For customer returns without reason and retail returns without reason, the `cost` field will be absent in the `stock` composition.
+For Sales Returns without reason and retail returns without reason, the `cost` field will be absent in the `stock` composition.
 
 
 ### Purpose of the syncId field
@@ -989,7 +999,7 @@ Exceptions:
    [Legal entity](dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres),
    [Points of sale](dictionaries/#suschnosti-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
    [Warehouse](dictionaries/#suschnosti-sklad-sklady-attributy-suschnosti-adres),
-   [Buyer Order](documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
+   [Sales Order](documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
    [Shipments](documents/#dokumenty-otgruzka-otgruzki-attributy-suschnosti-adres-dostawki) does not support deletions by passing `null`.
 To delete an address, pass an empty string `""` to the string field. Specific string fields are given in the relevant sections, the transition to which is carried out via the links above.
 
@@ -1158,7 +1168,7 @@ For example:
 Using the filter parameter, you can filter by additional fields by adding a link to additional fields. field and filtering value. The filter value can be a string, a number, a date, or a url, depending on the addon type. fields.
 Example: `filter=<reference to additional field>=<value>`
 
-##### Available operators for filtering add. fields
+##### Available operators for filtering additional fields
 
 | Title | JSON value field type | Value of type field in JSON |Description |
 | ------| --------------------- | --------------------------- | -----------|
@@ -1199,7 +1209,7 @@ An example request using the state.name filter:
 
 `https://app.kladana.in/api/remap/1.2/entity/customerOrder?filter=state.name=Новый;state.name=Принят`
 
-The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of positions with the specified assortment entities.
+The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of items with the specified assortment entities.
 assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Service, Modification, Bundle, Product group.
 The selection will include those documents that contain the specified entities in the number of items, or, in the case of specifying Product Groups, one of the entities from the specified Product Groups.
 
@@ -1281,7 +1291,7 @@ Expand is allowed only on a sample size of 100 or less. If a larger limit is spe
 
 You can also use **expand** on the results of create and update operations.
 
-+ Below are examples of using **expand** on [Customer Returns](documents/#dokumenty-vozwrat-pokupatelq). The examples show only the **meta** and **demand** fields.
++ Below are examples of using **expand** on [Sales Returns](documents/#dokumenty-vozwrat-pokupatelq). The examples show only the **meta** and **demand** fields.
 
 ### Return without expand
 
@@ -1293,7 +1303,7 @@ curl -X GET
   -H "Authorization: Basic <Credentials>"
 ```
 
-> Buyer's return object in its normal view, with a link to the shipment
+> Sales Return object in its normal view, with a link to the shipment
 
 ```json
 {
@@ -1950,7 +1960,7 @@ The fields of an object represent a single permission, where the name indicates 
 | **admin** | Is the employee an admin |
 | **audit_dashboard** | View audit |
 | **company_crm** | View metrics |
-| **customAttributes** | Work with add. fields |
+| **customAttributes** | Work with additional fields |
 | **dashboard** | View metrics |
 | **dashboardmoney** | See money balances |
 | **viewCashFlow** | See cash flow |
@@ -2015,7 +2025,7 @@ These types have the following fields:
 | **factoryIn** | OPERATION | Invoices received |
 | **facture** | OPERATION | Invoices issued |
 | **good** | DICTIONARY | Goods and Services |
-| **internalOrder** | OPERATION | Domestic orders |
+| **internalOrder** | OPERATION | Internal orders |
 | **inventory** | DICTIONARY | Inventory |
 | **invoiceIn** | OPERATION | Supplier invoice |
 | **invoiceOut** | OPERATION | Account for buyers |
@@ -2024,8 +2034,6 @@ These types have the following fields:
 | **myCompany** | base | Jur. Faces |
 | **paymentIn** | OPERATION | Incoming payment |
 | **paymentOut** | OPERATION | Outgoing payment |
-| **prepayment** | OPERATION | Prepayments |
-| **prepaymentReturn** | OPERATION | Return of prepayment |
 | **processingOrder** | OPERATION | Production order |
 | **processingPlan** | base| Those. Maps |
 | **processingStage** | base | Stages of production |
@@ -2034,10 +2042,8 @@ These types have the following fields:
 | **purchaseOrder** | OPERATION | Order to suppliers |
 | **purchaseReturn** | OPERATION | Return to supplier |
 | **retailDemand** | OPERATION | Sales |
-| **retailDrawerCashIn** | OPERATION | Applications |
-| **retailDrawerCashOut** | OPERATION | Payouts |
-| **salesReturn** | OPERATION | Buyer Return |
-| **supply** | OPERATION | Acceptances |
+| **salesReturn** | OPERATION | Sales Return |
+| **supply** | OPERATION | Receivings |
 | **task** | [Special](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Tasks |
 | **wom** | base | Units of measure |
 | **warehouse** | base | Warehouses |
@@ -2326,7 +2332,6 @@ Successful request. The result is a JSON representation of information about the
             "update": "ALL",
             "delete": "ALL"
         },
-        },
         "retaildemand": {
             "view": "ALL",
             "create": "ALL",
@@ -2336,38 +2341,6 @@ Successful request. The result is a JSON representation of information about the
             "print": "ALL"
         },
         "retailsalesreturn": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "retaildrawercashin": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "retaildrawercashout": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "prepayment": {
-            "view": "ALL",
-            "create": "ALL",
-            "update": "ALL",
-            "delete": "ALL",
-            "approve": "ALL",
-            "print": "ALL"
-        },
-        "prepaymentreturn": {
             "view": "ALL",
             "create": "ALL",
             "update": "ALL",

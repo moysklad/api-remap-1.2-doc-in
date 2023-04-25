@@ -1036,7 +1036,7 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful removal of the Mod.
+Successful removal of the Product varian
 
 ### Product variants bulk removal
 

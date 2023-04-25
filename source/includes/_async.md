@@ -18,7 +18,7 @@ After executing a query in asynchronous mode, the result is available within 1 h
 
 There are [limits](#mojsklad-json-api-obschie-swedeniq-ogranicheniq) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
 
-At the moment, in the process of asynchronous query execution, duplicates of collection positions may occur,
+At the moment, in the process of asynchronous query execution, duplicates of item collection may occur,
 if new elements are added in parallel with the preparation of the result.
 In addition, elements may be missing if, in parallel with the processing of an Asynchronous task, the entities associated with the task are deleted.
 (for example, deletion of an item during the preparation of the Inventory Report).

@@ -168,8 +168,8 @@ The format of oldValue and newValue is the same as the format of the field whose
 | **NotificationGoodCountTooLow** | Remains | Reducing the quantity of goods to a minimum balance |
 | **NotificationImportCompleted** | Data exchange | Import completed |
 | **NotificationInvoiceOutOverdue** | Account | Overdue invoice that was not paid or not fully paid by the buyer |
-| **NotificationOrderNew** | Buyer's order | New buyer order |
-| **NotificationOrderOverdue** | Buyer's order | Order expired |
+| **NotificationOrderNew** | Sales Order | New Sales Order |
+| **NotificationOrderOverdue** | Sales Order | Order expired |
 | **NotificationRetailShiftClosed** | Retail | Shift closed |
 | **NotificationRetailShiftOpened** | Retail | Shift is open |
 | **NotificationScript** | Scenarios | Script Notification |
@@ -484,13 +484,13 @@ Successful request. The result is a JSON representation of the Notification.
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
    read: false
-   "title": "New Buyer Order #00001",
+   "title": "New Sales Order #00001",
    "description": "Amount: 499.99. Buyer: Retail buyer.",
    order: {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "customer order",
+       "type": "sales order",
        "mediaType": "application/json"
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
@@ -547,13 +547,13 @@ Successful request. The result is a JSON representation of the Notification.
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
    read: false
-   "title": "Buyer Order #00001 Expired",
-   "description": "Buyer Order #00001 Expired Amount: 300.00. Buyer: Retail Buyer.",
+   "title": "Sales Order #00001 Expired",
+   "description": "Sales Order #00001 Expired Amount: 300.00. Buyer: Retail Buyer.",
    order: {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "customer order",
+       "type": "sales order",
        "mediaType": "application/json"
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
@@ -1765,12 +1765,12 @@ The object that the script fired on.
 
 Valid values for **meta.type**:
 
-+ **customerorder** - customer order
-+ **invoiceout** - invoice to the buyer
-+ **demand** - shipment
-+ **purchaseorder** - order to the supplier
-+ **invoicein** - supplier's invoice
-+ **supply** - acceptance
++ **customerorder** - Sales order
++ **invoiceout** - Sales invoice
++ **demand** - Shipment
++ **purchaseorder** - Purchase order 
++ **invoicein** - Purchase invoice
++ **supply** - Receiving
 
 **Parameters**
 
@@ -1807,7 +1807,7 @@ Successful request. The result is a JSON representation of the Notification.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/afa8525a-645b-11eb-0a80-2b47000003b7",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "customer order",
+       "type": "sales order",
        "mediaType": "application/json"
      },
      "id": "afa8525a-645b-11eb-0a80-2b47000003b7",
@@ -1935,7 +1935,7 @@ Notification group code values.
 
 | Notification group code | Description |
 | ----------- | ------ |
-| **customer_order** | Buyer orders |
+| **customer_order** | Sales Orders |
 | **data_exchange** | Data exchange |
 | **invoice** | Buyer Accounts |
 | **retail** | Retail |
@@ -1960,7 +1960,7 @@ Successful request. JSON representation of notification settings.
 ```json
 {
    "groups" : {
-     "customer order" : {
+     "sales order" : {
        "enabled" : true
        "channels" : [ "email", "push" ]
      },
@@ -2010,7 +2010,7 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
      -H "Content-Type: application/json"
        -d '{
              "groups" : {
-               "customer order" : {
+               "sales order" : {
                  "enabled" : true
                  "channels" : [ "email", "push" ]
                },

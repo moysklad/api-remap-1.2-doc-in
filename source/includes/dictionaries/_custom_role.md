@@ -207,23 +207,6 @@ Successful request. The result is a JSON representation of the custom role.
       "delete": "ALL",
       "approve": "ALL"
     },
-    "retailDrawerCashIn": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
-    "retailDrawerCashOut": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
-  
     "bonusTransaction": {
       "view": "ALL",
       "print": "ALL",
@@ -283,14 +266,6 @@ Successful request. The result is a JSON representation of the custom role.
       "delete": "ALL"
     },
     "invoiceIn": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
-    },
-    "prepayment": {
       "view": "ALL",
       "print": "ALL",
       "create": "ALL",
@@ -381,14 +356,6 @@ Successful request. The result is a JSON representation of the custom role.
       "create": "ALL",
       "update": "ALL",
       "delete": "ALL"
-    },
-    "prepaymentReturn": {
-      "view": "ALL",
-      "print": "ALL",
-      "create": "ALL",
-      "update": "ALL",
-      "delete": "ALL",
-      "approve": "ALL"
     },
     "script": {
       "view": "AUTHOR_OR_ASSIGNEE",
@@ -608,23 +575,6 @@ Successful request. The result is a JSON representation of user roles.
           "delete": "ALL",
           "approve": "ALL"
         },
-        "retailDrawerCashIn": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
-        "retailDrawerCashOut": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
-    
         "bonusTransaction": {
           "view": "ALL",
           "print": "ALL",
@@ -684,14 +634,6 @@ Successful request. The result is a JSON representation of user roles.
           "delete": "ALL"
         },
         "invoiceIn": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
-        },
-        "prepayment": {
           "view": "ALL",
           "print": "ALL",
           "create": "ALL",
@@ -782,14 +724,6 @@ Successful request. The result is a JSON representation of user roles.
           "create": "ALL",
           "update": "ALL",
           "delete": "ALL"
-        },
-        "prepaymentReturn": {
-          "view": "ALL",
-          "print": "ALL",
-          "create": "ALL",
-          "update": "ALL",
-          "delete": "ALL",
-          "approve": "ALL"
         },
         "script": {
           "view": "AUTHOR_OR_ASSIGNEE",
@@ -1026,23 +960,6 @@ Successful request. The result is a JSON representation of the created role.
       "delete": "NO",
       "approve": "NO"
     },
-    "retailDrawerCashIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "retailDrawerCashOut": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-
     "bonusTransaction": {
       "view": "NO",
       "print": "NO",
@@ -1102,14 +1019,6 @@ Successful request. The result is a JSON representation of the created role.
       "delete": "NO"
     },
     "invoiceIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "prepayment": {
       "view": "NO",
       "print": "NO",
       "create": "NO",
@@ -1200,14 +1109,6 @@ Successful request. The result is a JSON representation of the created role.
       "create": "NO",
       "update": "NO",
       "delete": "NO"
-    },
-    "prepaymentReturn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
     },
     "script": {
       "view": "NO",
@@ -1326,7 +1227,6 @@ Successful request. The result is a JSON representation of the updated role.
       "update": "NO",
       "delete": "NO"
     },
- 
     "processingPlan": {
       "view": "NO",
       "create": "NO",
@@ -1430,8 +1330,6 @@ Successful request. The result is a JSON representation of the updated role.
       "delete": "NO",
       "approve": "NO"
     },
-   
-    
     "purchaseReturn": {
       "view": "NO",
       "print": "NO",
@@ -1448,23 +1346,6 @@ Successful request. The result is a JSON representation of the updated role.
       "delete": "NO",
       "approve": "NO"
     },
-    "retailDrawerCashIn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
-    "retailDrawerCashOut": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
- 
     "bonusTransaction": {
       "view": "NO",
       "print": "NO",
@@ -1531,14 +1412,6 @@ Successful request. The result is a JSON representation of the updated role.
       "delete": "NO",
       "approve": "NO"
     },
-    "prepayment": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
     "processingProcess": {
       "view": "NO",
       "create": "NO",
@@ -1557,7 +1430,6 @@ Successful request. The result is a JSON representation of the updated role.
       "update": "NO",
       "delete": "NO"
     },
- 
     "processing": {
       "view": "NO",
       "print": "NO",
@@ -1623,14 +1495,6 @@ Successful request. The result is a JSON representation of the updated role.
       "update": "NO",
       "delete": "NO"
     },
-    "prepaymentReturn": {
-      "view": "NO",
-      "print": "NO",
-      "create": "NO",
-      "update": "NO",
-      "delete": "NO",
-      "approve": "NO"
-    },
     "script": {
       "view": "NO",
       "create": "NO",
@@ -1641,7 +1505,6 @@ Successful request. The result is a JSON representation of the updated role.
   }
 }
 ```
-
 
 ### Delete user role
 

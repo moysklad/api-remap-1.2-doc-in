@@ -101,7 +101,7 @@ The result of a successful request is a JSON representation of a list of Marking
 
 Bulk creation and updating of the specified position Marking Codes. In the body of the request, you must pass an array containing the JSON representation of the Marking Codes that you want to create or update. Upgradable Marking Codes must contain an identifier.
 
-The result of a successful request is a JSON array of representations of the generated and updated Acceptances.
+The result of a successful request is a JSON array of representations of the generated and updated Receivings.
 
 Nested Marking Codes are replaced by those specified in the request.
 

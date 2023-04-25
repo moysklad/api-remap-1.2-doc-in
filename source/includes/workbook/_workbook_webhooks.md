@@ -7,7 +7,7 @@ The webhook mechanism in Kladana is a powerful and easy-to-use tool for tracking
 A webhook is a mechanism for sending notifications when an event occurs in the system, to which the client application is subscribed.
 
 An event is a change in the state of a system. For example, events are: creation of a new product, change of fields
-at the counterparty, deleting the buyer's order. The notification will be a POST method request that will contain the following information about the occurred event: its type and a link to the changed object. For example, when changing the product name, a notification will be sent containing a link to the modified product.
+at the counterparty, deleting the Sales Order. The notification will be a POST method request that will contain the following information about the occurred event: its type and a link to the changed object. For example, when changing the product name, a notification will be sent containing a link to the modified product.
 
 The webhook itself contains a description of the change (object type and a link to the changed object), which is sent to the specified url.
 
@@ -38,8 +38,8 @@ Despite the benefits of using webhooks, it's important to understand that subscr
 
 Possible scenarios where subscribing to webhooks seems preferable to polling via the JSON API:
 
-* creating customer orders and changing their statuses
-* change in the price of the goods
+* creating Sales Orders and changing their statuses
+* change in the price of products
 * updating the phone number of the counterparty
 
 ### How to use webhooks via JSON API

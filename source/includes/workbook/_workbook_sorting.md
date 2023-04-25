@@ -21,11 +21,11 @@ The tables below show the sortable fields of directories and documents.
 | <a href="../dictionaries/#suschnosti-valuta">Currency</a>|`id`, `name`, `archived`, `default`, `fullname`, `code`, `isoCode`, `multiplicity` |
 | <a href="../dictionaries/#suschnosti-towar">Product</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `isSerialTrackable`, `weighed`, `weight`, `volume`, `syncId` |
 | <a href="../dictionaries/#suschnosti-usluga">Service</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `syncId` |
-| <a href="../dictionaries/#suschnosti-komplekt">Kit</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `pathName`, `article`, `weight`, `volume`, `syncId` |
-| <a href="../dictionaries/#suschnosti-modifikaciq">Modification</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
+| <a href="../dictionaries/#suschnosti-komplekt">Bundle</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `pathName`, `article`, `weight`, `volume`, `syncId` |
+| <a href="../dictionaries/#suschnosti-modifikaciq">Variant</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
 | <a href="../dictionaries/#suschnosti-gruppa-towarow">Product group</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `externalCode`, ` archived`, `pathName` |
 | <a href="../dictionaries/#suschnosti-seriq">Series</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
-| <a href="../dictionaries/#suschnosti-dogowor">Agreement</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `moment` |
+| <a href="../dictionaries/#suschnosti-dogowor">Contract</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `moment` |
 | <a href="../dictionaries/#suschnosti-proekt">Project</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `code`,`externalCode`, `archived` |
 | <a href="../dictionaries/#suschnosti-stat-q-rashodow">Expense item</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description` , `code`,`externalCode` |
 | <a href="../dictionaries/#suschnosti-strana">Country</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
@@ -39,35 +39,26 @@ The tables below show the sortable fields of directories and documents.
 
 | Endpoint (transactions) | Sortable fields |
 |---------------|---------|
-| <a href="../documents/#dokumenty-roznichnaq-smena">Retail shift</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, ` description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `closeDate`|
-| <a href="../documents/#dokumenty-oprihodowanie">Positions</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created` |
-| <a href="../documents/#dokumenty-zakaz-pokupatelq">Buyer order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, ` description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
-| <a href="../documents/#dokumenty-zakaz-postawschiku">Order to supplier</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
-| <a href="../documents/#dokumenty-schet-pokupatelu">Invoice to buyer</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, ` description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `paymentPlannedMoment` |
-| <a href="../documents/#dokumenty-schet-postawschika">Vendor account</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingNumber`, `incomingDate`, `paymentPlannedMoment` |
+| <a href="../documents/#dokumenty-oprihodowanie">Stock Adjustment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created` |
+| <a href="../documents/#dokumenty-zakaz-pokupatelq">Sales Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, ` description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
+| <a href="../documents/#dokumenty-zakaz-postawschiku">Purchase Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
+| <a href="../documents/#dokumenty-schet-pokupatelu">Sales Invoice</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, ` description`, `externalCode`, `moment`, `applicable`, `sum`, `created`, `paymentPlannedMoment` |
+| <a href="../documents/#dokumenty-schet-postawschika">Supplier Invoice</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingNumber`, `incomingDate`, `paymentPlannedMoment` |
 | <a href="../documents/#dokumenty-vhodqschij-platezh">Incoming payment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose`, `incomingNumber`, `incomingDate` |
 | <a href="../documents/#dokumenty-ishodqschij-platezh">Outgoing payment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
-| <a href="../documents/#dokumenty-prihodnyj-order">Incoming Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
-| <a href="../documents/#dokumenty-rashodnyj-order">Disbursement order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
-| <a href="../documents/#dokumenty-otgruzka">Shipping</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-priemka">Acceptance</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-spisanie">Decommission</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-peremeschenie">Moving</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-roznichnaq-prodazha">Retail</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-roznichnyj-wozwrat">Retail return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-prihodnyj-order">Incoming Cash Payment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
+| <a href="../documents/#dokumenty-rashodnyj-order">Outgoing Cash Payment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `paymentPurpose` |
+| <a href="../documents/#dokumenty-otgruzka">Shipment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-priemka">Receiving</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-spisanie">Write-off</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-peremeschenie">Transfer</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#dokumenty-vnesenie-deneg">Depositing money</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#dokumenty-vyplata-deneg">Payout</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-vozwrat-pokupatelq">Customer return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-vozwrat-postawschiku">Return to vendor</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-schet-faktura-wydannyj">Invoice issued</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, ` name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-schet-faktura-poluchennyj">Invoice received</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, ` name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-inwentarizaciq">Inventory</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-poluchennyj-otchet-komissionera">Commissioner report received</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name `, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `incomingDate` |
-| <a href="../documents/#dokumenty-vydannyj-otchet-komissionera">Issued commission report</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name `, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-prajs-list">Price List</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`, `moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#dokumenty-teh-karta">Tech. map</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`|
+| <a href="../documents/#dokumenty-vozwrat-pokupatelq">Sales Return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-vozwrat-postawschiku">Purchase Return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-inwentarizaciq">Inventory Count</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| <a href="../documents/#dokumenty-teh-karta">Bill of Materials</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`|
 | <a href="../documents/#dokumenty-zakaz-na-proizwodstwo">Production Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`,`moment`, `applicable`, `sum`, `created`, `deliveryPlannedMoment`, `quantity`|
-| <a href="../documents/#dokumenty-teh-operaciq">Tech. operation</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
 | <a href="../documents/#dokumenty-vnutrennij-zakaz">Internal Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
 
 ### How to use sorting via JSON API

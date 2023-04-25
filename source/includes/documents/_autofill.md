@@ -1,508 +1,496 @@
-## Автозаполнение
+## Autocomplete
 
-Средствами JSON API можно рассчитать значение скидок, цен и ндс для позиций следующих документов:
+Using the JSON API, you can calculate the value of discounts, prices, and taxes for the items in the following transactions:
 
-- [Оприходование](../documents/#dokumenty-oprihodowanie)
-- [Заказ покупателя](../documents/#dokumenty-zakaz-pokupatelq)
-- [Заказ поставщику](../documents/#dokumenty-zakaz-postawschiku)
-- [Счет покупателю](../documents/#dokumenty-schet-pokupatelu)
-- [Счет поставщику](../documents/#dokumenty-schet-postawschika)
-- [Отгрузка](../documents/#dokumenty-otgruzka)
-- [Приемка](../documents/#dokumenty-priemka)
-- [Списание](../documents/#dokumenty-spisanie)
-- [Перемещение](../documents/#dokumenty-peremeschenie)
-- [Розничная продажа](../documents/#dokumenty-roznichnaq-prodazha)
-- [Розничный возврат](../documents/#dokumenty-roznichnyj-wozwrat)
-- [Возврат покупателя](../documents/#dokumenty-vozwrat-pokupatelq)
-- [Возврат поставщику](../documents/#dokumenty-vozwrat-postawschiku)
-- [Инвентаризация](../documents/#dokumenty-inwentarizaciq)
-- [Полученный отчет комиссионера](../documents/#dokumenty-poluchennyj-otchet-komissionera)
-- [Выданный отчет комиссионера](../documents/#dokumenty-vydannyj-otchet-komissionera)
-- [Внутренний заказ](../documents/#dokumenty-vnutrennij-zakaz)
+- [Stock Adjustment](../documents/#dokumenty-oprihodowanie)
+- [Sales Order](../documents/#dokumenty-zakaz-pokupatelq)
+- [Purchase Order](../documents/#dokumenty-zakaz-postawschiku)
+- [Sales Invoice](../documents/#dokumenty-schet-pokupatelu)
+- [Supplier Invoice](../documents/#dokumenty-schet-postawschika)
+- [Shipment](../documents/#dokumenty-otgruzka)
+- [Receiving](../documents/#dokumenty-priemka)
+- [Write-off](../documents/#dokumenty-spisanie)
+- [Transfer](../documents/#dokumenty-peremeschenie)
+- [Sales Return](../documents/#dokumenty-vozwrat-pokupatelq)
+- [Purchase Returns](../documents/#dokumenty-vozwrat-postawschiku)
+- [Inventory Count](../documents/#dokumenty-inwentarizaciq)
+- [Internal Order](../documents/#dokumenty-vnutrennij-zakaz)
 
-Заполнение скидок не поддерживает следующие типы:
+Discount autocomplete is not available in the following transactions:
 
-- [Инвентаризация](../documents/#dokumenty-inwentarizaciq)
-- [Перемещение](../documents/#dokumenty-peremeschenie)
-- [Внутренний заказ](../documents/#dokumenty-vnutrennij-zakaz)
-- [Оприходование](../documents/#dokumenty-oprihodowanie)
-- [Списание](../documents/#dokumenty-spisanie)
+- [Inventory Count](../documents/#dokumenty-inwentarizaciq)
+- [Transfer](../documents/#dokumenty-peremeschenie)
+- [Internal Order](../documents/#dokumenty-vnutrennij-zakaz)
+- [Stock Adjustment](../documents/#dokumenty-oprihodowanie)
+- [Write-off](../documents/#dokumenty-spisanie)
 
-Заполнение цен не поддерживает [Инвентаризация](../documents/#dokumenty-inwentarizaciq)
+Pricing is not available in [Inventory Count](../documents/#dokumenty-inwentarizaciq).
 
-Заполнение себестоимости поддерживается только для возвратов без основания следующих типов:
-- [Возврат покупателя](../documents/#dokumenty-vozwrat-pokupatelq)
-- [Розничный возврат](../documents/#dokumenty-roznichnyj-wozwrat)
+Cost price autocomplete is only available for Returns without Reason in [Sales Return](../documents/#dokumenty-vozwrat-pokupatelq). 
 
+### Autocomplete template
 
-### Шаблон автозаполнения
+#### Entity attributes
 
-#### Атрибуты сущности
+Entity attributes need to be passed depending on the type of document that will be autocompleted. IN
+matches the type, the corresponding fields will be processed.
 
-Атрибуты сущности нужно передавать в зависимости от типа документа, для которого будет выполнено автозаполнение. В 
-соответствие с типом, будут обрабатываться соответствующие поля.
+Below are the fields that affect the filling of discounts, prices, taxes, cost.
 
-Ниже приводятся поля, которые влияют на заполнение скидок, цен, ндс и себестоимости.
++ **organization** - Link to a legal entity in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format. Required with the value `evaluate_vat` of the `action` parameter
++ **agent** - Link to the counterparty in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format.
+Required with `evaluate_price`, `evaluate_discount` values of `action` parameter
++ **vatEnabled** - Whether tax is taken into account
++ **vatIncluded** - Is tax included in the price
++ **rate** - Currency. If not transferred, filled in with accounting currency
++ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye). Required with the `evaluate_cost` value of the `action` parameter
++ **moment** - Date of the document. Influences cost calculation
++ **positions** - transaction items
 
-+ **organization** - Ссылка на юрлицо в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye). Обязателен со значением `evaluate_vat` параметра `action`
-+ **agent** - Ссылка на контрагента в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye). 
-Обязателен со значениями `evaluate_price`, `evaluate_discount` параметра `action`
-+ **vatEnabled** - Учитывается ли НДС
-+ **vatIncluded** - Включен ли НДС в цену
-+ **rate** - Валюта. Если не передано, заполняется валютой учета
-+ **store** - Ссылка на склад в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye). Обязателен со значением `evaluate_cost` параметра `action`
-+ **moment** - Дата проведения документа. Влияет на расчет себестоимости 
-+ **positions** - Позиции документа
+At the same time, if in addition to the above fields, others were added that do not affect the filling, then they will be present in
+answer in the same order and with the same values.
 
-При этом, если помимо вышеперечисленных полей были добавлены другие, не влияющие на заполнение, то они будут присутствовать в
-ответе в том же порядке и с теми же значениями.
+**Notes**
 
-**Примечания**
+`action` parameter values can be passed separated by commas.
 
-Значения параметра `action` можно передавать через запятую.
+If the document does not use the `agent` field, then to calculate prices `evaluate_price` and discounts `evaluate_discount`
+the value of the `organization` field is used.
 
-Если в документе не используется поле `agent`, то для расчета цен `evaluate_price` и скидок `evaluate_discount` 
-используется значение поля `organization`.
+#### Transaction Items
 
-#### Позиции документа
+Items in the template are a list of products, services, product variants, and bundles. The item object contains the following fields:
 
-Позиции в шаблоне - это список товаров/услуг/модификаций/серий/комплектов.
-Объект позиции содержит следующие поля:
++ **quantity** - Quantity of goods/services of this type in the item. If the item is a product that has accounting by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.
++ **price** - The price of the product/service in rupees.
++ **discount** - Discount or markup percentage.
++ **vat** - tax applied to the current item.
++ **vatEnabled** - whether tax is enabled for the current item. With this flag, you can set tax = 0 or tax = "no taxes" for a item. (vat = 0, vatEnabled = false) -> vat = "excluding tax", (vat = 0, vatEnabled = true) -> vat = 0%.
++ **assortment** - Link to the product/service/series/modification/kit that the item represents, in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format.
++ **discountedPrice** - The price of the product/service, including discounts and taxes, in rupees.
++ **sum** - The total amount including the discount for the specified quantity of goods in the item in rupees. Calculated when passing the **quantity** field.
 
-+ **quantity** - Количество товаров/услуг данного вида в позиции. Если позиция - товар, у которого включен учет по серийным номерам, то значение в этом поле всегда будет равно количеству серийных номеров для данной позиции в документе.
-+ **price** - Цена товара/услуги в копейках.
-+ **discount** - Процент скидки или наценки.
-+ **vat** - НДС, которым облагается текущая позиция.
-+ **vatEnabled** - включен ли НДС для текущей позиции. С помощью этого флага для позиции можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.
-+ **assortment** - Ссылка на товар/услугу/серию/модификацию/комплект, которую представляет собой позиция, в формате [Метаданных](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **discountedPrice** - Цена товара/услуги с учетом скидок и ндс в копейках.
-+ **sum** - Общая сумма с учетом скидки за указанное количество товара в позиции в копейках. Рассчитывается при передаче поля **quantity**.
+### Autocomplete request
 
-### Запрос автозаполения
+Request to fill in the template fields.
+Result: A JSON object, with the template filled in.
 
-Запрос заполения полей шаблона.
-Результат: Объект JSON, с заполненным шаблоном.
+**Parameters**
 
-**Параметры**
+| Parameter | Description |
+| --------- | ---------- |
+| action | `enum` (optional) *Example: evaluate_discount, evaluate_price, evaluate_discount* Defines what information to fill in: prices (evaluate_price), taxes (evaluate_vat), discounts (evaluate_discount) or cost (evaluate_cost). `Allowed values: evaluate_price, evaluate_discount, evaluate_vat, evaluate_cost`. |
 
-| Параметр  | Описание                                                                                                                                                                                                                                                                                                                       |
-| --------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| action    | `enum` (optional) *Example: evaluate_discount, evaluate_price, evaluate_discount* Определяет какую информацию нужно заполнить: цены (evaluate_price), ндс (evaluate_vat), скидки (evaluate_discount) или себестоимость (evaluate_cost). `Допустимые значения: evaluate_price, evaluate_discount, evaluate_vat, evaluate_cost`. |
+### Price Autocomplete Request
 
-### Запрос автозаполения цен
+Autocomplete request with `action` parameter with value `evaluate_price`. The **agent** field is required (or **organization** if there is no **agent** field).
 
-Запрос автозаполения с параметром `action` со значением `evaluate_price`. Требуется заполнение поля **agent** (или **organization**, если поле **agent** отсутствует). 
-Заполняет поле цены товара **price** (если явно не передано) ценой переданного в поле **agent** контрагента, 
-а также поле **discountedPrice**, с учетом рассчитанной или переданной скидки **discount** 
-(принимается за 0, если значение отсутствует) и НДС **vat** (не учитывается, если пустое, поле **vatEnabled** 
-имеет значение `false` или **vatIncluded** имеет значение `true`). Если передано поле **quantity**, 
-то будет рассчитано поле **sum**. При вычислениях используется переданный `rate`.
+Fills in the product price field **price** (if not explicitly specified) with the price of the counterparty specified in the **agent** field, as well as the **discountedPrice** field, taking into account thecalculated or transferred discount **discount** (taken as 0 if the value is missing) and tax **vat** (not taken into account, if empty, the field **vatEnabled** is `false` or **vatIncluded** is `true`). If the **quantity** field is passed, then the **sum** field will be calculated. The calculation uses the passed `rate`.
 
-> Запрос автозаполения цен
+> Request to autocomplete prices
 
 ```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_price"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_price"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'
 {
-   "agent":{
-      "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counterparty",
-         "mediaType":"application/json",
-         "uuidHref":"https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
-      }
-   },
-   "positions":[
-      {
-         "assortment":{
-            "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-               "type":"product",
-               "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
-            }
-         },
-         "quantity":12
-      },
-      {
-         "assortment":{
-            "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-               "type":"product",
-               "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-            }
-         },
-         "discount":20
-      }
-   ]
-}'  
-```
-
-> Response 200 (application/json)
-> Успешный запрос. Результат - JSON представление заполненного шаблона документа.
-
-```json
-{
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
-    }
-  },
-  "positions": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
-        }
-      },
-      "price": 3300.0,
-      "discountedPrice": 3300.0,
-      "quantity": 12.0,
-      "sum": 39600.0
+    "agent":{
+       "meta":{
+          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+          "type":"counter party",
+          "mediaType":"application/json",
+          "uuidHref":"https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+       }
     },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-        }
-      },
-      "price": 3300.0,
-      "discountedPrice": 2640.0,
-      "discount": 20.0
-    }
-  ]
-}
-```
-
-### Запрос автозаполения скидок
-
-Запрос автозаполения с параметром `action` со значением `evaluate_discount`. Требуется заполнение поля **agent** (или **organization**, если поле **agent** отсутствует). 
-Заполняет поле скидки **discount** (если явно не передано) суммой применимых к данному товару активных скидок 
-переданного в поле **agent** контрагента.
-
-> Запрос автозаполения скидок
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_discount"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '
-{
-   "agent":{
-      "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counterparty",
-         "mediaType":"application/json",
-         "uuidHref":"https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
-      }
-   },
-   "positions":[
-      {
-         "assortment":{
-            "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-               "type":"product",
-               "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
-            }
-         },
-         "quantity":12
-      },
-      {
-         "assortment":{
-            "meta":{
-               "href":"https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-               "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-               "type":"product",
-               "mediaType":"application/json",
-               "uuidHref":"https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-            }
-         }
-      }
-   ]
-}'  
-```
-
-> Response 200 (application/json)
-> Успешный запрос. Результат - JSON представление заполненного шаблона документа.
-
-```json
-{
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-      "type": "counterparty",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
-    }
-  },
-  "positions": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
-        }
-      },
-      "quantity": 12.0,
-      "discount": 65.0
-    },
-    {
-      "discount": 40.0,
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-        }
-      }
-    }
-  ]
-}
-```
-
-### Запрос автозаполения НДС
-
-Запрос автозаполения с параметром `action` со значением `evaluate_vat`. Требуется заполнение поля **organization**. 
-Заполняет поле **vatEnabled** на основе того, является ли переданная в поле **organization** организация плательщиком 
-НДС и поля **vat** у позиций значением из карточки товара, если организация - плательщик НДС.
-
-> Запрос автозаполения НДС
-
-```shell
-  curl -X POST
-    "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_vat"
-    -H "Authorization: Basic <Credentials>"
-    -H "Content-Type: application/json"
-      -d '
-{
-    "organization": {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-            "type": "organization",
-            "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
-        }
-    },
-    "vatEnabled": "true",
-    "rate": {
-        "currency": {
-          "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-            "type": "currency",
-            "mediaType": "application/json",
-            "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
-          }
-        }
-    },
-    "positions": [
-        {
-            "assortment": {
-                "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                    "type": "product",
-                    "mediaType": "application/json",
-                    "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
-                }
-            },
-            "quantity": 12
-        },
-        {
-            "assortment": {
-                "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                    "type": "product",
-                    "mediaType": "application/json",
-                    "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-                }
-            }
-        }
+    "positions":[
+       {
+          "assortment":{
+             "meta":{
+                "href":"https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type":"product",
+                "mediaType":"application/json",
+                "uuidHref":"https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+             }
+          },
+          "quantity":12
+       },
+       {
+          "assortment":{
+             "meta":{
+                "href":"https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type":"product",
+                "mediaType":"application/json",
+                "uuidHref":"https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+             }
+          },
+          discount:20
+       }
     ]
-}'  
+}'
 ```
 
-> Response 200 (application/json)
-> Успешный запрос. Результат - JSON представление заполненного шаблона документа.
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the completed document template.
 
 ```json
 {
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-      "type": "organization",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
-    }
-  },
-  "vatEnabled": true,
-  "rate": {
-    "currency": {
-      "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-        "type": "currency",
-        "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
-      }
-    }
-  },
-  "positions": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
-        }
-      },
-      "quantity": 12.0,
-      "vat": 10,
-      "vatEnabled": true
-    },
-    {
-      "vat": 18,
-      "vatEnabled": true,
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-        }
-      }
-    }
-  ]
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+     }
+   },
+   "positions": [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+         }
+       },
+       "price": 3300.0,
+       "discountedPrice": 3300.0,
+       "quantity": 12.0,
+       sum: 39600.0
+     },
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+         }
+       },
+       "price": 3300.0,
+       "discountedPrice": 2640.0,
+       discount: 20.0
+     }
+   ]
 }
 ```
 
+### Request to autocomplete discounts
 
-### Запрос автозаполения себестоимости
+Autocomplete request with `action` parameter with value `evaluate_discount`. The **agent** field is required (or **organization** if there is no **agent** field).
+Fills in the discount field **discount** (if not explicitly provided) with the amount of active discounts applicable to this product
+the counterparty passed in the **agent** field.
 
-Запрос автозаполения с параметром `action` со значением `evaluate_cost`. Выполняется только для Возвратов Покупателя и Розничных Возвратов *без основания*. Требуется заполнение поля **store**. 
-Заполняет поля **cost** у позиций значением себестоимости, рассчитанным по FIFO на момент **moment**. Если поле **moment** не указано, то себестоимость рассчитывается на текущую дату.
-
-> Запрос автозаполения себестоимости
+> Request to autocomplete discounts
 
 ```shell
-  curl -X POST
-  "https://app.kladana.in/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
-    -d '
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_discount"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'
 {
-  "store": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
-    }
-  },
-  "moment": "2020-10-20 17:45:00.000",
-  "positions": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
-        }
-      }
+    "agent":{
+       "meta":{
+          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+          "type":"counter party",
+          "mediaType":"application/json",
+          "uuidHref":"https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+       }
     },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-        }
-      }
-    }
-  ]
-}'  
+    "positions":[
+       {
+          "assortment":{
+             "meta":{
+                "href":"https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type":"product","mediaType":"application/json",
+                "uuidHref":"https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+             }
+          },
+          "quantity":12
+       },
+       {
+          "assortment":{
+             "meta":{
+                "href":"https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type":"product",
+                "mediaType":"application/json",
+                "uuidHref":"https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+             }
+          }
+       }
+    ]
+}'
 ```
 
-> Response 200 (application/json)
-> Успешный запрос. Результат - JSON представление заполненного шаблона документа.
+> Response 200(application/json)
+> Successful request. The result is a JSON representation of the completed document template.
 
 ```json
 {
-  "store": {
-    "meta": {
-      "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
-      "type": "store",
-      "mediaType": "application/json",
-      "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
-    }
-  },
-  "moment": "2020-10-20 17:45:00.000",
-  "positions": [
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
-        }
-      },
-    "cost": 1200.0
-    },
-    {
-      "assortment": {
-        "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type": "product",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
-        }
-      },
-      "cost": 3500.0
-    }
-  ]
+   agent: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "type": "counter party",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
+     }
+   },
+   "positions": [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
+         }
+       },
+       "quantity": 12.0,
+       discount: 65.0
+     },
+     {
+       discount: 40.0
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+         }
+       }
+     }
+   ]
 }
 ```
+
+### Tax autocomplete request
+
+Autocomplete request with `action` parameter with value `evaluate_vat`. The **organization** field is required.
+Populates the **vatEnabled** field based on whether the organization passed in the **organization** field is a payer
+taxes and **vat** fields for items with the value from the product card, if the organization is a tax payer.
+
+> Tax autocomplete request
+
+```shell
+   curl -X POST
+     "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_vat"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+       -d'
+{
+     organization: {
+         "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+             "type": "organization",
+             "mediaType": "application/json",
+             "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
+         }
+     },
+     "vatEnabled": "true",
+     rate: {
+         currency: {
+           "meta": {
+             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
+             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "type": "currency",
+             "mediaType": "application/json",
+             "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
+           }
+         }
+     },
+     "positions": [
+         {
+             "assortment": {
+                 "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                     "type": "product",
+                     "mediaType": "application/json",
+                     "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+                 }
+             },
+             quantity: 12
+         },
+         {
+             "assortment": {
+                 "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                     "type": "product",
+                     "mediaType": "application/json",
+                     "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+                 }
+             }
+         }
+     ]
+}'
+```
+
+> Response 200(application/json)
+> Successful request. Result - JSON representationEditing a completed document template.
+
+```json
+{
+   organization: {
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "type": "organization",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
+     }
+   },
+   "vatEnabled": true
+   rate: {
+     currency: {
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
+       }
+     }
+   },
+   "positions": [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+         }
+       },
+       "quantity": 12.0,
+       vat: 10
+       "vatEnabled": true
+     },
+     {
+       vat: 18
+       "vatEnabled": true
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+         }
+       }
+     }
+   ]
+}
+```
+
+
+### Request to autocomplete of cost price
+
+Autocomplete request with `action` parameter with value `evaluate_cost`. Valid only for Buyer Returns and Retail Returns *no reason*. The **store** field is required.
+Fills in the **cost** fields of items with the cost value calculated according to FIFO at the moment **moment**. If the **moment** field is not specified, then the cost price is calculated for the current date.
+
+> Autocomplete cost request
+
+```shell
+   curl -X POST
+   "https://app.kladana.in/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
+   -H "Authorization: Basic <Credentials>"
+   -H "Content-Type: application/json"
+     -d'
+{
+   store: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
+     }
+   },
+   "moment": "2020-10-20 17:45:00.000",
+   "positions": [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+         }
+       }
+     },
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+         }
+       }
+     }
+   ]
+}'
+```
+
+> Response 200(application/json)
+> Successful request. The result is a JSON representation of the completed document template.
+
+```json
+{
+   store: {
+     "meta": {
+       "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "type": "store",
+       "mediaType": "application/json",
+       "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
+     }
+   },
+   "moment": "2020-10-20 17:45:00.000",
+   "positions": [
+     {
+       "assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+         }
+       },
+     "cost": 1200.0
+     },
+     {"assortment": {
+         "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json",
+           "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
+         }
+       },
+       "cost": 3500.0
+     }
+   ]
+}
+```
+

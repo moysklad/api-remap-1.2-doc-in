@@ -6,7 +6,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
 
 toc_footers:
-  - <a href='https://github.com/moysklad/java-remap-1.2-sdk'>Java SDK</a>
   - <a href='https://github.com/moysklad/java-remap-1.2-doc/issues'>Report an issue</a>
 
 includes:
@@ -15,13 +14,10 @@ includes:
   - documents/print
   - documents/publication
   - documents/autofill
-  - documents/retaildrawercashin
   - documents/internalOrder  
   - documents/sales_return
   - documents/purchase_return
-  - documents/prepayment_return
   - documents/payment_in
-  - documents/retaildrawercashout
   - documents/processingorder
   - documents/customerOrder
   - documents/purchaseOrder
@@ -31,7 +27,6 @@ includes:
   - documents/enter
   - documents/demand
   - documents/move
-  - documents/prepayment
   - documents/supply
   - documents/cashin
   - documents/cashout
