@@ -1,7 +1,4 @@
 # Kladana JSON API
-
-Please note that our API docs may include untranslated content. We kindly recommend using a translator tool. Apologies for any inconvenience caused
-
 ## General Info
 ### Authentication
 
