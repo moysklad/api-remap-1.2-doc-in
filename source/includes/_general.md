@@ -20,7 +20,7 @@ Request for a new token. As in other requests, in the `Authorization` header, th
 
 ```shell
 curl -X POST
-   "https://dev.kladana.in/api/remap/1.2/security/token"
+   "https://app.kladana.in/api/remap/1.2/security/token"
    -H "Authorization: Basic <Credentials>"
 ```
 > Response 200 (application/json): Successful request. The result is a JSON object containing the token.
