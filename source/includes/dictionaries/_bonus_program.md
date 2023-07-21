@@ -226,7 +226,7 @@ Successful request. The result is a JSON representation of the modified bonus pr
    "id": "87c69fae-c1ad-4700-a852-f21939470760",
    "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
    "name": "bonus program",
-   active: true
+   "active": true,
    "agentTags": ["tag2"],
    "earnRateRoublesToPoint": 7,
    "spendRatePointsToRouble": 4,
@@ -268,7 +268,7 @@ Successful request. The result is a JSON representation of the Bonus Program wit
    "id": "87c69fae-c1ad-4700-a852-f21939470760",
    "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
    "name": "bonus program",
-   active: false
+   "active": false,
    "agentTags": [
      "group of agents"
    ],
