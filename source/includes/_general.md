@@ -54,21 +54,21 @@ The Kladana JSON API has the following restrictions:
 
 ### Data types
 
-| Name | Description |
-| ------ | ---------- | 
-| **Array(Type)** | An array of objects/values. 'Type' is a type of array elements. |
-| **Boolean** | Represents a `true` or `false` value. |
-| **DateTime** | Represents a string in the 'yyyy-mm-dd hh-mm-ss' format. Example: `'2016-08-23 15:21:09'`.|
-| **Enum** | Represents a string that takes a constant set of values. |
-| **Float** | Represents a fractional numeric value. Example: `200.8`. |
-| **int** | Represents an integer numeric value in the range of -2^31 - 2^31. Example: `200`. |
-| **Long** | Represents an integer numeric value in the range of -2^63 - 2^63. Example: `1613766951558`. |
-| **Meta** | Represents an object in the metadata format. |
+| Name | Description                                                                                                                                                                                        |
+| ------ |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| **Array(Type)** | An array of objects/values. 'Type' is a type of array elements.                                                                                                                                    |
+| **Boolean** | Represents a `true` or `false` value.                                                                                                                                                              |
+| **DateTime** | Represents a string in the 'yyyy-mm-dd hh-mm-ss' format. Example: `'2016-08-23 15:21:09'`.                                                                                                         |
+| **Enum** | Represents a string that takes a constant set of values.                                                                                                                                           |
+| **Float** | Represents a fractional numeric value. Example: `200.8`.                                                                                                                                           |
+| **int** | Represents an integer numeric value in the range of -2^31 - 2^31. Example: `200`.                                                                                                                  |
+| **Long** | Represents an integer numeric value in the range of -2^63 - 2^63. Example: `1613766951558`.                                                                                                        |
+| **Meta** | Represents an object in the metadata format.                                                                                                                                                       |
 | **MetaArray** | An object with **meta** and **rows** fields, where **rows** is an array of objects. The elements of the **rows** array can be queried using the expand query parameter of the corresponding field. |
-| **Object** | Represents an entity with nested fields. |
-| **String(MaxLength)** | Represents text data as a sequence of UTF-8 characters. 'MaxLength' is maximum string length for a particular field. Example: `'Moscow'`. |
-| **URL** | An FRC 3986 and RFC 3987 compliant URI string. Example: `'https://dev.kladana.in/api/remap/1.2/entity/counterparty'`. |
-| **UUID** | Represents a string in UUID format. Example': `'12a8b923-692c-11e6-8a84-bae500000053'`. |
+| **Object** | Represents an entity with nested fields.                                                                                                                                                           |
+| **String(MaxLength)** | Represents text data as a sequence of UTF-8 characters. 'MaxLength' is maximum string length for a particular field. Example: `'Moscow'`.                                                          |
+| **URL** | An FRC 3986 and RFC 3987 compliant URI string. Example: `'https://app.kladana.in/api/remap/1.2/entity/counterparty'`.                                                                              |
+| **UUID** | Represents a string in UUID format. Example': `'12a8b923-692c-11e6-8a84-bae500000053'`.                                                                                                            |
 
 
 ### Metadata

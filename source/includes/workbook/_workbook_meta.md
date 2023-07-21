@@ -502,10 +502,10 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
    ],
    "paymentItemType": "GOOD",
    "discountProhibited": false,
-   weight: 0.0
-   volume: 0.0
+   "weight": 0.0,
+   "volume": 0.0,
    "variantsCount": 0,
-   "isSerialTrackable": false
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }
 ```
@@ -534,7 +534,7 @@ curl -X GET
 
 ```json
 {
-     context: {
+     "context": {
          "employee": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -548,11 +548,11 @@ curl -X GET
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhook",
          "type": "webhook",
          "mediaType": "application/json",
-         size: 1
-         limit: 25
-         offset: 0
+         "size": 1,
+         "limit": 25,
+         "offset": 0
      },
-     rows: [
+     "rows": [
          {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/01205b84-072c-11e8-6b01-4b1d0010fff6",
@@ -565,7 +565,7 @@ curl -X GET
              "entityType": "product",
              "url": "https://webhook.site/40adcf20-83de-4bb0-9072-6a98fe96bc44",
              "method": "POST",
-             "enabled": false
+             "enabled": false,
              "action": "CREATE"
          }
      ]
@@ -594,7 +594,7 @@ curl -X GET
   
 ```json
 {
-     context: {
+     "context": {
          "employee": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -607,12 +607,12 @@ curl -X GET
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1",
          "type": "webhook",
          "mediaType": "application/json",
-         size: 3
-         limit: 1
-         offset: 0
+         "size": 3,
+         "limit": 1,
+         "offset": 0,
          "nextHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1"
      },
-     rows: [
+     "rows": [
          {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/01205b84-072c-11e8-6b01-4b1d0010fff6",
@@ -625,7 +625,7 @@ curl -X GET
              "entityType": "product",
              "url": "https://webhook.site/40adcf20-83de-4bb0-9072-6a98fe96bc44",
              "method": "POST",
-             "enabled": false
+             "enabled": false,
              "action": "CREATE"
          }
      ]
@@ -647,7 +647,7 @@ curl -X GET
 
 ```json
 {
-     context: {
+     "context": {
          "employee": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -661,13 +661,13 @@ curl -X GET
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhook?limit=1&offset=1",
          "type": "webhook",
          "mediaType": "application/json",
-         size: 3
-         limit: 1
-         offset: 1
+         "size": 3,
+         "limit": 1,
+         "offset": 1,
          "nextHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?offset=2&limit=1",
          "previousHref": "https://app.kladana.in/api/remap/1.2/entity/webhook?offset=0&limit=1"
      },
-     rows: [
+     "rows": [
          {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/07598ccd-072c-11e8-7a6c-d2a90010c896",
