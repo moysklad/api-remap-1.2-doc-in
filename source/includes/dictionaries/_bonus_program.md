@@ -62,7 +62,7 @@ Successful request. The result is a list of all bonus programs for the account.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -77,11 +77,11 @@ Successful request. The result is a list of all bonus programs for the account.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
      "type": "bonus program",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
@@ -93,8 +93,8 @@ Successful request. The result is a list of all bonus programs for the account.
        "id": "1223d051-ba76-11e8-3353-995e0000005a",
        "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
        "name": "test",
-       active: true
-       "allAgents": true
+       "active": true,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
@@ -116,8 +116,8 @@ Successful request. The result is a list of all bonus programs for the account.
        "id": "87c69fae-c1ad-4700-a852-f21939470760",
        "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
        "name": "bonus program",
-       active: false
-       "allAgents": true
+       "active": false,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
@@ -176,7 +176,7 @@ Successful request. The result is a JSON representation of the created bonus pro
    "id": "87c69fae-c1ad-4700-a852-f21939470760",
    "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
    "name": "bonus program",
-   active: false
+   "active": false,
    "agentTags": ["tag1", "tag2"],
    "earnRateRoublesToPoint": 7,
    "spendRatePointsToRouble": 4,
@@ -226,7 +226,7 @@ Successful request. The result is a JSON representation of the modified bonus pr
    "id": "87c69fae-c1ad-4700-a852-f21939470760",
    "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
    "name": "bonus program",
-   active: true
+   "active": true,
    "agentTags": ["tag2"],
    "earnRateRoublesToPoint": 7,
    "spendRatePointsToRouble": 4,
@@ -268,7 +268,7 @@ Successful request. The result is a JSON representation of the Bonus Program wit
    "id": "87c69fae-c1ad-4700-a852-f21939470760",
    "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
    "name": "bonus program",
-   active: false
+   "active": false,
    "agentTags": [
      "group of agents"
    ],
