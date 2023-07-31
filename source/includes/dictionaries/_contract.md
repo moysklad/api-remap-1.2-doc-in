@@ -87,7 +87,7 @@ Successful request. The result is a JSON representation of the list of Contracts
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -102,11 +102,11 @@ Successful request. The result is a JSON representation of the list of Contracts
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
      "type": "contract",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/contract/498b8673-0308-11e6-9464-e4de00000089",
@@ -124,8 +124,8 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -136,9 +136,9 @@ Successful request. The result is a JSON representation of the list of Contracts
        "updated": "2016-04-15 15:48:00",
        "name": "14212412",
        "externalCode": "WEhvl5LFgyYqa5l6yKRzu3",
-       archived: false
+       "archived": false,
        "moment": "2016-04-15 15:47:00",
-       sum: 0
+       "sum": 0,
        "contractType": "Sales",
        "ownAgent": {
          "meta": {
@@ -148,7 +148,7 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/78f75b89-fd86-11e5-9464-e4de0000000b",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -156,29 +156,29 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       state: {
+       "state": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
            "type": "state",
            "mediaType": "application/json"
          }
        },
-       organizationAccount: {
+       "organizationAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       agentAccount: {
+       "agentAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       rate: {
-         currency: {
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -187,7 +187,7 @@ Successful request. The result is a JSON representation of the list of Contracts
            }
          }
        },
-       "printed": false
+       "printed": false,
        "published": false
      },
      {
@@ -207,8 +207,8 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -221,9 +221,9 @@ Successful request. The result is a JSON representation of the list of Contracts
        "description": "Comment",
        "code": "KOOOOD",
        "externalCode": "GIpDXPPIh4ytzI9svfcyS3",
-       archived: false
+       "archived": false,
        "moment": "2016-04-25 11:33:00",
-       sum: 9999999000,
+       "sum": 9999999000,
        "contractType": "Commission",
        "rewardType": "PercentOfSales",
        "rewardPercent": 0,
@@ -235,7 +235,7 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -243,8 +243,8 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       rate: {
-         currency: {
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -271,8 +271,8 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -284,9 +284,9 @@ Successful request. The result is a JSON representation of the list of Contracts
        "description": "asdwqeqr",
        "code": "cjhjr",
        "externalCode": "jTNl4F6WhxgFTcczKRT6i2",
-       archived: false
+       "archived": false,
        "moment": "2016-04-13 13:00:00",
-       sum: 0
+       "sum": 0,
        "contractType": "Sales",
        "ownAgent": {
          "meta": {
@@ -296,7 +296,7 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -304,29 +304,29 @@ Successful request. The result is a JSON representation of the list of Contracts
            "mediaType": "application/json"
          }
        },
-       state: {
+       "state": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
            "type": "state",
            "mediaType": "application/json"
          }
        },
-       organizationAccount: {
+       "organizationAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       agentAccount: {
+       "agentAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       rate: {
-         currency: {
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -335,7 +335,7 @@ Successful request. The result is a JSON representation of the list of Contracts
            }
          }
        },
-       "printed": false
+       "printed": false,
        "published": false
      }
    ]
@@ -370,7 +370,7 @@ Mandatory fields for creating a Contract:
                  "mediaType": "application/json"
                }
              },
-             agent: {
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -378,8 +378,8 @@ Mandatory fields for creating a Contract:
                  "mediaType": "application/json"
                }
              },
-             rate: {
-               currency: {
+             "rate": {
+               "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -412,8 +412,8 @@ Successful request. The result is a JSON representation of the created Contract.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -424,9 +424,9 @@ Successful request. The result is a JSON representation of the created Contract.
    "updated": "2016-04-25 12:03:19",
    "name": "666",
    "externalCode": "y8j8uYVuhd04K8ZGOuu2a1",
-   archived: false
+   "archived": false,
    "moment": "2016-04-25 12:03:19",
-   sum: 0
+   "sum": 0,
    "contractType": "Sales",
    "ownAgent": {
      "meta": {
@@ -436,7 +436,7 @@ Successful request. The result is a JSON representation of the created Contract.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -444,22 +444,22 @@ Successful request. The result is a JSON representation of the created Contract.
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   rate: {
-     currency: {
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -468,7 +468,7 @@ Successful request. The result is a JSON representation of the created Contract.
        }
      }
    },
-   "printed": false
+   "printed": false,
    "published": false
 }
 ```
@@ -504,7 +504,7 @@ Successful request. The result is a JSON representation of the created Contract.
                  "mediaType": "application/json"
                }
              },
-             state: {
+             "state": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                  "type": "state",
@@ -535,8 +535,8 @@ Successful request. The result is a JSON representation of the created Contract.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -549,9 +549,9 @@ Successful request. The result is a JSON representation of the created Contract.
    "description": "Contract with partner organization Solnyshko LLC",
    "code": "contractWithPartner",
    "externalCode": "extC12fd12a",
-   archived: false
+   "archived": false,
    "moment": "2016-07-06 12:53:22",
-   sum: 200000
+   "sum": 200000,
    "contractType": "Sales",
    "ownAgent": {
      "meta": {
@@ -561,7 +561,7 @@ Successful request. The result is a JSON representation of the created Contract.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/2e6aa620-2c98-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -569,22 +569,22 @@ Successful request. The result is a JSON representation of the created Contract.
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/2e6aa620-2c98-11e6-8a84-bae500000004/accounts/2e6ab6ca-2c98-11e6-8a84-bae500000005",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   rate: {
-     currency: {
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -593,7 +593,7 @@ Successful request. The result is a JSON representation of the created Contract.
        }
      }
    },
-   "printed": false
+   "printed": false,
    "published": false
 }
 ```
@@ -616,7 +616,7 @@ Successful request. The result is a JSON representation of the created Contract.
                    "mediaType": "application/json"
                  }
                },
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -624,7 +624,7 @@ Successful request. The result is a JSON representation of the created Contract.
                    "mediaType": "application/json"
                  }
                },
-               rate: {
+               "rate": {
                  currency: {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
@@ -656,8 +656,8 @@ Successful request. The result is a JSON representation of the created Contract.
                "externalCode": "exCode333",
                "moment": "2017-02-25 12:03:19",
                "description": "Contract with the counterparty Supplier LLC",
-               rate: {
-                 currency: {
+               "rate": {
+                 "currency": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -691,8 +691,8 @@ Successful request. The result is a JSON representation of the created contract.
          "mediaType": "application/json"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -703,9 +703,9 @@ Successful request. The result is a JSON representation of the created contract.
      "updated": "2016-04-25 12:03:19",
      "name": "666",
      "externalCode": "y8j8uYVuhd04K8ZGOuu2a1",
-     archived: false
+     "archived": false,
      "moment": "2016-04-25 12:03:19",
-     sum: 0
+     "sum": 0,
      "contractType": "Sales",
      "ownAgent": {
        "meta": {
@@ -715,7 +715,7 @@ Successful request. The result is a JSON representation of the created contract.
          "mediaType": "application/json"
        }
      },
-     agent: {
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -723,22 +723,22 @@ Successful request. The result is a JSON representation of the created contract.
          "mediaType": "application/json"
        }
      },
-     organizationAccount: {
+     "organizationAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
          "type": "account",
          "mediaType": "application/json"
        }
      },
-     agentAccount: {
+     "agentAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
          "type": "account",
          "mediaType": "application/json"
        }
      },
-     rate: {
-       currency: {
+     "rate": {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -747,7 +747,7 @@ Successful request. The result is a JSON representation of the created contract.
          }
        }
      },
-     "printed": false
+     "printed": false,
      "published": false
    },
    {
@@ -767,8 +767,8 @@ Successful request. The result is a JSON representation of the created contract.
          "mediaType": "application/json"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -781,9 +781,9 @@ Successful request. The result is a JSON representation of the created contract.
      "description": "Contract with the counterparty Supplier LLC",
      "code": "code333",
      "externalCode": "exCode333",
-     archived: false
+     "archived": false,
      "moment": "2017-02-25 12:03:19",
-     sum: 0
+     "sum": 0,
      "contractType": "Sales",
      "ownAgent": {
        "meta": {
@@ -793,7 +793,7 @@ Successful request. The result is a JSON representation of the created contract.
          "mediaType": "application/json"
        }
      },
-     agent: {
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -801,22 +801,22 @@ Successful request. The result is a JSON representation of the created contract.
          "mediaType": "application/json"
        }
      },
-     organizationAccount: {
+     "organizationAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
          "type": "account",
          "mediaType": "application/json"
        }
      },
-     agentAccount: {
+     "agentAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
          "type": "account",
          "mediaType": "application/json"
        }
      },
-     rate: {
-       currency: {
+     "rate": {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -825,7 +825,7 @@ Successful request. The result is a JSON representation of the created contract.
          }
        }
      },
-     "printed": false
+     "printed": false,
      "published": false
    }
 ]
@@ -855,7 +855,7 @@ Updated Contracts must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -863,8 +863,8 @@ Updated Contracts must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
-               rate: {
-                 currency: {
+               "rate": {
+                 "currency": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -895,8 +895,8 @@ Updated Contracts must contain the identifier in the form of metadata.
                "externalCode": "exCode333",
                "moment": "2017-02-25 12:03:19",
                "description": "Contract with the counterparty Supplier LLC",
-               rate: {
-                 currency: {
+               "rate": {
+                 "currency": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -926,13 +926,12 @@ Successful request. The result is a JSON array of representations of created and
      "owner": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref":: "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
-       }
-     },
-     "printed": false
+       },
+     "printed": false,
      "published": false
    }
 ]
@@ -1143,8 +1142,8 @@ Successful request. The result is a JSON representation of the Contract.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1157,9 +1156,9 @@ Successful request. The result is a JSON representation of the Contract.
    "description": "asdwqeqr",
    "code": "cjhjr",
    "externalCode": "jTNl4F6WhxgFTcczKRT6i2",
-   archived: false
+   "archived": false,
    "moment": "2016-04-13 13:00:00",
-   sum: 0
+   "sum": 0,
    "contractType": "Sales",
    "ownAgent": {
      "meta": {
@@ -1169,7 +1168,7 @@ Successful request. The result is a JSON representation of the Contract.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1177,29 +1176,29 @@ Successful request. The result is a JSON representation of the Contract.
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   rate: {
-     currency: {
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1208,8 +1207,8 @@ Successful request. The result is a JSON representation of the Contract.
        }
      }
    },
-   "printed": false
-   "published": false
+   "printed": false,
+   "published": false,
    "attributes": [
      {
        "meta": {
@@ -1220,7 +1219,7 @@ Successful request. The result is a JSON representation of the Contract.
        "id": "25b6f76c-12d5-11e6-9464-e4de00000068",
        "name": "AttributeName1",
        "type": "boolean",
-       value: false
+       "value": false
      }
    ]
 }
@@ -1260,8 +1259,8 @@ When updating the **organization** and **agent** fields, you must also update th
              "externalCode": "exCode333",
              "moment": "2017-02-25 12:03:19",
              "description": "Contract with the counterparty Supplier LLC",
-             rate: {
-               currency: {
+             "rate": {
+               "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1294,8 +1293,8 @@ Successful request. The result is a JSON representation of the updated Contract.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1308,9 +1307,9 @@ Successful request. The result is a JSON representation of the updated Contract.
    "description": "Contract with the counterparty Supplier LLC",
    "code": "code333",
    "externalCode": "exCode333",
-   archived: false
+   "archived": false,
    "moment": "2017-02-25 12:03:19",
-   sum: 0
+   "sum": 0,
    "contractType": "Sales",
    "ownAgent": {
      "meta": {
@@ -1320,7 +1319,7 @@ Successful request. The result is a JSON representation of the updated Contract.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1328,22 +1327,22 @@ Successful request. The result is a JSON representation of the updated Contract.
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/342dc6f5-0bbb-11e6-d219-b9d90000004e/accounts/342e096d-0bbb-11e6-d219-b9d90000004f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   rate: {
-     currency: {
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1352,7 +1351,7 @@ Successful request. The result is a JSON representation of the updated Contract.
        }
      }
    },
-   "printed": false
+   "printed": false,
    "published": false
 }
 ```
@@ -1386,7 +1385,7 @@ Successful request. The result is a JSON representation of the updated Contract.
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
-                 value: false
+                 "value": false
                }
              ]
            }'
@@ -1413,8 +1412,8 @@ Successful request. The result is a JSON representation of the updated Contract.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1427,9 +1426,9 @@ Successful request. The result is a JSON representation of the updated Contract.
    "description": "New Treaty",
    "code": "not code 333",
    "externalCode": "exC22ode333",
-   archived: false
+   "archived": false,
    "moment": "2019-03-15 21:03:19",
-   sum: 0
+   "sum": 0,
    "contractType": "Sales",
    "ownAgent": {
      "meta": {
@@ -1439,7 +1438,7 @@ Successful request. The result is a JSON representation of the updated Contract.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1457,25 +1456,25 @@ Successful request. The result is a JSON representation of the updated Contract.
        "id": "25b6f76c-12d5-11e6-9464-e4de00000068",
        "name": "AttributeName1",
        "type": "boolean",
-       value: false
+       "value": false
      }
    ],
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   rate: {
-     currency: {
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1484,7 +1483,7 @@ Successful request. The result is a JSON representation of the updated Contract.
        }
      }
    },
-   "printed": false
+   "printed": false,
    "published": false
 }
 ```
