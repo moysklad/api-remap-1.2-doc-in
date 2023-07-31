@@ -68,7 +68,7 @@ Successful request. The result is a JSON representation of a list of custom Seri
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://online.moysklad.ru/api/remap/1.2/context/employee",
@@ -83,11 +83,11 @@ Successful request. The result is a JSON representation of a list of custom Seri
      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata",
      "type": "consignment",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/c66f4b17-36e7-11e7-8a7f-40d000000113",
@@ -117,9 +117,9 @@ Successful request. The result is a JSON representation of a list of custom Seri
          "meta": {
            "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
            "type": "image","mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "assortment": {
@@ -444,13 +444,13 @@ Successful request. The result is a JSON representation of the series metadata.
 ```json
 {
    "meta": {
-     "href": "hhttps://online.moysklad.ru/api/remap/1.2/entity/consignment",
+     "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment",
      "mediaType": "application/json"
    },
    "attributes": [
      {
        "meta": {
-         "href": "hhttps://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata/attributes/83dc3e6c-3bbf-11e7-8a7f-40d000000001",
+         "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata/attributes/83dc3e6c-3bbf-11e7-8a7f-40d000000001",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -461,7 +461,7 @@ Successful request. The result is a JSON representation of the series metadata.
      },
      {
        "meta": {
-         "href": "hhttps://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
+         "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -499,7 +499,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "hhttps://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
+     "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -564,9 +564,9 @@ Successful request. The result is a JSON representation of the custom Series.
        "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "assortment": {
