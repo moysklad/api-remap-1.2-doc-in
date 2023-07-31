@@ -67,7 +67,7 @@ Successful request. The result is a JSON representation of Company Settings.
      "type": "companysettings",
      "mediaType": "application/json"
    },
-   currency: {
+   "currency": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -75,12 +75,12 @@ Successful request. The result is a JSON representation of Company Settings.
        "mediaType": "application/json"
      },
      "id": "45ffbac2-24a5-11e6-8a84-bae500000055",
-     "system": true
+     "system": true,
      "name": "rub",
      "fullName": "Russian ruble",
-     rate: 1
+     "rate": 1,
      "multiplicity": 1,
-     "indirect": false
+     "indirect": false,
      "rateUpdateType": "manual",
      "code": "643",
      "isoCode": "RUB",
@@ -96,8 +96,8 @@ Successful request. The result is a JSON representation of Company Settings.
        "s2": "penny",
        "s5": "kopecks"
      },
-     archived: false
-     default: true
+     "archived": false,
+     "default": true
    },
    "priceTypes": [
      {
@@ -175,7 +175,7 @@ Successful request. The result is a JSON representation of Company Settings.
      "type": "companysettings",
      "mediaType": "application/json"
    },
-   currency: {
+   "currency": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -183,12 +183,12 @@ Successful request. The result is a JSON representation of Company Settings.
        "mediaType": "application/json"
      },
      "id": "45ffbac2-24a5-11e6-8a84-bae500000055",
-     "system": true
+     "system": true,
      "name": "rub",
      "fullName": "Russian ruble",
-     rate: 1
+     "rate": 1,
      "multiplicity": 1,
-     "indirect": false
+     "indirect": false,
      "rateUpdateType": "manual",
      "code": "643",
      "isoCode": "RUB",
@@ -204,8 +204,8 @@ Successful request. The result is a JSON representation of Company Settings.
        "s2": "penny",
        "s5": "kopecks"
      },
-     archived: false
-     default: true
+     "archived": false,
+     "default": true
    },
    "priceTypes": [
      {
