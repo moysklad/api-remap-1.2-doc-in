@@ -647,7 +647,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "mediaType":"application/json"
          }
        },
-       "shared":false
+       "shared":false,
        "group":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -817,7 +817,7 @@ curl -X POST
        "Rainbow",
        "Repair"
      ],
-     state: {
+     "state": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type": "state",
@@ -1065,7 +1065,7 @@ curl -X POST
    "name": "IP Ivanov",
    "code": "someCode",
    "externalCode": "extCode",
-   archived: false
+   "archived": false,
    "created": "2020-06-17 18:21:53",
    "companyType": "entrepreneur",
    "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
