@@ -585,7 +585,7 @@ Successful request. The result is a JSON representation of the updated Currency.
    "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
    "system": false,
    "name": "dollar",
-   "rate": 66.0
+   "rate": 66.0,
    "multiplicity": 1,
    "indirect": false,
    "rateUpdateType": "manual",
