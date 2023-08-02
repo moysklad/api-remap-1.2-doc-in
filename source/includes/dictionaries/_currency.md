@@ -344,7 +344,7 @@ curl -X POST
    -d'[
    {
      "name": "dollar",
-     "rate": 63
+     "rate": 63,
      "code" : "840",
      "isoCode": "USD"
    },
@@ -356,7 +356,7 @@ curl -X POST
        "mediaType": "application/json"
      },
      "name": "dollar",
-     "rate": 66
+     "rate": 66,
      "code" : "dollarusd",
      "isoCode": "USD"
    }
@@ -564,7 +564,7 @@ curl -X PUT
    -H "Authorization: Basic <Credentials>"
    -d '{
    "name": "dollar",
-   rate: 66
+   "rate": 66,
    "code" : "dollarusd",
    "isoCode": "USD"
 }'

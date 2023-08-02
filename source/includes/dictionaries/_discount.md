@@ -78,7 +78,7 @@ Successful request. The result is a list of all discounts of all types for the a
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -93,11 +93,11 @@ Successful request. The result is a list of all discounts of all types for the a
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/discount/metadata",
      "type": "discount",
      "mediaType": "application/json",
-     size: 4
-     limit: 1000
-     offset: 0
+     "size": 4,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
@@ -108,9 +108,9 @@ Successful request. The result is a list of all discounts of all types for the a
        "id": "0623d6b4-9ceb-11e6-8af5-581e00000003",
        "accountId": "9560e3e3-9609-11e6-8af5-581e00000008",
        "name": "Personal discount",
-       active: true
-       "allProducts": true
-       "allAgents": true
+       "active": true,
+       "allProducts": true,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
@@ -123,7 +123,7 @@ Successful request. The result is a list of all discounts of all types for the a
              "mediaType": "application/json"
            }
          }
-       ],
+       ]
      },
      {
        "meta": {
@@ -135,12 +135,12 @@ Successful request. The result is a list of all discounts of all types for the a
        "id": "96673f4d-9f4d-11e6-8af5-581e0000007b",
        "accountId": "9560e3e3-9609-11e6-8af5-581e00000008",
        "name": "Special percentage discount",
-       active: true
-       "allAgents": true
+       "active": true,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
-       "allProducts": false
+       "allProducts": false,
        "assortment": [
          {
            "meta": {
@@ -151,7 +151,7 @@ Successful request. The result is a list of all discounts of all types for the a
            }
          }
        ],
-       discount: 5
+       "discount": 5
      },
      {
        "meta": {
@@ -163,9 +163,9 @@ Successful request. The result is a list of all discounts of all types for the a
        "id": "bd1235f2-9c60-11e6-8af5-581e00000009",
        "accountId": "9560e3e3-9609-11e6-8af5-581e00000008",
        "name": "Discount number 2",
-       active: true
-       "allProducts": false
-       "allAgents": true
+       "active": true,
+       "allProducts": false,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
@@ -198,7 +198,7 @@ Successful request. The result is a list of all discounts of all types for the a
          }
        ],
        "specialprice": {
-         value: 15.0
+         "value": 15.0,
          "priceType": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -220,9 +220,9 @@ Successful request. The result is a list of all discounts of all types for the a
        },"id": "dce08f7f-9a09-11e6-8af5-581e0000007e",
        "accountId": "9560e3e3-9609-11e6-8af5-581e00000008",
        "name": "Discounts on boots",
-       active: true
-       "allProducts": false
-       "allAgents": true
+       "active": true,
+       "allProducts": false,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
@@ -254,12 +254,12 @@ Successful request. The result is a list of all discounts of all types for the a
        ],
        "levels": [
          {
-           amount: 100000
-           discount: 10
+           "amount": 100000,
+           "discount": 10
          },
          {
-           amount: 200000
-           discount: 15
+           "amount": 200000,
+           "discount": 15
          }
        ]
      },
@@ -274,8 +274,8 @@ Successful request. The result is a list of all discounts of all types for the a
        "id": "1223d051-ba76-11e8-3353-995e0000005a",
        "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
        "name": "test",
-       active: true
-       "allAgents": true
+       "active": true,
+       "allAgents": true,
        "agentTags": [
          "group of agents"
        ],
@@ -294,8 +294,8 @@ Successful request. The result is a list of all discounts of all types for the a
        "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
        "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
        "name": "Copeck rounding",
-       active: true
-       "allAgents": true
+       "active": true,
+       "allAgents": true,
        "agentTags": []
 }
    ]
@@ -363,13 +363,13 @@ Successful request. The result is a JSON representation of the created cumulativ
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "discountName",
-   active: true
-   "allAgents": false
+   "active": true,
+   "allAgents": false,
    "agentTags": [
      "tag2",
      "tag1"
    ],
-   "allProducts": false
+   "allProducts": false,
    "assortment": [
      {
        "meta": {
@@ -393,8 +393,8 @@ Successful request. The result is a JSON representation of the created cumulativ
    ],
    "levels": [
      {
-       amount: 100
-       discount: 10
+       "amount": 100,
+       "discount": 10
      }
    ]
 }
@@ -431,9 +431,9 @@ Successful request. The result is a JSON representation of the cumulative discou
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "updatedName",
-   active: false
-   "allProducts": false
-   "allAgents": false
+   "active": false,
+   "allProducts": false,
+   "allAgents": false,
    "agentTags": [
      "tag2"
    ],
@@ -461,8 +461,8 @@ Successful request. The result is a JSON representation of the cumulative discou
    ],
    "levels": [
      {
-       amount: 100
-       discount: 10
+       "amount": 100,
+       "discount": 10
      }
    ]
 }
@@ -485,35 +485,39 @@ curl -X PUT
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "updatedName",
-active: false
-"allProducts": false
-"allAgents": false
-"agentTags": ["tag2"],
-"levels": [
-{
-amount: 100
-discount: 10
-}
-],
-"assortment": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "product",
-"mediaType": "application/json"
-}
-}],
-"productFolders": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "productfolder",
-"mediaType": "application/json"
-}
-}]
+    "name": "updatedName",
+    "active": false,
+    "allProducts": false,
+    "allAgents": false,
+    "agentTags": [
+        "tag2"
+    ],
+    "levels": [
+        {
+            "amount": 100,
+            "discount": 10
+        }
+    ],
+    "assortment": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            }
+        }
+    ],
+    "productFolders": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "productfolder",
+                "mediaType": "application/json"
+            }
+        }
+    ]
 }'
 ```
 
@@ -532,8 +536,8 @@ Successful request. The result is a JSON representation of the created cumulativ
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "updatedName",
-   active: false
-   "allProducts": false
+   "active": false,
+   "allProducts": false,
    "allagents": false,
    "agentTags": [
      "tag2"
@@ -562,8 +566,8 @@ Successful request. The result is a JSON representation of the created cumulativ
    ],
    "levels": [
      {
-       amount: 100
-       discount: 10
+       "amount": 100,
+       "discount": 10
      }
    ]
 }
