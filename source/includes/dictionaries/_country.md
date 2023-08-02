@@ -53,7 +53,7 @@ Successful request. The result is a JSON representation of the list of Countries
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -68,11 +68,11 @@ Successful request. The result is a JSON representation of the list of Countries
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
      "type": "country",
      "mediaType": "application/json",
-     size: 248
-     limit: 1000
-     offset: 0
+     "size": 248,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
@@ -165,8 +165,8 @@ Successful request. The result is a JSON representation of the list of Countries
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -228,8 +228,8 @@ Successful request. The result is a JSON representation of the created Country.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -303,8 +303,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -337,8 +337,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -512,8 +512,8 @@ Successful request. The result is a JSON representation of the updated Country.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
