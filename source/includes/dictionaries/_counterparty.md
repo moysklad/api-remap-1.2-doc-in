@@ -1262,7 +1262,7 @@ curl -X POST
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared":false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -1515,7 +1515,7 @@ curl -X POST
          "mediaType":"application/json"
        }
      },
-     "shared":false
+     "shared":false,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -1594,7 +1594,7 @@ curl -X POST
          "mediaType":"application/json"
        }
      },
-     "shared":false
+     "shared":false,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -1632,7 +1632,7 @@ curl -X POST
      },
      "tags":[
        "burning",
-       "builders"
+       "builders",
        "concrete",
        "repair",
        "rainbow"
@@ -1782,7 +1782,7 @@ curl -X GET
      }
    ],
    "tags":[
-     "Suppliers"
+     "Suppliers",
      "Buyers"
    ],
    "createShared":false
@@ -1872,7 +1872,7 @@ curl -X GET
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared":false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -2383,7 +2383,7 @@ curl -X PUT
    ],
    "accounts": [
      {
-       isDefault: true
+       "isDefault": true,
        "accountNumber": "12512568161257981",
        "bankName": "JSC Sberbank",
        "bankLocation": "Moscow, Vavilova 19",
@@ -2451,7 +2451,7 @@ curl -X PUT
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared":false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -2626,7 +2626,7 @@ curl -X GET
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -2714,7 +2714,7 @@ curl -X GET
    "id": "a6aa5466-2ca2-11e6-8a84-bae500000017",
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "updated": "2016-06-07 14:26:17",
-   isDefault: false
+   "isDefault": false,
    "accountNumber": "12512568161257982",
    "bankName": "VTB",
    "bic": "7654352"
@@ -2779,7 +2779,7 @@ curl -X GET
        "email": "advopetr@mail.ru",
        "phone": "87127418",
        "position": "Lawyer",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2803,7 +2803,7 @@ curl -X GET
        "email": "travolta@mail.ru",
        "phone": "125815120",
        "position": "Secretary",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2827,7 +2827,7 @@ curl -X GET
        "email": "mail@mail.rq",
        "phone": "12412512512",
        "position": "Accountant",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2884,7 +2884,7 @@ curl -X POST
      "email": "petr@ovoshy.com",
      "phone": "+777 666 228",
      "position": "vegetable supplier",
-     agent: {
+     "agent": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2936,7 +2936,7 @@ curl -X GET
    "email": "petr@ovoshy.com",
    "phone": "+777 666 228",
    "position": "vegetable supplier",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2996,7 +2996,7 @@ Fields that were not specified in the request JSON are not changed.
    "email": "petr@ovoshy.com",
    "phone": "+777 666 228",
    "position": "vegetable supplier",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -3031,7 +3031,7 @@ curl -X GET
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -3141,7 +3141,7 @@ curl -X POST
      "accountId": "674f0d4f-3c9c-11e7-8af5-581e00000001",
      "created": "2017-05-19 19:29:22",
      "description": "text",
-     agent: {
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -3193,7 +3193,7 @@ curl -X GET
    "accountId": "674f0d4f-3c9c-11e7-8af5-581e00000001",
    "created": "2017-05-19 19:29:22",
    "description": "text",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -3252,7 +3252,7 @@ Fields that were not specified in the request JSON are not changed.
    "accountId": "674f0d4f-3c9c-11e7-8af5-581e00000001",
    "created": "2017-05-19 19:29:22",
    "description": "changed text",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
