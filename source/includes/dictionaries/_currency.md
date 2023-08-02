@@ -73,7 +73,7 @@ Successful request. The result is a JSON representation of a list of Currencies.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -88,11 +88,11 @@ Successful request. The result is a JSON representation of a list of Currencies.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
@@ -102,12 +102,12 @@ Successful request. The result is a JSON representation of a list of Currencies.
          "uuidHref": "http://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
        },
        "id": "6314188d-2c7f-11e6-8a84-bae500000055",
-       "system": false
+       "system": false,
        "name": "rub",
        "fullName": "Ruble",
-       rate: 1.0
+       "rate": 1.0,
        "multiplicity": 1,
-       "indirect": false
+       "indirect": false,
        "rateUpdateType": "manual",
        "code": "643",
        "isoCode": "RUB",
@@ -123,8 +123,8 @@ Successful request. The result is a JSON representation of a list of Currencies.
          "s2": "penny",
          "s5": "kopecks"
        },
-       archived: false
-       default: true
+       "archived": false,
+       "default": true
      },
      {
        "meta": {
@@ -135,12 +135,12 @@ Successful request. The result is a JSON representation of a list of Currencies.
          "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
        },
        "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
-       "system": true
+       "system": true,
        "name": "dollar",
        "fullName": "US Dollar",
-       "rate": 63.0
+       "rate": 63.0,
        "multiplicity": 1,
-       "indirect": false
+       "indirect": false,
        "rateUpdateType": "manual",
        "code": "840",
        "isoCode": "USD",
@@ -156,8 +156,8 @@ Successful request. The result is a JSON representation of a list of Currencies.
          "s2": "cent",
          "s5": "cents"
        },
-       archived: false
-       default: false
+       "archived": false,
+       "default": false
      }
    ]
 }
@@ -197,11 +197,11 @@ Successful request. The result is a JSON representation of the generated Currenc
          "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
      },
      "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
-     "system": false
+     "system": false,
      "name": "dollar",
-     "rate": 63.0
+     "rate": 63.0,
      "multiplicity": 1,
-     "indirect": false
+     "indirect": false,
      "rateUpdateType": "manual",
      "code": "840",
      "isoCode": "USD",
@@ -211,8 +211,8 @@ Successful request. The result is a JSON representation of the generated Currenc
      "minorUnit": {
          "gender": "masculine"
      },
-     archived: false
-     default: false
+     "archived": false,
+     "default": false
 }
 ```
 
@@ -249,7 +249,7 @@ Successful request. The result is a JSON representation of the generated Currenc
      "uuidHref" : "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
    "id" : "03f1855b-43d7-11ec-ac13-000400000050",
-   "system" : true
+   "system" : true,
    "name" : "euro",
    "fullName" : "Euro",
    "rate" : 1.0,
@@ -303,7 +303,7 @@ Successful request. The result is a JSON representation of the generated Currenc
      "uuidHref" : "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
    "id" : "03f1855b-43d7-11ec-ac13-000400000050",
-   "system" : true
+   "system" : true,
    "name" : "euro",
    "fullName" : "Euro",
    "rate" : 1.0,
@@ -344,7 +344,7 @@ curl -X POST
    -d'[
    {
      "name": "dollar",
-     rate: 63
+     "rate": 63
      "code" : "840",
      "isoCode": "USD"
    },
@@ -356,7 +356,7 @@ curl -X POST
        "mediaType": "application/json"
      },
      "name": "dollar",
-     rate: 66
+     "rate": 66
      "code" : "dollarusd",
      "isoCode": "USD"
    }
@@ -378,11 +378,11 @@ Successful request. The result is a JSON array of representations of the created
        "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
      },
      "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
-     "system": false
+     "system": false,
      "name": "dollar",
-     "rate": 63.0
+     "rate": 63.0,
      "multiplicity": 1,
-     "indirect": false
+     "indirect": false,
      "rateUpdateType": "manual",
      "code": "840",
      "isoCode": "USD",
@@ -392,8 +392,8 @@ Successful request. The result is a JSON array of representations of the created
      "minorUnit": {
        "gender": "masculine"
      },
-     archived: false
-     default: false
+     "archived": false,
+     "default": false
    },
    {
      "meta": {
@@ -404,11 +404,11 @@ Successful request. The result is a JSON array of representations of the created
        "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
      },
      "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
-     "system": false
+     "system": false,
      "name": "dollar",
-     "rate": 66.0
+     "rate": 66.0,
      "multiplicity": 1,
-     "indirect": false
+     "indirect": false,
      "rateUpdateType": "manual",
      "code": "dollarusd",
      "isoCode": "USD",
@@ -418,8 +418,8 @@ Successful request. The result is a JSON array of representations of the created
      "minorUnit": {
        "gender": "masculine"
      },
-     archived: false
-     default: false
+     "archived": false,
+     "default": false
    }
 ]
 ```
@@ -517,12 +517,12 @@ Successful request. The result is a JSON representation of the requested Currenc
      "uuidHref": "http://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
    },
    "id": "6314188d-2c7f-11e6-8a84-bae500000055",
-   "system": false
+   "system": false,
    "name": "rub",
    "fullName": "Ruble",
-   rate: 1.0
+   "rate": 1.0,
    "multiplicity": 1,
-   "indirect": false
+   "indirect": false,
    "rateUpdateType": "manual",
    "code": "643",
    "isoCode": "RUB",
@@ -538,8 +538,8 @@ Successful request. The result is a JSON representation of the requested Currenc
      "s2": "penny",
      "s5": "kopecks"
    },
-   archived: false
-   default: true
+   "archived": false,
+   "default": true
 }
 ```
 
@@ -583,11 +583,11 @@ Successful request. The result is a JSON representation of the updated Currency.
      "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
    },
    "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
-   "system": false
+   "system": false,
    "name": "dollar",
    "rate": 66.0
    "multiplicity": 1,
-   "indirect": false
+   "indirect": false,
    "rateUpdateType": "manual",
    "code": "dollarusd",
    "isoCode": "USD",
@@ -597,7 +597,7 @@ Successful request. The result is a JSON representation of the updated Currency.
    "minorUnit": {
      "gender": "masculine"
    },
-   archived: false
-   default: false
+   "archived": false,
+   "default": false
 }
 ```
