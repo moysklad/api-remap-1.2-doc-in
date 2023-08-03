@@ -40,7 +40,7 @@ Successful request. The result is a JSON representation of a list of departments
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -55,11 +55,11 @@ Successful request. The result is a JSON representation of a list of departments
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
      "type": "group",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",

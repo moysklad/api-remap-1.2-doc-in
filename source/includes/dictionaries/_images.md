@@ -50,7 +50,7 @@ Successful request. The result is an array of all Product Images.
 
 ```json
 {
-     context: {
+     "context": {
          "employee": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -64,11 +64,11 @@ Successful request. The result is an array of all Product Images.
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images",
          "type": "image",
          "mediaType": "application/json",
-         size: 2
-         limit: 1000
-         offset: 0
+         "size": 2,
+         "limit": 1000,
+         "offset": 0
      },
-     rows: [
+     "rows": [
          {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
@@ -78,7 +78,7 @@ Successful request. The result is an array of all Product Images.
              },
              "title": "bird image",
              "filename": "birdimage.png",
-             size: 14052
+             "size": 14052,
              "updated": "2019-01-24 16:55:24.567",
              "miniature": {
                  "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
@@ -100,7 +100,7 @@ Successful request. The result is an array of all Product Images.
              },
              "title": "birdimage1",
              "filename": "birdimage1.png",
-             size: 14052
+             "size": 14052,
              "updated": "2019-01-24 16:55:25.047",
              "miniature": {
                  "href": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
@@ -164,7 +164,7 @@ Successful request. The result is an array of all Product Images.
        },
        "title": "bird image",
        "filename": "birdimage.png",
-       size: 14052
+       "size": 14052,
        "updated": "2019-01-24 16:55:24.567",
        "miniature": {
            "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
@@ -187,7 +187,7 @@ Successful request. The result is an array of all Product Images.
        },
        "title": "birdimageNew",
        "filename": "birdimageNew.png",
-       size: 16
+       "size": 16,
        "updated": "2019-01-24 16:55:25.047",
        "miniature": {
            "href": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
@@ -196,7 +196,7 @@ Successful request. The result is an array of all Product Images.
            "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           href:"https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+           "href":"https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -253,7 +253,7 @@ Successful request. The result is a modified array of all Product Images.
        },
        "title": "bird image",
        "filename": "birdimage.png",
-       size: 14052
+       "size": 14052,
        "updated": "2019-01-24 16:55:24.567",
        "miniature": {
            "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
@@ -276,7 +276,7 @@ Successful request. The result is a modified array of all Product Images.
        },
        "title": "birdimageNew",
        "filename": "birdimageNew.png",
-       size: 16
+       "size": 16,
        "updated": "2019-01-24 16:55:25.047",
        "miniature": {
            "href": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
@@ -334,23 +334,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
          -d'[
-   {
-     "meta":{
-       "href":"https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/1aadd77f-90f9-4be6-bede-373f350b0e03",
-       "type":"image",
-       "mediaType":"application/json",
-       "downloadHref":"https://app.kladana.in/api/remap/1.2/download/1aadd77f-90f9-4be6-bede-373f350b0e03"
-     }
-   },
-   {
-     "meta":{
-       "href":"https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f6aaab17-65a0-4425-841b-277aeef5b089",
-       "type":"image",
-       "mediaType":"application/json",
-       "downloadHref":"https://app.kladana.in/api/remap/1.2/download/f6aaab17-65a0-4425-841b-277aeef5b089"
-     }
-   }
-]'
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/1aadd77f-90f9-4be6-bede-373f350b0e03",
+                        "type": "image",
+                        "mediaType": "application/json",
+                        "downloadHref": "https://app.kladana.in/api/remap/1.2/download/1aadd77f-90f9-4be6-bede-373f350b0e03"
+                    }
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f6aaab17-65a0-4425-841b-277aeef5b089",
+                        "type": "image",
+                        "mediaType": "application/json",
+                        "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f6aaab17-65a0-4425-841b-277aeef5b089"
+                    }
+                }
+            ]'
 ```
 > Response 200(application/json)
 Successful deletion of Images.

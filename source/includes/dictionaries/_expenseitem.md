@@ -42,7 +42,7 @@ Successful request. The result is a JSON representation of the list of Expense I
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -57,15 +57,16 @@ Successful request. The result is a JSON representation of the list of Expense I
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
      "type": "expenseitem",
      "mediaType": "application/json",
-     size: 8
-     limit: 1000
-     offset: 0
+     "size": 8,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata""type": "expenseitem",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
          "mediaType": "application/json"
        },
        "id": "1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -192,10 +193,11 @@ Request to create a new expense item. Mandatory field for creating an expense it
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Taxes and non-taxes",
-             "description": "Expense item taxes",
-             "code": "tax",
-             "externalCode": "wwoaon21431"}'
+                "name": "Taxes and non-taxes",
+                "description": "Expense item taxes",
+                "code": "tax",
+                "externalCode": "wwoaon21431"
+            }'
 ```
 
 > Response 200(application/json)
@@ -323,21 +325,19 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-             "type": "expenseitem",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
-             "type": "expenseitem",
-             "mediaType": "application/json"
-         }
-       ]'
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                "type": "expenseitem",
+                "mediaType": "application/json"
+            },
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                "type": "expenseitem",
+                "mediaType": "application/json"
+            }
+        ]'
 ```
 
 > Successful request. Result - JSON information about deleting Expenses.

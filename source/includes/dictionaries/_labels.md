@@ -47,45 +47,49 @@ Nested entity attributes
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/107430bc-36e7-11e7-8a7f-40d000000090",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json",
-                "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=107430bc-36e7-11e7-8a7f-40d000000090"
+              "organization": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/107430bc-36e7-11e7-8a7f-40d000000090",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                      "type": "organization",
+                      "mediaType": "application/json",
+                      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=107430bc-36e7-11e7-8a7f-40d000000090"
+                  }
+              },
+              "count": 10,
+              "salePrice": {
+                  "priceType": {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                          "type": "pricetype",
+                          "mediaType": "application/json"
+                      }
+                  }
+              },
+              "template": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/f8e295eb-15c6-3184-b934-14fe90b3ea81",
+                      "type": "embeddedtemplate",
+                      "mediaType": "application/json"
+                  }
               }
-            },
-            "count": 10,
-            "salePrice": {
-              "priceType": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                  "type": "pricetype",
-                  "mediaType": "application/json"
-                }
-              }
-            },
-            "template": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/f8e295eb-15c6-3184-b934-14fe90b3ea81",
-                "type": "embeddedtemplate",
-                "mediaType": "application/json"
-              }
-            }
           }'  
 ```
 
 > Response 202 Headers
 
 ```json
-Location: link to print status
-   Content-Type: application/json
+{
+  "Location": "link to print status",
+  " Content-Type": "application/json"
+}
 ```
 
 > Response 303 headers
 
 ```json
-   Location: file link
-  Content-Type: application/json
+{
+  "Location": "file link",
+  "Content-Type": "application/json"
+}
 ```

@@ -71,7 +71,7 @@ Successful request. The result is a JSON representation of a list of files.
 
 ```json
 {
-     context: {
+     "context": {
          "employee": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -85,11 +85,11 @@ Successful request. The result is a JSON representation of a list of files.
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files",
          "type": "files",
          "mediaType": "application/json",
-         size: 2
-         limit: 1000
-         offset: 0
+         "size": 2,
+         "limit": 1000,
+         "offset": 0
      },
-     rows: [
+     "rows": [
          {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
@@ -99,7 +99,7 @@ Successful request. The result is a JSON representation of a list of files.
              },
              "title": "bird image",
              "filename": "birdimage.png",
-             size: 14052
+             "size": 14052,
              "created": "2019-01-24 16:55:24.567",
              "createdBy": {
                  "meta": {
@@ -131,7 +131,7 @@ Successful request. The result is a JSON representation of a list of files.
              },
              "title": "doc",
              "filename": "doc.pdf",
-             size: 25000
+             "size": 25000,
              "created": "2019-01-25 17:30:25.021",
              "createdBy": {
                  "meta": {
@@ -141,7 +141,7 @@ Successful request. The result is a JSON representation of a list of files.
                    "mediaType": "application/json",
                    "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
                  }
-             },
+             }
          }
      ]
 }
@@ -174,13 +174,16 @@ A maximum of 10 Files can be added in one request.
      "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-     -d '[{
-       "filename": "birdimageNew.png",
-       "content": "Base64"
-     },{
-     "filename": "doc.pdf",
-     "content": "Base64"
-   }]'
+     -d '[
+            {
+                "filename": "birdimageNew.png",
+                "content": "Base64"
+            },
+            {
+                "filename": "doc.pdf",
+                "content": "Base64"
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -197,7 +200,7 @@ Successful request. The result is an array of all Product Files.
        },
        "title": "bird image",
        "filename": "birdimage.png",
-       size: 14052
+       "size": 14052,
        "created": "2019-01-24 16:55:24.567",
        "createdBy": {
            "meta": {
@@ -229,7 +232,7 @@ Successful request. The result is an array of all Product Files.
        },
        "title": "doc",
        "filename": "doc.pdf",
-       size: 25000
+       "size": 25000,
        "created": "2019-01-25 17:30:25.021",
        "createdBy": {
            "meta": {
