@@ -65,7 +65,7 @@ Successful request. The result is a JSON representation of the Routings list.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -79,11 +79,11 @@ Successful request. The result is a JSON representation of the Routings list.
      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess",
      "type": "processing",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007",
@@ -103,8 +103,8 @@ Successful request. The result is a JSON representation of the Routings list.
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=872559f1-cbf3-11e1-9eb9-889ffa6f49fd"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f7eb1e3b-fd2a-42f7-b799-b3d1e6b3bf43",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -115,15 +115,15 @@ Successful request. The result is a JSON representation of the Routings list.
        "updated": "2021-03-16 10:47:18.160",
        "name": "Main workflow",
        "externalCode": "F1l43a3ojXZShfnzJCKsG3",
-       archived: false
-       positions: {
+       "archived": false,
+       "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007/positions",
            "type": "processingprocessposition",
            "mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        }
      }
@@ -170,8 +170,8 @@ Successful request. The result is a JSON representation of a Routing.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=872559f1-cbf3-11e1-9eb9-889ffa6f49fd"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f7eb1e3b-fd2a-42f7-b799-b3d1e6b3bf43",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -182,15 +182,15 @@ Successful request. The result is a JSON representation of a Routing.
    "updated": "2021-03-16 10:47:18.160",
    "name": "Main workflow",
    "externalCode": "F1l43a3ojXZShfnzJCKsG3",
-   archived: false
-   positions: {
+   "archived": false,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5174779-862b-11eb-ac14-000900000007/positions",
        "type": "processingprocessposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -206,26 +206,26 @@ Required fields for creating:
 > Request to create a new Routing with a request body containing only the required fields.
 
 ```shell
-curl -X POST
-"https://app.kladana.in/api/remap/1.2/entity/processingprocess"
--H "Authorization: Basic <Credentials>"
--H "Content-Type: application/json"
--d '{
-"name": "We make the engine",
-"positions": [
-{
-"processing stage": {
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-"type": "processing stage",
-"mediaType": "application/json",
-"uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
-         }
-       }
-     }
-   ]
-}'
+  curl -X POST
+  "https://app.kladana.in/api/remap/1.2/entity/processingprocess"
+    -H "Authorization: Basic <Credentials>"
+    -H "Content-Type: application/json"
+    -d '{
+          "name": "We make the engine",
+          "positions": [
+              {
+                  "processing stage": {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
+                          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                          "type": "processing stage",
+                          "mediaType": "application/json",
+                          "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
+                      }
+                  }
+              }
+          ]
+      }'
 ```
 
 > Response 200(application/json)
@@ -251,8 +251,8 @@ Successful request. The result is a JSON representation of the generated Routing
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -263,15 +263,15 @@ Successful request. The result is a JSON representation of the generated Routing
    "updated": "2023-02-07 08:58:05.574",
    "name": "We make the engine",
    "externalCode": "Jsi3Cs2fipoDAZcFrrxX01",
-   archived: false
-   positions: {
+   "archived": false,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/63b86a2e-a6ac-11ed-ac12-00090000000a/positions",
        "type": "processingprocessposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -289,43 +289,42 @@ In the body of the request, specify the fields that need to be changed for Routi
 > Request to update Routing with the replacement of the stage of the existing item and the creation of a new item.
 
 ```shell
-curl -X PUT
-"https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022"
--H "Authorization: Basic <Credentials>"
--H "Content-Type: application/json"
--d'
-{
-"name": "We are making engine #2",
-"externalCode": "dfsafsfsd1231231",
-archived: false
-"positions": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions/117cb64b-a612-11ed-ac12-000900000024",
-"type": "processingprocessposition",
-"mediaType": "application/json"
-},
-"processing stage": {
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/c18373c0-9aea-11ed-ac12-000e000000c2",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-"type": "processing stage",
-"mediaType": "application/json"
-     }
-   }
-},
-{
-"processing stage": {
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-"type": "processing stage",
-"mediaType": "application/json"
-         }
-       }
-     }
-   ]
-}'
+  curl -X PUT
+  "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022"
+    -H "Authorization: Basic <Credentials>"
+    -H "Content-Type: application/json"
+    -d' {
+          "name": "We are making engine #2",
+          "externalCode": "dfsafsfsd1231231",
+          "archived": false,
+          "positions": [
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions/117cb64b-a612-11ed-ac12-000900000024",
+                      "type": "processingprocessposition",
+                      "mediaType": "application/json"
+                  },
+                  "processing stage": {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/c18373c0-9aea-11ed-ac12-000e000000c2",
+                          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                          "type": "processing stage",
+                          "mediaType": "application/json"
+                      }
+                  }
+              },
+              {
+                  "processing stage": {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
+                          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                          "type": "processing stage",
+                          "mediaType": "application/json"
+                      }
+                  }
+              }
+          ]
+      }'
 ```
 
 > Response 200(application/json)
@@ -351,8 +350,8 @@ Successful request. The result is a JSON representation of the updated Routing.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -363,15 +362,15 @@ Successful request. The result is a JSON representation of the updated Routing.
    "updated": "2023-02-07 09:43:38.713",
    "name": "We are making engine #2",
    "externalCode": "dfsafsfsd1231231",
-   archived: false
-   positions: {
+   "archived": false,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022/positions",
        "type": "processingprocessposition",
        "mediaType": "application/json",
-       size: 2
-       limit: 1000
-       offset: 0
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -439,7 +438,7 @@ Successful request. The result is a JSON representation of a list of individual 
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -450,19 +449,14 @@ Successful request. The result is a JSON representation of a list of individual 
      }
    },
    "meta": {
-     "href": "hauto_awesome
-Translate from: English
-5,000 / 5,000
-Translation results
-Translation result
-ttps://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions",
+     "href": "hauto_awesome",
      "type": "processingprocessposition",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a",
@@ -537,23 +531,22 @@ Successful request. The result is a JSON representation of a single Routing item
 > Request to create Routing items
 
 ```shell
-curl -X POST
-"https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions"
--H "Authorization: Basic <Credentials>"
--H "Content-Type: application/json"
--d'
-   [
-{
-"processing stage": {
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-"type": "processing stage",
-"mediaType": "application/json"
-        }
-      }
-   }
-]'
+  curl -X POST
+    "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions"
+      -H "Authorization: Basic <Credentials>"
+      -H "Content-Type: application/json"
+      -d' [
+            {
+                "processing stage": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                        "type": "processing stage",
+                        "mediaType": "application/json"
+                    }
+                }
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -594,21 +587,20 @@ Successful request. The result is a JSON representation of the generated Routing
 > Request to update Routing item
 
 ```shell
-curl -X PUT
-"https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
--H "Authorization: Basic <Credentials>"
--H "Content-Type: application/json"
--d'
-{
-"processing stage": {
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-"type": "processing stage",
-"mediaType": "application/json"
-   }
- }
-}'
+  curl -X PUT
+    "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
+      -H "Authorization: Basic <Credentials>"
+      -H "Content-Type: application/json"
+      -d' {
+            "processing stage": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                    "type": "processing stage",
+                    "mediaType": "application/json"
+                }
+            }
+        }'
 ```
 
 > Response 200(application/json)
@@ -666,35 +658,34 @@ containing the JSON representation of the Routings you want to create or update.
      "https://app.kladana.in/api/remap/1.2/entity/processingprocess"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-     -d'
-     [
-       {
-         "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-           "type": "processing",
-           "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
-         },
-         "name": "Punch"
-       },
-       {
-         "name": "Galvanized",
-         "positions": [
-           {
-             "processing stage": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                 "type": "processing stage",
-                 "mediaType": "application/json",
-                 "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
-               }
-             }
-           }
-         ]
-       }
-     ]'
+     -d' [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+                    "type": "processing",
+                    "mediaType": "application/json",
+                    "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
+                },
+                "name": "Punch"
+            },
+            {
+                "name": "Galvanized",
+                "positions": [
+                    {
+                        "processing stage": {
+                            "meta": {
+                                "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
+                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                                "type": "processing stage",
+                                "mediaType": "application/json",
+                                "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -721,8 +712,8 @@ Successful request. The result is a JSON array of representations of the generat
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
        }
      },
-     "shared": true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -733,15 +724,15 @@ Successful request. The result is a JSON array of representations of the generat
      "updated": "2023-02-07 13:21:36.610",
      "name": "Punch",
      "externalCode": "qcz9MXKjgZ4CAXXXzvrXK2",
-     archived: false
-     positions: {
+     "archived": false,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions",
          "type": "processingprocessposition",
          "mediaType": "application/json",
-         size: 2
-         limit: 1000
-         offset: 0
+         "size": 2,
+         "limit": 1000,
+         "offset": 0
        }
      }
    },
@@ -764,8 +755,8 @@ Successful request. The result is a JSON array of representations of the generat
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=c0f98b1e-9aea-11ed-ac12-000e00000050"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/c0b230f9-9aea-11ed-ac12-000b00000012",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -776,15 +767,15 @@ Successful request. The result is a JSON array of representations of the generat
      "updated": "2023-02-07 13:21:36.637",
      "name": "Galvanized",
      "externalCode": "94GR5hU-hmU7wkVnkS8D53",
-     archived: false
-     positions: {
+     "archived": false,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046/positions",
          "type": "processingprocessposition",
          "mediaType": "application/json",
-         size: 1
-         limit: 1000
-         offset: 0
+         "size": 1,
+         "limit": 1000,
+         "offset": 0
        }
      }
    }
@@ -802,27 +793,26 @@ curl -X POST
    "https://app.kladana.in/api/remap/1.2/entity/processingprocess/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
-   -d'
-   [
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-         "type": "processing",
-         "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
-       }
-     },
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
-         "type": "processing",
-         "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=33d6ee5c-a6d1-11ed-ac12-000900000046"
-       }
-     }
-   ]'
+   -d' [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+                    "type": "processing",
+                    "mediaType": "application/json",
+                    "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=1d4adde5-a6bb-11ed-ac12-00090000003f"
+                }
+            },
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/33d6ee5c-a6d1-11ed-ac12-000900000046",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/metadata",
+                    "type": "processing",
+                    "mediaType": "application/json",
+                    "uuidHref": "https://app.kladana.in/app/#processingprocess/edit?id=33d6ee5c-a6d1-11ed-ac12-000900000046"
+                }
+            }
+        ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of the Technical Processes.

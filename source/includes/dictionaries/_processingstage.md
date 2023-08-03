@@ -49,7 +49,7 @@ Successful request. The result is a JSON representation of the list of Productio
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/context/employee",
@@ -63,11 +63,11 @@ Successful request. The result is a JSON representation of the list of Productio
      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage",
      "type": "processing Production Operation",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
@@ -87,8 +87,8 @@ Successful request. The result is a JSON representation of the list of Productio
            "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -151,8 +151,8 @@ Successful request. The result is a JSON representation of the created Productio
        "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -221,8 +221,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -254,8 +254,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -377,8 +377,8 @@ Successful request. The result is a JSON representation of the Production Operat
        "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -436,8 +436,8 @@ Successful request. The result is a JSON representation of the Production Operat
        "uuidHref": "http://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",

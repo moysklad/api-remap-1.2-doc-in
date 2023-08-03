@@ -354,7 +354,7 @@ Successful request. The result is a JSON representation of the list of Products.
   
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -369,11 +369,11 @@ Successful request. The result is a JSON representation of the list of Products.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "product",
      "mediaType": "application/json",
-     size: 5
-     limit: 1000
-     offset: 0
+     "size": 5,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/26b36824-2c83-11e6-8a84-bae50000001b",
@@ -391,8 +391,8 @@ Successful request. The result is a JSON representation of the list of Products.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -405,10 +405,10 @@ Successful request. The result is a JSON representation of the list of Products.
        "description": "Pumpkin, Germany",
        "code": "pumpkin1",
        "externalCode": "456pumpkin",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 18
-       "vatEnabled": true
+       "vat": 18,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 18,
        "effectiveVatEnabled": true,
@@ -426,14 +426,14 @@ Successful request. The result is a JSON representation of the list of Products.
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/26b36824-2c83-11e6-8a84-bae50000001b/images",
            "type": "image",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "minprice": {
-         value: 500.0
-         currency: {
+         "value": 500.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -445,7 +445,7 @@ Successful request. The result is a JSON representation of the list of Products.
        "salePrices": [
          {
            "value": 3353.0,
-           currency: {
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -466,7 +466,7 @@ Successful request. The result is a JSON representation of the list of Products.
          },
          {
            "value": 3253,
-           currency: {
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -519,8 +519,8 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        ],
        "buyprice": {
-         "value": 54.0
-         currency: {
+         "value": 54.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -530,8 +530,8 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        },
        "article": "Ar23",
-       weight: 200
-       volume: 300
+       "weight": 200,
+       "volume": 300,
        "variantsCount": 0,
        "barcodes": [
          {
@@ -544,7 +544,7 @@ Successful request. The result is a JSON representation of the list of Products.
            "code128": "code128 barcode"
          },
          {
-           gtin: "00000000000130"
+           "gtin": "00000000000130"
          }
        ]
      },
@@ -565,8 +565,8 @@ Successful request. The result is a JSON representation of the list of Products.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -579,10 +579,10 @@ Successful request. The result is a JSON representation of the list of Products.
        "description": "Bananas, Africa",
        "code": "one1",
        "externalCode": "456",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 18
-       "vatEnabled": true
+       "vat": 18,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 18,
        "effectiveVatEnabled": true,
@@ -600,14 +600,14 @@ Successful request. The result is a JSON representation of the list of Products.
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/d950551c-2c7f-11e6-8a84-bae50000000b/images",
            "type": "image",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "minprice": {
-        value: 500.0
-         currency: {
+        "value": 500.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -619,7 +619,7 @@ Successful request. The result is a JSON representation of the list of Products.
        "salePrices": [
          {
            "value": 346347237000.0,
-           currency: {
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -639,8 +639,8 @@ Successful request. The result is a JSON representation of the list of Products.
            }
          },
          {
-           value: 100
-           currency: {
+           "value": 100,
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -678,12 +678,12 @@ Successful request. The result is a JSON representation of the list of Products.
            "id": "0c2e54cd-2c80-11e6-8a84-bae50000009c",
            "name": "Export",
            "type": "boolean",
-           value: false
+           "value": false
          }
        ],
        "buyprice": {
          "value": 23553000.0,
-         currency: {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -693,8 +693,8 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        },
        "article": "Ar23",
-       weight: 200
-       volume: 300
+       "weight": 200,
+       "volume": 300,
        "packs": [
          {
            "id": "c6bdee6f-2c83-11e6-8a84-bae5000000a4",
@@ -706,7 +706,7 @@ Successful request. The result is a JSON representation of the list of Products.
                "mediaType": "application/json"
              }
            },
-           quantity: 35
+           "quantity": 35
          },
          {
            "id": "c6bdf693-2c83-11e6-8a84-bae5000000a5",
@@ -722,7 +722,7 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        ],
        "variantsCount": 0,
-       "isSerialTrackable": true
+       "isSerialTrackable": true,
        "things": [
          "F564X056",
          "F564X057"
@@ -738,7 +738,7 @@ Successful request. The result is a JSON representation of the list of Products.
            "code128": "code128 barcode"
          },
          {
-           gtin: "00000000000130"
+           "gtin": "00000000000130"
          }
        ],
        "trackingType": "NOT_TRACKED",
@@ -761,8 +761,8 @@ Successful request. The result is a JSON representation of the list of Products.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -775,10 +775,10 @@ Successful request. The result is a JSON representation of the list of Products.
        "description": "Mask, Hygienic",
        "code": "mask1",
        "externalCode": "mask4433",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 20
-       "vatEnabled": true
+       "vat": 20,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 20,
        "effectiveVatEnabled": true,
@@ -793,8 +793,8 @@ Successful request. The result is a JSON representation of the list of Products.
        },
        "salePrices": [
          {
-           value: 2600.0
-           currency: {
+           "value": 2600.0,
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000255",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -815,8 +815,8 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        ],
        "buyprice": {
-         value: 12.0
-         currency: {
+         "value": 12.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500002255",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -826,7 +826,7 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        },
        "article": "kk212k",
-       weight: 1
+       "weight": 1,
        "volume": 1,
        "variantsCount": 0,
        "barcodes": [
@@ -872,121 +872,122 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Bananas",
-             "code": "one1",
-             "externalCode": "456",
-             "description": "Bananas, Africa",
-             vat: 18
-             "effectiveVat": 18,
-             "discountProhibited": false,
-             "uom": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                 "type": "uom",
-                 "mediaType": "application/json"
-               }
-             },
-             "supplier": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/2b5095a4-296b-11e6-8a84-bae500000051",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "minprice": {value: 500.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "buyprice": {
-               "value": 23553000.0,
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 346347237000.0,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               {
-                 value: 100
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             ],
-             "barcodes": [
-               {
-                 "ean8": "20000000"
-               },
-               {
-                 "ean13": "2000000000000"
-               },
-               {
-                 "code128": "code128 barcode"
-               },
-               {
-                 gtin: "00000000000130"
-               }
-             ],
-             "article": "Ar23",
-             weight: 200
-             volume: 300
-             "packs": [
-               {
-                 "uom": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/uom/2ec1170c-3f69-4409-87bb-c68e0011b275",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                     "type": "uom",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 quantity: 2
-               }
-             ],
-             "isSerialTrackable": false
-             "trackingType": "NOT_TRACKED"
-           }'
+            "name": "Bananas",
+            "code": "one1",
+            "externalCode": "456",
+            "description": "Bananas, Africa",
+            "vat": 18,
+            "effectiveVat": 18,
+            "discountProhibited": false,
+            "uom": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                }
+            },
+            "supplier": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/2b5095a4-296b-11e6-8a84-bae500000051",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "minprice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "buyprice": {
+                "value": 23553000.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
+                {
+                    "value": 346347237000.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                {
+                    "value": 100,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            ],
+            "barcodes": [
+                {
+                    "ean8": "20000000"
+                },
+                {
+                    "ean13": "2000000000000"
+                },
+                {
+                    "code128": "code128 barcode"
+                },
+                {
+                    "gtin": "00000000000130"
+                }
+            ],
+            "article": "Ar23",
+            "weight": 200,
+            "volume": 300,
+            "packs": [
+                {
+                    "uom": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/2ec1170c-3f69-4409-87bb-c68e0011b275",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                            "type": "uom",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "quantity": 2
+                }
+            ],
+            "isSerialTrackable": false,
+            "trackingType": "NOT_TRACKED"
+        }'
    ```
 
 > Response 200(application/json)
@@ -1010,8 +1011,8 @@ Successful request. The result is a JSON representation of the created Product.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1024,10 +1025,10 @@ Successful request. The result is a JSON representation of the created Product.
    "description": "Bananas, Africa",
    "code": "one1",
    "externalCode": "456",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 18
-   "vatEnabled": true
+   "vat": 18,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 18,
    "effectiveVatEnabled": true,
@@ -1045,14 +1046,14 @@ Successful request. The result is a JSON representation of the created Product.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/a355f431-29a1-11e6-8a84-bae500000009/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1064,7 +1065,7 @@ Successful request. The result is a JSON representation of the created Product.
    "salePrices": [
      {
        "value": 346347237000.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1084,8 +1085,8 @@ Successful request. The result is a JSON representation of the created Product.
        }
      },
      {
-       value: 100
-       currency: {
+       "value": 100,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1115,7 +1116,7 @@ Successful request. The result is a JSON representation of the created Product.
    },
    "buyprice": {
      "value": 23553000.0,
-     currency: {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1125,8 +1126,8 @@ Successful request. The result is a JSON representation of the created Product.
      }
    },
    "article": "Ar23",
-   weight: 200
-   volume: 300
+   "weight": 200,
+   "volume": 300,
    "packs": [
      {
        "id": "a97af44b-8b46-11e8-56c0-00080000000d",
@@ -1138,10 +1139,10 @@ Successful request. The result is a JSON representation of the created Product.
            "mediaType": "application/json"
          }
        },
-       quantity: 2
+       "quantity": 2
      }
    ],
-   "isSerialTrackable": false
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }
 ```
@@ -1179,8 +1180,8 @@ Successful request. The result is a JSON representation of the created Product.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1193,15 +1194,15 @@ Successful request. The result is a JSON representation of the created Product.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/04996e84-29a1-11e6-8a84-bae500000002/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "salePrices": [
      {
        "value": 346347237000.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1221,8 +1222,8 @@ Successful request. The result is a JSON representation of the created Product.
        }
      },
      {
-       value: 100
-       currency: {
+       "value": 100,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1246,11 +1247,11 @@ Successful request. The result is a JSON representation of the created Product.
    "name": "Tangerines",
    "code": "00003",
    "externalCode": "Cf0ehavIglre6sMX-J2rR2",
-   archived: false
+   "archived": false,
    "pathName": "",
-   weight: 0
-   volume: 0
-   "isSerialTrackable": false
+   "weight": 0,
+   "volume": 0,
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED",
    "vatEnabled": false,
    "useParentVat": true
@@ -1265,125 +1266,125 @@ Successful request. The result is a JSON representation of the created Product.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Pumpkin",
-             "code": "pumpkin1",
-             "externalCode": "456pumpkin",
-             "description": "Pumpkin, Germany",
-             vat: 18
-             "effectiveVat": 18,
-             "uom": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                 "type": "uom",
-                 "mediaType": "application/json"
-               }
-             },
-             "supplier": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313d1e7-2c7f-11e6-8a84-bae500000051",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "minprice": {
-              value: 500.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "buyprice": {
-               "value": 54.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 3353.0,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               {
-                 "value": 3253,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             ],
-             "article": "Ar23",
-             weight: 200
-             volume: 300
-             "attributes": [
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "name": "Export",
-                 "value": true
-               },
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "name": "Manufacturer",
-                 "value": "farm \"Petrovich\" "
-               },
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0f1e750e-e1b2-11e7-9464-e4de00000003",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "name": "not strange attribute name",
-                 "type": "file",
-                 "file": {
-                   "filename": "filename",
-                   "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
-                 }
-               }
-             ]
-           }'
+            "name": "Pumpkin",
+            "code": "pumpkin1",
+            "externalCode": "456pumpkin",
+            "description": "Pumpkin, Germany",
+            "vat": 18,
+            "effectiveVat": 18,
+            "uom": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                }
+            },
+            "supplier": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313d1e7-2c7f-11e6-8a84-bae500000051",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "minprice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "buyprice": {
+                "value": 54.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
+                {
+                    "value": 3353.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                {
+                    "value": 3253,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            ],
+            "article": "Ar23",
+            "weight": 200,
+            "volume": 300,
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "Export",
+                    "value": true
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "Manufacturer",
+                    "value": "farm \"Petrovich\" "
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0f1e750e-e1b2-11e7-9464-e4de00000003",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "not strange attribute name",
+                    "type": "file",
+                    "file": {
+                        "filename": "filename",
+                        "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
+                    }
+                }
+            ]
+        }'
    ```
   
 > Response 200(application/json)
@@ -1407,8 +1408,8 @@ Successful request. The result is a JSON representation of the created Product.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1421,10 +1422,10 @@ Successful request. The result is a JSON representation of the created Product.
    "description": "Pumpkin, Germany",
    "code": "pumpkin1",
    "externalCode": "456pumpkin",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 18
-   "vatEnabled": true
+   "vat": 18,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 18,
    "effectiveVatEnabled": true,
@@ -1442,14 +1443,14 @@ Successful request. The result is a JSON representation of the created Product.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/26b36824-2c83-11e6-8a84-bae50000001b/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1461,7 +1462,7 @@ Successful request. The result is a JSON representation of the created Product.
    "salePrices": [
      {
        "value": 3353.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1482,7 +1483,7 @@ Successful request. The result is a JSON representation of the created Product.
      },
      {
        "value": 3253,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1550,8 +1551,8 @@ Successful request. The result is a JSON representation of the created Product.
      }
    ],
    "buyprice": {
-     "value": 54.0
-     currency: {
+     "value": 54.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1561,9 +1562,9 @@ Successful request. The result is a JSON representation of the created Product.
      }
    },
    "article": "Ar23",
-   weight: 200
-   volume: 300
-   "isSerialTrackable": false
+   "weight": 200,
+   "volume": 300,
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }
 ```
@@ -1607,8 +1608,8 @@ Successful request. The result is a JSON representation of the created Product w
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1620,21 +1621,21 @@ Successful request. The result is a JSON representation of the created Product w
    "name": "testimage",
    "code": "00006",
    "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-   archived: false
+   "archived": false,
    "pathName": "",
    "images": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1645,7 +1646,7 @@ Successful request. The result is a JSON representation of the created Product w
    },
    "salePrices": [
      {
-       value: 0.0
+       "value": 0.0,
        "priceType": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -1659,20 +1660,20 @@ Successful request. The result is a JSON representation of the created Product w
      }
    ],
    "buyprice": {
-     value: 0.0
+     "value": 0.0
    },
-   weight: 0
-   volume: 0
+   "weight": 0,
+   "volume": 0,
    "barcodes": [
      {
        "ean13": "2000000000107"
      }
    ],
    "variantsCount": 0,
-   "isSerialTrackable": false
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED",
    "vatEnabled": false,
-   "useParentVat": true,
+   "useParentVat": true
 }
 ```
 
@@ -1728,8 +1729,8 @@ Successful request. The result is a JSON array of created and updated product re
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1741,7 +1742,7 @@ Successful request. The result is a JSON array of created and updated product re
      "salePrices": [
        {
          "value": 346347237000.0,
-         currency: {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/nysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
              "type": "pricetype",
@@ -1754,7 +1755,7 @@ Successful request. The result is a JSON array of created and updated product re
        },
        {
          "value": 3653,
-         currency: {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1792,7 +1793,7 @@ Successful request. The result is a JSON array of created and updated product re
          "id": "0c2e54cd-2c80-11e6-8a84-bae50000009c",
          "name": "Export",
          "type": "boolean",
-         value: false
+         "value": false
        },
        {
          "meta": {
@@ -1806,7 +1807,7 @@ Successful request. The result is a JSON array of created and updated product re
          "value": "Kolkhoz \"Ivanovo\""
        }
      ],
-     country: {
+     "country": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/0238a888-c602-4e78-a199-d8f49c4d6c18",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -1815,8 +1816,8 @@ Successful request. The result is a JSON array of created and updated product re
        }
      },
      "buyprice": {
-       "value": 54.0
-       currency: {
+       "value": 54.0,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1826,8 +1827,8 @@ Successful request. The result is a JSON array of created and updated product re
        }
      },
      "article": "Ar23",
-     weight: 100
-     volume: 400
+     "weight": 100,
+     "volume": 400,
      "packs": [
        {
          "id": "354ba98c-2cb9-11e6-8a84-bae5000000e3",
@@ -1839,7 +1840,7 @@ Successful request. The result is a JSON array of created and updated product re
              "mediaType": "application/json"
            }
          },
-         quantity: 40
+         "quantity": 40
        },
        {
          "id": "354ba98c-2cb9-11e6-8a84-bae5000004e3",
@@ -1851,7 +1852,7 @@ Successful request. The result is a JSON array of created and updated product re
              "mediaType": "application/json"
            }
          },
-         quantity: 101
+         "quantity": 101
        }
      ],
      "barcodes": [
@@ -1861,11 +1862,11 @@ Successful request. The result is a JSON array of created and updated product re
      ],
      "alcoholic": {
        "excise": true,
-       "type": 3100
-       "strength": 0.6
-       volume: 1.5
+       "type": 3100,
+       "strength": 0.6,
+       "volume": 1.5
      },
-     "isSerialTrackable": false
+     "isSerialTrackable": false,
      "trackingType": "NOT_TRACKED"
    }
 ]
@@ -1970,9 +1971,9 @@ Successful request. The result is a JSON representation of the additional Produc
              "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
              "type": "attributemetadata",
              "mediaType": "application/json",
-             size: 2
-             limit: 1000
-             offset: 0
+             "size": 2,
+             "limit": 1000,
+             "offset": 0
          }
      },
    "createShared": true
@@ -2058,8 +2059,8 @@ Successful request. The result is a JSON representation of the Product.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2072,10 +2073,10 @@ Successful request. The result is a JSON representation of the Product.
    "description": "Bananas, Africa",
    "code": "one1",
    "externalCode": "456",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 18
-   "vatEnabled": true
+   "vat": 18,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 18,
    "effectiveVatEnabled": true,
@@ -2093,14 +2094,14 @@ Successful request. The result is a JSON representation of the Product.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/d950551c-2c7f-11e6-8a84-bae50000000b/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
      "value": 532000.0,
-     currency: {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2112,7 +2113,7 @@ Successful request. The result is a JSON representation of the Product.
    "salePrices": [
      {
        "value": 346347237000.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2132,8 +2133,8 @@ Successful request. The result is a JSON representation of the Product.
        }
      },
      {
-       value: 100
-       currency: {
+       "value": 100,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2171,12 +2172,12 @@ Successful request. The result is a JSON representation of the Product.
        "id": "0c2e54cd-2c80-11e6-8a84-bae50000009c",
        "name": "Export",
        "type": "boolean",
-       value: false
+       "value": false
      }
    ],
    "buyprice": {
      "value": 23553000.0,
-     currency: {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2186,8 +2187,8 @@ Successful request. The result is a JSON representation of the Product.
      }
    },
    "article": "Ar23",
-   weight: 200
-   volume: 300
+   "weight": 200,
+   "volume": 300,
    "packs": [
      {
        "id": "c6bdee6f-2c83-11e6-8a84-bae5000000a4",
@@ -2199,7 +2200,7 @@ Successful request. The result is a JSON representation of the Product.
            "mediaType": "application/json"
          }
        },
-       quantity: 35
+       "quantity": 35
      },
      {
        "id": "c6bdf693-2c83-11e6-8a84-bae5000000a5",
@@ -2215,7 +2216,7 @@ Successful request. The result is a JSON representation of the Product.
      }
    ],
    "variantsCount": 0,
-   "isSerialTrackable": true
+   "isSerialTrackable": true,
    "trackingType": "NOT_TRACKED",
    "things": [
      "F564X056",
@@ -2232,7 +2233,7 @@ Successful request. The result is a JSON representation of the Product.
        "code128": "code128 barcode"
      },
      {
-       gtin: "00000000000130"
+       "gtin": "00000000000130"
      }
    ]
 }
@@ -2276,142 +2277,142 @@ otherwise, an error will occur, because serial accounting of weight products is 
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Pumpkin",
-             "code": "pumpkin1",
-             "externalCode": "456pumpkin",
-             "description": "Pumpkin, Germany",
-             vat: 3,
-             "effectiveVat": 3,
-             "uom": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                 "type": "uom",
-                 "mediaType": "application/json"
-               }
-             },
-             "supplier": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313f1eb-2c7f-11e6-8a84-bae500000053",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "minprice": {
-              value: 500.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "buyprice": {
-               "value": 54.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 3753.0,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               {
-                 "value": 3653,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             ],
-             country: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/country/0238a888-c602-4e78-a199-d8f49c4d6c18",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                 "type": "country",
-                 "mediaType": "application/json"
-               }
-             },
-             "article": "Ar23",
-             weight: 100
-             volume: 400
-             "packs": [
-               {
-                 "id": "354ba98c-2cb9-11e6-8a84-bae5000000e3",
-                 "uom": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/uom/2d1fdd55-d935-4d55-80d4-f6904b62ff46",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                     "type": "uom",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 quantity: 40
-               },
-               {
-                 "uom": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/uom/0dd4fe8b-e59e-486e-bde5-b52fe0e25415",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                     "type": "uom",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 quantity: 101
-               }
-             ],
-             "images": [
-               {
-                 "filename":"birdimageNew.png",
-                 content
-               }
-              ],
-             "alcoholic": {
-               "excise": true,
-               "type": 3100
-               "strength": 0.6
-               volume: 1.5
-             },
-             "barcodes": [
-               {
-                 "code128": "code128barcode"
-               }
-             ]
-           }'
+            "name": "Pumpkin",
+            "code": "pumpkin1",
+            "externalCode": "456pumpkin",
+            "description": "Pumpkin, Germany",
+            "vat": 3,
+            "effectiveVat": 3,
+            "uom": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                }
+            },
+            "supplier": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313f1eb-2c7f-11e6-8a84-bae500000053",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "minprice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "buyprice": {
+                "value": 54.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
+                {
+                    "value": 3753.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                {
+                    "value": 3653,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            ],
+            "country": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/country/0238a888-c602-4e78-a199-d8f49c4d6c18",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                    "type": "country",
+                    "mediaType": "application/json"
+                }
+            },
+            "article": "Ar23",
+            "weight": 100,
+            "volume": 400,
+            "packs": [
+                {
+                    "id": "354ba98c-2cb9-11e6-8a84-bae5000000e3",
+                    "uom": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/2d1fdd55-d935-4d55-80d4-f6904b62ff46",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                            "type": "uom",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "quantity": 40
+                },
+                {
+                    "uom": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/0dd4fe8b-e59e-486e-bde5-b52fe0e25415",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                            "type": "uom",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "quantity": 101
+                }
+            ],
+            "images": [
+                {
+                    "filename": "birdimageNew.png",
+                    "content": ""
+                }
+            ],
+            "alcoholic": {
+                "excise": true,
+                "type": 3100,
+                "strength": 0.6,
+                "volume": 1.5
+            },
+            "barcodes": [
+                {
+                    "code128": "code128barcode"
+                }
+            ]
+        }'
 ```
   
 > Response 200(application/json)
@@ -2435,8 +2436,8 @@ Successful request. The result is a JSON representation of the updated Product.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2449,10 +2450,10 @@ Successful request. The result is a JSON representation of the updated Product.
    "description": "Pumpkin, Germany",
    "code": "pumpkin1",
    "externalCode": "456pumpkin",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 3,
-   "vatEnabled": true
+   "vat": 3,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 3,
    "effectiveVatEnabled": true,
@@ -2470,14 +2471,14 @@ Successful request. The result is a JSON representation of the updated Product.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/26b36824-2c83-11e6-8a84-bae50000001b/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2489,7 +2490,7 @@ Successful request. The result is a JSON representation of the updated Product.
    "salePrices": [
      {
        "value": 3753.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2510,7 +2511,7 @@ Successful request. The result is a JSON representation of the updated Product.
      },
      {
        "value": 3653,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2548,7 +2549,7 @@ Successful request. The result is a JSON representation of the updated Product.
        "id": "0c2e54cd-2c80-11e6-8a84-bae50000009c",
        "name": "Export",
        "type": "boolean",
-       value: false
+       "value": false
      },
      {
        "meta": {
@@ -2562,7 +2563,7 @@ Successful request. The result is a JSON representation of the updated Product.
        "value": "Kolkhoz \"Ivanovo\""
      }
    ],
-   country: {
+   "country": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/country/0238a888-c602-4e78-a199-d8f49c4d6c18",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -2571,8 +2572,8 @@ Successful request. The result is a JSON representation of the updated Product.
      }
    },
    "buyprice": {
-     "value": 54.0
-     currency: {
+     "value": 54.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2582,8 +2583,8 @@ Successful request. The result is a JSON representation of the updated Product.
      }
    },
    "article": "Ar23",
-   weight: 100
-   volume: 400
+   "weight": 100,
+   "volume": 400,
    "packs": [
      {
        "id": "354ba98c-2cb9-11e6-8a84-bae5000000e3",
@@ -2595,7 +2596,7 @@ Successful request. The result is a JSON representation of the updated Product.
            "mediaType": "application/json"
          }
        },
-       quantity: 40
+       "quantity": 40
      },
      {
        "id": "354ba98c-2cb9-11e6-8a84-bae5000004e3",
@@ -2607,7 +2608,7 @@ Successful request. The result is a JSON representation of the updated Product.
            "mediaType": "application/json"
          }
        },
-       quantity: 101
+       "quantity": 101
      }
    ],
    "barcodes": [
@@ -2617,11 +2618,11 @@ Successful request. The result is a JSON representation of the updated Product.
    ],
    "alcoholic": {
      "excise": true,
-     "type": 3100
-     "strength": 0.6
-     volume: 1.5
+     "type": 3100,
+     "strength": 0.6,
+     "volume": 1.5
    },
-   "isSerialTrackable": false
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }
 ```
@@ -2634,112 +2635,112 @@ Successful request. The result is a JSON representation of the updated Product.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Pumpkin",
-             "code": "pumpkin1",
-             "externalCode": "456pumpkin",
-             "description": "Pumpkin, Germany",
-             vat: 3,
-             "effectiveVat": 3,
-             "uom": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                 "type": "uom",
-                 "mediaType": "application/json"
-               }
-             },
-             "supplier": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313f1eb-2c7f-11e6-8a84-bae500000053",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "minprice": {
-              value: 500.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "buyprice": {
-               "value": 54.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 3753.0,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               {
-                 "value": 3653,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             ],
-             "article": "Ar23",
-             weight: 100
-             volume: 400
-             "attributes": [
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "name": "Export",
-                 value: false
-               },
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "name": "Manufacturer",
-                 "value": "Kolkhoz \"Ivanovo\" "
-               }
-             ]
-           }'
+            "name": "Pumpkin",
+            "code": "pumpkin1",
+            "externalCode": "456pumpkin",
+            "description": "Pumpkin, Germany",
+            "vat": 3,
+            "effectiveVat": 3,
+            "uom": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                }
+            },
+            "supplier": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313f1eb-2c7f-11e6-8a84-bae500000053",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "minprice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "buyprice": {
+                "value": 54.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
+                {
+                    "value": 3753.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                {
+                    "value": 3653,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            ],
+            "article": "Ar23",
+            "weight": 100,
+            "volume": 400,
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "Export",
+                    "value": false
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "Manufacturer",
+                    "value": "Kolkhoz \"Ivanovo\" "
+                }
+            ]
+        }'
 ```
   
 > Response 200(application/json)
@@ -2763,8 +2764,8 @@ Successful request. The result is a JSON representation of the updated Products.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2777,10 +2778,10 @@ Successful request. The result is a JSON representation of the updated Products.
    "description": "Pumpkin, Germany",
    "code": "pumpkin1",
    "externalCode": "456pumpkin",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 3,
-   "vatEnabled": true
+   "vat": 3,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 3,
    "effectiveVatEnabled": true,
@@ -2798,14 +2799,14 @@ Successful request. The result is a JSON representation of the updated Products.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/26b36824-2c83-11e6-8a84-bae50000001b/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2817,7 +2818,7 @@ Successful request. The result is a JSON representation of the updated Products.
    "salePrices": [
      {
        "value": 3753.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2838,7 +2839,7 @@ Successful request. The result is a JSON representation of the updated Products.
      },
      {
        "value": 3653,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2876,7 +2877,7 @@ Successful request. The result is a JSON representation of the updated Products.
        "id": "0c2e54cd-2c80-11e6-8a84-bae50000009c",
        "name": "Export",
        "type": "boolean",
-       value: false
+       "value": false
      },
      {
        "meta": {
@@ -2891,8 +2892,8 @@ Successful request. The result is a JSON representation of the updated Products.
      }
    ],
    "buyprice": {
-     "value": 54.0
-     currency: {
+     "value": 54.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2902,9 +2903,9 @@ Successful request. The result is a JSON representation of the updated Products.
      }
    },
    "article": "Ar23",
-   weight: 100
-   volume: 400
-   "isSerialTrackable": false
+   "weight": 100,
+   "volume": 400,
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }
 ```
@@ -2917,110 +2918,110 @@ Successful request. The result is a JSON representation of the updated Products.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Pumpkin",
-             "code": "pumpkin1",
-             "externalCode": "456pumpkin",
-             "description": "Pumpkin, Germany",
-             vat: 3,
-             "effectiveVat": 3,
-             "uom": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                 "type": "uom",
-                 "mediaType": "application/json"
-               }
-             },
-             "supplier": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313f1eb-2c7f-11e6-8a84-bae500000053",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "minprice": {
-              value: 500.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "buyprice": {
-               "value": 54.0
-               currency: {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 3753.0,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               {
-                 "value": 3653,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             ],
-             "article": "Ar23",
-             weight: 100
-             volume: 400
-             "packs" : [
-               {
-                 "uom": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                     "type": "uom",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "quantity": 11,
-                 "barcodes": [
-                   {
-                     "code128": "code128barcode"
-                   }
-                 ]
-               }
-             ]
-           }'
+            "name": "Pumpkin",
+            "code": "pumpkin1",
+            "externalCode": "456pumpkin",
+            "description": "Pumpkin, Germany",
+            "vat": 3,
+            "effectiveVat": 3,
+            "uom": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                }
+            },
+            "supplier": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6313f1eb-2c7f-11e6-8a84-bae500000053",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "minprice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "buyprice": {
+                "value": 54.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
+                {
+                    "value": 3753.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                {
+                    "value": 3653,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            ],
+            "article": "Ar23",
+            "weight": 100,
+            "volume": 400,
+            "packs": [
+                {
+                    "uom": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                            "type": "uom",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "quantity": 11,
+                    "barcodes": [
+                        {
+                            "code128": "code128barcode"
+                        }
+                    ]
+                }
+            ]
+        }'
 ```
         
 > Response 200(application/json)
@@ -3044,8 +3045,8 @@ Successful request. The result is a JSON representation ofnew Product.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -3058,10 +3059,10 @@ Successful request. The result is a JSON representation ofnew Product.
    "description": "Pumpkin, Germany",
    "code": "pumpkin1",
    "externalCode": "456pumpkin",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 3,
-   "vatEnabled": true
+   "vat": 3,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 3,
    "effectiveVatEnabled": true,
@@ -3079,14 +3080,14 @@ Successful request. The result is a JSON representation ofnew Product.
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/26b36824-2c83-11e6-8a84-bae50000001b/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -3098,7 +3099,7 @@ Successful request. The result is a JSON representation ofnew Product.
    "salePrices": [
      {
        "value": 3753.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -3119,7 +3120,7 @@ Successful request. The result is a JSON representation ofnew Product.
      },
      {
        "value": 3653,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -3148,8 +3149,8 @@ Successful request. The result is a JSON representation ofnew Product.
      }
    },
    "buyprice": {
-     "value": 54.0
-     currency: {
+     "value": 54.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -3177,9 +3178,10 @@ Successful request. The result is a JSON representation ofnew Product.
        ]
      }
    ],
-   "article": "Ar23",weight: 100
-   volume: 400
-   "isSerialTrackable": false
+   "article": "Ar23",
+    "weight": 100,
+    "volume": 400,
+   "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }
 ```
