@@ -101,7 +101,7 @@ Successful request. The result is a JSON representation of the list of Employees
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
@@ -113,11 +113,11 @@ Successful request. The result is a JSON representation of the list of Employees
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
      "type": "employee",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
@@ -130,7 +130,7 @@ Successful request. The result is a JSON representation of the list of Employees
        "updated": "2016-03-28 19:45:46",
        "name": "Administrator",
        "externalCode": "4A039QXHgbZdAHdXbcUI71",
-       archived: false
+       "archived": false,
        "uid": "admin@reqwy1",
        "email": "asdad@sfasf.erq",
        "lastName": "Administrator",
@@ -159,7 +159,7 @@ Successful request. The result is a JSON representation of the list of Employees
        "updated": "2016-04-15 15:07:25",
        "name": "Druganov L. A.",
        "externalCode": "4pGL0jazh3dGTpJfdcP1a1",
-       archived: false
+       "archived": false,
        "uid": "employee@company",
        "email": "company@company.ru",
        "phone": "8 800 250-04-32",
@@ -178,7 +178,7 @@ Successful request. The result is a JSON representation of the list of Employees
            "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
            "name": "AttributeName1",
            "type": "long",
-           value: 200
+           "value": 200
          }
        ]
      }
@@ -199,26 +199,26 @@ Updated Employees must contain the identifier in the form of metadata.
      "https://app.kladana.in/api/remap/1.2/entity/employee"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-       -d'[
-             {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                 "type": "employee",
-                 "mediaType": "application/json"
-               },
-               "firstName": "Peter",
-               "middleName": "Ivanovich",
-               "lastName": "Moyskladkin",
-               "inn": "222490425273",
-               "position": "Director"
-             },
-             {
-               "firstName": "Ivan",
-               "middleName": "Petrovich",
-               "lastName": "Moyskladkin"
-             }
-           ]'
+     -d' [
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                      "type": "employee",
+                      "mediaType": "application/json"
+                  },
+                  "firstName": "Peter",
+                  "middleName": "Ivanovich",
+                  "lastName": "Moyskladkin",
+                  "inn": "222490425273",
+                  "position": "Director"
+              },
+              {
+                  "firstName": "Ivan",
+                  "middleName": "Petrovich",
+                  "lastName": "Moyskladkin"
+              }
+          ]'
 ```
 
 > Response 200(application/json)
@@ -243,8 +243,8 @@ Successful request. The result is a JSON array of representations of the updated
          "mediaType": "application/json"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -255,7 +255,7 @@ Successful request. The result is a JSON array of representations of the updated
      "updated": "2018-10-17 14:51:30",
      "name": "Moyskladkin P.I.",
      "externalCode": "wNxghfHlg5n2rJGO9Lpud0",
-     archived: false
+     "archived": false,
      "created": "2018-10-17 13:25:14",
      "uid": "admin@company",
      "email": "company@mail.ru",
@@ -284,8 +284,8 @@ Successful request. The result is a JSON array of representations of the updated
          "mediaType": "application/json"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -296,7 +296,7 @@ Successful request. The result is a JSON array of representations of the updated
      "updated": "2018-10-17 14:51:30",
      "name": "Moyskladkin I.P.",
      "externalCode": "0freFxtniG9a1MNZ7ADin2",
-     archived: false
+     "archived": false,
      "created": "2018-10-17 14:51:30",
      "firstName": "Ivan",
      "middleName": "Petrovich",
@@ -338,20 +338,19 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1","metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-             "type": "employee",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-             "type": "employee",
-             "mediaType": "application/json"
-         }
-       ]'
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
+            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+            "type": "employee",
+            "mediaType": "application/json"
+        },
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
+            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+            "type": "employee",
+            "mediaType": "application/json"
+        }
+      ]'
 ```
 
 > Successful request. The result is JSON information about the removal of Employees.
@@ -477,20 +476,17 @@ Successful request. The result is a JSON representation of the Employee.
    "updated": "2016-03-28 19:45:46",
    "name": "Administrator",
    "externalCode": "4A039QXHgbZdAHdXbcUI71",
-   archived: false
+   "archived": false,
    "uid": "admin@reqwy1",
    "email": "asdad@sfasf.erq",
    "lastName": "Administrator",
    "fullName": "Administrator",
    "shortFio": "Administrator",
-     {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
          "type": "admin",
          "mediaType": "application/json"
-       }
-     }
-   ],
+       },
    "retail store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
@@ -509,7 +505,7 @@ Successful request. The result is a JSON representation of the Employee.
        "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
        "name": "AttributeName1",
        "type": "long",
-       value: 200
+       "value": 200
      }
    ],
    "inn": "222490425273",
@@ -573,8 +569,8 @@ Successful request. The result is a JSON representation of the created Employee.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/ffbc0889-cd3a-11e8-ac12-000700000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -586,7 +582,7 @@ Successful request. The result is a JSON representation of the created Employee.
    "name": "Moyskladkin P.I.",
    "description": "Description",
    "externalCode": "tJfzU8g2hVgXFOiFGTMIe3",
-   archived: false
+   "archived": false,
    "created": "2018-10-11 17:48:37",
    "phone": "+7(999)888-7766",
    "firstName": "Peter",
@@ -666,7 +662,7 @@ Successful request. The result is a JSON representation of the updated Employee.
    "name": "Moyskladkin P.I.",
    "description": "Description",
    "externalCode": "4A039QXHgbZdAHdXbcUI71",
-   archived: false
+   "archived": false,
    "phone": "+7(999)888-7766",
    "uid": "admin@reqwy1",
    "email": "asdad@sfasf.erq",
@@ -682,8 +678,7 @@ Successful request. The result is a JSON representation of the updated Employee.
          "type": "retailstore",
          "mediaType": "application/json"
        }
-     }
-   },
+     },
    "attributes": [
      {
        "meta": {
@@ -694,7 +689,7 @@ Successful request. The result is a JSON representation of the updated Employee.
        "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
        "name": "AttributeName1",
        "type": "long",
-       value: 200
+       "value": 200
      },
      {
        "meta": {
@@ -1410,7 +1405,7 @@ If the tariff does not allow changing permissions and the transferred or previou
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             group: {
+             "group": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1436,10 +1431,10 @@ Successful request. The result is a JSON representation of updated information a
 
 ```json
 {
-     "isActive": true
+     "isActive": true,
      "login": "example@lognex",
      "email": "example@example.ru",
-     group: {
+     "group": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1454,7 +1449,7 @@ Successful request. The result is a JSON representation of updated information a
      ],
      "authorizedIpNetwork": "80.8.8.8",
      "authorizedIpNetmask": "1.8.8.8",
-     role: {
+     "role": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
              "type": "system role",
@@ -1490,7 +1485,7 @@ In this case, you can use the previously set password for this user.
      -H "Content-Type: application/json"
        -d '{
              "login": "newmanager@lognex",
-             group: {
+             "group": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1498,7 +1493,7 @@ In this case, you can use the previously set password for this user.
                      "mediaType": "application/json"
                  }
              },
-             role: {
+             "role": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/role/manager",
                      "type": "system role",

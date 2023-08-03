@@ -311,41 +311,41 @@ Request to create a new cumulative discount. Required fields: **name** (discount
 ```shell
 curl -X POST
 "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount"
--H "Authorization: Basic <Credentials>"
--H "Content-Type: application/json"
--d '{
-    "name": "discountName",
-    "active": true,
-    "allProducts": false,
-    "allAgents": false,
-    "agentTags": ["tag1", "tag2"],
-    "levels": [
-    {
-    "amount": 100,
-    "discount": 10
-     }
-  ],
-    "assortment": [
-  {
-   "meta": {
-   "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-   "type": "product",
-   "mediaType": "application/json"
-  }
-  }
-],
-   "productFolders": [
-  {
-   "meta": {
-   "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-   "type": "productfolder",
-   "mediaType": "application/json"
-   }
-  }
- ]
-}'
+    -H "Authorization: Basic <Credentials>"
+    -H "Content-Type: application/json"
+    -d '{
+            "name": "discountName",
+            "active": true,
+            "allProducts": false,
+            "allAgents": false,
+            "agentTags": ["tag1", "tag2"],
+            "levels": [
+            {
+            "amount": 100,
+            "discount": 10
+             }
+          ],
+            "assortment": [
+          {
+           "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "product",
+           "mediaType": "application/json"
+          }
+          }
+        ],
+           "productFolders": [
+          {
+           "meta": {
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "type": "productfolder",
+           "mediaType": "application/json"
+           }
+          }
+         ]
+        }'
 ```
 
 > Response 200(application/json)
@@ -482,43 +482,43 @@ Request to change the cumulative discount. In the body of the request, you must 
 ```shell
 curl -X PUT
 "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
--H "Content-Type: application/json"
--d '{
-    "name": "updatedName",
-    "active": false,
-    "allProducts": false,
-    "allAgents": false,
-    "agentTags": [
-        "tag2"
-    ],
-    "levels": [
-        {
-            "amount": 100,
-            "discount": 10
-        }
-    ],
-    "assortment": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "product",
-                "mediaType": "application/json"
-            }
-        }
-    ],
-    "productFolders": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "productfolder",
-                "mediaType": "application/json"
-            }
-        }
-    ]
-}'
+    -H "Authorization: Basic <Credentials>"
+    -H "Content-Type: application/json"
+    -d '{
+            "name": "updatedName",
+            "active": false,
+            "allProducts": false,
+            "allAgents": false,
+            "agentTags": [
+                "tag2"
+            ],
+            "levels": [
+                {
+                    "amount": 100,
+                    "discount": 10
+                }
+            ],
+            "assortment": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                        "type": "product",
+                        "mediaType": "application/json"
+                    }
+                }
+            ],
+            "productFolders": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                        "type": "productfolder",
+                        "mediaType": "application/json"
+                    }
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json)
@@ -603,35 +603,35 @@ curl -X POST
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-    "name": "discountName",
-    "active": true,
-    "allProducts": false,
-    "allAgents": false,
-    "agentTags": [
-        "tag1",
-        "tag2"
-    ],
-    "assortment": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "product",
-                "mediaType": "application/json"
+        "name": "discountName",
+        "active": true,
+        "allProducts": false,
+        "allAgents": false,
+        "agentTags": [
+            "tag1",
+            "tag2"
+        ],
+        "assortment": [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "type": "product",
+                    "mediaType": "application/json"
+                }
             }
-        }
-    ],
-    "productFolders": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "productfolder",
-                "mediaType": "application/json"
+        ],
+        "productFolders": [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "type": "productfolder",
+                    "mediaType": "application/json"
+                }
             }
-        }
-    ]
-}'
+        ]
+    }'
 ```
 
 > Response 200(application/json)
@@ -758,34 +758,34 @@ curl -X PUT
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-    "name": "updatedName",
-    "active": false,
-    "allProducts": false,
-    "allAgents": false,
-    "agentTags": [
-        "tag2"
-    ],
-    "assortment": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "product",
-                "mediaType": "application/json"
+        "name": "updatedName",
+        "active": false,
+        "allProducts": false,
+        "allAgents": false,
+        "agentTags": [
+            "tag2"
+        ],
+        "assortment": [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "type": "product",
+                    "mediaType": "application/json"
+                }
             }
-        }
-    ],
-    "productFolders": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "productfolder",
-                "mediaType": "application/json"
+        ],
+        "productFolders": [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "type": "productfolder",
+                    "mediaType": "application/json"
+                }
             }
-        }
-    ]
-}'
+        ]
+    }'
 ```
 
 > Response 200(application/json)
@@ -863,40 +863,40 @@ curl -X POST
 "https://app.kladana.in/api/remap/1.2/entity/specialpriceddiscount"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
--d '{
-    "name": "Special price",
-    "active": false,
-    "allProducts": false,
-    "allAgents": false,
-    "usePriceType": true,
-    "specialprice": {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5f441404-a419-11ea-ac12-000a00000078",
-            "type": "pricetype",
-            "mediaType": "application/json"
-        }
-    },
-    "assortment": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "product",
-                "mediaType": "application/json"
-            }
-        }
-    ],
-    "productFolders": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type": "productfolder",
-                "mediaType": "application/json"
-            }
-        }
-    ]
-}'
+-d ' {
+          "name": "Special price",
+          "active": false,
+          "allProducts": false,
+          "allAgents": false,
+          "usePriceType": true,
+          "specialprice": {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5f441404-a419-11ea-ac12-000a00000078",
+                  "type": "pricetype",
+                  "mediaType": "application/json"
+              }
+          },
+          "assortment": [
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                      "type": "product",
+                      "mediaType": "application/json"
+                  }
+              }
+          ],
+          "productFolders": [
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                      "type": "productfolder",
+                      "mediaType": "application/json"
+                  }
+              }
+          ]
+      }'
 ```
 
 > Response 200(application/json)
