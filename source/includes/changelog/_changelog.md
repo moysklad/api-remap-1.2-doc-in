@@ -4,6 +4,6 @@ The section lists changes to existing endpoints and new endpoints that allow you
  
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
-Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+Learn more about working with the Kladana API in
 
 ### 02-08-2023
