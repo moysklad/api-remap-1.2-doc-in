@@ -603,29 +603,34 @@ curl -X POST
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "discountName",
-active: true
-"allProducts": false
-"allAgents": false
-"agentTags": ["tag1", "tag2"],
-"assortment": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "product",
-"mediaType": "application/json"
-}
-}],
-"productFolders": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "productfolder",
-"mediaType": "application/json"
-}
-}]
+    "name": "discountName",
+    "active": true,
+    "allProducts": false,
+    "allAgents": false,
+    "agentTags": [
+        "tag1",
+        "tag2"
+    ],
+    "assortment": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            }
+        }
+    ],
+    "productFolders": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "productfolder",
+                "mediaType": "application/json"
+            }
+        }
+    ]
 }'
 ```
 
@@ -644,13 +649,13 @@ Successful request. The result is a JSON representation of the created personal 
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "discountName",
-   active: true
-   "allAgents": false
+   "active": true,
+   "allAgents": false,
    "agentTags": [
      "tag2",
      "tag1"
    ],
-   "allProducts": false
+   "allProducts": false,
    "assortment": [
      {
        "meta": {
@@ -706,13 +711,13 @@ Successful request. The result is a JSON representation of the personal discount
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "updated discount",
-   active: false
-   "allAgents": false
+   "active": false,
+   "allAgents": false,
    "agentTags": [
      "tag2",
      "tag1"
    ],
-   "allProducts": false
+   "allProducts": false,
    "assortment": [
      {
        "meta": {
@@ -753,29 +758,33 @@ curl -X PUT
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "updatedName",
-active: false
-"allProducts": false
-"allAgents": false
-"agentTags": ["tag2"],
-"assortment": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "product",
-"mediaType": "application/json"
-}
-}],
-"productFolders": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "productfolder",
-"mediaType": "application/json"
-}
-}]
+    "name": "updatedName",
+    "active": false,
+    "allProducts": false,
+    "allAgents": false,
+    "agentTags": [
+        "tag2"
+    ],
+    "assortment": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            }
+        }
+    ],
+    "productFolders": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "productfolder",
+                "mediaType": "application/json"
+            }
+        }
+    ]
 }'
 ```
 
@@ -794,9 +803,9 @@ Successful request. The result is a JSON representation of the created personal 
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "updatedName",
-   active: false
-   "allProducts": false
-   "allAgents": false
+   "active": false,
+   "allProducts": false,
+   "allAgents": false,
    "agentTags": [
      "tag2"
    ],
@@ -855,35 +864,38 @@ curl -X POST
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "Special price",
-active: false
-"allProducts": false
-"allAgents": false
-"usePriceType": true,
-"specialprice": {"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5f441404-a419-11ea-ac12-000a00000078",
-"type": "pricetype",
-"mediaType": "application/json"
-}
-},
-"assortment": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "product",
-"mediaType": "application/json"
-}
-}],
-"productFolders": [
-{
-"meta": {
-"href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-"metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-"type": "productfolder",
-"mediaType": "application/json"
-}
-}]
+    "name": "Special price",
+    "active": false,
+    "allProducts": false,
+    "allAgents": false,
+    "usePriceType": true,
+    "specialprice": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5f441404-a419-11ea-ac12-000a00000078",
+            "type": "pricetype",
+            "mediaType": "application/json"
+        }
+    },
+    "assortment": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            }
+        }
+    ],
+    "productFolders": [
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "productfolder",
+                "mediaType": "application/json"
+            }
+        }
+    ]
 }'
 ```
 
@@ -902,13 +914,13 @@ Successful request. The result is a JSON representation of the created special p
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "Special price",
-   active: false
-   "allAgents": false
+   "active": false,
+   "allAgents": false,
    "agentTags": [
      "tag2",
      "tag1"
    ],
-   "allProducts": false
+   "allProducts": false,
    "usePriceType": true,
    "assortment": [
      {
@@ -933,7 +945,7 @@ Successful request. The result is a JSON representation of the created special p
      }
    ],
    "specialprice": {
-     value: 0.0
+     "value": 0.0,
      "priceType": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
@@ -978,13 +990,13 @@ Successful request. The result is a JSON representation of the special price.
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "Special price",
-   active: false
-   "allAgents": false
+   "active": false,
+   "allAgents": false,
    "agentTags": [
      "tag2",
      "tag1"
    ],
-   "allProducts": false
+   "allProducts": false,
    "usePriceType": true,
    "assortment": [
      {
@@ -1009,7 +1021,7 @@ Successful request. The result is a JSON representation of the special price.
      }
    ],
    "specialprice": {
-     value: 0.0
+     "value": 0.0,
      "priceType": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
@@ -1039,9 +1051,9 @@ curl -X PUT
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "updatedName",
-"usePriceType": false,
-discount: 50
+    "name": "updatedName",
+    "usePriceType": false,
+    "discount": 50
 }'
 ```
 
@@ -1060,15 +1072,15 @@ Successful request. The result is a JSON representation of the modified special 
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "updatedName",
-   active: false
-   "allAgents": false
+   "active": false,
+   "allAgents": false,
    "agentTags": [
      "tag2",
      "tag1"
    ],
-   "allProducts": false
+   "allProducts": false,
    "usePriceType": false,
-   discount: 50
+   "discount": 50,
    "assortment": [
      {
        "meta": {
@@ -1092,7 +1104,7 @@ Successful request. The result is a JSON representation of the modified special 
      }
    ],
    "specialprice": {
-     value: 0.0
+     "value": 0.0,
      "priceType": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
@@ -1141,8 +1153,8 @@ curl -X PUT
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
-"name": "updatedName",
-"active": true
+    "name": "updatedName",
+    "active": true
 }'
 ```
 
@@ -1161,8 +1173,8 @@ Successful request. The result is a JSON representation of the changed rounding 
    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
    "name": "updatedName",
-   active: true
-   "allAgents": true
+   "active": true,
+   "allAgents": true,
    "agentTags": []
 }
 ```
