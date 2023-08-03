@@ -801,4 +801,4 @@ curl -X GET
 ```
 In this example, the request returned the values of additional fields, statuses, and groups of counterparties.
 
-Learn more about the entity metadata resource in [documentation](../#mojsklad-json-api-obschie-swedeniq-metadannye).
+Learn more about the entity metadata resource in [documentation](../#kladana-json-api-general-info-metadata).

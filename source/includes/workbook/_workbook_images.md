@@ -346,4 +346,4 @@ To do this, you can use the endpoint for working with product images.
 ]
 ```
 
-Learn more about [working with images](../dictionaries/#suschnosti-izobrazhenie).
+Learn more about [working with images](../dictionaries/#entities-izobrazhenie).

@@ -8,32 +8,32 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | Title | Type | Filtration | Description|
 | ------- | ------- | ----|------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of the last deletion of the Disbursement Note<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Disbursement note commentary |
-| **expenseItem** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **expenseItem** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Disbursement note metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Outgoing Order<br>`+Required when replying` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
-| **salesChannel** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales channel metadata<br>`+Expand` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=`| Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Expenditure note status metadata<br>`+Expand` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Expenditure note status metadata<br>`+Expand` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying` `+Read-only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only` |
@@ -44,7 +44,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 
 | Title | Description |
 | --------- |------ |
-| **operations** | An array of links to related operations in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **operations** | An array of links to related operations in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 Allowed types of linked operations:
 
@@ -53,7 +53,7 @@ Allowed types of linked operations:
 + Supplier invoice (invoicein)
 + Order to the supplier (purchaseorder)
 
-About working with fields of the Outgoing Orders can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with fields of the Outgoing Orders can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get Outgoing Cash Payment
@@ -63,8 +63,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ----- | ------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Outgoing Cash Payments. |
 
 **Parameters**
@@ -447,9 +447,9 @@ Mandatory fields to create:
 
 | Parameter | Description |
 | ----- | ------ |
-| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent** | Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **expenseItem** | Expense item in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **expenseItem** | Expense item in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 > An example of creating a new Disbursement Note with a request body containing only the required fields.
 
@@ -560,7 +560,7 @@ Successful request. The result is a JSON representation of the created Outgoing 
 
 ### Outgoing Cash Payment bulk creating and update
 
-[Bulk creating and update of Outgoing Cash Payments](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+[Bulk creating and update of Outgoing Cash Payments](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing JSON representations of the Outgoing Cash Payments that you want to create or update.
 Updatable Outgoing Cash Payments must contain the identifier in the form of metadata.
 
@@ -905,11 +905,11 @@ Request for Outgoing Cash Payment metadata. The result is a JSON object includin
 | Parameter | Description |
 | ----- | ------ |
 | **meta** | Link to Outgoing Cash Payment Metadata |
-| **attributes** | Array of objects additional fields of Outgoing Cash Payments in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional fields of Outgoing Cash Payments in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Outgoing Cash Payment statuses |
 | **createShared** | create new Outgoing Orders labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Outgoing Cash Payments
 
@@ -1668,7 +1668,7 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
 ### Edit Outgoing Cash Payment
 
 Request to update an Outgoing Cash Payment with the specified id.
-In the body of the request, you can specify only those fields that need to be changed for the Outgoing Cash Payment, except for those that are marked `Read-Only` in the description of the [Outgoing Cash Payment Attributes](../documents/#dokumenty-rashodnyj-order).
+In the body of the request, you can specify only those fields that need to be changed for the Outgoing Cash Payment, except for those that are marked `Read-Only` in the description of the [Outgoing Cash Payment Attributes](../documents/#transactions-rashodnyj-order).
 
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur. 

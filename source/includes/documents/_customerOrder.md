@@ -8,44 +8,44 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | Name | Type | Filtration | Description |
 |-------|------| -----------| ------------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)| | Counterparty account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata)| | Counterparty account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **applicable** | Boolean | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **attributes** | Array(Object) | Operators of additional fields | Additional fields metadata collection<br>`+Change-handler` `+Update-provider` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Order Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The Sales Order last deletion date and time<br>`+Read Only` |
 | **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Estimated date of shipment<br>`+Change-handler` `+Update-provider` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Order Comment<br>`+Change-handler` `+Update-provider` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Order External Code<br>`+Required for response``+Change-handler` `+Update-provider` |
 | **files** | MetaArray | | Files array metadata. Maximum number of files - 100<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Order ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **invoicedSum** | float | | Sales invoice amount<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Sales Order Metadata<br>`+Required when replying``+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Order Metadata<br>`+Required when replying``+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | The date of transaction<br>`+Required for response``+Change-handler` `+Update-provider` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Order Name<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paidSum** | float | | Amount of incoming payments for the Sales Order<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **positions** | MetaArray | | Sales Order item metadata<br>`+Required for response` `+Expand``+Change-handler` `+Update-provider` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the transaction published or not<br>`+Required when replying` `+Read Only` |
 | **rate** | object | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **reservedSum** | float | | Amount of reserved products<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **salesChannel** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales channel metadata<br>`+Expand` |
+| **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shipmentAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Order Delivery Address<br>`+Change-handler` |
-| **shipmentAddressFull** | object | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki)<br>`+Change-handler` |
+| **shipmentAddressFull** | object | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#transactions-sales-order-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki)<br>`+Change-handler` |
 | **shippedSum** | float | | Amount of shipped products<br>`+Required for response` `+Read-only``+Change-handler` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. Cannot be edited |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Change-handler` |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Change-handler` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Date and time of the Sales Order last update<br>`+Required when replying` `+Read-only``+Change-handler` |
  
 ##### Tax system code 
@@ -61,11 +61,11 @@ The values of the `taxSystem` field.
 
 | Name | Description |
 |---------|--------------------|
-| **purchaseOrders** | Array of links to the related Purchase Orders in the [metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)format|
-| **demands** | Array of links to the related Shipments in the [metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)format|
-| **payments** | Array of links to the related Payments in the [metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)format|
-| **invoicesOut** | Array of links to the related Sales Invoices in the [metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)format|
-| **moves** | Array of links to the related Transfers in the [metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)format|
+| **purchaseOrders** | Array of links to the related Purchase Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **demands** | Array of links to the related Shipments in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **payments** | Array of links to the related Payments in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **invoicesOut** | Array of links to the related Sales Invoices in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **moves** | Array of links to the related Transfers in the [metadata](../#kladana-json-api-general-info-metadata)format|
 
 #### Sales Orders Items
 
@@ -74,15 +74,15 @@ Sales Order items are arranged as a list of objects (products, services, variant
 | Name | Type | Description |
 | ----- | -----|-------------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of an item (product/service/bundle/variant) <br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of an item (product/service/bundle/variant) <br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **discount** | int | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only``+Change-handler` `+Update-provider` |
-| **pack** | object | Product packaging. [Learn more](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
+| **pack** | object | Product packaging. [Learn more](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
 | **price** | float | Price of a product/service in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | int | The number of product/service items of a certain type. If the item is a product that has tracking by serial numbers enabled, the value in this field is always equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider `|
 | **reserve** | int | The item reserve<br>`+Change-handler` `+Update-provider` |
 | **shipped** | int | Shipped<br>`+Required on response``+Change-handler` |
-| **taxSystem** | Enum | Tax system code. [Learn more](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | Tax system code. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item, or not. If it is on, you can set VAT = 0, or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying``+Change-handler` ` +Update-provider`|
 
@@ -103,10 +103,10 @@ items are deleted, new items are added, and existing ones are changed.
 | **apartment** | String(30) | Apartment |
 | **city** | String(255) | City |
 | **comment** | String(255) | Comment |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)| Country metadata |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata)| Country metadata |
 | **house** | String(30) | Building |
 | **postalCode** | String(6) | Postcode |
-| **region** |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Region metadata |
+| **region** |[Meta](../#kladana-json-api-general-info-metadata) | Region metadata |
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: 'postalCode' -> 'country' -> 'region' -> 'city' -> 'street' -> 'house' -> 'apartment' -> 'addInfo'. Use commas to separate the fields.
@@ -338,8 +338,8 @@ The fields required to create:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **organization** | Link to your legal entity in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
-| **agent** | Link to the counterparty (buyer) in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format|
+| **organization** | Link to your legal entity in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **agent** | Link to the counterparty (buyer) in the [Metadata](../#kladana-json-api-general-info-metadata) format|
 
 > Example: Creating a new Sales Order with a request body containing the required fields only.
 
@@ -1055,7 +1055,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
 
 ### Sales Orders bulk creating and update
 
-In the body of the request, you need to pass an array containing JSON representations of the Sales Orders that you want to create or update. Updated Sales Orders must contain the identifier in the form of metadata. [Learn more](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+In the body of the request, you need to pass an array containing JSON representations of the Sales Orders that you want to create or update. Updated Sales Orders must contain the identifier in the form of metadata. [Learn more](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 
 > Example: Creating and updating multiple Sales Orders
 
@@ -1368,11 +1368,11 @@ Request to receive the metadata of Sales Orders. The result is a JSON object inc
 | Parameter | Description |
 | ----------| ------------|
 | **meta** | Link to the Sales Order metadata |
-| **attributes** | Array of objects added. Sales Order fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects added. Sales Order fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Sales Order statuses array|
 | **createShared** | Create new Sales Orders with the "General" label |
 
-The structure of a separate object representing an additional field is described in detail in [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing an additional field is described in detail in [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 ### Sales Orders bulk deletion
 
@@ -1765,7 +1765,7 @@ Successful request. The result is a JSON representation of the Sales Order.
 
 Request to update the Sales Order with the specified id.
 In the body of the request, you can specify only those fields that need to be changed for the Sales Order, except for those that
-are marked `Read Only` in the description of [Sales Order Attributes](../documents/#dokumenty-zakaz-pokupatelq).
+are marked `Read Only` in the description of [Sales Order Attributes](../documents/#transactions-sales-order).
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.
 
@@ -2352,8 +2352,8 @@ Request to receive a list of all items of this Sales Order.
 
 | Title | Type | Description |
 | ----------- | ------- | ------------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | issuance metadata,|
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | issuance metadata,|
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing items in the Sales Order. |
 
 **Parameters**
@@ -2507,7 +2507,7 @@ For successful creation, the following fields must be specified in the request b
 + **assortment** - Link to the product/service/series/modification/set that the item represents.
 
 You can also specify a field named **product**, **service**, **variant**, **bundle** as per
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-pozicii-zakaza-pokupatelq)
+what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-zakazy-pokupatelej-pozicii-zakaza-pokupatelq)
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 

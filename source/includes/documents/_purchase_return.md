@@ -8,32 +8,32 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | Title | Type | Filtration | Description |
 | ----------| --------- | -------- | ----------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required in response` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Purchase Returns Metadata<br>`+Required in response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required in response` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount Purchase Returns in rupees<br>`+Required when replying` `+Read Only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
@@ -45,10 +45,10 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 
 | Title | Description |
 | ------------| ------------- |
-| **positions** | Link to Purchase Returns items in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **supply** | Reference to the acceptance from which the return occurred in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) The field is required to return with a reason. |
+| **positions** | Link to Purchase Returns items in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **supply** | Reference to the acceptance from which the return occurred in the format [Metadata](../#kladana-json-api-general-info-metadata) The field is required to return with a reason. |
 | **paidSum** | The amount of incoming payments for the return to the supplier |
-| **payments** | An array of links to related payments in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Purchase Returns Items
 
@@ -57,13 +57,13 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | Title | Type | Descriptions|
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is an item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is an item<br>`+Required when answering` `+Expand` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **slot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Cell in the warehouse. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
@@ -71,7 +71,7 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 The value of this attribute is ignored if the item is not in serial accounting.
 Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.
 
-You can work with items using special [resources for managing Purchase Returns items](../documents/#dokumenty-vozwrat-postawschiku-pozicii-vozwrata-postawschiku), and as part of a separate Purchase Returns. When operating as part of a separate Purchase Returns,
+You can work with items using special [resources for managing Purchase Returns items](../documents/#transactions-purchase-returns-pozicii-vozwrata-postawschiku), and as part of a separate Purchase Returns. When operating as part of a separate Purchase Returns,
 you can send requests to create a separate Purchase Returns with included in the request body
 an array of items Returned to the supplier. 
 
@@ -83,7 +83,7 @@ with m included in the request bodyan array of Purchase Returns items.
 It is important to remember that the collection of items will
 be treated as "all items Returned to the supplier" and will completely replace the existing collection when updating the object. Superfluous items will be deleted, new ones added, existing ones changed.
 
-About working with You can read the Purchase Returns fields [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with You can read the Purchase Returns fields [here](../#kladana-json-api-general-info-additional-fields)
 
 ### Get Returns to Suppliers
 
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------| --------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Returns to Suppliers. |
 
 **Parameters**
@@ -569,10 +569,10 @@ Successful request. The result is a JSON representation of the Returns to Suppli
 ### Create Purchase Returns
 
 Required fields when creating a new Purchase Returns:
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **supply** - Link to the acceptance from which the return occurred in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye), required field only for return based on
-+ **agent** - Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **store** - Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **supply** - Link to the acceptance from which the return occurred in the format [Metadata](../#kladana-json-api-general-info-metadata), required field only for return based on
++ **agent** - Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata)
 The counterparty specified in the request to create a return must match the counterparty specified in the document,
 on which the refund is generated.
 
@@ -1739,11 +1739,11 @@ Request to get Purchase Returns metadata. The result is a JSON object including:
 | Parameter | Description |
 | ----------| --------- |
 | **meta** | Link to Returns to Supplier metadata |
-| **attributes** | Array of objects additional fields of Purchase Returns in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **attributes** | Array of objects additional fields of Purchase Returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **states** | Array of Returns to Suppliers statuses |
 | **createShared** | create new Purchase Returns labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Returns to Suppliers
 
@@ -2167,7 +2167,7 @@ Successful request. The result is a JSON representation of the Return to the pro
 
 Request to update Return to the supplier with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in the Purchase Returns, except for those that
-are marked `Read Only` in the description of [Purchase Return Attributes](../documents/#dokumenty-vozwrat-postawschiku).
+are marked `Read Only` in the description of [Purchase Return Attributes](../documents/#transactions-purchase-returns).
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.
 The counterparty must match the counterparty specified in the document for which the refund is generated.
@@ -2461,8 +2461,8 @@ Request for a list of all items of the Purchase Return.
 
 | Title | Type | Description |
 | ----------| ----- | ---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Purchase Return items. |
 
 **Parameters**
@@ -2677,7 +2677,7 @@ Request to create a new item in Purchase Returns.
 For successful creation, the following fields must be specified in the request body:
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
-You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#dokumenty-vozwrat-postawschiku-vozwraty-postawschikam-pozicii-vozwrata-postawschiku).
+You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-returns-vozwraty-postawschikam-pozicii-vozwrata-postawschiku).
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Purchase Returns items at the same time. All items created by this request

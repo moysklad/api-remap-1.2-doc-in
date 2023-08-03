@@ -5,7 +5,7 @@
 | Title | Type | Description |
 | -------- |------- | ---------- |
 | **id** | UUID | User Directory ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the User directory<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User directory<br>`+Required when replying` |
 | **name** | String(255) | Name of the User Directory<br>`+Required when replying` `+Required when creating` |
 
 #### List of user directories
@@ -18,7 +18,7 @@ character `/` and is an identifier for this directory.
 Example: After executing the above query and finding among the list of reference books we are interested in, we isolate the following link
    from meta field: `https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045`
    From this link, we isolate the <metadata_id> of the user directory we need: `eaacabaf-2655-11e6-8a84-bae500000045` and use this id
-   to work with this user directory within the resource [User directory](../dictionaries/#suschnosti-pol-zowatel-skij-sprawochnik).
+   to work with this user directory within the resource [User directory](../dictionaries/#entities-user-directory).
 
 ### Create directory
 The only required field to create a custom directory
@@ -124,11 +124,11 @@ Successful deletion of the user directory.
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the element of the User directory |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | The external code of the User Directory element<br>`+Required when replying` |
 | **id** | UUID | `=` `!=` | Element ID of the User Directory<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the User Directory element<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the User Directory element<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the User Directory element<br>`+Required when replying` `+Required when creating` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the User Directory element<br>`+Required when replying` `+Read only` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 
 ### Get directory elements
@@ -137,8 +137,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------- | -------- | ------------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the elements of the User Directory. |
 
 **Parameters**

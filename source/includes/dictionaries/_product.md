@@ -3,7 +3,7 @@
 Using the JSON API, you can create and update information about Products, request lists of Products and information on individual Products.
   The entity code for a Product in the JSON API is the **product** keyword. Learn more about [Products](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of products to match the search string will be carried out in the following fields:
 
@@ -16,44 +16,44 @@ The search among the objects of products to match the search string will be carr
 | Title | Type | Filtration | Description |
 | ---------| ------- | ----- | ------ |
 | **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read Only` |
-| **drunk** | object | | An object containing the fields of alcoholic products. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-ob-ekt-soderzhaschij-polq-alkogol-noj-produkcii) |
+| **drunk** | object | | An object containing the fields of alcoholic products. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-ob-ekt-soderzhaschij-polq-alkogol-noj-produkcii) |
 | **archived** | Boolean | `=` `!=` | Has the Product been added to the archive<br>`+Required when replying` |
 | **article** | String(255) | `=` `!=` `~` `~=` `=~` | Article |
 | **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-shtrihkody) |
-| **buyprice** | object | | Purchase price. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-zakupochnaq-cena) |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-shtrihkody) |
+| **buyprice** | object | | Purchase price. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-zakupochnaq-cena) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product Code |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) || Country Metadata<br>`+Expand` |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) || Country Metadata<br>`+Expand` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Product Description |
 | **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **effectiveVat** | int | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Product Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Item ID<br>`+Required when replying` `+Read Only` |
-| **images** | MetaArray | | [Images] metadata array(../dictionaries/#suschnosti-izobrazhenie) (Maximum number of images - 10)<br>`+Expand` |
+| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Expand` |
 | **isSerialTrackable** | Boolean | `=` `!=` | Accounting for serial numbers. This mark is not compatible with the features **weighed**, **alcoholic**, **ppeType**, **trackingType**, **onTap**. |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Product Metadata<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product Metadata<br>`+Required when replying` |
+| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
 | **minimumBalance** | int | `=` `!=` `<` `>` `<=` `>=` | Minimum balance |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **packs** | Array(Object) | | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
+| **packs** | Array(Object) | | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked products. "true" - the feature is enabled. |
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the group that the Product belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-priznak-predmeta-rascheta) |
-| **ppeType** | Enum | | Nomenclature classification type code for medical personal protective equipment (EAN-13). [More here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-wida-nomenklaturnoj-klassifikacii-medicinskih-sredstw-indiwidual-noj-zaschity) |
-| **productFolder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Product group metadata<br>`+Expand` |
-| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-priznak-predmeta-rascheta) |
+| **ppeType** | Enum | | Nomenclature classification type code for medical personal protective equipment (EAN-13). [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-wida-nomenklaturnoj-klassifikacii-medicinskih-sredstw-indiwidual-noj-zaschity) |
+| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Product group metadata<br>`+Expand` |
+| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **supplier** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Supplier counterparty metadata<br>`+Expand` |
+| **supplier** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Supplier counterparty metadata<br>`+Expand` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
 | **things** | Array(String) | | Serial numbers |
 | **tnved** | String(255) | | TN VED code |
-| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-tip-markiruemoj-produkcii) |
-| **wom** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Units<br>`+Expand` |
+| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-tip-markiruemoj-produkcii) |
+| **wom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **variantsCount** | int | | Number of modifications for this product<br>`+Required when replying` `+Read only` |
@@ -170,7 +170,7 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 | **barcodes** | Array(Object) | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
 | **id** | UUID | Product Package ID<br>`+Required when replying` `+Read Only` |
 | **quantity** | float | Quantity of products in this type of package<br>`+Required when answering` `+Required when creating` |
-| **wom** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Units metadata<br>`+Required when replying` `+Expand` |
+| **wom** | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand` |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
 
@@ -194,7 +194,7 @@ The response is an object, with the following structure:
 | Title | Type | Description |
 | ---------| ------- |--------- |
 | **meta** | meta | Metadata<br>`+Required when replying` |
-| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required` |
+| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required` |
 | **createShared** | Boolean | Create new Products tagged "General"<br>`+Required when replying` |
 
 Structures of objects of individual collections:
@@ -222,7 +222,7 @@ Features of creating a list of barcodes when creating a set:
 + If you pass a list of empty barcode values to the input, then no barcodes will be created for the products.
 + If you do not pass the barcodes attribute to the input or pass an empty list in it, then by default one random barcode of the EAN13 type will be created for the product.
 
-About working with Product fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Product fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ##### An object containing the fields of alcoholic products
 
@@ -239,16 +239,16 @@ This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, 
 
 | Title | Type | Description |
 | ---------| ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata containing a link to the vendor group.<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the vendor group.<br>`+Required when replying` |
 
-Supplier type - Contractor. You can see the description of the Counterparty entity [here](../dictionaries/#suschnosti-kontragent)
+Supplier type - Contractor. You can see the description of the Counterparty entity [here](../dictionaries/#entities-kontragent)
 
 ##### Sales prices
 
 | Title | Type | Description |
 | ---------| ------- |-------- |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 | **priceType** | object | Price type<br>`+Required when replying` |
 
 
@@ -257,14 +257,14 @@ Supplier type - Contractor. You can see the description of the Counterparty enti
 | Title | Type | Description |
 | ---------| ------- |----------- |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 
 | Title | Type | Description |
 | ---------| ------- |---------- |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Image: structure and loading.
 When requesting a Product with images, a json representation of this Product will be displayed containing the **images** field. This field is
@@ -273,16 +273,16 @@ an array of elements. Field elements **images** have fields:
 | Title | Type | Description |
 | ---------| ------- |-------- |
 | **filename** | String(255) | File name<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
 | **size** | int | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata<br>`+Required when replying` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
 | **updated** | datetime | File upload time to server<br>`+Required when replying` |
 
 #### Uploading
 
-To upload images, you need in the body of the request to [create](../dictionaries/#suschnosti-towar-sozdat-towar) or [update](../dictionaries/#suschnosti-towar-izmenit-towar) of the product
+To upload images, you need in the body of the request to [create](../dictionaries/#entities-towar-sozdat-towar) or [update](../dictionaries/#entities-towar-izmenit-towar) of the product
 specify the **images** field with a list of elements that have the following attributes:
 
 | Title | Description |
@@ -293,15 +293,15 @@ specify the **images** field with a list of elements that have the following att
 If in the update request **images** contains an empty array of elements, then all Images of the Product will be deleted,
 because the server will assume that the user wants to update the list of Product Images.
 
-The API documentation for working with Images can be found in the [Image](../dictionaries/#suschnosti-izobrazhenie) chapter.
+The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-izobrazhenie) chapter.
 
 ##### Item Group
 
 | Title | Type | Description |
 | ---------| ------- |-------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata containing a link to the Product group.<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Product group.<br>`+Required when replying` |
 
-You can see the description of the Group entity [here](../dictionaries/#suschnosti-gruppa-towarow)
+You can see the description of the Group entity [here](../dictionaries/#entities-gruppa-towarow)
 Updating this attribute will also update the **pathName** attribute.
 
 ##### Weight item
@@ -330,8 +330,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------| ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Products. |
 
 **Parameters**
@@ -1677,7 +1677,7 @@ Successful request. The result is a JSON representation of the created Product w
 ```
 
 ### Products bulk creation and update
-[Products bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+[Products bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the products that you want to create or update.
 Updated products must contain the identifier in the form of metadata.
 
@@ -1946,7 +1946,7 @@ Request for obtaining metadata of Products, Bundles and Services. The result is 
 | **attributes** | Array metadata fields of Products |
 | **createShared** | create new kits labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Product Metadata
 

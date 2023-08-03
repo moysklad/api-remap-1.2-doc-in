@@ -12,13 +12,13 @@ Using the JSON API, you can create and update information about Bills of Materia
 | **cost** | int | | Production cost |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last removal Bills of Materials<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when answering` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
 | **materials** | MetaArray | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Bills of Materials<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when answering` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **parent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **parent** | [Meta](../#kladana-json-api-general-info-metadata) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
 | **pathName** | string | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
 | **products** | MetaArray | | Collection of finished products metadata Bills of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
@@ -31,11 +31,11 @@ Bills of Materials are a list of products and product variants. Material object 
 | Title | Type| Description |
 | -------- | -------- |---------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
 | **id** | UUID | Stuff ID<br>`+Required when replying` `+Read Only` |
-| **product** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
 | **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
-| **processingProcessPosition** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Process item metadata<br>`+Required when replying` |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Process item metadata<br>`+Required when replying` |
 
 Peculiarities: if you do not specify a connection with the item of the technological process when adding a material, then by default the material will be linked to the first item of the technological process.
 
@@ -47,12 +47,12 @@ Product Object of a Bill of Materials contains the following fields:
 | Title | Type | Description |
 | -------- | -------- |------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
 | **id** | UUID | Product ID<br>`+Required when replying` `+Read Only` |
-| **product** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
 | **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
 
-You can work with materials and products using [special resources for managing items of Bills of Materials](../documents/#dokumenty-teh-karta-materialy-teh-karty),
+You can work with materials and products using [special resources for managing items of Bills of Materials](../documents/#transactions-teh-karta-materialy-teh-karty),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,
 you can send requests to create a separate Bill of Materials included in the request body
 arrays of materials and products of Bills of Materials. If the quantity of materials or products exceeds the maximum allowable, then for
@@ -73,8 +73,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- | -------- |---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bills of Materials. |
 
 **Parameters**
@@ -300,7 +300,7 @@ Request for the creation of a new Bill of Materials.
 Mandatory fields to create:
 
 + **name** - Bill of Materials Name
-+ **products** - List of finished products Bill of Materials in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **products** - List of finished products Bill of Materials in the format [Metadata](../#kladana-json-api-general-info-metadata)
 
 > An example of creating a new Dashboard with a request body containing only the required fields.
 
@@ -398,7 +398,7 @@ Successful request. The result is a JSON representation of the generated Bills o
 ```
 
 ### Bulk creation and update of Bill of Materials
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of a Bill of Materials.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of a Bill of Materials.
 In the body of the request, you need to pass an array containing the JSON representation of Bills of Materials you want to create or update.
 Updated Bills of Materials must contain the identifier in the form of metadata.
 
@@ -726,7 +726,7 @@ Successful request. The result is a JSON representation of Bills of Materials.
 
 Update Request Bills of Materials with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in Bill of Materials other than those
-are marked `Read-Only` in the description of [Bill of Materials Attribute](../documents/#dokumenty-teh-karta).
+are marked `Read-Only` in the description of [Bill of Materials Attribute](../documents/#transactions-teh-karta).
 
 **Parameters**
 
@@ -814,8 +814,8 @@ Request for a list of all materials of the Bill of Materials.
 
 | Title | Type | Description |
 | -------- | -------- |------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bill of Materials. |
 
 **Parameters**
@@ -1237,8 +1237,8 @@ Request for a list of all products of the Bill of Materials.
 
 | Title |Type | Description |
 | -------- | -------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the products of Bills of Materials. |
 
 **Parameters**

@@ -9,34 +9,34 @@ Using the JSON API, you can create and update information about Transfers, reque
 |-------|--------| ---------|--------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying``+Read-only``+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Postmark<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br> `+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Transfer Code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moments<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Transfer Comment<br>`+Change-handler` `+Update-provider` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Transfer External Code<br>`+Required on response``+Change-handler` |
-| **files** | MetaArray | |[Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | |[Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Transfer ID<br>`+Required for response` `+Read-only``+Change-handler` |
-| **internalOrder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the Internal order associated with the Transfer<br>`+Expand` |
-| **customerOrder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the Sales Order associated with the Transfer<br>`+Expand` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Transfer Metadata<br>`+Required on Response``+Change-handler` |
+| **internalOrder** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Internal order associated with the Transfer<br>`+Expand` |
+| **customerOrder** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Sales Order associated with the Transfer<br>`+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Transfer Metadata<br>`+Required on Response``+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response``+Change-handler` `+Update-provider` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Change<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
-| **overhead** | object | | Overheads. [More here](../dictionaries/#dokumenty-peremeschenie-peremescheniq-nakladnye-rashody). If Transfer items are not set, then overheads cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
+| **overhead** | object | | Overheads. [More here](../dictionaries/#dokumenty-transfer-peremescheniq-nakladnye-rashody). If Transfer items are not set, then overheads cannot be set<br>`+Update-provider` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Item Metadata
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **sourceStore** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the warehouse from which the Transfer is made<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Transfer status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **sourceStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the warehouse from which the Transfer is made<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Transfer status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Transfer amount in rupees<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **targetstore** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the warehouse being Transfer to<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
+| **targetstore** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the warehouse being Transfer to<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last update time Transfers<br>`+Required when replying` `+Read-only``+Change-handler` |
 
 #### Overhead Expenses
@@ -56,14 +56,14 @@ The Transfer item object contains the following fields:
 | Title | Type | Description |
 | ------- | ---------- |----------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only``+Change-handler` |
-| **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-oprihodowanie-oprihodowaniq-nakladnye-rashody). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
-| **pack** | object | Product packaging. [More info here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
+| **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-stock-adjustment-oprihodowaniq-nakladnye-rashody). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
+| **pack** | object | Product packaging. [More info here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
-| **sourceSlot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | The location in the warehouse from which the transfer is made. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
-| **targetSlot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | The cell in the warehouse to which the transfer is made. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **sourceSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The location in the warehouse from which the transfer is made. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
+| **targetSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The cell in the warehouse to which the transfer is made. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of products in the item will be equal to the number of serial numbers passed in the attribute value.`+Change-handler` |
 
 The value of this attribute is ignored if the item item is not in serial accounting.
@@ -79,7 +79,7 @@ Also, when working as part of a separate Transfer, you can send requests to upda
 with an array of Transfer items included in the request body. It is important to remember that the collection of items will
 be perceived as "all Transfer items" and will completely replace the existing collection when updating the object. Superfluous items are deleted, new ones are added, existing ones are changed.
 
-About working with Relocation fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Relocation fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ### Get Transfers
  
@@ -304,9 +304,9 @@ Successful request. The result is a JSON representation of the list of Transfers
 
 Request to create a new Transfer. Mandatory fields to create:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **sourceStore** - Link to the warehouse from which the transfer is made, in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **targetStore** - Link to the warehouse to which the Transfer is made, in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **sourceStore** - Link to the warehouse from which the transfer is made, in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **targetStore** - Link to the warehouse to which the Transfer is made, in the format [Metadata](../#kladana-json-api-general-info-metadata)
 
 > An example of creating a new Transfer with a request body containing only the required fields.
 
@@ -438,7 +438,7 @@ Successful request. The result is a JSON representation of the generated Transfe
 
 ### Bulk create and update Transfers
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Transfers.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Transfers.
 In the body of the request, you need to pass an array containing the JSON representation of the Transfers that you want to create or update.
 Updated Transfers must contain the identifier in the form of metadata.
 
@@ -1032,11 +1032,11 @@ Request to get Transfers metadata. The result is a JSON object including:
 | Parameter | Description |
 | ------- | ---------- |
 | **meta** | Link to Transfers metadata |
-| **attributes** | Array of objects additional Navigate fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Navigate fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Transfer statuses |
 | **createShared** | create new Transfers labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Transfer Metadata
 
@@ -1447,8 +1447,8 @@ A request to get a list of all items in this Transfer.
 
 | Title | Type | Description |
 | ------- | ----------|---------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Transfers. |
 
 **Parameters**
@@ -1816,7 +1816,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#dokumenty-peremeschenie-peremescheniq-pozicii-peremescheniq)
+what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-peremescheniq-pozicii-peremescheniq)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Transfer items at the same time. All items created by this request
 will be added to the existing ones.

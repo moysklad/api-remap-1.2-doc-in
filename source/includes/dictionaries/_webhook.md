@@ -1,7 +1,7 @@
 ## Webhooks
 Using the JSON API, you can work with webhooks.
 
-A webhook is a mechanism for sending notifications. A notification is sent when there is a change in the system that tracks the webhook. For example, if you enable a product webhook, when you change the product name, you receive a notification with a link to the changed product. Read more about working with webhooks in [Webhooks](../workbook/#workbook-vebhuki).
+A webhook is a mechanism for sending notifications. A notification is sent when there is a change in the system that tracks the webhook. For example, if you enable a product webhook, when you change the product name, you receive a notification with a link to the changed product. Read more about working with webhooks in [Webhooks](../workbook/#workbook-webhooks).
 
 Using API version 1.2, you can view, modify, delete webhooks created only using API version 1.2.
 
@@ -50,7 +50,7 @@ An example of how the data will be transmitted:
 
 | Title | Type | Description |
 | ------- | ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Changed entity metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Changed entity metadata<br>`+Required when replying` |
 | **action** | Enum | The action that triggered the webhook. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Required for response` |
 | **accountId** | UUID | Cashier account ID<br>`+Required when replying` |
 | **updatedFields** | Array(String) | Entity fields modified by the user |
@@ -60,7 +60,7 @@ To display an entity attribute, the **updatedFields** event needs the webhook to
 #### Audit context entity attributes
 | Title | Type | Description |
 | ------- | ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Audit context metadata<br>`+Required in response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Audit context metadata<br>`+Required in response` |
 | **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
 | **moment** | datetime | Modified date<br>`+Required when replying` `+Read only` |
 
@@ -92,12 +92,12 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 | ------- | ------- |---------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` |
 | **action** | Enum | The action that the webhook is tracking. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`. Setting `PROCESSED` is only possible for [asynchronous tasks](../#mojsklad-json-api-asinhronnyj-obmen)<br>`+Required when responding` `+Required when creating` |
-| **authorApplication** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Application that created the webhook<br> |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the webhook<br> |
 | **diffType** | Enum | Entity change display mode. Only specified for the `UPDATE` action. Possible values: `[NONE, FIELDS]` (default `NONE`) |
 | **enabled** | Boolean | Webhook status checkbox (enabled / disabled)<br>`+Required when replying` |
 | **entityType** | String(255) | The type of the entity that the webhook is bound to<br>`+Required when responding` `+Required when creating` |
 | **id** | UUID | Webhook ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Webhook metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Webhook metadata<br>`+Required when replying` |
 | **method** | Enum| The HTTP method with which the request will be made. Possible values: `POST`<br>`+Required when replying` |
 | **url** | URL | The URL to which the request will be made. Allowed length is up to 255 characters<br>`+Required when replying` `+Required when creating` |
 
@@ -277,7 +277,7 @@ Successful request. The result is a JSON representation of the created webhook.
 ```
 
 ### Bulk create and update webhooks
-[Bulk create and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) webhooks.
+[Bulk create and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) webhooks.
 In the body of the request, you need to pass an array containing the JSON representation of the webhooks you want to create or update.
 Updated webhooks must contain the ID as metadata.
 

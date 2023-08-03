@@ -13,14 +13,14 @@ For **Sales Order**, **Sales Invoice**, **Purchase Order** and **Supplier Invoic
 
 | Value | TPI | Description |
 | ------------- |-----|--------------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata, which is a link to the transaction for which Remainings are issued<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata, which is a link to the transaction for which Remainings are issued<br>`+Required when replying` |
 | **positions** | Array(Object) | An array of objects representing the Remainder for each item.<br>`+Required when answering` |
 
 #### Item attributes
 
 | Value | TPI | Description |
 | ------------- |-----|--------------|
-|**meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata, which is a link to the item for which the Remaining is issued<br>`+Required when answering` |
+|**meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata, which is a link to the item for which the Remaining is issued<br>`+Required when answering` |
 |**name** | String(255) | Item name<br>`+Required when answering` |
 |**stock** | float | Remaining<br>`+Required when answering` |
 |**cost** | float | Cost price<br>`+Required when answering` |
@@ -36,13 +36,13 @@ For **Sales Order**, balances are calculated at the current time.
 
 This query works with the following types of transactions:
 
-+ [Shipment](../documents/#dokumenty-otgruzka)
-+ [Sales Order](../documents/#dokumenty-zakaz-pokupatelq)
-+ [Supplier Invoice](../documents/#dokumenty-schet-postawschika)
-+ [Purchase Order](../documents/#dokumenty-zakaz-postawschiku)
-+ [Receiving](../documents/#dokumenty-priemka)
-+ [Purchase Returns](../documents/#dokumenty-vozwrat-postawschiku)
-+ [Sales Returns](../documents/#dokumenty-vozwrat-pokupatelq)
++ [Shipment](../documents/#transactions-shipment)
++ [Sales Order](../documents/#transactions-sales-order)
++ [Supplier Invoice](../documents/#transactions-supplier-invoice)
++ [Purchase Order](../documents/#transactions-purchase-order)
++ [Receiving](../documents/#transactions-receiving)
++ [Purchase Returns](../documents/#transactions-purchase-returns)
++ [Sales Returns](../documents/#transactions-sales-return)
 
 The result of the query is the balances on the items of the transaction, on the date of the transaction, from the warehouse specified in the transaction,
 as well as the cost price of transaction items according to FIFO, taking into account the quantity.

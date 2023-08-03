@@ -26,10 +26,10 @@ The query results can be filtered using the 'filter' parameter.
 | **owner** | parameter to filter by owner-employee. You can use the `=` and `!=` operators. The value of the parameter is a link to the employee. You can pass multiple values. You can specify an empty value. |
 | **pathname** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that shouldbe included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
-| **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-quantitymode) |
-| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-search) |
+| **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#entities-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-quantitymode) |
+| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#entities-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-search) |
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
-| **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#suschnosti-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
+| **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
 | **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni) |
 | **stockstore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
@@ -132,9 +132,9 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#suschnosti-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-unikal-nosti-koda-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
-| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#suschnosti-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
+| **uniqueCodeRules** | object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-unikal-nosti-koda-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes

@@ -8,26 +8,26 @@ Using the JSON API, you can create and update Inventory Count information, query
 | Title | Type | Filtration | Description |
 | ------- | ------ | ------ | ---- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code of issued Inventory Counts |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External ID of the returned Inventory Count<br>`+Required in response` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Inventory Count ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Inventory Count Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Inventory Count Metadata<br>`+Required when replying` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of returned Inventory Count<br>`+Required for response` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Inventory Count Items Metadata<br>`+Required for response` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Inventory Count Status Metadata<br>`+Expand` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Inventory Count Status Metadata<br>`+Expand` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in rupees<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last update time of Inventory Count<br>`+Required when replying` `+Read Only` |
@@ -38,16 +38,16 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | Title | Type | Description |
 | ----------- | -------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **calculatedQuantity** | float | estimated balance<br>`+Required when answering` |
 | **correctionAmount** | float | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
 | **correctionSum** | float | excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 
-You can work with items using [special resources for Inventory Count items managing](../documents/#dokumenty-inwentarizaciq-pozicii-inwentarizacii),
+You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-pozicii-inwentarizacii),
 and also as part of a separate Inventory Count. When working as part of a separate Inventory Count,
 you can send requests to create separate Inventory Counts with included in the request body
 an array of Inventory Count Items. If the number of items exceeds the maximum allowed, then for
@@ -57,7 +57,7 @@ with the Inventory Count items array included in the request body. It is importa
 be perceived as "all Inventory Count items" and will completely replace the already existing collection when updating an object - redundant
 items will be deleted, new ones added, existing ones changed.
 
-Learm more about [Inventory Count additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+Learm more about [Inventory Count additional fields](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get Inventory Counts
@@ -66,8 +66,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | -------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Inventory Counts. |
 
 **Parameters**
@@ -239,8 +239,8 @@ Request to create new Inventory Count.
 
 Mandatory fields to create:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **store** - Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata)
 
 > An example of creating a new Inventory Count with a request body containing only the required fields.
 
@@ -614,11 +614,11 @@ Request to get Inventory Count metadata. The result is a JSON object including:
 | Parameter | Description |
 | ----------- | -------- |
 | **meta** | Link to Inventory Count metadata |
-| **attributes** | Array of objects additional fields Inventory Counts in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **attributes** | Array of objects additional fields Inventory Counts in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **states** | Array of statuses Inventory Counts |
 | **createShared** | create new Inventory Counts labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Inventory Counts Metadata
 
@@ -1114,8 +1114,8 @@ A request to get a list of all items in a given Inventory Count.
 
 | Title | Type | Description |
 | ----------- | -------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Inventory Count items. |
 
 **Parameters**
@@ -1215,7 +1215,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/series/modification that the item represents.
 You can also specify a field named **variant** according to
-what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#dokumenty-inwentarizaciq-inwentarizaciq-pozicii-inwentarizacii).
+what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-pozicii-inwentarizacii).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create both one and Inventory Count items at the same time. All items created by this query
 will be added to the existing ones.

@@ -8,38 +8,38 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | Title | Type | Filtration | Description |
 | ------ | ------- | -------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Account metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Account metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br>`+Change-handler` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Change-handler` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Invoice Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Supplier Invoice<br>`+Read Only`|
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Supplier Invoice Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Invoice external code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Supplier Invoice ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **incomingDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Incoming date<br>`+Change-handler` |
 | **incomingNumber** | float | `=` `!=` `~` `~=` `=~` | Incoming number<br>`+Change-handler` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Supplier Invoice Metadata<br>`+Required on Response` `+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Supplier Invoice Metadata<br>`+Required on Response` `+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Invoice Name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=`| Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paidSum** | float | | Amount of incoming payments on Supplier's Account<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **paymentPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
 | **positions** | MetaArray | | Supplier Invoice item metadata<br>`+Required for response` `+Expand` `+Change-handler` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | float | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Account status metadata<br>`+Expand` `+Change-handler` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Warehouse metadata<br>`+Expand` `+Change-handler` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Account status metadata<br>`+Expand` `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` `+Change-handler` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID| `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the Supplier Invoice was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -51,9 +51,9 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 
 | Title | Description |
 | ----------- | --------- |
-| **payments** | An array of references to related operations in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Read-only` |
-| **purchaseOrder** | Link to the related order to the supplier in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **supplies** | Links to related acceptances in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **payments** | An array of references to related operations in the format [Metadata](../#kladana-json-api-general-info-metadata) `Read-only` |
+| **purchaseOrder** | Link to the related order to the supplier in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **supplies** | Links to related acceptances in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Supplier Invoice Items
 
@@ -63,10 +63,10 @@ The Account item object contains the following fields:
 | Title | Type | Description |
 | ----------- | --------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object| Product packaging. [Read more here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
+| **pack** | Object| Product packaging. [Read more here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
@@ -82,7 +82,7 @@ Also, when working as part of a separate Account, you can send requests to updat
 with an array of Account items included in the request body. It is important to remember that the collection of items will
 be perceived as "All items of the Account" and will completely replace the already existing collection when updating the object - superfluous items will be deleted, new ones added, existing ones changed.
 
-About working with Supplier Invoice fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+About working with Supplier Invoice fields can be read [here](../#kladana-json-api-general-info-additional-fields).
 
 
 ### Get Supplier Invoices
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | --------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Accounts. |
 
 **Parameters**
@@ -356,8 +356,8 @@ Mandatory fields to create:
 | Parameter | Description |
 | ----------- | --------- |
 | **name** | Supplier Invoicet Number |
-| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent** | Link to the counterparty (supplier) in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty (supplier) in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 > An example of creating a new Account with a request body containing only the required fields.
 
@@ -1413,11 +1413,11 @@ Request for metadata of Supplier Invoices. The result is a JSON object including
 | Parameter | Description |
 | ------- | --------- |
 | **meta** | Link to Supplier Invoice Metadata |
-| **attributes** | Array of objects additional Supplier Invoice fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Supplier Invoice fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of statuses of Supplier Invoices |
 | **createShared** | create new Supplier Invoices labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Supplier Invoice Metadata
 
@@ -1950,7 +1950,7 @@ Successful request. The result is a JSON representation of the Supplier Invoice.
 
 Request to update the Supplier Invoice with the specified id.
 In the body of the request, you can specify only those fields that need to be changed for the developer account, except for those that
-are marked `Read-Only` in the description of the [Supplier Invoice attributes](../documents/#dokumenty-schet-postawschika).
+are marked `Read-Only` in the description of the [Supplier Invoice attributes](../documents/#transactions-supplier-invoice).
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.
 
@@ -2574,8 +2574,8 @@ Request to get a list of all items of this Supplier Invoice.
 
 | Title | Type | Description |
 | ------- | --------- |-------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Supplier Invoice items. |
 
 **Parameters**
@@ -2721,7 +2721,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#dokumenty-schet-postawschika-scheta-postawschikow-pozicii-scheta-postawschika).
+what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-scheta-postawschikow-pozicii-scheta-postawschika).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
 **Parameters**

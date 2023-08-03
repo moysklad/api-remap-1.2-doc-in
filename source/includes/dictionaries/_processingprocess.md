@@ -12,11 +12,11 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 | **archived** | Boolean | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Routing |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required for response` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Routing Metadata<br>`+Required in response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required in response` `+Read-only` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
@@ -31,8 +31,8 @@ The Routing item object contains the following fields:
 |------------|-----------|-------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing item metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#entities-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
 ### Get the list of Routings
 
@@ -41,8 +41,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 |------------|-----------|-------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the employee who made the request |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request |
 | **rows** | Array(Object) | An array of JSON objects representing Routings |
 
 **Parameters**
@@ -201,7 +201,7 @@ Request to create a new Routing.
 Required fields for creating:
 
 + **name** - Routing name
-+ **positions** - Links to Routing items in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format
++ **positions** - Links to Routing items in [Metadata](../#kladana-json-api-general-info-metadata) format
 
 > Request to create a new Routing with a request body containing only the required fields.
 
@@ -406,16 +406,16 @@ a large number of items can be read on the example of working with document item
 |----------|--------|----------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Routing item metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#suschnosti-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#entities-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
 ### Get Routing items
 Request to get a list of all items of this Routing.
 
 | Title | Type | Description |
 |----------|--------|----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Routing items. |
 
 **Parameters**
@@ -656,8 +656,8 @@ curl -X DELETE
 Successful deletion of line item Routing
 
 ### Routings bulk creation and update
-With [bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Routings, an array must be passed in the request body,
-containing the JSON representation of the Routings you want to create or update. The identifier for updated Routings is [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye).
+With [bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Routings, an array must be passed in the request body,
+containing the JSON representation of the Routings you want to create or update. The identifier for updated Routings is [Meta](../#kladana-json-api-general-info-metadata).
 
 > Request to create and update multiple Routings
 

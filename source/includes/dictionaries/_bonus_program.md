@@ -10,18 +10,18 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **active** | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
 | **agenttags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
-| **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#suschnosti-skidki))<br>`+Required when answering` |
-| **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#suschnosti-skidki))<br>`+Required when answering` |
+| **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-skidki))<br>`+Required when answering` |
+| **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-skidki))<br>`+Required when answering` |
 | **earnRateRoublesToPoint** | int | Accrual rate |
 | **earnWhileRedeeming** | Boolean | Allow simultaneous accrual and write-off of bonuses. If `true` - bonuses will be credited to the monetary part of the purchase, even if the purchase is partially paid with points.<br>`+Required when answering` |
 | **id** | UUID | Bonus Program ID<br>`+Required when replying` `+Read Only` |
 | **maxPaidRatePercents** | int | Maximum percentage of payment by points |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Bonus Program Metadata<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when answering` |
 | **name** | String(255) | Name of the Bonus program |
 | **postponedBonusesDelayDays** | int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
 | **spendRatePointsToRouble** | int | Write-off rate |
 | **welcomeBonusesEnabled** | Boolean | Ability to earn welcome points<br>`+Required when answering` |
-| **welcomeBonusesEnabled**| Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#suschnosti-bonusnaq-programma-bonusnye-programmy-atributy-suschnosti-uslowiq-bonusnyh-ballow) |
+| **welcomeBonusesEnabled**| Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#entities-bonusnaq-programma-bonusnye-programmy-atributy-suschnosti-uslowiq-bonusnyh-ballow) |
 | **welcomeBonusesValue** | int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
 
 ##### Bonus points conditions
@@ -38,8 +38,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | -------- | ---------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | Array of JSON objects representing Bonus Programs |
 
 **Parameters**

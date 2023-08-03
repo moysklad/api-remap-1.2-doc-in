@@ -5,7 +5,7 @@ Using the JSON API, you can create and update information about Product variants
 
 Learn more about [Product variants](https://kladana.zendesk.com/hc/en-us/articles/360009722997-Manage-product-variants), [Products](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of Product variants to match the search string will be carried out in the following fields:
 
@@ -26,20 +26,20 @@ Examples:
 | ------| ------- | ------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Whether the product was added to the archive<br>`+Required when replying` |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody) |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody) |
 | **buyprice** | object | | Purchase price |
-| **characteristics** | Array(Object) | | Characteristics Product variants. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Required when answering` `+Required when creating` |
+| **characteristics** | Array(Object) | | Characteristics Product variants. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Required when answering` `+Required when creating` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product variant Code |
 | **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
 | **id** | UUID | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
-| **images** | MetaArray | | [Images] metadata array(../dictionaries/#suschnosti-izobrazhenie) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Product variant Metadata<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
+| **minprice** | object | | Minimum price. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
-| **packs** | Array(Object) | | Product variant packages [Details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
-| **product** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the [product](../dictionaries/#suschnosti-towar) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **saleprice** | Array(Object) | | Sale prices. [More details here](../dictionaries/#suschnosti-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **packs** | Array(Object) | | Product variant packages [Details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-towar) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **saleprice** | Array(Object) | | Sale prices. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
 | **things** | Array(String) | | Serial Numbers<br>`+Read Only` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
@@ -74,7 +74,7 @@ Features of creating a list of barcodes when creating a set:
 + If you pass a list of empty barcode values to the input, then no barcodes will be created for the products.
 + If you do not pass the barcodes attribute to the input or pass an empty list in it, then by default one random barcode of the EAN13 type will be created for the product.
 
-About working with Kit fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Kit fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ##### Product variant Metadata
 The Product variant Metadata contains information about the characteristics of the Product variants as well as price types.
@@ -83,7 +83,7 @@ Characteristics Product variants are an internal collection of **characteristics
 | Title | Type | Description |
 | ------ | --------- |-------- |
 | **id** | UUID | ID of the corresponding feature<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Characteristic metadata<br>`+Required for response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Characteristic metadata<br>`+Required for response` |
 | **name** | String(255) | Characteristic name<br>`+Required when answering` |
 | **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
 
@@ -93,7 +93,7 @@ The response is an object, with the following structure:
 
 | Title | Type | Description |
 | ------ | --------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when replying` |
 | **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when answering` |
 
 Structures of individual collection objects:
@@ -102,7 +102,7 @@ Structures of individual collection objects:
 | Title | Type | Description |
 | ------ | --------- |-------- |
 | **id** | UUID | ID of the corresponding feature<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Characteristic metadata<br>`+Required for response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Characteristic metadata<br>`+Required for response` |
 | **name** | String(255) | Characteristic name<br>`+Required when answering` |
 | **required** | Boolean | Flag indicating whether the feature is required<br>`+Required for response` |
 | **type** | String(255) | Feature value type<br>`+Required for response` |
@@ -114,16 +114,16 @@ an array of elements. **images** field elements have fields:
 | Title | Type | Description |
 | ------ | --------- |-------- |
 | **filename** | String(255) | File name<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
 | **size** | int | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata<br>`+Required when replying` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
 | **updated** | datetime | File upload time to server<br>`+Required when replying` |
 
 #### Loading
 
-To upload images, you need in the body of the request to [create](../dictionaries/#suschnosti-modifikaciq-sozdat-modifikaciu) or [update](../dictionaries/#suschnosti-modifikaciq-izmenit-modifikaciu) Product variants
+To upload images, you need in the body of the request to [create](../dictionaries/#entities-modifikaciq-sozdat-modifikaciu) or [update](../dictionaries/#entities-modifikaciq-izmenit-modifikaciu) Product variants
 specify the **images** field with a list of elements that have the following attributes:
 
 | Title | Description |
@@ -134,7 +134,7 @@ specify the **images** field with a list of elements that have the following att
 If in the update request **images** contains an empty array of elements, then all Images from the Product variant will be deleted,
 because the server will assume that the user wants to update the list of Product variant Images.
 
-The API documentation for working with Images can be found in the [Image](../dictionaries/#suschnosti-izobrazhenie) chapter.
+The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-izobrazhenie) chapter.
 
 ##### Sales prices
 If the Product variant does not have separate sales prices, the corresponding sales prices of the product will be displayed in the response.
@@ -142,7 +142,7 @@ If the Product variant does not have separate sales prices, the corresponding sa
 | Title | Type | Description |
 | ------ | --------- |----- |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 | **priceType** | object | Price type<br>`+Required when replying` |
 
 ##### Minimum price
@@ -150,7 +150,7 @@ If the Product variant does not have separate sales prices, the corresponding sa
 | Title | Type | Description |
 | ------ | --------- |------ |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Packaging Product variants
 
@@ -158,7 +158,7 @@ If the Product variant does not have separate sales prices, the corresponding sa
 | ------ | --------- |------- |
 | **barcodes** | Array(Object) | An array of barcodes for the packaging of the Product variant. This array can contain only one barcode<br>`+Required when replying` |
 | **id** | UUID | Package ID of Product variant<br>`+Required for response` `+Read-only`|
-| **parentpack** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the parent package (product package) for which the barcode is overridden<br>`+Required for response` `+Expand` |
+| **parentpack** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the parent package (product package) for which the barcode is overridden<br>`+Required for response` `+Expand` |
 
 ### Get a list of Product variants 
 Request for a list of all Product variants on the account.
@@ -166,8 +166,8 @@ The result of a successful request is a JSON representation of the list of Produ
 
 | Title | Type | Description |
 | ------ | --------- |----- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Product variants. |
 
 
@@ -572,7 +572,7 @@ Successful request. The result is a JSON representation of the created Product v
 
 ### Product variants bulk creating and update
 
-[Product variants bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+[Product variants bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 
 In the body of the request, you need to pass an array containing the JSON representation of the Product variants that you want to create or update.
 Updated Product variants must contain the identifier in the form of metadata.
@@ -1090,7 +1090,7 @@ Request to get metadata of Product variants. The result is a JSON object includi
 
 | Title | Type | Description |
 | ------ | --------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when replying` |
 | **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when answering` |
 
 > Get Product variant metadata

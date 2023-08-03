@@ -9,7 +9,7 @@ You can receive and change roles on behalf of an employee with `System Administr
 | Title | Type | Description |
 | --------------- | ----------- | ------------- |
 | **id** | UUID | User role ID<br>`+Required for response` `+Read-only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Custom role metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom role metadata<br>`+Required when replying` |
 | **name** | String(255) | User role name<br>`+Required when replying` `+Required when creating` |
 | **permissions** | Array(Object) | List of permissions<br>`+Required when replying` |
 

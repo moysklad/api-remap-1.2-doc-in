@@ -9,31 +9,31 @@ Using the JSON API, you can create and update information about Internal Orders,
 | ------ | ------ | ------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br>`+Read only` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Internal order code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Required when replying` `+Read Only` |
 | **deliveryPlannedMoment** | datetime | | Planned acceptance date |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Internal order |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Internal order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Internal Order ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Internal Order Metadata<br>`+Required when Response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Internal Order Metadata<br>`+Required when Response` `+Read Only` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **moves** | Array(Object) | | A collection of metadata for related transfer orders<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Internal Order Name<br>`+Required when replying` `+Required when creating` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Metadata of Internal Order Items<br>`+Required on Response` `+Read Only` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **purchaseOrders** | Array(Object) | | A collection of metadata for related orders to a supplier<br>`+Required when replying` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Internal order status metadata<br>`+Expand` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Warehouse metadata<br>`+Expand` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Internal order status metadata<br>`+Expand` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Internal order in rupees<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when Internal Order was last updated<br>`+Required when replying` `+Read Only` |
@@ -48,15 +48,15 @@ Items of the Internal order is a list of products, services, and product variant
 | Title | Type | Description |
 | ------- | ------- |---------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only`|
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
-Items can be managed using [special resources for managing Internal Order items](../documents/#dokumenty-vnutrennij-zakaz-poluchit-vnutrennie-zakazy),
+Items can be managed using [special resources for managing Internal Order items](../documents/#transactions-internal-order-poluchit-vnutrennie-zakazy),
 and as part of a separate Internal Order. When working as part of a separate Internal Order,
 you can send requests to create a separate Internal Order with included in the request body
 array of internal order items. 
@@ -68,7 +68,7 @@ with an array of Internal Order items included in the request body.
 It is important to remember that the collection of items will be perceived as "All items of the Internal Order" and will completely replace the existing collection when updating the object - superfluous
 items will be deleted, new ones added, existing ones changed.
 
-About working with Internal Order fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+About working with Internal Order fields can be read [here](../#kladana-json-api-general-info-additional-fields).
 
 
 ### Get Internal Orders
@@ -306,7 +306,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
 Request to create a new Internal Order.
 Mandatory fields to create:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
 
 > An example of creating a new Internal Order.
 
@@ -599,7 +599,7 @@ Successful request. The result is a JSON representation of the pre-filled Intern
 
 ### Bulk creation and updating of Internal Orders
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Internal orders.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Internal orders.
 In the body of the request, you need to pass an array containing the JSON representation of the Internal Orders that you want to create or update.
 Updated Internal Orders must contain the identifier in the form of metadata.
 
@@ -1079,11 +1079,11 @@ Request for metadata of Internal Orders. The result is a JSON object including:
 | Parameter | Description |
 | ------- | ------- |
 | **meta** | Link to internal orders metadata |
-| **attributes** | Array of objects additional fields of Internal Orders in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional fields of Internal Orders in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of statuses of Internal Orders |
 | **createShared** | create new Internal Orders labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Internal orders metadata
 
@@ -1543,8 +1543,8 @@ Request for a list of all items in this Internal Order.
 
 | Title | Type | Description |
 | ------- | ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Internal Order items. |
 
 **Parameters**
@@ -1621,7 +1621,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#dokumenty-vnutrennij-zakaz-vnutrennie-zakazy-pozicii-vnutrennego-zakaza)
+what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-vnutrennie-zakazy-pozicii-vnutrennego-zakaza)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Internal Order items at the same time. All items created by this request
 will be added to the existing ones.
