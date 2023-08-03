@@ -75,7 +75,7 @@ Successful request. The result is a JSON representation of the list of Product G
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -90,11 +90,11 @@ Successful request. The result is a JSON representation of the list of Product G
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productFolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
@@ -112,8 +112,8 @@ Successful request. The result is a JSON representation of the list of Product G
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -125,7 +125,7 @@ Successful request. The result is a JSON representation of the list of Product G
        "name": "Vegetables",
        "code": "13321Fruits1",
        "externalCode": "mRQao-5IgY3soIY1EaI083",
-       archived: false
+       "archived": false,
        "pathName": "",
        "vatEnabled": false,
        "useParentVat": true
@@ -143,10 +143,10 @@ Successful request. The result is a JSON representation of the list of Product G
        "name": "Fruits",
        "code": "13321Fruits",
        "externalCode": "extFruits",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 3,
-       "vatEnabled": true
+       "vat": 3,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 3,
        "effectiveVatEnabled": true,
@@ -198,8 +198,8 @@ Successful request. The result is a JSON representation of the created Product G
        "mediaType": "application/json"
      }
    },
-   shared:false,
-   group: {
+   "shared":false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -211,7 +211,7 @@ Successful request. The result is a JSON representation of the created Product G
    "name": "Vegetables",
    "code": "13321Fruits1",
    "externalCode": "mRQao-5IgY3soIY1EaI083",
-   archived: false
+   "archived": false,
    "pathName": "",
    "vatEnabled": false,
    "useParentVat": true
@@ -255,8 +255,8 @@ Successful request. The result is a JSON representation of the created Product G
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -268,10 +268,10 @@ Successful request. The result is a JSON representation of the created Product G
    "name": "Fruits",
    "code": "13321Fruits",
    "externalCode": "extFruits",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 3,
-   "vatEnabled": true
+   "vat": 3,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 3,
    "effectiveVatEnabled": true
@@ -304,7 +304,7 @@ Updated Product Groups must contain the identifier in the form of metadata.
                "name": "Group Vegetables",
                "code": "vegetableFolderCode",
                "externalCode": "extVegCode",
-               vat: 5,
+               "vat": 5,
                "effectiveVat": 5
              }
            ]'
@@ -332,8 +332,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -345,10 +345,10 @@ Successful request. The result is a JSON array of representations of the created
      "name": "Vegetables",
      "code": "13321Fruits1",
      "externalCode": "mRQao-5IgY3soIY1EaI083",
-     archived: false
+     "archived": false,
      "pathName": "",
      "vatEnabled": false,
-     "useParentVat": true,
+     "useParentVat": true
    },
    {
      "meta": {
@@ -367,8 +367,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -380,10 +380,10 @@ Successful request. The result is a JSON array of representations of the created
      "name": "Group Vegetables",
      "code": "vegetableFolderCode",
      "externalCode": "extVegCode",
-     archived: false
+     "archived": false,
      "pathName": "",
-     vat: 5,
-     "vatEnabled": true
+     "vat": 5,
+     "vatEnabled": true,
      "useParentVat": false,
      "effectiveVat": 5,
      "effectiveVatEnabled": true
@@ -567,8 +567,8 @@ Successful request. The result is a JSON representation of the Product Group.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -580,10 +580,10 @@ Successful request. The result is a JSON representation of the Product Group.
    "name": "Vegetables",
    "code": "13321Fruits1",
    "externalCode": "mRQao-5IgY3soIY1EaI083",
-   archived: false
+   "archived": false,
    "pathName": "",
    "vatEnabled": false,
-   "useParentVat": true,
+   "useParentVat": true
 }
 ```
 
@@ -612,7 +612,7 @@ To update the **pathName** field, you need to update the link to the parent Prod
              "name": "Group Vegetables",
              "code": "vegetableFolderCode",
              "externalCode": "extVegCode",
-             vat: 5,
+             "vat": 5,
              "effectiveVat": 5
            }'
 ```
@@ -638,8 +638,8 @@ Successful request. The result is a JSON representation of the updated Product G
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -651,10 +651,10 @@ Successful request. The result is a JSON representation of the updated Product G
    "name": "Group Vegetables",
    "code": "vegetableFolderCode",
    "externalCode": "extVegCode",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 5,
-   "vatEnabled": true
+   "vat": 5,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 5,
    "effectiveVatEnabled": true

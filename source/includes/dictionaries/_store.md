@@ -86,7 +86,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -101,11 +101,11 @@ Successful request. The result is a JSON representation of the list of Warehouse
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json",
-     size: 5
-     limit: 1000
-     offset: 0
+     "size": 5,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000",
@@ -123,8 +123,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -135,11 +135,11 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "updated": "2016-04-18 16:31:01",
        "name": "002",
        "externalCode": "y7ztWINfjXinPToFMqQid2",
-       archived: false
+       "archived": false,
        "address": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "addressFull": {
          "postalCode": "125009",
-         country: {
+         "country": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -147,7 +147,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
              "mediaType": "application/json"
            }
          },
-         region: {
+         "region": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -168,19 +168,19 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000/zones",
            "type": "storezone",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       slots: {
+       "slots": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000/slots",
            "type": "slot",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        }
      },
@@ -201,8 +201,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -218,7 +218,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "address": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "addressFull": {
          "postalCode": "125009",
-         country: {
+         "country": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -226,7 +226,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
              "mediaType": "application/json"
            }
          },
-         region: {
+         "region": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -246,19 +246,19 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160/zones",
            "type": "storezone",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       slots: {
+       "slots": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160/slots",
            "type": "slot",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "attributes": [
@@ -271,7 +271,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "id": "3a85cfe3-12c5-11e6-9464-e4de00000087",
            "name": "Square",
            "type": "long",
-           value: 4400
+           "value": 4400
          }
        ]
      },
@@ -292,8 +292,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -305,11 +305,11 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "name": "Subfolder",
        "code": "ZAATY643",
        "externalCode": "d8Ew2hCDiTuJFb0Ya45tH0",
-       archived: false
+       "archived": false,
        "address": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "addressFull": {
          "postalCode": "125009",
-         country: {
+         "country": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -317,7 +317,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
              "mediaType": "application/json"
            }
          },
-         region: {
+         "region": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -338,19 +338,19 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4/zones",
            "type": "storezone",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       slots: {
+       "slots": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4/slots",
            "type": "slot",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        }
      },{
@@ -370,8 +370,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -384,11 +384,11 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "description": "Main warehouse",
        "code": "113AB79",
        "externalCode": "fQPIOtxjg-FaeZNKcLx6B3",
-       archived: false
+       "archived": false,
        "address": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "addressFull": {
          "postalCode": "125009",
-         country: {
+         "country": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -396,7 +396,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
              "mediaType": "application/json"
            }
          },
-         region: {
+         "region": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -417,19 +417,19 @@ Successful request. The result is a JSON representation of the list of Warehouse
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/zones",
            "type": "storezone",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       slots: {
+       "slots": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/slots",
            "type": "slot",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        }
      }
@@ -454,36 +454,36 @@ The field required for creation - `name` must not be empty.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-   "addressFull": {
-     "addInfo": "addinfo2",
-     "apartment": "412",
-     "city": "Moscow2",
-     "comment": "some words about address2",
-     country: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type": "country",
-         "mediaType": "application/json"
-       }
-     },
-     "house": "32",
-     "postalCode": "11192342",
-     region: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type": "region",
-         "mediaType": "application/json"
-       }
-     },
-     "street": "Lenin goru2"
-   },
-   "pathName": "Main warehouse",
-   "name": "Warehouse2",
-   "code": "code3",
-   "externalCode": "sfksjafwuiw1sf32141"
-}'
+            "addressFull": {
+                "addInfo": "addinfo2",
+                "apartment": "412",
+                "city": "Moscow2",
+                "comment": "some words about address2",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "house": "32",
+                "postalCode": "11192342",
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "street": "Lenin goru2"
+            },
+            "pathName": "Main warehouse",
+            "name": "Warehouse2",
+            "code": "code3",
+            "externalCode": "sfksjafwuiw1sf32141"
+        }'
 ```
 
 > Response 200(application/json)
@@ -507,8 +507,8 @@ Successful request. The result is a JSON representation of the created Warehouse
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -520,7 +520,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    "name": "Warehouse2",
    "code": "code3",
    "externalCode": "sfksjafwuiw1sf32141",
-   archived: false
+   "archived": false,
    "pathName": "",
    "address": "11192342, Russia2, Chuvashia2, Moscow2, Leninskie goru2, 32, 412, addinfo2",
    "addressFull": {
@@ -528,7 +528,7 @@ Successful request. The result is a JSON representation of the created Warehouse
      "apartment": "412",
      "city": "Moscow2",
      "comment": "some words about address2",
-     country: {
+     "country": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -538,7 +538,7 @@ Successful request. The result is a JSON representation of the created Warehouse
      },
      "house": "32",
      "postalCode": "11192342",
-     region: {
+     "region": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -553,19 +553,19 @@ Successful request. The result is a JSON representation of the created Warehouse
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
        "type": "storezone",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   slots: {
+   "slots": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
        "type": "slot",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -579,46 +579,46 @@ Successful request. The result is a JSON representation of the created Warehouse
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-   "addressFull": {
-     "addInfo": "addinfo2",
-     "apartment": "412",
-     "city": "Moscow2",
-     "comment": "some words about address2",
-     country: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type": "country",
-         "mediaType": "application/json"
-       }
-     },
-     "house": "32",
-     "postalCode": "11192342",
-     region: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type": "region",
-         "mediaType": "application/json"
-       }
-     },
-     "street": "Lenin goru2"
-   },
-   "pathName": "Main warehouse",
-   "name": "Warehouse3",
-   "code": "code4",
-   "externalCode": "223ddxzv223",
-   "attributes": [
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-         "type": "attributemetadata",
-         "mediaType": "application/json"
-       },
-       value: 4000
-     }
-   ]
-}'
+            "addressFull": {
+                "addInfo": "addinfo2",
+                "apartment": "412",
+                "city": "Moscow2",
+                "comment": "some words about address2",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "house": "32",
+                "postalCode": "11192342",
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "street": "Lenin goru2"
+            },
+            "pathName": "Main warehouse",
+            "name": "Warehouse3",
+            "code": "code4",
+            "externalCode": "223ddxzv223",
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "value": 4000
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json)
@@ -642,8 +642,8 @@ Successful request. The result is a JSON representation of the created Warehouse
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -655,14 +655,15 @@ Successful request. The result is a JSON representation of the created Warehouse
    "name": "Warehouse3",
    "code": "code4",
    "externalCode": "223ddxzv223",
-   archived: false
+   "archived": false,
    "pathName": "",
    "address": "11192342, Russia2, Chuvashia2, Moscow2, Leninskie goru2, 32, 412, addinfo2",
    "addressFull": {
      "addInfo": "addinfo2",
      "apartment": "412",
      "city": "Moscow2",
-     "comment": "some words about address2",country: {
+     "comment": "some words about address2",
+     "country": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -672,7 +673,7 @@ Successful request. The result is a JSON representation of the created Warehouse
      },
      "house": "32",
      "postalCode": "11192342",
-     region: {
+     "region": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -687,19 +688,19 @@ Successful request. The result is a JSON representation of the created Warehouse
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
        "type": "storezone",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   slots: {
+   "slots": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
        "type": "slot",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "attributes": [
@@ -712,7 +713,7 @@ Successful request. The result is a JSON representation of the created Warehouse
        "id": "3a85cfe3-12c5-11e6-9464-e4de00000087",
        "name": "Square",
        "type": "long",
-       value: 4000
+       "value": 4000
      }
    ]
 }
@@ -732,35 +733,35 @@ Updated Warehouses must contain the identifier in the form of metadata.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
-   {
-     "address": "Moscow, Vavilov street 19/116",
-     "pathName": "Main warehouse",
-     "name": "Warehouse2",
-     "code": "code3",
-     "externalCode": "sfksjafwuiw1sf32141"
-   },
-   {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-       "type": "store",
-       "mediaType": "application/json"
-     },
-     "address": "Moscow, BaBilova street 20/116",
-     "pathName": "Not Main Warehouse",
-     "name": "Warehouse3",
-     "code": "code31",
-     "externalCode": "EXTCODE",
-     parent: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-         "type": "store",
-         "mediaType": "application/json"
-       }
-     }
-   }
-]'
+            {
+                "address": "Moscow, Vavilov street 19/116",
+                "pathName": "Main warehouse",
+                "name": "Warehouse2",
+                "code": "code3",
+                "externalCode": "sfksjafwuiw1sf32141"
+            },
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "type": "store",
+                    "mediaType": "application/json"
+                },
+                "address": "Moscow, BaBilova street 20/116",
+                "pathName": "Not Main Warehouse",
+                "name": "Warehouse3",
+                "code": "code31",
+                "externalCode": "EXTCODE",
+                "parent": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                        "type": "store",
+                        "mediaType": "application/json"
+                    }
+                }
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -785,8 +786,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -798,7 +799,7 @@ Successful request. The result is a JSON array of representations of the created
      "name": "Warehouse2",
      "code": "code3",
      "externalCode": "sfksjafwuiw1sf32141",
-     archived: false
+     "archived": false,
      "pathName": "",
      "address": "Moscow, Vavilov street 19/116",
      "zones": {
@@ -806,18 +807,19 @@ Successful request. The result is a JSON array of representations of the created
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
          "type": "storezone",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      },
-     slots: {
+     "slots": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
          "type": "slot",
-         "mediaType": "application/json",size: 0
-         limit: 1000
-         offset: 0
+         "mediaType": "application/json",
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      }
    },
@@ -838,8 +840,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -851,7 +853,7 @@ Successful request. The result is a JSON array of representations of the created
      "name": "Warehouse3",
      "code": "code31",
      "externalCode": "EXTCODE",
-     archived: false
+     "archived": false,
      "pathName": "",
      "address": "Moscow, BaBilova street 20/116",
      "zones": {
@@ -859,19 +861,19 @@ Successful request. The result is a JSON array of representations of the created
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
          "type": "storezone",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      },
-     slots: {
+     "slots": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
          "type": "slot",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      }
    }
@@ -1057,8 +1059,8 @@ Successful request. The result is a JSON representation of the Warehouse with th
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1071,8 +1073,8 @@ Successful request. The result is a JSON representation of the Warehouse with th
    "description": "Main warehouse",
    "code": "113AB79",
    "externalCode": "fQPIOtxjg-FaeZNKcLx6B3",
-   archived: false
-   parent: {
+   "archived": false,
+   "parent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1084,7 +1086,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
    "address": "125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
    "addressFull": {
      "postalCode": "125009",
-     country: {
+     "country": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -1092,7 +1094,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
          "mediaType": "application/json"
        }
      },
-     region: {
+     "region": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -1112,19 +1114,19 @@ Successful request. The result is a JSON representation of the Warehouse with th
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/zones",
        "type": "storezone",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   slots: {
+   "slots": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/slots",
        "type": "slot",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "attributes": [
@@ -1137,7 +1139,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
        "id": "3a85cfe3-12c5-11e6-9464-e4de00000087",
        "name": "Square",
        "type": "long",
-       value: 4400
+       "value": 4400
      }
    ]
 }
@@ -1164,44 +1166,44 @@ except for fields marked `Read Only` in the description of [Warehouse attributes
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-   "addressFull": {
-     "addInfo": "addinfo2",
-     "apartment": "412",
-     "city": "Moscow2",
-     "comment": "some words about address2",
-     country: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type": "country",
-         "mediaType": "application/json"
-       }
-     },
-     "house": "32",
-     "postalCode": "11192342",
-     region: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type": "region",
-         "mediaType": "application/json"
-       }
-     },
-     "street": "Lenin goru2"
-   },
-   "pathName": "Not Main Warehouse",
-   "name": "Warehouse3",
-   "code": "code31",
-   "externalCode": "EXTCODE",
-   parent: {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
-       "type": "store",
-       "mediaType": "application/json"
-     }
-   }
-}'
+            "addressFull": {
+                "addInfo": "addinfo2",
+                "apartment": "412",
+                "city": "Moscow2",
+                "comment": "some words about address2",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "house": "32",
+                "postalCode": "11192342",
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "street": "Lenin goru2"
+            },
+            "pathName": "Not Main Warehouse",
+            "name": "Warehouse3",
+            "code": "code31",
+            "externalCode": "EXTCODE",
+            "parent": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "type": "store",
+                    "mediaType": "application/json"
+                }
+            }
+        }'
 ```
 
 > Response 200(application/json)
@@ -1225,8 +1227,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1238,7 +1240,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "name": "Warehouse3",
    "code": "code31",
    "externalCode": "EXTCODE",
-   archived: false
+   "archived": false,
    "pathName": "",
    "address": "11192342, Russia2, Chuvashia2, Moscow2, Leninskie goru2, 32, 412, addinfo2",
    "addressFull": {
@@ -1246,7 +1248,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "apartment": "412",
        "city": "Moscow2",
        "comment": "some words about address2",
-       country: {
+       "country": {
            "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -1256,7 +1258,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
        },
        "house": "32",
        "postalCode": "11192342",
-       region: {
+       "region": {
            "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -1270,19 +1272,19 @@ Successful request. The result is a JSON representation of the updated Warehouse
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
          "type": "storezone",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      },
-     slots: {
+     "slots": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
          "type": "slot",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      }
    }
@@ -1297,46 +1299,46 @@ Successful request. The result is a JSON representation of the updated Warehouse
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-   "addressFull": {
-     "addInfo": "addinfo2",
-     "apartment": "412",
-     "city": "Moscow2",
-     "comment": "some words about address2",
-     country: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type": "country",
-         "mediaType": "application/json"
-       }
-     },
-     "house": "32",
-     "postalCode": "11192342",
-     region: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type": "region",
-         "mediaType": "application/json"
-       }
-     },
-     "street": "Lenin goru2"
-   },
-   "pathName": "Main warehouse",
-   "name": "Warehouse 3",
-   "code": "code4",
-   "externalCode": "223ddxzv223",
-   "attributes": [
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-         "type": "attributemetadata",
-         "mediaType": "application/json"
-       },
-       value: 4400
-     }
-   ]
-}'
+            "addressFull": {
+                "addInfo": "addinfo2",
+                "apartment": "412",
+                "city": "Moscow2",
+                "comment": "some words about address2",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "house": "32",
+                "postalCode": "11192342",
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "street": "Lenin goru2"
+            },
+            "pathName": "Main warehouse",
+            "name": "Warehouse 3",
+            "code": "code4",
+            "externalCode": "223ddxzv223",
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "value": 4400
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json)
@@ -1360,8 +1362,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1373,7 +1375,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "name": "Warehouse 3",
    "code": "code4",
    "externalCode": "223ddxzv223",
-   archived: false
+   "archived": false,
    "pathName": "",
    "address": "11192342, Russia2, Chuvashia2, Moscow2, Leninskie goru2, 32, 412, addinfo2",
    "addressFull": {
@@ -1381,7 +1383,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
      "apartment": "412",
      "city": "Moscow2",
      "comment": "some words about address2",
-     country: {
+     "country": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -1391,7 +1393,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
      },
      "house": "32",
      "postalCode": "11192342",
-     region: {
+     "region": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
@@ -1406,19 +1408,19 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
        "type": "storezone",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   slots: {
+   "slots": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
        "type": "slot",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "attributes": [
@@ -1431,7 +1433,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "id": "3a85cfe3-12c5-11e6-9464-e4de00000087",
        "name": "Square",
        "type": "long",
-       value: 4400
+       "value": 4400
      }
    ]
 }
@@ -1481,7 +1483,7 @@ Successful request. The result is a JSON representation of a list of Warehouse Z
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -1495,11 +1497,11 @@ Successful request. The result is a JSON representation of a list of Warehouse Z
      "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
      "type": "storezone",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7a6a11b6-12c5-11e6-9464-e4de00000007",
@@ -1816,7 +1818,7 @@ Successful request. The result is a JSON representation of a list of Warehouse B
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -1830,11 +1832,11 @@ Successful request. The result is a JSON representation of a list of Warehouse B
      "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
      "type": "slot",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7a6a11b6-12c5-11e6-9464-e4de00000007",
@@ -1858,7 +1860,7 @@ Successful request. The result is a JSON representation of a list of Warehouse B
        "updated": "2016-05-05 16:32:02",
        "name": "slot2",
        "externalCode": "223ddxzv224",
-       zone: {
+       "zone": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7944ef04-f831-11e5-7a69-971500188b18",
            "type": "storezone",
@@ -1919,7 +1921,7 @@ curl -X POST
    -H "Content-Type: application/json"
    -d '{
          "name": "slot 1",
-         zone: {
+         "zone": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
@@ -1945,7 +1947,7 @@ Successful request. The result is a JSON representation of the created Warehouse
          "updated": "2022-12-07 09:29:56.547",
          "name": "slot 1",
          "externalCode": "wYIaWipYjrZkJZZlw1Amy1",
-         zone: {
+         "zone": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
@@ -2164,7 +2166,7 @@ curl -X PUT
    -H "Content-Type: application/json"
    -d '{
          "name": "slot 3",
-         zone: {
+         "zone": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
@@ -2190,7 +2192,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "updated": "2022-12-07 09:29:56.547",
        "name": "slot 3",
        "externalCode": "wYIaWipYjrZkJZZlw1Amy1",
-       zone: {
+       "zone": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
            "type": "storezone",

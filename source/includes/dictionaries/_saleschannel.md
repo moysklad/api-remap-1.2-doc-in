@@ -86,7 +86,7 @@ Successful request. The result is a JSON representation of a list of sales chann
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -101,11 +101,11 @@ Successful request. The result is a JSON representation of a list of sales chann
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
      "type": "sales channel",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/51f263f9-0307-11e6-9464-e4de0000007c",
@@ -122,8 +122,8 @@ Successful request. The result is a JSON representation of a list of sales chann
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -155,8 +155,8 @@ Successful request. The result is a JSON representation of a list of sales chann
            "mediaType": "application/json"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -215,8 +215,8 @@ Successful request. The result is a JSON representation of the created sales cha
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -444,8 +444,8 @@ Successful request. The result is a JSON representation of the sales channel.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -505,8 +505,8 @@ Successful request. The result is a JSON representation of the updated sales cha
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe1932a-1d41-11ec-0a81-04b600001980"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/4fcbe1f2-1d41-11ec-0a82-06530000009f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",

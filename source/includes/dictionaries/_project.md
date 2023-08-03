@@ -58,7 +58,7 @@ Successful request. The result is a JSON representation of a list of projects.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -73,11 +73,11 @@ Successful request. The result is a JSON representation of a list of projects.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
@@ -95,8 +95,8 @@ Successful request. The result is a JSON representation of a list of projects.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -109,7 +109,7 @@ Successful request. The result is a JSON representation of a list of projects.
        "description": "Tomato paste collection and processing project from all suppliers",
        "code": "1248y12hrd",
        "externalCode": "HZV7dGc8iAnf0aNjrvQvN0",
-       archived: false
+       "archived": false,
        "attributes": [
          {
            "meta": {
@@ -140,8 +140,8 @@ Successful request. The result is a JSON representation of a list of projects.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -154,7 +154,7 @@ Successful request. The result is a JSON representation of a list of projects.
        "description": "Project tracking the implementation of the sales plan",
        "code": "124721fsavy",
        "externalCode": "lv7MmPK4jvaqq-nA3g3NL2",
-       archived: false
+       "archived": false,
        "attributes": [
          {
            "meta": {
@@ -213,8 +213,8 @@ Successful request. The result is a JSON representation of the created project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -278,8 +278,8 @@ Successful request. The result is a JSON representation of the created project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -292,7 +292,7 @@ Successful request. The result is a JSON representation of the created project.
    "description": "Project for the transition to a new product accounting system",
    "code": "0026",
    "externalCode": "213zzz",
-   archived: false
+   "archived": false,
    "attributes": [
      {
        "meta": {
@@ -364,8 +364,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -397,8 +397,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -590,8 +590,8 @@ Successful request. The result is a JSON representation of the project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -604,7 +604,7 @@ Successful request. The result is a JSON representation of the project.
    "description": "Tomato paste collection and processing project from all suppliers",
    "code": "1248y12hrd",
    "externalCode": "HZV7dGc8iAnf0aNjrvQvN0",
-   archived: false
+   "archived": false,
    "attributes": [
      {
        "meta": {
@@ -666,8 +666,8 @@ Successful request. The result is a JSON representation of the updated project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -729,8 +729,8 @@ Successful request. The result is a JSON representation of the updated project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -743,7 +743,7 @@ Successful request. The result is a JSON representation of the updated project.
    "description": "Project for the transition to a new system of accounting and marketing of products",
    "code": "123",
    "externalCode": "fbeuf21dof1f",
-   archived: false
+   "archived": false,
    "attributes": [
      {
        "meta": {

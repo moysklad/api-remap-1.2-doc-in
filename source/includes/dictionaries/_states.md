@@ -200,7 +200,7 @@ Successful request. The result is a JSON representation of the changed Status.
    "id": "6262b270-60c3-11e7-6adb-ede50000000d",
    "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
    "name": "Approved",
-   color: 255
+   "color": 255,
    "stateType": "Regular",
    "entityType": "counterparty"
 }

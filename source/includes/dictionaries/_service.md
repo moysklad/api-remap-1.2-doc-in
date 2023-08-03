@@ -157,7 +157,7 @@ Successful request. The result is a JSON representation of the list of Services.
   
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -172,11 +172,11 @@ Successful request. The result is a JSON representation of the list of Services.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
@@ -194,8 +194,8 @@ Successful request. The result is a JSON representation of the list of Services.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -208,17 +208,17 @@ Successful request. The result is a JSON representation of the list of Services.
        "description": "Delivery cladding",
        "code": "additionalprot",
        "externalCode": "addProt",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 6,
-       "vatEnabled": true
+       "vat": 6,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 6,
        "effectiveVatEnabled": true,
        "discountProhibited": false,
        "minprice": {
-        value: 500.0
-         currency: {
+        "value": 500.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -229,8 +229,8 @@ Successful request. The result is a JSON representation of the list of Services.
        },
        "salePrices": [
          {
-           "value": 1052.0
-           currency: {
+           "value": 1052.0,
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -250,8 +250,8 @@ Successful request. The result is a JSON representation of the list of Services.
            }
          },
          {
-           "value": 1020
-           currency: {
+           "value": 1020,
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -272,8 +272,8 @@ Successful request. The result is a JSON representation of the list of Services.
          }
        ],
        "buyprice": {
-         "value": 700.0
-         currency: {
+         "value": 700.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -336,8 +336,8 @@ Successful request. The result is a JSON representation of the list of Services.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -350,16 +350,16 @@ Successful request. The result is a JSON representation of the list of Services.
        "description": "Delivery of selected item",
        "code": "delivery",
        "externalCode": "delCode",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 10
-       "vatEnabled": true
+       "vat": 10,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 10,
        "effectiveVatEnabled": true,
        "minprice": {
-        value: 500.0
-         currency: {
+        "value": 500.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -371,7 +371,7 @@ Successful request. The result is a JSON representation of the list of Services.
        "salePrices": [
          {
            "value": 10532.0,
-           currency: {
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -391,8 +391,8 @@ Successful request. The result is a JSON representation of the list of Services.
            }
          },
          {
-           value: 100
-           currency: {
+           "value": 100,
+           "currency": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -413,8 +413,8 @@ Successful request. The result is a JSON representation of the list of Services.
          }
        ],
        "buyprice": {
-         "value": 700.0
-         currency: {
+         "value": 700.0,
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -464,11 +464,11 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "code": "delivery",
              "externalCode": "delCode",
              "description": "Delivery of selected item",
-             vat: 10
+             "vat": 10,
              "effectiveVat": 10,
              "discountProhibited": false,
              "minprice": {
-              value: 500.0
+              "value": 500.0,
                "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
@@ -498,8 +498,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  }
                },
                {
-                 value: 100
-                 currency: {
+                 "value": 100,
+                 "currency": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -517,8 +517,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                }
              ],
              "buyprice": {
-               "value": 1047.0
-               currency: {
+               "value": 1047.0,
+               "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -562,8 +562,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -576,17 +576,17 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "description": "Delivery of selected item",
    "code": "delivery",
    "externalCode": "delCode",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 10
-   "vatEnabled": true
+   "vat": 10,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 10,
    "effectiveVatEnabled": true,
    "discountProhibited": false,
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -598,7 +598,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "salePrices": [
      {
        "value": 10532.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -618,8 +618,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        }
      },
      {
-       value: 100
-       currency: {
+       "value": 100,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -640,8 +640,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      }
    ],
    "buyprice": {
-     "value": 1047.0
-     currency: {
+     "value": 1047.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -696,8 +696,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -708,7 +708,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "salePrices": [
      {
        "value": 346347237000.0,
-       currency: {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -728,8 +728,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        }
      },
      {
-       value: 100
-       currency: {
+       "value": 100,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -753,10 +753,10 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "name": "Service for which we came up with only a name",
    "code": "pumpkin2",
    "externalCode": "5fZe-Qyji8mSwoHYs7kSA2",
-   archived: false
+   "archived": false,
    "pathName": "",
    "vatEnabled": false,
-   "useParentVat": true,
+   "useParentVat": true
 }
 ```
 
@@ -773,11 +773,11 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "code": "additionalprot",
              "externalCode": "addProt",
              "description": "Delivery cladding",
-             vat: 6,
+             "vat": 6,
              "effectiveVat": 5,
              "minprice": {
-              value: 500.0
-               currency: {
+              "value": 500.0,
+               "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -788,8 +788,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              },
              "salePrices": [
                {
-                 "value": 1052.0
-                 currency: {
+                 "value": 1052.0,
+                 "currency": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -806,8 +806,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  }
                },
                {
-                 "value": 1020
-                 currency: {
+                 "value": 1020,
+                 "currency": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -826,7 +826,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              ],
              "buyprice": {
                "value": 700.0
-               currency: {
+               "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -891,8 +891,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -905,17 +905,17 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "description": "Delivery cladding",
    "code": "additionalprot",
    "externalCode": "addProt",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 6,
-   "vatEnabled": true
+   "vat": 6,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 6,
    "effectiveVatEnabled": true,
    "discountProhibited": false,
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -926,8 +926,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    },
    "salePrices": [
      {
-       "value": 1052.0
-       currency: {
+       "value": 1052.0,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -947,8 +947,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        }
      },
      {
-       "value": 1020
-       currency: {
+       "value": 1020,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -969,8 +969,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      }
    ],
    "buyprice": {
-     "value": 700.0
-     currency: {
+     "value": 700.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1031,93 +1031,94 @@ The updated Services must contain the identifier in the form of metadata.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
-             {
-               "name": "Service for which we only came up with a name"
-             },
-             {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                 "type": "service",
-                 "mediaType": "application/json"
-               },
-               "name": "Product Delivery",
-               "description": "Home delivery of the selected item",
-               "externalCode": "deliveryCode",
-               vat: 11
-               "effectiveVat": 11,
-               "minprice": {value: 500.0
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               "salePrices": [
-                 {
-                   "value": 700.0
-                   currency: {
-                     "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                       "type": "currency",
-                       "mediaType": "application/json"
-                     }
-                   },
-                   "priceType": {
-                     "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                       "type": "pricetype",
-                       "mediaType": "application/json"
-                     }
-                   }
-                 },
-                 {
-                   value: 7000
-                   currency: {
-                     "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                       "type": "currency",
-                       "mediaType": "application/json"
-                     }
-                   },
-                   "priceType": {
-                     "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                       "type": "pricetype",
-                       "mediaType": "application/json"
-                     }
-                   }
-                 }
-               ],
-               "buyprice": {
-                 "value": 700.0
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               "barcodes": [
-                 {
-                   "ean13": "34875834765872435"
-                 },
-                 {
-                   "ean8": "234234234234"
-                 },
-                 {
-                   "code128": "23423423452351"
-                 }
-               ]
-             }
-           ]'
+            {
+                "name": "Service for which we only came up with a name"
+            },
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "type": "service",
+                    "mediaType": "application/json"
+                },
+                "name": "Product Delivery",
+                "description": "Home delivery of the selected item",
+                "externalCode": "deliveryCode",
+                "vat": 11,
+                "effectiveVat": 11,
+                "minprice": {
+                    "value": 500.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                "salePrices": [
+                    {
+                        "value": 700.0,
+                        "currency": {
+                            "meta": {
+                                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                                "type": "currency",
+                                "mediaType": "application/json"
+                            }
+                        },
+                        "priceType": {
+                            "meta": {
+                                "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                                "type": "pricetype",
+                                "mediaType": "application/json"
+                            }
+                        }
+                    },
+                    {
+                        "value": 7000,
+                        "currency": {
+                            "meta": {
+                                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                                "type": "currency",
+                                "mediaType": "application/json"
+                            }
+                        },
+                        "priceType": {
+                            "meta": {
+                                "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                                "type": "pricetype",
+                                "mediaType": "application/json"
+                            }
+                        }
+                    }
+                ],
+                "buyprice": {
+                    "value": 700.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                "barcodes": [
+                    {
+                        "ean13": "34875834765872435"
+                    },
+                    {
+                        "ean8": "234234234234"
+                    },
+                    {
+                        "code128": "23423423452351"
+                    }
+                ]
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -1142,8 +1143,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1154,7 +1155,7 @@ Successful request. The result is a JSON array of representations of the created
      "salePrices": [
        {
          "value": 346347237000.0,
-         currency: {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1172,8 +1173,6 @@ Successful request. The result is a JSON array of representations of the created
            "name": "Sale price",
            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
          }
-       },
-       {34234"
        },
        {
          "code128": "23423423452351"
@@ -1209,26 +1208,24 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request to bulk remove Services.
 
 ```shell
-curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/service/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Content-Type: application/json"
-   -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-             "type": "service",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-             "type": "service",
-             "mediaType": "application/json"
-         }
-       ]'
+  curl -X POST
+     "https://app.kladana.in/api/remap/1.2/entity/service/delete"
+     -H "Authorization: Basic <Credentials>"
+     -H "Content-Type: application/json"
+     -d'[
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "service",
+                "mediaType": "application/json"
+            },
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "type": "service",
+                "mediaType": "application/json"
+            }
+        ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of the Services.
@@ -1290,8 +1287,8 @@ Successful request. The result is a JSON representation of the Service.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1304,17 +1301,17 @@ Successful request. The result is a JSON representation of the Service.
    "description": "Delivery cladding",
    "code": "additionalprot",
    "externalCode": "addProt",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 6,
-   "vatEnabled": true
+   "vat": 6,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 6,
    "effectiveVatEnabled": true,
    "discountProhibited": false,
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1325,8 +1322,8 @@ Successful request. The result is a JSON representation of the Service.
    },
    "salePrices": [
      {
-       "value": 1052.0
-       currency: {
+       "value": 1052.0,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1346,8 +1343,8 @@ Successful request. The result is a JSON representation of the Service.
        }
      },
      {
-       "value": 1020
-       currency: {
+       "value": 1020,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1368,8 +1365,8 @@ Successful request. The result is a JSON representation of the Service.
      }
    ],
    "buyprice": {
-     "value": 700.0
-     currency: {
+     "value": 700.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1542,8 +1539,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
         "mediaType": "application/json"
       }
     },
-    shared: false
-    group: {
+    "shared": false,
+    "group": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1556,17 +1553,17 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
     "description": "Home delivery of the selected item",
     "code": "delivery",
     "externalCode": "deliveryCode",
-    archived: false
+    "archived": false,
     "pathName": "",
-    vat: 11
-    "vatEnabled": true
+    "vat": 11,
+    "vatEnabled": true,
     "useParentVat": false,
     "effectiveVat": 11,
     "effectiveVatEnabled": true,
     "discountProhibited": false,
     "minprice": {
-      value: 500.0
-      currency: {
+      "value": 500.0,
+      "currency": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1577,8 +1574,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
     },
     "salePrices": [
       {
-        "value": 700.0
-        currency: {
+        "value": 700.0,
+        "currency": {
           "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1598,8 +1595,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
         }
       },
       {
-        value: 7000
-        currency: {
+        "value": 7000,
+        "currency": {
           "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1620,8 +1617,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
       }
     ],
     "buyprice": {
-      "value": 700.0
-      currency: {
+      "value": 700.0,
+      "currency": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1652,111 +1649,112 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
       -H "Authorization: Basic <Credentials>"
       -H "Content-Type: application/json"
         -d '{
-              "name": "Cargo lining",
-              "description": "Delivery cladding",
-              "code": "additional protection",
-              "externalCode": "addProtection",
-              "productFolder": {
+            "name": "Cargo lining",
+            "description": "Delivery cladding",
+            "code": "additional protection",
+            "externalCode": "addProtection",
+            "productFolder": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/238e806f-2c89-11e6-8a84-bae5000000a8",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-                  "type": "productfolder",
-                  "mediaType": "application/json"
-                }
-              },
-              vat: 6,
-              "effectiveVat": 6,
-              "minprice": {
-               value: 500.0
-                currency: {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                    "type": "currency",
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/238e806f-2c89-11e6-8a84-bae5000000a8",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                    "type": "productfolder",
                     "mediaType": "application/json"
-                  }
                 }
-              },
-              "salePrices": [
+            },
+            "vat": 6,
+            "effectiveVat": 6,
+            "minprice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
                 {
-                  "value": 778.0
-                  currency: {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                      "type": "currency",
-                      "mediaType": "application/json"
+                    "value": 778.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
                     }
-                  },
-                  "priceType": {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
-                    }
-                  }
                 },
                 {
-                  "value": 777
-                  currency: {
-                    "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                      "type": "currency",
-                      "mediaType": "application/json"
+                    "value": 777,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
                     }
-                  },
-                  "priceType": {
+                }
+            ],
+            "buyprice": {
+                "value": 700.0,
+                "currency": {
                     "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                      "type": "pricetype",
-                      "mediaType": "application/json"
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
                     }
-                  }
                 }
-              ],
-              "buyprice": {
-                "value": 700.0
-                currency: {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                    "type": "currency",
-                    "mediaType": "application/json"
-                  }
-                }
-              },
-              "barcodes": [
+            },
+            "barcodes": [
                 {
-                  "ean13": "34875834765872435"
+                    "ean13": "34875834765872435"
                 },
                 {
-                  "ean8": "234234234234"
+                    "ean8": "234234234234"
                 },
                 {
-                  "code128": "23423423452351"
+                    "code128": "23423423452351"
                 }
-              ],"attributes": [
+            ],
+            "attributes": [
                 {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
-                    "type": "attributemetadata",
-                    "mediaType": "application/json"
-                  },
-                  "name": "Export",
-                  "value": true
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "Export",
+                    "value": true
                 },
                 {
-                  "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
-                    "type": "attributemetadata",
-                    "mediaType": "application/json"
-                  },
-                  "name": "Manufacturer",
-                  "value": "LLC Company Delivery Department"
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "Manufacturer",
+                    "value": "LLC Company Delivery Department"
                 }
-              ]
-            }'
+            ]
+        }'
   ```
  
 > Response 200(application/json)
@@ -1780,8 +1778,8 @@ Successful request. The result is a JSON representation of the updated Service.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1794,10 +1792,10 @@ Successful request. The result is a JSON representation of the updated Service.
    "description": "Delivery cladding",
    "code": "additional protection",
    "externalCode": "addProtection",
-   archived: false
+   "archived": false,
    "pathName": "Company Services",
-   vat: 6,
-   "vatEnabled": true
+   "vat": 6,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 6,
    "effectiveVatEnabled": true,
@@ -1811,8 +1809,8 @@ Successful request. The result is a JSON representation of the updated Service.
    },
    "discountProhibited": false,
    "minprice": {
-     value: 500.0
-     currency: {
+     "value": 500.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1823,8 +1821,8 @@ Successful request. The result is a JSON representation of the updated Service.
    },
    "salePrices": [
      {
-       "value": 778.0
-       currency: {
+       "value": 778.0,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1844,8 +1842,8 @@ Successful request. The result is a JSON representation of the updated Service.
        }
      },
      {
-       "value": 777
-       currency: {
+       "value": 777,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1866,8 +1864,8 @@ Successful request. The result is a JSON representation of the updated Service.
      }
    ],
    "buyprice": {
-     "value": 700.0
-     currency: {
+     "value": 700.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
