@@ -104,7 +104,7 @@ Successful request. The result is a JSON representation of the task list.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -118,11 +118,11 @@ Successful request. The result is a JSON representation of the task list.
      "href": "https://app.kladana.in/api/remap/1.2/entity/task",
      "type": "task",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017",
@@ -154,8 +154,8 @@ Successful request. The result is a JSON representation of the task list.
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
          }
        },
-       "done": false
-       agent: {
+       "done": false,
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -164,13 +164,13 @@ Successful request. The result is a JSON representation of the task list.
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
          }
        },
-       notes: {
+       "notes": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes","type": "task note",
            "mediaType": "application/json",
-           size: 2
-           limit: 1000
-           offset: 0
+           "size": 2,
+           "limit": 1000,
+           "offset": 0
          }
        }
      },
@@ -205,8 +205,8 @@ Successful request. The result is a JSON representation of the task list.
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
          }
        },
-       "done": false
-       operation: {
+       "done": false,
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/supply/7eb5b552-8aa3-11e8-7210-075e000000f1",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/supply/metadata",
@@ -215,14 +215,14 @@ Successful request. The result is a JSON representation of the task list.
            "uuidHref": "https://app.kladana.in/app/#supply/edit?id=7eb5b552-8aa3-11e8-7210-075e000000f1"
          }
        },
-       notes: {
+       "notes": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/task/aaca57a2-8b86-11e8-d9ce-84d900000007/notes",
            "type": "task note",
            "mediaType": "application/json",
-           size: 0
-           limit: 1000
-           offset: 0
+           "size": 0,
+           "limit": 1000,
+           "offset": 0
          }
        }
      }
@@ -259,8 +259,8 @@ Mandatory fields to create:
                  "mediaType": "application/json"
                }
              },
-             "done": false
-             agent: {
+             "done": false,
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -306,8 +306,8 @@ Successful request. The result is a JSON representation of the created task.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
      }
    },
-   "done": false
-   agent: {
+   "done": false,
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -316,14 +316,14 @@ Successful request. The result is a JSON representation of the created task.
        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
      }
    },
-   notes: {
+   "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
        "type": "task note",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -352,8 +352,8 @@ Updated Tasks must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
-               "done": false
-               agent: {
+               "done": false,
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -378,8 +378,8 @@ Updated Tasks must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
-               "done": true
-               agent: {
+               "done": true,
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -426,8 +426,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
        }
      },
-     "done": false
-     agent: {
+     "done": false,
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -436,14 +436,14 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
        }
      },
-     notes: {
+     "notes": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/9971ba00-8b88-11e8-d9ce-84d900000009/notes",
          "type": "task note",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      }
    },
@@ -488,8 +488,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
        }
      },
-     "done": true
-     agent: {
+     "done": true,
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -498,14 +498,14 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
        }
      },
-     notes: {
+     "notes": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
          "type": "task note",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      }
    }
@@ -631,8 +631,8 @@ Successful request. The result is a JSON representation of the task with the spe
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
      }
    },
-   "done": false
-   agent: {
+   "done": false,
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -641,14 +641,14 @@ Successful request. The result is a JSON representation of the task with the spe
        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
      }
    },
-   notes: {
+   "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
        "type": "task note",
        "mediaType": "application/json",
-       size: 2
-       limit: 1000
-       offset: 0
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -684,8 +684,8 @@ Also, you cannot modify tasks created by other employees without administrator r
                  "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
                }
              },
-             "done": true
-             agent: {
+             "done": true,
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -742,8 +742,8 @@ Successful request. The result is a JSON representation of the updated task.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
      }
    },
-   "done": true
-   agent: {
+   "done": true,
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/9927bf0d-8aa1-11e8-7210-075e00000054",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -752,14 +752,14 @@ Successful request. The result is a JSON representation of the updated task.
        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=9927bf0d-8aa1-11e8-7210-075e00000054"
      }
    },
-   notes: {
+   "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
        "type": "task note",
        "mediaType": "application/json",
-       size: 2
-       limit: 1000
-       offset: 0
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -801,7 +801,7 @@ Successful request. The result is a JSON representation of a list of individual 
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -815,11 +815,11 @@ Successful request. The result is a JSON representation of a list of individual 
      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
      "type": "task note",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
@@ -1006,7 +1006,7 @@ Successful request. The result is a JSON representation of a single comment on t
    },
    "author": {
      "meta": {
-       href: "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",

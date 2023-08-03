@@ -7,13 +7,13 @@ Marking codes refer to a single item of a specific document. The output order of
 
 #### Entity attributes
 
-| Title | Type | Description | Field property in the request| Required when replying|Expand|
-| --------- |----|--------|--------|------|----|
-|**id** |UUID|ID of marking code|Read-only|yes|no
-|**cis** |String|Marking code in standard format|Required when creating|none|none
-|**cis_1162** |String|Marking code in tag format 1162|Read-only|none|none
-|**type** |String|Marking code type|Required when creating|yes|no
-|**trackingCodes** |Array(Object)|Array of nested tracking codes|-|none|none
+| Title             | Type          | Description                     | Field property in the request | Required when replying | Expand |
+|-------------------|---------------|---------------------------------|-------------------------------|------------------------|--------|
+| **id**            | UUID          | ID of marking code              | Read-only                     | yes                    | no     |
+| **cis**           | String        | Marking code in standard format | Required when creating        | none                   | none   |
+| **cis_1162**      | String        | Marking code in tag format 1162 | Read-only                     | none                   | none   |
+| **type**          | String        | Marking code type               | Required when creating        | yes                    | no     |
+| **trackingCodes** | Array(Object) | Array of nested tracking codes  | -                             | none                   | none   |
 
 Request example:
 Entities and documents - ```/entity/[entityType]/[entityId]/positions/[positionId]/trackingCodes```
@@ -39,11 +39,11 @@ Entities and documents - ```/entity/[entityType]/[entityId]/positions/[positionI
 The result of a successful request is a JSON representation of a list of Marking Codes with the listed fields:
 
 
-| Title | Type | Description |
-| --------- |----|------------|
-**meta** |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Issuance metadata,
-**context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request.
-**rows** |Array(Object)| An array of JSON objects representing marking codes.
+| Title       | Type                                                      | Description                                          |
+|-------------|-----------------------------------------------------------|------------------------------------------------------|
+| **meta**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata,                                   |
+| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request.      |
+| **rows**    | Array(Object)                                             | An array of JSON objects representing marking codes. |
 
 > Sample Request for Marking Codes
 
@@ -57,7 +57,7 @@ The result of a successful request is a JSON representation of a list of Marking
 
 ```json
   {
-    context: {
+    "context": {
       "employee": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -71,11 +71,11 @@ The result of a successful request is a JSON representation of a list of Marking
       "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes",
       "type": "tracking code",
       "mediaType": "application/json",
-      size: 23
-      limit: 100
-      offset: 0
+      "size": 23,
+      "limit": 100,
+      "offset": 0
     },
-    rows: [
+    "rows": [
       {
         "id": "c7ea6665-1bb9-11ec-ac18-000c00000000",
         "cis": "012345678912345679",
@@ -85,7 +85,7 @@ The result of a successful request is a JSON representation of a list of Marking
         "id": "6e29f82e-1bc0-11ec-ac18-000c00000002",
         "cis": "012345678912345543",
         "type": "transportpack",
-        trackingCodes: [
+        "trackingCodes": [
           {
             "id": "6e2a0192-1bc0-11ec-ac18-000c00000003",
             "cis": "010463003759026521LjJfNII5aXL-B",
@@ -129,16 +129,16 @@ Nested Marking Codes are replaced by those specified in the request.
 
 ```json
 [
-   {
-     "id": "f591e101-1bc0-11ec-ac18-000c00000004",
-     "cis": "012345678912345576",
-"type": "transportpack"
-   },
-   {
-     "id": "f591f05d-1bc0-11ec-ac18-000c00000005",
-"cis": "010463003759026521LjJfNII5aXL-B",
-"type": "tracking code"
-   }
+  {
+    "id": "f591e101-1bc0-11ec-ac18-000c00000004",
+    "cis": "012345678912345576",
+    "type": "transportpack"
+  },
+  {
+    "id": "f591f05d-1bc0-11ec-ac18-000c00000005",
+    "cis": "010463003759026521LjJfNII5aXL-B",
+    "type": "tracking code"
+  }
 ]
 ```
 

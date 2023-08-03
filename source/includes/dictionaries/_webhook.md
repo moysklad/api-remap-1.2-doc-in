@@ -17,7 +17,7 @@ An example of how the data will be transmitted:
 
 ```json
 {
-   auditContext: {
+   "auditContext": {
      "meta": {
        "type": "audit",
        "href": "https://app.kladana.in/api/remap/1.2/audit/75fe3b73-db16-11eb-c0a8-800d00000004"
@@ -121,7 +121,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -136,11 +136,11 @@ Successful request. The result is a JSON representation of a list of webhooks.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
      "type": "webhook",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/aec51463-bbd2-11e6-8a84-bae500000003",
@@ -161,7 +161,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
        "entityType": "demand",
        "url": "http://www.example.com",
        "method": "POST",
-       "enabled": true
+       "enabled": true,
        "action": "CREATE"
      },
      {
@@ -176,7 +176,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
        "entityType": "supply",
        "url": "http://www.example.com",
        "method": "POST",
-       "enabled": true
+       "enabled": true,
        "action": "CREATE"
      },
      {
@@ -191,7 +191,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
        "entityType": "cash",
        "url": "http://www.example.com",
        "method": "POST",
-       "enabled": true
+       "enabled": true,
        "action": "UPDATE",
        "diffType": "NONE"
      }
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the created webhook.
    "entityType": "supply",
    "url": "http://www.example.com",
    "method": "POST",
-   "enabled": true
+   "enabled": true,
    "action": "CREATE"
 }
 ```
@@ -270,7 +270,7 @@ Successful request. The result is a JSON representation of the created webhook.
    "entityType": "supply",
    "url": "http://www.example.com",
    "method": "POST",
-   "enabled": true
+   "enabled": true,
    "action": "UPDATE",
    "diffType": "FIELDS"
 }
@@ -330,7 +330,7 @@ Successful request. The result is a JSON array of representations of the created
      "entityType": "supply",
      "url": "http://www.example.com",
      "method": "POST",
-     "enabled": true
+     "enabled": true,
      "action": "CREATE"
    },
    {
@@ -345,7 +345,7 @@ Successful request. The result is a JSON array of representations of the created
      "entityType": "demand",
      "url": "http://www.example.com",
      "method": "POST",
-     "enabled": true
+     "enabled": true,
      "action": "DELETE"
    }
 ]
@@ -384,7 +384,7 @@ Successful request. The result is a JSON representation of the webhook with the 
    "entityType": "demand",
    "url": "http://www.example.com",
    "method": "POST",
-   "enabled": true
+   "enabled": true,
    "action": "CREATE"
 }
 ```
@@ -427,7 +427,7 @@ Successful request. The result is a JSON representation of the modified webhook.
    "entityType": "demand",
    "url": "http://www.example.com",
    "method": "POST",
-   "enabled": true
+   "enabled": true,
    "action": "DELETE"
 }
 ```
@@ -469,7 +469,7 @@ Successful request. The result is a JSON representation of the disabled webhook.
    "entityType": "demand",
    "url": "http://www.example.com",
    "method": "POST",
-   "enabled": false
+   "enabled": false,
    "action": "DELETE"
 }
 ```

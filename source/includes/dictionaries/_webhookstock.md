@@ -65,7 +65,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -80,11 +80,11 @@ Successful request. The result is a JSON representation of a list of webhooks fo
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
      "type": "web hook",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",

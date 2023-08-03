@@ -33,7 +33,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -48,11 +48,11 @@ Successful request. The result is a JSON representation of a list of basic templ
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
      "type": "embeddedtemplate",
      "mediaType": "application/json",
-     size: 6
-     limit: 1000
-     offset: 0
+     "size": 6,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/embeddedtemplate/c2645cf0-43f0-3379-adff-99929da86d5e",
@@ -195,7 +195,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -209,11 +209,11 @@ Successful request. The result is a JSON representation of a list of basic templ
      "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate",
      "type": "embeddedtemplate",
      "mediaType": "application/json",
-     size: 2
-     limit: 100
-     offset: 0
+     "size": 2,
+     "limit": 100,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/a8218d14-6017-3ba4-85c4-254fff93bbc8",
@@ -307,7 +307,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -322,11 +322,11 @@ Successful request. The result is a JSON representation of a list of basic templ
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
      "type": "customtemplate",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
@@ -403,7 +403,7 @@ Successful request. The result is a JSON representation of a list of custom temp
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -417,11 +417,11 @@ Successful request. The result is a JSON representation of a list of custom temp
      "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate",
      "type": "embeddedtemplate",
      "mediaType": "application/json",
-     size: 2
-     limit: 100
-     offset: 0
+     "size": 2,
+     "limit": 100,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/a8218d14-6017-3ba4-85c4-254fff93bbc8",

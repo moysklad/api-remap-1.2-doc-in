@@ -53,7 +53,7 @@ Successful request. The result is a JSON representation of a list of units of me
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -68,11 +68,11 @@ Successful request. The result is a JSON representation of a list of units of me
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
      "type": "uom",
      "mediaType": "application/json",
-     size: 60
-     limit: 5
-     offset: 0
+     "size": 60,
+     "limit": 5,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/uom/061721df-9197-49a5-b637-7f5b4d3be969",
@@ -161,8 +161,8 @@ Successful request. The result is a JSON representation of a list of units of me
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -222,8 +222,8 @@ Successful request. The result is a JSON representation of the generated unit of
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -312,8 +312,8 @@ Successful request. The result is a JSON array of representations of the generat
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -479,8 +479,8 @@ Successful request. The result is a JSON representation of the updated Unit of M
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
