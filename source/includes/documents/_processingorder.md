@@ -97,7 +97,7 @@ Successful request. The result is a JSON representation of a list of Production 
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/context/employee",
@@ -112,11 +112,11 @@ Successful request. The result is a JSON representation of a list of Production 
      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
      "type": "processing order",
      "mediaType": "application/json",
-     size: 5
-     limit: 1000
-     offset: 0
+     "size": 5,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/5fbf79f4-adac-11e6-5bed-427b0000006a",
@@ -134,8 +134,8 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -148,10 +148,10 @@ Successful request. The result is a JSON representation of a list of Production 
        "description": "dsa",
        "externalCode": "Tzn6ewsegfp90BCJ6xgWe2",
        "moment": "2016-11-18 19:30:00.000",
-       "applicable": true
-       "printed": true
-       "published": true
-       store: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "store": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -167,7 +167,7 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -176,18 +176,18 @@ Successful request. The result is a JSON representation of a list of Production 
          }
        },
        "deliveryPlannedMoment": "2016-11-22 12:17:00.000",
-       positions: {
+       "positions": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/5fbf79f4-adac-11e6-5bed-427b0000006a/positions",
            "type": "processingorderposition",
            "mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       quantity: 1
-       processingPlan: {
+       "quantity": 1,
+       "processingPlan": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -231,8 +231,8 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -245,10 +245,10 @@ Successful request. The result is a JSON representation of a list of Production 
        "description": "dsa",
        "externalCode": "Tzn6ewsegfp90BCJ6xgWe2",
        "moment": "2016-11-18 19:30:00.000",
-       "applicable": true
-       "printed": true
-       "published": true
-       store: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "store": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -264,7 +264,7 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -273,18 +273,18 @@ Successful request. The result is a JSON representation of a list of Production 
          }
        },
        "deliveryPlannedMoment": "2016-11-22 12:17:00.000",
-       positions: {
+       "positions": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/80191fbd-afcf-11e6-5bed-427b00000000/positions",
            "type": "processingorderposition",
            "mediaType": "application/json",
-           size:1,
-           limit: 1000
-           offset: 0
+           "size":1,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       quantity: 1
-       processingPlan: {
+       "quantity": 1,
+       "processingPlan": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -310,8 +310,8 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -323,10 +323,10 @@ Successful request. The result is a JSON representation of a list of Production 
        "name": "1",
        "externalCode": "JZQBX9gshwrrTRcHkCcaR2",
        "moment": "2016-11-21 11:47:00.000",
-       "applicable": true
-       "printed": true
-       "published": true
-       store: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "store": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -342,7 +342,7 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -351,18 +351,18 @@ Successful request. The result is a JSON representation of a list of Production 
          }
        },
        "deliveryPlannedMoment": "2016-11-02 11:57:00.000",
-       positions: {
+       "positions": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/8cbaa297-afc8-11e6-5bed-427b00000064/positions",
            "type": "processingorderposition",
            "mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       quantity: 1
-       processingPlan: {
+       "quantity": 1,
+       "processingPlan": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -388,8 +388,8 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -402,10 +402,10 @@ Successful request. The result is a JSON representation of a list of Production 
        "description": "Comment",
        "externalCode": "wWAJXKZFgoOZVKd41Dzzz2",
        "moment": "2016-11-23 13:00:00.000",
-       "applicable": true
-       "printed": true
-       "published": true
-       store: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "store": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -421,7 +421,7 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -430,18 +430,18 @@ Successful request. The result is a JSON representation of a list of Production 
          }
        },
        "deliveryPlannedMoment": "2016-11-23 13:07:00",
-       positions: {
+       "positions": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/b5556153-b164-11e6-5bed-427b0000006f/positions",
            "type": "processingorderposition",
            "mediaType": "application/json",
-           size: 2
-           limit: 1000
-           offset: 0
+           "size": 2,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "quantity": 5,
-       processingPlan: {
+       "processingPlan": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -467,8 +467,8 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -480,10 +480,10 @@ Successful request. The result is a JSON representation of a list of Production 
        "name": "2",
        "externalCode": "5nSDOrCfjyxt0W1RbY7XZ3",
        "moment": "2016-11-21 12:27:00.000",
-       "applicable": true
-       "printed": true
-       "published": true
-       store: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "store": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -499,7 +499,7 @@ Successful request. The result is a JSON representation of a list of Production 
            "mediaType": "application/json"
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -508,18 +508,18 @@ Successful request. The result is a JSON representation of a list of Production 
          }
        },
        "deliveryPlannedMoment": "2016-11-02 17:43:00.000",
-       positions: {
+       "positions": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/c7201428-afcc-11e6-5bed-427b00000068/positions",
            "type": "processingorderposition",
            "mediaType": "application/json",
-           size: 2
-           limit: 1000
-           offset: 0
+           "size": 2,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       quantity: 1
-       processingPlan: {
+       "quantity": 1,
+       "processingPlan": {
          "meta": {
            "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
            "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -559,14 +559,14 @@ Mandatory fields to create:
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                  "type": "organization",
                  "mediaType": "application/json"
                }
              },
-             processingPlan: {
+             "processingPlan": {
                "meta": {
                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -615,8 +615,8 @@ Successful request. The result is a JSON representation of the created Productio
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -625,9 +625,9 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -635,14 +635,14 @@ Successful request. The result is a JSON representation of the created Productio
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
@@ -650,21 +650,21 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -692,8 +692,8 @@ Successful request. The result is a JSON representation of the created Productio
                  "mediaType": "application/json"
                }
              },
-             shared: false
-             group: {
+             "shared": false,
+             "group": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -701,7 +701,7 @@ Successful request. The result is a JSON representation of the created Productio
                  "mediaType": "application/json"
                }
              },
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                  "type": "organization",
@@ -709,8 +709,8 @@ Successful request. The result is a JSON representation of the created Productio
                }
              },
              "moment": "2016-04-19 13:50:24",
-             "applicable": false
-             state: {
+             "applicable": false,
+             "state": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
                  "type": "state",
@@ -766,8 +766,8 @@ Successful request. The result is a JSON representation of the created Productio
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -776,9 +776,9 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -786,14 +786,14 @@ Successful request. The result is a JSON representation of the created Productio
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
@@ -801,21 +801,21 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -835,14 +835,14 @@ Successful request. The result is a JSON representation of the created Productio
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                  "type": "organization",
                  "mediaType": "application/json"
                }
              },
-             processingPlan: {
+             "processingPlan": {
                  "meta": {
                    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -900,8 +900,8 @@ Successful request. The result is a JSON representation of the created Productio
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -910,9 +910,9 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -920,14 +920,14 @@ Successful request. The result is a JSON representation of the created Productio
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
@@ -935,20 +935,20 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },"quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -987,14 +987,14 @@ Updated Production Orders must contain the identifier in the form of metadata.
      -H "Content-Type: application/json"
        -d'[
              {
-               organization: {
+               "organization": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                    "type": "organization",
                    "mediaType": "application/json"
                  }
                },
-               processingPlan: {
+               "processingPlan": {
                  "meta": {
                    "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1062,8 +1062,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1072,9 +1072,9 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "moment": "2016-04-19 13:50:24",
-     "applicable": false
-     sum: 0
-     organization: {
+     "applicable": false,
+     "sum": 0,
+     "organization": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1082,14 +1082,14 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     state: {
+     "state": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type": "state",
          "mediaType": "application/json"
        }
      },
-     organizationAccount: {
+     "organizationAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
          "type": "account",
@@ -1097,21 +1097,21 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "created": "2007-02-07 17:16:41",
-     "printed": true
-     "published": true
-     positions: {
+     "printed": true,
+     "published": true,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
          "type": "processingorderposition",
          "mediaType": "application/json",
-         size: 1
-         limit: 1000
-         offset: 0
+         "size": 1,
+         "limit": 1000,
+         "offset": 0
        }
      },
      "quantity": 5,
-     processingPlan: {
+     "processingPlan": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1141,8 +1141,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1151,9 +1151,9 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "moment": "2016-04-19 13:50:24",
-     "applicable": false
-     sum: 0
-     organization: {
+     "applicable": false,
+     "sum": 0,
+     "organization": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1161,14 +1161,14 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     state: {
+     "state": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type": "state",
          "mediaType": "application/json"
        }
      },
-     organizationAccount: {
+     "organizationAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
          "type": "account",
@@ -1176,21 +1176,21 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "created": "2007-02-07 17:16:41",
-     "printed": true
-     "published": true
-     positions: {
+     "printed": true,
+     "published": true,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
          "type": "processingorderposition",
          "mediaType": "application/json",
-         size: 1
-         limit: 1000
-         offset: 0
+         "size": 1,
+         "limit": 1000,
+         "offset": 0
        }
      },
      "quantity": 5,
-     processingPlan: {
+     "processingPlan": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1234,21 +1234,19 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
-             "type": "processing order",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
-             "type": "processing order",
-             "mediaType": "application/json"
-         }
-       ]'
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
+                "type": "processing order",
+                "mediaType": "application/json"
+            },
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
+                "type": "processing order",
+                "mediaType": "application/json"
+            }
+        ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of Production Orders.
@@ -1455,7 +1453,7 @@ As a result of the request, a pre-filled Production Order template will be creat
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             processingPlan: {
+             "processingPlan": {
                "meta": {
                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/5fbf79f4-adac-11e6-5bed-427b0000006a",
                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1479,8 +1477,8 @@ Successful request. The result is a JSON representation of the prefilled Product
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1489,8 +1487,8 @@ Successful request. The result is a JSON representation of the prefilled Product
      }
    },
    "moment": "2016-12-05 14:35:47",
-   "applicable": true
-   organization: {
+   "applicable": true,
+   "organization": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1498,8 +1496,8 @@ Successful request. The result is a JSON representation of the prefilled Product
        "mediaType": "application/json"
      }
    },
-   quantity: 1
-   processingPlan: {
+   "quantity": 1,
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1507,7 +1505,7 @@ Successful request. The result is a JSON representation of the prefilled Product
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1516,12 +1514,12 @@ Successful request. The result is a JSON representation of the prefilled Product
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
-     rows: [
+   "printed": true,
+   "published": true,
+   "positions": {
+     "rows": [
        {
-         quantity: 1
+         "quantity": 1,
          "assortment": {
            "meta": {
              "href": "http://app.kladana.in/api/remap/1.2/entity/product/0de151c1-acdc-11e6-5bed-427b00000080",
@@ -1576,8 +1574,8 @@ Successful request. The result is a JSON representation of the Production Order.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/group/d55da707-91f1-11e6-5bed-427b00000001",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1590,8 +1588,8 @@ Successful request. The result is a JSON representation of the Production Order.
    "description": "Comment",
    "externalCode": "wWAJXKZFgoOZVKd41Dzzz2",
    "moment": "2016-11-23 13:00:00",
-   "applicable": true
-   store: {
+   "applicable": true,
+   "store": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/store/d5e311c0-91f1-11e6-5bed-427b00000053",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1607,7 +1605,7 @@ Successful request. The result is a JSON representation of the Production Order.
        "mediaType": "application/json"
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/organization/a1331985-a1c8-11e6-5bed-427b00000084",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1616,18 +1614,18 @@ Successful request. The result is a JSON representation of the Production Order.
      }
    },
    "deliveryPlannedMoment": "2016-11-23 13:07:00",
-   positions: {
+   "positions": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/b5556153-b164-11e6-5bed-427b0000006f/positions",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 2
-       limit: 1000
-       offset: 0
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1660,7 +1658,7 @@ When you update the **organization** field, you must also update the **organizat
      -H "Content-Type: application/json"
        -d '{
              "name": "000034",
-             processingPlan: {
+             "processingPlan": {
                "meta": {
                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                  "type": "processing plan",
@@ -1695,8 +1693,8 @@ Successful request. The result is a JSON representation of the updated Productio
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1705,9 +1703,9 @@ Successful request. The result is a JSON representation of the updated Productio
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1715,14 +1713,14 @@ Successful request. The result is a JSON representation of the updated Productio
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
@@ -1730,21 +1728,21 @@ Successful request. The result is a JSON representation of the updated Productio
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1763,7 +1761,7 @@ Successful request. The result is a JSON representation of the updated Productio
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             processingPlan: {
+             "processingPlan": {
                "meta": {
                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                  "type": "processing plan",
@@ -1777,7 +1775,7 @@ Successful request. The result is a JSON representation of the updated Productio
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
-                 "value": "Updated Order Attribute",
+                 "value": "Updated Order Attribute"
                }
              ]
            }'
@@ -1808,8 +1806,8 @@ Successful request. The result is a JSON representation of the updated Productio
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1818,9 +1816,9 @@ Successful request. The result is a JSON representation of the updated Productio
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1828,14 +1826,14 @@ Successful request. The result is a JSON representation of the updated Productio
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
@@ -1843,21 +1841,21 @@ Successful request. The result is a JSON representation of the updated Productio
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
@@ -1889,7 +1887,7 @@ Successful request. The result is a JSON representation of the updated Productio
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             processingPlan: {
+             "processingPlan": {
                "meta": {
                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                  "type": "processing plan",
@@ -1922,7 +1920,7 @@ Successful request. The result is a JSON representation of the updated Productio
                    "mediaType": "application/json"
                  },
                  "id": "34f6344f-015e-11e6-9464-e4de0000007c",
-                 quantity: 20
+                 "quantity": 20,
                  "assortment": {
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
@@ -1977,8 +1975,8 @@ Successful request. The result is a JSON representation of the updated Productio
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1987,9 +1985,9 @@ Successful request. The result is a JSON representation of the updated Productio
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1997,14 +1995,14 @@ Successful request. The result is a JSON representation of the updated Productio
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
@@ -2012,21 +2010,21 @@ Successful request. The result is a JSON representation of the updated Productio
      }
    },
    "created": "2007-02-07 17:16:41",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
        "type": "processingorderposition",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "quantity": 5,
-   processingPlan: {
+   "processingPlan": {
      "meta": {"href": "http://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
        "type": "processing plan",
@@ -2071,7 +2069,7 @@ Successful request. The result is a JSON representation of the item list of a si
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/context/employee",
@@ -2085,11 +2083,11 @@ Successful request. The result is a JSON representation of the item list of a si
      "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19/positions",
      "type": "processingorderposition",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19/positions/c7218ccd-afcc-11e6-5bed-427b00000069",

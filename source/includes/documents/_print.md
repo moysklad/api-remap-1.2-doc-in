@@ -64,7 +64,7 @@ for Sales Invoice:
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             template: {
+             "template": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
                  "type": "customtemplate",
@@ -78,15 +78,19 @@ for Sales Invoice:
 > Response 202 Headers
 
 ```json
-   Location: link to print status
-   Content-Type: application/json
+{
+   "Location": "link to print status",
+   "Content-Type": "application/json"
+}
 ```
 
 > Response 303 headers
 
 ```json
-   Location: file link
-   Content-Type: application/json
+{
+   "Location": "file link",
+   "Content-Type": "application/json"
+}
 ```
 
 > An example of a request to print a set of documents. As a result of the request, a set of 6 printed forms will be printed.
@@ -97,51 +101,55 @@ for Sales Invoice:
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "templates": [
-               {
-                 template: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
-                     "type": "customtemplate",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 count:2
-               },
-               {
-                 template: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/factureout/metadata/embeddedtemplate/3d2685b4-cf64-4fd1-87c8-e109966b364b",
-                     "type": "embeddedtemplate",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 count: 3
-               },
-               {
-                 template: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/embeddedtemplate/6f3c9a47-6772-4944-9723-92d0d7be2a9c",
-                     "type": "embeddedtemplate",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 count: 1
-               }
-             ]
-           }'
+            "templates": [
+                {
+                    "template": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
+                            "type": "customtemplate",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "count": 2
+                },
+                {
+                    "template": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/factureout/metadata/embeddedtemplate/3d2685b4-cf64-4fd1-87c8-e109966b364b",
+                            "type": "embeddedtemplate",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "count": 3
+                },
+                {
+                    "template": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/embeddedtemplate/6f3c9a47-6772-4944-9723-92d0d7be2a9c",
+                            "type": "embeddedtemplate",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "count": 1
+                }
+            ]
+        }'
 ```
 
 > Response 202 Headers
 
 ```json
-Location: link to print status
-Content-Type: application/json
+{
+  "Location": "link to print status",
+  "Content-Type": "application/json"
+}
 ```
 
 > Response 303 headers
 
 ```json
-Location: file link
-Content-Type: application/json
+{
+  "Location": "file link",
+  "Content-Type": "application/json"
+}
 ```
