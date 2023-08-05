@@ -221,7 +221,7 @@ Successful request. The result is a JSON representation of the list of Shipments
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -236,11 +236,11 @@ Successful request. The result is a JSON representation of the list of Shipments
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
      "type": "demand",
      "mediaType": "application/json",
-     size: 13
-     limit: 2
-     offset: 0
+     "size": 13,
+     "limit": 2,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0ee24723-f640-11e5-8a84-bae500000065",
@@ -262,8 +262,8 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -272,14 +272,14 @@ Successful request. The result is a JSON representation of the list of Shipments
          }
        },
        "moment": "2016-03-30 09:24:00",
-       "applicable": true
-       "vatEnabled": true
+       "applicable": true,
+       "vatEnabled": true,
        "vatIncluded": true,
-       "printed": true
-       "published": true
-       sum: 123000
-       rate: {
-         currency: {
+       "printed": true,
+       "published": true,
+       "sum": 123000,
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -288,7 +288,7 @@ Successful request. The result is a JSON representation of the list of Shipments
            }
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -296,14 +296,14 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
            "type": "store",
            "mediaType": "application/json"
          }
        },
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850efc5f-f504-11e5-8a84-bae500000161",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -311,14 +311,14 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       organizationAccount: {
+       "organizationAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       agentAccount: {
+       "agentAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850efc5f-f504-11e5-8a84-bae500000161/accounts/850f0617-f504-11e5-8a84-bae500000162",
            "type": "account",
@@ -332,15 +332,15 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       positions: {
+       "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0ee24723-f640-11e5-8a84-bae500000065/positions",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
            "type": "demand position",
            "mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "paidSum": 0,
@@ -356,7 +356,7 @@ Successful request. The result is a JSON representation of the list of Shipments
        "shippingInstructions": "Keep out of the sun",
        "cargoName": "Vegetables",
        "transport facility": "mercedes benz",
-       carrier: {
+       "carrier": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/cffd2c81-62b4-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -365,7 +365,7 @@ Successful request. The result is a JSON representation of the list of Shipments
          }
        },
        "overhead": {
-         sum: 200
+         "sum": 200,
          "distribution": "price"
        },
        "shipmentAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -416,8 +416,8 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -427,13 +427,13 @@ Successful request. The result is a JSON representation of the list of Shipments
        },
        "moment": "2016-03-30 11:08:00",
        "applicationble": false,
-       "vatEnabled": true
+       "vatEnabled": true,
        "vatIncluded": true,
-       "printed": true
-       "published": true
-       sum: 123000
-       rate: {
-         currency: {
+       "printed": true,
+       "published": true,
+       "sum": 123000,
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -442,7 +442,7 @@ Successful request. The result is a JSON representation of the list of Shipments
            }
          }
        },
-       organization: {
+       "organization": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -450,14 +450,14 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
            "type": "store",
            "mediaType": "application/json"
          }
        },
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -465,34 +465,34 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
-       organizationAccount: {
+       "organizationAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       agentAccount: {
+       "agentAccount": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163/accounts/850f1eab-f504-11e5-8a84-bae500000164",
            "type": "account",
            "mediaType": "application/json"
          }
        },
-       positions: {
+       "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/b44f220c-f64e-11e5-8a84-bae500000068/positions",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
            "type": "demand position",
            "mediaType": "application/json",
-           size: 3
-           limit: 1000
-           offset: 0
+           "size": 3,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "paidSum": 0,
        "overhead": {
-         sum: 300
+         "sum": 300,
          "distribution": "weight"
        }
      }
@@ -519,21 +519,21 @@ Mandatory fields to create:
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                  "type": "organization",
                  "mediaType": "application/json"
                }
              },
-             agent: {
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                  "type": "counter party",
                  "mediaType": "application/json"
                }
              },
-             store: {
+             "store": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
                  "type": "store",
@@ -569,8 +569,8 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -579,12 +579,12 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "moment": "2016-04-15 16:01:17",
-   "applicable": true
-   "vatEnabled": true
+   "applicable": true,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 0
-   rate: {
-     currency: {
+   "sum": 0,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -593,7 +593,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -601,14 +601,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -616,14 +616,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -631,17 +631,17 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/2464c97a-030a-11e6-9464-e4de00000000/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "paidSum": 0
@@ -656,88 +656,87 @@ Successful request. The result is a JSON representation of the generated Shipmen
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "888",
-             organization: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                 "type": "organization",
-                 "mediaType": "application/json"
-               }
-             },
-             agent: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             store: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                 "type": "store",
-                 "mediaType": "application/json"
-               }
-             },
-             "code": "1243521",
-             "moment": "2016-04-19 13:50:24",
-             "applicable": false
-             "vatEnabled": true
-             "vatIncluded": true,
-             "customerOrder": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                 "type": "sales order",
-                 "mediaType": "application/json"
-               }
-             },
-             "consignee": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/869d7628-6396-11e6-8a84-bae50000000a",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "transportFacilityNumber": "MK2142",
-             "shippingInstructions": "Flammable",
-             "cargoName": "oil",
-             "transportFacility": "Kamaz 2007",
-             carrier: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/cffd2c81-62b4-11e6-8a84-bae500000053",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             "stateContractId": "s11233dsasd233",
-             "shipmentAddressFull":{
-               "postalCode":"125009",
-               "country":{
-                 "meta":{
-                   "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                   "type":"country",
-                   "mediaType":"application/json"
-                 }
-               },
-               "region":{
-                 "meta":{
-                   "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-                   "type":"region",
-                   "mediaType":"application/json"
-                 }
-               },
-               "city":"Moscow",
-               "street": "Tverskaya street",
-               "house":"1",
-               "apartment":"123",
-               "addinfo":"addinfo",
-               "comment":"some words about address"
-             }
-           }
-'
+            "name": "888",
+            "organization": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                    "type": "organization",
+                    "mediaType": "application/json"
+                }
+            },
+            "agent": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "store": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                    "type": "store",
+                    "mediaType": "application/json"
+                }
+            },
+            "code": "1243521",
+            "moment": "2016-04-19 13:50:24",
+            "applicable": false,
+            "vatEnabled": true,
+            "vatIncluded": true,
+            "customerOrder": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+                    "type": "sales order",
+                    "mediaType": "application/json"
+                }
+            },
+            "consignee": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/869d7628-6396-11e6-8a84-bae50000000a",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "transportFacilityNumber": "MK2142",
+            "shippingInstructions": "Flammable",
+            "cargoName": "oil",
+            "transportFacility": "Kamaz 2007",
+            "carrier": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/cffd2c81-62b4-11e6-8a84-bae500000053",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "stateContractId": "s11233dsasd233",
+            "shipmentAddressFull": {
+                "postalCode": "125009",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "city": "Moscow",
+                "street": "Tverskaya street",
+                "house": "1",
+                "apartment": "123",
+                "addinfo": "addinfo",
+                "comment": "some words about address"
+            }
+        }'
 ```
 
 > Response 200(application/json)
@@ -766,8 +765,8 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -776,12 +775,12 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   "vatEnabled": true
+   "applicable": false,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 0
-   rate: {
-     currency: {
+   "sum": 0,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -790,7 +789,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -798,14 +797,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -813,14 +812,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -828,17 +827,17 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/c2a04da5-030a-11e6-9464-e4de00000005/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "paidSum": 0,
@@ -881,21 +880,21 @@ Successful request. The result is a JSON representation of the generated Shipmen
      -H "Content-Type: application/json"
        -d '{
              "name": "888",
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                  "type": "organization",
                  "mediaType": "application/json"
                }
              },
-             agent: {
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                  "type": "counter party",
                  "mediaType": "application/json"
                }
              },
-             store: {
+             "store": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
                  "type": "store",
@@ -904,8 +903,8 @@ Successful request. The result is a JSON representation of the generated Shipmen
              },
              "code": "1243521",
              "moment": "2016-04-19 13:50:24",
-             "applicable": false
-             "vatEnabled": true
+             "applicable": false,
+             "vatEnabled": true,
              "vatIncluded": true,
              "customerOrder": {
                "meta": {
@@ -953,8 +952,8 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -963,12 +962,12 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   "vatEnabled": true
+   "applicable": false,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 0
-   rate: {
-     currency: {
+   "sum": 0,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -977,7 +976,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -985,14 +984,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1000,14 +999,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -1028,17 +1027,17 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    ],
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/c2a04da5-030a-11e6-9464-e4de00000005/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "paidSum": 0
@@ -1053,100 +1052,101 @@ Successful request. The result is a JSON representation of the generated Shipmen
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "888",
-             organization: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                 "type": "organization",
-                 "mediaType": "application/json"
-               }
-             },
-             agent: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             store: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-                 "type": "store",
-                 "mediaType": "application/json"
-               }
-             },
-             "code": "1243521",
-             "moment": "2016-04-19 13:50:24",
-             "applicable": false
-             "vatEnabled": true
-             "vatIncluded": true,
-             "positions": [
-               {
-                 "quantity": 10,
-                 "price": 100.0
-                 discount: 0
-                 vat: 0
-                 "assortment": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                trackingCodes: [
-                 {
-                   "cis": "012345678912345672",
-                   "type": "transportpack",
-                     trackingCodes: [
-                      {
-                       "cis": "010463003759026521uHpIIf2111114",
-                       "type": "tracking code"
-                       },
-                       {
-                        "cis": "010463003759026521uHpIIf2111111",
-                        "type": "tracking code"
-                       }
-                     ]
-                   }
-                 ],
-                 "reserve": 10
-                 overhead: 20
-               },
-               {
-                 quantity: 20
-                 "price": 200.0
-                 discount: 0
-                 vat: 21
-                 "assortment": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "reserve": 20
-                 overhead: 20
-               },{
-                 "quantity": 30,
-                 "price": 300.0
-                 discount: 0
-                 "vat": 7,
-                 "assortment": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/service/c02e3a5c-007e-11e6-9464-e4de00000006",
-                     "type": "service",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "pack": {
-                   "id": "1bf22e62-8b47-11e8-56c0-000800000006"
-                 },
-                 "reserve": 30
-                 overhead: 20
-                 cost: 47
-               }
-             ]
-           }'
+            "name": "888",
+            "organization": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                    "type": "organization",
+                    "mediaType": "application/json"
+                }
+            },
+            "agent": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "store": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+                    "type": "store",
+                    "mediaType": "application/json"
+                }
+            },
+            "code": "1243521",
+            "moment": "2016-04-19 13:50:24",
+            "applicable": false,
+            "vatEnabled": true,
+            "vatIncluded": true,
+            "positions": [
+                {
+                    "quantity": 10,
+                    "price": 100.0,
+                    "discount": 0,
+                    "vat": 0,
+                    "assortment": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
+                            "type": "product",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "trackingCodes": [
+                        {
+                            "cis": "012345678912345672",
+                            "type": "transportpack",
+                            "trackingCodes": [
+                                {
+                                    "cis": "010463003759026521uHpIIf2111114",
+                                    "type": "tracking code"
+                                },
+                                {
+                                    "cis": "010463003759026521uHpIIf2111111",
+                                    "type": "tracking code"
+                                }
+                            ]
+                        }
+                    ],
+                    "reserve": 10,
+                    "overhead": 20
+                },
+                {
+                    "quantity": 20,
+                    "price": 200.0,
+                    "discount": 0,
+                    "vat": 21,
+                    "assortment": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                            "type": "product",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "reserve": 20,
+                    "overhead": 20
+                },
+                {
+                    "quantity": 30,
+                    "price": 300.0,
+                    "discount": 0,
+                    "vat": 7,
+                    "assortment": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/service/c02e3a5c-007e-11e6-9464-e4de00000006",
+                            "type": "service",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "pack": {
+                        "id": "1bf22e62-8b47-11e8-56c0-000800000006"
+                    },
+                    "reserve": 30,
+                    "overhead": 20,
+                    "cost": 47
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json)
@@ -1175,8 +1175,8 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1185,12 +1185,12 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "moment": "2016-04-19 13:50:24",
-   "applicable": false
-   "vatEnabled": true
+   "applicable": false,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 0
-   rate: {
-     currency: {
+   "sum": 0,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1199,7 +1199,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1207,14 +1207,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1222,14 +1222,14 @@ Successful request. The result is a JSON representation of the generated Shipmen
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -1237,22 +1237,22 @@ Successful request. The result is a JSON representation of the generated Shipmen
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/c2a04da5-030a-11e6-9464-e4de00000005/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 3
-       limit: 1000
-       offset: 0
+       "size": 3,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "paidSum": 0,
    "overhead": {
-     sum: 60
+     "sum": 60,
      "distribution": "price"
    }
 }
@@ -1275,21 +1275,21 @@ Updated Shipments must contain the identifier in the form of metadata.
        -d'[
              {
                "name": "888",
-               organization: {
+               "organization": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                    "type": "organization",
                    "mediaType": "application/json"
                  }
                },
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                    "type": "counter party",
                    "mediaType": "application/json"
                  }
                },
-               store: {
+               "store": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
                    "type": "store",
@@ -1306,21 +1306,21 @@ Updated Shipments must contain the identifier in the form of metadata.
                },
                "name": "887",
                "moment": "2004-01-14 19:03:00",
-               organization: {
+               "organization": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                    "type": "organization",
                    "mediaType": "application/json"
                  }
                },
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                    "type": "counter party",
                    "mediaType": "application/json"
                  }
                },
-               store: {
+               "store": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
                    "type": "store",
@@ -1328,8 +1328,8 @@ Updated Shipments must contain the identifier in the form of metadata.
                  }
                },
                "code": "666",
-               "applicable": false
-               "vatEnabled": true
+               "applicable": false,
+               "vatEnabled": true,
                "vatIncluded": true,
                "customerOrder": {
                  "meta": {
@@ -1369,8 +1369,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1379,12 +1379,12 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "moment": "2016-04-15 16:01:17",
-     "applicable": true
-     "vatEnabled": true
+     "applicable": true,
+     "vatEnabled": true,
      "vatIncluded": true,
-     sum: 0
-     rate: {
-       currency: {
+     "sum": 0,
+     "rate": {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1393,7 +1393,7 @@ Successful request. The result is a JSON array of representations of the created
          }
        }
      },
-     organization: {
+     "organization": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1401,13 +1401,14 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     store: {
+     "store": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
          "type": "store",
          "mediaType": "application/json"
        }
-     },agent: {
+     },
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1415,14 +1416,14 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     organizationAccount: {
+     "organizationAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/3a30e844-016f-11e6-9464-e4de00000068",
          "type": "account",
          "mediaType": "application/json"
        }
      },
-     agentAccount: {
+     "agentAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
          "type": "account",
@@ -1430,17 +1431,17 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "created": "2016-08-25 19:55:00",
-     "printed": true
-     "published": true
-     positions: {
+     "printed": true,
+     "published": true,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/2464c97a-030a-11e6-9464-e4de00000000/positions",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
          "type": "demand position",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      },
      "paidSum": 0
@@ -1467,8 +1468,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1477,12 +1478,12 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "moment": "2004-01-14 19:03:00",
-     "applicable": false
-     "vatEnabled": true
+     "applicable": false,
+     "vatEnabled": true,
      "vatIncluded": true,
-     sum: 346389501420,
-     rate: {
-       currency: {
+     "sum": 346389501420,
+     "rate": {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1491,7 +1492,7 @@ Successful request. The result is a JSON array of representations of the created
          }
        }
      },
-     organization: {
+     "organization": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1499,14 +1500,14 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     store: {
+     "store": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
          "type": "store",
          "mediaType": "application/json"
        }
      },
-     contract: {
+     "contract": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
          "type": "contract",
@@ -1520,7 +1521,7 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     agent: {
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -1528,21 +1529,21 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     state: {
+     "state": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type": "state",
          "mediaType": "application/json"
        }
      },
-     organizationAccount: {
+     "organizationAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
          "type": "account",
          "mediaType": "application/json"
        }
      },
-     agentAccount: {
+     "agentAccount": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
          "type": "account",
@@ -1557,17 +1558,17 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "created": "2016-08-25 19:55:00",
-     "printed": true
-     "published": true
-     positions: {
+     "printed": true,
+     "published": true,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
          "type": "demand position",
          "mediaType": "application/json",
-         size: 4
-         limit: 1000
-         offset: 0
+         "size": 4,
+         "limit": 1000,
+         "offset": 0
        }
      },
      "payedSum": 365939611804,
@@ -1856,8 +1857,8 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1866,9 +1867,9 @@ Successful request. The result is a JSON representation of the prefilled shipmen
      }
    },
    "moment": "2017-05-12 15:31:10",
-   "applicable": true
-   sum: 0
-   store: {
+   "applicable": true,
+   "sum": 0,
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/1076a96a-36e7-11e7-8a7f-40d000000092",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1876,7 +1877,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/107430bc-36e7-11e7-8a7f-40d000000090",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1884,10 +1885,10 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   positions: {
-     rows: []
+   "positions": {
+     "rows": []
    },
-   "vatEnabled": true
+   "vatEnabled": true,
    "vatIncluded": true,
    "paidSum": 0
 }
@@ -1932,8 +1933,8 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1942,9 +1943,9 @@ Successful request. The result is a JSON representation of the prefilled shipmen
      }
    },
    "moment": "2016-11-25 18:02:21",
-   "applicable": true
-   rate: {
-     currency: {
+   "applicable": true,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1953,8 +1954,8 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        }
      }
    },
-   sum: 0
-   store: {
+   "sum": 0,
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1962,7 +1963,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1970,7 +1971,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1978,14 +1979,14 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
        "type": "account",
@@ -1993,15 +1994,15 @@ Successful request. The result is a JSON representation of the prefilled shipmen
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
-     rows: [
+   "printed": true,
+   "published": true,
+   "positions": {
+     "rows": [
        {
-         quantity: 1
-         price: 0.0
-         discount: 0
-         vat: 0
+         "quantity": 1,
+         "price": 0.0,
+         "discount": 0,
+         "vat": 0,
          "vatEnabled": false,
          "assortment": {
            "meta": {
@@ -2012,11 +2013,11 @@ Successful request. The result is a JSON representation of the prefilled shipmen
              "uuidHref": "https://app.kladana.in/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
            }
          },
-         overhead: 0
+         "overhead": 0
        }
      ]
    },
-   "vatEnabled": true
+   "vatEnabled": true,
    "vatIncluded": true,
    "paidSum": 0,
    "customerOrder": {
@@ -2066,8 +2067,8 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=46073d61-ca1f-11e7-6a80-332a0000002a"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/452fb22f-ca1f-11e7-6a80-332a00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2077,9 +2078,9 @@ Successful request. The result is a JSON representation of the prefilled shipmen
    },
    "name": "",
    "moment": "2017-11-23 13:59:29",
-   "applicable": true
-   rate: {
-     currency: {
+   "applicable": true,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/464062ac-ca1f-11e7-6a80-332a00000058",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2089,8 +2090,8 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        }
      }
    },
-   sum: 0
-   store: {
+   "sum": 0,
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/463f8970-ca1f-11e7-6a80-332a00000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -2099,7 +2100,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=463f8970-ca1f-11e7-6a80-332a00000053"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/463fe231-ca1f-11e7-6a80-332a00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2108,7 +2109,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=463fe231-ca1f-11e7-6a80-332a00000056"
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/463a706e-ca1f-11e7-6a80-332a00000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -2118,15 +2119,15 @@ Successful request. The result is a JSON representation of the prefilled shipmen
      }
    },
    "documents": {
-     rows: []
+     "rows": []
    },
-   positions: {
-     rows: [
+   "positions": {
+     "rows": [
        {
-         quantity: 1
-         "price": 100000.0
-         discount: 0
-         vat: 0
+         "quantity": 1,
+         "price": 100000.0,
+         "discount": 0,
+         "vat": 0,
          "vatEnabled": false,
          "assortment": {
            "meta": {
@@ -2137,11 +2138,11 @@ Successful request. The result is a JSON representation of the prefilled shipmen
              "uuidHref": "https://app.kladana.in/app/#feature/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
            }
          },
-         overhead: 0
+         "overhead": 0
        }
      ]
    },
-   "vatEnabled": true
+   "vatEnabled": true,
    "vatIncluded": true,
    "paidSum": 0,
    "invoicesOut": [
@@ -2199,8 +2200,8 @@ Successful request. The result is a JSON representation of the Shipment.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2209,12 +2210,12 @@ Successful request. The result is a JSON representation of the Shipment.
      }
    },
    "moment": "2016-04-14 11:03:00",
-   "applicable": true
-   "vatEnabled": true
+   "applicable": true,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 346389501420,
-   rate: {
-     currency: {
+   "sum": 346389501420,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/bc1b4fde-019a-11e6-9464-e4de00000073",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2222,9 +2223,9 @@ Successful request. The result is a JSON representation of the Shipment.
          "mediaType": "application/json"
        }
      },
-     value: 214
+     "value": 214
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -2232,14 +2233,14 @@ Successful request. The result is a JSON representation of the Shipment.
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   contract: {
+   "contract": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
        "type": "contract",
@@ -2253,7 +2254,7 @@ Successful request. The result is a JSON representation of the Shipment.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2261,21 +2262,21 @@ Successful request. The result is a JSON representation of the Shipment.
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -2289,15 +2290,15 @@ Successful request. The result is a JSON representation of the Shipment.
        "mediaType": "application/json"
      }
    },
-   positions: {
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 4
-       limit: 1000
-       offset: 0
+       "size": 4,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "payedSum": 365939611804,
@@ -2322,7 +2323,7 @@ Successful request. The result is a JSON representation of the Shipment.
    "cargoName": "Vegetables",
    "transport facility": "mercedes benz",
    "goodPackQuantity": 500,
-   carrier: {
+   "carrier": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/cffd2c81-62b4-11e6-8a84-bae500000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2331,7 +2332,7 @@ Successful request. The result is a JSON representation of the Shipment.
      }
    },
    "overhead": {
-     sum: 200
+     "sum": 200,
      "distribution": "price"
    },
    "shipmentAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -2385,67 +2386,67 @@ When updating the **organization** and **agent** fields, you must also update th
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "887",
-             "moment": "2004-01-14 19:03:00",
-             organization: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                 "type": "organization",
-                 "mediaType": "application/json"
-               }
-             },
-             agent: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             store: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
-                 "type": "store",
-                 "mediaType": "application/json"
-               }
-             },
-             "code": "666",
-             "applicable": false
-             "vatEnabled": true
-             "vatIncluded": true,
-             "customerOrder": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                 "type": "customorder",
-                 "mediaType": "application/json"
-               }
-             },
-             "stateContractId": "s11233dsasd233",
-             "shipmentAddressFull":{
-               "postalCode":"125009",
-               "country":{
-                 "meta":{
-                   "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                   "type":"country",
-                   "mediaType":"application/json"
-                 }
-               },
-               "region":{
-                 "meta":{
-                   "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-                   "type":"region",
-                   "mediaType":"application/json"
-                 }
-               },
-               "city":"Moscow",
-               "street": "Tverskaya street",
-               "house":"1",
-               "apartment":"111",
-               "addinfo":"addinfo",
-               "comment":"some words about address"
-             }
-           }'
+            "name": "887",
+            "moment": "2004-01-14 19:03:00",
+            "organization": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                    "type": "organization",
+                    "mediaType": "application/json"
+                }
+            },
+            "agent": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                    "type": "counter party",
+                    "mediaType": "application/json"
+                }
+            },
+            "store": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
+                    "type": "store",
+                    "mediaType": "application/json"
+                }
+            },
+            "code": "666",
+            "applicable": false,
+            "vatEnabled": true,
+            "vatIncluded": true,
+            "customerOrder": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+                    "type": "customorder",
+                    "mediaType": "application/json"
+                }
+            },
+            "stateContractId": "s11233dsasd233",
+            "shipmentAddressFull": {
+                "postalCode": "125009",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "city": "Moscow",
+                "street": "Tverskaya street",
+                "house": "1",
+                "apartment": "111",
+                "addinfo": "addinfo",
+                "comment": "some words about address"
+            }
+        }'
 ```
 
 > Response 200(application/json)
@@ -2474,8 +2475,8 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2484,12 +2485,12 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    },
    "moment": "2004-01-14 19:03:00",
-   "applicable": false
-   "vatEnabled": true
+   "applicable": false,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 346389501420,
-   rate: {
-     currency: {
+   "sum": 346389501420,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2498,7 +2499,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -2506,14 +2507,14 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   contract: {
+   "contract": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
        "type": "contract",
@@ -2527,7 +2528,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2535,21 +2536,21 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -2564,17 +2565,17 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 4
-       limit: 1000
-       offset: 0
+       "size": 4,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "payedSum": 365939611804,
@@ -2626,21 +2627,21 @@ Successful request. The result is a JSON representation of the updated Shipment.
        -d '{
              "name": "887",
              "moment": "2004-01-14 19:03:00",
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
                  "type": "organization",
                  "mediaType": "application/json"
                }
              },
-             agent: {
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
                  "type": "counter party",
                  "mediaType": "application/json"
                }
              },
-             store: {
+             "store": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
                  "type": "store",
@@ -2722,8 +2723,8 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2732,12 +2733,12 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    },
    "moment": "2004-01-14 19:03:00",
-   "applicable": false
-   "vatEnabled": true
+   "applicable": false,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 346389501420,
-   rate: {
-     currency: {
+   "sum": 346389501420,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -2746,7 +2747,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -2754,14 +2755,14 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   contract: {
+   "contract": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
        "type": "contract",
@@ -2775,7 +2776,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2783,21 +2784,21 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -2825,17 +2826,17 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    ],
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 4
-       limit: 1000
-       offset: 0
+       "size": 4,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "payedSum": 365939611804,
@@ -2859,7 +2860,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
    "shippingInstructions": "Flammable",
    "cargoName": "oil",
    "transportFacility": "Kamaz 2007",
-   carrier: {
+   "carrier": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/cffd2c81-62b4-11e6-8a84-bae500000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2868,7 +2869,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    },
    "overhead": {
-     sum: 990
+     "sum": 990,
      "distribution": "price"
    }
 }
@@ -2882,93 +2883,92 @@ Successful request. The result is a JSON representation of the updated Shipment.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "887",
-             "moment": "2004-01-14 19:03:00",
-             organization: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                 "type": "organization",
-                 "mediaType": "application/json"
-               }
-             },
-             agent: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-                 "type": "counter party",
-                 "mediaType": "application/json"
-               }
-             },
-             store: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
-                 "type": "store",
-                 "mediaType": "application/json"
-               }
-             },
-             "code": "666",
-             "applicable": false
-             "vatEnabled": true
-             "vatIncluded": true,
-             "customerOrder": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                 "type": "sales order",
-                 "mediaType": "application/json"
-               }
-             },
-             "positions": [
-               {
-                 "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-                 "quantity": 10,
-                 "price": 100.0
-                 discount: 0
-                 vat: 0
-                 "assortment": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "reserve": 10
-               },
-               {
-                 "id": "34f6344f-015e-11e6-9464-e4de0000006d",
-                 quantity: 20
-                 "price": 200.0
-                 discount: 0
-                 vat: 21
-                 "assortment": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "reserve": 20
-               },
-               {
-                 "id": "34f6344f-015e-11e6-9464-e4de0000006e",
-                 "quantity": 30,
-                 "price": 300.0
-                 discount: 0
-                 "vat": 7,
-                 "assortment": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "reserve": 30
-               }
-             ],
-             "overhead": {
-               sum: 1000
-               "distribution": "weight"
-             }
-           }
-'
+    "name": "887",
+    "moment": "2004-01-14 19:03:00",
+    "organization": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+            "type": "organization",
+            "mediaType": "application/json"
+        }
+    },
+    "agent": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+            "type": "counter party",
+            "mediaType": "application/json"
+        }
+    },
+    "store": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
+            "type": "store",
+            "mediaType": "application/json"
+        }
+    },
+    "code": "666",
+    "applicable": false,
+    "vatEnabled": true,
+    "vatIncluded": true,
+    "customerOrder": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
+            "type": "sales order",
+            "mediaType": "application/json"
+        }
+    },
+    "positions": [
+        {
+            "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+            "quantity": 10,
+            "price": 100.0,
+            "discount": 0,
+            "vat": 0,
+            "assortment": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
+                    "type": "product",
+                    "mediaType": "application/json"
+                }
+            },
+            "reserve": 10
+        },
+        {
+            "id": "34f6344f-015e-11e6-9464-e4de0000006d",
+            "quantity": 20,
+            "price": 200.0,
+            "discount": 0,
+            "vat": 21,
+            "assortment": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                    "type": "product",
+                    "mediaType": "application/json"
+                }
+            },
+            "reserve": 20
+        },
+        {
+            "id": "34f6344f-015e-11e6-9464-e4de0000006e",
+            "quantity": 30,
+            "price": 300.0,
+            "discount": 0,
+            "vat": 7,
+            "assortment": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006",
+                    "type": "product",
+                    "mediaType": "application/json"
+                }
+            },
+            "reserve": 30
+        }
+    ],
+    "overhead": {
+        "sum": 1000,
+        "distribution": "weight"
+    }
+}'
 ```
 
 > Response 200(application/json)
@@ -2997,8 +2997,8 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -3007,12 +3007,12 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    },
    "moment": "2004-01-14 19:03:00",
-   "applicable": false
-   "vatEnabled": true
+   "applicable": false,
+   "vatEnabled": true,
    "vatIncluded": true,
-   sum: 346389501420,
-   rate: {
-     currency: {
+   "sum": 346389501420,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -3021,7 +3021,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
        }
      }
    },
-   organization: {
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -3029,14 +3029,14 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
        "type": "store",
        "mediaType": "application/json"
      }
    },
-   contract: {
+   "contract": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/contract/8ce3c179-015e-11e6-9464-e4de0000007a",
        "type": "contract",
@@ -3050,7 +3050,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -3058,21 +3058,21 @@ Successful request. The result is a JSON representation of the updated Shipment.
        "mediaType": "application/json"
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
        "type": "state",
        "mediaType": "application/json"
      }
    },
-   organizationAccount: {
+   "organizationAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts/850c8af2-f504-11e5-8a84-bae50000015f",
        "type": "account",
        "mediaType": "application/json"
      }
    },
-   agentAccount: {
+   "agentAccount": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078/accounts/9794f7a0-f689-11e5-8a84-bae500000079",
        "type": "account",
@@ -3087,17 +3087,17 @@ Successful request. The result is a JSON representation of the updated Shipment.
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
        "type": "demand position",
        "mediaType": "application/json",
-       size: 4
-       limit: 1000
-       offset: 0
+       "size": 4,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "payedSum": 365939611804,
@@ -3148,7 +3148,7 @@ Successful request. The result is a JSON representation of the item list of a si
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -3163,11 +3163,11 @@ Successful request. The result is a JSON representation of the item list of a si
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
      "type": "demand position",
      "mediaType": "application/json",
-     size: 4
-     limit: 1000
-     offset: 0
+     "size": 4,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/40603fbd-019e-11e6-9464-e4de00000086",
@@ -3177,11 +3177,11 @@ Successful request. The result is a JSON representation of the item list of a si
        },
        "id": "40603fbd-019e-11e6-9464-e4de00000086",
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-       quantity: 1
-       sum: 123050,
-       discount: 0
-       vat: 18
-       "vatEnabled": true
+       "quantity": 1,
+       "sum": 123050,
+       "discount": 0,
+       "vat": 18,
+       "vatEnabled": true,
        "assortment": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
@@ -3201,11 +3201,11 @@ Successful request. The result is a JSON representation of the item list of a si
        },
        "id": "40604612-019e-11e6-9464-e4de00000087",
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-       quantity: 1
-       sum: 214
-       discount: 0
-       vat: 18
-       "vatEnabled": true
+       "quantity": 1,
+       "sum": 214,
+       "discount": 0,
+       "vat": 18,
+       "vatEnabled": true,
        "assortment": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/service/60fc3826-00d7-11e6-9464-e4de00000097",
@@ -3215,7 +3215,7 @@ Successful request. The result is a JSON representation of the item list of a si
            "uuidHref": "https://app.kladana.in/app/#service/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
          }
        },
-       cost: 34
+       "cost": 34
      },
      {
        "meta": {
@@ -3226,11 +3226,11 @@ Successful request. The result is a JSON representation of the item list of a si
        },
        "id": "40604a79-019e-11e6-9464-e4de00000088",
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-       quantity: 1
-       sum: 346347237062,
-       discount: 0
-       vat: 18
-       "vatEnabled": true
+       "quantity": 1,
+       "sum": 346347237062,
+       "discount": 0,
+       "vat": 18,
+       "vatEnabled": true,
        "assortment": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/56c73633-ffe4-11e5-9464-e4de000000c6",
@@ -3240,7 +3240,7 @@ Successful request. The result is a JSON representation of the item list of a si
            "uuidHref": "https://app.kladana.in/app/#feature/edit?id=392c045c-2842-11e9-ac12-000a00000002"
          }
        },
-       country: {
+       "country": {
          "name": "Germany"
        }
      },
@@ -3253,11 +3253,11 @@ Successful request. The result is a JSON representation of the item list of a si
        },
        "id": "406055cb-019e-11e6-9464-e4de00000089",
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-       quantity: 1
-       sum: 42141094,
-       discount: 0
-       vat: 18
-       "vatEnabled": true
+       "quantity": 1,
+       "sum": 42141094,
+       "discount": 0,
+       "vat": 18,
+       "vatEnabled": true,
        "assortment": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/66cc36dc-f7d2-11e5-8a84-bae500000074",
@@ -3315,7 +3315,7 @@ Successful request. The result is a JSON representation of the item list of a si
           "price":200.0,
           "discount":0.0,
           "vat":21,
-          "vatEnabled": true
+          "vatEnabled": true,
           "assortment":{
              "meta":{
                 "href":"https://app.kladana.in/api/remap/1.2/entity/product/aa1b1814-8493-11ea-0a80-037a00000307",
@@ -3487,8 +3487,8 @@ will be added to the existing ones.
        -d '{
              "quantity": 4,
              "price": 12345.0,
-             discount: 0
-             vat: 0
+             "discount": 0,
+             "vat": 0,
              "assortment": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
@@ -3515,8 +3515,9 @@ Successful request. The result is a JSON representation of the single Shipment i
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "quantity": 4,
      "price": 12345.0,
-     discount: 0
-     vat: 0"vatEnabled": false,
+     "discount": 0,
+     "vat": 0,
+     "vatEnabled": false,
      "assortment": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
@@ -3538,50 +3539,50 @@ Successful request. The result is a JSON representation of the single Shipment i
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
-             {
-               "quantity": 103,
-               "price": 1002.0
-               discount: 0
-               vat: 0
-               "assortment": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
-                   "type": "product",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             {
-               "quantity": 21,
-               "price": 2300.0,
-               discount: 0
-               vat: 21
-               "assortment": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-                   "type": "product",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             {
-               "quantity": 3,
-               "price": 3500.0,
-               discount: 0
-               "vat": 7,
-               "assortment": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/service/c02e3a5c-007e-11e6-9464-e4de00000006",
-                   "type": "service",
-                   "mediaType": "application/json"
-                 }
-               },
-               "pack": {
-                 "id": "1bf22e62-8b47-11e8-56c0-000800000006"
-               },
-               cost: 47
-             }
-           ]'
+            {
+                "quantity": 103,
+                "price": 1002.0,
+                "discount": 0,
+                "vat": 0,
+                "assortment": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/8b382799-f7d2-11e5-8a84-bae5000003a5",
+                        "type": "product",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            {
+                "quantity": 21,
+                "price": 2300.0,
+                "discount": 0,
+                "vat": 21,
+                "assortment": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+                        "type": "product",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            {
+                "quantity": 3,
+                "price": 3500.0,
+                "discount": 0,
+                "vat": 7,
+                "assortment": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/service/c02e3a5c-007e-11e6-9464-e4de00000006",
+                        "type": "service",
+                        "mediaType": "application/json"
+                    }
+                },
+                "pack": {
+                    "id": "1bf22e62-8b47-11e8-56c0-000800000006"
+                },
+                "cost": 47
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -3599,9 +3600,9 @@ Successful request. The result is a JSON representation of the list of created i
      "id": "727cf336-0310-11e6-9464-e4de00000013",
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "quantity": 10,
-     "price": 100.0
-     discount: 0
-     vat: 0
+     "price": 100.0,
+     "discount": 0,
+     "vat": 0,
      "vatEnabled": false,
      "assortment": {
        "meta": {
@@ -3622,11 +3623,11 @@ Successful request. The result is a JSON representation of the list of created i
      },
      "id": "727cfce0-0310-11e6-9464-e4de00000014",
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-     quantity: 20
-     "price": 200.0
-     discount: 0
-     vat: 21
-     "vatEnabled": true
+     "quantity": 20,
+     "price": 200.0,
+     "discount": 0,
+     "vat": 21,
+     "vatEnabled": true,
      "assortment": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
@@ -3647,10 +3648,10 @@ Successful request. The result is a JSON representation of the list of created i
      "id": "727d057f-0310-11e6-9464-e4de00000015",
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "quantity": 30,
-     "price": 300.0
-     discount: 0
+     "price": 300.0,
+     "discount": 0,
      "vat": 7,
-     "vatEnabled": true
+     "vatEnabled": true,
      "assortment": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/service/c02e3a5c-007e-11e6-9464-e4de00000006",
@@ -3670,9 +3671,9 @@ Successful request. The result is a JSON representation of the list of created i
            "mediaType": "application/json"
          }
        },
-       quantity: 2
+       "quantity": 2
      },
-     cost: 47
+     "cost": 47
    }
 ]
 ```
@@ -3872,11 +3873,11 @@ Successful request. The result is a JSON representation of the Shipment line ite
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-   quantity: 20
-   sum: 200
-   discount: 0
-   vat: 21
-   "vatEnabled": true
+   "quantity": 20,
+   "sum": 200,
+   "discount": 0,
+   "vat": 21,
+   "vatEnabled": true,
    "assortment": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
@@ -3911,18 +3912,18 @@ To change the number of product units, you must use the **quantity** parameter.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "quantity": 111,
-             "price": 26332700.0,
-             discount: 0
-             vat: 18
-             "assortment": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",
-                 "type": "product",
-                 "mediaType": "application/json"
-               }
-             }
-           }'
+            "quantity": 111,
+            "price": 26332700.0,
+            "discount": 0,
+            "vat": 18,
+            "assortment": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",
+                    "type": "product",
+                    "mediaType": "application/json"
+                }
+            }
+        }'
 ```
 
 > Response 200(application/json)
@@ -3940,9 +3941,9 @@ Successful request. The result is a JSON representation of the updated Shipment 
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "quantity": 111,
    "price": 26332700.0,
-   discount: 0
-   vat: 18
-   "vatEnabled": true
+   "discount": 0,
+   "vat": 18,
+   "vatEnabled": true,
    "assortment": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a",

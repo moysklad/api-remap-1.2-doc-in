@@ -103,7 +103,7 @@ Successful request. The result is a JSON representation of the List of Write-off
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -118,11 +118,11 @@ Successful request. The result is a JSON representation of the List of Write-off
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
      "type": "loss",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066",
@@ -140,8 +140,8 @@ Successful request. The result is a JSON representation of the List of Write-off
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -153,11 +153,11 @@ Successful request. The result is a JSON representation of the List of Write-off
        "name": "00001",
        "externalCode": "o5GMiWUJhqhq1vmrUWwI-2",
        "moment": "2016-07-21 12:49:00",
-       "applicable": true
-       "printed": true
-       "published": true
-       rate: {
-         currency: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -165,10 +165,10 @@ Successful request. The result is a JSON representation of the List of Write-off
              "mediaType": "application/json"
            }
          },
-         value: 63
+         "value": 63
        },
-       sum: 3981730,
-       organization: {
+       "sum": 3981730,
+       "organization": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -176,7 +176,7 @@ Successful request. The result is a JSON representation of the List of Write-off
            "mediaType": "application/json"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -194,17 +194,17 @@ Successful request. The result is a JSON representation of the List of Write-off
            "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
            "name": "AttributeName1",
            "type": "double",
-           value: 0.2
+           "value": 0.2
          }
        ],
-       positions: {
+       "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066/positions",
            "type": "loss position",
            "mediaType": "application/json",
-           size: 2
-           limit: 1000
-           offset: 0
+           "size": 2,
+           "limit": 1000,
+           "offset": 0
          }
        }
      },
@@ -225,8 +225,8 @@ Successful request. The result is a JSON representation of the List of Write-off
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -238,11 +238,11 @@ Successful request. The result is a JSON representation of the List of Write-off
        "name": "00002",
        "externalCode": "08cP74Ftgc7MrBTbGfGVJ3",
        "moment": "2016-07-21 13:05:00",
-       "applicable": true
-       "printed": true
-       "published": true
-       rate: {
-         currency: {
+       "applicable": true,
+       "printed": true,
+       "published": true,
+       "rate": {
+         "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -251,8 +251,8 @@ Successful request. The result is a JSON representation of the List of Write-off
            }
          }
        },
-       sum: 0
-       organization: {
+       "sum": 0,
+       "organization": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -260,7 +260,7 @@ Successful request. The result is a JSON representation of the List of Write-off
            "mediaType": "application/json"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -278,20 +278,20 @@ Successful request. The result is a JSON representation of the List of Write-off
            "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
            "name": "AttributeName1",
            "type": "double",
-           value: 45.2
+           "value": 45.2
          }
        ],
-       positions: {
+       "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/loss/9d020efd-4f2a-11e6-8a84-bae500000078/positions",
            "type": "loss position",
            "mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        },
-       salesReturn: {
+       "salesReturn": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -318,7 +318,7 @@ Request to create a new Write-off. For successful creation, the following fields
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             store: {
+             "store": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -326,7 +326,7 @@ Request to create a new Write-off. For successful creation, the following fields
                  "mediaType": "application/json"
                }
              },
-             organization: {
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/95920812-9609-11e6-8af5-581e000000d4",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -382,8 +382,8 @@ Successful request. The result is a JSON representation of the created Write-off
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -395,9 +395,9 @@ Successful request. The result is a JSON representation of the created Write-off
    "name": "00005",
    "externalCode": "itqCvT69hgSZFTJEL9cP70",
    "moment": "2016-07-21 15:57:32",
-   "applicable": false
-   rate: {
-     currency: {
+   "applicable": false,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -406,8 +406,8 @@ Successful request. The result is a JSON representation of the created Write-off
        }
      }
    },
-   sum: 50000
-   organization: {
+   "sum": 50000,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -415,7 +415,7 @@ Successful request. The result is a JSON representation of the created Write-off
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -424,19 +424,19 @@ Successful request. The result is a JSON representation of the created Write-off
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
        "type": "loss position",
        "mediaType": "application/json",
-       size: 3
-       limit: 1000
-       offset: 0
+       "size": 3,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   salesReturn: {
+   "salesReturn": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -462,14 +462,14 @@ Updated Write-offs must contain the identifier in the form of metadata.
      -H "Content-Type: application/json"
        -d'[
              {
-               store: {
+               "store": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata","type": "store",
                    "mediaType": "application/json"
                  }
                },
-               organization: {
+               "organization": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/95920812-9609-11e6-8af5-581e000000d4",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -512,9 +512,9 @@ Updated Write-offs must contain the identifier in the form of metadata.
                "name": "00606234",
                "externalCode": "3498142cook",
                "moment": "2016-07-21 15:57:32",
-               "applicable": true
-               sum: 50000
-               organization: {
+               "applicable": true,
+               "sum": 50000,
+               "organization": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -522,7 +522,7 @@ Updated Write-offs must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
-               store: {
+               "store": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -531,7 +531,7 @@ Updated Write-offs must contain the identifier in the form of metadata.
                  }
                },
                "positions": [],
-               salesReturn: {
+               "salesReturn": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -565,8 +565,8 @@ Successful request. The result is a JSON array of representations of created and
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -578,9 +578,9 @@ Successful request. The result is a JSON array of representations of created and
      "name": "00005",
      "externalCode": "itqCvT69hgSZFTJEL9cP70",
      "moment": "2016-07-21 15:57:32",
-     "applicable": false
-     rate: {
-       currency: {
+     "applicable": false,
+     "rate": {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -589,8 +589,8 @@ Successful request. The result is a JSON array of representations of created and
          }
        }
      },
-     sum: 50000
-     organization: {
+     "sum": 50000,
+     "organization": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -598,7 +598,7 @@ Successful request. The result is a JSON array of representations of created and
          "mediaType": "application/json"
        }
      },
-     store: {
+     "store": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -607,19 +607,19 @@ Successful request. The result is a JSON array of representations of created and
        }
      },
      "created": "2016-08-25 19:55:00",
-     "printed": true
-     "published": true
-     positions: {
+     "printed": true,
+     "published": true,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
          "type": "loss position",
          "mediaType": "application/json",
-         size: 3
-         limit: 1000
-         offset: 0
+         "size": 3,
+         "limit": 1000,
+         "offset": 0
        }
      },
-     salesReturn: {
+     "salesReturn": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -645,8 +645,8 @@ Successful request. The result is a JSON array of representations of created and
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -658,9 +658,9 @@ Successful request. The result is a JSON array of representations of created and
      "name": "00606234",
      "externalCode": "3498142cook",
      "moment": "2016-07-21 15:57:32",
-     "applicable": true
-     rate: {
-       currency: {
+     "applicable": true,
+     "rate": {
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -669,8 +669,8 @@ Successful request. The result is a JSON array of representations of created and
          }
        }
      },
-     sum: 0
-     organization: {
+     "sum": 0,
+     "organization": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -678,7 +678,7 @@ Successful request. The result is a JSON array of representations of created and
          "mediaType": "application/json"
        }
      },
-     store: {
+     "store": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -687,19 +687,19 @@ Successful request. The result is a JSON array of representations of created and
        }
      },
      "created": "2016-08-25 19:55:00",
-     "printed": true
-     "published": true
-     positions: {
+     "printed": true,
+     "published": true,
+     "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
          "type": "loss position",
          "mediaType": "application/json",
-         size: 0
-         limit: 1000
-         offset: 0
+         "size": 0,
+         "limit": 1000,
+         "offset": 0
        }
      },
-     salesReturn: {
+     "salesReturn": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -743,21 +743,19 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-             "type": "loss",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
-             "type": "loss",
-             "mediaType": "application/json"
-         }
-       ]'
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+                "type": "loss",
+                "mediaType": "application/json"
+            },
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/loss/metadata",
+                "type": "loss",
+                "mediaType": "application/json"
+            }
+        ]'
 ```
 
 > Successful request. Result - JSON information about deleting Write-offs.
@@ -883,9 +881,9 @@ Successful request. Result - JSON npresentation of a pre-filled write-off.
 
 ```json
 {
-   "applicable": false
-   sum: 0
-   organization: {
+   "applicable": false,
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -893,7 +891,7 @@ Successful request. Result - JSON npresentation of a pre-filled write-off.
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -901,16 +899,16 @@ Successful request. Result - JSON npresentation of a pre-filled write-off.
        "mediaType": "application/json"
      }
    },
-   positions: {
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2",
        "type": "loss position",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      },
-     rows: []
+     "rows": []
    }
 }
 ```
@@ -928,7 +926,7 @@ As a result of the request, a pre-filled Write-off template will be created base
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             salesReturn: {
+             "salesReturn": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -944,9 +942,9 @@ Successful request. The result is a JSON representation of the prefilled Write-o
 
 ```json
 {
-   "applicable": false
-   rate: {
-     currency: {
+   "applicable": false,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -955,8 +953,8 @@ Successful request. The result is a JSON representation of the prefilled Write-o
        }
      }
    },
-   sum: 28000
-   organization: {
+   "sum": 28000,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -964,7 +962,7 @@ Successful request. The result is a JSON representation of the prefilled Write-o
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -973,25 +971,25 @@ Successful request. The result is a JSON representation of the prefilled Write-o
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2",
        "type": "loss position",
        "mediaType": "application/json",
-       size: 3
-       limit: 1000
-       offset: 0
+       "size": 3,
+       "limit": 1000,
+       "offset": 0
      },
-     rows: [
+     "rows": [
        {
          "meta": {
            "type": "loss position",
            "mediaType": "application/json"
          },
-         quantity: 1
-         "price": 20000.0
+         "quantity": 1,
+         "price": 20000.0,
          "assortment": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
@@ -1007,8 +1005,8 @@ Successful request. The result is a JSON representation of the prefilled Write-o
            "type": "loss position",
            "mediaType": "application/json"
          },
-         quantity: 1
-         "price": 10000.0
+         "quantity": 1,
+         "price": 10000.0,
          "assortment": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
@@ -1024,8 +1022,8 @@ Successful request. The result is a JSON representation of the prefilled Write-o
            "type": "loss position",
            "mediaType": "application/json"
          },
-         quantity: 1
-         "price": 20000.0
+         "quantity": 1,
+         "price": 20000.0,
          "assortment": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
@@ -1037,7 +1035,7 @@ Successful request. The result is a JSON representation of the prefilled Write-o
        }
      ]
    },
-   salesReturn: {
+   "salesReturn": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -1086,8 +1084,8 @@ Successful request. The result is a JSON representation of the Write-off.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1099,9 +1097,9 @@ Successful request. The result is a JSON representation of the Write-off.
    "name": "00001",
    "externalCode": "o5GMiWUJhqhq1vmrUWwI-2",
    "moment": "2016-07-21 12:49:00",
-   "applicable": true
-   rate: {
-     currency: {
+   "applicable": true,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1109,10 +1107,10 @@ Successful request. The result is a JSON representation of the Write-off.
          "mediaType": "application/json"
        }
      },
-     value: 63
+     "value": 63
    },
-   sum: 3981730,
-   organization: {
+   "sum": 3981730,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1120,7 +1118,7 @@ Successful request. The result is a JSON representation of the Write-off.
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1138,17 +1136,17 @@ Successful request. The result is a JSON representation of the Write-off.
        "id": "d0912ad5-4f3d-11e6-8a84-bae500000082",
        "name": "AttributeName1",
        "type": "double",
-       value: 0.2
+       "value": 0.2
      }
    ],
-   positions: {
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/6ddca2d7-4f28-11e6-8a84-bae500000066/positions",
        "type": "loss position",
        "mediaType": "application/json",
-       size: 2
-       limit: 1000
-       offset: 0
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -1175,9 +1173,9 @@ Request to update the write-off with the specified id.
              "name": "00606234",
              "externalCode": "3498142cook",
              "moment": "2016-07-21 15:57:32",
-             "applicable": true
-             sum: 50000
-             organization: {
+             "applicable": true,
+             "sum": 50000,
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1194,7 +1192,7 @@ Request to update the write-off with the specified id.
                }
              },
              "positions": [],
-             salesReturn: {
+             "salesReturn": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -1226,8 +1224,8 @@ Successful request. The result is a JSON representation of the updated Write-off
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1239,9 +1237,9 @@ Successful request. The result is a JSON representation of the updated Write-off
    "name": "00606234",
    "externalCode": "3498142cook",
    "moment": "2016-07-21 15:57:32",
-   "applicable": true
-   rate: {
-     currency: {
+   "applicable": true,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1250,8 +1248,8 @@ Successful request. The result is a JSON representation of the updated Write-off
        }
      }
    },
-   sum: 0
-   organization: {
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1259,7 +1257,7 @@ Successful request. The result is a JSON representation of the updated Write-off
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1268,19 +1266,19 @@ Successful request. The result is a JSON representation of the updated Write-off
      }
    },
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
        "type": "loss position",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   salesReturn: {
+   "salesReturn": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -1302,9 +1300,9 @@ Successful request. The result is a JSON representation of the updated Write-off
              "name": "00606234",
              "externalCode": "3498142cook",
              "moment": "2016-07-21 15:57:32",
-             "applicable": true
-             sum: 50000
-             organization: {
+             "applicable": true,
+             "sum": 50000,
+             "organization": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1312,7 +1310,7 @@ Successful request. The result is a JSON representation of the updated Write-off
                  "mediaType": "application/json"
                }
              },
-             store: {
+             "store": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1321,7 +1319,7 @@ Successful request. The result is a JSON representation of the updated Write-off
                }
              },
              "positions": [],
-             salesReturn: {
+             "salesReturn": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -1371,8 +1369,8 @@ Successful request. The result is a JSON representation of the updated Write-off
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1384,9 +1382,9 @@ Successful request. The result is a JSON representation of the updated Write-off
    "name": "00606234",
    "externalCode": "3498142cook",
    "moment": "2016-07-21 15:57:32",
-   "applicable": true
-   rate: {
-     currency: {
+   "applicable": true,
+   "rate": {
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -1395,8 +1393,8 @@ Successful request. The result is a JSON representation of the updated Write-off
        }
      }
    },
-   sum: 0
-   organization: {
+   "sum": 0,
+   "organization": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -1404,7 +1402,7 @@ Successful request. The result is a JSON representation of the updated Write-off
        "mediaType": "application/json"
      }
    },
-   store: {
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1437,19 +1435,19 @@ Successful request. The result is a JSON representation of the updated Write-off
      }
    ],
    "created": "2016-08-25 19:55:00",
-   "printed": true
-   "published": true
-   positions: {
+   "printed": true,
+   "published": true,
+   "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
        "type": "loss position",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   salesReturn: {
+   "salesReturn": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
@@ -1495,7 +1493,7 @@ Successful request. The result is a JSON representation of the list of items of 
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -1509,11 +1507,11 @@ Successful request. The result is a JSON representation of the list of items of 
      "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions",
      "type": "loss position",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/0b615a22-4f42-11e6-8a84-bae50000008e",
@@ -1522,8 +1520,8 @@ Successful request. The result is a JSON representation of the list of items of 
        },
        "id": "0b615a22-4f42-11e6-8a84-bae50000008e",
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-       quantity: 2
-       "price": 20000.0
+       "quantity": 2,
+       "price": 20000.0,
        "assortment": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
@@ -1543,7 +1541,7 @@ Successful request. The result is a JSON representation of the list of items of 
        "id": "0b61605f-4f42-11e6-8a84-bae50000008f",
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
        "quantity": 6,
-       "price": 10000.0
+       "price": 10000.0,
        "assortment": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
@@ -1562,7 +1560,7 @@ Successful request. The result is a JSON representation of the list of items of 
        },
        "id": "0b616604-4f42-11e6-8a84-bae500000090",
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-       quantity: 1
+       "quantity": 1,
        "price": 33000.0,
        "assortment": {
          "meta": {
@@ -1725,8 +1723,8 @@ Successful request. The result is a JSON representation of a separate Write-off 
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   quantity: 2
-   "price": 20000.0
+   "quantity": 2,
+   "price": 20000.0,
    "assortment": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
