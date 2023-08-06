@@ -602,8 +602,8 @@ Successful request. The result is a JSON representation of the created and updat
     "id": "7bc578d8-6501-11e8-9464-e4de00000004",
   "name": "String field",
      "type": "string",
-     "required": true
-     "show": true
+     "required": true,
+     "show": true,
      "description": "Field-string"
   },
   {
@@ -727,8 +727,8 @@ Successful request. The result is a JSON representation of the additional shippi
    "id": "7bc578d8-6501-11e8-9464-e4de00000004",
    "name": "String field",
    "type": "string",
-   "required": true
-   "show": true
+   "required": true,
+   "show": true,
    "description": "Field-string"
 }
 ```
@@ -764,8 +764,8 @@ Successful request. The result is a JSON representation of the additional shippi
   "id": "7bc578d8-6501-11e8-9464-e4de00000004",
    "name": "updated String field",
    "type": "string",
-   "required": false
-   "show": true
+   "required": false,
+   "show": true,
 "description": "Updated field-string"
 }
 ```
@@ -923,12 +923,14 @@ curl -X POST
 > Representation of balances and cost as part of an item
 
 ```json
-stock: {
-     cost: 5000
-     "quantity": 999,
-     "reserve": 90
-     "in transit": 9,
-     available: 918
+{
+  "stock": {
+    "cost": 5000,
+    "quantity": 999,
+    "reserve": 90,
+    "in transit": 9,
+    "available": 918
+  }
 }
 ```
 
@@ -1492,29 +1494,29 @@ curl -X POST
   -H "Authorization: Basic <Credentials>"
   -H 'Content-Type: application/json' \
   -d '{
-  "name": "0001",
-  "organization": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
-  "agent": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "type": "counterparty",
-      "mediaType": "application/json"
-    }
-  },
-  "store": {
-    "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-      "type": "store",
-      "mediaType": "application/json"
-    }
-  }
-}'
+          "name": "0001",
+          "organization": {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+              "type": "organization",
+              "mediaType": "application/json"
+            }
+          },
+          "agent": {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+              "type": "counterparty",
+              "mediaType": "application/json"
+            }
+          },
+          "store": {
+            "meta": {
+              "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+              "type": "store",
+              "mediaType": "application/json"
+            }
+          }
+        }'
 ```
 
 > In response, the created shipment will come with the deployed object of the counterparty (**agent**).
@@ -1605,7 +1607,7 @@ curl -X POST
         "updated": "2017-08-18 17:49:23",
         "name": "LLC \"Supplier\"",
          "externalCode": "YWKWXePEi9jBAmxriBpc93",
-         archived: false
+         "archived": false,
          "created": "2017-07-12 16:13:08",
          "companyType": "legal",
          "legalTitle": "Limited Liability Company \"Supplier\"",
@@ -1694,8 +1696,8 @@ curl -X PUT
   -H "Authorization: Basic <Credentials>"
   -H 'Content-Type: application/json' \
   -d '{
-  "name": "3738"
-}`
+          "name": "3738"
+        }`
 ```
 
 > Response 200 (application/json)
@@ -1786,7 +1788,7 @@ curl -X PUT
         "updated": "2017-08-18 17:49:23",
          "name": "LLC \"Supplier\"",
          "externalCode": "YWKWXePEi9jBAmxriBpc93",
-         archived: false
+         "archived": false,
          "created": "2017-07-12 16:13:08",
          "companyType": "legal",
          "legalTitle": "Limited Liability Company \"Supplier\"",
@@ -2465,7 +2467,7 @@ Successful request. The result is a JSON representation of information about the
             "update": "ALL",
             "delete": "ALL",
             "done": "ALL"
- v         },
+        },
         "dashboard": {
             "view": "ALL"
         },

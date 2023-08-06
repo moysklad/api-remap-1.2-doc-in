@@ -39,7 +39,7 @@ Successful request. The result is a JSON representation of the list of Publicati
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -54,18 +54,18 @@ Successful request. The result is a JSON representation of the list of Publicati
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
      "type": "demand",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
          "type": "operationpublication",
          "mediaType": "application/json"
        },
-       template: {
+       "template": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
            "type": "customtemplate",
@@ -99,7 +99,7 @@ Request to publish a transaction. The transaction publication is based on the pa
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             template: {
+             "template": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
                  "type": "customtemplate",
@@ -119,7 +119,7 @@ Successful request. The result is a JSON representation of the previously create
      "type": "operationpublication",
      "mediaType": "application/json"
    },
-   template: {
+   "template": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
        "type": "customtemplate",
@@ -140,7 +140,7 @@ Successful request. The result is a JSON representation of the created Post.
      "type": "operationpublication",
      "mediaType": "application/json"
    },
-   template: {
+   "template": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
        "type": "customtemplate",
@@ -200,7 +200,7 @@ Successful request. The result is a JSON representation of the Publication.
      "type": "operationpublication",
      "mediaType": "application/json"
    },
-   template: {
+   "template": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
        "type": "customtemplate",

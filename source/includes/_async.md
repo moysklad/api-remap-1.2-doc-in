@@ -378,7 +378,7 @@ Response 403 Forbidden
      "errors": [
          {
              "error": "Access Denied: You do not have permission to view this object",
-             code: 1016
+             "code": 1016
          }
      ]
 }
