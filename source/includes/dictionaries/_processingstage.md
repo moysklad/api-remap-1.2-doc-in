@@ -304,23 +304,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
-             "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-             "type": "processing Production Operation",
-             "mediaType": "application/json",
-           }
-         },
-         {
-           "meta": {
-             "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-             "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-             "type": "processing Production Operation",
-             "mediaType": "application/json",
-           }
-         }
-       ]'
+          {
+              "meta": {
+                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
+                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                  "type": "processing Production Operation",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                  "type": "processing Production Operation",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. The result is JSON information about deleting Production Operations.

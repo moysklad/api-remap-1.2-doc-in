@@ -374,21 +374,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta":{
-             "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/fe8188dc-2034-11ec-9621-0242ac130002",
-             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-             "type":"sales channel",
-             "mediaType":"application/json"
-           }
-         },
-         {
-           "meta":{"href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/0657ff6e-2035-11ec-9621-0242ac130002",
-             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-             "type":"sales channel",
-             "mediaType":"application/json"
-           }
-       ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/fe8188dc-2034-11ec-9621-0242ac130002",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+                  "type": "sales channel",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/0657ff6e-2035-11ec-9621-0242ac130002",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+                  "type": "sales channel",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. The result is JSON information about deleting Sales Channels.

@@ -200,25 +200,25 @@ Updated Employees must contain the identifier in the form of metadata.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d' [
-              {
-                  "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                      "type": "employee",
-                      "mediaType": "application/json"
-                  },
-                  "firstName": "Peter",
-                  "middleName": "Ivanovich",
-                  "lastName": "Moyskladkin",
-                  "inn": "222490425273",
-                  "position": "Director"
-              },
-              {
-                  "firstName": "Ivan",
-                  "middleName": "Petrovich",
-                  "lastName": "Moyskladkin"
-              }
-          ]'
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                    "type": "employee",
+                    "mediaType": "application/json"
+                },
+                "firstName": "Peter",
+                "middleName": "Ivanovich",
+                "lastName": "Moyskladkin",
+                "inn": "222490425273",
+                "position": "Director"
+            },
+            {
+                "firstName": "Ivan",
+                "middleName": "Petrovich",
+                "lastName": "Moyskladkin"
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -338,19 +338,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-            "type": "employee",
-            "mediaType": "application/json"
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "type": "employee",
+                "mediaType": "application/json"
+            }
         },
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-            "type": "employee",
-            "mediaType": "application/json"
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "type": "employee",
+                "mediaType": "application/json"
+            }
         }
-      ]'
+    ]'
 ```
 
 > Successful request. The result is JSON information about the removal of Employees.
@@ -1416,7 +1420,7 @@ If the tariff does not allow changing permissions and the transferred or previou
              "authorizedHosts": [
                  "20.20.15.5"
              ],
-             role: {
+             "role": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
                      "type": "system role",

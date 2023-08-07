@@ -715,31 +715,31 @@ Successful request. The result is a JSON representation of the created legal ent
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-   "name": "JSC SvetProm",
-   "description": "New legal entity",
-   "code": "666",
-   archived: false
-   "trackingContractNumber": "12345678",
-   "trackingContractDate": "2007-02-07 00:00:00",
-   "legalTitle": "Great Light Prom LLC",
-   "inn": "87654321",
-   "kpp": "15312532",
-   "ogrn": "12345",
-   "okpo": "12345",
-   "email": "svetprom@mail.svet",
-   "phone": "22222222",
-   "fax": "bello123",
-   "attributes": [
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-         "type": "attributemetadata",
-         "mediaType": "application/json"
-       },
-       "value": "String value"
-     }
-   ]
-}'
+             "name": "JSC SvetProm",
+             "description": "New legal entity",
+             "code": "666",
+             archived: false
+             "trackingContractNumber": "12345678",
+             "trackingContractDate": "2007-02-07 00:00:00",
+             "legalTitle": "Great Light Prom LLC",
+             "inn": "87654321",
+             "kpp": "15312532",
+             "ogrn": "12345",
+             "okpo": "12345",
+             "email": "svetprom@mail.svet",
+             "phone": "22222222",
+             "fax": "bello123",
+             "attributes": [
+               {
+                 "meta": {
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "type": "attributemetadata",
+                   "mediaType": "application/json"
+                 },
+                 "value": "String value"
+               }
+             ]
+          }'
 ```
 
 > Response 200(application/json)
@@ -880,60 +880,60 @@ Updated legal entities must contain the identifier in the form of metadata.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
-   {
-     "name": "JSC SvetProm",
-     "description": "legal entity making small profits",
-     "code": "666",
-     "externalCode": "666AAAA666",
-     "archived": false,
-     "trackingContractNumber": "12345678",
-     "trackingContractDate": "2007-02-07 00:00:00",
-     "legalTitle": "Great Light Prom LLC",
-     "legalAddress": "Moscow, Lenin street, 42/685",
-     "actualAddress": "Perm Stalin street 75",
-     "inn": "87654321",
-     "kpp": "15312532",
-     "ogrn": "12345",
-     "okpo": "12345",
-     "email": "svetprom@mail.svet",
-     "phone": "22222222",
-     "fax": "bello123",
-     "isEgaisEnable": true,
-     "fsrarId": "1963703",
-     "payerVat": true,
-     "utmUrl": "10.250.110.81",
-     "director": "Kipelova Alexandra",
-     "chiefAccountant": "Podkupnikov Ivan"
-   },
-   {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-       "type": "organization",
-       "mediaType": "application/json"
-     },
-     "name": "JSC SvetProm",
-     "description": "legal entity making small profits",
-     "code": "666",
-     "externalCode": "666AAAA666",
-     archived: false
-     "trackingContractNumber": "12345678",
-     "trackingContractDate": "2007-02-07 00:00:00",
-     "legalTitle": "Great Light Prom LLC",
-     "legalAddress": "Moscow, Lenin street, 42/685",
-     "actualAddress": "Ufa, Mayakovskogo str. 65",
-     "inn": "87654321",
-     "kpp": "15312532",
-     "ogrn": "12345",
-     "okpo": "12345",
-     "email": "svetprom@mail.svet",
-     "phone": "22222222",
-     "fax": "bello123",
-     "payerVat": false
-     "director": "Vzdryzhzhenov Ivan Valerievich",
-     "chiefAccountant": "Kulumbekova Vasilisa Iismailovna"
-   }
-]'
+            {
+                "name": "JSC SvetProm",
+                "description": "legal entity making small profits",
+                "code": "666",
+                "externalCode": "666AAAA666",
+                "archived": false,
+                "trackingContractNumber": "12345678",
+                "trackingContractDate": "2007-02-07 00:00:00",
+                "legalTitle": "Great Light Prom LLC",
+                "legalAddress": "Moscow, Lenin street, 42/685",
+                "actualAddress": "Perm Stalin street 75",
+                "inn": "87654321",
+                "kpp": "15312532",
+                "ogrn": "12345",
+                "okpo": "12345",
+                "email": "svetprom@mail.svet",
+                "phone": "22222222",
+                "fax": "bello123",
+                "isEgaisEnable": true,
+                "fsrarId": "1963703",
+                "payerVat": true,
+                "utmUrl": "10.250.110.81",
+                "director": "Kipelova Alexandra",
+                "chiefAccountant": "Podkupnikov Ivan"
+            },
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "type": "organization",
+                    "mediaType": "application/json"
+                },
+                "name": "JSC SvetProm",
+                "description": "legal entity making small profits",
+                "code": "666",
+                "externalCode": "666AAAA666",
+                "archived": false,
+                "trackingContractNumber": "12345678",
+                "trackingContractDate": "2007-02-07 00:00:00",
+                "legalTitle": "Great Light Prom LLC",
+                "legalAddress": "Moscow, Lenin street, 42/685",
+                "actualAddress": "Ufa, Mayakovskogo str. 65",
+                "inn": "87654321",
+                "kpp": "15312532",
+                "ogrn": "12345",
+                "okpo": "12345",
+                "email": "svetprom@mail.svet",
+                "phone": "22222222",
+                "fax": "bello123",
+                "payerVat": false,
+                "director": "Vzdryzhzhenov Ivan Valerievich",
+                "chiefAccountant": "Kulumbekova Vasilisa Iismailovna"
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -1094,19 +1094,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d' [
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b1",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "type": "organization",
+                    "mediaType": "application/json"
+                }
             },
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json"
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b2",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "type": "organization",
+                    "mediaType": "application/json"
+                }
             }
-      ]'
+        ]'
 ```
 
 > Successful request. The result is JSON information about deleting Organizations.
@@ -1448,7 +1452,7 @@ Request to update the legal entity with the specified ID.
            "description": "legal entity making small profits",
            "code": "666",
            "externalCode": "666AAAA666",
-           archived: false
+           "archived": false,
            "trackingContractNumber": "12345678",
            "trackingContractDate": "2007-02-07 00:00:00",
            "legalTitle": "Great Light Prom LLC",

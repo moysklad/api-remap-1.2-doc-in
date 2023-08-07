@@ -145,9 +145,9 @@ In the `content` field, you need to specify an image encoded in Base64, in the `
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d '{
-   "filename": "birdimageNew.png",
-   "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAAAEHRFWHRTb2Z0d2FyZQBTaHV0dGVyY4LQCQAAAAxJREFUCNdj+PePAQAE+gH90KA5ZAAAAABJRU5ErkJggg=="
-}'
+             "filename": "birdimageNew.png",
+             "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAAAEHRFWHRTb2Z0d2FyZQBTaHV0dGVyY4LQCQAAAAxJREFUCNdj+PePAQAE+gH90KA5ZAAAAABJRU5ErkJggg=="
+          }'
 ```
 
 > Response 200(application/json)
@@ -224,19 +224,19 @@ curl -X POST
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d'[
-   {
-     "meta":{
-       "href":"https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
-       "type":"image",
-       "mediaType":"application/json",
-       "downloadHref":"https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
-     }
-   },
-   {
-     "filename":"birdimageNew.png",
-     content
-   }
-]'
+           {
+             "meta":{
+               "href":"https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+               "type":"image",
+               "mediaType":"application/json",
+               "downloadHref":"https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+             }
+           },
+           {
+             "filename":"birdimageNew.png",
+             "content": ""
+           }
+        ]'
 ```
 
 > Response 200(application/json)
