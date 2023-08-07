@@ -62,8 +62,8 @@ curl -X GET
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -74,7 +74,7 @@ curl -X GET
    "updated": "2020-06-18 00:38:14.083",
    "name": "LLC \"Supplier\"",
    "externalCode": "nv4UeR5dhAStZ4X-5-ojn2",
-   archived: false
+   "archived": false,
    "created": "2020-06-18 00:38:14.083",
    "companyType": "legal",
    "legalTitle": "Limited Liability Company \"Supplier\"",
@@ -89,9 +89,9 @@ curl -X GET
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/accounts",
        "type": "account",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "tags": [],
@@ -100,22 +100,22 @@ curl -X GET
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/contactpersons",
        "type": "contactperson",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   notes: {
+   "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073/notes",
        "type": "note",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
-   salesAmount: 0.0
+   "salesAmount": 0.0
 }
 ```
 
@@ -125,13 +125,15 @@ First, the object itself is described, indicating the type of object, links in t
 > Developer metadata
 
 ```json
-   "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type": "counter party",
-     "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
-   }
+{
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+    "type": "counter party",
+    "mediaType": "application/json",
+    "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
+  }
+}
 ```
 
 Links to the employee who created the account and the employee's department are specified in the `owner` and `group` fields, and also contain the `meta` fields.
@@ -139,23 +141,25 @@ Links to the employee who created the account and the employee's department are 
 > Metadata of an employee and his department
 
 ```json
-   "owner": {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-       "type": "employee",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
-     }
-   },
-   group: {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-       "type": "group",
-       "mediaType": "application/json"
-     }
-   }
+{
+  "owner": {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/d8ed648c-b0e2-11ea-ac12-000d00000034",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+    }
+  },
+  "group": {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  }
+}
 ```
 
 Obviously, the `href` and `uuidHref` fields contain the url to access the objects and can be used to make a request.
@@ -192,8 +196,8 @@ curl -X GET
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -204,7 +208,7 @@ curl -X GET
    "updated": "2020-06-18 00:38:13.655",
    "name": "123",
    "externalCode": "bCdnwOjliLRTxAp8277Xm1",
-   archived: false
+   "archived": false,
    "created": "2020-06-18 00:38:13.655",
    "uid": "admin@123",
    "email": "123@123.ru",
@@ -231,12 +235,14 @@ Similarly, for the value from the `uuidHref` field, you can open the object in t
 > Get product metadata
 
 ```json
-"meta":{
-    "href":"https://app.kladana.in/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021",
-    "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-    "type":"product",
-    "mediaType":"application/json",
-    "uuidHref":"https://app.kladana.in/app/#good/edit?id=3b335997-d10a-11e8-ac12-000b0000001f"
+{
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+    "type": "product",
+    "mediaType": "application/json",
+    "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b335997-d10a-11e8-ac12-000b0000001f"
+  }
 }
 ```
 Execute a request to create a bundle, specifying the product in the components.
@@ -273,7 +279,7 @@ In response, we will receive a new set that contains the specified product
 > Result
 
 ```json
-
+{
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
@@ -292,8 +298,8 @@ In response, we will receive a new set that contains the specified product
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -305,21 +311,21 @@ In response, we will receive a new set that contains the specified product
    "name": "Pencil set",
    "code": "00002",
    "externalCode": "V1kq3O3YhBcImmYCE7jxf3",
-   archived: false
+   "archived": false,
    "pathName": "",
    "images": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 0.0
-     currency: {
+     "value": 0.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -331,8 +337,8 @@ In response, we will receive a new set that contains the specified product
    },
    "salePrices": [
      {
-       value: 0.0
-       currency: {
+       "value": 0.0,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -360,17 +366,17 @@ In response, we will receive a new set that contains the specified product
    ],
    "paymentItemType": "GOOD",
    "discountProhibited": false,
-   weight: 0.0
-   volume: 0.0
+   "weight": 0.0,
+   "volume": 0.0,
    "trackingType": "NOT_TRACKED",
-   components: {
+   "components": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/e5da18eb-b152-11ea-ac12-000c00000002/components",
        "type": "bundlecomponent",
        "mediaType": "application/json",
-       size: 1
-       limit: 1000
-       offset: 0
+       "size": 1,
+       "limit": 1000,
+       "offset": 0
      }
    }
 }
@@ -422,8 +428,8 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/d867701a-b0e2-11ea-ac12-000c00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -435,21 +441,21 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
    "name": "wonder product",
    "code": "00001",
    "externalCode": "XwJmEyYOhI-Gx9HOtBxih2",
-   archived: false
+   "archived": false,
    "pathName": "",
    "images": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002/images",
        "type": "image",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "minprice": {
-     value: 0.0
-     currency: {
+     "value": 0.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -461,8 +467,8 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
    },
    "salePrices": [
      {
-       value: 0.0
-       currency: {
+       "value": 0.0,
+       "currency": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -484,8 +490,8 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
      }
    ],
    "buyprice": {
-     value: 0.0
-     currency: {
+     "value": 0.0,
+     "currency": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/d92fb826-b0e2-11ea-ac12-000d00000077",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -680,7 +686,7 @@ curl -X GET
              "entityType": "variant",
              "url": "https://webhook-convert.ru/ms2s/T053UB0V8/B7WHWQTFF/yiTBjO5xoeuv6pXJOH1TLeBe",
              "method": "POST",
-             "enabled": false
+             "enabled": false,
              "action": "UPDATE"
          }
      ]
@@ -719,9 +725,9 @@ curl -X GET
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes",
        "type": "attributemetadata",
        "mediaType": "application/json",
-       size: 0
-       limit: 1000
-       offset: 0
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
      }
    },
    "states": [

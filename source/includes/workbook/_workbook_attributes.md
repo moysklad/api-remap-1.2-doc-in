@@ -29,11 +29,11 @@ curl
      "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
      "type": "attributemetadata",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
@@ -89,7 +89,7 @@ curl
      "https://app.kladana.in/api/remap/1.2/entity/product"
      -d '{
          "name": "Notebook",
-         vat: 18
+         "vat": 18,
          "effectiveVat": 18,
          "uom": {
            "meta": {
@@ -109,8 +109,8 @@ curl
          },
          "salePrices": [
            {
-             "value": 100000.0
-             currency: {
+             "value": 100000.0,
+             "currency": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                  "type": "currency"
@@ -125,7 +125,7 @@ curl
                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
                  "type": "attributemetadata"
                },
-               value: 9.6
+               "value": 9.6
              },
              {
                "meta": {
@@ -161,7 +161,7 @@ curl
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
          "type": "attributemetadata"
        },
-       value: 10.6
+       "value": 10.6
      },
      {
        "meta": {
@@ -423,8 +423,8 @@ curl
              "uuidHref": "https://app.kladana.in/app/#employee/edit?id=5a929317-d047-11e8-ac12-000b0000002e"
          }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/group/5a05b13e-d047-11e8-ac12-000900000001",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -432,11 +432,11 @@ curl
              "mediaType": "application/json"
          }
      },
-     version: 0
+     "version": 0,
      "updated": "2018-10-19 12:57:13.000",
      "name": "OOO Vostok",
      "externalCode": "fN3pbKAWhwfAOiz3MFMsA0",
-     archived: false
+     "archived": false,
      "created": "2018-10-19 12:57:13.000",
      "companyType": "legal",
      "attributes": [
@@ -486,9 +486,9 @@ curl
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000/accounts",
              "type": "account",
              "mediaType": "application/json",
-             size: 0
-             limit: 100
-             offset: 0
+             "size": 0,
+             "limit": 100,
+             "offset": 0
          }
      },
      "tags": [],
@@ -497,22 +497,22 @@ curl
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000/contactpersons",
              "type": "contactperson",
              "mediaType": "application/json",
-             size: 0
-             limit: 100
-             offset: 0
+             "size": 0,
+             "limit": 100,
+             "offset": 0
          }
      },
-     notes: {
+     "notes": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000/notes",
              "type": "note",
              "mediaType": "application/json",
-             size: 0
-             limit: 100
-             offset: 0
+             "size": 0,
+             "limit": 100,
+             "offset": 0
          }
      },
-     state: {
+     "state": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/5b77c63b-d047-11e8-ac12-000b0000006b",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -520,7 +520,7 @@ curl
              "mediaType": "application/json"
          }
      },
-     salesAmount: 0
+     "salesAmount": 0
 }
 ```
 ### Filtering by the value of the additional field

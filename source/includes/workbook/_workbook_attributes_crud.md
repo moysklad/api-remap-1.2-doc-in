@@ -218,48 +218,51 @@ curl
 
 
 ```json
-     "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
-         "type": "attributemetadata",
-         "mediaType": "application/json",
-         size: 3
-         limit: 1000
-         offset: 0},
-     rows: [
-         {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-             "type": "attributemetadata",
-             "mediaType": "application/json"
-         },
-         "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
-         "name": "Hull material (add-on)",
-         "type": "string",
-         "required": false
-     },
-     {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
-             "type": "attributemetadata",
-             "mediaType": "application/json"
-         },
-         "id": "33b2fe47-b465-11e9-7ae5-884b0001562f",
-         "name": "CD-Rom available",
-         "type": "boolean",
-         "required": false
-     },
+{
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
+    "type": "attributemetadata",
+    "mediaType": "application/json",
+    "size": 3,
+    "limit": 1000,
+    "offset": 0
+  },
+  "rows": [
     {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
-             "type": "attributemetadata",
-             "mediaType": "application/json"
-         },
-         "id": "33b30b2e-b465-11e9-7ae5-884b00015630",
-         "name": "Presence of type-C connector",
-         "type": "boolean",
-         "required": false
-     }
-     ]
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+        "type": "attributemetadata",
+        "mediaType": "application/json"
+      },
+      "id": "acd884ce-b44f-11e9-7ae5-884b00009002",
+      "name": "Hull material (add-on)",
+      "type": "string",
+      "required": false
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f",
+        "type": "attributemetadata",
+        "mediaType": "application/json"
+      },
+      "id": "33b2fe47-b465-11e9-7ae5-884b0001562f",
+      "name": "CD-Rom available",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
+        "type": "attributemetadata",
+        "mediaType": "application/json"
+      },
+      "id": "33b30b2e-b465-11e9-7ae5-884b00015630",
+      "name": "Presence of type-C connector",
+      "type": "boolean",
+      "required": false
+    }
+  ]
+}
 
 ```
 
@@ -371,7 +374,8 @@ curl -X POST
              "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
              "type": "attributemetadata",
              "mediaType": "application/json"
-           }}
+           }
+           }
        ]'
 ```
 

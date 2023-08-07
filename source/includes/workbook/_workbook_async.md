@@ -121,7 +121,7 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -135,11 +135,11 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
      "href": "https://app.kladana.in/api/remap/1.2/async?filter=state=done;deletionDate%3C2021-02-16%2016:21:09",
      "type": "async",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/async/baade4ee-a1d0-11eb-ac12-000b00000000",
@@ -216,7 +216,7 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
@@ -227,9 +227,9 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
      "href": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
      "type": "stockbystore",
      "mediaType": "application/json",
-     size: 2135
+     "size": 2135
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
@@ -247,7 +247,7 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
            },
            "name": "Not the main warehouse",
            "stock": -30,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -258,8 +258,8 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
              "mediaType": "application/json"
            },
            "name": "Main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -281,8 +281,8 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -294,7 +294,7 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
            },
            "name": "Main warehouse",
            "stock": 4,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -336,7 +336,7 @@ Response 403 Forbidden
      "errors": [
          {
              "error": "Access Denied: You do not have permission to view this object",
-             code: 1016
+             "code": 1016
          }
      ]
 }

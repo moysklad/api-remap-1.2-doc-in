@@ -69,10 +69,10 @@ curl -X POST
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "url": "http://www.example.com",
-   "action": "CREATE",
-   "entityType": "service"
-}'
+           "url": "http://www.example.com",
+           "action": "CREATE",
+           "entityType": "service"
+        }'
 ```
 
 The response should be json containing a description of the webhook
@@ -92,7 +92,7 @@ The response should be json containing a description of the webhook
      "entityType": "service",
      "url": "http://www.example.com",
      "method": "POST",
-     "enabled": true
+     "enabled": true,
      "action": "CREATE"
 }
 ```
@@ -120,8 +120,8 @@ curl -X PUT
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "action": "UPDATE"
-}'
+           "action": "UPDATE"
+        }'
 ```
 
 > Sample request with webhook disabled.
@@ -132,8 +132,8 @@ curl -X PUT
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "enabled": false
-}'
+           "enabled": false
+        }'
 ```
 
 > Deleting a webhook is done in the same way, but only using the DELETE method.
@@ -189,7 +189,7 @@ curl -X GET
           "entityType":"service",
           "url":"http://www.example.com",
           "method":"POST",
-          "enabled":true
+          "enabled":true,
           "action":"CREATE"
        }
     ]

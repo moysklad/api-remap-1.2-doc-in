@@ -52,8 +52,8 @@ For example, you need to create a Product with multiple images. It can be done i
         "mediaType": "application/json"
       }
     },
-    shared: true
-    group: {
+    "shared": true,
+    "group": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -65,21 +65,21 @@ For example, you need to create a Product with multiple images. It can be done i
     "name": "simplegood",
     "code": "00006",
     "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-    archived: false
+    "archived": false,
     "pathName": "",
     "images": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
         "type": "image",
         "mediaType": "application/json",
-        size: 2
-        limit: 1000
-        offset: 0
+        "size": 2,
+        "limit": 1000,
+        "offset": 0
       }
     },
     "minprice": {
-      value: 500.0
-      currency: {
+      "value": 500.0,
+      "currency": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -90,7 +90,7 @@ For example, you need to create a Product with multiple images. It can be done i
     },
     "salePrices": [
       {
-        value: 0.0
+        "value": 0.0,
         "priceType": {
           "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -104,17 +104,17 @@ For example, you need to create a Product with multiple images. It can be done i
       }
     ],
     "buyprice": {
-      value: 0.0
+      "value": 0.0
     },
-    weight: 0
-    volume: 0
+    "weight": 0,
+    "volume": 0,
     "barcodes": [
       {
         "ean13": "2000000000107"
       }
     ],
     "variantsCount": 0,
-    "isSerialTrackable": false
+    "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
   ```
@@ -152,8 +152,8 @@ curl -X GET
         "mediaType": "application/json"
       }
     },
-    shared: true
-    group: {
+    "shared": true,
+    "group": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -165,18 +165,18 @@ curl -X GET
     "name": "simplegood",
     "code": "00006",
     "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-    archived: false
+    "archived": false,
     "pathName": "",
     "images": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
         "type": "image",
         "mediaType": "application/json",
-        size: 2
-        limit: 1000
-        offset: 0
+        "size": 2,
+        "limit": 1000,
+        "offset": 0
       },
-      rows: [
+      "rows": [
         {
           "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
@@ -186,7 +186,7 @@ curl -X GET
           },
           "title": "bird image",
           "filename": "birdimage.png",
-          size: 14052
+          "size": 14052,
           "updated": "2019-01-24 16:55:24.567",
           "miniature": {
             "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
@@ -209,7 +209,7 @@ curl -X GET
           },
           "title": "birdimage1",
           "filename": "birdimage1.png",
-          size: 14052
+          "size": 14052,
           "updated": "2019-01-24 16:55:25.047",
           "miniature": {
             "href": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
@@ -226,8 +226,8 @@ curl -X GET
       ]
     },
     "minprice": {
-      value: 500.0
-      currency: {
+      "value": 500.0,
+      "currency": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -238,7 +238,7 @@ curl -X GET
     },
     "salePrices": [
       {
-        value: 0.0
+        "value": 0.0,
         "priceType": {
           "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -252,17 +252,17 @@ curl -X GET
       }
     ],
     "buyprice": {
-      value: 0.0
+      "value": 0.0
     },
-    weight: 0
-    volume: 0
+    "weight": 0,
+    "volume": 0,
     "barcodes": [
       {
         "ean13": "2000000000107"
       }
     ],
     "variantsCount": 0,
-    "isSerialTrackable": false
+    "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
   ```
@@ -329,7 +329,7 @@ To do this, you can use the endpoint for working with product images.
     },
     "title": "birdimage1",
     "filename": "birdimage1.png",
-    size: 14052
+    "size": 14052,
     "updated": "2019-01-24 16:55:25.047",
     "miniature": {
       "href": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
