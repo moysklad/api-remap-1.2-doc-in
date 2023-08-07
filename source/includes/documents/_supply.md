@@ -2787,28 +2787,28 @@ will be added to the existing ones.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "quantity": 44,
-             "price": 700.0,
-             "discount": 23,
-             "vat": 10,
-             "assortment": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a7daa6b-3c64-11e6-8a84-bae50000000a",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                 "type": "variant",
-                 "mediaType": "application/json"
-               }
-             },
-             "country": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                 "type": "country",
-                 "mediaType": "application/json"
-               }
-             },
-             "overhead": 300
-           }'
+              "quantity": 44,
+              "price": 700.0,
+              "discount": 23,
+              "vat": 10,
+              "assortment": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a7daa6b-3c64-11e6-8a84-bae50000000a",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                      "type": "variant",
+                      "mediaType": "application/json"
+                  }
+              },
+              "country": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                      "type": "country",
+                      "mediaType": "application/json"
+                  }
+              },
+              "overhead": 300
+          }'
 ```
 
 > Response 200(application/json)
@@ -2859,57 +2859,58 @@ Successful request. The result is a JSON representation of the created single Re
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
-             {
-               "quantity": 44,
-               "price": 700.0,
-               "discount": 23,
-               "vat": 10,
-               "assortment": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a7daa6b-3c64-11e6-8a84-bae50000000a",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                   "type": "variant",
-                   "mediaType": "application/json"
-                 }
-               },
-               "country": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                   "type": "country",
-                   "mediaType": "application/json"
-                 }
-               },
-               "overhead": 300
-             },
-             {
-               "quantity": 3,
-               "price": 3500.0,
-               "discount": 0,
-               "vat": 7,
-               "assortment": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                   "type": "variant",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             {
-               "quantity": 21,
-               "price": 2300.0,
-               "discount": 0,
-               "vat": 21,
-               "assortment": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
-                   "type": "variant","mediaType": "application/json"
-                 }
-               }
-             }
-           ]'
+            {
+                "quantity": 44,
+                "price": 700.0,
+                "discount": 23,
+                "vat": 10,
+                "assortment": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a7daa6b-3c64-11e6-8a84-bae50000000a",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                        "type": "variant",
+                        "mediaType": "application/json"
+                    }
+                },
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "overhead": 300
+            },
+            {
+                "quantity": 3,
+                "price": 3500.0,
+                "discount": 0,
+                "vat": 7,
+                "assortment": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                        "type": "variant",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            {
+                "quantity": 21,
+                "price": 2300.0,
+                "discount": 0,
+                "vat": 21,
+                "assortment": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                        "type": "variant",
+                        "mediaType": "application/json"
+                    }
+                }
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -3007,56 +3008,56 @@ curl --location --request POST 'https://app.kladana.in/api/remap/1.2/entity/supp
 --header 'Authorization: Basic <Credentials>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "quantity":10.0,
-    "price":11100.0,
-    "discount":0.0,
-    "vat":0,
-    "assortment":{
-       "meta":{
-          "href":"https://app.kladana.in/api/remap/1.2/entity/product/aa1b1814-8493-11ea-0a80-037a00000307",
-          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-          "type":"product",
-          "mediaType":"application/json",
-          "uuidHref":"https://app.kladana.in/app/#good/edit?id=aa1b0d42-8493-11ea-0a80-037a00000305"
-       }
-    },
-    "tracking codes":[
-       {
-          "cis":"012345678912345671",
-          "type":"transportpack"
-       },
-       {
-          "cis":"012345678912345678",
-          "type":"transportpack",
-          "tracking codes":[
-             {
-                "cis":"010463003759026521uHpIIf-111114",
-                "type":"tracking code"
-             },
-             {
-                "cis":"010463003759026521uHpIIf-nXIH>4",
-                "type":"tracking code"
-             },
-             {
-                "cis":"010463003759026521uHpIIf-nXIH>0",
-                "type":"tracking code"
-             }
-          ]
-       },
-       {
-          "cis":"010463003759026521uHpIIf-nXIH>1",
-          "type":"tracking code"
-       },
-       {
-          "cis":"010463003759026521uHpIIf-nXIH>2",
-          "type":"tracking code"
-       },
-       {
-          "cis":"010463003759026521uHpIIf-111122",
-          "type":"tracking code"
-       }
-    ]
-}'
+                "quantity":10.0,
+                "price":11100.0,
+                "discount":0.0,
+                "vat":0,
+                "assortment":{
+                   "meta":{
+                      "href":"https://app.kladana.in/api/remap/1.2/entity/product/aa1b1814-8493-11ea-0a80-037a00000307",
+                      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                      "type":"product",
+                      "mediaType":"application/json",
+                      "uuidHref":"https://app.kladana.in/app/#good/edit?id=aa1b0d42-8493-11ea-0a80-037a00000305"
+                   }
+                },
+                "tracking codes":[
+                   {
+                      "cis":"012345678912345671",
+                      "type":"transportpack"
+                   },
+                   {
+                      "cis":"012345678912345678",
+                      "type":"transportpack",
+                      "tracking codes":[
+                         {
+                            "cis":"010463003759026521uHpIIf-111114",
+                            "type":"tracking code"
+                         },
+                         {
+                            "cis":"010463003759026521uHpIIf-nXIH>4",
+                            "type":"tracking code"
+                         },
+                         {
+                            "cis":"010463003759026521uHpIIf-nXIH>0",
+                            "type":"tracking code"
+                         }
+                      ]
+                   },
+                   {
+                      "cis":"010463003759026521uHpIIf-nXIH>1",
+                      "type":"tracking code"
+                   },
+                   {
+                      "cis":"010463003759026521uHpIIf-nXIH>2",
+                      "type":"tracking code"
+                   },
+                   {
+                      "cis":"010463003759026521uHpIIf-111122",
+                      "type":"tracking code"
+                   }
+                ]
+            }'
 ```
 
 > Response 200(application/json)

@@ -1134,113 +1134,113 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d '{
-    "name": "Vegetable Express LLC",
-    "description": "Vegetable Delivery Network",
-    "code": "ovoshexpressCode",
-    "externalCode": "extVagetable",
-    "email": "ovosh@delivery.ru",
-    "phone": "+7 495 662 12 23",
-    "fax": "1052034",
-    "legalTitle": "Limited Liability Company \"Vegetable Express\"",
-    "legalAddressFull": {
-        "postalCode": "125009",
-        "country": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                "type": "country",
-                "mediaType": "application/json"
-            }
-        },
-        "region": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-                "type": "region",
-                "mediaType": "application/json"
-            }
-        },
-        "city": "Moscow",
-        "street": "Tverskaya street",
-        "house": "1",
-        "apartment": "123",
-        "addinfo": "addinfo",
-        "comment": "some words about address"
-    },
-    "actualAddressFull": {
-        "postalCode": "125009",
-        "country": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                "type": "country",
-                "mediaType": "application/json"
-            }
-        },
-        "region": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-                "type": "region",
-                "mediaType": "application/json"
-            }
-        },
-        "city": "Moscow",
-        "street": "Tverskaya street",
-        "house": "1",
-        "apartment": "111",
-        "addinfo": "addinfo",
-        "comment": "some words about address"
-    },
-    "inn": "1251521244152",
-    "kpp": "121555212",
-    "ogrn": "1251552",
-    "okpo": "201323",
-    "tags": [
-        "Vegetables",
-        "Food",
-        "Delivery"
-    ],
-    "attributes": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "AttributeName1",
-            "type": "double",
-            "value": 0.75
-        },
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "AttributeName2",
-            "type": "time",
-            "value": "2016-06-07 12:52:33"
-        },
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "AttributeName3",
-            "type": "boolean",
-            "value": false
-        }
-    ],
-    "state": {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
-            "type": "state",
-            "mediaType": "application/json"
-        }
-    }
-}'
+          "name": "Vegetable Express LLC",
+          "description": "Vegetable Delivery Network",
+          "code": "ovoshexpressCode",
+          "externalCode": "extVagetable",
+          "email": "ovosh@delivery.ru",
+          "phone": "+7 495 662 12 23",
+          "fax": "1052034",
+          "legalTitle": "Limited Liability Company \"Vegetable Express\"",
+          "legalAddressFull": {
+              "postalCode": "125009",
+              "country": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                      "type": "country",
+                      "mediaType": "application/json"
+                  }
+              },
+              "region": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                      "type": "region",
+                      "mediaType": "application/json"
+                  }
+              },
+              "city": "Moscow",
+              "street": "Tverskaya street",
+              "house": "1",
+              "apartment": "123",
+              "addinfo": "addinfo",
+              "comment": "some words about address"
+          },
+          "actualAddressFull": {
+              "postalCode": "125009",
+              "country": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                      "type": "country",
+                      "mediaType": "application/json"
+                  }
+              },
+              "region": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                      "type": "region",
+                      "mediaType": "application/json"
+                  }
+              },
+              "city": "Moscow",
+              "street": "Tverskaya street",
+              "house": "1",
+              "apartment": "111",
+              "addinfo": "addinfo",
+              "comment": "some words about address"
+          },
+          "inn": "1251521244152",
+          "kpp": "121555212",
+          "ogrn": "1251552",
+          "okpo": "201323",
+          "tags": [
+              "Vegetables",
+              "Food",
+              "Delivery"
+          ],
+          "attributes": [
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
+                      "type": "attributemetadata",
+                      "mediaType": "application/json"
+                  },
+                  "name": "AttributeName1",
+                  "type": "double",
+                  "value": 0.75
+              },
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
+                      "type": "attributemetadata",
+                      "mediaType": "application/json"
+                  },
+                  "name": "AttributeName2",
+                  "type": "time",
+                  "value": "2016-06-07 12:52:33"
+              },
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
+                      "type": "attributemetadata",
+                      "mediaType": "application/json"
+                  },
+                  "name": "AttributeName3",
+                  "type": "boolean",
+                  "value": false
+              }
+          ],
+          "state": {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                  "type": "state",
+                  "mediaType": "application/json"
+              }
+          }
+      }'
 ```
 
 > Response 200. Successful request. The result is a JSON representation of the created Counterparty.
@@ -1429,71 +1429,71 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-    {
-        "name": "OOO Rainbow",
-        "description": "Building materials chain Raduga EXPO",
-        "code": "rainbowCode",
-        "externalCode": "extRainbw",
-        "email": "raduga@stroi.ru",
-        "phone": "+7 495 331 22 33",
-        "fax": "1257752",
-        "actualAddress": "Moscow, Academician Mil street, 15/21",
-        "legalTitle": "Limited Liability Company \"Rainbow\"",
-        "legalAddress": "Moscow, Aviastroiteley street 93/12",
-        "inn": "125152124152",
-        "kpp": "12155521",
-        "ogrn": "1251512",
-        "okpo": "201355",
-        "tags": [
-            "Builders",
-            "Rainbow",
-            "Repair"
-        ],
-        "state": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
-                "type": "state",
-                "mediaType": "application/json"
+        {
+            "name": "OOO Rainbow",
+            "description": "Building materials chain Raduga EXPO",
+            "code": "rainbowCode",
+            "externalCode": "extRainbw",
+            "email": "raduga@stroi.ru",
+            "phone": "+7 495 331 22 33",
+            "fax": "1257752",
+            "actualAddress": "Moscow, Academician Mil street, 15/21",
+            "legalTitle": "Limited Liability Company \"Rainbow\"",
+            "legalAddress": "Moscow, Aviastroiteley street 93/12",
+            "inn": "125152124152",
+            "kpp": "12155521",
+            "ogrn": "1251512",
+            "okpo": "201355",
+            "tags": [
+                "Builders",
+                "Rainbow",
+                "Repair"
+            ],
+            "state": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                    "type": "state",
+                    "mediaType": "application/json"
+                }
+            },
+            "priceType": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                    "type": "pricetype",
+                    "mediaType": "application/json"
+                }
             }
         },
-        "priceType": {
+        {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                "type": "pricetype",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                "type": "counter party",
                 "mediaType": "application/json"
-            }
+            },
+            "name": "Raduga EXPO LLC",
+            "description": "Network of building materials markets Raduga EXPO",
+            "code": "rainbow",
+            "externalCode": "extRainbow",
+            "email": "raduga@retail.ru",
+            "phone": "+7 495 162 32 23",
+            "fax": "1052054",
+            "actualAddress": "Moscow, Stroiteley st. 331",
+            "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
+            "legalAddress": "Moscow, Chernorabochego street 93/12",
+            "inn": "1251581244152",
+            "kpp": "121557212",
+            "ogrn": "1253552",
+            "okpo": "201313",
+            "tags": [
+                "Builders",
+                "Repair",
+                "Rainbow",
+                "Concrete",
+                "BURN"
+            ]
         }
-    },
-    {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-            "type": "counter party",
-            "mediaType": "application/json"
-        },
-        "name": "Raduga EXPO LLC",
-        "description": "Network of building materials markets Raduga EXPO",
-        "code": "rainbow",
-        "externalCode": "extRainbow",
-        "email": "raduga@retail.ru",
-        "phone": "+7 495 162 32 23",
-        "fax": "1052054",
-        "actualAddress": "Moscow, Stroiteley st. 331",
-        "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
-        "legalAddress": "Moscow, Chernorabochego street 93/12",
-        "inn": "1251581244152",
-        "kpp": "121557212",
-        "ogrn": "1253552",
-        "okpo": "201313",
-        "tags": [
-            "Builders",
-            "Repair",
-            "Rainbow",
-            "Concrete",
-            "BURN"
-        ]
-    }
-]'
+    ]'
 ```
 
 > Response 200. Successful request. The result is a JSON array of representations of created and updated Accounts.
@@ -2136,76 +2136,76 @@ curl -X PUT
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
      -d '{
-    "name": "Raduga EXPO LLC",
-    "description": "Network of building materials markets Raduga EXPO",
-    "code": "rainbow",
-    "externalCode": "extRainbow",
-    "email": "raduga@retail.ru",
-    "phone": "+7 495 162 32 23",
-    "fax": "1052054",
-    "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
-    "legalAddressFull": {
-        "postalCode": "125009",
-        "country": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                "type": "country",
-                "mediaType": "application/json"
-            }
-        },
-        "region": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-                "type": "region",
-                "mediaType": "application/json"
-            }
-        },
-        "city": "Moscow",
-        "street": "Tverskaya street",
-        "house": "1",
-        "apartment": "123",
-        "addinfo": "addinfo",
-        "comment": "some words about address"
-    },
-    "actualAddressFull": {
-        "postalCode": "125009",
-        "country": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-                "type": "country",
-                "mediaType": "application/json"
-            }
-        },
-        "region": {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-                "type": "region",
-                "mediaType": "application/json"
-            }
-        },
-        "city": "Moscow",
-        "street": "Tverskaya street",
-        "house": "1",
-        "apartment": "111",
-        "addinfo": "addinfo",
-        "comment": "some words about address"
-    },
-    "inn": "1251581244152",
-    "kpp": "121557212",
-    "ogrn": "1253552",
-    "okpo": "201313",
-    "tags": [
-        "Builders",
-        "Repair",
-        "Rainbow",
-        "Concrete",
-        "BURN"
-    ]
-}'
+            "name": "Raduga EXPO LLC",
+            "description": "Network of building materials markets Raduga EXPO",
+            "code": "rainbow",
+            "externalCode": "extRainbow",
+            "email": "raduga@retail.ru",
+            "phone": "+7 495 162 32 23",
+            "fax": "1052054",
+            "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
+            "legalAddressFull": {
+                "postalCode": "125009",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "city": "Moscow",
+                "street": "Tverskaya street",
+                "house": "1",
+                "apartment": "123",
+                "addinfo": "addinfo",
+                "comment": "some words about address"
+            },
+            "actualAddressFull": {
+                "postalCode": "125009",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "city": "Moscow",
+                "street": "Tverskaya street",
+                "house": "1",
+                "apartment": "111",
+                "addinfo": "addinfo",
+                "comment": "some words about address"
+            },
+            "inn": "1251581244152",
+            "kpp": "121557212",
+            "ogrn": "1253552",
+            "okpo": "201313",
+            "tags": [
+                "Builders",
+                "Repair",
+                "Rainbow",
+                "Concrete",
+                "BURN"
+            ]
+        }'
 ```
 
 > Response 200 (application/json) Successful update. The result is a JSON representation of the updated Contractor.
@@ -2351,86 +2351,85 @@ curl -X PUT
    "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
-     -d'
-{
-    "name": "Vegetable Express LLC",
-    "description": "Vegetable express delivery network",
-    "code": "ovoshexpresscode",
-    "externalCode": "externalVagetable",
-    "email": "ovoshi@delivery.ru",
-    "phone": "+7 495 162 12 23",
-    "fax": "1052014",
-    "legalTitle": "Limited Liability Company \"Vegetable Express\"",
-    "inn": "1251581244152",
-    "kpp": "121557212",
-    "ogrn": "1253552",
-    "okpo": "201313",
-    "tags": [
-        "Vegetables",
-        "Food",
-        "Delivery",
-        "Express",
-        "Edovozy"
-    ],
-    "contactpersons": [
-        {
-            "name": "Vasya",
-            "description": "Vegetable cutter Vasya",
-            "position": "Vegetable cutter"
-        },
-        {
-            "name": "Petya",
-            "position": "Vegetable carrier"
-        }
-    ],
-    "accounts": [
-        {
-            "isDefault": true,
-            "accountNumber": "12512568161257981",
-            "bankName": "JSC Sberbank",
-            "bankLocation": "Moscow, Vavilova 19",
-            "correspondentAccount": "375632785587",
-            "bic": "1234532"
-        },
-        {
-            "accountNumber": "12512568161257982",
-            "bankName": "VTB",
-            "bic": "7654352"
-        }
-    ],
-    "attributes": [
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "AttributeName1",
-            "type": "double",
-            "value": 0.35
-        },
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "AttributeName2",
-            "type": "time",
-            "value": "2016-06-07 10:52:33"
-        },
-        {
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
-                "type": "attributemetadata",
-                "mediaType": "application/json"
-            },
-            "name": "AttributeName3",
-            "type": "boolean",
-            "value": true
-        }
-    ]
-}'
+     -d'{
+            "name": "Vegetable Express LLC",
+            "description": "Vegetable express delivery network",
+            "code": "ovoshexpresscode",
+            "externalCode": "externalVagetable",
+            "email": "ovoshi@delivery.ru",
+            "phone": "+7 495 162 12 23",
+            "fax": "1052014",
+            "legalTitle": "Limited Liability Company \"Vegetable Express\"",
+            "inn": "1251581244152",
+            "kpp": "121557212",
+            "ogrn": "1253552",
+            "okpo": "201313",
+            "tags": [
+                "Vegetables",
+                "Food",
+                "Delivery",
+                "Express",
+                "Edovozy"
+            ],
+            "contactpersons": [
+                {
+                    "name": "Vasya",
+                    "description": "Vegetable cutter Vasya",
+                    "position": "Vegetable cutter"
+                },
+                {
+                    "name": "Petya",
+                    "position": "Vegetable carrier"
+                }
+            ],
+            "accounts": [
+                {
+                    "isDefault": true,
+                    "accountNumber": "12512568161257981",
+                    "bankName": "JSC Sberbank",
+                    "bankLocation": "Moscow, Vavilova 19",
+                    "correspondentAccount": "375632785587",
+                    "bic": "1234532"
+                },
+                {
+                    "accountNumber": "12512568161257982",
+                    "bankName": "VTB",
+                    "bic": "7654352"
+                }
+            ],
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "AttributeName1",
+                    "type": "double",
+                    "value": 0.35
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "AttributeName2",
+                    "type": "time",
+                    "value": "2016-06-07 10:52:33"
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "AttributeName3",
+                    "type": "boolean",
+                    "value": true
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json). Successful update. The result is a JSON representation of the updated Contractor.

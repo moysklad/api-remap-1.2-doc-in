@@ -85,58 +85,58 @@ https://app.kladana.in/api/remap/1.2/entity/product
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 -d'[
-  {
-"name":"12345",
-"weight":0.1
-"weighted":true,
-"syncId":"8b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"pencil",
-"weight":0.01
-"syncId":"5b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"Pencil 123",
-"weight":0.01
-"syncId":"3b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"Pencil Blue",
-"weight":0.11
-"weighted":true
-  },
-  {
-"name":"Pencil Red",
-"weight":0.2
-"syncId":"1b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"Pencil",
-"weight":0.1
-"syncId":"2b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"Pencil 123",
-"weight":0.32,
-"syncId":"4b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"Pencil yellow",
-"weight":0.12
-"weighted":true,
-"syncId":"7b7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"Pencil green",
-"weight":0.4,
-"syncId":"8c7c97cf-cf77-4f7e-b200-d264125578ab"
-  },
-  {
-"name":"!!! It's a pencil",
-"weight":0.1
-"syncId":"3d7c97cf-cf77-4f7e-b200-d264125578ab"
-  }
+    {
+        "name": "12345",
+        "weight": 0.1,
+        "weighted": true,
+        "syncId": "8b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "pencil",
+        "weight": 0.01,
+        "syncId": "5b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "Pencil 123",
+        "weight": 0.01,
+        "syncId": "3b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "Pencil Blue",
+        "weight": 0.11,
+        "weighted": true
+    },
+    {
+        "name": "Pencil Red",
+        "weight": 0.2,
+        "syncId": "1b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "Pencil",
+        "weight": 0.1,
+        "syncId": "2b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "Pencil 123",
+        "weight": 0.32,
+        "syncId": "4b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "Pencil yellow",
+        "weight": 0.12,
+        "weighted": true,
+        "syncId": "7b7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "Pencil green",
+        "weight": 0.4,
+        "syncId": "8c7c97cf-cf77-4f7e-b200-d264125578ab"
+    },
+    {
+        "name": "!!! It's a pencil",
+        "weight": 0.1,
+        "syncId": "3d7c97cf-cf77-4f7e-b200-d264125578ab"
+    }
 ]'
 ```
 

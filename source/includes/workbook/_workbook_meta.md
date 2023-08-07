@@ -256,22 +256,22 @@ curl -X POST
    -H 'Cache-Control: no-cache'
    -H 'Content-Type: application/json'
    -d '{
-    "name":"Pencil set",
-    "components":[
-       {
-          "assortment":{
-             "meta":{
-                "href":"https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
-                "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                "type":"product",
-                "mediaType":"application/json",
-                "uuidHref":"https://app.kladana.in/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
-             }
-          },
-          "quantity":10
-       }
-    ]
-}'
+            "name":"Pencil set",
+            "components":[
+               {
+                  "assortment":{
+                     "meta":{
+                        "href":"https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
+                        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                        "type":"product",
+                        "mediaType":"application/json",
+                        "uuidHref":"https://app.kladana.in/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
+                     }
+                  },
+                  "quantity":10
+               }
+            ]
+        }'
 ```
 
 In response, we will receive a new set that contains the specified product

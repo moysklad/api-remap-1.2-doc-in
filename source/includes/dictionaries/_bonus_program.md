@@ -148,17 +148,20 @@ Request to create a new bonus program. Required fields: **name** (name of the di
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-"name": "bonus program",
-active: true
-"allProducts": true
-"allAgents": false
-"agentTags": ["tag1", "tag2"],
-"earnRateRoublesToPoint": 7,
-     "spendRatePointsToRouble": 4,
-     "maxPaidRatePercents": 50,
-     "postponedBonusesDelayDays": 7,
-     "earnWhileRedeeming": false
-}'
+              "name": "bonus program",
+              "active": true,
+              "allProducts": true,
+              "allAgents": false,
+              "agentTags": [
+                  "tag1",
+                  "tag2"
+              ],
+              "earnRateRoublesToPoint": 7,
+              "spendRatePointsToRouble": 4,
+              "maxPaidRatePercents": 50,
+              "postponedBonusesDelayDays": 7,
+              "earnWhileRedeeming": false
+          }'
 ```
 
 > Response 200(application/json)

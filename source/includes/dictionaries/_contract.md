@@ -606,67 +606,68 @@ Successful request. The result is a JSON representation of the created Contract.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
-             {
-               "name": "666",
-               "ownAgent": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                   "type": "organization",
-                   "mediaType": "application/json"
-                 }
-               },
-               "agent": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
-                   "mediaType": "application/json"
-                 }
-               },
-               "rate": {
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             },
-             {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/contract/73fa8fb0-0ac5-11e6-9464-e4de0000000b",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
-                 "type": "contract",
-                 "mediaType": "application/json"
-               },
-               "name": "666_02",
-               "ownAgent": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                   "type": "organization",
-                   "mediaType": "application/json"
-                 }
-               },
-               "contractType": "Sales",
-               "code": "code333",
-               "externalCode": "exCode333",
-               "moment": "2017-02-25 12:03:19",
-               "description": "Contract with the counterparty Supplier LLC",
-               "rate": {
-                 "currency": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             }]'
+            {
+                "name": "666",
+                "ownAgent": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                        "type": "organization",
+                        "mediaType": "application/json"
+                    }
+                },
+                "agent": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                        "type": "counter party",
+                        "mediaType": "application/json"
+                    }
+                },
+                "rate": {
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            },
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/contract/73fa8fb0-0ac5-11e6-9464-e4de0000000b",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
+                    "type": "contract",
+                    "mediaType": "application/json"
+                },
+                "name": "666_02",
+                "ownAgent": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                        "type": "organization",
+                        "mediaType": "application/json"
+                    }
+                },
+                "contractType": "Sales",
+                "code": "code333",
+                "externalCode": "exCode333",
+                "moment": "2017-02-25 12:03:19",
+                "description": "Contract with the counterparty Supplier LLC",
+                "rate": {
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -968,21 +969,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
-             "type": "contract",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
-             "type": "contract",
-             "mediaType": "application/json"
-         }
-       ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
+                  "type": "contract",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata",
+                  "type": "contract",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. Result - JSON information about deletion of Contracts.
@@ -1364,31 +1367,31 @@ Successful request. The result is a JSON representation of the updated Contract.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "123_456",
-             "ownAgent": {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                 "type": "organization",
-                 "mediaType": "application/json"
-               }
-             },
-             "contractType": "Sales",
-             "code": "not code 333",
-             "externalCode": "exC22ode333",
-             "moment": "2019-03-15 21:03:19",
-             "description": "New contract",
-             "attributes": [
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "value": false
-               }
-             ]
-           }'
+              "name": "123_456",
+              "ownAgent": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                      "type": "organization",
+                      "mediaType": "application/json"
+                  }
+              },
+              "contractType": "Sales",
+              "code": "not code 333",
+              "externalCode": "exC22ode333",
+              "moment": "2019-03-15 21:03:19",
+              "description": "New contract",
+              "attributes": [
+                  {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/entity/contract/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                          "type": "attributemetadata",
+                          "mediaType": "application/json"
+                      },
+                      "value": false
+                  }
+              ]
+          }'
 ```
 
 > Response 200(application/json)

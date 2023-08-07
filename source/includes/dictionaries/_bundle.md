@@ -385,98 +385,98 @@ The maximum number of components in a Bundle is 50.
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Bundle with a product and one more product",
-             "code": "00003",
-             "externalCode": "iOzqxcTCiAK1-6-eAjVR12",
-             archived: false
-             "pathName": "",
-             "discountProhibited": false,
-             "uom": {
-               "meta": {
-                 "href": "http://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                 "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                 "type": "uom",
-                 "mediaType": "application/json"
-               }
-             },
-             "minprice": {
-               "value": 500.0,
-               "currency": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 20.0,
-                 "currency": {
-                   "meta": {
-                     "href": "http://app.kladana.in/api/remap/1.2/entity/currency/bb724075-ee05-11e6-8af5-581e00000058",
-                     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   },
-                   "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                   "name": "Sale price",
-                   "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-                 }
-               }
-             ],
-             "weight": 0,
-             "volume": 0,
-             "trackingType": "NOT_TRACKED",
-             "barcodes": [
-               {
-                 "ean8": "20000000"
-               },
-               {
-                 "ean13": "2000000000000"
-               },
-               {
-                 "code128": "code128 barcode"
-               },
-               {
-                 "gtin": "00000000000130"
-               }
-             ],
-             "vat": 20
-             "useParentVat": false,
-             "components": [
-               {
-                 "assortment": {
-                   "meta": {
-                     "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b8",
-                     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "quantity": 1
-               },
-               {
-                 "assortment": {
-                   "meta": {
-                     "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b9",
-                     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                     "type": "product",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "quantity": 1
-               }
-             ]
-           }'
+              "name": "Bundle with a product and one more product",
+              "code": "00003",
+              "externalCode": "iOzqxcTCiAK1-6-eAjVR12",
+              "archived": false,
+              "pathName": "",
+              "discountProhibited": false,
+              "uom": {
+                  "meta": {
+                      "href": "http://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                      "type": "uom",
+                      "mediaType": "application/json"
+                  }
+              },
+              "minprice": {
+                  "value": 500.0,
+                  "currency": {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                          "type": "currency",
+                          "mediaType": "application/json"
+                      }
+                  }
+              },
+              "salePrices": [
+                  {
+                      "value": 20.0,
+                      "currency": {
+                          "meta": {
+                              "href": "http://app.kladana.in/api/remap/1.2/entity/currency/bb724075-ee05-11e6-8af5-581e00000058",
+                              "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                              "type": "currency",
+                              "mediaType": "application/json"
+                          }
+                      },
+                      "priceType": {
+                          "meta": {
+                              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                              "type": "pricetype",
+                              "mediaType": "application/json"
+                          },
+                          "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                          "name": "Sale price",
+                          "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+                      }
+                  }
+              ],
+              "weight": 0,
+              "volume": 0,
+              "trackingType": "NOT_TRACKED",
+              "barcodes": [
+                  {
+                      "ean8": "20000000"
+                  },
+                  {
+                      "ean13": "2000000000000"
+                  },
+                  {
+                      "code128": "code128 barcode"
+                  },
+                  {
+                      "gtin": "00000000000130"
+                  }
+              ],
+              "vat": 20,
+              "useParentVat": false,
+              "components": [
+                  {
+                      "assortment": {
+                          "meta": {
+                              "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b8",
+                              "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                              "type": "product",
+                              "mediaType": "application/json"
+                          }
+                      },
+                      "quantity": 1
+                  },
+                  {
+                      "assortment": {
+                          "meta": {
+                              "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b9",
+                              "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                              "type": "product",
+                              "mediaType": "application/json"
+                          }
+                      },
+                      "quantity": 1
+                  }
+              ]
+          }'
 ```
 
 > Response 200(application/json)
@@ -844,119 +844,120 @@ Updated Bundles must contain the identifier in the form of metadata.
        -H "Authorization: Basic <Credentials>"
        -H "Content-Type: application/json"
          -d'[
-               {
-                 "name": "Bundle with a product and one more product",
-                 "code": "00003",
-                 "externalCode": "iOzqxcTCiAK1-6-eAjVR12",
-                 archived: false
-                 "pathName": "",
-                 "uom": {
-                   "meta": {
-                     "href": "http://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-                     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-                     "type": "uom",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "minprice": {
-                   "value": 500.0,
-                   currency: {
-                     "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                       "type": "currency",
-                       "mediaType": "application/json"
-                     }
-                   }
-                 },
-                 "salePrices": [
-                   {
-                     "value": 20.0,
-                     "currency": {
-                       "meta": {
-                         "href": "http://app.kladana.in/api/remap/1.2/entity/currency/bb724075-ee05-11e6-8af5-581e00000058",
-                         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                         "type": "currency",
-                         "mediaType": "application/json"
-                       }
-                     },
-                     "priceType": {
-                       "meta": {
-                         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                         "type": "pricetype",
-                         "mediaType": "application/json"
-                       },
-                       "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                       "name": "Sale price",
-                       "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-                     }
-                   }
-                 ],
-                 "weight": 0,
-                 "volume": 0,
-                 "trackingType": "NOT_TRACKED",
-                 "barcodes": [
-                   {
-                     "ean8": "20000000"
-                   },
-                   {
-                     "ean13": "2000000000000"
-                   },
-                   {
-                     "code128": "code128 barcode"
-                   },
-                   {
-                     "gtin": "00000000000130"
-                   }
-                 ],
-                 "components": [
-                   {
-                     "assortment": {
-                       "meta": {
-                         "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b8",
-                         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                         "type": "product",
-                         "mediaType": "application/json"
-                       }
-                     },
-                     "quantity": 1
-                   },
-                   {
-                     "assortment": {
-                       "meta": {
-                         "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b9",
-                         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                         "type": "product",
-                         "mediaType": "application/json"
-                       }
-                     },
-                     "quantity": 1
-                   }
-                 ]
-               },
-               {
-                 "meta": {
-                   "href": "http://app.kladana.in/api/remap/1.2/entity/bundle/c21646cf-ee08-11e6-8af5-581e00000023",
-                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
-                   "type": "bundle",
-                   "mediaType": "application/json"
-                 },
-                 "name": "New name",
-                 "barcodes": [
-                   {
-                     "ean8": "20000000"},
-                   {
-                     "ean13": "2000000000000"
-                   },
-                   {
-                     "code128": "code128 barcode"
-                   },
-                   {
-                     "gtin": "00000000000130"
-                   }
-                 ]
-               }
-             ]'
+              {
+                  "name": "Bundle with a product and one more product",
+                  "code": "00003",
+                  "externalCode": "iOzqxcTCiAK1-6-eAjVR12",
+                  "archived": false,
+                  "pathName": "",
+                  "uom": {
+                      "meta": {
+                          "href": "http://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                          "type": "uom",
+                          "mediaType": "application/json"
+                      }
+                  },
+                  "minprice": {
+                      "value": 500.0,
+                      "currency": {
+                          "meta": {
+                              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                              "type": "currency",
+                              "mediaType": "application/json"
+                          }
+                      }
+                  },
+                  "salePrices": [
+                      {
+                          "value": 20.0,
+                          "currency": {
+                              "meta": {
+                                  "href": "http://app.kladana.in/api/remap/1.2/entity/currency/bb724075-ee05-11e6-8af5-581e00000058",
+                                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                                  "type": "currency",
+                                  "mediaType": "application/json"
+                              }
+                          },
+                          "priceType": {
+                              "meta": {
+                                  "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                                  "type": "pricetype",
+                                  "mediaType": "application/json"
+                              },
+                              "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                              "name": "Sale price",
+                              "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+                          }
+                      }
+                  ],
+                  "weight": 0,
+                  "volume": 0,
+                  "trackingType": "NOT_TRACKED",
+                  "barcodes": [
+                      {
+                          "ean8": "20000000"
+                      },
+                      {
+                          "ean13": "2000000000000"
+                      },
+                      {
+                          "code128": "code128 barcode"
+                      },
+                      {
+                          "gtin": "00000000000130"
+                      }
+                  ],
+                  "components": [
+                      {
+                          "assortment": {
+                              "meta": {
+                                  "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b8",
+                                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                                  "type": "product",
+                                  "mediaType": "application/json"
+                              }
+                          },
+                          "quantity": 1
+                      },
+                      {
+                          "assortment": {
+                              "meta": {
+                                  "href": "http://app.kladana.in/api/remap/1.2/entity/product/010afdea-ea40-11e6-5bed-427b000000b9",
+                                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                                  "type": "product",
+                                  "mediaType": "application/json"
+                              }
+                          },
+                          "quantity": 1
+                      }
+                  ]
+              },
+              {
+                  "meta": {
+                      "href": "http://app.kladana.in/api/remap/1.2/entity/bundle/c21646cf-ee08-11e6-8af5-581e00000023",
+                      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                      "type": "bundle",
+                      "mediaType": "application/json"
+                  },
+                  "name": "New name",
+                  "barcodes": [
+                      {
+                          "ean8": "20000000"
+                      },
+                      {
+                          "ean13": "2000000000000"
+                      },
+                      {
+                          "code128": "code128 barcode"
+                      },
+                      {
+                          "gtin": "00000000000130"
+                      }
+                  ]
+              }
+          ]'
    ```
 > Response 200(application/json)
 Successful request. The result is a JSON array of representations of the generated and updated Bundles.
@@ -1640,21 +1641,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-             "type": "bundle",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-             "type": "bundle",
-             "mediaType": "application/json"
-         }
-       ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                  "type": "bundle",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                  "type": "bundle",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of Bundles.

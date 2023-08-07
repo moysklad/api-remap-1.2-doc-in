@@ -235,10 +235,10 @@ a unique test url that must be specified in the webhook and interactively shows 
     -H 'Cache-Control: no-cache'
     -H 'Content-Type: application/json'
     -d '{
-    "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
-    "action": "CREATE",
-    "entityType": "service"
-  }'
+            "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
+            "action": "CREATE",
+            "entityType": "service"
+          }'
   ```
  
 <p>3. Create a webhook, in the example below, a webhook for creating a service.</p>
@@ -251,8 +251,8 @@ curl -X POST
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "name": "Sharpening skates"
-}'
+           "name": "Sharpening skates"
+        }'
 ```
 
 <p>4. We create a service in Kladana, in the example below, the creation of a service through the JSON API.</p>

@@ -154,14 +154,14 @@ curl -X PUT
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
        -d '{
-"globalOperationNumbering": true,
-"checkShippingStock": true,
-       "checkMinPrice": true,
-       "useRecycleBin": true,
-       "useCompanyAddress": true,
-       "companyAddress": "MyCompany@kladana.in",
-       "discountStrategy": "bySum"
-}'
+                "globalOperationNumbering": true,
+                "checkShippingStock": true,
+                "checkMinPrice": true,
+                "useRecycleBin": true,
+                "useCompanyAddress": true,
+                "companyAddress": "MyCompany@kladana.in",
+                "discountStrategy": "bySum"
+            }'
 ```
 
 > Response 200(application/json)

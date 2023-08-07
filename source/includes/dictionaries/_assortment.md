@@ -310,6 +310,7 @@ curl -X GET
       "inTransit": 0,
       "quantity": 0
     },
+    {
       "stock": 0,
       "reserve": 0,
       "inTransit": 0,

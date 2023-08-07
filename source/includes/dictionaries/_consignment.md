@@ -147,28 +147,28 @@ Request to create a new series. To successfully create a series, the fields must
      "\https://online.moysklad.ru/api/remap/1.2/entity/consignment"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-       -d'
-   "label": "Label",
-   "barcodes": [
-     {
-       "ean8": "20000000"
-     },
-     {
-       "ean13": "2000000000000"
-     },
-     {
-       "code128": "code128 barcode"
-     }
-   ],
-   "assortment": {
-     "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-       "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
-       "type": "variant",
-       "mediaType": "application/json"
-     }
-   }
-}'
+       -d'{
+            "label": "Label",
+            "barcodes": [
+                {
+                    "ean8": "20000000"
+                },
+                {
+                    "ean13": "2000000000000"
+                },
+                {
+                    "code128": "code128 barcode"
+                }
+            ],
+            "assortment": {
+                "meta": {
+                    "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+                    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/variant/metadata",
+                    "type": "variant",
+                    "mediaType": "application/json"
+                }
+            }
+        }'
 ```
 
 > Response 200(application/json)
@@ -243,21 +243,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata",
-             "type": "consignment",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata",
-             "type": "consignment",
-             "mediaType": "application/json"
-         }
-       ]'
+        {
+            "meta": {
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata",
+                "type": "consignment",
+                "mediaType": "application/json"
+            }
+        },
+        {
+            "meta": {
+                "href": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/consignment/metadata",
+                "type": "consignment",
+                "mediaType": "application/json"
+            }
+        }
+    ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of the Series.
