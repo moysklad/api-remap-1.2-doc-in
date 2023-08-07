@@ -199,7 +199,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
@@ -210,12 +210,12 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/stock/all",
      "type": "stock",
      "mediaType": "application/json",
-     size: 26
-     limit: 10
-     offset: 0
+     "size": 26,
+     "limit": 10,
+     "offset": 0,
      "nextHref": "http://app.kladana.in/api/remap/1.2/report/stock/all?limit=10&offset=10"
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
@@ -224,13 +224,13 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": -30,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": -30,
        "name": "Product",
        "code": "one1",
        "article": "Ar23",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 346347237000.0,
        "uom": {
          "meta": {
@@ -251,12 +251,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 4,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": 4,
        "name": "ItemWithout Barcode",
        "code": "00006",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -277,12 +277,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Product with fashion without bar code",
        "code": "00008",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -303,12 +303,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Product with fashion without bar code (1)",
        "code": "00208",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -329,12 +329,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Product with fashion without bar code (2)",
        "code": "00209",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -355,12 +355,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Product with fashion without bar code (3)",
        "code": "00210",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -381,12 +381,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Item with fashion_and_code",
        "code": "00007",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -407,12 +407,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Item with fashion_and_code(1)",
        "code": "00205",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -433,12 +433,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Item with fashion_and_code(2)",
        "code": "00206",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -459,12 +459,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": 1,
-       "inTransit": 0
-       "reserve": 0
-       quantity: 1
+       "inTransit": 0,
+       "reserve": 0,
+       "quantity": 1,
        "name": "Item with fashion_and_code(3)",
        "code": "00207",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -485,12 +485,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": -6438,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": -6438,
        "name": "ProductWithCountry",
        "code": "00002",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -511,18 +511,18 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": -113,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": -113,
        "name": "Ball",
        "code": "00003",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-           type:"uom",
+           "type":"uom",
            "mediaType": "application/json"
          },
          "name": "pcs"
@@ -537,12 +537,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": -21,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": -21,
        "name": "Ball (Soccer)",
        "code": "00002",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -563,12 +563,12 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": -1,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": -1,
        "name": "Ball (Volleyball)",
        "code": "00004",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 0.0,
        "uom": {
          "meta": {
@@ -588,9 +588,9 @@ Successful request. The result is a JSON representation of the report.
          "type": "product",
          "mediaType": "application/json"
        },
-       stock: 69
-       "inTransit": 0
-       "reserve": 20
+       "stock": 69,
+       "inTransit": 0,
+       "reserve": 20,
        "quantity": 49,
        "name": "Trollolosha",
        "code": "00001",
@@ -615,13 +615,13 @@ Successful request. The result is a JSON representation of the report.
          "mediaType": "application/json"
        },
        "stock": -1,
-       "inTransit": 0
-       "reserve": 0
+       "inTransit": 0,
+       "reserve": 0,
        "quantity": -1,
        "name": "Comrade (10)",
        "code": "00214",
        "article": "Article",
-       price: 0.0
+       "price": 0.0,
        "salePrice": 346347237000.0,
        "uom": {
          "meta": {
@@ -632,7 +632,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "pcs"
        },
-       folder: {
+       "folder": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/0c78adde-ffe3-11e5-9464-e4de000000a2",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productFolder/metadata",
@@ -647,9 +647,9 @@ Successful request. The result is a JSON representation of the report.
            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/d1bef0a1-ffe7-11e5-9464-e4de0000001c/images",
            "type": "image",
            "mediaType": "application/json",
-           size: 1
-           limit: 1000
-           offset: 0
+           "size": 1,
+           "limit": 1000,
+           "offset": 0
          }
        },
        "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
@@ -952,7 +952,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
@@ -963,12 +963,12 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/stock/bystore",
      "type": "stockbystore",
      "mediaType": "application/json",
-     size: 225
-     limit: 1000
-     offset: 0
+     "size": 225,
+     "limit": 1000,
+     "offset": 0,
      "nextHref": "http://app.kladana.in/api/remap/1.2/report/stock/bystore?limit=25&offset=25"
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
@@ -986,7 +986,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Not the main warehouse",
            "stock": -30,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -997,8 +997,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -1019,8 +1019,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -1032,7 +1032,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Main warehouse",
            "stock": 4,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -1053,8 +1053,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -1066,7 +1066,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Main warehouse",
            "stock": 1,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -1087,8 +1087,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -1100,7 +1100,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Main warehouse",
            "stock": 1,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -1121,8 +1121,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -1134,7 +1134,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Main warehouse",
            "stock": 1,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -1155,8 +1155,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -1168,7 +1168,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Main warehouse",
            "stock": 1,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]
@@ -1189,8 +1189,8 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Not the main warehouse",
-           stock: 0,
-           "reserve": 0
+           "stock": 0,
+           "reserve": 0,
            "inTransit": 0
          },
          {
@@ -1202,7 +1202,7 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Main warehouse",
            "stock": 1,
-           "reserve": 0
+           "reserve": 0,
            "inTransit": 0
          }
        ]

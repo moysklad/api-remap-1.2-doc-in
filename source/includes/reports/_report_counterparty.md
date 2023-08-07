@@ -82,7 +82,7 @@ Successful request. The result is a JSON representation of a report on counterpa
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -96,11 +96,11 @@ Successful request. The result is a JSON representation of a report on counterpa
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
      "type": "counter party",
      "mediaType": "application/json",
-     size: 5
-     limit: 1000
-     offset: 0
+     "size": 5,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
@@ -127,10 +127,10 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-09-01 18:32:17"
      },
      {
@@ -159,8 +159,8 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
+       "balance": 0,
+       "profit": 0,
        "lastEventDate": "2016-09-08 13:07:30",
        "lastEventText": "sale",
        "updated": "2016-08-23 16:24:08"
@@ -191,11 +191,11 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
+       "balance": 0,
        "bonusBalance": 120,
        "profit": -103040600,
-       "lastEventDate": null
-       "lastEventText": null
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-08-23 15:21:09"
      },
      {
@@ -228,8 +228,8 @@ Successful request. The result is a JSON representation of a report on counterpa
        "balance": 1241255000,
        "bonusBalance": 298,
        "profit": 50000,
-       "lastEventDate": null
-       "lastEventText": null
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-08-23 15:21:09"
      },
      {
@@ -259,10 +259,10 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-08-23 15:21:09"
      }
    ]
@@ -319,7 +319,7 @@ Successful request. The result is a JSON representation of a report on counterpa
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -333,11 +333,11 @@ Successful request. The result is a JSON representation of a report on counterpa
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
      "type": "counter party",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
@@ -367,10 +367,10 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2017-07-12 09:35:26"
      },
      {
@@ -402,10 +402,10 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2017-07-17 13:54:30"
      }
    ]

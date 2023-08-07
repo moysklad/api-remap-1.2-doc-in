@@ -59,7 +59,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -78,12 +78,12 @@ Successful request. The result is a JSON representation of the report.
      {
        "date": "2018-09-06 00:00:00",
        "quantity": 3,
-       sum: 600
+       "sum": 600
      },
      {
        "date": "2018-09-06 01:00:00",
-       quantity: 2
-       sum: 200
+       "quantity": 2,
+       "sum": 200
      }
    ]
 }
@@ -102,7 +102,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/context/employee",
@@ -120,13 +120,13 @@ Successful request. The result is a JSON representation of the report.
    "series": [
      {
        "date": "2018-09-06 00:00:00",
-       quantity: 1
-       sum: 100
+       "quantity": 1,
+       "sum": 100
      },
      {
        "date": "2018-09-06 01:00:00",
-       quantity: 1
-       sum: 100
+       "quantity": 1,
+       "sum": 100
      }
    ]
 }
@@ -160,7 +160,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -179,12 +179,12 @@ Successful request. The result is a JSON representation of the report.
      {
        "date": "2018-09-06 00:00:00",
        "quantity": 3,
-       sum: 900
+       "sum": 900
      },
      {
        "date": "2018-09-06 01:00:00",
        "quantity": 4,
-       sum: 400
+       "sum": 400
      }
    ]
 }

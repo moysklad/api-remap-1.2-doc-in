@@ -62,7 +62,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
@@ -73,11 +73,11 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/stock/byoperation?operation.id=34efe2ee-015e-11e6-9464-e4de0000006b",
      "type": "stockbyoperation",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
@@ -94,10 +94,10 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "Hockey Stick",
            "stock": -2,
-           cost: 0
-           "inTransit": 0
-           "reserve": 0
-           quantity: 0
+           "cost": 0,
+           "inTransit": 0,
+           "reserve": 0,
+           "quantity": 0
          },
          {
            "meta": {
@@ -107,11 +107,11 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Raising Penguins",
-           stock: 0,
-           cost: 0
-           "inTransit": 0
-           "reserve": 0
-           quantity: 0
+           "stock": 0,
+           "cost": 0,
+           "inTransit": 0,
+           "reserve": 0,
+           "quantity": 0
          },
          {
            "meta": {
@@ -121,11 +121,11 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "Comrade (10)",
-           stock: 0,
-           cost: 0
-           "inTransit": 0
-           "reserve": 0
-           quantity: 0
+           "stock": 0,
+           "cost": 0,
+           "inTransit": 0,
+           "reserve": 0,
+           "quantity": 0
          },
          {
            "meta": {
@@ -136,10 +136,10 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "ItemManyModifications (1, 100, 30)",
            "stock": 3,
-           cost: 0
-           "inTransit": 0
-           "reserve": 0
-           quantity: 3
+           "cost": 0,
+           "inTransit": 0,
+           "reserve": 0,
+           "quantity": 3
          },
          {
            "meta": {
@@ -150,10 +150,10 @@ Successful request. The result is a JSON representation of the report.
            },
            "name": "ItemManyModifications",
            "stock": 3,
-           cost: 0
-           "inTransit": 0
+           "cost": 0,
+           "inTransit": 0,
            "reserve": 1,
-           quantity: 2
+           "quantity": 2
          },
          {
            "meta": {
@@ -163,11 +163,11 @@ Successful request. The result is a JSON representation of the report.
              "mediaType": "application/json"
            },
            "name": "ItemManyModifications2",
-           stock: 0,
-           cost: 0
-           "inTransit": 0
-           "reserve": 0
-           quantity: 0
+           "stock": 0,
+           "cost": 0,
+           "inTransit": 0,
+           "reserve": 0,
+           "quantity": 0
          }
        ]
      }

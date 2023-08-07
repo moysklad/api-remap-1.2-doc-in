@@ -127,7 +127,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -141,11 +141,11 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/turnover/all",
      "type": "Stock movement report",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -158,20 +158,20 @@ Successful request. The result is a JSON representation of the report.
          "name": "product 2"
        },
        "onPeriodStart": {
-         "quantity": 0.0
-         sum: 0.0
+         "quantity": 0.0,
+         "sum": 0.0
        },
        "onPeriodEnd": {
          "quantity": 1.0,
-         sum: 0.0
+         "sum": 0.0
        },
        "income": {
          "quantity": 3.0,
-         sum: 0.0
+         "sum": 0.0
        },
        "outcome": {
          "quantity": 2.0,
-         sum: 0.0
+         "sum": 0.0
        }
      },
      {
@@ -186,20 +186,20 @@ Successful request. The result is a JSON representation of the report.
          "name": "2 (char)"
        },
        "onPeriodStart": {
-         "quantity": 0.0
-         sum: 0.0
+         "quantity": 0.0,
+         "sum": 0.0
        },
        "onPeriodEnd": {
          "quantity": 2.0,
-         sum: 20000.0
+         "sum": 20000.0
        },
        "income": {
          "quantity": 3.0,
-         sum: 30000.0
+         "sum": 30000.0
        },
        "outcome": {
          "quantity": 1.0,
-         sum: 10000.0
+         "sum": 10000.0
        }
      },
      {
@@ -235,20 +235,20 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "onPeriodStart": {
-         "quantity": 0.0
-         sum: 0.0
+         "quantity": 0.0,
+         "sum": 0.0
        },
        "onPeriodEnd": {
          "quantity": 2.0,
-         sum: 4400.0
+         "sum": 4400.0
        },
        "income": {
          "quantity": 3.0,
-         sum: 6600.0
+         "sum": 6600.0
        },
        "outcome": {
          "quantity": 1.0,
-         sum: 2200.0
+         "sum": 2200.0
        }
      }
    ]
@@ -358,7 +358,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -372,11 +372,11 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product /66990dc7-bdfe-11eb-c0a8-800c00000016",
      "type": "Stock movement report by store",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -399,7 +399,7 @@ Successful request. The result is a JSON representation of the report.
        },
        "stockByStore": [
          {
-           store: {
+           "store": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -410,20 +410,20 @@ Successful request. The result is a JSON representation of the report.
              "name": "Main warehouse"
            },
            "onPeriodStart": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "onPeriodEnd": {
              "quantity": 1.0,
-             sum: 0.0
+             "sum": 0.0
            },
            "income": {
              "quantity": 3.0,
-             sum: 0.0
+             "sum": 0.0
            },
            "outcome": {
              "quantity": 2.0,
-             sum: 0.0
+             "sum": 0.0
            }
          }
        ]
@@ -450,7 +450,7 @@ Successful request. The result is a JSON representation of the report.
        },
        "stockByStore": [
          {
-           store: {
+           "store": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -461,24 +461,24 @@ Successful request. The result is a JSON representation of the report.
              "name": "Main warehouse"
            },
            "onPeriodStart": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "onPeriodEnd": {
              "quantity": 2.0,
-             sum: 20000.0
+             "sum": 20000.0
            },
            "income": {
              "quantity": 3.0,
-             sum: 30000.0
+             "sum": 30000.0
            },
            "outcome": {
              "quantity": 1.0,
-             sum: 10000.0
+             "sum": 10000.0
            }
          },
          {
-           store: {
+           "store": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/store/8d3d4ad8-be02-11eb-c0a8-800c00000025",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -489,20 +489,20 @@ Successful request. The result is a JSON representation of the report.
              "name": "warehouse 2"
            },
            "onPeriodStart": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "onPeriodEnd": {
              "quantity": -5.0,
-             sum: 0.0
+             "sum": 0.0
            },
            "income": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "outcome": {
              "quantity": 5.0,
-             sum: 0.0
+             "sum": 0.0
            }
          }
        ]
@@ -604,7 +604,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -618,11 +618,11 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product /66990dc7-bdfe-11eb-c0a8-800c00000016",
      "type": "Stock movement report by operation",
      "mediaType": "application/json",
-     size: 4
-     limit: 1000
-     offset: 0
+     "size": 4,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -643,7 +643,7 @@ Successful request. The result is a JSON representation of the report.
            "name": "10^6 m3"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -653,7 +653,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/supply/29d1cb69-bfb7-11eb-c0a8-800d00000039",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/supply/metadata",
@@ -663,7 +663,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "00001",
          "moment": "2021-05-28 16:18:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/923916c6-b719-11eb-c0a8-800c00000075",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -675,8 +675,8 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "quantity": 3.0,
-       cost: 0.0
-       sum: 0.0
+       "cost": 0.0,
+       "sum": 0.0
      },
      {
        "assortment": {
@@ -698,7 +698,7 @@ Successful request. The result is a JSON representation of the report.
            "name": "10^6 m3"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -708,7 +708,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0410e6b6-bfb7-11eb-c0a8-800d0000000f",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
@@ -718,7 +718,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "00001",
          "moment": "2021-05-28 16:25:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/92394ebc-b719-11eb-c0a8-800c00000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -730,8 +730,8 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "quantity": -2.0,
-       cost: 0.0
-       sum: 0.0
+       "cost": 0.0,
+       "sum": 0.0
      },
      {
        "assortment": {
@@ -753,7 +753,7 @@ Successful request. The result is a JSON representation of the report.
            "name": "10^6 m3"
          }
        },
-store: {
+        "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -763,7 +763,7 @@ store: {
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/supply/5588e522-c1f1-11eb-c0a8-800c0000000c",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/supply/metadata",
@@ -773,7 +773,7 @@ store: {
          },
          "name": "00002",
          "moment": "2021-05-31 12:19:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/923916c6-b719-11eb-c0a8-800c00000075",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -785,8 +785,8 @@ store: {
          }
        },
        "quantity": 3.0,
-       "cost": 10000.0
-       sum: 30000.0
+       "cost": 10000.0,
+       "sum": 30000.0
      },
      {
        "assortment": {
@@ -808,7 +808,7 @@ store: {
            "name": "10^6 m3"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -818,7 +818,7 @@ store: {
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/5d21e1a0-c1f1-11eb-c0a8-800c00000012",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
@@ -828,7 +828,7 @@ store: {
          },
          "name": "00002",
          "moment": "2021-05-31 12:19:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/92394ebc-b719-11eb-c0a8-800c00000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -841,7 +841,7 @@ store: {
        },
        "quantity": -1.0,
        "cost": -10000.0,
-       sum: -10000.0
+       "sum": -10000.0
      }
    ]
 }

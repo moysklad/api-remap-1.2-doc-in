@@ -105,7 +105,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -119,12 +119,12 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct",
      "type": "salesbyproduct",
      "mediaType": "application/json",
-     size: 5
-     limit: 2
-     offset: 0
+     "size": 5,
+     "limit": 2,
+     "offset": 0,
      "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct?limit=2&offset=2"
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -147,16 +147,16 @@ Successful request. The result is a JSON representation of the report.
        },
        "sellQuantity": 8643,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0
+       "sellCost": 0,
        "sellSum": 1868400300,
        "sellCostSum": 0,
        "returnQuantity": 0,
-       "returnPrice": 0.0
+       "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 1868400300,
-       margin: 0
+       "margin": 0
      },
      {
        "assortment": {
@@ -179,17 +179,17 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "sellQuantity": 4765,
-       "sellPrice": 100000000.0
-       "sellCost": 0
+       "sellPrice": 100000000.0,
+       "sellCost": 0,
        "sellSum": 476500000000,
        "sellCostSum": 0,
        "returnQuantity": 0,
-       "returnPrice": 0.0
+       "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 476500000000,
-       margin: 0
+       "margin": 0
      },
      {
        "assortment": {
@@ -212,18 +212,18 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10
+       "sellQuantity": 10,
        "sellPrice": 500000.0,
-       sellCost: 300000
+       "sellCost": 300000,
        "sellSum": 5000000,
        "sellCostSum": 3000000,
        "returnQuantity": 3,
        "returnPrice": 500000.0,
-       returnCost: 300000
+       "returnCost": 300000,
        "returnSum": 1500000,
        "returnCostSum": 900000,
        "profit": 1400000,
-       margin: 0.6666666666666666
+       "margin": 0.6666666666666666
      }
    ]
 }
@@ -329,7 +329,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -343,12 +343,12 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant",
      "type": "salesbyvariant",
      "mediaType": "application/json",
-     size: 5
-     limit: 2
-     offset: 0
+     "size": 5,
+     "limit": 2,
+     "offset": 0,
      "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant?limit=2&offset=2"
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -371,16 +371,16 @@ Successful request. The result is a JSON representation of the report.
        },
        "sellQuantity": 8643,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0
+       "sellCost": 0,
        "sellSum": 1868400300,
        "sellCostSum": 0,
        "returnQuantity": 0,
-       "returnPrice": 0.0
+       "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 1868400300,
-       margin: 0
+       "margin": 0
      },
      {
        "assortment": {
@@ -403,17 +403,17 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "sellQuantity": 4765,
-       "sellPrice": 100000000.0
-       "sellCost": 0
+       "sellPrice": 100000000.0,
+       "sellCost": 0,
        "sellSum": 476500000000,
        "sellCostSum": 0,
        "returnQuantity": 0,
-       "returnPrice": 0.0
+       "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 476500000000,
-       margin: 0
+       "margin": 0
      },
      {
        "assortment": {"meta": {
@@ -435,18 +435,18 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10
+       "sellQuantity": 10,
        "sellPrice": 500000.0,
-       sellCost: 300000
+       "sellCost": 300000,
        "sellSum": 5000000,
        "sellCostSum": 3000000,
        "returnQuantity": 3,
        "returnPrice": 500000.0,
-       returnCost: 300000
+       "returnCost": 300000,
        "returnSum": 1500000,
        "returnCostSum": 900000,
        "profit": 1400000,
-       margin: 0.6666666666666666
+       "margin": 0.6666666666666666
      }
    ]
 }
@@ -545,7 +545,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -559,11 +559,11 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/profit/byEmployee",
      "type": "salesbyemployee",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "employee": {
          "meta": {
@@ -578,12 +578,12 @@ Successful request. The result is a JSON representation of the report.
        "salesAvgCheck": 104498369718788910,
        "sellSum": 313495109156366700,
        "sellCostSum": 0,
-       returnCount: 0
+       "returnCount": 0,
        "returnAvgCheck": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 313495109156366700,
-       margin: 0
+       "margin": 0
      }
    ]
 }
@@ -682,7 +682,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -696,12 +696,12 @@ Successful request. The result is a JSON representation of the report.
      "href": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty",
      "type": "salesbyCounterparty",
      "mediaType": "application/json",
-     size: 3
-     limit: 1
-     offset: 0
+     "size": 3,
+     "limit": 1,
+     "offset": 0,
      "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty?limit=1&offset=1"
    },
-   rows: [
+   "rows": [
      {
        "counterparty": {
          "meta": {
@@ -716,12 +716,12 @@ Successful request. The result is a JSON representation of the report.
        "salesAvgCheck": 310390615323104640,
        "sellSum": 310390615323104640,
        "sellCostSum": 0,
-       returnCount: 0
+       "returnCount": 0,
        "returnAvgCheck": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 310390615323104640,
-       margin: 0
+       "margin": 0
      }
    ]
 }
@@ -834,7 +834,7 @@ Successful request. The result is a JSON representation of the report.
      "type" : "salesbysaleschannel",
      "mediaType" : "application/json",
      "size" : 1,
-     "limit" : 1000
+     "limit" : 1000,
      "offset" : 0
    },
    "rows" : [{

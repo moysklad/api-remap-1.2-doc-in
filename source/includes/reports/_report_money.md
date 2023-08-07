@@ -81,25 +81,25 @@ Successful request. The result is a JSON representation of the report.
        "date":"2018-09-01 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-02 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-03 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-04 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      }
    ]
 }
@@ -140,7 +140,7 @@ Successful request. The result is a JSON representation of the report.
        "date":"2018-09-01 00:00:00",
        "credit":50,
        "debit":0,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-02 00:00:00",
@@ -150,15 +150,15 @@ Successful request. The result is a JSON representation of the report.
      },
      {
        "date":"2018-09-03 00:00:00",
-       credit:0,
+       "credit":0,
        "debit":0,
-       balance:0
+       "balance":0
      },
      {
        "date":"2018-09-04 00:00:00",
-       credit:0,
+       "credit":0,
        "debit":0,
-       balance:0
+       "balance":0
      }
    ]
 }
@@ -217,7 +217,7 @@ Successful request. The result is a JSON representation of the report.
    },
    "rows":[
      {
-       organization:{
+       "organization":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -226,10 +226,10 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"OOO Chamomile"
        },
-       balance:100
+       "balance":100
      },
      {
-       organization:{
+       "organization":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -238,7 +238,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"OOO Serious Legal Entity"
        },
-       balance:100
+       "balance":100
      },
      {
        "account":{
@@ -250,7 +250,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"00000"
        },
-       organization:{
+       "organization":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
@@ -259,7 +259,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"OOO Serious Legal Entity"
        },
-       balance:200
+       "balance":200
      }
    ]
 }

@@ -50,22 +50,22 @@ Successful request. The result is a JSON representation of the metrics.
 
 ```json
 {
-   sales: {
-     count: 0
-     "amount": 0
+   "sales": {
+     "count": 0,
+     "amount": 0,
      "movementAmount": -80000
    },
-   orders: {
-     count: 0
-     "amount": 0
+   "orders": {
+     "count": 0,
+     "amount": 0,
      "movementAmount": 0
    },
-   money: {
+   "money": {
      "income": 0,
      "outcome": 0,
      "balance": 69700,
      "todayMovement": 0,
-     movement: 0
+     "movement": 0
    }
 }
 ```
@@ -85,22 +85,22 @@ Successful request. The result is a JSON representation of the metrics.
 
 ```json
 {
-   sales: {
-     count: 0
-     "amount": 0
+   "sales": {
+     "count": 0,
+     "amount": 0,
      "movementAmount": -80000
    },
-   orders: {
-     count: 0
-     "amount": 0
+   "orders": {
+     "count": 0,
+     "amount": 0,
      "movementAmount": 0
    },
-   money: {
+   "money": {
      "income": 0,
      "outcome": 0,
      "balance": 69700,
      "todayMovement": 0,
-     movement: 0
+     "movement": 0
    }
 }
 
@@ -121,22 +121,22 @@ Successful request. The result is a JSON representation of the metrics.
 
 ```json
 {
-   sales: {
-     count: 0
-     "amount": 0
+   "sales": {
+     "count": 0,
+     "amount": 0,
      "movementAmount": -80000
    },
-   orders: {
-     count: 0
-     "amount": 0
+   "orders": {
+     "count": 0,
+     "amount": 0,
      "movementAmount": 0
    },
-   money: {
+   "money": {
      "income": 0,
      "outcome": 0,
      "balance": 69700,
      "todayMovement": 0,
-     movement: 0
+     "movement": 0
    }
 }
 ```

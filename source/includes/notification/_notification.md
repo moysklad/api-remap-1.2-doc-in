@@ -43,48 +43,51 @@ Successful request. The result is a JSON representation of the list of Notificat
 
 ```json
 {
-   "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification",
-     "type": "notification",
-     "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
-   },
-   rows: [
-     {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/notification/32f118d3-5b8f-11e9-9bea-3ff700000070",
-       "type": "NotificationGoodCountTooLow",
-       "mediaType": "application/json"
-     },
-     "id": "32f118d3-5b8f-11e9-9bea-3ff700000070",
-     "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
-     "created": "2019-04-10 15:50:20.271",
-     read: true
-     "title": "Out of Stock Potatoes (yes)",
-     "description": "Remainder below 1",
-     good: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/0daf8e9a-5b7a-11e9-727d-307300000007",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "id": "0daf8e9a-5b7a-11e9-727d-307300000007",
-       "name": "Potato (yes)"
-     },
-     "actualBalance": 0,
-     "minimumBalance": 1
-     },
-     {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/notification/0f423542-5b7a-11e9-9bea-3ff70000000f",
-       "type": "NotificationImportCompleted",
-       "mediaType": "application/json"
-     },
-     "id": "0f423542-5b7a-11e9-9bea-3ff70000000f",
-     "accountId": "45b76d0a-5aa2-11e9-ization:Basic <Credentials>"
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/notification",
+    "type": "notification",
+    "mediaType": "application/json",
+    "size": 3,
+    "limit": 1000,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/notification/32f118d3-5b8f-11e9-9bea-3ff700000070",
+        "type": "NotificationGoodCountTooLow",
+        "mediaType": "application/json"
+      },
+      "id": "32f118d3-5b8f-11e9-9bea-3ff700000070",
+      "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
+      "created": "2019-04-10 15:50:20.271",
+      "read": true,
+      "title": "Out of Stock Potatoes (yes)",
+      "description": "Remainder below 1",
+      "good": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/product/0daf8e9a-5b7a-11e9-727d-307300000007",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        },
+        "id": "0daf8e9a-5b7a-11e9-727d-307300000007",
+        "name": "Potato (yes)"
+      },
+      "actualBalance": 0,
+      "minimumBalance": 1
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/notification/0f423542-5b7a-11e9-9bea-3ff70000000f",
+        "type": "NotificationImportCompleted",
+        "mediaType": "application/json"
+      },
+      "id": "0f423542-5b7a-11e9-9bea-3ff70000000f",
+      "accountId": "45b76d0a-5aa2-11e9-ization:Basic <Credentials>"
+    }
+  ]
+}
 ```
 
 > Response 200(application/json)
@@ -236,7 +239,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "02950e3c-35f2-11e9-9ff4-34e8000799c0",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-21 19:01:55.277",
-   read: true
+   "read": true,
    "title": "Export completed",
    "description": "Export of goods (Excel). Exported 43465 goods and 2080 modifications",
    "message": "43465 items and 2080 modifications exported",
@@ -294,7 +297,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "02950e31-35f2-11e9-9ff4-34e8000799c0",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-21 19:01:55.277",
-   read: true
+   "read": true,
    "title": "Import completed",
    "description": "Import of accounts (Excel). 3 rows processed, 0 accounts created, 0 accounts updated.",
    "message": "3 lines processed, 0 accounts created, 0 accounts updated.",
@@ -351,10 +354,10 @@ Successful request. Result - JSONpresentation of the notice.
    "id": "9338c8bd-56e5-11e9-c0a8-100b00000023",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 17:26:02.000",
-   read: false
+   "read": false,
    "title": "Out of stock 1",
    "description": "Remainder below 200",
-   good: {
+   "good": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/bdca925e-56e1-11e9-c0a8-100a00000016",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
@@ -415,7 +418,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "572d1dd9-56fc-11e9-c0a8-100b00000006",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 20:09:00.000",
-   read: false
+   "read": false,
    "title": "Invoice for buyer #00003 is overdue",
    "description": "Date of payment: 04/01/2019 20:08. Amount: 500.00. Buyer: Retail buyer.",
    "invoice": {
@@ -428,7 +431,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "571b1ac4-56fc-11e9-c0a8-100e0000002b",
      "name": "00003",
      "paymentPlannedMoment": "2019-04-01 20:08:00.000",
-     sum: 50000
+     "sum": 50000,
      "customerName": "Retail customer"
    }
 }
@@ -483,10 +486,10 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c6082a9e-56e1-11e9-c0a8-100b00000011",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "New Sales Order #00001",
    "description": "Amount: 499.99. Buyer: Retail buyer.",
-   order: {
+   "order": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
@@ -546,10 +549,10 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c6082a9e-56e1-11e9-c0a8-100b00000011",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "Sales Order #00001 Expired",
    "description": "Sales Order #00001 Expired Amount: 300.00. Buyer: Retail Buyer.",
-   order: {
+   "order": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
@@ -558,7 +561,7 @@ Successful request. The result is a JSON representation of the Notification.
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
      "name": "00001",
-     sum: 30000
+     "sum": 30000,
      "agentName": "Retail customer"
    }
 }
@@ -567,7 +570,7 @@ Successful request. The result is a JSON representation of the Notification.
 
 ### End of subscription
 #### Notification type
-NotificationSubscribeExpired - subscription expiration
+#### NotificationSubscribeExpired - subscription expiration
 #### Notification attributes
 
 | Title | Type | Description |
@@ -607,7 +610,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c2582a9e-56e1-11e9-c0a8-100b00000123",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "End Subscription",
    "description": "AccountName's subscription has ended. You can still work using the free plan. The subscription will resume when the balance is replenished."
 }
@@ -656,7 +659,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c2582a9e-56e1-11e9-c0a8-100b00000125",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "Until the end of the subscription 5 days",
    "description": "There are 3 days left until the end of the subscription on AccountName. We recommend topping up the balance in advance.",
    "daysLeft": 5
@@ -726,7 +729,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "bcd815b9-56ca-11e9-c0a8-100b00000001",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 14:13:56.000",
-   read: false
+   "read": false,
    "title": "New task: Task text 1",
    "description": "ntest1 has assigned you a task Task text 1",
    "performedBy": {
@@ -739,7 +742,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -814,7 +817,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "80c8a58b-56cb-11e9-c0a8-100b00000009",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 14:19:25.000",
-   read: false
+   "read": false,
    "title": "Task canceled: New text for task 1",
    "description": "ntest1 has removed the task from you",
    "performedBy": {
@@ -827,7 +830,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -914,7 +917,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "bd0dbccf-56ca-11e9-c0a8-100b00000003",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 14:13:56.000",
-   read: false
+   "read": false,
    "title": "Task changed: New text of task 1",
    "description": "ntest1 changed task",
    "performedBy": {
@@ -927,7 +930,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -939,7 +942,7 @@ Successful request. The result is a JSON representation of the Notification.
      "deadline": "2019-05-27 15:49:00.000"
    },
    "diff": {
-     deadline: {
+     "deadline": {
        "oldValue": "2019-05-29 15:47:00.000",
        "newValue": "2019-05-27 15:49:00.000"
      }
@@ -1009,7 +1012,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "7945a089-56fd-11e9-c0a8-100b00000008",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:47:47.000",
-   read: false
+   "read": false,
    "title": "Task completed: New task text 1",
    "description": "ntest1 completed task New task text 1 Deadline: 05/29/2019 15:47",
    "performedBy": {
@@ -1022,7 +1025,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1095,10 +1098,10 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "8d07388c-56cb-11e9-c0a8-100b0000000d",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:58:45.000",
-   read: false
+   "read": false,
    "title": "Task Deleted: Task Text 2",
    "description": "ntest1 deleted task Task text 2",
-   task: {
+   "task": {
      "name": "Text of task 2"
    },
    "performedBy": {
@@ -1166,10 +1169,10 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "51a5b0a3-56e4-11e9-c0a8-100b00000014",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:49:01.000",
-   read: false
+   "read": false,
    "title": "Task Overdue: New Task 1 Text",
    "description": "Task is overdue New task text 1 Deadline: 05/27/2019 15:49",
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1248,7 +1251,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "df0c3e22-56fd-11e9-c0a8-100b0000000a",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:48:06.000",
-   read: false
+   "read": false,
    "title": "Issue open: New text for issue 1",
    "description": "ntest1 opened task New task text 1 Deadline: 05/29/2019 15:47",
    "performedBy": {
@@ -1261,7 +1264,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1338,7 +1341,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "240706df-5704-11e9-c0a8-100b00000003",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:50:16.000",
-   read: false
+   "read": false,
    "title": "New comment: New text for task 1",
    "description": "ntest1 added comment Comment 1",
    "performedBy": {
@@ -1351,7 +1354,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1431,7 +1434,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "3d3423ee-5704-11e9-c0a8-100b00000007",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:50:53.000",
-   read: false
+   "read": false,
    "title": "Comment changed: New text for task 1",
    "description": "ntest1 changed comment New text for comment 1, Comment 1",
    "performedBy": {
@@ -1444,7 +1447,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1527,7 +1530,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "3d2abf0f-5704-11e9-c0a8-100b00000005",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:51:09.000",
-   read: false
+   "read": false,
    "title": "Comment deleted: New text for task 1",
    "description": "ntest1 deleted comment New comment text 1",
    "performedBy": {
@@ -1540,7 +1543,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1603,7 +1606,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "8002409b-351d-11e9-9ff4-34e80002a126",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-20 17:40:42.000",
-   read: true
+   "read": true,
    "title": "Shift is open at Point of sale",
    "description": "Cashier: Cashier Kladkin",
    "user": {
@@ -1616,7 +1619,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
      "name": "Cashier Kladkin"
    },
-   "retail store": {
+   "retailstore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -1626,7 +1629,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "ffa5bbf4-351b-11e9-9ff4-34e800131be8",
      "name": "Point of sale"
    },
-   retailShift: {
+   "retailShift": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailshift/7e41bd3c-351c-11e9-9ff4-34e80012cfc1",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailshift/metadata",
@@ -1688,7 +1691,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "3929d717-351c-11e9-9ff4-34e800029ad4",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-20 17:31:34.000",
-   read: true
+   "read": true,
    "title": "Shift closed at Point of sale",
    "description": "Cashier: Cashier Kladkin. Duration: 1 min. Sales: 2. Refunds: 0. Revenue: 40000.00",
    "user": {
@@ -1701,7 +1704,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
      "name": "Cashier Kladkin"
    },
-   "retail store": {
+   "retailstore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -1711,7 +1714,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "ffa5bbf4-351b-11e9-9ff4-34e800131be8",
      "name": "Point of sale"
    },
-   retailShift: {
+   "retailShift": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailshift/08fd47a8-351c-11e9-9109-f8fc0013f6cd",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailshift/metadata",
@@ -1799,11 +1802,11 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "b22dc861-645b-11eb-0a80-1f8500000044",
    "accountId": "882bbcfa-645b-11eb-0a80-1f8000000016",
    "created": "2021-02-01 10:04:15.907",
-   read: false
+   "read": false,
    "title": "subject",
    "description": "notification text",
    "eventType": "MODIFY",
-   entity: {
+   "entity": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/afa8525a-645b-11eb-0a80-2b47000003b7",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
@@ -1863,7 +1866,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "9596251d-da73-11eb-ac12-000c00000015",
    "accountId": "54148a9e-d8fa-11eb-ac12-000b00000001",
    "created": "2021-07-01 16:52:33",
-   read: true
+   "read": true,
    "title": "Update Facebook Link",
    "description": "In order for the Instagram shop to work properly, account access needs to be renewed every 60 days - just click the button in the settings. Days until synchronization stops: 5",
    "connectorName": "Instagram store",
@@ -1916,7 +1919,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c2582a9e-56e1-11e9-c0a8-100b00000123",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "Account replenished",
    "description": "500 bonus rubles have been credited to your account"
 }
@@ -1961,34 +1964,34 @@ Successful request. JSON representation of notification settings.
 {
    "groups" : {
      "sales order" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "invoice" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "stock" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "retail" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
-     "task" : {"enabled" : true
+     "task" : {"enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "data_exchange" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "scripts" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "online_stores" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      }
    }
@@ -2011,35 +2014,35 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
        -d '{
              "groups" : {
                "sales order" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "invoice" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "stock" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "retail" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "task" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "data_exchange" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "scripts" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "online_stores" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                }
              }
