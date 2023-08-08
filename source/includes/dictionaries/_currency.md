@@ -2,7 +2,7 @@
 
 Using the JSON API, you can request lists of currencies and information on individual currencies, as well as create new and update information on existing currencies. The entity code for currencies in the JSON API is the **currency** keyword.Learn more about [Currencies](https://kladana.zendesk.com/hc/en-us/articles/6492493269405-Currencies).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among currency objects to match the search string will be carried out using the following fields:
 
@@ -19,10 +19,10 @@ The search among currency objects to match the search string will be carried out
 | **id** | UUID | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
 | **indirect** | Boolean | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
 | **isoCode** | String(255) | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **majorUnit** | object | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#suschnosti-valuta-formy-edinic)<br>`+Required when answering` |
+| **majorUnit** | object | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
 | **margin** | double | | Mark-up for automatic course update<br>`+Required when answering` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Currency Metadata<br>`+Required when replying` |
-| **minorUnit** | object | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#suschnosti-valuta-formy-edinic)<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
+| **minorUnit** | object | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
 | **multiplicity** | int | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Brief naming of the Currency<br>`+Required when replying` `+Required when creating` |
 | **rate** | double | | Exchange rate<br>`+Required when answering` |
@@ -40,7 +40,7 @@ The **majorUnit** and **minorUnit** fields contain the following attributes:
 | **s2** | The form of the unit used in the numeral 2 |
 | **s5** | The form of the unit used in the numeral 5 |
 
-In the JSON API, currencies are mostly represented as part of entities in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format. In order to expand them as part of another object, you need to use the [expand parameter](../#mojsklad-json-api-obschie-swedeniq-zamena-ssylok-ob-ektami-s-pomosch-u-expand)
+In the JSON API, currencies are mostly represented as part of entities in the [Metadata](../#kladana-json-api-general-info-metadata) format. In order to expand them as part of another object, you need to use the [expand parameter](../#mojsklad-json-api-obschie-swedeniq-zamena-ssylok-ob-ektami-s-pomosch-u-expand)
 
 ### Get Currencies
 
@@ -48,9 +48,9 @@ The result of a successful request is a JSON representation of a list of currenc
 
 | Field | Description |
 | ------ | ---------- |
-| **meta** | [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) issuance |
-| **context** | [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) about the person who made the request |
-| **rows** | Array of JSON objects representing [currencies](../dictionaries/#suschnosti-valuta) |
+| **meta** | [Metadata](../#kladana-json-api-general-info-metadata) issuance |
+| **context** | [Metadata](../#kladana-json-api-general-info-metadata) about the person who made the request |
+| **rows** | Array of JSON objects representing [currencies](../dictionaries/#entities-valuta) |
 
 **Parameters**
 
@@ -330,7 +330,7 @@ Successful request. The result is a JSON representation of the generated Currenc
 ```
 
 ### Bulk creation and updating of Currencies
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow)
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects)
 In the body of the request, you need to pass an array containing the JSON representation of the Currencies that you want to create or update.
 Updated Currencies must contain the identifier in the form of metadata.
 

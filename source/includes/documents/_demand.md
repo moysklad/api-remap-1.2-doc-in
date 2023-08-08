@@ -12,38 +12,38 @@ Shipment supports external widget change notification protocol **change-handler*
 | Title | Type | Filtration | Description |
 |-----------|---------| --------- |--------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **applicable** | Boolean | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br> `+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object) | [Operators add. fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Shipment Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when Shipment was last deleted<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Shipment Comment <br/> `+Change-handler` `+Update-provider`|
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Shipment Code<br>`+Required in response` `+Change-handler` |
-| **files** | MetaArray | | [Files](../dictionaries/#suschnosti-fajly) array metadata. Maximum number of files - 100.<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-fajly) array metadata. Maximum number of files - 100.<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Shipment ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Shipment Metadata<br>`+Required in response` `+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Shipment Metadata<br>`+Required in response` `+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Shipment date<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Shipment<br>`+Required for response` `+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **overhead** | object | | Overheads. [More details here](../dictionaries/#dokumenty-otgruzka-otgruzki-nakladnye-rashody). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **overhead** | object | | Overheads. [More details here](../dictionaries/#dokumenty-shipment-otgruzki-nakladnye-rashody). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paidSum** | float || Amount of incoming payments for Shipment<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray | | Shipment item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
 | **printed** | Boolean | `=` `!=` | Is the Shipment document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the Shipment document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **salesChannel** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales channel metadata<br>`+Expand` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shipmentAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Shipping address Shipping <br/> `+Change-handler` |
-| **shipmentAddressFull** | object | | Delivery address of Shipments with details for individual fields. [More details here](../documents/#dokumenty-otgruzka-otgruzki-attributy-suschnosti-adres-dostawki)<br> `+Change-handler` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Shipment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **shipmentAddressFull** | object | | Delivery address of Shipments with details for individual fields. [More details here](../documents/#transactions-shipment-otgruzki-attributy-suschnosti-adres-dostawki)<br> `+Change-handler` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Shipment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Shipment last updated time<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -64,18 +64,18 @@ Description of overhead fields.
 
 | Title | Description |
 | ------- | -------- |
-| **customerOrder** | Link to the Sales Orderto which this Shipment is associated in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **returns** | An array of links to related returns in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **payments** | An array of links to related payments in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **invoicesOut** | An array of links to related customer invoices in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **customerOrder** | Link to the Sales Orderto which this Shipment is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **invoicesOut** | An array of links to related customer invoices in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Other fields
 
 | Title | Type | Description |
 | ------- | ------- | -------- |
 | **cargoName** | String(255) | Name of cargo <br/> `+Change-handler` |
-| **carrier** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Carrier metadata (contractor or legal entity)<br>`+Expand` `+Change-handler` |
-| **consignee** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Consignee's metadata (contractor or legal entity) <br/> `+Change-handler` |
+| **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (contractor or legal entity)<br>`+Expand` `+Change-handler` |
+| **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (contractor or legal entity) <br/> `+Change-handler` |
 | **goodPackQuantity** | int | Total seats <br/> `+Change-handler` |
 | **shipping instructions** | String(255) | Shipper instructions <br/> `+Change-handler` |
 | **stateContractId** | String(255) | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
@@ -91,29 +91,29 @@ The Shipment item object contains the following fields:
 | Title | Type | Description |
 | ------ | ------ | ------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the product/service/series/modification/bundle, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification/bundle, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **cost** | int | Cost price (only for services) |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | object | Product packaging. [More info here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) `+Change-handler` `+Update-provider` |
+| **pack** | object | Product packaging. [More info here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) `+Change-handler` `+Update-provider` |
 | **price** | float | The price of the product/service in rupees<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
-| **slot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Cell in the warehouse. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
-| **tracking codes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#dokumenty-otgruzka-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok) |
-| **trackingCodes_1162** | Array(Object) | Codes for marking goods in tag format 1162. [More details here](../documents/#dokumenty-otgruzka-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok-w-formate-tega-1162) |
-| **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-oprihodowanie-oprihodowaniq-nakladnye-rashody). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
+| **tracking codes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-shipment-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok) |
+| **trackingCodes_1162** | Array(Object) | Codes for marking goods in tag format 1162. [More details here](../documents/#transactions-shipment-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok-w-formate-tega-1162) |
+| **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-stock-adjustment-oprihodowaniq-nakladnye-rashody). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
-You can work with items using [special resources for managing Shipments](../documents/#dokumenty-otgruzka-pozicii-otgruzki), and also as part of a separate Shipment. When working as part of a separate Shipment, you can send requests to create a separate Shipment with included in the request body array of Shipment items. 
+You can work with items using [special resources for managing Shipments](../documents/#transactions-shipment-pozicii-otgruzki), and also as part of a separate Shipment. When working as part of a separate Shipment, you can send requests to create a separate Shipment with included in the request body array of Shipment items. 
 If the number of items exceeds the maximum allowed, then for further replenishment of items, you will need to work with a special resource "Shipment items".
 
 Also, when working as part of a separate Shipment, you can send requests to update the list of items
 with an array of Shipment items included in the request body. It is important to remember that the collection of items will be perceived as "all Shipment items" and will completely replace the existing collection when updating the object - superfluous
 items will be deleted, new ones added, existing ones changed.
 
-About working with Shipments fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+About working with Shipments fields can be read [here](../#kladana-json-api-general-info-additional-fields).
 
 #### Codes for marking of goods and transport packages
 
@@ -171,10 +171,10 @@ It is unacceptable to store duplicate marking codes and serial numbers inside th
 | **apartment** | String(30) | Apartment |
 | **city** | String(255) | City |
 | **comment** | String(255) | Comment |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country metadata |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata |
 | **house** | String(30) | House |
 | **postalCode** | String(6) | Postcode |
-| **region** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Region metadata |
+| **region** | [Meta](../#kladana-json-api-general-info-metadata) | Region metadata |
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
@@ -196,8 +196,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | ---------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Shipments. |
 
 **Parameters**
@@ -507,9 +507,9 @@ Mandatory fields to create:
 
 | Parameter | Description |
 | ---------- | --------- |
-| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent** | Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **store** | Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **store** | Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 > An example of creating a new Shipment with a request body containing only the required fields.
 
@@ -1260,7 +1260,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
 
 ### Bulk creating and update of Shipments
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Shipments.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Shipments.
 
 In the body of the request, you need to pass an array containing the JSON representation of the Shipments you want to create or update.
 Updated Shipments must contain the identifier in the form of metadata.
@@ -1654,11 +1654,11 @@ Request to get Shipments metadata. The result is a JSON object including:
 | Parameter | Description |
 | ---------- | --------- |
 | **meta** | Link to Metadata of Shipments |
-| **attributes** | Array of objects additional Shipments fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Shipments fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Shipments statuses |
 | **createShared** | create new Shipments labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Shipment Metadata
 
@@ -2368,7 +2368,7 @@ Successful request. The result is a JSON representation of the Shipment.
 
 Request to update the Shipment with the specified id.
 In the request body, you can specify only those fields that need to be changed for the Shipment, except for those that
-are marked `Read-Only` in the description of [Shipment attributes](../documents/#dokumenty-otgruzka).
+are marked `Read-Only` in the description of [Shipment attributes](../documents/#transactions-shipment).
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.
 
@@ -3123,8 +3123,8 @@ Request to get a list of all items of this Shipment.
 
 | Title | Type | Description |
 | ------- | ------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Shipment items. |
 
 **Parameters**
@@ -3466,7 +3466,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification/set that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Shipment item](../documents/#dokumenty-otgruzka-otgruzki-pozicii-otgruzki)
+what the indicated item is. You can read more about this field in the description of the [Shipment item](../documents/#transactions-shipment-otgruzki-pozicii-otgruzki)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Shipment items at the same time. All items created by this request
 will be added to the existing ones.

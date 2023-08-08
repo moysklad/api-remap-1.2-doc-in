@@ -1,7 +1,7 @@
 ## Series
 ### Series
 
-This entity can be contextually searched using the special `search` parameter. [Learn more](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the Series for matching the search string will be carried out using the following fields:
 
@@ -13,15 +13,15 @@ The search among the objects of the Series for matching the search string will b
 | Title | Type | Filtration | Description |
 | ------| ------ | ------ | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | [Operators additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Link or modification metadata<br>`+Required when responding` `+Required when creating` |
+| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Link or modification metadata<br>`+Required when responding` `+Required when creating` |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Series barcodes |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Series Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Series Description |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Series Code<br>`+Required when replying` |
 | **id** | UUID | `=` `!=` | Series ID<br>`+Required for response` `+Read only` |
-| **images** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Image of the product to which this series belongs |
+| **images** | [Meta](../#kladana-json-api-general-info-metadata) | | Image of the product to which this series belongs |
 | **label** | String(255) | | Series Label<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Series Metadata<br>`+Required when replying`|
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Series Metadata<br>`+Required when replying`|
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Series. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
@@ -33,7 +33,7 @@ The response is an object, with the following structure:
 
 | Title | Type | Description |
 | ------ | ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Series Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Series Metadata<br>`+Required when replying` |
 | **attributes** | Array(Object) | Collection of additional fields |
 
 ### Get a list of Series
@@ -44,8 +44,8 @@ The result of a successful request is a JSON representation of a list of Series 
 
 | Title | Type | Description |
 | ------ | ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the series. |
 
 **Parameters**
@@ -277,7 +277,7 @@ curl -X POST
 
 ### Series bulk creating and update
 
-[Series bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+[Series bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the Series you want to create or update.
 Updated Series must contain the identifier in the form of metadata.
 
@@ -427,10 +427,10 @@ Request for Series metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | ------ | ------- |---------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when replying` |
 | **attributes** | Array(Object) | Collection of additional  fields|
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Get series metadata
 

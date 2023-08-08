@@ -11,35 +11,35 @@ Using the JSON API, you can create and update information about Bundles, request
 | **archived** | Boolean | `=` `!=` | Has the Bundle been added to the archive<br>`+Required when replying` |
 | **article** | String(255) | `=` `!=` `~` `~=` `=~` | Article |
 | **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Bundles Barcodes [Learn more](../dictionaries/#suschnosti-komplekt-komplekty-komponenty-komplekta-shtrih-kody) |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Bundles Barcodes [Learn more](../dictionaries/#entities-komplekt-komplekty-komponenty-komplekta-shtrih-kody) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Code |
 | **components** | MetaArray | | Array of components of Bundle<br>`+Expand` |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Country Metadata<br>`+Expand` |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Expand` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Bundle Description |
 | **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **effectiveVat** | int | | Real VAT %<br>`+Read Only`|
 | **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Bundle Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Bundle ID<br>`+Required for response` `+Read only` |
-| **images** | MetaArray | | [Images] metadata array(../dictionaries/#suschnosti-izobrazhenie) (Maximum number of images - 10)<br>`+Expand` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Bundle Metadata<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More here](../dictionaries/#suschnosti-komplekt-komplekty-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bundle Metadata<br>`+Required when replying` |
+| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Name<br>`+Required when responding` `+Required when creating` |
-| **overhead** | object | | Additional expenses. [More here](../dictionaries/#suschnosti-komplekt-komplekty-atributy-wlozhennyh-suschnostej-dopolnitel-nye-rashody) |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
+| **overhead** | object | | Additional expenses. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-wlozhennyh-suschnostej-dopolnitel-nye-rashody) |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked goods. "true" - the feature is enabled. |
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | The name of the group the Bundle belongs to<br>`+Required when replying` `+Read-only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#suschnosti-komplekt-komplekty-atributy-suschnosti-priznak-predmeta-rascheta) |
-| **productFolder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Group metadata of Bundles<br>`+Expand` |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-suschnosti-priznak-predmeta-rascheta) |
+| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Group metadata of Bundles<br>`+Expand` |
 | **saleprice** | Array(Object) | | Sale prices |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-komplekt-komplekty-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
 | **tnved** | String(255) | | TN VED code |
-| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#suschnosti-komplekt-komplekty-atributy-suschnosti-tip-markiruemoj-produkcii) |
-| **wom** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) || Units<br>`+Expand` |
+| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-suschnosti-tip-markiruemoj-produkcii) |
+| **wom** | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | int | | VAT % |
@@ -122,7 +122,7 @@ The structure of the overhead object.
 | Title | Type | Description |
 | ------| ----- |------ |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 The structure of the minPrice object.
@@ -130,7 +130,7 @@ The structure of the minPrice object.
 | Title | Type | Description |
 | ------|------| -------------|
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 #### Bundle Components
 Bundle Components is a list of goods/services/modifications that are part of a Bundle. Bundle can have from 1 to 50 components. Object of a Bundle component contains the following fields:
@@ -138,7 +138,7 @@ Bundle Components is a list of goods/services/modifications that are part of a B
 | Title | Type | Description |
 | ------------- | --------------- |----------------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the product/service/series that the component represents<br>`+Required for response` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series that the component represents<br>`+Required for response` `+Expand` |
 | **id** | UUID | Component ID<br>`+Required for response` `+Read-only` |
 | **quantity** | int | Quantity of goods/services of this type in the <br>component`+Required when replying` `+Read-only` |
 
@@ -147,7 +147,7 @@ Bundle Components is a list of goods/services/modifications that are part of a B
 Bundles Metadata contains information about additional fields.
 
 View all additional fields of Bundles created in the main interface,
-as well as all types of prices, you can use the [Products](../dictionaries/#suschnosti-towar-metadannye-towarow) metadata request.
+as well as all types of prices, you can use the [Products](../dictionaries/#entities-towar-metadannye-towarow) metadata request.
 
 Structures of objects of individual collections:
 
@@ -172,7 +172,7 @@ Features of creating a list of barcodes when creating a Bundle:
 + If you pass a list of empty barcode values to the input, then no barcodes will be created for the products.
 + If you do not pass the barcodes attribute to the input or pass an empty list in it, then by default one random barcode of the EAN13 type will be created for the product.
 
-[Learn more](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) about additional fields of Bundles.
+[Learn more](../#kladana-json-api-general-info-additional-fields) about additional fields of Bundles.
 
 ##### Image: structure and loading
 
@@ -182,16 +182,16 @@ an array of elements. **images** field elements have fields:
 | Title | Type | Description |
 | ------------- | ------ | ------------ |
 | **filename** | String(255) | File name<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
 | **size** | int | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata<br>`+Required when replying` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
 | **updated** | datetime | File upload time to server<br>`+Required when replying` |
 
 #### Loading
 
-To upload an image in the request body to [create](../dictionaries/#suschnosti-komplekt-sozdat-komplekt) or [update](../dictionaries/#suschnosti-komplekt-izmenit-komplekt) of a Bundle indicate the * *images** field with a list of elements that have the following attributes:
+To upload an image in the request body to [create](../dictionaries/#entities-komplekt-sozdat-komplekt) or [update](../dictionaries/#entities-komplekt-izmenit-komplekt) of a Bundle indicate the * *images** field with a list of elements that have the following attributes:
 
 | Title | Description |
 | --------------- | ----------- |
@@ -200,9 +200,9 @@ To upload an image in the request body to [create](../dictionaries/#suschnosti-k
 
 If **images** contain an empty array of elements in an update request, all images in the Bundle will be removed. The server interprets this as a request from the user to update the list of Bundle images.
 
-The API documentation for working with Images can be found in the [Image](../dictionaries/#suschnosti-izobrazhenie) chapter.
+The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-izobrazhenie) chapter.
 
-[Learn more](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) about Bundles additional fields.
+[Learn more](../#kladana-json-api-general-info-additional-fields) about Bundles additional fields.
 
 ### Get the list of Bundles
 
@@ -211,8 +211,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | ------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Bundles. |
 
 **Parameters**
@@ -1276,7 +1276,7 @@ Successful request. The result is a JSON array of representations of the generat
 ### Bundles Metadata
 
 View all additional fields of Bundles created in the main interface,
-as well as all types of prices, you can use the [Products](../dictionaries/#suschnosti-towar-metadannye-towarow) metadata request.
+as well as all types of prices, you can use the [Products](../dictionaries/#entities-towar-metadannye-towarow) metadata request.
 
 ### Bundle
 
@@ -1682,8 +1682,8 @@ Request to get a list of all components of this Bundle.
 
 | Title | Type | Description |
 | ------| -----| ----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bundle. |
 
 **Parameters**

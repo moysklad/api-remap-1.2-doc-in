@@ -9,7 +9,7 @@ To access the report via the API, you need the right to view the *Profit and Los
 
 | Title | Type | Description |
 | --------- | -----|---------|
-| **assortment** | object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#suschnosti-towar) and [here](../dictionaries/#suschnosti-usluga)<br>`+Required when answering` |
+| **assortment** | object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-towar) and [here](../dictionaries/#entities-usluga)<br>`+Required when answering` |
 | **margin** | float | Profitability<br>`+Required when answering` |
 | **profit** | float | Profit<br>`+Required when answering` |
 | **returnCost** | float | Cost of returns<br>`+Required when replying` |
@@ -27,7 +27,7 @@ To access the report via the API, you need the right to view the *Profit and Los
 
 | Title | Type | Description |
 | -----|---------|--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Product or Service<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Service<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Services<br>`+Required when answering` |
 | **code** | String(255) | Product or service code |
 | **wom** | object | Unit of measurement |
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|----- |
-| **assortment** | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#suschnosti-modifikaciq), [here](../dictionaries/#suschnosti-usluga) and [here](../dictionaries/#suschnosti-komplekt)<br>`+ Mandatory when replying` |
+| **assortment** | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-usluga) and [here](../dictionaries/#entities-komplekt)<br>`+ Mandatory when replying` |
 | **margin** | float | Profitability<br>`+Required when answering` |
 | **profit** | float | Profit<br>`+Required when answering` |
 | **returnCost** | float | Cost of returns<br>`+Required when replying` |
@@ -252,7 +252,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|-------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Modification, Service, or Bundle Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Modification, Service, or Bundle Metadata<br>`+Required when responding` |
 | **name** | String(255) | Entity name<br>`+Required when replying` |
 | **code** | String(255) | Entity code<br>`+Required for response` |
 | **article** | String(255) | Article of Modification or Kit<br>`+Required when answering` |
@@ -457,7 +457,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|------ |
-| **employees** | object | Brief representation of the Employee in the report. [More details here](../dictionaries/#suschnosti-sotrudnik)<br>`+Required when answering` |
+| **employees** | object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-sotrudnik)<br>`+Required when answering` |
 | **margin** | float | Profitability<br>`+Required when answering` |
 | **profit** | float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
@@ -473,7 +473,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|---------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` |
 | **name** | String(255) | Employee Name<br>`+Required when replying` |
 
 #### Attributes available for filtering
@@ -594,7 +594,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ------- | ----- | ------ |
-| **counterparty** | object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#suschnosti-kontragent)<br>`+Required when answering` |
+| **counterparty** | object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-kontragent)<br>`+Required when answering` |
 | **margin** | float | Profitability<br>`+Required when answering`|
 | **profit** | float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
@@ -610,7 +610,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ---------| ---- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Buyer Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Buyer Metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of the Buyer<br>`+Required when replying` |
 
 #### Attributes available for filtering
@@ -732,7 +732,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ---------| ---- |----------|
-| **salesChannel** | object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#suschnosti-kanal-prodazh)<br>`+Required when replying` |
+| **salesChannel** | object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-kanal-prodazh)<br>`+Required when replying` |
 | **margin** | float | Profitability<br>`+Required when answering` |
 | **profit** | float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
@@ -748,9 +748,9 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ---------| ---- |---------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Sales Channel Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when responding` |
 | **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
-| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#suschnosti-kanal-prodazh-kanaly-prodazh-tip-kanala-prodazh)<br>`+Required when answering ` |
+| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#entities-kanal-prodazh-kanaly-prodazh-tip-kanala-prodazh)<br>`+Required when answering ` |
 
 #### Attributes available for filtering
 

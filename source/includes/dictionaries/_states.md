@@ -11,7 +11,7 @@ Statuses can be added, modified and removed via API.
 | **color** | String(255) | Status Color<br>`+Required when replying` `+Required when creating` |
 | **entityType** | String(255) | Entity type to which Status refers (keyword within the JSON API)<br>`+Required for response` `+Read-only` |
 | **id** | UUID | Status ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Status Metadata<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Status Metadata<br>`+Required when replying` `+Read Only` |
 | **name** | String(255) | Status Name<br>`+Required when replying` `+Required when creating` |
 | **stateType** | Enum | Status Type<br>`+Required when replying` `+Required when creating` |
 
@@ -207,7 +207,7 @@ Successful request. The result is a JSON representation of the changed Status.
 ```
 
 ### Bulk creation and updating of Statuses
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Statuses.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Statuses.
 In the body of the request, you need to pass an array containing the JSON representation of the Statuses that you want to create or update.
 Updated Statuses must contain the identifier in the form of metadata.
 

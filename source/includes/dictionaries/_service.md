@@ -1,7 +1,7 @@
 ## Service
 Using the JSON API, you can create and update information about the Services, request lists of Services and information on individual Services. The entity code for a Service in the JSON API is the **service** keyword. Service is a special kind of goods, without a purchase price and packaging. You can read more about Products and working with them in the main interface in our support service in the section [Products and Services](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
 
 Search among service objects for matching the search string will be carried out in the following fields:
 
@@ -16,29 +16,29 @@ Search among service objects for matching the search string will be carried out 
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#suschnosti-usluga-uslugi-metadannye-uslug-shtrih-kody) |
-| **buyprice** | object | | Purchasing sale. [More here](../dictionaries/#suschnosti-usluga-uslugi-metadannye-uslug-zakupochnaq-cena) |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-shtrih-kody) |
+| **buyprice** | object | | Purchasing sale. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-zakupochnaq-cena) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Service Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the Service|
 | **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **effectiveVat** | int | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Service Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Services<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More here](../dictionaries/#suschnosti-usluga-uslugi-metadannye-uslug-minimal-naq-cena) |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
+| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-minimal-naq-cena) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More details here](../dictionaries/#suschnosti-usluga-uslugi-atributy-suschnosti-priznak-predmeta-rascheta) |
-| **productFolder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Kit group metadata<br>`+Expand` |
-| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#suschnosti-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-priznak-predmeta-rascheta) |
+| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Kit group metadata<br>`+Expand` |
+| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-usluga-uslugi-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
-| **wom** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Units<br>`+Expand` |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **wom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | int || VAT % |
@@ -77,7 +77,7 @@ The values of the taxSystem field.
 Services metadata contains information about additional fields.
 
 View all addons created in the main interface. Service fields,
-as well as all types of prices, you can use the [Products](../dictionaries/#suschnosti-towar-metadannye-towarow) metadata request.
+as well as all types of prices, you can use the [Products](../dictionaries/#entities-towar-metadannye-towarow) metadata request.
 
 Structures of objects of individual collections:
 
@@ -90,14 +90,14 @@ When creating a barcode, you need to describe an object with a field that is a l
 | **ean8** | barcode in EAN8 format if you want to generate an EAN8 barcode |
 | **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format |
 
-About working with Service fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Service fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ##### Sales prices
 
 | Title | Type | Description |
 | ----- | ------ |------ |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 | **priceType** | object | Price type<br>`+Required when replying` |
 
 
@@ -106,21 +106,21 @@ About working with Service fields can be read [here](../#mojsklad-json-api-obsch
 | Title | Type | Description |
 | ----- | ------ |------ |
 | **value** | float | Price value<br>`+Required when replying` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 
 | Title | Type | Description |
 | ----- | ------ |------- |
 | **value** | float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Reference to the currency in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Group Services
 
 | Title | Type | Description |
 | ----- | ------ |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata containing a link to the Services group.<br>`+Required when replying` |
-You can see the description of the Group entity [here](../dictionaries/#suschnosti-gruppa-towarow).
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Services group.<br>`+Required when replying` |
+You can see the description of the Group entity [here](../dictionaries/#entities-gruppa-towarow).
 Updating this attribute will also update the **pathName** attribute.
 
 ##### Features of filtering the archived field
@@ -133,9 +133,9 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----- | ------ |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Services](../dictionaries/#suschnosti-usluga). |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing [Services](../dictionaries/#entities-usluga). |
 
 **Parameters**
 
@@ -1019,7 +1019,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 
 ### Bulk creation and update of Services
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Services.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Services.
 In the body of the request, you need to pass an array containing the JSON representation of the Services that you want to create or update.
 The updated Services must contain the identifier in the form of metadata.
 
@@ -1248,7 +1248,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 ### Services Metadata
 
 View all addons created in the main interface. Service fields,
-as well as all types of prices, you can use the [Products](../dictionaries/#suschnosti-towar-metadannye-towarow) metadata request.
+as well as all types of prices, you can use the [Products](../dictionaries/#entities-towar-metadannye-towarow) metadata request.
 
 ### Service
  

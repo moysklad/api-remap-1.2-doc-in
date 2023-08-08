@@ -1,7 +1,7 @@
 ## Country
 ### Countries
 Using the JSON API, you can create and update information about Countries, request lists of Countries and information on individual Countries. The entity code for Country in the JSON API is the **country** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among country objects for matching the search string will be carried out using the following fields:
 
@@ -15,11 +15,11 @@ The search among country objects for matching the search string will be carried 
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Country Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Countries |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Country Code<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Department-owner<br>`+Expand` `+For custom countries` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department-owner<br>`+Expand` `+For custom countries` |
 | **id** | UUID | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Country Metadata<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Required when answering` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Country Name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee-owner<br>`+Expand` `+For custom countries` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee-owner<br>`+Expand` `+For custom countries` |
 | **shared** | Boolean | `=` `!=` | Flag Share<br>`+For custom countries` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
@@ -29,9 +29,9 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------| ------ | -------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Countries](../dictionaries/#suschnosti-strana). |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing [Countries](../dictionaries/#entities-country). |
 
 **Parameters**
 
@@ -246,7 +246,7 @@ Successful request. The result is a JSON representation of the created Country.
 ```
 
 ### Bulk creation and update of Countries
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow)
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects)
 In the body of the request, you need to pass an array containing the JSON representation of the Countries that you want to create or update.
 Updated Countries must contain the identifier in the form of metadata.
 

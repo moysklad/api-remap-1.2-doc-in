@@ -8,23 +8,23 @@ Using the JSON API, you can create and update information about Bonus Operations
 | Title | Type | Filtering | Description |
 | ---------------------- |----------- |-------------| ------------- |
 | **accountId** | UUID |`=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **applicable** | Boolean |`=` `!=` | Check mark<br>`+Required when answering` |
-| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Bonus program metadata<br>`+Expand` |
+| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Bonus program metadata<br>`+Expand` |
 | **bonusValue** | Int |`=` `!=` `<` `>` `<=` `>=` | Number of bonus points |
 | **categoryType** | Enum | | Bonus operation category. Possible values: `REGULAR`, `WELCOME`<br>`+Read Only` |
 | **code** | String(255) |`=` `!=` `~` `~=` `=~` | Bonus Transaction Code |
 | **created** | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when answering` |
 | **executionDate** | datetime | | Date of the bonus operation. |
 | **externalCode** | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID |`=` `!=` | Bonus transaction ID<br>`+Required for response` `+Read-only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Bonus operation metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bonus operation metadata<br>`+Required when replying` |
 | **moment** | DateTime |`=` `!=` `<` `>` `<=` `>=` | Time of the bonus operation |
 | **name** | String(255) |`=` `!=` `~` `~=` `=~` | Name of the Bonus transaction |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Legal entity metadata<br>`+Expand` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |`=` `!=` | Owner (Employee)<br>`+Expand` |
-| **parentDocument** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | St. Metadataof the linked document of the bonus operation<br>`+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Legal entity metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Owner (Employee)<br>`+Expand` |
+| **parentDocument** | [Meta](../#kladana-json-api-general-info-metadata) | | St. Metadataof the linked document of the bonus operation<br>`+Expand` |
 | **shared** | Boolean |`=` `!=` | Sharing<br>`+Required when replying` |
 | **transactionStatus** | Enum | | Status of the bonus operation. Possible values: `WAIT_PROCESSING`, `COMPLETED`, `CANCELED`<br>`+Read Only` |
 | **transactionType** | Enum | | Type of bonus operation. Possible values: `EARNING`, `SPENDING`<br>`+Required when replying` `+Required when creating` |
@@ -45,8 +45,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------------- | -------------------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Bonus Operations. |
 
 **Parameters**
@@ -274,8 +274,8 @@ Mandatory fields to create:
 
 | Title | Type | Description |
 | -------------------- | --------------------- | --------------------- |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Bonus Program Metadata<br>`+Required when answering` `+Expand` `+Required when creating` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when answering` `+Expand` `+Required when creating` |
 | **transactionType** | Enum | Type of bonus operation<br>`+Required when replying` `+Required when creating` |
 
 > An example of a request to create a new bonus operation.
@@ -389,7 +389,7 @@ Successful request. The result is a JSON representation of the created bonus ope
 
 ### Bonus operations bulk creation and update
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Bonus operations.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Bonus operations.
 In the body of the request, you need to pass an array containing JSON representations of the Bonus Operations that you want to create or update.
 Updated Bonus Transactions must contain the identifier in the form of metadata.
 

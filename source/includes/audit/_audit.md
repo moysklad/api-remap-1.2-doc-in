@@ -38,7 +38,7 @@ The context contains only general information about the events related to it.
 | **events** | Array(Object) | List of Method Audit Events<br>`+Required for response` `+Read Only` |
 | **id** | UUID | Context ID<br>`+Required for response` `+Read Only` |
 | **info** | String(255) | Short Description<br>`+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Context entity metadata<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Context entity metadata<br>`+Required for response` `+Read-only` |
 | **moment** | datetime | Modified date<br>`+Required when replying` `+Read only` |
 | **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only` |
 | **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying` |
@@ -85,8 +85,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description|
 | ----------- | ------| ------------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the changes. |
 
 **Parameters**
@@ -244,7 +244,7 @@ more about which below.
 | **additionalInfo** | String(4096) | Additional Event Information<br>`+Read Only` |
 | **audit** | Enum | Context metadata<br>`+Required for response` `+Read-only` |
 | **diff** | object | Changes occurred in the Event, in the special diff format described in the [Diff Field Format] section(../notification/#audit-audit-sobytiq-format-polq-diff)<br>`+Required for response` `+Only for reading` |
-| **entities** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only` |
+| **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only` |
 | **entityType** | Enum | Entity name<br>`+Required for response` `+Read only` |
 | **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only` |
 | **moment** | datetime | Event creation time<br>`+Required for response` `+Read-only` |
@@ -308,8 +308,8 @@ Request to receive Context events with the specified id. Result: JSON object inc
 
 | Title | Type | Description |
 | ------| -----|----------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing events. |
 
 **Parameters**
@@ -389,8 +389,8 @@ Request to receive events by the entity with the specified id. Result: JSON obje
 
 | Title | Type | Description |
 | ----------- | ------ | ------------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing events. |
 
 **Parameters**

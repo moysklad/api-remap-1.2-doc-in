@@ -3,12 +3,12 @@
 To set additional properties of an object in Kladana, it is possible to work with additional fields (attributes).
 They are properties of an entity (object or document) that are formed by the user and can be used for more
 a detailed description of the object or filtering by the values of these fields. You can read more about the types and properties of additional fields
-in [documentation](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+in [documentation](../#kladana-json-api-general-info-additional-fields).
 
 In this article, we will use the example of a laptop store to view, create, edit, and delete additional fields using the JSON API.
 
 The values of additional fields can be changed by referring to a specific object (document). This is detailed in
-article [Additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+article [Additional fields](../#kladana-json-api-general-info-additional-fields).
 
 Suppose we need to select and sort laptops by some characteristics that are not in the product properties by default.
 For example, the case material, the presence of a CD/DVD-Rom, the presence of a Type-C connector, etc. You need the ability to create, edit and delete product properties.
@@ -75,7 +75,7 @@ to false, which makes the created attribute optional when creating a product.
 It is worth paying attention to the creation of an attribute with the Directory type. This type allows an attribute to take other objects as its value,
 including custom ones.
 
-Description of Handbook type attributes in [documentation](../workbook/#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+Description of Handbook type attributes in [documentation](../workbook/#kladana-json-api-general-info-additional-fields)
 
 Let's assume that our store also has laptop cases. Let's create a Catalog attribute of the Product type. Now there is an opportunity for
 for each laptop, specify the appropriate case for itl as one of the properties of the laptop.

@@ -9,7 +9,7 @@
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
 | **description** | String(4096) | Notification description<br>`+Required for response` `+Read only` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata. Contains the specific notification type<br>`+Required in response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata. Contains the specific notification type<br>`+Required in response` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` |
 | **title** | String(255) | Brief notification text<br>`+Required when replying` `+Read only` |
 
@@ -19,8 +19,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | --------------- | ------ | --------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Notifications](/#uwedomleniq-lenta-uwedomlenij). |
 
 **Parameters**
@@ -206,7 +206,7 @@ NotificationExportCompleted - export completion
 | **errorMessage** | String(255) | Error message |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **message** | String(255) | Export completion message |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **taskState** | object | Completion status. Can be `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when responding` `+Required when creating` |
 | **taskType** | object | [Export type](/#uwedomleniq-tipy-uwedomlenij-formaty-polej-vozmozhnye-znacheniq-tipa-axporta)<br>`+Required when replying` `+Required when creating` |
@@ -264,7 +264,7 @@ NotificationImportCompleted is an import completion.
 | **errorMessage** | String(255) | Error message |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **message** | String(255) | Export completion message |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **taskState** | object | Completion status. Can take the values `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when replying` `+Required when creating` |
 | **taskType** | object | [Export type](/#uwedomleniq-tipy-uwedomlenij-formaty-polej-vozmozhnye-znacheniq-tipa-axporta)<br>`+Required when replying` `+Required when creating` |
@@ -320,9 +320,9 @@ NotificationGoodCountTooLow - reducing the balance of goods below the irreducibl
 | **actualBalance** | int | Remaining goods<br>`+Required when replying` `+Required when creating` |
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **good** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Product metadata<br>`+Required when replying` `+Required when creating` |
+| **good** | [Meta](../#kladana-json-api-general-info-metadata) | Product metadata<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **minimumBalance** | int | Minimum balance of goods<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
@@ -384,8 +384,8 @@ NotificationInvoiceOutOverdue - customer's invoice is overdue
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **invoice** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Invoice metadata<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **invoice** | [Meta](../#kladana-json-api-general-info-metadata) | Invoice metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **paymentPlannedMoment** | datetime | Scheduled payment date<br>`+Required when replying` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **sum** | int | Invoice amount<br>`+Required when answering` |
@@ -453,8 +453,8 @@ NotificationOrderNew - new order.
 | **deliveryPlannedMoment** | datetime | Estimated time of shipment<br>`+Required when replying` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **order** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Order metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **order** | [Meta](../#kladana-json-api-general-info-metadata) | Order metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **sum** | int | Invoice amount<br>`+Required when answering` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
@@ -516,8 +516,8 @@ NotificationOrderOverdue - overdue order
 | **deliveryPlannedMoment** | datetime | Estimated time of shipment<br>`+Required when replying` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **order** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Order metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **order** | [Meta](../#kladana-json-api-general-info-metadata) | Order metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **sum** | int | Invoice amount<br>`+Required when answering` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
@@ -579,7 +579,7 @@ Successful request. The result is a JSON representation of the Notification.
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Etcsign of whether the Notification was read<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
@@ -628,7 +628,7 @@ NotificationSubscribeTermsExpired - subscription terms expire
 | **daysLeft** | int | Number of remaining days of subscription<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
@@ -677,7 +677,7 @@ NotificationTaskAssigned - the task has been assigned
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-naznachena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-naznachena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
@@ -689,7 +689,7 @@ NotificationTaskAssigned - the task has been assigned
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -698,7 +698,7 @@ NotificationTaskAssigned - the task has been assigned
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 
@@ -766,7 +766,7 @@ NotificationTaskUnassigned - the task has been unassigned
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-snqta-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-snqta-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating`|
@@ -778,7 +778,7 @@ NotificationTaskUnassigned - the task has been unassigned
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -787,7 +787,7 @@ NotificationTaskUnassigned - the task has been unassigned
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -856,7 +856,7 @@ NotificationTaskChanged - the task has changed
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **diff** | object | Modified fields [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-atributy-wlozhennyh-suschnostej-izmenennye-polq)<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
@@ -868,7 +868,7 @@ NotificationTaskChanged - the task has changed
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Changed fields
@@ -887,7 +887,7 @@ NotificationTaskChanged - the task has changed
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -961,7 +961,7 @@ NotificationTaskCompleted - task completed
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-wypolnena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-wypolnena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
@@ -973,7 +973,7 @@ NotificationTaskCompleted - task completed
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -982,7 +982,7 @@ NotificationTaskCompleted - task completed
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -1050,7 +1050,7 @@ NotificationTaskDeleted - the task has been deleted
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-udalena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-udalena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
@@ -1062,7 +1062,7 @@ NotificationTaskDeleted - the task has been deleted
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -1128,7 +1128,7 @@ NotificationTaskOverdue - the task is overdue
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-prosrochena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
@@ -1139,7 +1139,7 @@ NotificationTaskOverdue - the task is overdue
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Onnaming of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -1200,7 +1200,7 @@ NotificationTaskReopened - the task has been reopened.
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-pereotkryta-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-pereotkryta-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
@@ -1212,7 +1212,7 @@ NotificationTaskReopened - the task has been reopened.
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -1221,7 +1221,7 @@ NotificationTaskReopened - the task has been reopened.
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -1289,7 +1289,7 @@ NotificationTaskNewComment - new comment for the task
 | **created** | datetime| Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-nowyj-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
@@ -1302,7 +1302,7 @@ NotificationTaskNewComment - new comment for the task
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -1311,7 +1311,7 @@ NotificationTaskNewComment - new comment for the task
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -1382,7 +1382,7 @@ NotificationTaskCommentChanged - task comment changed
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **diff** | String(255) | Comment changes in [field change format](/#uwedomleniq-tipy-uwedomlenij-formaty-polej-format-changenennogo-polq)<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-izmenen-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
 | **read** | Boolean| Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
@@ -1395,7 +1395,7 @@ NotificationTaskCommentChanged - task comment changed
 | Title | Type | Description |
 | -------- | ------ | ---- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -1404,7 +1404,7 @@ NotificationTaskCommentChanged - task comment changed
 | ------------ | ------ | ------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -1478,7 +1478,7 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
 | **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-udalen-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
@@ -1491,7 +1491,7 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 ##### Task
@@ -1500,7 +1500,7 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 | --------------- | ------ | --------- |
 | **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
 | **id** | UUID| Notification ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
@@ -1572,7 +1572,7 @@ NotificationRetailShiftOpened - the shift is open.
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **retailShift** | object | Shift description<br>`+Required when replying` `+Required when creating` |
 | **retailstore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
@@ -1655,7 +1655,7 @@ NotificationRetailShiftClosed - the shift is closed
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **retailShift** | object | Shift description<br>`+Required when replying` `+Required when creating` |
 | **retailstore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
@@ -1745,7 +1745,7 @@ NotificationScript - notification from a script
 | **entities** | Object | Script object reference<br>`+Required for response` `+Read-only` |
 | **eventType** | Event | Script event type<br>`+Required for response` `+Read-only` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required for response` `+Read-only` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Read Only` |
 | **title** | String(255) | Brief notification text<br>`+Required when replying` `+Read only` |
 
@@ -1763,7 +1763,7 @@ The object that the script fired on.
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **id** | UUID | Object ID<br>`+Required for response` `+Read-only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required for response` `+Read-only` |
 | **name** | String(255) | Object name<br>`+Required for response``+Read Only` |
 
 Valid values for **meta.type**:
@@ -1835,7 +1835,7 @@ FacebookTokenExpirationNotification - warning about the imminent expiration of a
 | **daysLeftToExpiration** | int | Number of days left before Facebook account access expires<br>`+Required when replying` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
@@ -1888,7 +1888,7 @@ NotificationBonusMoney - Bonus money has been credited to the account.
 | **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 

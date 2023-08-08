@@ -14,7 +14,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when answering` |
 | **assortment** | Array(Object) | An array of metadata for Goods and Services that have been selected to apply the discount, if it is not applied to all products |
 | **id** | UUID | Discount ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata Discounts<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata Discounts<br>`+Required when replying` |
 | **name** | String(255) | Discount Name<br>`+Required when answering` |
 
 #### Special price fields
@@ -23,7 +23,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | -------- |------- | ---------- |
 | **productfolders** | Array(Object) | Array of metadata of Groups of goods to which the discount is applied, if it is not applied to all goods |
 | **discount** | int | Discount percentage if fixed percentage is selected |
-| **specialprice** | object | Specialist. price (if a price type is selected). [More here](../dictionaries/#suschnosti-skidki-specialprice) |
+| **specialprice** | object | Specialist. price (if a price type is selected). [More here](../dictionaries/#entities-skidki-specialprice) |
 
 #### Special Price
 
@@ -37,7 +37,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | Title | Type | Description |
 | -------- |------- | ---------- |
 | **productfolders** | Array(Object) | Array of metadata of Groups of goods to which the discount is applied, if it is not applied to all goods |
-| **levels** | Array(Object) | Percentage discounts for a certain amount of sales. [More here](../dictionaries/#suschnosti-skidki-levels) |
+| **levels** | Array(Object) | Percentage discounts for a certain amount of sales. [More here](../dictionaries/#entities-skidki-levels) |
 
 #### Levels
 
@@ -54,8 +54,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- |------- | ---------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing discounts. |
 
 **Parameters**

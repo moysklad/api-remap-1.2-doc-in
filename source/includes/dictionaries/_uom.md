@@ -1,6 +1,6 @@
 ## Unit of measure
 ### Units of measure
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among objects of units of measurement for matching the search string will be carried out in the following fields:
 
@@ -15,11 +15,11 @@ The search among objects of units of measurement for matching the search string 
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code Units |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Units |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Department Employee<br>`+Expand` `+For custom units. measurements` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department Employee<br>`+Expand` `+For custom units. measurements` |
 | **id** | UUID | `=` `!=` | ID Units<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Units<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Units<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when answering` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom units. measurements` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom units. measurements` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` `+For custom units. measurements` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when replying` `+Read-only` |
 
@@ -29,8 +29,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | -------- |----- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Units of Measure. |
 
 **Parameters**
@@ -241,7 +241,7 @@ Successful request. The result is a JSON representation of the generated unit of
 
 ### Unit of measure bulk creating and update
 
-[Unit of measure bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow).
+[Unit of measure bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing JSON representations of the units of measure that you want to create or update.
 Updated units of measure must contain the identifier in the form of metadata.
 

@@ -5,7 +5,7 @@ Using the JSON API, you can create and update information about Contracts, reque
 
 Learn more about [Contracts](https://kladana.zendesk.com/hc/en-us/articles/6507262448797-Contracts).
 
-The entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+The entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among contract objects for matching the search string will be carried out using the following fields:
 
@@ -18,27 +18,27 @@ The search among contract objects for matching the search string will be carried
 | Title | Type | Filtration | Description |
 | ------- | ---------- | ---- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Required when replying` `+Expand` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Required when replying` `+Expand` |
 | **archived** | Boolean | `=` `!=` | Has the Contract been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object) |[Additional Operators fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contract Code |
 | **contractType** | Enum | | Contract type. Possible values: `Commission contract`, `Purchase and sale contract`<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the Contract |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of the Contract<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Contract ID<br>`+Required when replying` `+Read Only`|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Contract Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Contract Metadata<br>`+Required when replying` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Contract Date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Contract number<br>`+Required when replying` `+Required when creating` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Account metadata of your legal entity<br>`+Expand` |
-| **ownAgent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **rate** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Currency metadata<br>`+Required when replying` `+Expand` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Account metadata of your legal entity<br>`+Expand` |
+| **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
+| **rate** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency metadata<br>`+Required when replying` `+Expand` |
 | **rewardPercent** | int | | Reward in percent (from 0 to 100) |
 | **rewardType** | Enum | | Reward Type. Possible values: `Percentage of the sale amount`, `Do not calculate` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract status metadata<br>`+Expand` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract status metadata<br>`+Expand` |
 | **sum** | int | | Amount of the Contract<br>`+Required when answering` |
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only` |
@@ -54,7 +54,7 @@ Table of fields, their values and their values in JSON representation:
 | **rewardType** | Percentage of the sale amount | PercentOfSales | Do not count |
 | Do not count | None |
 
-About working with fields of the Contracts can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+About working with fields of the Contracts can be read [here](../#kladana-json-api-general-info-additional-fields).
 
 ### Get a list of Contracts
 
@@ -63,8 +63,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ---------- | ---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing contracts. |
 
 **Parameters**
@@ -349,8 +349,8 @@ Mandatory fields for creating a Contract:
 | Title | Type | Description |
 | ------- | ---------- | ---- |
 | **name** | String(255) | Contract number<br>`+Required when replying` `+Required when creating` |
-| **ownAgent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 
 
 > An example of creating a new Contract, with a request, the Body of which contains only required fields.
@@ -1007,12 +1007,12 @@ Request for obtaining the metadata of the Contracts. The result is a JSON object
 
 | Title | Type | Description |
 | ------- | ---------- | ---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Sales Order Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Order Metadata<br>`+Required when replying` |
 | **attributes** | Array(Object) | Collection of additional fields |
 | **states** | Array(Object) | Array of contract statuses |
 | **createShared** | Boolean | Create new contracts with the label "General"<br>`+Required when replying` |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Obtaining methodical contracts
  

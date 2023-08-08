@@ -10,21 +10,21 @@ The entity code for Counterparty Balance Adjustment as part of the JSON API is t
 | Title | | Filtration | Description |
 | ------- | ---- | ---- | ----- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Counterparty Balance Adjustment ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata Counterparty balance adjustments<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Counterparty balance adjustments<br>`+Required when replying` |
 | **moment** | datetime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Counterparty balance adjustments<br>`+Required when replying` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
@@ -37,8 +37,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | -------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing counterparty balance adjustments. |
 
 **Parameters**
@@ -237,8 +237,8 @@ Mandatory fields to create:
 
 | Parameter | Description |
 | ------- | -------- |
-| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent** | Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 > An example of creating a new Counterparty Balance Adjustment.
 
@@ -345,7 +345,7 @@ Successful request. The result is a JSON representation of the created Counterpa
 
 ### Bulk creation and updating of counterparty balance adjustments
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Counterparty balance adjustments.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Counterparty balance adjustments.
 In the body of the request, you need to pass an array containing a JSON representation of the Counterparty Balance Adjustments that you want to create or update.
 Updated Counterparty Balance Adjustments must contain the identifier in the form of metadata.
 
@@ -612,10 +612,10 @@ Request to receive metadata of counterparty balance adjustments. The result is a
 | Parameter | Description |
 | ------- | -------- |
 | **meta** | Link to metadata of counterparty balance adjustments |
-| **attributes** | Array of objects additional counterparty balance adjustment fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional counterparty balance adjustment fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **createShared** | create new counterparty balance adjustments labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Counterparty Balance Adjustments
 
@@ -742,7 +742,7 @@ Successful request. The result is a JSON representation of Counterparty Balance 
 
 Request to update the balance adjustment of the counterparty with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in the Adjustment of the balance of the counterparty, except for those that
-are marked `Read-only` in the description of [Attributes of Counterparty Balance Adjustment](../documents/#dokumenty-korrektirowka-balansa-kontragenta).
+are marked `Read-only` in the description of [Attributes of Counterparty Balance Adjustment](../documents/#transactions-korrektirowka-balansa-kontragenta).
 
 **Parameters**
 

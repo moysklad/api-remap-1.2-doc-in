@@ -2,31 +2,31 @@
 
 Using the JSON API, you can calculate the value of discounts, prices, and taxes for the items in the following transactions:
 
-- [Stock Adjustment](../documents/#dokumenty-oprihodowanie)
-- [Sales Order](../documents/#dokumenty-zakaz-pokupatelq)
-- [Purchase Order](../documents/#dokumenty-zakaz-postawschiku)
-- [Sales Invoice](../documents/#dokumenty-schet-pokupatelu)
-- [Supplier Invoice](../documents/#dokumenty-schet-postawschika)
-- [Shipment](../documents/#dokumenty-otgruzka)
-- [Receiving](../documents/#dokumenty-priemka)
-- [Write-off](../documents/#dokumenty-spisanie)
-- [Transfer](../documents/#dokumenty-peremeschenie)
-- [Sales Return](../documents/#dokumenty-vozwrat-pokupatelq)
-- [Purchase Returns](../documents/#dokumenty-vozwrat-postawschiku)
-- [Inventory Count](../documents/#dokumenty-inwentarizaciq)
-- [Internal Order](../documents/#dokumenty-vnutrennij-zakaz)
+- [Stock Adjustment](../documents/#transactions-stock-adjustment)
+- [Sales Order](../documents/#transactions-sales-order)
+- [Purchase Order](../documents/#transactions-purchase-order)
+- [Sales Invoice](../documents/#transactions-schet-pokupatelu)
+- [Supplier Invoice](../documents/#transactions-supplier-invoice)
+- [Shipment](../documents/#transactions-shipment)
+- [Receiving](../documents/#transactions-receiving)
+- [Write-off](../documents/#transactions-write-off)
+- [Transfer](../documents/#transactions-transfer)
+- [Sales Return](../documents/#transactions-sales-return)
+- [Purchase Returns](../documents/#transactions-purchase-returns)
+- [Inventory Count](../documents/#transactions-inventory-count)
+- [Internal Order](../documents/#transactions-internal-order)
 
 Discount autocomplete is not available in the following transactions:
 
-- [Inventory Count](../documents/#dokumenty-inwentarizaciq)
-- [Transfer](../documents/#dokumenty-peremeschenie)
-- [Internal Order](../documents/#dokumenty-vnutrennij-zakaz)
-- [Stock Adjustment](../documents/#dokumenty-oprihodowanie)
-- [Write-off](../documents/#dokumenty-spisanie)
+- [Inventory Count](../documents/#transactions-inventory-count)
+- [Transfer](../documents/#transactions-transfer)
+- [Internal Order](../documents/#transactions-internal-order)
+- [Stock Adjustment](../documents/#transactions-stock-adjustment)
+- [Write-off](../documents/#transactions-write-off)
 
-Pricing is not available in [Inventory Count](../documents/#dokumenty-inwentarizaciq).
+Pricing is not available in [Inventory Count](../documents/#transactions-inventory-count).
 
-Cost price autocomplete is only available for Returns without Reason in [Sales Return](../documents/#dokumenty-vozwrat-pokupatelq). 
+Cost price autocomplete is only available for Returns without Reason in [Sales Return](../documents/#transactions-sales-return). 
 
 ### Autocomplete template
 
@@ -37,13 +37,13 @@ matches the type, the corresponding fields will be processed.
 
 Below are the fields that affect the filling of discounts, prices, taxes, cost.
 
-+ **organization** - Link to a legal entity in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format. Required with the value `evaluate_vat` of the `action` parameter
-+ **agent** - Link to the counterparty in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format.
++ **organization** - Link to a legal entity in the [Metadata](../#kladana-json-api-general-info-metadata) format. Required with the value `evaluate_vat` of the `action` parameter
++ **agent** - Link to the counterparty in the [Metadata](../#kladana-json-api-general-info-metadata) format.
 Required with `evaluate_price`, `evaluate_discount` values of `action` parameter
 + **vatEnabled** - Whether tax is taken into account
 + **vatIncluded** - Is tax included in the price
 + **rate** - Currency. If not transferred, filled in with accounting currency
-+ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye). Required with the `evaluate_cost` value of the `action` parameter
++ **store** - Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata). Required with the `evaluate_cost` value of the `action` parameter
 + **moment** - Date of the document. Influences cost calculation
 + **positions** - transaction items
 
@@ -66,7 +66,7 @@ Items in the template are a list of products, services, product variants, and bu
 + **discount** - Discount or markup percentage.
 + **vat** - tax applied to the current item.
 + **vatEnabled** - whether tax is enabled for the current item. With this flag, you can set tax = 0 or tax = "no taxes" for a item. (vat = 0, vatEnabled = false) -> vat = "excluding tax", (vat = 0, vatEnabled = true) -> vat = 0%.
-+ **assortment** - Link to the product/service/series/modification/kit that the item represents, in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format.
++ **assortment** - Link to the product/service/series/modification/kit that the item represents, in the [Metadata](../#kladana-json-api-general-info-metadata) format.
 + **discountedPrice** - The price of the product/service, including discounts and taxes, in rupees.
 + **sum** - The total amount including the discount for the specified quantity of goods in the item in rupees. Calculated when passing the **quantity** field.
 

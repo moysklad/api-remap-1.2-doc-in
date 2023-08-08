@@ -1,7 +1,7 @@
 ## Project
 ### Projects
 Using the JSON API, you can create and update information about Projects, request lists of Projects, and information on individual Projects. The entity code for a Project in the JSON API is the **project** keyword. Learn more about [Projects](https://kladana.zendesk.com/hc/en-us/articles/6506440075549-Projects).
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the project objects for matching the search string will be carried out using the following fields:
 
@@ -17,15 +17,15 @@ The search among the project objects for matching the search string will be carr
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Project Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Project Description |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Project ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Project Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Project Metadata<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | MetadataOwner's (Employee)<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | MetadataOwner's (Employee)<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
-About working with Project fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Project fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get Projects
@@ -34,8 +34,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ---------- |------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing projects. |
 
 **Parameters**
@@ -310,7 +310,7 @@ Successful request. The result is a JSON representation of the created project.
 ```
 
 ### Bulk creating and update of Projects
-[Bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Projects.
+[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Projects.
 In the body of the request, you need to pass an array containing the JSON representation of the Projects that you want to create or update.
 Updated Projects must contain the identifier in the form of metadata.
 
@@ -485,11 +485,11 @@ Request for obtaining Projects metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | ------- | ---------- |-------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Project Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Project Metadata<br>`+Required when replying` |
 | **attributes** | Array(Object) | Collection of additional fields |
 | **createShared** | Boolean | Create new Projects with tag "General"<br>`+Required when replying` |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Project method data
 

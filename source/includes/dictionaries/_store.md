@@ -1,7 +1,7 @@
 ## Warehouse
 
 ### Warehouses
-This entity can be contextually searched using the special `search` parameter. [Learn more](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among warehouse objects for matching the search string will be carried out using the following fields:
 
@@ -14,23 +14,23 @@ The search among warehouse objects for matching the search string will be carrie
 |----- | ------ | ----- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **address** | String(255) | `=` `!=` `~` `~=` `=~` | Warehouse address |
-| **addressFull** | object | | Address with details on individual fields. [More here](../dictionaries/#suschnosti-sklad-sklady-attributy-suschnosti-adres) |
+| **addressFull** | object | | Address with details on individual fields. [More here](../dictionaries/#entities-sklad-sklady-attributy-suschnosti-adres) |
 | **archived** | Boolean | `=` `!=` | Has the Warehouse been archived<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Statements of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional warehouse fields |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Warehouse Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Warehouse |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Warehouse<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Warehouse ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Warehouse Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Metadata<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Warehouse Name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Companyudnik)<br>`+Expand` |
-| **parent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Parent warehouse metadata (Groups)<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Companyudnik)<br>`+Expand` |
+| **parent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Parent warehouse metadata (Groups)<br>`+Expand` |
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | Warehouse Group<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
-| **zones** | MetaArray | | warehouse zones. [Learn more](../dictionaries/#suschnosti-sklad-zony-sklada)<br>`+Read-only` `+Expand` |
-| **slots** | MetaArray | | Warehouse cells. [Learn more](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Read-only` `+Expand` |
+| **zones** | MetaArray | | warehouse zones. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **slots** | MetaArray | | Warehouse cells. [Learn more](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Read-only` `+Expand` |
 
 #### Attributes of entity Address
 
@@ -40,10 +40,10 @@ The search among warehouse objects for matching the search string will be carrie
 | **apartment** | String(30) | Apartment |
 | **city** | String(255) | City |
 | **comment** | String(255) | Comment |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country metadata |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata |
 | **house** | String(30) | House |
 | **postalCode** | String(6) | Postcode |
-| **region** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Region metadata |
+| **region** | [Meta](../#kladana-json-api-general-info-metadata) | Region metadata |
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
@@ -53,7 +53,7 @@ When passing only a string, it will be reflected both in the string field and in
 [`null` value](../#mojsklad-json-api-obschie-swedeniq-podderzhka-null) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, pass the empty string `""` to the `address` string field.
 
-Learn more about [additional fields of warehouses](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+Learn more about [additional fields of warehouses](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get Warehouses
@@ -62,8 +62,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ---------|---------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata. |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Warehouses. |
 
 **Parameters**
@@ -951,11 +951,11 @@ Request to get Warehouse metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | --------|-------| ---------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to Warehouse metadata |
-| **attributes** | Array(Object) | Array of objects of additional Warehouse fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Link to Warehouse metadata |
+| **attributes** | Array(Object) | Array of objects of additional Warehouse fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **createShared** | Boolean | create new Warehouses labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Warehouse Metadata
 
@@ -1151,7 +1151,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
 #### Description
 The view of the Warehouse with the specified ID is updated.
 In the body of the request, you can specify only those fields that should not be changed at the Warehouse,
-except for fields marked `Read Only` in the description of [Warehouse attributes](../dictionaries/#suschnosti-sklad).
+except for fields marked `Read Only` in the description of [Warehouse attributes](../dictionaries/#entities-sklad).
 
 **Parameters**
 
@@ -1451,7 +1451,7 @@ Warehouse zones are accessed if you have the right to see the corresponding ware
 | **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read Only` |
 | **externalCode** | String(255) || External Zone Code<br>`+Required when replying` |
 | **id** | UUID | | Zone ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Zone Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Zone Metadata<br>`+Required when replying` |
 | **name** | String(255) | | Zone Name<br>`+Required for response` `+Required for creation` |
 | **updated** | datetime | | Time when the Zone was last updated<br>`+Required when replying` `+Read Only` |
 
@@ -1461,8 +1461,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | --------------- |-------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata. |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Zones. |
 
 **Parameters**
@@ -1574,7 +1574,7 @@ Successful request. Result - JSON representation of the created Warehouse Zone.
 
 ### Bulk creation and update of warehouse zones
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Warehouse zones.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse zones.
 In the body of the request, you need to pass an array containing JSON representations of the Warehouse Zones that you want to create or update.
 Updated Warehouse Zones must contain the identifier in the form of metadata.
 
@@ -1785,10 +1785,10 @@ Access to the cells of the warehouse is carried out if you have the right to see
 | **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read Only` |
 | **externalCode** | String(255) | | Cell External Code<br>`+Required when replying` |
 | **id** | UUID | | Cell ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Cell Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Cell Metadata<br>`+Required when replying` |
 | **name** | String(255) | | Cell Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | datetime | | When Cell was last updated<br>`+Required when replying` `+Read Only` |
-| **zone** | meta | | Cell zone. [More here](../dictionaries/#suschnosti-sklad-zony-sklada)<br>`+Read-only` `+Expand` |
+| **zone** | meta | | Cell zone. [More here](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
 
 ### Get storage bins
 Get a list of all Warehouse Bins.
@@ -1797,7 +1797,7 @@ Result: JSON object including fields:
 | Title | Type | Description |
 | ----------- | ------|-----------|
 | **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadata) | Issuance metadata. |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Warehouse Bins. |
 
 **Parameters**
@@ -1962,7 +1962,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ### Bulk creation and update of storage bins
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Storage bins.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Storage bins.
 In the body of the request, you need to pass an array containing a JSON representation of the Storage Bins that you want to create or update.
 Updated Storage Bins must contain the identifier in the form of metadata.
 

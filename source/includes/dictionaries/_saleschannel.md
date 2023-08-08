@@ -2,7 +2,7 @@
 ### Sales channels
 You can use the JSON API to create and update Sales Channel information, query lists of Sales Channels, and query individual Sales Channels. The entity code for the Sales Channel in the JSON API is the **saleschannel** keyword.
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the sales channel for matching the search string will be carried out using the following fields:
 
@@ -17,13 +17,13 @@ The search among the objects of the sales channel for matching the search string
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Channel Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Channel Description |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Channel External Code<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Channel ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Sales Channel Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Channel Metadata<br>`+Required when responding` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **type** | Enum | `=` `!=` | Sales Channel Type [Details here](../dictionaries/#suschnosti-kanal-prodazh-kanaly-prodazh-tip-kanala-sale)<br>`+Required when answering` `+Required when creating` |
+| **type** | Enum | `=` `!=` | Sales Channel Type [Details here](../dictionaries/#entities-kanal-prodazh-kanaly-prodazh-tip-kanala-sale)<br>`+Required when answering` `+Required when creating` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Sales channel type
@@ -62,8 +62,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------ | ------ |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing sales channels. |
 
 **Parameters**
@@ -235,7 +235,7 @@ Successful request. The result is a JSON representation of the created sales cha
 
 
 ### Bulk creation and update of Sales Channels
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Sales channels.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Sales channels.
 In the body of the request, you need to pass an array containing the JSON representation of the Sales Channels that you want to create or update.
 Updated Sales Channels must contain the identifier in the form of metadata. For Sales Channels created when connecting an online store, you cannot update the type. If you change the name of such sales channels, the name of the associated online store will change.
 

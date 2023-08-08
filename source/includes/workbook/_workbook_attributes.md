@@ -1,6 +1,6 @@
 ### List of entities
 
-List of entities for which it is possible to create additional. fields, you can look in [documentation](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+List of entities for which it is possible to create additional. fields, you can look in [documentation](../#kladana-json-api-general-info-additional-fields)
 
 ### Working with additional fields in the JSON API
 
@@ -186,7 +186,7 @@ If in the body of the request to update/create an entity in an array of addition
 
 ### Possible types of additional fields
 
-You can find the possible types of additional fields in [documentation](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+You can find the possible types of additional fields in [documentation](../#kladana-json-api-general-info-additional-fields).
 
 ### Additional field of type File
 

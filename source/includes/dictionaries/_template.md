@@ -8,7 +8,7 @@ Using the JSON API, you can request lists of printable templates for entities. H
 | ------- | ---------- |------ |
 | **content** | URL | Download link<br>`+Required when replying` |
 | **id** | UUID | Template ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Basic Template<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Basic Template<br>`+Required when replying` |
 | **name** | String(255) | Template name<br>`+Required when replying` |
 | **type** | String(255) | Template type (entity - document)<br>`+Required for response` |
 
@@ -177,7 +177,7 @@ Successful request. The result is a JSON representation of the default template 
 | ------- | ---------- |-------- |
 | **content** | URL | Download link<br>`+Required when replying` |
 | **id** | UUID | Template ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Basic Template<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Basic Template<br>`+Required when replying` |
 | **name** | String(255) | Template name<br>`+Required when replying` |
 | **type** | String(255) | Template type (mxtemplate - new template type for price tags and labels)<br>`+Required when replying` |
 
@@ -282,7 +282,7 @@ Successful request. The result is a JSON representation of a basic template for 
 | ------- | ---------- |------- |
 | **content** | URL | Download link<br>`+Required when replying` |
 | **id** | UUID | Template ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Custom template metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom template metadata<br>`+Required when replying` |
 | **name** | String(255) | Template name<br>`+Required when replying` |
 | **type** | String(255) | Template type (entity - document)<br>`+Required for response` |
 
@@ -385,7 +385,7 @@ Successful request. The result is a JSON representation of the custom template f
 | ------- | ---------- |------ |
 | **content** | URL | Download link<br>`+Required when replying` |
 | **id** | UUID | Template ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Custom template metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom template metadata<br>`+Required when replying` |
 | **name** | String(255) | Template name<br>`+Required when replying` |
 | **type** | String(255) | Template type (mxtemplate - new template type for price tags and labels)<br>`+Required when replying` |
 

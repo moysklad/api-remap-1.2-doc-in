@@ -1,6 +1,6 @@
 ## Printing of transaction documents
 
-Using the JSON API, you can request printing of documents using [printable form templates](../dictionaries/#suschnosti-shablon-pechatnoj-formy).
+Using the JSON API, you can request printing of documents using [printable form templates](../dictionaries/#entities-shablon-pechatnoj-formy).
 When requesting the formation of a printed form, the server (when the document is ready, the correct
 printed form and the correct request format) responds with an empty response body with a 303 http code.
 The Location header of the response contains the address of the temporary location of the printed form that is ready to be loaded.
@@ -22,14 +22,14 @@ Request to print a single document based on a printable template.
 
 | Title | Type | Description |
 | ------------ | ---------- | --------------- |
-| **template** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Print Template metadata<br>`+Required when replying` |
+| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template metadata<br>`+Required when replying` |
 | **extension** | String(4) | The extension in which to print the form. You can specify `xls, pdf, html, ods`<br>`+Required when replying` |
 
 You can also print a set of documents. To do this, instead of the **template** field, you need to specify the **templates** field, which is an array of objects with the following fields:
 
 | Title | Type | Description |
 | ------------ | ---------- | --------------- |
-| **template** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Print Template metadata<br>`+Required when replying` |
+| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template metadata<br>`+Required when replying` |
 | **count** | int | The number of copies of the printed form. From 1 to 10.<br>`+Required when answering` |
 
 If the request contains both a **templates** field and a **template** field (outside the **templates** array element), an error will occur. Only 1 of these fields is allowed in a request.
