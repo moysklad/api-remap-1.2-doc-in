@@ -216,35 +216,35 @@ The JSON API allows you to create, update, and delete additional fields and thei
 
 List of entities with additional fields:
 
-+ [Contract](dictionaries/#suschnosti-dogowor)
-+ [Counterparty](dictionaries/#suschnosti-kontragent)
-+ [Legal entity](dictionaries/#suschnosti-jurlico)
-+ [Project](dictionaries/#suschnosti-proekt)
-+ [Warehouse](dictionaries/#suschnosti-sklad)
-+ [Employee](dictionaries/#suschnosti-sotrudnik)
-+ [Product](dictionaries/#suschnosti-towar)
-+ [Service](dictionaries/#suschnosti-usluga) (located in the Product metadata)
-+ [Bundle](dictionaries/#suschnosti-komplekt) (located in the Product metadata)
-+ [Series](dictionaries/#suschnosti-seriq)
++ [Contract](dictionaries/#entities-dogowor)
++ [Counterparty](dictionaries/#entities-kontragent)
++ [Legal entity](dictionaries/#entities-jurlico)
++ [Project](dictionaries/#entities-proekt)
++ [Warehouse](dictionaries/#entities-sklad)
++ [Employee](dictionaries/#entities-sotrudnik)
++ [Product](dictionaries/#entities-towar)
++ [Service](dictionaries/#entities-usluga) (located in the Product metadata)
++ [Bundle](dictionaries/#entities-komplekt) (located in the Product metadata)
++ [Series](dictionaries/#entities-seriq)
 + All transactions:
-  - [Sales Returns](documents/#dokumenty-vozwrat-pokupatelq)
-  - [Purchase Returns](documents/#dokumenty-vozwrat-postawschiku)
-  - [Incoming Payment](documents/#dokumenty-vhodqschij-platezh)
-  - [Sales Order](documents/#dokumenty-zakaz-pokupatelq)
-  - [Purchase Order](documents/#dokumenty-zakaz-postawschiku)
-  - [Outgoing Payment](documents/#dokumenty-ishodqschij-platezh)
-  - [Stock Adjustment](documents/#dokumenty-oprihodowanie)
-  - [Shipment](documents/#dokumenty-otgruzka)
-  - [Transfer](documents/#dokumenty-peremeschenie)
-  - [Receiving](documents/#dokumenty-priemka)
-  - [Incoming Cash Payment](documents/#dokumenty-prihodnyj-order)
-  - [Outgoing Cash Payment](documents/#dokumenty-rashodnyj-order)
-  - [Write-off](documents/#dokumenty-spisanie)
-  - [Inventory Count](documents/#dokumenty-inwentarizaciq)
-  - [Sales Invoice](documents/#dokumenty-schet-pokupatelu)
-  - [Supplier Invoice](documents/#dokumenty-schet-postawschika)
-  - [Internal Order](documents/#dokumenty-vnutrennij-zakaz)
-  - [Production Order](documents/#dokumenty-zakaz-na-proizwodstwo)
+  - [Sales Returns](documents/#transactions-sales-return)
+  - [Purchase Returns](documents/#transactions-purchase-returns)
+  - [Incoming Payment](documents/#transactions-vhodqschij-platezh)
+  - [Sales Order](documents/#transactions-sales-order)
+  - [Purchase Order](documents/#transactions-purchase-order)
+  - [Outgoing Payment](documents/#transactions-ishodqschij-platezh)
+  - [Stock Adjustment](documents/#transactions-stock-adjustment)
+  - [Shipment](documents/#transactions-shipment)
+  - [Transfer](documents/#transactions-transfer)
+  - [Receiving](documents/#transactions-receiving)
+  - [Incoming Cash Payment](documents/#transactions-prihodnyj-order)
+  - [Outgoing Cash Payment](documents/#transactions-rashodnyj-order)
+  - [Write-off](documents/#transactions-write-off)
+  - [Inventory Count](documents/#transactions-inventory-count)
+  - [Sales Invoice](documents/#transactions-schet-pokupatelu)
+  - [Supplier Invoice](documents/#transactions-supplier-invoice)
+  - [Internal Order](documents/#transactions-internal-order)
+  - [Production Order](documents/#transactions-production-order)
 
 You can view all the additional fields that have been created using a request to get entity metadata.
 The response contains a description of the additional fields in the form of an **attributes** collection if the specified entity works with additional fields.
@@ -255,7 +255,7 @@ The response contains a description of the additional fields in the form of an *
 | ----- | -----| ----------- |
 | **description** | String(4096) | Description of additional fields |
 | **id** | UUID | Additional fields ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields<br>`+Required when replying` |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields<br>`+Required when replying` |
 | **name** | String(255) | Name of additional fields<br>`+Required when replying` `+Required when creating` |
 | **required** | Boolean | Is the additional field required<br>`+Required when replying` |
 | **show** | Boolean | Whether to show additional field on UI. Cannot be hidden and required at the same time. Operations only<br>`+Required when replying` |
@@ -268,7 +268,7 @@ Additional fields of a particular entity is an internal collection of **attribut
 | Title | Type | Description |
 | --------- |-------- | ------------------ |
 | **id** | UUID | ID of the corresponding additional fields |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields |
 | **name** | String(255) | Name of additional fields |
 | **value** | Depends on type, see below | The value specified in the additional field |
 
@@ -308,16 +308,16 @@ selected when creating an additional field.
 | [Product] | product |
 | User directory_name | customization |
 
-If as a type of additional field is selected [Entities](dictionaries/#suschnosti-pol-zowatel-skij-sprawochnik), then as part of the object of this
+If as a type of additional field is selected [Entities](dictionaries/#entities-user-directory), then as part of the object of this
 additional field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
 The full set of attributes fields will look like this:
 
 | Title | Type | Description |
 | -------------------- |--------------------- |------------------- |
-| **customEntityMeta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to user directory metadata |
+| **customEntityMeta** | [Meta](#kladana-json-api-general-info-metadata) | Link to user directory metadata |
 | **description** | String(4096) | Description of additional fields |
 | **id** | UUID | ID additional fields |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata fields |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields |
 | **name** | String(255) | Name of additional fields |
 | **required** | Boolean | Is the additional field required |
 | **show** | Boolean | Whether to show additional field on UI. Cannot be hidden and required at the same time. Operations only |
@@ -327,7 +327,7 @@ With the selected type of the 'list' field, the **value** attribute will be an o
 
 | Title | Type | Description |
 | -------- | ---- | --------------- |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the entity of the corresponding directory |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Metadata of the entity of the corresponding directory |
 | **name** | String(255) | Name of the corresponding entity |
 
 Resetting extra. field type "reference" occurs in the same way as when working with other additional fields.
@@ -347,13 +347,13 @@ To load the value for additional fields of the file type, you need to specify an
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
 | **content** | string | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
-An example of specifying a value for additional file type fields are in the [product creation] section (dictionaries/#suschnosti-towar-sozdat-towar)
+An example of specifying a value for additional file type fields are in the [product creation] section (dictionaries/#entities-towar-sozdat-towar)
 
 ### Additional entity fields
 Request for additional entity fields.
-The list of available entity types is listed [here](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The list of available entity types is listed [here](#kladana-json-api-general-info-additional-fields).
 
-The structure of the object additional fields are described in detail in the section [Working with additional fields](#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of the object additional fields are described in detail in the section [Working with additional fields](#kladana-json-api-general-info-additional-fields).
 
 **Parameters**
 
@@ -369,7 +369,7 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------| ------|------------- |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Issuance metadata |
 | **rows** | Array(Object) | An array of JSON objects representing the additional fields. |
 
 > Get additional shipping fields
@@ -834,20 +834,20 @@ Successful request. The result is a JSON representation of the shipment with upd
 
 The Kladana API allows you to operate with the following transactions: 
 
-- [Shipment](documents/#dokumenty-otgruzka), 
-- [Sales order](documents/#dokumenty-zakaz-pokupatelq), 
-- [Sales invoice](documents/#dokumenty-schet-pokupatelu), 
-- [Stock Adjustment](documents/#dokumenty-oprihodowanie),
-- [Internal order](documents/#dokumenty-vnutrennij-zakaz), 
-- [Inventory](documents/#dokumenty-inwentarizaciq), 
-- [Write-off](documents/#dokumenty-spisanie), 
-- [Transfer](documents/#dokumenty-peremeschenie), 
-- [Production order](documents/#dokumenty-zakaz-na-proizwodstwo), 
-- [Purchase Return](documents/#dokumenty-vozwrat-postawschiku), 
-- [Purchase Order](documents/#dokumenty-zakaz-postawschiku), 
-- [Sales Return](documents/#dokumenty-vozwrat-pokupatelq), 
-- [Receiving](documents/#dokumenty-priemka), 
-- [Supplier Invoice](documents/#documenty-schet-postawschika). 
+- [Shipment](documents/#transactions-shipment), 
+- [Sales order](documents/#transactions-sales-order), 
+- [Sales invoice](documents/#transactions-schet-pokupatelu), 
+- [Stock Adjustment](documents/#transactions-stock-adjustment),
+- [Internal order](documents/#transactions-internal-order), 
+- [Inventory](documents/#transactions-inventory-count), 
+- [Write-off](documents/#transactions-write-off), 
+- [Transfer](documents/#transactions-transfer), 
+- [Production order](documents/#transactions-production-order), 
+- [Purchase Return](documents/#transactions-purchase-returns), 
+- [Purchase Order](documents/#transactions-purchase-order), 
+- [Sales Return](documents/#transactions-sales-return), 
+- [Receiving](documents/#transactions-receiving), 
+- [Supplier Invoice](documents/#documenty-supplier-invoice). 
 
 The transactions contain items that can be worked with both as part of a separate transaction, and with the help of special resources for managing transaction items.
 
@@ -992,12 +992,12 @@ prices and amounts will be recalculated. Overhead costs will also be recalculate
 Exceptions:
 
 + Structured address
-   [Contractor](dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres),
-   [Legal entity](dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres),
-   [Points of sale](dictionaries/#suschnosti-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
-   [Warehouse](dictionaries/#suschnosti-sklad-sklady-attributy-suschnosti-adres),
-   [Sales Order](documents/#dokumenty-zakaz-pokupatelq-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
-   [Shipments](documents/#dokumenty-otgruzka-otgruzki-attributy-suschnosti-adres-dostawki) does not support deletions by passing `null`.
+   [Contractor](dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres),
+   [Legal entity](dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres),
+   [Points of sale](dictionaries/#entities-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
+   [Warehouse](dictionaries/#entities-sklad-sklady-attributy-suschnosti-adres),
+   [Sales Order](documents/#transactions-sales-order-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
+   [Shipments](documents/#transactions-shipment-otgruzki-attributy-suschnosti-adres-dostawki) does not support deletions by passing `null`.
 To delete an address, pass an empty string `""` to the string field. Specific string fields are given in the relevant sections, the transition to which is carried out via the links above.
 
 ### Empty fields
@@ -1261,7 +1261,7 @@ Similarity operators operate exclusively on fields of string type and are not ca
 
 ### Apply saved filter
 
-The JSON API has the ability to apply saved filters. A detailed description is available in the [relevant section](dictionaries/#suschnosti-sohranennye-fil-try).
+The JSON API has the ability to apply saved filters. A detailed description is available in the [relevant section](dictionaries/#entities-sohranennye-fil-try).
 
 ### Links to files
 
@@ -1276,19 +1276,19 @@ Long-lived links are for export. The use of these links on publicly accessible w
 ### Replacing links with objects using expand
 
 In the JSON API, as part of entities, you can find references to related objects.
-Links are displayed in the [Metadata](#mojsklad-json-api-obschie-swedeniq-metadannye) format. To get related objects instead of links,
+Links are displayed in the [Metadata](#kladana-json-api-general-info-metadata) format. To get related objects instead of links,
 it is not necessary to make separate requests for each of them. Instead, along with the request to get the entity, you need to pass the **expand** parameter.
 As the value of this parameter, you need to list all the necessary reference fields, separated by commas,
 where you would like to see related objects.
 As a result of a request with this parameter, in the response you will receive an object with expanded nested objects instead of links.
 For example, in documents containing the **agent** field, instead of referring to
-counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#suschnosti-kontragent) will be displayed.
+counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#entities-kontragent) will be displayed.
 Maximum nesting level **expand** : 3.
 Expand is allowed only on a sample size of 100 or less. If a larger limit is specified, but expand is specified, then this parameter will be ignored.
 
 You can also use **expand** on the results of create and update operations.
 
-+ Below are examples of using **expand** on [Sales Returns](documents/#dokumenty-vozwrat-pokupatelq). The examples show only the **meta** and **demand** fields.
++ Below are examples of using **expand** on [Sales Returns](documents/#transactions-sales-return). The examples show only the **meta** and **demand** fields.
 
 ### Return without expand
 
@@ -1924,15 +1924,15 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **externalCode** | String(255) | Employee External ID<br>`+Required for response` `+Read Only` |
 | **firstName** | String(255) | Name<br>`+Read Only` |
 | **fullName** | String(255) | First name Middle name Last name<br>`+Read only` |
-| **group** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee department<br>`+Required when replying` `+Read-only` |
+| **group** | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
 | **id** | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | object | Photo of an employee. [More here](dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Read only` |
+| **images** | object | Photo of an employee. [More here](dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Read only` |
 | **inn** | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
 | **lastName** | String(255) | Last name<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee Metadata<br>`+Required when responding` `+Read Only` |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
 | **middleName** | String(255) | Middle name<br>`+Read only` |
 | **name** | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
-| **owner** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
+| **owner** | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
 | **permissions** | object | Enumeration of employee's permissions. [More details here](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika)<br>`+Required when replying` `+Read only` |
 | **phone** | String(255) | Employee phone<br>`+Read-only` |
 | **position** | String(255) | Job Title<br>`+Read Only` |
@@ -1943,7 +1943,7 @@ Returns data about the employee on whose behalf the request is made. The entity 
 
 #### Nested entity attributes
 
-Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee] request (dictionaries/#suschnosti-sotrudnik-sotrudniki), a detailed description of which can be found in the corresponding section.
+Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee] request (dictionaries/#entities-sotrudnik-sotrudniki), a detailed description of which can be found in the corresponding section.
 
 ##### Employee Permissions
 

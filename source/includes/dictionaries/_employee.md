@@ -2,7 +2,7 @@
 ### Employees
 Using the JSON API, you can request lists of Employees and information on individual Employees. The entity code for an Employee in the JSON API is the **employee** keyword. 
 Learn more about [Employees](https://kladana.zendesk.com/hc/en-us/articles/7583130803857-Manage-user-access-).
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
 
 The search among employee objects for matching the search string will be carried out using the following fields:
 
@@ -24,15 +24,15 @@ The search among employee objects for matching the search string will be carried
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
 | **firstName** | String(255) | `=` `!=` `~` `~=` `=~`| Name |
 | **fullName** | String(255) | | First name Middle name Last name<br>`+Read only` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | object | | Photo of an employee. [More here](../dictionaries/#suschnosti-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
+| **images** | object | | Photo of an employee. [More here](../dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
 | **inn** | String(255) | | TIN of the employee (in the format of the TIN of an individual) |
 | **lastName** | String(255) | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Employee Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
 | **middleName** | String(255) | `=` `!=` `~` `~=` `=~` | Middle name |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **phone** | String(255) | `=` `!=` `~` `~=` `=~` | Employee phone |
 | **position** | String(255) | | Employee position |
 | **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` |
@@ -50,15 +50,15 @@ The structure of the **image** field that you will receive when requesting an em
 | Title | Type | Description |
 | ------- | -------- |---------- |
 | **filename** | String(255) | File name<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
 | **size** | int | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata<br>`+Required when replying` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
 | **updated** | datetime | Last modified time<br>`+Required when replying` |
 
 #### Loading
-To upload a photo of an employee, you need to create a request for [update](../dictionaries/#suschnosti-sotrudnik-izmenit-sotrudnika) employee (PUT) and in the request body
+To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-sotrudnik-izmenit-sotrudnika) employee (PUT) and in the request body
 specify the **image** field with the following attributes:
 
 | Title | Description |
@@ -69,7 +69,7 @@ specify the **image** field with the following attributes:
 If there are no **filename** and **content** fields in the update request, then the entire **image** object, if it is present in the Body,
 will be ignored because the server will consider that its update is not required.
 
-About working with Employee fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Employee fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ### Get Employees
 Request to get a list of all employees for this account.
@@ -77,8 +77,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | -------- | ----------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Employee. |
 
 **Parameters**
@@ -188,7 +188,7 @@ Successful request. The result is a JSON representation of the list of Employees
 ```
 
 ### Bulk update of Employees
-[Bulk update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Employees.
+[Bulk update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Employees.
 In the body of the request, you need to pass an array containing the JSON representation of the Employees you want to update.
 Updated Employees must contain the identifier in the form of metadata.
 
@@ -374,11 +374,11 @@ Request to get employee metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | ------- | -------- | -------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to employee metadata |
-| **attributes** | Array(Object) | Array of objects of Employee additional fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Link to employee metadata |
+| **attributes** | Array(Object) | Array of objects of Employee additional fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **createShared** | Boolean | Create new Employees labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Employee Metadata
 
@@ -743,7 +743,7 @@ for which no individual permissions were previously set.
 
 | Title | Type | Description |
 | ------| ------ | ------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Role metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Role metadata<br>`+Required when replying` |
 | **permissions** | Array(Object) | Permission list |
 
 ###### List of user permissions

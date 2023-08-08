@@ -11,7 +11,7 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 | **averageReceipt** | float | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
 | **balance** | float | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
 | **bonusbalance** | float | | Points<br>`+Required when answering` |
-| **counterparty** | object | | Counterparty. [Learn more](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **counterparty** | object | | Counterparty. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
 | **demandsCount** | int | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when answering` |
 | **demandssum** | float | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when answering` |
 | **discountSum** | float | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |
@@ -19,7 +19,7 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 | **lastDemandDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Date of last sale<br>`+Required when replying` |
 | **lastEventDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last event date<br>`+Required when replying` |
 | **lastEventText** | String(255) | `=` `!=` `~` `~=` `=~` | Last event text<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the Report for this counterparty<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Report for this counterparty<br>`+Required when replying` |
 | **profit** | float | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when answering` |
 | **returnsCount** | int | `=` `!=` `<` `>` `<=` `>=` | Number of returns<br>`+Required when replying` |
 | **returnsSum** | float | `=` `!=` `<` `>` `<=` `>=` | Refund amount<br>`+Required when replying` |
@@ -44,7 +44,7 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 | **companyType** | Enum | Counterparty type<br>`+Required when replying` |
 | **externalCode** | String(255) | External counterparty code<br>`+Required when replying` |
 | **id** | UUID | Counterparty ID<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Counterparty<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparty<br>`+Required when replying` |
 | **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
 
 #### Tariff limits
@@ -58,8 +58,8 @@ The result of a successful request is a JSON representation of a list of reports
 
 | Title | Type | Description |
 | -------- | ------- | ------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing reports on individual counterparties. |
 
 **Parameters**
@@ -277,8 +277,8 @@ The result of a successful request is a JSON representation of the list of repor
 
 | Title | Type | Description|
 | ------ | ------- | ------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | json arrayprojects that submit reports on individual counterparties. |
 
 > An example of requesting reports for several counterparties.

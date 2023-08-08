@@ -1,6 +1,6 @@
 ## Entity
 Using the JSON API, you can create and update information about legal entities, request lists of legal entities and information on individual legal entities. With the help of a special resource, you can manage the accounts of a separate legal entity. The entity code for a legal entity in the JSON API is the **organization** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
 
 Search among objects of legal entities to match the search string will be carried out in the following fields:
 
@@ -17,20 +17,20 @@ Search among objects of legal entities to match the search string will be carrie
 | ----------|----| -------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
-| **actualAddressFull** | object | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres) |
+| **actualAddressFull** | object | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres) |
 | **archived** | Boolean | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
 | **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the active bonus program<br>`+Expand` |
+| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Legal entity code |
-| **companyType** | Enum | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#suschnosti-jurlico-jurlica-tip-urlica)<br>`+Required when answering` |
+| **companyType** | Enum | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-jurlico-jurlica-tip-urlica)<br>`+Required when answering` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
 | **trackingContractDate** | datetime | | Date of agreement with CRPT |
@@ -45,11 +45,11 @@ Search among objects of legal entities to match the search string will be carrie
 | **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional fields of a legal entity |
 | **certificatedate** | datetime | | Date of certificate |
 | **certificateNumber** | String(255) | | Certificate number |
-| **ChiefAccountSign** | object | | Signature of the chief accountant. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **ChiefAccountSign** | object | | Signature of the chief accountant. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
 | **ChiefAccountant** | String(255) | | Chief accountant |
 | **director** | String(255) || Head |
 | **directorPosition** | String(255) | | Head position |
-| **directorSign** | object | | Leader's signature. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **directorSign** | object | | Leader's signature. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
 | **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
 | **fsrarId** | String(255) | | Identifier in FSRAR |
@@ -67,7 +67,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **okpo** | String(255) | | OKPO |
 | **payerVat** | Boolean | | Is this legal entity a VAT payer |
 | **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
-| **stamp** | object | | Seal. [More here](../dictionaries/#suschnosti-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **stamp** | object | | Seal. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
 | **utmUrl** | String(255) | | UTM IP address |
 
 #### Nested entity attributes
@@ -79,10 +79,10 @@ Search among objects of legal entities to match the search string will be carrie
 | **apartment** | String(30) | Apartment |
 | **city** | String(255) | City |
 | **comment** | String(255) | Comment |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country metadata |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata |
 | **house** | String(30) | House |
 | **postalCode** | String(6) | Postcode |
-| **region** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Region metadata |
+| **region** | [Meta](../#kladana-json-api-general-info-metadata) | Region metadata |
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
@@ -96,12 +96,12 @@ To delete an address, you need to pass an empty string `""` to the string field 
 
 | Title | Type | Description|
 | ---------| -----| ----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
 | **filename** | String(255) | File name<br>`+Required when replying` |
 | **size** | int | File size in bytes<br>`+Required when replying` |
 | **updated** | datetime | File upload time to server<br>`+Required when replying` |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
 
 ##### Legal entity accounts
 
@@ -109,7 +109,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | ---------| -----| ----------|
 | **accountId** | UUID |Account ID<br>`+Required when replying` `+Read Only` |
 | **accountNumber** | String(255) | Account number<br>`+Required when replying` `+Required when creating` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Legal entity metadata<br>`+Required when replying` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when replying` |
 | **bankLocation** | String(255) | Bank address |
 | **bankName** | String(255) | Bank name |
 | **bic** | String(255) | BIC |
@@ -173,7 +173,7 @@ If the legal entity type is `Individual`, the following fields of details will b
 | **legalAddress** | Legal address of a legal entity |
 | **inn** | TIN |
 
-About working with fields of legal entities can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with fields of legal entities can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get a list of legal entities
@@ -181,8 +181,8 @@ Request to get a list of legal entities on this account.
 
 | Title | Type | Description|
 | ---------| -----| ----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing a legal entity. |
 
 **Parameters**
@@ -868,7 +868,7 @@ Successful request. The result is a JSON representation of the created legal ent
 ```
 
 ### Legal entities bulk creation and update
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) legal entities.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) legal entities.
 In the body of the request, you need to pass an array containing the JSON representation of the legal entities that you want to create or update.
 Updated legal entities must contain the identifier in the form of metadata.
 
@@ -1129,11 +1129,11 @@ Request for obtaining metadata of legal entities. The result is a JSON object in
 
 | Title| Type| Description |
 | ---------| -----| ----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Link to metadata of legal entities |
-| **attributes** | Array(Object) | Array of objects additional legal entity fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Link to metadata of legal entities |
+| **attributes** | Array(Object) | Array of objects additional legal entity fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **createShared** | Boolean | Create new legal entities labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of legal entities
 
@@ -1825,7 +1825,7 @@ Successful request.
 #### Description
 The accounts of the legal entity with the specified ID are updated.
 All fields specified in the request JSON object are updated, except for
-marked `Read only` in the description of [legal entity account attributes](../dictionaries/#suschnosti-jurlico-scheta-urlica).
+marked `Read only` in the description of [legal entity account attributes](../dictionaries/#entities-jurlico-scheta-urlica).
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**

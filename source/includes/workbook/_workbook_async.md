@@ -9,7 +9,7 @@ You can see the list of requests for which the ability to work in asynchronous m
 
 Let's consider the advantage of working with the JSON API in asynchronous mode with some example.
 Suppose you need to obtain information on the balance of the entire range in order to replenish the reserves in stores.
-With a large number of items and warehouses, it was previously necessary to request a [stock balance report] (../reports/#otchety-otchet-ostatki-poluchit-ostatki-po-skladam)
+With a large number of items and warehouses, it was previously necessary to request a [stock balance report] (../reports/#reports-balance-report-poluchit-ostatki-po-skladam)
 several times, specifying the **offset** parameter to get reports on all items. Since the construction of large reports takes
 some time, up to 5 minutes, collecting all the information can take a long time.
 In addition, each individual request forces you to keep the connection open while waiting for the result.
@@ -40,7 +40,7 @@ We make a request for the rest with the `async=true` parameter. The **limit** an
 
 The **Location** response header contains a link to get the result of the asynchronous task, and the **Content-Location** header contains a link to get the status of the asynchronous task execution.
 
-While tasks are in progress, creating new asynchronous tasks will be [limited by current limits](../#mojsklad-json-api-obschie-swedeniq-ogranicheniq) per queue
+While tasks are in progress, creating new asynchronous tasks will be [limited by current limits](../#kladana-json-api-general-info-restrictions) per queue
 asynchronous tasks and when you repeat the request, you will get error 61002:
 
 `Error creating an asynchronous task: the limit on the number of concurrently executing asynchronous operations has been exceeded.`
@@ -316,7 +316,7 @@ If your client doesn't automatically redirect, all that's left to do is send a G
 
 The resulting report has minor differences from the synchronous version: **meta** does not contain the **limit** and **offset** fields, and the **rows** array is not limited to 1000 elements.
 
-If the status of the task is `API_ERROR`, then the json response to the request for obtaining the result of the task will contain [error](../#mojsklad-json-api-oshibki),
+If the status of the task is `API_ERROR`, then the json response to the request for obtaining the result of the task will contain [error](../#kladana-json-api-errors),
 similar to the one returned by the synchronous resource call.
 
 > An example of a request to get the result of an Asynchronous task with the API_ERROR status
@@ -347,7 +347,7 @@ then the task will be marked as completed successfully, and the result will cont
 
 ### 4. Set up a webhook to complete an Asynchronous Task
 
-In order not to poll the endpoint for the status of a running asynchronous task, you can configure [webhook](../dictionaries/#suschnosti-vebhuki) to notify when the task is completed.
+In order not to poll the endpoint for the status of a running asynchronous task, you can configure [webhook](../dictionaries/#entities-webhooks) to notify when the task is completed.
 As with regular webhooks, you need to set:
  
   * entity type `entityType`, in our case it will be `async`

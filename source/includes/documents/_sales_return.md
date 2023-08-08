@@ -8,34 +8,34 @@ Using the JSON API, you can create and update information about Sales Returns, q
 | Title | Type | Filtration | Description |
 | ------ | ------- | -------- | -------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) `+Change-handler` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete date Sales Return<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Return Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return External Code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Return ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Sales Return Metadata<br>`+Required in response` `+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Return Metadata<br>`+Required in response` `+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return Name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Sales Return Item Metadata<br>`+Required in response` `+Expand` `+Change-handler` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean | `=` `!=`| Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
-| **salesChannel** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales channel metadata<br>`+Expand` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
+| **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Sales Return<br>`+Expand` status metadata `+Change-handler` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Return<br>`+Expand` status metadata `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Sales Return Total in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last update date Sales Return<br>`+Required for response` `+Read-only` `+Change-handler` |
@@ -47,9 +47,9 @@ Using the JSON API, you can create and update information about Sales Returns, q
 
 | Title | Description |
 | -------- | ----- |
-| **demand** | Link to the shipment from which the return occurred in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) The field is required for a return with a reason. |
-| **losses** | An array of links to related Write-offs in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **payments** | An array of links to related payments in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)|
+| **demand** | Link to the shipment from which the return occurred in the format [Metadata](../#kladana-json-api-general-info-metadata) The field is required for a return with a reason. |
+| **losses** | An array of links to related Write-offs in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata)|
 | **paidSum** | Amount of outgoing payments by Sales Return |
 
 #### Sales Return Items
@@ -61,20 +61,20 @@ The Sales Return element object contains the following fields:
 | Title | Type | Description |
 | ------| ------- |---------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **cost** | int | Cost price (displayed if the document was created without a reason) |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country Metadata<br>`+Expand` |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country Metadata<br>`+Expand` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) <br>`+Change-handler` |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) <br>`+Change-handler` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
-| **slot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Cell in the warehouse. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
-You can work with items using special [resources for managing Sales Return items](../documents/#dokumenty-vozwrat-pokupatelq-pozicii-wozwrata-pokupatelq),
+You can work with items using special [resources for managing Sales Return items](../documents/#transactions-sales-return-pozicii-wozwrata-pokupatelq),
 and also as part of a separate Sales Return. When working as part of a separate Sales Return,
 you can submit requests to create a separate Sales Return with included in the request body
 an array of Sales Return items. If the number of items exceeds the maximum allowed, then for
@@ -84,7 +84,7 @@ Also, when working as part of a separate Sales Return, you can send requests to 
 with an array of Sales Return items included in the request body. It is important to remember that the collection of items will
 be perceived as "All Sales Return Items" and will completely replace the existing collection when updating the object. Superfluous items are deleted, new ones are added, existing ones are changed.
 
-About working with fields of Returns of Sales Returns can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with fields of Returns of Sales Returns can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get Sales Returns
@@ -93,8 +93,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | --------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Sales Returns. |
 
 **Parameters**
@@ -352,10 +352,10 @@ Successful request. The result is a JSON representation of a list of Sales Retur
 ### Create Sales Return
 Required fields when creating a new Sales Return:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **demand** - Link to the shipment from which the return occurred in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye), required field only for returns by reason
-+ **agent** - Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **store** - Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **demand** - Link to the shipment from which the return occurred in the format [Metadata](../#kladana-json-api-general-info-metadata), required field only for returns by reason
++ **agent** - Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata)
 The counterparty specified in the request to create a return must match the counterparty specified in the document,
 on which the refund is generated.
 
@@ -588,7 +588,7 @@ Successful request. The result is a JSON representation of the generated Sales R
 
 ### Bulk create and update Sales Returns
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Sales Returns.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Sales Returns.
 In the body of the request, you need to pass an array containing the JSON representation of the Sales Returns that you want to create or update.
 Updated Sales Returns must contain the ID as metadata.
 
@@ -1062,11 +1062,11 @@ Request for metadata of Sales Returns. The result is a JSON object including:
 | Parameter | Description |
 | ------- | --------- |
 | **meta** | Link to Metadata of Sales Returns |
-| **attributes** | Array of objects additional Sales Returns fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Sales Returns fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Sales Returns statuses |
 | **createShared** | create new Sales Returns labeled "General" |
 
-The structure of a separate object representing the additional field is described in detail in the section [Working with additionaloptional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional field is described in detail in the section [Working with additionaloptional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Sales Returns
 
@@ -1502,7 +1502,7 @@ Successful request. The result is a JSON representation of the Sales Return with
 
 Update request of Sales Return with the specified id.
 In the body of the request, you can specify only those fields that need to be changed for the Sales Return, except for those that
-are marked `Read Only` in the description of the [Sales Return attribute](../documents/#dokumenty-vozwrat-pokupatelq).
+are marked `Read Only` in the description of the [Sales Return attribute](../documents/#transactions-sales-return).
 When updating the **organization** field, you must also update the **organizationAccount** field, otherwise an error will occur.
 The counterparty must match the counterparty specified in the document for which the refund is generated.
 
@@ -1724,8 +1724,8 @@ Request to get a list of all items of this Sales Return.
 
 | Title | Type | Description |
 | ------| ------- |------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Sales Return items. |
 
 **Parameters**
@@ -1918,7 +1918,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortmet** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of [Sales Return items](../documents/#dokumenty-vozwrat-pokupatelq-vozwraty-pokupatelej-pozicii-vozwrata-pokupatelq).
+what the indicated item is. You can read more about this field in the description of [Sales Return items](../documents/#transactions-sales-return-vozwraty-pokupatelej-pozicii-vozwrata-pokupatelq).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create both one and some Sales Return items at the same time. All items created by this request
 will be added to the existing ones.

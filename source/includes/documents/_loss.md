@@ -9,28 +9,28 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | --------- | --------- | --------- | --------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br> `+Change-handler` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Write-off Code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Write-off<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Write-Off Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of Write-off<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Write-off ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Write-off Metadata<br>`+Required when replying` `+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Write-off Metadata<br>`+Required when replying` `+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | string(255)| `=` `!=` `~` `~=` `=~` | Write-off Name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Write-off item metadata<br>`+Required for response` `+Expand` `+Change-handler` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=`| Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -39,7 +39,7 @@ Using the JSON API, you can create and update information about Write-offs, requ
 
 | Title | Description |
 | ------- | -------- |
-| **salesReturn** | Link to the related of Sales Return in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format|
+| **salesReturn** | Link to the related of Sales Return in [Metadata](../#kladana-json-api-general-info-metadata) format|
 
 #### Write-off Items
 Write-off items is a list of goods/modifications/series.
@@ -48,16 +48,16 @@ The Write-off item object contains the following fields:
 | Title | Type | Description|
 | ------------| ------- | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | object | Product packaging. [Read more here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
+| **pack** | object | Product packaging. [Read more here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
 | **reason** | String(255) | Reason for decommissioning this item |
-| **slot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Cell in the warehouse. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.<br>`+Change-handler` |
 
-You can work with items using [special resources for managing Write-off items](../documents/#dokumenty-spisanie-pozicii-spisaniq),
+You can work with items using [special resources for managing Write-off items](../documents/#transactions-write-off-pozicii-spisaniq),
 and also as part of a separate Write-off. When working as part of a separate Write-off,
 you can send requests to create a separate Write-off included in the request body
 an array of write-off items. If the number of items exceeds the maximum allowed, then for
@@ -68,7 +68,7 @@ with an array of Write-Off items included in the request body. It is important t
 be perceived as "All Write-off items" and will completely replace the existing collection when updating the object. Superfluous
 items will be deleted, new ones added, existing ones changed.
 
-About working with Write-off fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Write-off fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get Write-offs
@@ -78,8 +78,8 @@ Result: JSON object including fields:
 
 |Title | Type | Description |
 | ------- | -------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Write-offs. |
 
 **Parameters**
@@ -307,8 +307,8 @@ Successful request. The result is a JSON representation of the List of Write-off
 
 Request to create a new Write-off. For successful creation, the following fields must be specified in the request body:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Required`
-+ **store** - Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) `Required`
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) `Required`
++ **store** - Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata) `Required`
 
 > An example of creating a new Write-off.
 
@@ -449,7 +449,7 @@ Successful request. The result is a JSON representation of the created Write-off
 
 ### Bulk creation and updating of Write-offs
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Write-offs.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Write-offs.
 In the body of the request, you need to pass an array containing the JSON representation of the Write-offs that you want to create or update.
 Updated Write-offs must contain the identifier in the form of metadata.
 
@@ -781,11 +781,11 @@ Request to receive the Write-offs metadata. The result is a JSON object includin
 | Parameter | Description |
 | ------- | -------- |
 | **meta** | Link to Metadata of Write-offs |
-| **attributes** | Array of objects additional Write-off fields in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Write-off fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Write-off statuses |
 | **createShared** | create new Write-offs labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Write-offs
 
@@ -1470,8 +1470,8 @@ Request to receive a list of all items of this Write-off.
 
 | Title | Type | Description |
 | ------- | --------- |------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the items of the Debit. |
 
 **Parameters**
@@ -1585,7 +1585,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#dokumenty-spisanie-spisaniq-pozicii-spisaniq)
+what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#transactions-write-off-spisaniq-pozicii-spisaniq)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more write-off items at the same time. All items created by this request
 will be added to the existing ones.

@@ -18,9 +18,9 @@ Each entity type will have its own set of filtering options.
 | ---------| -----| ----------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Filter ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Filter metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Filter metadata<br>`+Required when replying` |
 | **name** | string | Filter name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Owner (Employee)<br>`+Required when replying` `+Read-only` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read-only` `+Expand` |
 
 Request example:
 Entities and documents - ```/entity/[entityType]/namedfilter```

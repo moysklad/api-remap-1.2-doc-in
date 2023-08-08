@@ -10,11 +10,11 @@ Using the JSON API, you can query and update lists of Production Operations and 
 | **archived** | Boolean | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when answering` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when answering` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Production Operation ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Production Operation Metadata<br>`+Required when Response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation Metadata<br>`+Required when Response` `+Read Only` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required for response` `+Required for creation` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |
 
@@ -25,8 +25,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- |----------|------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the employee who made the request |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request |
 | **rows** | Array(Object) | Array of JSON objects representing Production Operations|
 
 **Parameters**

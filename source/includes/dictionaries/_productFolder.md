@@ -1,7 +1,7 @@
 ## Product group
 ### Product groups
 Using the JSON API, you can create and update information about Product Groups, request lists of Product Groups, and information on individual Product Groups. The entity code for a Product Group in the JSON API is the **productfolder** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of product groups to match the search string will be carried out using the following fields:
 
@@ -18,15 +18,15 @@ The search among the objects of product groups to match the search string will b
 | **effectiveVat** | int | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of Product group<br>`+Required when replying` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Product Group ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Product Group Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product Group Metadata<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product Group Name<br>`+ Mandatory forresponse` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
-| **productFolder** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
+| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#suschnosti-gruppa-towarow-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-gruppa-towarow-kod-sistemy-nalogooblozheniq) |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | int | | VAT % |
@@ -51,8 +51,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ------------ |-------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing product groups. |
 
 **Parameters**
@@ -460,10 +460,10 @@ Request to get metadata of Product Groups. The result is a JSON object including
 
 | Title | Type | Description |
 | ------- | ------------ |---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Product Groups Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product Groups Metadata<br>`+Required when replying` |
 | **attributes** | Array(Object) | Collection of additional fields |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Get product group metadata
 
@@ -591,7 +591,7 @@ Successful request. The result is a JSON representation of the Product Group.
  
 Request to update the Product group with the specified id.
 In the request body, you can specify only those fields that need to be changed for the Product group, except for those that
-are marked `Read Only` in the description of [Product Group attributes](../dictionaries/#suschnosti-gruppa-towarow).
+are marked `Read Only` in the description of [Product Group attributes](../dictionaries/#entities-gruppa-towarow).
 To update the **pathName** field, you need to update the link to the parent Product Group, i.e. update field
 **productFolder**
 

@@ -8,37 +8,37 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | Title | Type | Filtration | Description |
 | ---------- | ------- | --------|--------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of last deletion of the Purchase Order<br>`+Read Only` |
 | **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned date of shipment |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Purchase Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Purchase Order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Departmentemployee l<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Departmentemployee l<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Order ID<br>`+Required when replying` `+Read Only` |
 | **invoicedSum** | float | | Purchase invoice amount<br>`+Read-only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Purchase Order Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Order Metadata<br>`+Required when replying` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Name<br>`+Required when replying` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paidSum** | float | | Amount of incoming payments for the Order<br>`+Read Only` |
 | **positions** | MetaArray | | Metadata of Purchase Order items<br>`+Required for response` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required``+Read-Only`` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | float | | Amount shipped<br>`+Read only` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Order status metadata<br>`+Expand` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Expand` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Order status metadata<br>`+Expand` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | The amount of the Purchase Order in the specified currency<br>`+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Purchase Order<br>`+Required when replying` `+Read only` |
@@ -51,11 +51,11 @@ Using the JSON API, you can create and update information about Purchase Orders,
 
 | Title | Description |
 | ------------ | ---------- |
-| **customerOrders** | An array of links to related customer orders in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **payments** | An array of links to related payments in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **supplies** | An array of links to related acceptances in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **internalOrder** | An internal order associated with a Purchase order, in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **customerOrders** | An array of links to related customer orders in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **supplies** | An array of links to related acceptances in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **internalOrder** | An internal order associated with a Purchase order, in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Purchase Order Items
 
@@ -64,10 +64,10 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **shipped** | int | Accepted<br>`+Required when replying` |
@@ -86,7 +86,7 @@ with an array of Order items included in the request body. It is important to re
 be perceived as "All items of the Order" and completely replace the existing collection when updating the object. Superfluous
 items will be deleted, new ones added, existing ones changed.
 
-About working with fields of the Purchase Orders can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with fields of the Purchase Orders can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ### Get a list of Purchase Orders
 
@@ -95,8 +95,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Purchase Orders. |
 
 **Parameters**
@@ -361,8 +361,8 @@ Mandatory fields to create:
 
 | Parameter | Description |
 | ------------ | ---------- |
-| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent** | Link to the counterparty (supplier) in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty (supplier) in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 > An example of creating a new Order.
 
@@ -921,7 +921,7 @@ Successful request. The result is a JSON representation of the created Purchase 
 
 ### Purchase Order Bulk creating and update
 
-[Bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Purchase orders.
+[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Purchase orders.
 In the body of the request, you need to pass an array containing JSON representations of the Purchase Orders that you want to create or update.
 Updated Purchase Orders must contain the identifier in the form of metadata.
 
@@ -1484,11 +1484,11 @@ Request for metadata of Purchase Orders. The result is a JSON object including:
 | Parameter | Description |
 | ------------ | ---------- |
 | **meta** | Link to metadata of Purchase Orders|
-| **attributes** | Array of objects additional Purchase Order fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Purchase Order fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of statuses of Purchase Orders |
 | **createShared** | create new Purchase Orders labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Purchase Orders
 
@@ -2136,7 +2136,7 @@ Successful request. The result is a JSON representation of the Purchase Order.
 
 Request to update the Purchase Order with the specified id.
 In the body of the request, you can specify only those fields that need to be changed for the Purchase Order, except for those that
-are marked `Read-Only` in the description of the [Purchase Order attributes](../documents/#dokumenty-zakaz-postawschiku).
+are marked `Read-Only` in the description of the [Purchase Order attributes](../documents/#transactions-purchase-order).
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.
 
@@ -2398,8 +2398,8 @@ Request for a list of all items of the Purchase Order.
 
 | Title | Type | Description |
 | ------- | -------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the items in the Purchase Order. |
 
 **Parameters**
@@ -2578,7 +2578,7 @@ For successful creation, the following fields must be specified in the request b
 
 +**assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#dokumenty-zakaz-postawschiku-zakazy-postawschikam-pozicii-zakaza-postawschiku)
+what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-zakazy-postawschikam-pozicii-zakaza-postawschiku)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
 **Parameters**

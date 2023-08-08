@@ -8,16 +8,16 @@ Using the JSON API, you can get and edit user settings.
 | Title | Type | Description |
 | ---------| ---- |----------|
 | **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report<br>`+Required when replying` |
-| **defaultCompany** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata to be used by default in documents<br>`+Required when replying` |
-| **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section<br>`+Required when replying` |
-| **defaultPlace** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Warehouse metadata that will be used by default in documents<br>`+Required when replying` |
-| **defaultProject** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Project metadata to be used by default in documents<br>`+Required when replying` |
-| **defaultPurchaseCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section<br>`+Required when replying` |
+| **defaultCompany** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata to be used by default in documents<br>`+Required when replying` |
+| **defaultCustomerCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section<br>`+Required when replying` |
+| **defaultPlace** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata that will be used by default in documents<br>`+Required when replying` |
+| **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents<br>`+Required when replying` |
+| **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section<br>`+Required when replying` |
 | **defaultscreen** | Enum | [The page that opens when the user logs in](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran)<br>`+Required when replying` |
 | **fieldsPerRow** | int | The number of columns in which additional fields will be placed in documents<br>`+Required when answering` |
 | **locale** | Enum | System language. Valid values are "ru_RU" and "en_US"<br>`+Required when replying` |
 | **mailFooter** | Boolean | Substituted in the signature in letters sent from MS<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Settings metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Settings metadata<br>`+Required when replying` |
 | **printFormat** | Enum | [Document Printing Rules](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow)<br>`+Required when replying` |
 
 #### Rules for printing documents
@@ -188,11 +188,11 @@ You can edit the following user settings:
 | Title | Type | Description |
 | ------| -----|-------------|
 | **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report |
-| **defaultCompany** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata to be used by default in documents |
-| **defaultCustomerCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section |
-| **defaultPlace** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Warehouse metadata to be used by default in documents |
-| **defaultProject** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Project metadata to be used by default in documents |
-| **defaultPurchaseCounterparty** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section |
+| **defaultCompany** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata to be used by default in documents |
+| **defaultCustomerCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section |
+| **defaultPlace** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata to be used by default in documents |
+| **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents |
+| **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section |
 | **defaultscreen** | Enum | [The page that opens when the user logs in](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran) |
 | **fieldsPerRow** | int | The number of columns in which additional fields will be located in documents |
 | **locale** | Enum | System language. Valid values "ru_RU" and "en_US" |

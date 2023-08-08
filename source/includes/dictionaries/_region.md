@@ -11,7 +11,7 @@ The entity code for Regions in the JSON API is the **region** keyword.
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Region Code |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Region Code<br>`+Required when replying` |
 | **id** | UUID | `=` `!=` | Region ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Region metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Region metadata<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Region Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **version** | int | | Entity version<br>`+Required for response` `+Read-only` |
@@ -34,9 +34,9 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ----------- |---------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Regions](../dictionaries/#suschnosti-region). |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing [Regions](../dictionaries/#entities-region). |
 
 **Parameters**
 

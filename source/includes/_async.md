@@ -5,18 +5,18 @@ without resorting to paging if real-time work is not critical.
 
 Asynchronous exchange is not supported for all requests. List of requests that can be executed asynchronously:
 
-+ [Report Balance](reports/#otchety-otchet-ostatki)
-+ [Report Profitability](reports/#otchety-otchet-pribyl-nost)
-+ [Report Money](reports/#otchety-otchet-den-gi)
++ [Report Balance](reports/#reports-balance-report)
++ [Report Profitability](reports/#reports-profitability-report)
++ [Report Money](reports/#reports-money-report)
 + [Sales and Orders Report](reports/#otchety-pokazateli-prodazh-i-zakazow)
 + [Report Counterparties indicators](reports/#otchety-otchet-pokazateli-kontragentow) (except [selected indicators](reports/#otchety-otchet-pokazateli-kontragentow-vyborochnye-pokazateli-kontragentow))
 + [Report Metrics](reports/#otchety-pokazateli)
-+ [Getting a list of Counterparties](dictionaries/#suschnosti-kontragent-poluchit-spisok-kontragentow)
-+ [Get Assortment](dictionaries/#suschnosti-assortiment)
++ [Getting a list of Counterparties](dictionaries/#entities-kontragent-poluchit-spisok-kontragentow)
++ [Get Assortment](dictionaries/#entities-assortiment)
 
 After executing a query in asynchronous mode, the result is available within 1 hour.
 
-There are [limits](#mojsklad-json-api-obschie-swedeniq-ogranicheniq) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
+There are [limits](#kladana-json-api-general-info-restrictions) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
 
 At the moment, in the process of asynchronous query execution, duplicates of item collection may occur,
 if new elements are added in parallel with the preparation of the result.
@@ -69,8 +69,8 @@ An asynchronous task contains information about the creator of the task, its cur
 | **deletionDate** | datetime | The date after which the result of the task will become unavailable. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
 | **errors** | object | json api error if **state** field is set to `API_ERROR`<br>`+Read Only` |
 | **id** | UUID | Asynchronous Task ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | Asynchronous Task Metadata<br>`+Required for response` |
-| **owner** | [Meta](#mojsklad-json-api-obschie-swedeniq-metadannye) | The user or application that created the Asynchronous Task<br>`+Required on Response` `+Read Only` |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Asynchronous Task Metadata<br>`+Required for response` |
+| **owner** | [Meta](#kladana-json-api-general-info-metadata) | The user or application that created the Asynchronous Task<br>`+Required on Response` `+Read Only` |
 | **request** | string | The URL of the request that created the Asynchronous Task<br>`+Required for response` `+Read Only` |
 | **resultUrl** | string | Link to the task result. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
 | **state** | Enum | The execution status of the Asynchronous Task. [More details here](#mojsklad-json-api-asinhronnyj-obmen-asinhronnaq-zadacha-atributy-suschnosti-status-wypolneniq-asinhronnoj-zadachi)<br>`+Required when replying` `+Read only` |
@@ -358,7 +358,7 @@ Most HTTP clients do the redirect automatically, but if your client doesn't,
 then the result of the request will have the status `302 FOUND` with the header **Location**, which contains a link to the result.
 After the date specified in the **deletionDate** field, the result becomes unavailable.
 
-If the task status is set to `API_ERROR`, then the json response to the request to get the result of the task will contain [error](#mojsklad-json-api-oshibki),
+If the task status is set to `API_ERROR`, then the json response to the request to get the result of the task will contain [error](#kladana-json-api-errors),
 similar to the one returned by the synchronous resource call.
 
 > An example of a request to get the result of an Asynchronous task with the API_ERROR status
@@ -387,7 +387,7 @@ Response 403 Forbidden
 
 ### Asynchronous Task Webhooks
 
-You can set up [webhooks](dictionaries/#suschnosti-vebhuki) for an asynchronous task in the same way as other entities, but there are a number of exceptions:
+You can set up [webhooks](dictionaries/#entities-webhooks) for an asynchronous task in the same way as other entities, but there are a number of exceptions:
 
 * for asynchronous tasks, you cannot set up a webhook for the delete event, since asynchronous tasks are automatically deleted
 * for asynchronous tasks in webhooks, a new `PROCESSED` event appears. It means that the task has completed and you can find out its status

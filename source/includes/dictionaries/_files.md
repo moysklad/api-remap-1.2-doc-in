@@ -15,7 +15,7 @@ If files contains an empty array of elements in the update request, then all Fil
 the server will assume that the user wants to update the list of Operation Files, Items, Tasks, or Accounts.
 
 The limit of Files saved with an object is 10, if you need to upload more Files for one object, you need to use the method described
-in the section [Working with Files of an Operation, Nomenclature, Task or Counterparty using special resources] (../dictionaries/#suschnosti-fajly-rabota-s-fajlami-operacii-nomenklatury-zadachi-ili-kontragenta-s-pomosch-u -special-nyh-resources).
+in the section [Working with Files of an Operation, Nomenclature, Task or Counterparty using special resources] (../dictionaries/#entities-fajly-rabota-s-fajlami-operacii-nomenklatury-zadachi-ili-kontragenta-s-pomosch-u -special-nyh-resources).
 
 
 ### Working with Operation, Nomenclature, Task or Account Files using special resources
@@ -31,12 +31,12 @@ An object can have no more than 100 Files.
 | Title | Type | Description |
 | ---------| -----| ----------|
 | **created** | datetime | File upload time to the server<br>`+Required when replying` |
-| **createdBy** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the employee who uploaded the File<br>`+Required when replying` `+Expand` |
+| **createdBy** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who uploaded the File<br>`+Required when replying` `+Expand` |
 | **filename** | String(255) | Filename<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Image thumbnail metadata (field is passed only for Image files) |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata (field is passed only for Image files) |
 | **size** | int | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Thumbnail metadata (field is passed only for Image files) |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata (field is passed only for Image files) |
 | **title** | String(255) | File Name<br>`+Required when replying` |
 
 ### Get a list of Operation Files, Nomenclature, Task or Account
@@ -45,9 +45,9 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------| -----| ----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Files](../dictionaries/#suschnosti-fajly). |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing [Files](../dictionaries/#entities-fajly). |
 
 **Parameters**
 

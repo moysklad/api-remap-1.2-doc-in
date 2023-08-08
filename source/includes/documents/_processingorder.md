@@ -9,31 +9,31 @@ Using the JSON API, you can create and update information about Production Order
 | ------- | -------- | --------|---------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br>`+Read only` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Production Order Code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when the Production Order was last deleted<br>`+Read Only` |
 | **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned production date |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Production Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Production Order Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID| `=` `!=` | Production Order ID<br>`+Required when responding` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Production Order Metadata<br>`+Required when responding` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when responding` `+Read Only` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Order Name<br>`+Required when replying` `+Required when creating` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **positions** | MetaArray | | Metadata of Production Order items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **processingPlan** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Production Order Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` |
+| **processingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **quantity** | int | `=` `!=` `<` `>` `<=` `>=` | Production volume<br>`+Required when replying` `+Read only` |
 | **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Production Order Status Metadata<br>`+Expand` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Production Order Status Metadata<br>`+Expand` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the Production Order was last updated<br>`+Required when replying` `+Read Only` |
 
@@ -41,7 +41,7 @@ Using the JSON API, you can create and update information about Production Order
 
 | Title | Description |
 | ------------ | --------------- |
-| **processings** | An array of links to related transactions in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **processings** | An array of links to related transactions in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 
 #### Production Order Items
 Production Order Items is a list of products and product variants corresponding to the materials of the Production Order. The Order item object contains the following fields:
@@ -49,9 +49,9 @@ Production Order Items is a list of products and product variants corresponding 
 | Title | Type | Description |
 | ------------ | --------------- |----------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **reserve** | int | Reserve this item<br>`+Required when replying`|
 
@@ -63,7 +63,7 @@ an array of Production Order items.
 Also, when working as part of a separate Production Order, you can send requests to update the list of items
 with an array of Production Order items included in the request body. Items with new products cannot be added to the Production Order.
 
-About working with fields of Production Orders can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with fields of Production Orders can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ### Get a list of Production Orders
 
@@ -72,8 +72,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------ | --------------- |------------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Production Orders. |
 
 **Parameters**
@@ -547,9 +547,9 @@ Successful request. The result is a JSON representation of a list of Production 
 Request to create a new Production Order.
 Mandatory fields to create:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **processingPlan** - Link to those. map in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
-+ **positions** - Link to items in the Production Order in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye)
++ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **processingPlan** - Link to those. map in the format [Metadata](../#kladana-json-api-general-info-metadata)
++ **positions** - Link to items in the Production Order in the format [Metadata](../#kladana-json-api-general-info-metadata)
 
 > An example of creating a new Production Order with a request body containing only the required fields.
 
@@ -974,7 +974,7 @@ Successful request. The result is a JSON representation of the created Productio
 
 ### Bulk creating and update of Production Orders
 
-[Bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Production orders.
+[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Production orders.
 In the body of the request, you need to pass an array containing JSON representations of the Production Orders that you want to create or update.
 Updated Production Orders must contain the identifier in the form of metadata.
 
@@ -1272,11 +1272,11 @@ Request for metadata of Production Orders. The result is a JSON object including
 | Parameter | Description |
 | ------------ | --------------- |
 | **meta** | Link to Metadata of Production Orders |
-| **attributes** | Array of objects additional fields of Production Orders in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **attributes** | Array of objects additional fields of Production Orders in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **states** | Array of statuses of Production Orders |
 | **createShared** | create new Production Orders labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Metadata of Production Orders
 
@@ -1641,7 +1641,7 @@ Successful request. The result is a JSON representation of the Production Order.
 ### Change Production Order
 
 Request to update the Production Order with the specified id.
-In the body of the request, you must specify the meta **processingPlan** field (even if it does not change), and also indicate those fields that need to be changed on the Production Order, except for those marked `Read Only` in the description [Production Order attributes](../documents/#dokumenty-zakaz-na-proizwodstwo).
+In the body of the request, you must specify the meta **processingPlan** field (even if it does not change), and also indicate those fields that need to be changed on the Production Order, except for those marked `Read Only` in the description [Production Order attributes](../documents/#transactions-production-order).
 
 When you update the **organization** field, you must also update the **organizationAccount** field, otherwise an error will occur.
 
@@ -2046,8 +2046,8 @@ Request to get a list of all items of this Production Order.
 
 | Title | Type | Description |
 | ----- | ------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the items of the Production Order. |
 
 **Parameters**

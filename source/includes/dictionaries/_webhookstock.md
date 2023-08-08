@@ -27,7 +27,7 @@ The set of features also depends on your tariff:
 | **accountId** | UUID | Account ID<br>`+Required when replying` |
 | **stockType** | Enum | The type of residues whose change causes the webhook to change residues. Possible values: `[stock]`<br>`+Required when replying` |
 | **reportType** | Enum | The balance report type to which the webhook for changing balances is attached. Possible values: `[all, bystore]`<br>`+Required when replying` |
-| **reportUrl** | String(255) | URL for receiving data on [changed nomenclature for the specified period](../reports/#otchety-otchet-ostatki-kratkij-otchet-ob-ostatkah)<br>`+Required when replying` |
+| **reportUrl** | String(255) | URL for receiving data on [changed nomenclature for the specified period](../reports/#reports-balance-report-kratkij-otchet-ob-ostatkah)<br>`+Required when replying` |
 
 The request parameter **requestId** is the notification identifier.
 
@@ -43,12 +43,12 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 | Title | Type | Description |
 | ------- | ---------- |---------|
 | **accountId** | UUID | Account ID<br>`+Required when replying`|
-| **authorApplication** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Application that created the leftover webhook<br>`+Read Only` |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the leftover webhook<br>`+Read Only` |
 | **enabled** | Boolean | Webhook status checkbox for changing balances (enabled / disabled)<br>`+Required when replying` |
 | **stockType** | Enum | The type of residues that the webhook triggers to change. Possible values: `[stock]`<br>`+Required when replying` `+Required when creating` |
 | **reportType** | Enum | The balance report type to which the webhook for changing balances is attached. Possible values: `[all, bystore]`<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Webhook ID for changing balances<br>`+Required when replying` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Webhook metadata for changing balances<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Webhook metadata for changing balances<br>`+Required when replying` |
 | **url** | URL | The URL where the webhook will be processed. Allowed length is up to 255 characters<br>`+Required when replying` `+Required when creating` |
 
 ### Get a list of webhooks for changing balances
@@ -180,7 +180,7 @@ Successful request. The result is a JSON representation of the created webhook f
 ```
 
 ### Bulk creation and updating of webhooks for changing balances
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) webhooks to change balances.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) webhooks to change balances.
 In the body of the request, you need to pass an array containing the JSON representation of the remnant change webhooks that you want to create or update.
 Residue change webhooks that are updated must contain the identifier as metadata.
 

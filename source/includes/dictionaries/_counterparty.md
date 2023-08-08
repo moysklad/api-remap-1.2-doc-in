@@ -3,7 +3,7 @@
 
 Using the JSON API, you can create and update information about Counterparties, request lists of Counterparties and information on individual Counterparties. Accounts of the Counterparty and its contact persons can be managed both as part of a separate Counterparty, and separately - using special resources for managing accounts and contact persons of the Counterparty. The entity code for the Counterparty in the JSON API is the keyword **counterparty**. Learn more about [Counterparties](https://kladana.zendesk.com/hc/en-us/articles/6507246022045-Create-counterparty).
 
-This entity can be contextually searched using the special `search` parameter. [Learn more](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of the Counterparty is carried out according to several conditions. If the values of the counterparty fields satisfy at least one of the conditions, then the counterparty will be found.
 
@@ -33,16 +33,16 @@ The fourth search condition for the fields of all contact persons of the counter
 | Title | Type | Filtration | Description |
 | -------- | ------- | -------- | -------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres-scheta-kontragentow)<br>`+Required when replying` `+Expand` |
+| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-scheta-kontragentow)<br>`+Required when replying` `+Expand` |
 | **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres) |
+| **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres) |
 | **archived** | Boolean | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
 | **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusprogram** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the active Bonus Program<br>`+Expand` |
+| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor Code |
-| **companyType** | Enum | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#suschnosti-kontragent-kontragenty-tip-kontragenta)<br>`+Required when answering` |
-| **contactpersons** | MetaArray | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow)<br>`+Expand`|
+| **companyType** | Enum | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-kontragent-kontragenty-tip-kontragenta)<br>`+Required when answering` |
+| **contactpersons** | MetaArray | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow)<br>`+Expand`|
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
 | **discountCardNumber** | String(255) | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
@@ -50,18 +50,18 @@ The fourth search condition for the fields of all contact persons of the counter
 | **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
 | **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the Counterparty<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
-| **notes** | MetaArray | | Array of Counterparty incidents. [More here](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta)<br>`+Expand` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **notes** | MetaArray | | Array of Counterparty incidents. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta)<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType** | object | `=` `!=` | Counterparty price type. [More here](../dictionaries/#suschnosti-tipy-cen-tipy-cen) |
+| **priceType** | object | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-tipy-cen-tipy-cen) |
 | **salesAmount** | int | | Amount of sales<br>`+Required when replying` `+Read only` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
 | **tags** | Array(String) | `=` `!=` | Account groups |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
@@ -86,7 +86,7 @@ The fourth search condition for the fields of all contact persons of the counter
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
-You can see the format for displaying discounts in the [Discounts](../dictionaries/#suschnosti-skidki) section.
+You can see the format for displaying discounts in the [Discounts](../dictionaries/#entities-skidki) section.
 
 #### Nested entity attributes
 #### Attributes of entity Address
@@ -96,10 +96,10 @@ You can see the format for displaying discounts in the [Discounts](../dictionari
 | **apartment** | String(30) | Apartment |
 | **city** | String(255) | City |
 | **comment** | String(255) | Comment |
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country metadata |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata |
 | **house** | String(30) | House |
 | **postalCode** | String(6) | Postcode |
-| **region** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Region metadata |
+| **region** | [Meta](../#kladana-json-api-general-info-metadata) | Region metadata |
 | **street** | String(255) | Street |
 
 The address string is the concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as separator.
@@ -121,7 +121,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | **correspondentAccount** | String(255) | Corr account |
 | **id** | UUID | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean | Is the account the main account of the Counterparty<br>`+Required when answering` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Counterparty Account Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when replying` |
 | **updated** | datetime | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
 
 ##### Contact persons of Counterparties
@@ -129,12 +129,12 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | Title | Type | Description |
 | ------ | ------ | ------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Counterparty metadata<br>`+Required when replying` `+Expand` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required when replying` `+Expand` |
 | **description** | String(4096) | Description of the contact person |
 | **email** | String(255) | Email address of the contact person |
 | **externalCode** | String(255) | External contact code |
 | **id** | UUID | Contact ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Contact person of the Counterparty<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Contact person of the Counterparty<br>`+Required when replying` |
 | **name** | String(255) | Name of the contact person<br>`+Required when replying` `+Required when creating` |
 | **phone** | String(255) | Phone number of the contact person |
 | **position** | String(255) | Item of contact person |
@@ -145,13 +145,13 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | Title | Type | Description |
 | ------ | ----- | ----- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Counterparty metadata<br>`+Required for response` `+Read-only` `+Expand` |
-| **author** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
-| **authorApplication** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | incident Creator Application Metadata<br>`+Read Only` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required for response` `+Read-only` `+Expand` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
 | **created** | datetime | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
 | **description** | String(4096) | Contractor incident text<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | incident ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Account incident metadata<br>`+Required for response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required for response` |
 
 #### Counterparty type
 Depending on the counterparty type **companyType**, its object will display different sets of details.
@@ -203,7 +203,7 @@ If the counterparty type is `Individual`, the following fields of details will b
 | **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
 | **legal title** | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
 
-About working with Counterparty fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
+About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 
 ### Get a list of Counterparties
@@ -765,8 +765,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -----| ----- | ------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing counterparties. |
 
 **Parameters**
@@ -1661,7 +1661,7 @@ curl -X POST
 ]
 ```
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Contractors.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Contractors.
 In the body of the request, you need to pass an array containing the JSON representation of the Accounts that you want to create or update.
 Updated Counterparties must contain the identifier in the form of metadata.
 
@@ -1794,11 +1794,11 @@ Request for obtaining metadata of Counterparties. The result is a JSON object in
 | Parameter | Description |
 | ----- | ------ |
 | **meta** | Link to metadata of Counterparties |
-| **attributes** | Array of objects additional fields of Accounts in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **attributes** | Array of objects additional fields of Accounts in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **states** | Array of Counterparties statuses |
 | **createShared** | create new Counterparties with the label "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 ### Separate additional field
  
@@ -2114,7 +2114,7 @@ curl -X GET
 
 The view of the Account with the specified id is updated.
 In the request body, you can specify only those fields that need to be changed for the Counterparty, except for those that
-are marked `Read only` in the description of [Account attributes](../dictionaries/#suschnosti-kontragent).
+are marked `Read only` in the description of [Account attributes](../dictionaries/#entities-kontragent).
 Fields that were not specified in the request JSON are not changed.
 The **account** and **contactpersons** fields are updated as members of nested collections. When updating,
 the passed data elements of the collections are treated as "All elements of this collection" and completely replace
@@ -2959,7 +2959,7 @@ curl -X GET
 #### Description
 Update the contact person of the Counterparty with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read only` in the description of [attributes of the Counterparty's contact persons](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow).
+marked `Read only` in the description of [attributes of the Counterparty's contact persons](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow).
 Fields that were not specified in the request JSON are not changed.
 
 > An example of a request to update the contact person of the Counterparty.
@@ -3217,7 +3217,7 @@ curl -X GET
 
 Update the incident of the Account with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read-only` in the description of [Contractor's incident attributes](../dictionaries/#suschnosti-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta).
+marked `Read-only` in the description of [Contractor's incident attributes](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta).
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**
@@ -3298,7 +3298,7 @@ Using the JSON API, you can manage the settings of the counterparty directory.
 
 | Title | Type | Description |
 | ----- | ------  | ------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Counterparties directory settings<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparties directory settings<br>`+Required when replying` |
 | **uniqueCodeRules** | object | Counterparty codes settings<br>`+Required when replying` |
 | **createShared** | Boolean | Create new transactions with the label "General"<br>`+Required when replying` |
 

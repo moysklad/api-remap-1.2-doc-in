@@ -41,8 +41,8 @@ The result of a successful request is a JSON representation of a list of Marking
 
 | Title | Type | Description |
 | --------- |----|------------|
-**meta** |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Issuance metadata,
-**context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request.
+**meta** |[Meta](../#kladana-json-api-general-info-metadata)|Issuance metadata,
+**context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request.
 **rows** |Array(Object)| An array of JSON objects representing marking codes.
 
 > Sample Request for Marking Codes

@@ -12,11 +12,11 @@ Using the JSON API, you can create and update information about Bills of Materia
 | **externalCode** | String(255) | Bills of Materials Folder External Code<br>`+Required when replying` |
 | **code** | String(255) | Bills of Materials Folder Code |
 | **description** | String(4096) | Bills of Materials Folder Descriptions|
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | Bills of Materials Folder ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Bills of Materials Folder Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Bills of Materials Folder Metadata<br>`+Required when replying` |
 | **name** | String(255) | Bills of Materials Folder Name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Owner (Employee) metadata<br>`+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee) metadata<br>`+Expand` |
 | **pathName** | string | Name of the Bills of Materials Folder<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | Sharing<br>`+Required when replying` |
 | **updated** | datetime | When the entity was last updated<br>`+Required for response` `+Read-only` |
@@ -28,8 +28,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------ | -------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the employee who made the request |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request |
 | **rows** | Array(Object) | An array of JSON objects representing Bills of Materials Folders |
 
 **Parameters**
@@ -222,7 +222,7 @@ Successful request. The result is a JSON representation of the created Bills of 
 
 ### Bills of Materials Folders Bulk creation and update
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Bills of Materials Folders.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Bills of Materials Folders.
 In the body of the request, you need to pass an array containing the JSON representation of the Bills of Materials Folders that you want to create or update. Updated Bills of Materials Folders must contain the ID as metadata.
 
 > Example of creating and updating some Bills of Materials Folders
@@ -393,9 +393,9 @@ Request to get metadata of Bills of Materials Folder. The result is a JSON objec
 
 | Title | Type | Description |
 | ------------- | ------ | -------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of Bills of Materials Folders<br>`+Required when replying`|
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of Bills of Materials Folders<br>`+Required when replying`|
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Get metadata of Bills of Materials Folder
 
@@ -477,7 +477,7 @@ Successful request. The result is a JSON representation of the Bills of Material
 
 Request to update the Bills of Materials Folderd with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in Bills of Materials Folders, except for those that
-are marked `Read only` in the description of [Bills of Materials Folder Attributes](../documents/#dokumenty-gruppa-teh-kart-gruppy-teh-kart).
+are marked `Read only` in the description of [Bills of Materials Folder Attributes](../documents/#transactions-gruppa-teh-kart-gruppy-teh-kart).
 
 To update the **pathName** field, you need to update the link to the parent Bills of Materials Folder, i.e. update field
 **processingplanfolder**.

@@ -8,7 +8,7 @@ Using the json api, you can add new variant characteristics.
 | Title | Type | Description |
 | ---------|--------|--------|
 | **id** | UUID | ID of the corresponding Feature<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Feature metadata<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Feature metadata<br>`+Required for response` `+Read-only` |
 | **name** | String(255) | Name Characteristics<br>`+Required when answering` `+Required when creating` |
 | **required** | Boolean | Mandatory specification of Characteristics in the variant, always set to false<br>`+Required when answering` `+Read-only` |
 | **type** | String(255) | Value type Characteristics, always has the value string<br>`+Required for response` `+Read-only` |
@@ -103,7 +103,7 @@ Successful request. The result is a JSON representation of the generated Feature
 
 ### Bulk Creation of Characteristics
 
-[Bulk Creation](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
+[Bulk Creation](../#kladana-json-api-general-info-create-and-update-multiple-objects) In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
 
 > Example of creating multiple Characteristics
 

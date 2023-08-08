@@ -1,7 +1,7 @@
 ## Expense item
 ### Expense items
 Using the JSON API, you can request lists of Expense Items and information on individual Expense Items. The entity code for Expense Items in the JSON API is the **expenseitem** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the Items of expenditure for matching the search string will be carried out in the following fields:
 
@@ -16,7 +16,7 @@ The search among the objects of the Items of expenditure for matching the search
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Items of expenditure |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Expense item<br>`+Required when replying` |
 | **id** | UUID | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Expense Item Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Expense Item Metadata<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Item of expenses<br>`+Required when replying` `+Required when creating` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
@@ -220,7 +220,7 @@ Successful request. The result is a JSON representation of the generated expense
 ```
 
 ### Bulk creation and updating of Line Items
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Expenses.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Expenses.
 In the body of the request, you must pass an array containing the JSON representation of the Line Items you want to create or update.
 Updated Line Items must contain the identifier in the form of metadata.
 

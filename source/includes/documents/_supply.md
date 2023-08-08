@@ -8,37 +8,37 @@ Using the JSON API, you can create and update information about Receivings, quer
 | Title | Type | Filtration | Description |
 |-------|----| -------- |--------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **agentAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **applicable** | Boolean | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)<br>`+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Change-handler` `+Update-provider` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Receiving Code |
-| **contract** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when Receiving was last deleted<br>`+Read Only`|
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Receiving Comment<br>`+Change-handler` `+Update-provider` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Receiving Code<br>`+Required in response` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Receive ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **incomingDate** | datetime | | Incoming date<br>`+Change-handler` `+Update-provider` |
 | **incomingNumber** | String(255) | | Incoming number<br>`+Change-handler` `+Update-provider` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Receiving Metadata<br>`+Required in response` `+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Receiving Metadata<br>`+Required in response` `+Change-handler` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Receiving<br>`+Required for response` `+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **organizationAccount** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider`|
-| **overhead** | object | | Overheads. [More details here](../dictionaries/#dokumenty-priemka-priemki-nakladnye-rashody). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider`|
+| **overhead** | object | | Overheads. [More details here](../dictionaries/#dokumenty-receiving-priemki-nakladnye-rashody). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paidSum** | float | | Amount of incoming payments on Receiving<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray | | Receiving item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **project** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#dokumenty-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Receiving Status Metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **store** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Receiving Status Metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler`|
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Receiving last updated time<br>`+Required for response` `+Read-only` `+Change-handler` |
@@ -58,10 +58,10 @@ Description of overhead fields
 
 | Title | Description |
 | -------- | --------|
-| **purchaseOrder** | Link to the related order to the supplier in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **payments** | An array of links to related payments in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **returns** | An array of links to related returns in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **purchaseOrder** | Link to the related order to the supplier in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Receiving Items
 Receiving Items is a list of goods/services/modifications/series.
@@ -70,21 +70,21 @@ The Receiving item object contains the following fields:
 | Title | Type | Description |
 | -------- | --------|-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the product/service/series/modification, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
-| **country** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Country metadata<br>`+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | object | Product packaging. [More info here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
+| **pack** | object | Product packaging. [More info here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
-| **slot** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Cell in the warehouse. [More here](../dictionaries/#suschnosti-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
-| **tracking codes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#dokumenty-priemka-priemki-kody-markirowki-towarow-i-transportnyh-upakowok) |
-| **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-oprihodowanie-oprihodowaniq-nakladnye-rashody). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
+| **tracking codes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-priemki-kody-markirowki-towarow-i-transportnyh-upakowok) |
+| **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-stock-adjustment-oprihodowaniq-nakladnye-rashody). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
 | **vat** | Boolean | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
-Items can be managed using [special resources for managing Receiving items](../documents/#dokumenty-priemka-pozicii-priemki),
+Items can be managed using [special resources for managing Receiving items](../documents/#transactions-receiving-pozicii-priemki),
 and also as part of a separate Receiving. When working as part of a separate Receiving,
 you can send requests to create a separate Receiving with included in the request body
 an array of Receiving items. 
@@ -98,7 +98,7 @@ It is important to remember that the collection of items will
 be perceived as "all items of Receiving" and will completely replace the existingcollection when updating an object - redundant
 items will be deleted, new ones added, existing ones changed.
 
-About working with Receiving fields can be read [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+About working with Receiving fields can be read [here](../#kladana-json-api-general-info-additional-fields).
 
 #### Codes for marking goods and transport packages
 
@@ -137,8 +137,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- | --------|---------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Receivings. |
 
 **Parameters**
@@ -460,9 +460,9 @@ Mandatory fields to create:
 
 | Parameter | Description |
 | -------- | --------|
-| **organization** | Link to your legal entity in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **agent** | Link to the counterparty in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
-| **store** | Link to the warehouse in the format [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) |
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **store** | Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 > An example of creating a new Receiving.
 
@@ -1167,7 +1167,7 @@ Successful request. The result is a JSON representation of the generated Receivi
 
 ### Bulk creating and update of Receivings
 
-[Bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) of Receiving.
+[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Receiving.
 In the body of the request, you need to pass an array containing the JSON of the Receivings that you want to create or update.
 Updated Receivings must contain the identifier in the form of metadata.
 
@@ -1673,11 +1673,11 @@ Request for Receiving metadata. The result is a JSON object including:
 | Parameter | Description |
 | -------- | --------|
 | **meta**| Link to Metadata Receivings |
-| **attributes** | Array of objects additional Receiving fields in [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format |
+| **attributes** | Array of objects additional Receiving fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Receiving statuses |
 | **createShared** | create new Receiving labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi).
+The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Receiving Metadata
 
@@ -2180,7 +2180,7 @@ Successful request. The result is a JSON representation of the Receiving.
 ### Change Receiving
 Request to update Receiving with specified id.
 In the body of the request, you can specify only those fields that need to be changed in Receiving, except for those that
-are marked `Read-Only` in the description of [Receiving attributes](../documents/#dokumenty-priemka).
+are marked `Read-Only` in the description of [Receiving attributes](../documents/#transactions-receiving).
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.
 
@@ -2460,8 +2460,8 @@ Request for a list of all items in the Receiving.
 
 | Title | Type | Description |
 | -------- | --------|-------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Receiving items. |
 
 **Parameters**
@@ -2762,7 +2762,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Receiving item](../documents/#dokumenty-priemka-priemki-pozicii-priemki)
+what the indicated item is. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-priemki-pozicii-priemki)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Receiving items at the same time. All items created by this request
 will be added to the existing ones.

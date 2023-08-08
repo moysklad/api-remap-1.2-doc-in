@@ -1,6 +1,6 @@
 ## Publication of transactions
 
-The JSON API allows you to publish to the public a printed form of a transaction based on a [printable template](../dictionaries/#suschnosti-shablon-pechatnoj-formy).
+The JSON API allows you to publish to the public a printed form of a transaction based on a [printable template](../dictionaries/#entities-shablon-pechatnoj-formy).
 The entity code for publishing as part of the JSON API is the **publication** keyword.
 
 User can publish a transaction if the user has permissions to read and print the entity of that type.
@@ -13,8 +13,8 @@ The transactions of the following types can be published: Sales Order, Sales Inv
 
 | Title | Type | Description |
 | ------------ | ------- | -------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Post Metadata<br>`+Required when replying` |
-| **template** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Print Template Metadata<br>`+Required in response` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Post Metadata<br>`+Required when replying` |
+| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required in response` `+Expand` |
 | **href** | URL | Link to Publication page<br>`+Required when replying` |
 
 ### Get publications
@@ -82,7 +82,7 @@ Successful request. The result is a JSON representation of the list of Publicati
 
 ### Create post
 
-Request to publish a transaction. The transaction publication is based on the passed JSON object, which must contain a link to the template for printing the transaction **template** in the [Metadata](../#mojsklad-json-api-obschie-swedeniq-metadannye) format. If the publication was previously created, then the response will be with the status `200`.
+Request to publish a transaction. The transaction publication is based on the passed JSON object, which must contain a link to the template for printing the transaction **template** in the [Metadata](../#kladana-json-api-general-info-metadata) format. If the publication was previously created, then the response will be with the status `200`.
 
 **Parameters**
 

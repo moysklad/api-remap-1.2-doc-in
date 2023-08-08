@@ -10,7 +10,7 @@ The entity code for the Price Type in the JSON API is the **pricetype** keyword.
 | ---------| -----| ----------|
 | **externalCode** | String(255) | Price Type External Code<br>`+Required when replying` |
 | **id** | UUID | Price type ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
 | **name** | String(255) | Price Type Name<br>`+Required when replying` `+Required when creating` |
 
 ### Get a list of all price types

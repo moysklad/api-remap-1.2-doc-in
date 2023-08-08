@@ -170,22 +170,22 @@ Successful request. The result is a JSON representation of the report.
 #### Unit
 | Title | Type | Description |
 | ------------ | ------ |----- |
-| **account** | object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **organization** | object | Organization. [More details here](../dictionaries/#suschnosti-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **account** | object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **organization** | object | Organization. [More details here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
 | **balance** | float | Current balance<br>`+Required when answering` |
 
 #### Organization account
 
 | Title | Type | Description |
 | ------------ | ------ |--------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata<br>`+Required when replying` |
 | **name** | String(255) | Account number<br>`+Required when replying` |
 
 #### Organization
 
 | Title | Type | Description |
 | ------------ | ------ |---- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Organization metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata<br>`+Required when replying` |
 | **name** | String(255) | Organization name<br>`+Required when answering` |
 
 > Request for receipt of cash balances on cash desks and accounts

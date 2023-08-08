@@ -24,7 +24,7 @@ A general Stock movement report for goods and variants without warehouses.
 | **article** | String(255) | Article of Goods |
 | **code** | String(255) | Product Code |
 | **images** | object | The first image of the Product or Modification |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Product or Modification<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **productFolder** | object | Product Group or Modification |
 | **wom** | object | Unit of measurement |
@@ -273,7 +273,7 @@ Stock movement report by products and their variants with detalization by wareho
 | **article** | String(255) | Article of Goods |
 | **code** | String(255) | Product Code |
 | **images** | object | The first image of the Product or Modification |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Product or Modification<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **productFolder** | object | Product Group or Modification |
 | **wom** | object | Unit of measurement |
@@ -530,7 +530,7 @@ Stock movement report for the producta and their variants with warehouses and tr
 
 | Title | Type | Description |
 | --------- | ------- |--------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Product or Modification<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **code** | String(255) | Product Code |
 | **article** | String(255) | Article of Goods |
@@ -541,7 +541,7 @@ Stock movement report for the producta and their variants with warehouses and tr
 
 | Title | Type | Description |
 | --------- | ------- |------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Document metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when replying` |
 | **name** | String(255) | Document number<br>`+Required when replying` |
 | **dedescription** | String(255) | Document comment |
 | **moment** | object | Date of the document<br>`+Required when replying` |

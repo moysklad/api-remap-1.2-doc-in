@@ -8,21 +8,21 @@ Using the JSON API, you can create and update information about tasks, request l
 | Title | Type | Filtration | Description |
 | ------ | ------- | ----- | ------- |
 | **accountId** | UUID | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only` |
-| **agent** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Metadata of the Account or legal entity associated with the task. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
-| **assignee** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **author** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when replying` `+Read-only` `+Expand` |
-| **authorApplication** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the Application that created the task<br>`+Read Only` `+Expand` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Account or legal entity associated with the task. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
+| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when replying` `+Read-only` `+Expand` |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Application that created the task<br>`+Read Only` `+Expand` |
 | **completed** | datetime | | Task execution time<br>`+Required for response` `+Read-only` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
 | **done** | Boolean | `=` `!=` | Task completion mark<br>`+Required when answering` |
 | **dueToDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#suschnosti-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
-| **implementer** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Task Metadata<br>`+Required when answering` |
-| **notes** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Task comment metadata<br>`+Required when replying` `+Expand` |
-| **operation** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
+| **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering` |
+| **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when replying` `+Expand` |
+| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only` |
 
 #### Task comments
@@ -30,8 +30,8 @@ The task comment object contains the following fields:
 
 | Title | Type | Description |
 | ------ | ------- |------- |
-| **author** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Person who created the comment (account administrator if the author is an app)<br>`+Required when replying` `+Read Only` |
-| **authorApplication** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Application that created the comment<br>`+Read Only` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Person who created the comment (account administrator if the author is an app)<br>`+Required when replying` `+Read Only` |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the comment<br>`+Read Only` |
 | **moment** | datetime | When the comment was created<br>`+Required when replying` `+Read only` |
 | **description** | String(4096) | Comment text<br>`+Required when replying` `+Required when creating` |
 
@@ -55,7 +55,7 @@ To implement similar list filtering for the JSON API, you need to use the follow
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=assignee=http://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
 + **I instructed**: filter by the field **author** whose value contains a link to the current employee<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=author=http://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
-+ **All tasks**: does not require filtering. Pay attention to the item [Default list display](../dictionaries/#suschnosti-zadacha-zadachi-otobrazhenie-spiska-po-umolchaniu)
++ **All tasks**: does not require filtering. Pay attention to the item [Default list display](../dictionaries/#entities-zadacha-zadachi-otobrazhenie-spiska-po-umolchaniu)
 + **Active**: filter by field **done** with value false<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=false`
 + **Done**: filter by field **done** with value true<br>
@@ -80,9 +80,9 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------ | ------- |------ |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Tasks](../dictionaries/#suschnosti-zadacha). |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing [Tasks](../dictionaries/#entities-zadacha). |
 
 **Parameters**
 
@@ -239,7 +239,7 @@ Mandatory fields to create:
 | Title | Type | Description |
 | ------ | ------- |----- |
 | **description** | String(4096) | Task text<br>`+Required when replying` `+Required when creating` |
-| **assignee** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata of the Employee responsible for the task<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee responsible for the task<br>`+Required when replying` `+Expand` `+Required when creating` |
 
 > An example of a request to create a new task.
 
@@ -330,7 +330,7 @@ Successful request. The result is a JSON representation of the created task.
 ```
 
 ### Bulk creation and updating of Tasks
-[Bulk creation and update of Tasks](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow). In the body of the request, you need to pass an array containing the JSON representation of the Issues that you want to create or update.
+[Bulk creation and update of Tasks](../#kladana-json-api-general-info-create-and-update-multiple-objects). In the body of the request, you need to pass an array containing the JSON representation of the Issues that you want to create or update.
 Updated Tasks must contain the identifier in the form of metadata.
 
 > Example of creating and updating multiple Tasks
@@ -773,8 +773,8 @@ Request to get a list of all comments for this Issue.
 
 | Title | Type | Description |
 | ------ | ------- | ------- |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Issuance metadata, |
-| **context** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the comment totask. |
 
 **Parameters**

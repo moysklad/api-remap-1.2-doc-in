@@ -2,7 +2,7 @@
 ### Departments
 Using the JSON API, you can request and modify lists of Departments and information on individual Departments. The entity code for the Department as part of the JSON API is the **group** keyword.
 
-The entity can be contextually searched using the special `search` parameter. [Learn more](../#mojsklad-json-api-obschie-swedeniq-kontextnyj-poisk). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+The entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 Search among objects of departments to match the search string will be carried out using the following fields:
 
@@ -15,7 +15,7 @@ Search among objects of departments to match the search string will be carried o
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | `=` `!=` | Department ID<br>`+Required when replying` `+Read Only` |
 | **index** | int | | Ordinal number in the list of departments |
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | | Department Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Department Metadata<br>`+Required when replying` |
 | **name** | String(255) | | Department Name<br>`+Required when answering` |
 
 ### Get Departments
