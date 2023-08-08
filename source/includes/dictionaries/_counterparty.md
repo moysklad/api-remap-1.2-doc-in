@@ -482,7 +482,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/accounts",
            "type":"account",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -495,7 +495,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/contactpersons",
            "type":"contact person",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -505,7 +505,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/notes",
            "type":"note",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -529,7 +529,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "mediaType":"application/json"
          }
        },
-       "shared":false
+       "shared":false,
        "group":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -600,7 +600,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d/accounts",
            "type":"account",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -613,7 +613,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d/contactpersons",
            "type":"contact person",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -623,7 +623,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d/notes",
            "type":"note",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -719,7 +719,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049/accounts",
            "type":"account",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -732,7 +732,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049/contactpersons",
            "type":"contact person",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -742,7 +742,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049/notes",
            "type":"note",
            "mediaType":"application/json",
-           size:0,
+           "size":0,
            "limit":1000,
            "offset":0
          }
@@ -1378,7 +1378,7 @@ curl -X POST
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050/accounts",
        "type":"account",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -1393,7 +1393,7 @@ curl -X POST
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050/contactpersons",
        "type":"contact person",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -1403,7 +1403,7 @@ curl -X POST
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050/notes",
        "type":"note",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -1534,7 +1534,7 @@ curl -X POST
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
          "type":"account",
          "mediaType":"application/json",
-         size:0,
+         "size":0,
          "limit":1000,
          "offset":0
        }
@@ -1547,7 +1547,7 @@ curl -X POST
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
          "type":"contact person",
          "mediaType":"application/json",
-         size:0,
+         "size":0,
          "limit":1000,
          "offset":0
        }
@@ -1557,7 +1557,7 @@ curl -X POST
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/notes",
          "type":"note",
          "mediaType":"application/json",
-         size:0,
+         "size":0,
          "limit":1000,
          "offset":0
        }
@@ -1625,7 +1625,7 @@ curl -X POST
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/accounts",
          "type":"account",
          "mediaType":"application/json",
-         size:0,
+         "size":0,
          "limit":1000,
          "offset":0
        }
@@ -1642,7 +1642,7 @@ curl -X POST
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
          "type":"contact person",
          "mediaType":"application/json",
-         size:0,
+         "size":0,
          "limit":1000,
          "offset":0
        }
@@ -1652,7 +1652,7 @@ curl -X POST
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/notes",
          "type":"note",
          "mediaType":"application/json",
-         size:0,
+         "size":0,
          "limit":1000,
          "offset":0
        }
@@ -1758,7 +1758,7 @@ curl -X GET
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type":"state",
-         mediatype:"application/json"
+         "mediatype":"application/json"
        },
        "id":"fb56c504-2e58-11e6-8a84-bae500000069",
        "accountId":"f976ed28-2e58-11e6-8a84-bae500000001",
@@ -1892,7 +1892,7 @@ curl -X GET
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
        "type":"account",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -1905,7 +1905,7 @@ curl -X GET
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
        "type":"contact person",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -1915,7 +1915,7 @@ curl -X GET
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/notes",
        "type":"note",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -2033,8 +2033,8 @@ curl -X GET
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
      }
    },
-   "shared": fallse,
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -2042,12 +2042,12 @@ curl -X GET
        "mediaType": "application/json"
      }
    },
-   version: 0
+   "version": 0,
    "updated": "2020-06-17 18:21:53",
    "name": "IP Ivanov",
    "code": "someCode",
    "externalCode": "extCode",
-   archived: false
+   "archived": false,
    "created": "2020-06-17 18:21:53",
    "companyType": "entrepreneur",
    "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
@@ -2070,9 +2070,9 @@ curl -X GET
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts",
        "type": "account",
        "mediaType": "application/json",
-       size: 0
-       limit: 100
-       offset: 0
+       "size": 0,
+       "limit": 100,
+       "offset": 0
      }
    },
    "tags": [],
@@ -2081,22 +2081,22 @@ curl -X GET
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons",
        "type": "contactperson",
        "mediaType": "application/json",
-       size: 0
-       limit: 100
-       offset: 0
+       "size": 0,
+       "limit": 100,
+       "offset": 0
      }
    },
-   notes: {
+   "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/notes",
        "type": "note",
        "mediaType": "application/json",
-       size: 0
-       limit: 100
-       offset: 0
+       "size": 0,
+       "limit": 100,
+       "offset": 0
      }
    },
-   state: {
+   "state": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/03935900-b0ae-11ea-0a80-1d9c0000008c",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -2104,7 +2104,7 @@ curl -X GET
        "mediaType": "application/json"
      }
    },
-   salesAmount: 0.0
+   "salesAmount": 0.0
 }
 ```
 
@@ -2226,7 +2226,7 @@ curl -X PUT
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared":false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -2307,14 +2307,14 @@ curl -X PUT
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/accounts",
        "type":"account",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
    },
    "tags":[
      "burning",
-     "builders"
+     "builders",
      "concrete",
      "repair",
      "rainbow"
@@ -2324,7 +2324,7 @@ curl -X PUT
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
        "type":"contact person",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -2334,7 +2334,7 @@ curl -X PUT
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/notes",
        "type":"note",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -2593,7 +2593,7 @@ curl -X PUT
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003/notes",
        "type":"note",
        "mediaType":"application/json",
-       size:0,
+       "size":0,
        "limit":1000,
        "offset":0
      }
@@ -2640,11 +2640,11 @@ curl -X GET
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/accounts",
      "type": "account",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/accounts/04c5d0dc-2c92-11e6-8a84-bae5000000f6",
@@ -2654,7 +2654,7 @@ curl -X GET
        "id": "04c5d0dc-2c92-11e6-8a84-bae5000000f6",
        "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
        "updated": "2016-06-07 12:27:13",
-       isDefault: false
+       "isDefault": false,
        "accountNumber": "125917666032321985647",
        "bankName": "VTB",
        "bankLocation": "Sakharovsky street 153",
@@ -2670,7 +2670,7 @@ curl -X GET
        "id": "6a9c43ce-2c8b-11e6-8a84-bae500000048",
        "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
        "updated": "2016-06-07 11:39:58",
-       isDefault: true
+       "isDefault": true,
        "accountNumber": "236174374372272747234743274",
        "bankName": "JSC Sberbank",
        "bankLocation": "Vaivlov street 19",
@@ -2745,7 +2745,7 @@ curl -X GET
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -2759,11 +2759,11 @@ curl -X GET
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
      "type": "contactperson",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons/43e39375-7059-11e6-8a84-bae5000000cb",
@@ -3045,11 +3045,11 @@ curl -X GET
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056/notes",
      "type": "note",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056/notes/7e391b16-3efd-11e7-8af5-581e0000009d",
@@ -3060,7 +3060,7 @@ curl -X GET
        "accountId": "b127966a-3efa-11e7-8af5-581e00000001",
        "created": "2017-05-22 17:46:52",
        "description": "second incident",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -3087,7 +3087,7 @@ curl -X GET
        "accountId": "b127966a-3efa-11e7-8af5-581e00000001",
        "created": "2017-05-22 17:46:47",
        "description": "first incident",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
