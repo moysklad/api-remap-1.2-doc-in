@@ -106,7 +106,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
    },"meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-     "type": "internal order",
+     "type": "internalOrder",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -117,7 +117,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-         "type": "internal order",
+         "type": "internalOrder",
          "mediaType": "application/json"
        },
        "id": "31d58bde-b2fd-11e6-8a84-bae500000068",
@@ -193,7 +193,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068/positions",
-           "type": "internal order position",
+           "type": "internalOrderPosition",
            "mediaType": "application/json",
            "size": 2,
            "limit": 1000,
@@ -209,7 +209,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/64e426af-b0d8-11e6-8a84-bae500000064",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-         "type": "internal order",
+         "type": "internalOrder",
          "mediaType": "application/json"
        },
        "id": "64e426af-b0d8-11e6-8a84-bae500000064",
@@ -276,7 +276,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/64e426af-b0d8-11e6-8a84-bae500000064/positions",
-           "type": "internal order position",
+           "type": "internalOrderPosition",
            "mediaType": "application/json",
            "size": 5,
            "limit": 1000,
@@ -1044,17 +1044,21 @@ In the body of the request, you need to pass an array containing the JSON metada
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d'[
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-                "type": "internal order",
-                "mediaType": "application/json"
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b1",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
+                    "type": "internal order",
+                    "mediaType": "application/json"
+                }
             },
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-                "type": "internal order",
-                "mediaType": "application/json"
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b2",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
+                    "type": "internal order",
+                    "mediaType": "application/json"
+                }
             }
         ]'
         ```

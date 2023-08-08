@@ -686,7 +686,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
             "customerOrder": {
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                    "type": "sales order",
+                    "type": "salesOrder",
                     "mediaType": "application/json"
                 }
             },
@@ -694,7 +694,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/869d7628-6396-11e6-8a84-bae50000000a",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterParty",
                     "mediaType": "application/json"
                 }
             },
