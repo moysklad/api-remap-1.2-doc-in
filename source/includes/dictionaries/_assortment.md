@@ -858,16 +858,16 @@ curl -X PUT
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '{
-  "uniqueCodeRules": {
-    "checkUniqueCodeBoolean": true,
-    "fillUniqueCode": true
-  },
-  "barcodeRules": {
-    "fillEAN13Barcode": true,
-    "weightBarcodePrefix": 55
-  },
-  "createdShared": false
-}'
+        "uniqueCodeRules": {
+          "checkUniqueCodeBoolean": true,
+          "fillUniqueCode": true
+        },
+        "barcodeRules": {
+          "fillEAN13Barcode": true,
+          "weightBarcodePrefix": 55
+        },
+        "createdShared": false
+      }'
 ```
 
 > Response 200 (application/json)

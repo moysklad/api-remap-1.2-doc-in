@@ -69,7 +69,7 @@ The result of a successful request is a JSON representation of a list of Marking
     },
     "meta": {
       "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes",
-      "type": "tracking code",
+      "type": "trackingcode",
       "mediaType": "application/json",
       "size": 23,
       "limit": 100,
@@ -89,7 +89,7 @@ The result of a successful request is a JSON representation of a list of Marking
           {
             "id": "6e2a0192-1bc0-11ec-ac18-000c00000003",
             "cis": "010463003759026521LjJfNII5aXL-B",
-            "type": "consumer pack"
+            "type": "consumerpack"
           }
         ]
       }
@@ -110,7 +110,7 @@ Nested Marking Codes are replaced by those specified in the request.
 ```shell
    curl -X POST
      "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
-     -H "Authorization: Basic <Credentials>
+     -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -120,7 +120,7 @@ Nested Marking Codes are replaced by those specified in the request.
              },
              {
                "cis": "010463003759026521LjJfNII5aXL-B",
-               "type": "tracking code"
+               "type": "trackingcode"
              }
            ]'
 ```
@@ -137,7 +137,7 @@ Nested Marking Codes are replaced by those specified in the request.
   {
     "id": "f591f05d-1bc0-11ec-ac18-000c00000005",
     "cis": "010463003759026521LjJfNII5aXL-B",
-    "type": "tracking code"
+    "type": "trackingcode"
   }
 ]
 ```
@@ -153,13 +153,13 @@ If the Marking Code is specified in the request contains nested codes, they are 
 ```shell
    curl -X POST
      "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
-     -H "Authorization: Basic <Credentials>
+     -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
              {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/c7eccae6 -1bb9-11ec-ac18-000c00000001",
-                 "type": "tracking code",
+                 "type": "trackingcode",
                  "mediaType": "application/json"
                }
              }

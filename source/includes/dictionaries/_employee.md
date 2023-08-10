@@ -12,33 +12,33 @@ The search among employee objects for matching the search string will be carried
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------- | -------- |---------- | --------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional fields Employee |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Code |
-| **created** | datetime | | Employee Creation Time<br>`+Required for response` `+Read Only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Employee |
-| **email** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Email |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
-| **firstName** | String(255) | `=` `!=` `~` `~=` `=~`| Name |
-| **fullName** | String(255) | | First name Middle name Last name<br>`+Read only` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------|---------- | --------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional fields Employee |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Code |
+| **created** | DateTime                                           | | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Employee |
+| **email** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Email |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
+| **firstName** | String(255)                                        | `=` `!=` `~` `~=` `=~`| Name |
+| **fullName** | String(255)                                        | | First name Middle name Last name<br>`+Read only` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | object | | Photo of an employee. [More here](../dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
-| **inn** | String(255) | | TIN of the employee (in the format of the TIN of an individual) |
-| **lastName** | String(255) | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
+| **images** | Object                                             | | Photo of an employee. [More here](../dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
+| **inn** | String(255)                                        | | TIN of the employee (in the format of the TIN of an individual) |
+| **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
-| **middleName** | String(255) | `=` `!=` `~` `~=` `=~` | Middle name |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
+| **middleName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Middle name |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **phone** | String(255) | `=` `!=` `~` `~=` `=~` | Employee phone |
-| **position** | String(255) | | Employee position |
-| **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` |
-| **shortFio** | String(255) | | Short Name<br>`+Read Only` |
-| **id** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
+| **phone** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee phone |
+| **position** | String(255)                                        | | Employee position |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shortFio** | String(255)                                        | | Short Name<br>`+Read Only` |
+| **id** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
 
 The **owner**, **group** and **archived** fields can only be modified by an administrator. The **email** field can be changed by the administrator and the employee himself.
 
@@ -47,15 +47,15 @@ The **owner**, **group** and **archived** fields can only be modified by an admi
 ##### Employee photo: structure and loading.
 The structure of the **image** field that you will receive when requesting an employee with a photo:
 
-| Title | Type | Description |
-| ------- | -------- |---------- |
-| **filename** | String(255) | File name<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ------- |----------------------------------------------------|---------- |
+| **filename** | String(255)                                        | File name<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
-| **title** | String(255) | Image Title<br>`+Required when replying` |
-| **updated** | datetime | Last modified time<br>`+Required when replying` |
+| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
+| **updated** | DateTime                                           | Last modified time<br>`+Required when replying` |
 
 #### Loading
 To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-sotrudnik-izmenit-sotrudnika) employee (PUT) and in the request body
@@ -719,16 +719,16 @@ employee with `System Administrator` rights.
 
 #### Entity attributes
 
-| Title | Type | Description |
-| ----- | -------- | ----------- |
+| Title | Type          | Description |
+| ----- |---------------| ----------- |
 | **authorizedHosts** | Array(String) | List of ipv4 addresses from which account access is allowed |
-| **authorizedIpNetmask** | String(255) | Subnet mask with account access rights |
-| **authorizedIpNetwork** | String(255) | Ipv4 address identifying the corresponding subnet, with the right to access the account |
-| **email** | String(255) | Employee mail |
-| **group** | object | Metadata of the Group, as well as its ID and name<br>`+Required when replying` |
-| **isActive** | Boolean | Access to Kladana<br>`+Required when replying` |
-| **login** | String(255) | Employee login to enter Kladana |
-| **role** | object | Information about the role of the Employee |
+| **authorizedIpNetmask** | String(255)   | Subnet mask with account access rights |
+| **authorizedIpNetwork** | String(255)   | Ipv4 address identifying the corresponding subnet, with the right to access the account |
+| **email** | String(255)   | Employee mail |
+| **group** | Object        | Metadata of the Group, as well as its ID and name<br>`+Required when replying` |
+| **isActive** | Boolean       | Access to Kladana<br>`+Required when replying` |
+| **login** | String(255)   | Employee login to enter Kladana |
+| **role** | Object        | Information about the role of the Employee |
 
 #### Nested entity attributes
 ##### Role
@@ -1423,7 +1423,7 @@ If the tariff does not allow changing permissions and the transferred or previou
              "role": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-                     "type": "system role",
+                     "type": "systemrole",
                      "mediaType": "application/json"
                  }
              }
@@ -1456,7 +1456,7 @@ Successful request. The result is a JSON representation of updated information a
      "role": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-             "type": "system role",
+             "type": "systemrole",
              "mediaType": "application/json"
          }
      }
@@ -1500,7 +1500,7 @@ In this case, you can use the previously set password for this user.
              "role": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/role/manager",
-                     "type": "system role",
+                     "type": "systemrole",
                      "mediaType": "application/json"
                  }
              }
@@ -1574,7 +1574,7 @@ Successful request. The result is a JSON representation of information about the
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-     "type": "system role",
+     "type": "systemrole",
      "mediaType": "application/json"
    }
 }
@@ -1597,7 +1597,7 @@ Successful request. The result is a JSON representation of the individual role i
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/role/individual",
-     "type": "individual role",
+     "type": "individualrole",
      "mediaType": "application/json"
    }
 }

@@ -6,20 +6,20 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 ### Routings
 #### Entity attributes
 
-| Title | Type | Filtration| Description | 
-|------------|-----------|-------|---------------|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Routing |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required for response` |
+| Title | Type                                               | Filtration| Description | 
+|------------|----------------------------------------------------|-------|---------------|
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment Routing |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required for response` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required in response` `+Read-only` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **positions** | MetaArray | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **positions** | MetaArray                                          | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Nested entity attributes
 ##### Routing Items
@@ -308,7 +308,7 @@ In the body of the request, specify the fields that need to be changed for Routi
                         "meta": {
                             "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/c18373c0-9aea-11ed-ac12-000e000000c2",
                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                            "type": "processing stage",
+                            "type": "processingstage",
                             "mediaType": "application/json"
                         }
                     }
@@ -318,7 +318,7 @@ In the body of the request, specify the fields that need to be changed for Routi
                         "meta": {
                             "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                            "type": "processing stage",
+                            "type": "processingstage",
                             "mediaType": "application/json"
                         }
                     }
@@ -469,7 +469,7 @@ Successful request. The result is a JSON representation of a list of individual 
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/d4fed5b7-988e-11ed-ac19-000400000023",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-           "type": "processing stage",
+           "type": "processingstage",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d4fed5b7-988e-11ed-ac19-000400000023"
          }
@@ -512,7 +512,7 @@ Successful request. The result is a JSON representation of a single Routing item
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-       "type": "processing stage",
+       "type": "processingstage",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
      }
@@ -541,7 +541,7 @@ Successful request. The result is a JSON representation of a single Routing item
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                        "type": "processing stage",
+                        "type": "processingstage",
                         "mediaType": "application/json"
                     }
                 }
@@ -566,7 +566,7 @@ Successful request. The result is a JSON representation of the generated Routing
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-         "type": "processing stage",
+         "type": "processingstage",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
        }
@@ -596,7 +596,7 @@ Successful request. The result is a JSON representation of the generated Routing
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                    "type": "processing stage",
+                    "type": "processingstage",
                     "mediaType": "application/json"
                 }
             }
@@ -619,7 +619,7 @@ Successful request. The result is a JSON representation of the updated Routing i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-       "type": "processing stage",
+       "type": "processingstage",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=4b5662f4-9bd3-11ed-ac12-000c00000070"
      }
@@ -677,7 +677,7 @@ containing the JSON representation of the Routings you want to create or update.
                             "meta": {
                                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
                                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                                "type": "processing stage",
+                                "type": "processingstage",
                                 "mediaType": "application/json",
                                 "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
                             }

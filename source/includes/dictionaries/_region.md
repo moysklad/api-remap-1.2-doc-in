@@ -5,16 +5,16 @@ Using the JSON API, you can request a list of Russian regions and information on
 The entity code for Regions in the JSON API is the **region** keyword.
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| ------- |  ------- | ---- | -------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Region Code |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Region Code<br>`+Required when replying` |
-| **id** | UUID | `=` `!=` | Region ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------| ---- | -------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Region Code |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Region Code<br>`+Required when replying` |
+| **id** | UUID                                               | `=` `!=` | Region ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Region metadata<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Region Name<br>`+Required when replying` `+Required when creating` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **version** | int | | Entity version<br>`+Required for response` `+Read-only` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Region Name<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **version** | Int                                                | | Entity version<br>`+Required for response` `+Read-only` |
 
 
 #### Attributes available for sorting

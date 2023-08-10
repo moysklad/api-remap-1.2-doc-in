@@ -41,10 +41,10 @@ An example of how the data will be transmitted:
 
 #### Entity attributes of the sent webhook
 
-| Title | Type | Description |
-| ------- | ------- |---------- |
-| **events** | object | Data about the event that triggered the webhook<br>`+Required for response` |
-| **auditContext** | object | Audit context corresponding to the webhook event |
+| Title | Type   | Description |
+| ------- |--------|---------- |
+| **events** | Object | Data about the event that triggered the webhook<br>`+Required for response` |
+| **auditContext** | Object | Audit context corresponding to the webhook event |
 
 #### Event entity attributes
 
@@ -58,11 +58,11 @@ An example of how the data will be transmitted:
 To display an entity attribute, the **updatedFields** event needs the webhook to have **diffType=FIELDS** and **action=UPDATE**
 
 #### Audit context entity attributes
-| Title | Type | Description |
-| ------- | ------- |--------- |
+| Title | Type                                               | Description |
+| ------- |----------------------------------------------------|--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Audit context metadata<br>`+Required in response` |
-| **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
-| **moment** | datetime | Modified date<br>`+Required when replying` `+Read only` |
+| **id** | String(255)                                        | Employee Login<br>`+Required when replying` `+Read Only` |
+| **moment** | DateTime                                           | Modified date<br>`+Required when replying` `+Read only` |
 
 There can be several objects in the **events** array. Request parameter **requestId** - notification identifier.
 

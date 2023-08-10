@@ -10,24 +10,24 @@ The search among currency objects to match the search string will be carried out
 
 ##### Entity Attributes
 
-| Title | Type | Filtration | Description |
-| ---------- | --------- | -------- | ----------- |
-| **archived** | Boolean | `=` `!=` | Has the Currency been added to the archive<br>`+Required when replying` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Numeric Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **default** | Boolean | `=` `!=` | Is the currency the accounting currency<br>`+Required when replying` `+Read only` |
-| **fullName** | String(255) | `=` `!=` `~` `~=` `=~` | Full name of the Currency |
-| **id** | UUID | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
-| **indirect** | Boolean | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
-| **isoCode** | String(255) | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **majorUnit** | object | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
-| **margin** | double | | Mark-up for automatic course update<br>`+Required when answering` |
+| Title | Type                                               | Filtration | Description |
+| ---------- |----------------------------------------------------| -------- | ----------- |
+| **archived** | Boolean                                            | `=` `!=` | Has the Currency been added to the archive<br>`+Required when replying` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Numeric Code of the Currency<br>`+Required when replying` `+Required when creating` |
+| **default** | Boolean                                            | `=` `!=` | Is the currency the accounting currency<br>`+Required when replying` `+Read only` |
+| **fullName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Full name of the Currency |
+| **id** | UUID                                               | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
+| **indirect** | Boolean                                            | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
+| **isoCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
+| **majorUnit** | Object                                             | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
+| **margin** | Double                                             | | Mark-up for automatic course update<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
-| **minorUnit** | object | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
-| **multiplicity** | int | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Brief naming of the Currency<br>`+Required when replying` `+Required when creating` |
-| **rate** | double | | Exchange rate<br>`+Required when answering` |
-| **rateUpdateType** | String(255) | | How to update the exchange rate. **auto** or **manual**<br>`+Required when replying` `+Read Only` |
-| **system** | Boolean | | Is the currency based on the system reference currency<br>`+Read Only` |
+| **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
+| **multiplicity** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief naming of the Currency<br>`+Required when replying` `+Required when creating` |
+| **rate** | Double                                             | | Exchange rate<br>`+Required when answering` |
+| **rateUpdateType** | String(255)                                        | | How to update the exchange rate. **auto** or **manual**<br>`+Required when replying` `+Read Only` |
+| **system** | Boolean                                            | | Is the currency based on the system reference currency<br>`+Read Only` |
 
 ##### Forms of units
 
@@ -177,7 +177,7 @@ curl -X POST
    -H 'Content-Type: application/json'
    -d '{
    "name": "dollar",
-   rate: 63
+   "rate": 63,
    "code" : "840",
    "isoCode": "USD"
 }
@@ -230,7 +230,7 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H 'Content-Type: application/json'
    -d '{
-   "system": true
+   "system": true,
    "isoCode": "EUR"
 }
 '
@@ -283,7 +283,7 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H 'Content-Type: application/json'
    -d '{
-   "system": true
+   "system": true,
    "code": "978",
    "rateUpdateType": "manual"
 }

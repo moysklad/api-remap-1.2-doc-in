@@ -75,7 +75,7 @@ Successful request. The result is a list of all bonus programs for the account.
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -86,7 +86,7 @@ Successful request. The result is a list of all bonus programs for the account.
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-         "type": "bonus program",
+         "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
        },
@@ -109,7 +109,7 @@ Successful request. The result is a list of all bonus programs for the account.
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-         "type": "bonus program",
+         "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
        },
@@ -172,7 +172,7 @@ Successful request. The result is a JSON representation of the created bonus pro
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
    },
@@ -222,7 +222,7 @@ Successful request. The result is a JSON representation of the modified bonus pr
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
    },
@@ -264,7 +264,7 @@ Successful request. The result is a JSON representation of the Bonus Program wit
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
    },
@@ -319,14 +319,14 @@ curl -X POST
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-             "type": "bonus program",
+             "type": "bonusprogram",
              "mediaType": "application/json"
          },
          {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-             "type": "bonus program",
+             "type": "bonusprogram",
              "mediaType": "application/json"
          }
        ]'

@@ -4,19 +4,19 @@ Using the JSON API, you can query and update lists of Production Operations and 
 ### Production Operations
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------- |----------|---------|-----------|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when answering` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when answering` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------|---------|-----------|
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when answering` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when answering` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Production Operation ID<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | `=` `!=` | Production Operation ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation Metadata<br>`+Required when Response` `+Read Only` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required for response` `+Required for creation` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required for response` `+Required for creation` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |
 
 ### Get the list of Production Operation
 
@@ -61,7 +61,7 @@ Successful request. The result is a JSON representation of the list of Productio
    },
    "meta": {
      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage",
-     "type": "processing Production Operation",
+     "type": "processingstage",
      "mediaType": "application/json",
      "size": 1,
      "limit": 1000,
@@ -72,7 +72,7 @@ Successful request. The result is a JSON representation of the list of Productio
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-         "type": "processing Production Operation",
+         "type": "processingstage",
          "mediaType": "application/json",
          "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
        },
@@ -136,7 +136,7 @@ Successful request. The result is a JSON representation of the created Productio
    "meta": {
      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-     "type": "processing Production Operation",
+     "type": "processingstage",
      "mediaType": "application/json",
      "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
    },
@@ -188,8 +188,8 @@ Updated Production Operations must contain the identifier in the form of metadat
                "meta": {
                  "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
                  "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                 "type": "processing Production Operation",
-                 "mediaType": "applicableion/json",
+                 "type": "processingstage",
+                 "mediaType": "application/json",
                  "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
                },
                "name": "Production Operation 1",
@@ -206,7 +206,7 @@ Successful request. The result is a JSON array of representations of the created
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-       "type": "processing Production Operation",
+       "type": "processingstage",
        "mediaType": "application/json",
        "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c2"
      },
@@ -239,7 +239,7 @@ Successful request. The result is a JSON array of representations of the created
      "meta": {
        "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-       "type": "processing Production Operation",
+       "type": "processingstage",
        "mediaType": "application/json",
        "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
      },
@@ -308,7 +308,7 @@ curl -X POST
               "meta": {
                   "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                  "type": "processing Production Operation",
+                  "type": "processingstage",
                   "mediaType": "application/json"
               }
           },
@@ -316,7 +316,7 @@ curl -X POST
               "meta": {
                   "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
                   "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                  "type": "processing Production Operation",
+                  "type": "processingstage",
                   "mediaType": "application/json"
               }
           }
@@ -362,7 +362,7 @@ Successful request. The result is a JSON representation of the Production Operat
    "meta": {
      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-     "type": "processing Production Operation",
+     "type": "processingstage",
      "mediaType": "application/json",
      "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
    },
@@ -421,7 +421,7 @@ Successful request. The result is a JSON representation of the Production Operat
    "meta": {
      "href": "http://app.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
      "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-     "type": "processing Production Operation",
+     "type": "processingstage",
      "mediaType": "application/json",
      "uuidHref": "http://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
    },

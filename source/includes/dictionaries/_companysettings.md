@@ -262,7 +262,7 @@ Successful request. The result is a JSON representation of company settings meta
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
-         "type": "customer metadata",
+         "type": "customermetadata",
          "mediaType": "application/json"
        },
        "name": "Partners",
@@ -271,7 +271,7 @@ Successful request. The result is a JSON representation of company settings meta
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
-         "type": "customer metadata",
+         "type": "customermetadata",
          "mediaType": "application/json"
        },
        "name": "Advertising Agencies",

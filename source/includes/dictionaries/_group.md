@@ -10,13 +10,13 @@ Search among objects of departments to match the search string will be carried o
 
 #### Entity attributes
 
-| Title| Type | Filtration | Description |
-| --------| ----| ------- |------------ |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **id** | UUID | `=` `!=` | Department ID<br>`+Required when replying` `+Read Only` |
-| **index** | int | | Ordinal number in the list of departments |
+| Title| Type                                               | Filtration | Description |
+| --------|----------------------------------------------------| ------- |------------ |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Department ID<br>`+Required when replying` `+Read Only` |
+| **index** | Int                                                | | Ordinal number in the list of departments |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Department Metadata<br>`+Required when replying` |
-| **name** | String(255) | | Department Name<br>`+Required when answering` |
+| **name** | String(255)                                        | | Department Name<br>`+Required when answering` |
 
 ### Get Departments
 

@@ -10,27 +10,27 @@ The search among warehouse objects for matching the search string will be carrie
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-|----- | ------ | ----- | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **address** | String(255) | `=` `!=` `~` `~=` `=~` | Warehouse address |
-| **addressFull** | object | | Address with details on individual fields. [More here](../dictionaries/#entities-sklad-sklady-attributy-suschnosti-adres) |
-| **archived** | Boolean | `=` `!=` | Has the Warehouse been archived<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Statements of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional warehouse fields |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Warehouse Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Warehouse |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Warehouse<br>`+Required when replying` |
+| Title | Type                                               | Filtration | Description |
+|----- |----------------------------------------------------| ----- | ------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **address** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse address |
+| **addressFull** | Object                                             | | Address with details on individual fields. [More here](../dictionaries/#entities-sklad-sklady-attributy-suschnosti-adres) |
+| **archived** | Boolean                                            | `=` `!=` | Has the Warehouse been archived<br>`+Required when replying` |
+| **attributes** | Array(Object)                                      | [Statements of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional warehouse fields |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Code |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Warehouse |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of the Warehouse<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Warehouse ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Warehouse ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Metadata<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Warehouse Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Companyudnik)<br>`+Expand` |
 | **parent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Parent warehouse metadata (Groups)<br>`+Expand` |
-| **pathName** | string | `=` `!=` `~` `~=` `=~` | Warehouse Group<br>`+Required when replying` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
-| **zones** | MetaArray | | warehouse zones. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
-| **slots** | MetaArray | | Warehouse cells. [Learn more](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Read-only` `+Expand` |
+| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Warehouse Group<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
+| **zones** | MetaArray                                          | | warehouse zones. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **slots** | MetaArray                                          | | Warehouse cells. [Learn more](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Read-only` `+Expand` |
 
 #### Attributes of entity Address
 
@@ -1446,14 +1446,14 @@ Warehouse zones are accessed if you have the right to see the corresponding ware
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-|----- |-------- | -------- | ----------- |
-| **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read Only` |
-| **externalCode** | String(255) || External Zone Code<br>`+Required when replying` |
-| **id** | UUID | | Zone ID<br>`+Required for response` `+Read Only` |
+| Title | Type                                               | Filtration | Description |
+|----- |----------------------------------------------------| -------- | ----------- |
+| **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
+| **externalCode** | String(255)                                        || External Zone Code<br>`+Required when replying` |
+| **id** | UUID                                               | | Zone ID<br>`+Required for response` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Zone Metadata<br>`+Required when replying` |
-| **name** | String(255) | | Zone Name<br>`+Required for response` `+Required for creation` |
-| **updated** | datetime | | Time when the Zone was last updated<br>`+Required when replying` `+Read Only` |
+| **name** | String(255)                                        | | Zone Name<br>`+Required for response` `+Required for creation` |
+| **updated** | DateTime                                           | | Time when the Zone was last updated<br>`+Required when replying` `+Read Only` |
 
 ### Get warehouse zones
 Get a list of all Zones.
@@ -1780,15 +1780,15 @@ Access to the cells of the warehouse is carried out if you have the right to see
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| --------- | -------- | ----- | -------- |
-| **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read Only` |
-| **externalCode** | String(255) | | Cell External Code<br>`+Required when replying` |
-| **id** | UUID | | Cell ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Filtration | Description |
+| --------- |----------------------------------------------------| ----- | -------- |
+| **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
+| **externalCode** | String(255)                                        | | Cell External Code<br>`+Required when replying` |
+| **id** | UUID                                               | | Cell ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Cell Metadata<br>`+Required when replying` |
-| **name** | String(255) | | Cell Name<br>`+Required when replying` `+Required when creating` |
-| **updated** | datetime | | When Cell was last updated<br>`+Required when replying` `+Read Only` |
-| **zone** | meta | | Cell zone. [More here](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **name** | String(255)                                        | | Cell Name<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime                                           | | When Cell was last updated<br>`+Required when replying` `+Read Only` |
+| **zone** | Meta                                               | | Cell zone. [More here](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
 
 ### Get storage bins
 Get a list of all Warehouse Bins.

@@ -78,19 +78,19 @@ for Sales Invoice:
 > Response 202 Headers
 
 ```json
-{
-   "Location": "link to print status",
-   "Content-Type": "application/json"
-}
+
+   Location: link to print status
+   Content-Type: application/json
+
 ```
 
 > Response 303 headers
 
 ```json
-{
-   "Location": "file link",
-   "Content-Type": "application/json"
-}
+
+   Location: file link
+   Content-Type: application/json
+
 ```
 
 > An example of a request to print a set of documents. As a result of the request, a set of 6 printed forms will be printed.
@@ -139,17 +139,17 @@ for Sales Invoice:
 > Response 202 Headers
 
 ```json
-{
-  "Location": "link to print status",
-  "Content-Type": "application/json"
-}
+
+  Location: link to print status
+  Content-Type: application/json
+
 ```
 
 > Response 303 headers
 
 ```json
-{
-  "Location": "file link",
-  "Content-Type": "application/json"
-}
+
+  Location: file link
+  Content-Type: application/json
+
 ```

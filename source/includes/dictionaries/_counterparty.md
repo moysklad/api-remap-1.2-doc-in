@@ -30,59 +30,59 @@ The fourth search condition for the fields of all contact persons of the counter
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| -------- | ------- | -------- | -------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-scheta-kontragentow)<br>`+Required when replying` `+Expand` |
-| **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres) |
-| **archived** | Boolean | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
-| **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor Code |
-| **companyType** | Enum | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-kontragent-kontragenty-tip-kontragenta)<br>`+Required when answering` |
-| **contactpersons** | MetaArray | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow)<br>`+Expand`|
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
-| **discountCardNumber** | String(255) | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
-| **discounts** | Array(Object) || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
-| **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
-| **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
-| **notes** | MetaArray | | Array of Counterparty incidents. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta)<br>`+Expand` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType** | object | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-tipy-cen-tipy-cen) |
-| **salesAmount** | int | | Amount of sales<br>`+Required when replying` `+Read only` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
-| **tags** | Array(String) | `=` `!=` | Account groups |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| Title                  | Type                                               | Filtration | Description |
+|------------------------|----------------------------------------------------| -------- | -------- |
+| **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-scheta-kontragentow)<br>`+Required when replying` `+Expand` |
+| **actualAddress**      | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
+| **actualAddressFull**  | object                                             | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres) |
+| **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
+| **attributes**         | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
+| **bonusPoints**        | int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
+| **bonusprogram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
+| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor Code |
+| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-kontragent-kontragenty-tip-kontragenta)<br>`+Required when answering` |
+| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow)<br>`+Expand`|
+| **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
+| **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
+| **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
+| **discounts**          | Array(Object)                                      || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
+| **email**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | Email address |
+| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
+| **fax**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Fax number |
+| **files**              | MetaArray                                          | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id**                 | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
+| **meta**               | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
+| **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
+| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta)<br>`+Expand` |
+| **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
+| **priceType**          | object                                             | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-tipy-cen-tipy-cen) |
+| **salesAmount**        | int                                                | | Amount of sales<br>`+Required when replying` `+Read only` |
+| **shared**             | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
+| **syncId**             | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
+| **tags**               | Array(String)                                      | `=` `!=` | Account groups |
+| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
 
 ##### Detail fields
 
-| Title | Type | Filtration | Description |
-| ----- | ------ | ------ | ---- |
-| **certificatedate** | datetime | | Date of certificate |
-| **certificateNumber** | String(255) | | Certificate number |
-| **inn** | String(255) | `=` `!=` `~` `~=` `=~` | TIN |
-| **kpp** | String(255) | `=` `!=` `~` `~=` `=~` | Checkpoint |
-| **legalAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
-| **legalAddressFull** | object | | Legal address of the Counterparty with details on individual fields|
-| **legalFirstName** | String(255) | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName** | String(255) | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | String(255) | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legal title** | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty of the type `[Legal entity]`. Ignored for Counterparties of type `[Individual entrepreneur, Individual]`, if one of the values for full name is passed and is generated automatically based on the received full name of the Counterparty |
-| **ogrn** | String(255) | | OGRN |
-| **ogrnip** | String(255) | | OGRNIP |
-| **okpo** | String(255) | | OKPO |
+| Title                 | Type         | Filtration | Description |
+|-----------------------|--------------| ------ | ---- |
+| **certificateDate**   | DateTime     | | Date of certificate |
+| **certificateNumber** | String(255)  | | Certificate number |
+| **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | TIN |
+| **kpp**               | String(255)  | `=` `!=` `~` `~=` `=~` | Checkpoint |
+| **legalAddress**      | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
+| **legalAddressFull**  | object       | | Legal address of the Counterparty with details on individual fields|
+| **legalFirstName**    | String(255)  | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName**     | String(255)  | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName**   | String(255)  | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalTitle**        | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty of the type `[Legal entity]`. Ignored for Counterparties of type `[Individual entrepreneur, Individual]`, if one of the values for full name is passed and is generated automatically based on the received full name of the Counterparty |
+| **ogrn**              | String(255)  | | OGRN |
+| **ogrnip**            | String(255)  | | OGRNIP |
+| **okpo**              | String(255)  | | OKPO |
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
@@ -111,46 +111,46 @@ To delete an address, you need to pass an empty string `""` to the string field 
 
 ##### Accounts of Counterparties
 
-| Title | Type | Description |
-| ------| ------- | ------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **accountNumber** | String(255) | Account number<br>`+Required when replying` `+Required when creating` |
-| **bankLocation** | String(255) | Bank address |
-| **bankName** | String(255) | Bank name |
-| **bic** | String(255) | BIC |
-| **correspondentAccount** | String(255) | Corr account |
-| **id** | UUID | Account ID<br>`+Required when replying` `+Read only` |
-| **isDefault** | Boolean | Is the account the main account of the Counterparty<br>`+Required when answering` |
+| Title | Type                                               | Description |
+| ------|----------------------------------------------------| ------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountNumber** | String(255)                                        | Account number<br>`+Required when replying` `+Required when creating` |
+| **bankLocation** | String(255)                                        | Bank address |
+| **bankName** | String(255)                                        | Bank name |
+| **bic** | String(255)                                        | BIC |
+| **correspondentAccount** | String(255)                                        | Corr account |
+| **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
+| **isDefault** | Boolean                                            | Is the account the main account of the Counterparty<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when replying` |
-| **updated** | datetime | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime                                           | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
 
 ##### Contact persons of Counterparties
 
-| Title | Type | Description |
-| ------ | ------ | ------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------| ------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required when replying` `+Expand` |
-| **description** | String(4096) | Description of the contact person |
-| **email** | String(255) | Email address of the contact person |
-| **externalCode** | String(255) | External contact code |
-| **id** | UUID | Contact ID<br>`+Required when replying` `+Read only` |
+| **description** | String(4096)                                       | Description of the contact person |
+| **email** | String(255)                                        | Email address of the contact person |
+| **externalCode** | String(255)                                        | External contact code |
+| **id** | UUID                                               | Contact ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Contact person of the Counterparty<br>`+Required when replying` |
-| **name** | String(255) | Name of the contact person<br>`+Required when replying` `+Required when creating` |
-| **phone** | String(255) | Phone number of the contact person |
-| **position** | String(255) | Item of contact person |
-| **updated** | datetime | Moment of last update<br>`+Required when replying` `+Read Only` |
+| **name** | String(255)                                        | Name of the contact person<br>`+Required when replying` `+Required when creating` |
+| **phone** | String(255)                                        | Phone number of the contact person |
+| **position** | String(255)                                        | Item of contact person |
+| **updated** | DateTime                                           | Moment of last update<br>`+Required when replying` `+Read Only` |
 
 ##### Account incidents
 
-| Title | Type | Description |
-| ------ | ----- | ----- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------| ----- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required for response` `+Read-only` `+Expand` |
 | **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
-| **created** | datetime | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
-| **description** | String(4096) | Contractor incident text<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | incident ID<br>`+Required for response` `+Read only` |
+| **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
+| **description** | String(4096)                                       | Contractor incident text<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | incident ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required for response` |
 
 #### Counterparty type
@@ -165,43 +165,43 @@ Counterparty types and corresponding values that can be passed in this field:
 
 If the counterparty type is `Legal entity`, the following fields of details will be displayed:
 
-| Title | Description |
-| ---------------- | ------------------------------- |
-| **inn** | TIN |
-| **kpp** | Checkpoint |
+| Title            | Description |
+|------------------| ------------------------------- |
+| **inn**          | TIN |
+| **kpp**          | Checkpoint |
 | **legalAddress** | Legal address of the Counterparty |
-| **legal title** | Full name of the Counterparty |
-| **ogrn** | OGRN |
-| **okpo** | OKPO |
-| **tags** | Groups (array) |
+| **legalTitle**   | Full name of the Counterparty |
+| **ogrn**         | OGRN |
+| **okpo**         | OKPO |
+| **tags**         | Groups (array) |
 
 If the counterparty type is `Individual Entrepreneur`, the following fields of details will be displayed:
 
-| Title | Description |
-| ------| -------- |
-| **certificatedate** | Date of certificate |
+| Title                 | Description |
+|-----------------------| -------- |
+| **certificatedate**   | Date of certificate |
 | **certificateNumber** | Certificate number |
-| **inn** | TIN |
-| **legalAddress** | Legal address of the Counterparty |
-| **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName** | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for counterparties of type `[Legal entity]` |
-| **legalLastName** | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legal title** | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
-| **ogrnip** | OGRNIP |
-| **okpo** | OKPO |
+| **inn**               | TIN |
+| **legalAddress**      | Legal address of the Counterparty |
+| **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
+| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for counterparties of type `[Legal entity]` |
+| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalTitle**        | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
+| **ogrnip**            | OGRNIP |
+| **okpo**              | OKPO |
 
 If the counterparty type is `Individual`, the following fields of details will be displayed:
 
-| Title | Description |
-| ------| ------- |
-| **inn** | TIN |
-| **legalAddress** | Legal address of the Counterparty |
+| Title                | Description |
+|----------------------| ------- |
+| **inn**              | TIN |
+| **legalAddress**     | Legal address of the Counterparty |
 | **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName** | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName** | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legal title** | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
+| **legalFirstName**   | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName**    | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName**  | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalTitle**       | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
 
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -1468,7 +1468,7 @@ curl -X POST
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                "type": "counter party",
+                "type": "counterparty",
                 "mediaType": "application/json"
             },
             "name": "Raduga EXPO LLC",
@@ -1996,7 +1996,7 @@ curl -X GET
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-       "type": "bonus program",
+       "type": "bonusprogram",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
      }
@@ -2020,7 +2020,7 @@ curl -X GET
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
    },
@@ -2784,7 +2784,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        }
@@ -2808,7 +2808,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        }
@@ -2832,7 +2832,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        }
@@ -2889,7 +2889,7 @@ curl -X POST
        "meta": {
          "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
          "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "http://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
        }
@@ -2941,7 +2941,7 @@ curl -X GET
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    }
@@ -3001,7 +3001,7 @@ Fields that were not specified in the request JSON are not changed.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    }
@@ -3065,7 +3065,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -3092,7 +3092,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -3146,7 +3146,7 @@ curl -X POST
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -3198,7 +3198,7 @@ curl -X GET
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -3257,7 +3257,7 @@ Fields that were not specified in the request JSON are not changed.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },

@@ -9,15 +9,15 @@ A Product, Bundle or Modification can have no more than 10 Images.
 
 #### Entity attributes
 
-| Title | Type | Description |
-| ---------| -----| ----------|
-| **filename** | String(255) | File name<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ---------|----------------------------------------------------| ----------|
+| **filename** | String(255)                                        | File name<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
-| **title** | String(255) | Image Title<br>`+Required when replying` |
-| **updated** | datetime | File upload time to server<br>`+Required when replying` |
+| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
+| **updated** | DateTime                                           | File upload time to server<br>`+Required when replying` |
 
 ### Get a list of Product Images, Bundle and Modifications
 Request to receive all Images of a Product, Bundle or Modification for this account.

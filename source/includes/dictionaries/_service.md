@@ -11,38 +11,38 @@ Search among service objects for matching the search string will be carried out 
 ### Services
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ----- | ------ | ------ | ------ |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-shtrih-kody) |
-| **buyprice** | object | | Purchasing sale. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-zakupochnaq-cena) |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Service Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the Service|
-| **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
-| **effectiveVat** | int | | Real VAT %<br>`+Read only` |
-| **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Service Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
+| Title | Type                                               | Filtration | Description |
+| ----- |----------------------------------------------------| ------ | ------ |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-shtrih-kody) |
+| **buyprice** | Object                                             | | Purchasing sale. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-zakupochnaq-cena) |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Service Code |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description of the Service|
+| **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
+| **effectiveVat** | Int                                                | | Real VAT %<br>`+Read only` |
+| **effectiveVatEnabled** | Boolean                                            | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Service Code<br>`+Required when replying` |
+| **files** | MetaArray                                          | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
+| **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-minimal-naq-cena) |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
+| **minprice** | Object                                             | | Minimum price. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-minimal-naq-cena) |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
-| **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-priznak-predmeta-rascheta) |
+| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
+| **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-priznak-predmeta-rascheta) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Kit group metadata<br>`+Expand` |
-| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **saleprice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
+| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
 | **wom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
-| **vat** | int || VAT % |
-| **vatEnabled** | Boolean | | Is VAT included for the service. With this flag, you can set VAT = 0 or VAT = "without VAT" for the service. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
+| **vat** | Int                                                || VAT % |
+| **vatEnabled** | Boolean                                            | | Is VAT included for the service. With this flag, you can set VAT = 0 or VAT = "without VAT" for the service. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
 
 The **pathName** attribute itself is a read-only attribute, but it can be changed
 by updating the **productFolder** attribute.
@@ -94,25 +94,25 @@ About working with Service fields can be read [here](../#kladana-json-api-genera
 
 ##### Sales prices
 
-| Title | Type | Description |
-| ----- | ------ |------ |
-| **value** | float | Price value<br>`+Required when answering` |
+| Title | Type                                               | Description |
+| ----- |----------------------------------------------------|------ |
+| **value** | Float                                              | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
-| **priceType** | object | Price type<br>`+Required when replying` |
+| **priceType** | Object                                             | Price type<br>`+Required when replying` |
 
 
 ##### Purchase price
 
-| Title | Type | Description |
-| ----- | ------ |------ |
-| **value** | float | Price value<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ----- |----------------------------------------------------|------ |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 
-| Title | Type | Description |
-| ----- | ------ |------- |
-| **value** | float | Price value<br>`+Required when answering` |
+| Title | Type                                               | Description |
+| ----- |----------------------------------------------------|------- |
+| **value** | Float                                              | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Group Services
@@ -313,7 +313,7 @@ Successful request. The result is a JSON representation of the list of Services.
            },
            "id": "0c2e5dc5-2c80-11e6-8a84-bae50000009d",
            "name": "Manufacturer",
-           "type": "counter party",
+           "type": "counterparty",
            "value": "OOO Company"
          }
        ],
@@ -1467,7 +1467,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                      "meta": {
                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                       "type": "currency","mediaType": "application/json"
+                       "type": "currency",
+                       "mediaType": "application/json"
                      }
                    },
                    "priceType": {

@@ -28,16 +28,16 @@ An object can have no more than 100 Files.
 
 #### Entity attributes
 
-| Title | Type | Description |
-| ---------| -----| ----------|
-| **created** | datetime | File upload time to the server<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ---------|----------------------------------------------------| ----------|
+| **created** | DateTime                                           | File upload time to the server<br>`+Required when replying` |
 | **createdBy** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who uploaded the File<br>`+Required when replying` `+Expand` |
-| **filename** | String(255) | Filename<br>`+Required when replying` |
+| **filename** | String(255)                                        | Filename<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata (field is passed only for Image files) |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata (field is passed only for Image files) |
-| **title** | String(255) | File Name<br>`+Required when replying` |
+| **title** | String(255)                                        | File Name<br>`+Required when replying` |
 
 ### Get a list of Operation Files, Nomenclature, Task or Account
 Request to receive all Operation, Item, Task or Account Files for this account.

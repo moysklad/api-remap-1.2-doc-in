@@ -9,21 +9,21 @@ The search among the project objects for matching the search string will be carr
 + according to the Project description **description**
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| ----- | ------ | ------- | ---------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Project Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Project Description |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
+| Title | Type                                               | Filtration | Description |
+| ----- |----------------------------------------------------| ------- | ---------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Code |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Project Description |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Project ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Project ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Project Metadata<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | MetadataOwner's (Employee)<br>`+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 About working with Project fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -701,7 +701,8 @@ Successful request. The result is a JSON representation of the updated project.
              "attributes": [
                {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a","type": "attributemetadata",
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
                  "value": "Extremely high"

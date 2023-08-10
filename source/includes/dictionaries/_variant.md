@@ -22,26 +22,26 @@ Examples:
 
 #### Entity Attributes
 
-| Title | Type | Filtration | Description |
-| ------| ------- | ------- | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Whether the product was added to the archive<br>`+Required when replying` |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody) |
-| **buyprice** | object | | Purchase price |
-| **characteristics** | Array(Object) | | Characteristics Product variants. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Required when answering` `+Required when creating` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product variant Code |
-| **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
-| **id** | UUID | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
-| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
+| Title | Type                                               | Filtration | Description |
+| ------|----------------------------------------------------| ------- | ------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Whether the product was added to the archive<br>`+Required when replying` |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody) |
+| **buyprice** | Object                                             | | Purchase price |
+| **characteristics** | Array(Object)                                      | | Characteristics Product variants. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Required when answering` `+Required when creating` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product variant Code |
+| **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
+| **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
+| **images** | MetaArray                                          | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
-| **packs** | Array(Object) | | Product variant packages [Details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
+| **minprice** | object                                             | | Minimum price. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
+| **packs** | Array(Object)                                      | | Product variant packages [Details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-towar) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **saleprice** | Array(Object) | | Sale prices. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
-| **things** | Array(String) | | Serial Numbers<br>`+Read Only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **saleprice** | Array(Object)                                      | | Sale prices. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **things** | Array(String)                                      | | Serial Numbers<br>`+Read Only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Attributes available for sorting
 
@@ -111,15 +111,15 @@ Structures of individual collection objects:
 When requesting a Product variant with images, a json representation of this Product variant containing the **images** field will be displayed. This field is
 an array of elements. **images** field elements have fields:
 
-| Title | Type | Description |
-| ------ | --------- |-------- |
-| **filename** | String(255) | File name<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------|-------- |
+| **filename** | String(255)                                        | File name<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
-| **title** | String(255) | Image Title<br>`+Required when replying` |
-| **updated** | datetime | File upload time to server<br>`+Required when replying` |
+| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
+| **updated** | DateTime                                           | File upload time to server<br>`+Required when replying` |
 
 #### Loading
 
@@ -139,17 +139,17 @@ The API documentation for working with Images can be found in the [Image](../dic
 ##### Sales prices
 If the Product variant does not have separate sales prices, the corresponding sales prices of the product will be displayed in the response.
 
-| Title | Type | Description |
-| ------ | --------- |----- |
-| **value** | float | Price value<br>`+Required when answering` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------|----- |
+| **value** | Float                                              | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
-| **priceType** | object | Price type<br>`+Required when replying` |
+| **priceType** | Object                                             | Price type<br>`+Required when replying` |
 
 ##### Minimum price
 
-| Title | Type | Description |
-| ------ | --------- |------ |
-| **value** | float | Price value<br>`+Required when answering` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------|------ |
+| **value** | Float                                              | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Packaging Product variants

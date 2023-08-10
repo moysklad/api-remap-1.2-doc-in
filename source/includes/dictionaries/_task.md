@@ -5,35 +5,35 @@ Using the JSON API, you can create and update information about tasks, request l
 ### Tasks
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------ | ------- | ----- | ------- |
-| **accountId** | UUID | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only` |
+| Title | Type                                               | Filtration | Description |
+| ------ |----------------------------------------------------| ----- | ------- |
+| **accountId** | UUID                                               | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Account or legal entity associated with the task. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
 | **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **author** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when replying` `+Read-only` `+Expand` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Application that created the task<br>`+Read Only` `+Expand` |
-| **completed** | datetime | | Task execution time<br>`+Required for response` `+Read-only` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
-| **done** | Boolean | `=` `!=` | Task completion mark<br>`+Required when answering` |
-| **dueToDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
+| **completed** | DateTime                                           | | Task execution time<br>`+Required for response` `+Read-only` |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read only` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
+| **done** | Boolean                                            | `=` `!=` | Task completion mark<br>`+Required when answering` |
+| **dueToDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
+| **files** | MetaArray                                          | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
 | **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering` |
 | **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when replying` `+Expand` |
 | **operation** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only` |
 
 #### Task comments
 The task comment object contains the following fields:
 
-| Title | Type | Description |
-| ------ | ------- |------- |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------|------- |
 | **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Person who created the comment (account administrator if the author is an app)<br>`+Required when replying` `+Read Only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the comment<br>`+Read Only` |
-| **moment** | datetime | When the comment was created<br>`+Required when replying` `+Read only` |
-| **description** | String(4096) | Comment text<br>`+Required when replying` `+Required when creating` |
+| **moment** | DateTime                                           | When the comment was created<br>`+Required when replying` `+Read only` |
+| **description** | String(4096)                                       | Comment text<br>`+Required when replying` `+Required when creating` |
 
 #### Default list display
 ##### For administrator
@@ -159,14 +159,15 @@ Successful request. The result is a JSON representation of the task list.
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
          }
        },
        "notes": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes","type": "task note",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
+           "type": "tasknote",
            "mediaType": "application/json",
            "size": 2,
            "limit": 1000,
@@ -218,7 +219,7 @@ Successful request. The result is a JSON representation of the task list.
        "notes": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/task/aaca57a2-8b86-11e8-d9ce-84d900000007/notes",
-           "type": "task note",
+           "type": "tasknote",
            "mediaType": "application/json",
            "size": 0,
            "limit": 1000,
@@ -319,7 +320,7 @@ Successful request. The result is a JSON representation of the created task.
    "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
-       "type": "task note",
+       "type": "tasknote",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -383,7 +384,7 @@ Updated Tasks must contain the identifier in the form of metadata.
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                  }
                }
@@ -439,7 +440,7 @@ Successful request. The result is a JSON array of representations of the created
      "notes": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/9971ba00-8b88-11e8-d9ce-84d900000009/notes",
-         "type": "task note",
+         "type": "tasknote",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
@@ -493,7 +494,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/992b6965-8aa1-11e8-7210-075e00000057",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=992b6965-8aa1-11e8-7210-075e00000057"
        }
@@ -501,7 +502,7 @@ Successful request. The result is a JSON array of representations of the created
      "notes": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/cfe5a6ae-8b87-11e8-d9ce-84d900000000/notes",
-         "type": "task note",
+         "type": "tasknote",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
@@ -646,7 +647,7 @@ Successful request. The result is a JSON representation of the task with the spe
    "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
-       "type": "task note",
+       "type": "tasknote",
        "mediaType": "application/json",
        "size": 2,
        "limit": 1000,
@@ -757,7 +758,7 @@ Successful request. The result is a JSON representation of the updated task.
    "notes": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
-       "type": "task note",
+       "type": "tasknote",
        "mediaType": "application/json",
        "size": 2,
        "limit": 1000,
@@ -815,7 +816,7 @@ Successful request. The result is a JSON representation of a list of individual 
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes",
-     "type": "task note",
+     "type": "tasknote",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -825,7 +826,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
-         "type": "task note",
+         "type": "tasknote",
          "mediaType": "application/json"
        },
        "author": {
@@ -843,7 +844,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaac82-8b87-11e8-d9ce-84d900000026",
-         "type": "task note",
+         "type": "tasknote",
          "mediaType": "application/json"
        },
        "author": {
@@ -896,7 +897,7 @@ Successful request. The result is a JSON representation of the created comment f
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/5528751f-8b8a-11e8-d9ce-84d90000000f",
-       "type": "task note",
+       "type": "tasknote",
        "mediaType": "application/json"
      },
      "author": {
@@ -939,7 +940,7 @@ Successful request. The result is a JSON representation of a list of created com
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba69d28-8b8a-11e8-d9ce-84d900000012",
-       "type": "task note",
+       "type": "tasknote",
        "mediaType": "application/json"
      },
      "author": {
@@ -957,7 +958,7 @@ Successful request. The result is a JSON representation of a list of created com
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba6a80c-8b8a-11e8-d9ce-84d900000013",
-       "type": "task note",
+       "type": "tasknote",
        "mediaType": "application/json"
      },
      "author": {
@@ -1003,7 +1004,7 @@ Successful request. The result is a JSON representation of a single comment on t
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
-     "type": "task note",
+     "type": "tasknote",
      "mediaType": "application/json"
    },
    "author": {
@@ -1054,7 +1055,7 @@ Successful request. The result is a JSON representation of the updated issue com
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/55eaa2cc-8b87-11e8-d9ce-84d900000025",
-     "type": "task note",
+     "type": "tasknote",
      "mediaType": "application/json"
    },
    "author": {
