@@ -349,7 +349,7 @@ To successfully complete the request, one of the filtering parameters **product*
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe -11eb-c0a8-800c00000016"
+   "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -369,8 +369,8 @@ Successful request. The result is a JSON representation of the report.
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product /66990dc7-bdfe-11eb-c0a8-800c00000016",
-     "type": "Stock movement report by store",
+     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016",
+     "type": "turnoverbystore",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -513,7 +513,7 @@ Successful request. The result is a JSON representation of the report.
 
 ### Stock movement report by product with details by transactions
 
-Stock movement report for the producta and their variants with warehouses and transactions details.
+Stock movement report for the product and their variants with warehouses and transactions details.
 
 #### Report object attributes
 
@@ -595,7 +595,7 @@ Request to receive the Stock movement report by product with transaction details
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe -11eb-c0a8-800c00000016"
+   "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -615,8 +615,8 @@ Successful request. The result is a JSON representation of the report.
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product /66990dc7-bdfe-11eb-c0a8-800c00000016",
-     "type": "Stock movement report by operation",
+     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016",
+     "type": "turnoverbyoperation",
      "mediaType": "application/json",
      "size": 4,
      "limit": 1000,

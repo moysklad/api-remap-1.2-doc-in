@@ -447,10 +447,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```

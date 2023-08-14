@@ -158,7 +158,7 @@ Successful request. The result is a JSON representation of a list of Sales Order
   },
   "meta": {
     "href": "https://app.kladana.in/api/remap/1.2/entity/customerOrder",
-    "type": "salesorder",
+    "type": "customerorder",
     "mediaType": "application/json",
     "size": 1,
     "limit": 1000,
@@ -168,7 +168,7 @@ Successful request. The result is a JSON representation of a list of Sales Order
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
-        "type": "salesorder",
+        "type": "customerorder",
         "mediaType": "application/json"
       },
       "id": "34efe2ee-015e-11e6-9464-e4de0000006b",
@@ -287,7 +287,7 @@ Successful request. The result is a JSON representation of a list of Sales Order
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b/positions",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-          "type": "salesorderposition",
+          "type": "customerorderposition",
           "mediaType": "application/json",
           "size": 4,
           "limit": 1000,
@@ -560,7 +560,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "meta": {
     "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-    "type": "salesorder",
+    "type": "customerorder",
     "mediaType": "application/json"
   },
   "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -645,7 +645,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
     "meta": {
       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-      "type": "salesorderposition",
+      "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 0,
       "limit": 1000,
@@ -740,7 +740,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "meta": {
     "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-    "type": "salesorder",
+    "type": "customerorder",
     "mediaType": "application/json"
   },
   "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -838,7 +838,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
     "meta": {
       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-      "type": "salesorderposition",
+      "type": "customerorderposition",
       "mediaType": "application/json",
       "size": 0,
       "limit": 1000,
@@ -944,7 +944,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "meta": {
     "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-    "type": "salesorder",
+    "type": "customerorder",
     "mediaType": "application/json"
   },
   "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -1086,7 +1086,7 @@ In the body of the request, you need to pass an array containing JSON representa
               "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-                "type": "salesorder",
+                "type": "customerorder",
                 "mediaType": "application/json"
               },
               "name": "000039",
@@ -1138,7 +1138,7 @@ The result is a JSON representations array of created and updated Sales Orders.
     "meta": {
       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020",
       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-      "type": "salesorder",
+      "type": "customerorder",
       "mediaType": "application/json"
     },
     "id": "d9ceb08f-01ae-11e6-9464-e4de00000020",
@@ -1223,7 +1223,7 @@ The result is a JSON representations array of created and updated Sales Orders.
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/d9ceb08f-01ae-11e6-9464-e4de00000020/positions",
         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-        "type": "salesorderposition",
+        "type": "customerorderposition",
         "mediaType": "application/json",
         "size": 0,
         "limit": 1000,
@@ -1239,7 +1239,7 @@ The result is a JSON representations array of created and updated Sales Orders.
     "meta": {
       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-      "type": "salesorder",
+      "type": "customerorder",
       "mediaType": "application/json"
     },
     "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -1320,11 +1320,12 @@ The result is a JSON representations array of created and updated Sales Orders.
     },
     "created": "2007-02-07 17:16:41",
     "printed": true,
-    "published": true,    "positions": {
+    "published": true,    
+    "positions": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-        "type": "salesorderposition",
+        "type": "customerorderposition",
         "mediaType": "application/json",
         "size": 3,
         "limit": 1000,
@@ -1351,7 +1352,7 @@ The result is a JSON representations array of created and updated Sales Orders.
 
 ```shell
 curl -X DELETE
-  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"7
+  "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1458,7 +1459,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "New",
        "color": 15106326,
        "stateType": "Regular",
-       "entityType": "salesorder"
+       "entityType": "customerorder"
      },
      {
        "meta": {
@@ -1471,7 +1472,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "Confirmed",
        "color": 40931,
        "stateType": "Regular",
-       "entityType": "salesorder"
+       "entityType": "customerorder"
      },
      {
        "meta": {
@@ -1484,7 +1485,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "Assembled",
        "color": 8767198,
        "stateType": "Regular",
-       "entityType": "salesorder"
+       "entityType": "customerorder"
      },
      {
        "meta": {
@@ -1497,7 +1498,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "Shipped",
        "color": 10774205,
        "stateType": "Regular",
-       "entityType": "salesorder"
+       "entityType": "customerorder"
      },
      {
        "meta": {
@@ -1510,7 +1511,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "Delivered",
        "color": 8825440,
        "stateType": "Successful",
-       "entityType": "salesorder"
+       "entityType": "customerorder"
      },
      {
        "meta": {
@@ -1523,7 +1524,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "Return",
        "color": 15280409,
        "stateType": "Unsuccessful",
-       "entityType": "sales order"
+       "entityType": "customerorder"
      },
      {
        "meta": {
@@ -1536,7 +1537,7 @@ Successful request. The result is a JSON representation of the additional fields
        "name": "Cancelled",
        "color": 15280409,
        "stateType": "Unsuccessful",
-       "entityType": "sales order"
+       "entityType": "customerorder"
      }
    ],
    "createShared": false
@@ -1754,9 +1755,8 @@ Successful request. The result is a JSON representation of the Sales Order.
      "street":"Akbar Road",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
-
    }
 }
 ```
@@ -1841,7 +1841,7 @@ When updating the **organization** and **agent** fields, you must also update th
                 "street": "Akbar Road",
                 "house": "1",
                 "apartment": "111",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             }
         }'
@@ -1955,16 +1955,16 @@ Successful request. The result is a JSON representation of the updated Sales Ord
    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
    "shipmentAddressFull":{
      "postalCode":"125009",
-     "country":{
-       "meta":{
+     "country": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
          "type":"country",
          "mediaType":"application/json"
        }
      },
-     "region":{
-       "meta":{
+     "region": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
          "type":"region",
@@ -1975,7 +1975,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
      "street":"Akbar Road",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    }
 }

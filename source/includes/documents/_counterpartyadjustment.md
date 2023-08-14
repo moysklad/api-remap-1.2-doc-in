@@ -358,7 +358,7 @@ Updated Counterparty Balance Adjustments must contain the identifier in the form
      -H "Content-Type: application/json"
        -d'[
              {
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -376,10 +376,10 @@ Updated Counterparty Balance Adjustments must contain the identifier in the form
                    "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
                  }
                },
-               sum: 12.5
+               "sum": 12.5
              },
              {
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -397,7 +397,7 @@ Updated Counterparty Balance Adjustments must contain the identifier in the form
                    "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
                  }
                },
-               sum: 32
+               "sum": 32
              }
            ]'
 ```
@@ -758,7 +758,7 @@ are marked `Read-only` in the description of [Attributes of Counterparty Balance
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             sum: 123
+             "sum": 123
            }'
 ```
 

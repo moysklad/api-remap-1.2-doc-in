@@ -297,7 +297,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -323,7 +323,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
       },
       "inn":"7736570901",
@@ -446,7 +446,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -472,7 +472,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "inn":"7736570902",
@@ -567,7 +567,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -592,7 +592,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "accounts":{
@@ -685,7 +685,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -711,7 +711,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "accounts":{
@@ -1164,7 +1164,7 @@ curl -X POST
               "street": "Tverskaya street",
               "house": "1",
               "apartment": "123",
-              "addinfo": "addinfo",
+              "addInfo": "addinfo",
               "comment": "some words about address"
           },
           "actualAddressFull": {
@@ -1189,7 +1189,7 @@ curl -X POST
               "street": "Tverskaya street",
               "house": "1",
               "apartment": "111",
-              "addinfo": "addinfo",
+              "addInfo": "addinfo",
               "comment": "some words about address"
           },
           "inn": "1251521244152",
@@ -1303,7 +1303,7 @@ curl -X POST
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -1329,7 +1329,7 @@ curl -X POST
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251521244152",
@@ -1720,7 +1720,7 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
      "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
@@ -1760,7 +1760,7 @@ curl -X GET
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type":"state",
-         "mediatype":"application/json"
+         "mediaType":"application/json"
        },
        "id":"fb56c504-2e58-11e6-8a84-bae500000069",
        "accountId":"f976ed28-2e58-11e6-8a84-bae500000001",
@@ -1963,7 +1963,7 @@ curl -X GET
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -1989,7 +1989,7 @@ curl -X GET
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "bonusprogram": {
@@ -2166,7 +2166,7 @@ curl -X PUT
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "123",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             },
             "actualAddressFull": {
@@ -2191,7 +2191,7 @@ curl -X PUT
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "111",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             },
             "inn": "1251581244152",
@@ -2268,7 +2268,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -2294,7 +2294,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251581244152",
@@ -2492,7 +2492,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -2517,7 +2517,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251581244152",

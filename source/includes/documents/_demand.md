@@ -77,9 +77,9 @@ Description of overhead fields.
 | **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (contractor or legal entity)<br>`+Expand` `+Change-handler` |
 | **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (contractor or legal entity) <br/> `+Change-handler` |
 | **goodPackQuantity** | int | Total seats <br/> `+Change-handler` |
-| **shipping instructions** | String(255) | Shipper instructions <br/> `+Change-handler` |
+| **shippingInstructions** | String(255) | Shipper instructions <br/> `+Change-handler` |
 | **stateContractId** | String(255) | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
-| **transport facility** | String(255) | Vehicle <br/> `+Change-handler` |
+| **transportFacility** | String(255) | Vehicle <br/> `+Change-handler` |
 | **transportFacilityNumber** | String(255) | Vehicle number <br/> `+Change-handler` |
 
 #### Shipment Items
@@ -100,7 +100,7 @@ The Shipment item object contains the following fields:
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
-| **tracking codes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-shipment-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok) |
+| **trackingCodes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-shipment-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok) |
 | **trackingCodes_1162** | Array(Object) | Codes for marking goods in tag format 1162. [More details here](../documents/#transactions-shipment-otgruzki-kody-markirowki-towarow-i-transportnyh-upakowok-w-formate-tega-1162) |
 | **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-stock-adjustment-oprihodowaniq-nakladnye-rashody). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
@@ -123,7 +123,7 @@ Supported as a hierarchical JSON structure.
 | ------ | ------- | -------- |
 | **cis** | string | Marking code value<br>`+Required when replying` `+Required when creating` |
 | **type** | Enum | Marking code type. Possible values: `trackingcode`, `consumerpack`, `transportpack`<br>`+Required when replying` `+Required when creating` |
-| **tracking codes** | Array(Object) | An array of nested marking codes. Maybebe present only if **type** is `consumerpack` or `transportpack` |
+| **trackingCodes** | Array(Object) | An array of nested marking codes. Maybebe present only if **type** is `consumerpack` or `transportpack` |
 
 The code value is specified in the **cis** attribute.
 For each code, the **type** type is specified: `trackingcode` (product labeling code), `consumerpack` (consumer package labeling code) or `transportpack` (shipping packaging code).
@@ -336,7 +336,7 @@ Successful request. The result is a JSON representation of the list of Shipments
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0ee24723-f640-11e5-8a84-bae500000065/positions",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-           "type": "demand position",
+           "type": "demandposition",
            "mediaType": "application/json",
            "size": 1,
            "limit": 1000,
@@ -355,7 +355,7 @@ Successful request. The result is a JSON representation of the list of Shipments
        "transportFacilityNumber": "lb777m",
        "shippingInstructions": "Keep out of the sun",
        "cargoName": "Vegetables",
-       "transport facility": "mercedes benz",
+       "transportFacility": "mercedes benz",
        "carrier": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/cffd2c81-62b4-11e6-8a84-bae500000053",
@@ -391,7 +391,7 @@ Successful request. The result is a JSON representation of the list of Shipments
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        }
      },
@@ -426,7 +426,7 @@ Successful request. The result is a JSON representation of the list of Shipments
          }
        },
        "moment": "2016-03-30 11:08:00",
-       "applicationble": false,
+       "applicable": false,
        "vatEnabled": true,
        "vatIncluded": true,
        "printed": true,
@@ -483,7 +483,7 @@ Successful request. The result is a JSON representation of the list of Shipments
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/b44f220c-f64e-11e5-8a84-bae500000068/positions",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-           "type": "demand position",
+           "type": "demandposition",
            "mediaType": "application/json",
            "size": 3,
            "limit": 1000,
@@ -637,7 +637,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/2464c97a-030a-11e6-9464-e4de00000000/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -686,7 +686,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
             "customerOrder": {
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                    "type": "salesOrder",
+                    "type": "customerorder",
                     "mediaType": "application/json"
                 }
             },
@@ -733,7 +733,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "123",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             }
         }'
@@ -833,7 +833,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/c2a04da5-030a-11e6-9464-e4de00000005/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -865,7 +865,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    }
 }
@@ -1033,7 +1033,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/c2a04da5-030a-11e6-9464-e4de00000005/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -1099,11 +1099,11 @@ Successful request. The result is a JSON representation of the generated Shipmen
                             "trackingCodes": [
                                 {
                                     "cis": "010463003759026521uHpIIf2111114",
-                                    "type": "tracking code"
+                                    "type": "trackingcode"
                                 },
                                 {
                                     "cis": "010463003759026521uHpIIf2111111",
-                                    "type": "tracking code"
+                                    "type": "trackingcode"
                                 }
                             ]
                         }
@@ -1243,7 +1243,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/c2a04da5-030a-11e6-9464-e4de00000005/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 3,
        "limit": 1000,
@@ -1437,7 +1437,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/2464c97a-030a-11e6-9464-e4de00000000/positions",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-         "type": "demand position",
+         "type": "demandposition",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
@@ -1564,7 +1564,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-         "type": "demand position",
+         "type": "demandposition",
          "mediaType": "application/json",
          "size": 4,
          "limit": 1000,
@@ -1681,7 +1681,7 @@ Successful request. The result is a JSON representation of the additional shipme
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/23d3965d-0313-11e6-9464-e4de00000097",
-         "type": "attributeutemetadata",
+         "type": "attributemetadata",
          "mediaType": "application/json"
        },
        "id": "23d3965d-0313-11e6-9464-e4de00000097",
@@ -2294,7 +2294,7 @@ Successful request. The result is a JSON representation of the Shipment.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 1000,
@@ -2321,7 +2321,7 @@ Successful request. The result is a JSON representation of the Shipment.
    "transportFacilityNumber": "lo777v",
    "shippingInstructions": "Keep out of the sun",
    "cargoName": "Vegetables",
-   "transport facility": "mercedes benz",
+   "transportFacility": "mercedes benz",
    "goodPackQuantity": 500,
    "carrier": {
      "meta": {
@@ -2358,7 +2358,7 @@ Successful request. The result is a JSON representation of the Shipment.
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    }
 }
@@ -2416,7 +2416,7 @@ When updating the **organization** and **agent** fields, you must also update th
             "customerOrder": {
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
-                    "type": "customorder",
+                    "type": "customerorder",
                     "mediaType": "application/json"
                 }
             },
@@ -2443,7 +2443,7 @@ When updating the **organization** and **agent** fields, you must also update th
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "111",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             }
         }'
@@ -2571,7 +2571,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 1000,
@@ -2611,7 +2611,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    }
 }
@@ -2691,7 +2691,8 @@ Successful request. The result is a JSON representation of the updated Shipment.
                  "mediaType": "application/json"
                }
              },
-             "overhead": {sum: 990
+             "overhead": {
+               "sum": 990,
                "distribution": "price"
              }
            }'
@@ -2832,7 +2833,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 1000,
@@ -3093,7 +3094,7 @@ Successful request. The result is a JSON representation of the updated Shipment.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 1000,
@@ -3161,7 +3162,7 @@ Successful request. The result is a JSON representation of the item list of a si
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-     "type": "demand position",
+     "type": "demandposition",
      "mediaType": "application/json",
      "size": 4,
      "limit": 1000,
@@ -3172,7 +3173,7 @@ Successful request. The result is a JSON representation of the item list of a si
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/40603fbd-019e-11e6-9464-e4de00000086",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-         "type": "demand position",
+         "type": "demandposition",
          "mediaType": "application/json"
        },
        "id": "40603fbd-019e-11e6-9464-e4de00000086",
@@ -3196,7 +3197,7 @@ Successful request. The result is a JSON representation of the item list of a si
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/40604612-019e-11e6-9464-e4de00000087",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-         "type": "demand position",
+         "type": "demandposition",
          "mediaType": "application/json"
        },
        "id": "40604612-019e-11e6-9464-e4de00000087",
@@ -3221,7 +3222,7 @@ Successful request. The result is a JSON representation of the item list of a si
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/40604a79-019e-11e6-9464-e4de00000088",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-         "type": "demand position",
+         "type": "demandposition",
          "mediaType": "application/json"
        },
        "id": "40604a79-019e-11e6-9464-e4de00000088",
@@ -3248,7 +3249,7 @@ Successful request. The result is a JSON representation of the item list of a si
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/406055cb-019e-11e6-9464-e4de00000089",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-         "type": "demand position",
+         "type": "demandposition",
          "mediaType": "application/json"
        },
        "id": "406055cb-019e-11e6-9464-e4de00000089",
@@ -3296,7 +3297,7 @@ Successful request. The result is a JSON representation of the item list of a si
     },
     "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/demand/8830a022-8a03-11ea-0a80-01cb00000040/positions",
-       "type":"demand position",
+       "type":"demandposition",
        "mediaType":"application/json",
        "size":2,
        "limit":1000,
@@ -3306,7 +3307,7 @@ Successful request. The result is a JSON representation of the item list of a si
        {
           "meta":{
              "href":"https://app.kladana.in/api/remap/1.2/entity/demand/8830a022-8a03-11ea-0a80-01cb00000040/positions/8830b0fe-8a03-11ea-0a80-01cb00000041",
-             "type":"demand position",
+             "type":"demandposition",
              "mediaType":"application/json"
           },
           "id":"8830b0fe-8a03-11ea-0a80-01cb00000041",
@@ -3325,18 +3326,18 @@ Successful request. The result is a JSON representation of the item list of a si
                 "uuidHref":"https://app.kladana.in/app/#good/edit?id=aa1b0d42-8493-11ea-0a80-037a00000305"
              }
           },
-          "tracking codes":[
+          "trackingCodes":[
              {
                 "cis":"012345678912345672",
                 "type":"transportpack",
-                "tracking codes":[
+                "trackingCodes":[
                    {
                       "cis":"010463003759026521uHpIIf2111111",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis":"010463003759026521uHpIIf2111114",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    }
                 ]
              }
@@ -3348,11 +3349,11 @@ Successful request. The result is a JSON representation of the item list of a si
                 "trackingCodes_1162":[
                    {
                       "cis_1162":"444D043603BEF0F975487049496632313131313131",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis_1162":"444D043603BEF0F975487049496632313131313134",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    }
                 ]
              }
@@ -3362,7 +3363,7 @@ Successful request. The result is a JSON representation of the item list of a si
        {
           "meta":{
              "href":"https://app.kladana.in/api/remap/1.2/entity/demand/8830a022-8a03-11ea-0a80-01cb00000040/positions/770f45b4-8a04-11ea-0a80-01cb00000060",
-             "type":"demand position",
+             "type":"demandposition",
              "mediaType":"application/json"
           },
           "id":"770f45b4-8a04-11ea-0a80-01cb00000060",
@@ -3381,10 +3382,10 @@ Successful request. The result is a JSON representation of the item list of a si
                 "uuidHref":"https://app.kladana.in/app/#good/edit?id=b20178fb-8493-11ea-0a80-037a00000312"
              }
           },
-          "tracking codes":[
+          "trackingCodes":[
              {
                 "cis":"010463003759026521uHpIIf-nXIH>1",
-                "type":"tracking code"
+                "type": "trackingcode"
              },
              {
                 "cis":"012345678912345671",
@@ -3393,34 +3394,34 @@ Successful request. The result is a JSON representation of the item list of a si
              {
                 "cis":"012345678912345678",
                 "type":"transportpack",
-                "tracking codes":[
+                "trackingCodes":[
                    {
                       "cis":"010463003759026521uHpIIf-nXIH>0",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis":"010463003759026521uHpIIf-nXIH>4",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis":"010463003759026521uHpIIf-111114",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    }
                 ]
              },
              {
                 "cis":"010463003759026521uHpIIf-111122",
-                "type":"tracking code"
+                "type": "trackingcode"
              },
              {
                 "cis":"010463003759026521uHpIIf-nXIH>2",
-                "type":"tracking code"
+                "type": "trackingcode"
              }
           ],
           "trackingCodes_1162":[
              {
                 "cis_1162":"444D043603BEF0F97548704949662D6E5849483E31",
-                "type":"tracking code"
+                "type": "trackingcode"
              },
              {
                 "cis_1162":"0000",
@@ -3432,25 +3433,25 @@ Successful request. The result is a JSON representation of the item list of a si
                 "trackingCodes_1162":[
                    {
                       "cis_1162":"444D043603BEF0F97548704949662D6E5849483E30",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis_1162":"444D043603BEF0F97548704949662D6E5849483E34",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis_1162":"444D043603BEF0F97548704949662D313131313134",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    }
                 ]
              },
              {
                 "cis_1162":"444D043603BEF0F97548704949662D313131313232",
-                "type":"tracking code"
+                "type": "trackingcode"
              },
              {
                 "cis_1162":"444D043603BEF0F97548704949662D6E5849483E32",
-                "type":"tracking code"
+                "type": "trackingcode"
              }
           ],
           "overhead":0.0
@@ -3508,7 +3509,7 @@ Successful request. The result is a JSON representation of the single Shipment i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/3bf025cc-0310-11e6-9464-e4de0000000e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json"
      },
      "id": "3bf025cc-0310-11e6-9464-e4de0000000e",
@@ -3594,7 +3595,7 @@ Successful request. The result is a JSON representation of the list of created i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/727cf336-0310-11e6-9464-e4de00000013",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json"
      },
      "id": "727cf336-0310-11e6-9464-e4de00000013",
@@ -3618,7 +3619,7 @@ Successful request. The result is a JSON representation of the list of created i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/727cfce0-0310-11e6-9464-e4de00000014",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json"
      },
      "id": "727cfce0-0310-11e6-9464-e4de00000014",
@@ -3642,7 +3643,7 @@ Successful request. The result is a JSON representation of the list of created i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/727d057f-0310-11e6-9464-e4de00000015",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json"
      },
      "id": "727d057f-0310-11e6-9464-e4de00000015",
@@ -3698,10 +3699,10 @@ curl --location --request POST 'https://app.kladana.in/api/remap/1.2/entity/dema
           "uuidHref":"https://app.kladana.in/app/#good/edit?id=b20178fb-8493-11ea-0a80-037a00000312"
        }
     },
-    "tracking codes":[
+    "trackingCodes":[
        {
           "cis":"010463003759026521uHpIIf-111122",
-          "type":"tracking code"
+          "type": "trackingcode"
        },
        {
           "cis":"012345678912345671",
@@ -3709,29 +3710,29 @@ curl --location --request POST 'https://app.kladana.in/api/remap/1.2/entity/dema
        },
        {
           "cis":"010463003759026521uHpIIf-nXIH>1",
-          "type":"tracking code"
+          "type": "trackingcode"
        },
        {
           "cis":"012345678912345678",
           "type":"transportpack",
-          "tracking codes":[
+          "trackingCodes":[
              {
                 "cis":"010463003759026521uHpIIf-111114",
-                "type":"tracking code"
+                "type": "trackingcode"
              },
              {
                 "cis":"010463003759026521uHpIIf-nXIH>4",
-                "type":"tracking code"
+                "type": "trackingcode"
              },
              {
                 "cis":"010463003759026521uHpIIf-nXIH>0",
-                "type":"tracking code"
+                "type": "trackingcode"
              }
           ]
        },
        {
           "cis":"010463003759026521uHpIIf-nXIH>2",
-          "type":"tracking code"
+          "type": "trackingcode"
        }
     ],
     "overhead":0.0
@@ -3746,7 +3747,7 @@ Successful request. The result is a JSON representation of the single Shipment i
     {
        "meta":{
           "href":"https://app.kladana.in/api/remap/1.2/entity/demand/8830a022-8a03-11ea-0a80-01cb00000040/positions/770f45b4-8a04-11ea-0a80-01cb00000060",
-          "type":"demand position",
+          "type":"demandposition",
           "mediaType":"application/json"
        },
        "id":"770f45b4-8a04-11ea-0a80-01cb00000060",
@@ -3765,10 +3766,10 @@ Successful request. The result is a JSON representation of the single Shipment i
              "uuidHref":"https://app.kladana.in/app/#good/edit?id=b20178fb-8493-11ea-0a80-037a00000312"
           }
        },
-       "tracking codes":[
+       "trackingCodes":[
           {
              "cis":"010463003759026521uHpIIf-111122",
-             "type":"tracking code"
+             "type": "trackingcode"
           },
           {
              "cis":"012345678912345671",
@@ -3776,35 +3777,35 @@ Successful request. The result is a JSON representation of the single Shipment i
           },
           {
              "cis":"010463003759026521uHpIIf-nXIH>1",
-             "type":"tracking code"
+             "type": "trackingcode"
           },
           {
              "cis":"012345678912345678",
              "type":"transportpack",
-             "tracking codes":[
+             "trackingCodes":[
                 {
                    "cis":"010463003759026521uHpIIf-111114",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 },
                 {
                    "cis":"010463003759026521uHpIIf-nXIH>4",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 },
                 {
                    "cis":"010463003759026521uHpIIf-nXIH>0",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 }
              ]
           },
           {
              "cis":"010463003759026521uHpIIf-nXIH>2",
-             "type":"tracking code"
+             "type": "trackingcode"
           }
        ],
        "trackingCodes_1162":[
           {
              "cis_1162":"444D043603BEF0F97548704949662D313131313232",
-             "type":"tracking code"
+             "type": "trackingcode"
           },
           {
              "cis_1162":"0000",
@@ -3812,7 +3813,7 @@ Successful request. The result is a JSON representation of the single Shipment i
           },
           {
              "cis_1162":"444D043603BEF0F97548704949662D6E5849483E31",
-             "type":"tracking code"
+             "type": "trackingcode"
           },
           {
              "cis_1162":"0000",
@@ -3820,20 +3821,20 @@ Successful request. The result is a JSON representation of the single Shipment i
              "trackingCodes_1162":[
                 {
                    "cis_1162":"444D043603BEF0F97548704949662D313131313134",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 },{
                    "cis_1162":"444D043603BEF0F97548704949662D6E5849483E34",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 },
                 {
                    "cis_1162":"444D043603BEF0F97548704949662D6E5849483E30",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 }
              ]
           },
           {
              "cis_1162":"444D043603BEF0F97548704949662D6E5849483E32",
-             "type":"tracking code"
+             "type": "trackingcode"
           }
        ],
        "overhead":0.0
@@ -3868,7 +3869,7 @@ Successful request. The result is a JSON representation of the Shipment line ite
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-     "type": "demand position",
+     "type": "demandposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",
@@ -3934,7 +3935,7 @@ Successful request. The result is a JSON representation of the updated Shipment 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
-     "type": "demand position",
+     "type": "demandposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",

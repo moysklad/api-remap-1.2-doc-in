@@ -1237,10 +1237,10 @@ In the body of the request, you need to pass an array containing the JSON metada
 ```json
 [
    {
-     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```

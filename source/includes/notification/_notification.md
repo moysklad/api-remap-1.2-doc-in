@@ -84,14 +84,65 @@ Successful request. The result is a JSON representation of the list of Notificat
         "mediaType": "application/json"
       },
       "id": "0f423542-5b7a-11e9-9bea-3ff70000000f",
-      "accountId": "45b76d0a-5aa2-11e9-ization:Basic <Credentials>"
+      "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
+      "created": "2019-04-10 13:19:01.123",
+      "read": true,
+      "title": "Import completed",
+      "description": "0002",
+      "message": "Handle 7 row",
+      "taskType": "importer_good",
+      "taskState": "completed",
+      "createdDocumentName": "00002"
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/notification/a805beb5-5adf-11e9-9bea-3ff700000025",
+        "type": "NotificationTaskChanged",
+        "mediaType": "application/json"
+      },
+      "id": "a805beb5-5adf-11e9-9bea-3ff700000025",
+      "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
+      "created": "2019-04-09 18:53:45.314",
+      "read": true,
+      "title": "Task changed",
+      "description": "admin task changed",
+      "performedBy": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/188cb787-5aa5-11e9-727d-30730000009c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json"
+        },
+        "id": "188cb787-5aa5-11e9-727d-30730000009c",
+        "name": "admin"
+      },
+      "task": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/task/14ac66b6-5add-11e9-727d-30730000002f",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+          "type": "task",
+          "mediaType": "application/json"
+        },
+        "id": "14ac66b6-5add-11e9-727d-30730000002f",
+        "name": "New task description",
+        "deadline": "2019-04-02 18:53:00.000"
+      },
+      "diff": {
+        "description": {
+          "oldValue": "Old task description",
+          "newValue": "New task description"
+        },
+        "deadline": {
+          "newValue": "2019-04-02 18:53:00.000"
+        }
+      }
     }
   ]
 }
 ```
 
-> Response 200(application/json)
-Successful affixing of the sign "read".
+[//]: # (TODO: https://lognex.atlassian.net/browse/MC-64540)
+[//]: # (Здесь пропущены разделы: Получить Уведомление, Удалить Уведомление, Отметить Уведомление как прочитанное)
 
 ### Mark all Notifications as read
 Mark all Notifications of the current user as read.
@@ -570,7 +621,7 @@ Successful request. The result is a JSON representation of the Notification.
 
 ### End of subscription
 #### Notification type
-#### NotificationSubscribeExpired - subscription expiration
+NotificationSubscribeExpired - subscription expiration
 #### Notification attributes
 
 | Title | Type | Description |
@@ -1619,7 +1670,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
      "name": "Cashier Kladkin"
    },
-   "retailstore": {
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -1704,7 +1755,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
      "name": "Cashier Kladkin"
    },
-   "retailstore": {
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -1963,7 +2014,7 @@ Successful request. JSON representation of notification settings.
 ```json
 {
    "groups" : {
-     "sales order" : {
+     "customer_order" : {
        "enabled" : true,
        "channels" : [ "email", "push" ]
      },
@@ -1979,7 +2030,8 @@ Successful request. JSON representation of notification settings.
        "enabled" : true,
        "channels" : [ "email", "push" ]
      },
-     "task" : {"enabled" : true,
+     "task" : {
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "data_exchange" : {
@@ -2013,7 +2065,7 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
      -H "Content-Type: application/json"
        -d '{
              "groups" : {
-               "sales order" : {
+               "customer_order" : {
                  "enabled" : true,
                  "channels" : [ "email", "push" ]
                },

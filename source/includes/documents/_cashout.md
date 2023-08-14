@@ -48,7 +48,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 
 Allowed types of linked operations:
 
-+ Sales Return (sales return)
++ Sales Return (salesreturn)
 + Receiving (supply)
 + Supplier invoice (invoicein)
 + Order to the supplier (purchaseorder)
@@ -890,7 +890,7 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'cashout' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'cashout' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
      "info":"Entity 'cashout' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
@@ -1100,7 +1100,7 @@ Request for a pre-filled Outgoing Cash Payment representation based on another t
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/17a06771-961b-11e6-8a84-bae500000080",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",
-                   "type": "purchase order",
+                   "type": "purchaseorder",
                    "mediaType": "application/json"
                  }
                }
@@ -1150,7 +1150,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/17a06771-961b-11e6-8a84-bae500000080",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",
-         "type": "purchase order",
+         "type": "purchaseorder",
          "mediaType": "application/json"
        },
        "linkedSum": 0
@@ -1180,7 +1180,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/3b0f51a4-961b-11e6-8a84-bae500000086",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-                   "type": "sales return",
+                   "type": "salesreturn",
                    "mediaType": "application/json"
                  }
                }
@@ -1230,7 +1230,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/3b0f51a4-961b-11e6-8a84-bae500000086",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-         "type": "sales return",
+         "type": "salesreturn",
          "mediaType": "application/json"
        },
        "linkedSum": 0
@@ -1340,7 +1340,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/invoicein/e43b34bc-961a-11e6-8a84-bae50000006f",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoicein/metadata",
-                   "type": "invoice",
+                   "type": "invoicein",
                    "mediaType": "application/json"
                  }
                }
@@ -1390,7 +1390,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/invoicein/e43b34bc-961a-11e6-8a84-bae50000006f",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoicein/metadata",
-         "type": "invoice",
+         "type": "invoicein",
          "mediaType": "application/json"
        },
        "linkedSum": 0

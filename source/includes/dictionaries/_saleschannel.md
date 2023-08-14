@@ -398,10 +398,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'saleschannel' with UUID: fe8188dc-2034-11ec-9621-0242ac130002 was deleted successfully"
+     "info":"Entity 'saleschannel' with UUID: fe8188dc-2034-11ec-9621-0242ac130002 successfully deleted"
    },
    {
-     "info":"Entity 'saleschannel' with UUID: 0657ff6e-2035-11ec-9621-0242ac130002 was deleted successfully"
+     "info":"Entity 'saleschannel' with UUID: 0657ff6e-2035-11ec-9621-0242ac130002 successfully deleted"
    }
 ]
 ```

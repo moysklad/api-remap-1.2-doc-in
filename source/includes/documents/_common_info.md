@@ -15,7 +15,7 @@ At the moment, you can get templates for the following transactions based on oth
 | Transaction | The basis on which it can be created |
 | --------- | --------- |
 | Invoice to the buyer (invoiceout) | Sales Order (customerorder) |
-| Sales Return (sales return) | Shipment (demand), <br>Retail sale (retaildemand) |
+| Sales Return (salesreturn) | Shipment (demand), <br>Retail sale (retaildemand) |
 | Return to supplier (purchasereturn) | receiving(supply) |
 | Incoming payment (paymentin) | Sales Order (salesreturn), <br>Return to supplier (purchasereturn), <br>Shipping (demand), <br>Invoice to buyer (invoiceout)|
 | Production order (processingorder) | Those. map (processingplan) |
@@ -108,7 +108,7 @@ Associating an internal order with a transfer.
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-                 "type": "internal order",
+                 "type": "internalorder",
                  "mediaType": "application/json"
                }
              }
@@ -171,14 +171,14 @@ The result is a move with the internalOrder field filled in.
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7/positions",
-       "type": "move position",
+       "type": "moveposition",
        "mediaType": "application/json",
        "size": 1,
        "limit": 1000,
        "offset": 0
      }
    },
-   "sourcestore": {
+   "sourceStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -198,7 +198,7 @@ The result is a move with the internalOrder field filled in.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-       "type": "internal order",
+       "type": "internalorder",
        "mediaType": "application/json"
      }
    }
@@ -267,7 +267,8 @@ The result is a shipment with a new item in the invoicesOut collection.
    "applicable": false,
    "sum": 0,
    "store": {
-     "meta": {"href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
@@ -307,7 +308,7 @@ The result is a shipment with a new item in the invoicesOut collection.
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/positions",
-       "type": "demand position",
+       "type": "demandposition",
        "mediaType": "application/json",
        "size": 1,
        "limit": 1000,
@@ -475,8 +476,7 @@ Linking a receipt order to a Sales Order.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19
-"
+     "https://app.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -501,7 +501,7 @@ The result is a credit note with a new element in the operations collection.
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/cashin/834d731c-b313-11e6-8a84-bae50000008e",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/cashin/metadata",
-     "type": "cash",
+     "type": "cashin",
      "mediaType": "application/json"
    },
    "id": "834d731c-b313-11e6-8a84-bae50000008e",

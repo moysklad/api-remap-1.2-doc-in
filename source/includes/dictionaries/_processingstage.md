@@ -331,7 +331,7 @@ curl -X POST
      "info":"Entity 'processingstage' with UUID: d2308bcc-8fd9-11ed-ac12-000b000000c2 successfully removed"
    },
    {
-     "info":"Entity 'processingstage' with UUID: d2308bcc-8fd9-11ed-ac12-000b000000c1 was deleted successfully"
+     "info":"Entity 'processingstage' with UUID: d2308bcc-8fd9-11ed-ac12-000b000000c1 successfully deleted"
    }
 ]
 ```

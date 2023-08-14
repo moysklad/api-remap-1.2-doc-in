@@ -171,7 +171,7 @@ If the Marking Code is specified in the request contains nested codes, they are 
 ```json
 [
    {
-     "info": "Entity 'trackingcode' with UUID: 6e29f82e-1bc0-11ec-ac18-000c00000002 deleted successfully"
+     "info": "Entity 'trackingcode' with UUID: 6e29f82e-1bc0-11ec-ac18-000c00000002 successfully deleted"
    }
 ]
 ```

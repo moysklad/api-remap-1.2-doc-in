@@ -391,7 +391,7 @@ which contains a representation of the new legal entity.
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "123",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             },
             "actualAddressFull": {
@@ -416,7 +416,7 @@ which contains a representation of the new legal entity.
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "111",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             },
             "inn": "87654321",
@@ -1122,7 +1122,7 @@ curl -X POST
      "info":"Entity 'organization' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'organization' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'organization' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```

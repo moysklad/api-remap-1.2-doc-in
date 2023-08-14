@@ -163,7 +163,7 @@ Successful request. The result is a JSON representation of the list of Inventory
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7ee45d2d-ad65-11e6-8a84-bc52000000db/positions",
-           "type": "inventory position",
+           "type": "inventoryposition",
            "mediaType": "application/json",
            "size": 1,
            "limit": 1000,
@@ -221,7 +221,7 @@ Successful request. The result is a JSON representation of the list of Inventory
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8c3e615a-ad65-11e6-8a84-bc52000000df/positions",
-           "type": "inventory position",
+           "type": "inventoryposition",
            "mediaType": "application/json",
            "size": 2,
            "limit": 1000,
@@ -326,7 +326,7 @@ Successful request. The result is a JSON representation of the generated Invento
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a/positions",
-       "type": "inventory position",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -472,7 +472,7 @@ Successful request. The result is a JSON array of representations of the created
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a/positions",
-         "type": "inventory position",
+         "type": "inventoryposition",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
@@ -533,7 +533,7 @@ Successful request. The result is a JSON array of representations of the created
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-         "type": "inventory position",
+         "type": "inventoryposition",
          "mediaType": "application/json",
          "size": 2,
          "limit": 1000,
@@ -598,10 +598,10 @@ In the body of the request, you need to pass an array containing JSON with metad
 ```json
 [
    {
-     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -833,7 +833,7 @@ Successful request. The result is a JSON representation of the Inventory Count.
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-       "type": "inventory position",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 1,
        "limit": 1000,
@@ -956,7 +956,7 @@ Successful request. The result is a JSON representation of the updated Inventory
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-       "type": "inventory position",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 2,
        "limit": 1000,
@@ -1095,7 +1095,7 @@ Successful request. The result is a JSON representation of the updated Inventory
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-       "type": "inventory position",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 2,
        "limit": 1000,
@@ -1152,7 +1152,7 @@ Successful request. The result is a JSON representation of a list of items in a 
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions",
-     "type": "inventory position",
+     "type": "inventoryposition",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -1162,7 +1162,7 @@ Successful request. The result is a JSON representation of a list of items in a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
-         "type": "inventory position",
+         "type": "inventoryposition",
          "mediaType": "application/json"
        },
        "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1185,7 +1185,7 @@ Successful request. The result is a JSON representation of a list of items in a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/20145d98-ad6f-11e6-8a84-bc5200000011",
-         "type": "inventory position",
+         "type": "inventoryposition",
          "mediaType": "application/json"
        },
        "id": "20145d98-ad6f-11e6-8a84-bc5200000011",
@@ -1237,7 +1237,7 @@ will be added to the existing ones.
        -d '{
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
-                "type": "inventory position",
+                "type": "inventoryposition",
                 "mediaType": "application/json"
             },
             "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1263,7 +1263,7 @@ Successful request. The result is a JSON representation of the created item of a
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
-       "type": "inventory position",
+       "type": "inventoryposition",
        "mediaType": "application/json"
      },
      "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1312,7 +1312,7 @@ Successful request. The result is a JSON representation of a single Inventory Co
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "inventory position",
+     "type": "inventoryposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
@@ -1355,7 +1355,7 @@ Request to update an individual Inventory Count item. There is no way to update 
        -d '{
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-               "type": "inventory position",
+               "type": "inventoryposition",
                "mediaType": "application/json"
              },
              "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1380,7 +1380,7 @@ Successful request. The result is a JSON representation of the updated Inventory
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "inventory position",
+     "type": "inventoryposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",

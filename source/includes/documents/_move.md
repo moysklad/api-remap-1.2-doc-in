@@ -193,14 +193,14 @@ Successful request. The result is a JSON representation of the list of Transfers
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/move/5ac52c9a-4f67-11e6-8a84-bae500000084/positions",
-           "type": "move position",
+           "type": "moveposition",
            "mediaType": "application/json",
            "size": 15,
            "limit": 1000,
            "offset": 0
          }
        },
-       "sourcestore": {
+       "sourceStore": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -272,14 +272,14 @@ Successful request. The result is a JSON representation of the list of Transfers
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/move/ec94d9ff-4f64-11e6-8a84-bae500000069/positions",
-           "type": "move position",
+           "type": "moveposition",
            "mediaType": "application/json",
            "size": 2,
            "limit": 1000,
            "offset": 0
          }
        },
-       "sourcestore": {
+       "sourceStore": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -332,7 +332,7 @@ Request to create a new Transfer. Mandatory fields to create:
                  "mediaType": "application/json"
                }
              },
-             "sourcestore": {
+             "sourceStore": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -410,14 +410,14 @@ Successful request. The result is a JSON representation of the generated Transfe
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/move/544236cb-4f6a-11e6-8a84-bae500000003/positions",
-       "type": "move position",
+       "type": "moveposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
        "offset": 0
      }
    },
-   "sourcestore": {
+   "sourceStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -467,7 +467,7 @@ Updated Transfers must contain the identifier in the form of metadata.
                         "mediaType": "application/json"
                     }
                 },
-                "sourcestore": {
+                "sourceStore": {
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -516,7 +516,7 @@ Updated Transfers must contain the identifier in the form of metadata.
                         "mediaType": "application/json"
                     }
                 },
-                "sourcestore": {
+                "sourceStore": {
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -606,14 +606,14 @@ Successful request. The result is a JSON array of representations of the created
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/544236cb-4f6a-11e6-8a84-bae500000003/positions",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
          "offset": 0
        }
      },
-     "sourcestore": {
+     "sourceStore": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -719,14 +719,14 @@ Successful request. The result is a JSON array of representations of the created
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/544236cb-4f6a-11e6-8a84-bae500000003/positions",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
          "offset": 0
        }
      },
-     "sourcestore": {
+     "sourceStore": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -882,7 +882,7 @@ Request for a pre-filled transfer template based on an Internal Order. The respo
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/64e426af-b0d8-11e6-8a84-bae500000064",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-                 "type": "internal order",
+                 "type": "internalorder",
                  "mediaType": "application/json"
                }
              }
@@ -1015,7 +1015,7 @@ Successful request. The result is a JSON representation of the prefilled Transfe
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/64e426af-b0d8-11e6-8a84-bae500000064",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-       "type": "internal order",
+       "type": "internalorder",
        "mediaType": "application/json"
      }
    }
@@ -1218,14 +1218,14 @@ Successful request. The result is a JSON representation of the Transfer.
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/move/5ac52c9a-4f67-11e6-8a84-bae500000084/positions",
-       "type": "move position",
+       "type": "moveposition",
        "mediaType": "application/json",
        "size": 15,
        "limit": 1000,
        "offset": 0
      }
    },
-   "sourcestore": {
+   "sourceStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1295,7 +1295,7 @@ Request to update Transfers with the specified id.
                  "mediaType": "application/json"
                }
              },
-             "sourcestore": {
+             "sourceStore": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1410,14 +1410,14 @@ Successful request. The result is a JSON representation of the updated Transfer.
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/move/544236cb-4f6a-11e6-8a84-bae500000003/positions",
-       "type": "move position",
+       "type": "moveposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
        "offset": 0
      }
    },
-   "sourcestore": {
+   "sourceStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/e94a6e65-4f64-11e6-8a84-bae500000066",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -1484,7 +1484,7 @@ Successful request. The result is a JSON representation of a list of individual 
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions",
-     "type": "move position",
+     "type": "moveposition",
      "mediaType": "application/json",
      "size": 15,
      "limit": 1000,
@@ -1494,7 +1494,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5407b-4f67-11e6-8a84-bae500000085",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac5407b-4f67-11e6-8a84-bae500000085",
@@ -1515,7 +1515,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac54d7a-4f67-11e6-8a84-bae500000086",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac54d7a-4f67-11e6-8a84-bae500000086",
@@ -1536,7 +1536,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac55815-4f67-11e6-8a84-bae500000087",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac55815-4f67-11e6-8a84-bae500000087",
@@ -1557,7 +1557,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac56175-4f67-11e6-8a84-bae500000088",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac56175-4f67-11e6-8a84-bae500000088",
@@ -1578,7 +1578,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac56a34-4f67-11e6-8a84-bae500000089",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac56a34-4f67-11e6-8a84-bae500000089",
@@ -1599,7 +1599,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac572cd-4f67-11e6-8a84-bae50000008a",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac572cd-4f67-11e6-8a84-bae50000008a",
@@ -1620,7 +1620,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac57b59-4f67-11e6-8a84-bae50000008b",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac57b59-4f67-11e6-8a84-bae50000008b",
@@ -1641,7 +1641,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5843a-4f67-11e6-8a84-bae50000008c",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac5843a-4f67-11e6-8a84-bae50000008c",
@@ -1662,7 +1662,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac58ea6-4f67-11e6-8a84-bae50000008d",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac58ea6-4f67-11e6-8a84-bae50000008d",
@@ -1683,7 +1683,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac596ca-4f67-11e6-8a84-bae50000008e",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac596ca-4f67-11e6-8a84-bae50000008e",
@@ -1704,7 +1704,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac59eb7-4f67-11e6-8a84-bae50000008f",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac59eb7-4f67-11e6-8a84-bae50000008f",
@@ -1725,7 +1725,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5a711-4f67-11e6-8a84-bae500000090",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac5a711-4f67-11e6-8a84-bae500000090",
@@ -1746,7 +1746,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5af07-4f67-11e6-8a84-bae500000091",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac5af07-4f67-11e6-8a84-bae500000091",
@@ -1767,7 +1767,7 @@ Successful request. The result is a JSON representation of a list of individual 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5c872-4f67-11e6-8a84-bae500000092",
-         "type": "move position",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac5c872-4f67-11e6-8a84-bae500000092",
@@ -1787,7 +1787,8 @@ Successful request. The result is a JSON representation of a list of individual 
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5d0e5-4f67-11e6-8a84-bae500000093","type": "move position",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/5ac5d0e5-4f67-11e6-8a84-bae500000093",
+         "type": "moveposition",
          "mediaType": "application/json"
        },
        "id": "5ac5d0e5-4f67-11e6-8a84-bae500000093",
@@ -1872,7 +1873,7 @@ Successful request. The result is a JSON representation of the created item of t
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/476d9c48-4f6b-11e6-8a84-bae500000013",
-       "type": "move position",
+       "type": "moveposition",
        "mediaType": "application/json"
      },
      "id": "476d9c48-4f6b-11e6-8a84-bae500000013",
@@ -1893,7 +1894,7 @@ Successful request. The result is a JSON representation of the created item of t
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/476da9ce-4f6b-11e6-8a84-bae500000014",
-       "type": "move position",
+       "type": "moveposition",
        "mediaType": "application/json"
      },
      "id": "476da9ce-4f6b-11e6-8a84-bae500000014",
@@ -1940,7 +1941,7 @@ Successful request. The result is a JSON representation of a single Transfer ite
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "move position",
+     "type": "moveposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
@@ -1991,7 +1992,7 @@ Successful request. The result is a JSON representation of the updated Transfer 
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "move position",
+     "type": "moveposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
