@@ -1123,7 +1123,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Open",
        "color": 10066329,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1136,7 +1136,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Completed",
        "color": 15280409,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1149,7 +1149,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Partially Done",
        "color": 15106326,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1162,7 +1162,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "On clearance",
        "color": 34617,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1175,7 +1175,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Designed",
        "color": 9245744,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      }
    ],
    "createShared": false

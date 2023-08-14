@@ -111,7 +111,7 @@ Successful request. The result is a JSON representation of the list of Bill of M
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-     "type": "processing plan",
+     "type": "processingplan",
      "mediaType": "application/json",
      "size": 3,
      "limit": 1000,
@@ -122,7 +122,7 @@ Successful request. The result is a JSON representation of the list of Bill of M
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-         "type": "processing plan",
+         "type": "processingplan",
          "mediaType": "application/json"
        },
        "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
@@ -174,7 +174,7 @@ Successful request. The result is a JSON representation of the list of Bill of M
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/6b4ffbf7-ac12-11e6-5bed-427b00000091",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-         "type": "processing plan",
+         "type": "processingplan",
          "mediaType": "application/json"
        },
        "id": "6b4ffbf7-ac12-11e6-5bed-427b00000091",
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the list of Bill of M
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-         "type": "processing plan",
+         "type": "processingplan",
          "mediaType": "application/json"
        },
        "id": "c38e50b0-acdc-11e6-5bed-427b0000009e",
@@ -347,7 +347,7 @@ Successful request. The result is a JSON representation of the generated Bills o
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-     "type": "processing plan",
+     "type": "processingplan",
      "mediaType": "application/json"
    },
    "id": "120a488b-b0bd-11e6-5bed-427b00000000",
@@ -463,7 +463,7 @@ Updated Bills of Materials must contain the identifier in the form of metadata.
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-                    "type": "processing plan",
+                    "type": "processingplan",
                     "mediaType": "application/json"
                 },
                 "name": "Technical card",
@@ -481,7 +481,7 @@ Successful request. The result is a JSON array of representations created and up
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/120a488b-b0bd-11e6-5bed-427b00000000",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-       "type": "processing plan",
+       "type": "processingplan",
        "mediaType": "application/json"
      },
      "id": "120a488b-b0bd-11e6-5bed-427b00000000",
@@ -533,7 +533,7 @@ Successful request. The result is a JSON array of representations created and up
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-       "type": "processing plan",
+       "type": "processingplan",
        "mediaType": "application/json"
      },
      "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
@@ -619,13 +619,13 @@ curl -X POST
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b1",
                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-                "type": "processing plan",
+                "type": "processingplan",
                 "mediaType": "application/json"
             },
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b2",
                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-                "type": "processing plan",
+                "type": "processingplan",
                 "mediaType": "application/json"
             }
         ]'
@@ -670,7 +670,7 @@ Successful request. The result is a JSON representation of Bills of Materials.
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-     "type": "processing plan",
+     "type": "processingplan",
      "mediaType": "application/json"
    },
    "id": "1a18770e-ad9a-11e6-5bed-427b00000064",
@@ -753,7 +753,7 @@ Successful request. The result is a JSON representation of the updated Bill of M
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/1a18770e-ad9a-11e6-5bed-427b00000064",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
-     "type": "processing plan",
+     "type": "processingplan",
      "mediaType": "application/json"
    },
    "id": "1a18770e-ad9a-11e6-5bed-427b00000064",

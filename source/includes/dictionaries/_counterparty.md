@@ -493,7 +493,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -516,7 +516,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counter party",
+         "type":"counterparty",
          "mediaType":"application/json"
        },
        "id":"12c9ebcf-692c-11e6-8a84-bae50000005d",
@@ -611,7 +611,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -634,7 +634,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counter party",
+         "type":"counterparty",
          "mediaType":"application/json"
        },
        "id":"df2fdd2d-6934-11e6-8a84-bae500000049",
@@ -730,7 +730,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -1250,7 +1250,7 @@ curl -X POST
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"88fc07ac-2c8d-11e6-8a84-bae500000050",
@@ -1392,7 +1392,7 @@ curl -X POST
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -1504,7 +1504,7 @@ curl -X POST
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
+       "type":"counterparty",
        "mediaType":"application/json"
      },
      "id":"b80ea81b-7058-11e6-8a84-bae500000000",
@@ -1547,7 +1547,7 @@ curl -X POST
      "contactpersons":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
-         "type":"contact person",
+         "type":"contactperson",
          "mediaType":"application/json",
          "size":0,
          "limit":1000,
@@ -1583,7 +1583,7 @@ curl -X POST
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
+       "type":"counterparty",
        "mediaType":"application/json"
      },
      "id":"6a9c3857-2c8b-11e6-8a84-bae500000047",
@@ -1642,7 +1642,7 @@ curl -X POST
      "contactpersons":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
-         "type":"contact person",
+         "type":"contactperson",
          "mediaType":"application/json",
          "size":0,
          "limit":1000,
@@ -1861,7 +1861,7 @@ curl -X GET
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"b80ea81b-7058-11e6-8a84-bae500000000",
@@ -1905,7 +1905,7 @@ curl -X GET
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -1992,7 +1992,7 @@ curl -X GET
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "bonusprogram": {
+   "bonusProgram": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
@@ -2001,7 +2001,7 @@ curl -X GET
        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
      }
    },
-   "bonus points": 0
+   "bonusPoints": 0
 }
 ```
 
@@ -2215,7 +2215,7 @@ curl -X PUT
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"6a9c3857-2c8b-11e6-8a84-bae500000047",
@@ -2324,7 +2324,7 @@ curl -X PUT
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -2439,7 +2439,7 @@ curl -X PUT
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"88fc07ac-2c8d-11e6-8a84-bae500000050",
@@ -2582,7 +2582,7 @@ curl -X PUT
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":2,
        "limit":1000,

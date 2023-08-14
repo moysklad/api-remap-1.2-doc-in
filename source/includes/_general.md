@@ -928,7 +928,7 @@ curl -X POST
     "cost": 5000,
     "quantity": 999,
     "reserve": 90,
-    "in transit": 9,
+    "inTransit": 9,
     "available": 918
   }
 }

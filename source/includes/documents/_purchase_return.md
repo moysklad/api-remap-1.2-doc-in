@@ -843,7 +843,7 @@ Successful request. The result is a JSON representation of the generated Purchas
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 1000,
@@ -1114,7 +1114,7 @@ Successful request. The result is a JSON representation of the generated Purchas
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 100,
@@ -1514,7 +1514,7 @@ Successful request. The result is a JSON array of representations of the generat
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json",
          "size": 4,
          "limit": 1000,
@@ -1652,7 +1652,7 @@ Successful request. The result is a JSON array of representations of the generat
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json",
          "size": 5,
          "limit": 1000,
@@ -1857,7 +1857,7 @@ Successful request. The result is a JSON representation of a separate additional
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata/attributes/4fc7e7e7-41be-11e6-8a84-bae5000000cc",
-     "type": "attribute metadata",
+     "type": "attributemetadata",
      "mediaType": "application/json"
    },
    "id": "4fc7e7e7-41be-11e6-8a84-bae5000000cc",
@@ -1911,7 +1911,7 @@ Successful request. The result is a JSON representation of a prefilled Purchase 
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -2011,7 +2011,7 @@ Successful request. The result is a JSON representation of a prefilled Purchase 
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -2147,7 +2147,7 @@ Successful request. The result is a JSON representation of the Return to the pro
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/e699b298-41bd-11e6-8a84-bae5000000ba/positions",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 7,
        "limit": 1000,
@@ -2435,7 +2435,7 @@ Successful request. The result is a JSON representation of the updated Purchase 
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 5,
        "limit": 1000,
@@ -2501,7 +2501,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions",
-     "type": "purchase return item",
+     "type": "purchasereturnposition",
      "mediaType": "application/json",
      "size": 7,
      "limit": 1000,
@@ -2511,7 +2511,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699bc75-41bd-11e6-8a84-bae5000000bb",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699bc75-41bd-11e6-8a84-bae5000000bb",
@@ -2534,7 +2534,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699c2b5-41bd-11e6-8a84-bae5000000bc",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699c2b5-41bd-11e6-8a84-bae5000000bc",
@@ -2557,7 +2557,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699c804-41bd-11e6-8a84-bae5000000bd",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699c804-41bd-11e6-8a84-bae5000000bd",
@@ -2580,7 +2580,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699cd72-41bd-11e6-8a84-bae5000000be",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699cd72-41bd-11e6-8a84-bae5000000be",
@@ -2603,7 +2603,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699d288-41bd-11e6-8a84-bae5000000bf",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699d288-41bd-11e6-8a84-bae5000000bf",
@@ -2626,7 +2626,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699d76d-41bd-11e6-8a84-bae5000000c0",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699d76d-41bd-11e6-8a84-bae5000000c0",
@@ -2649,7 +2649,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/e699dcb4-41bd-11e6-8a84-bae5000000c1",
-         "type": "purchase return item",
+         "type": "purchasereturnposition",
          "mediaType": "application/json"
        },
        "id": "e699dcb4-41bd-11e6-8a84-bae5000000c1",
@@ -2742,7 +2742,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/9cfa8b56-41bf-11e6-8a84-bae500000014",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json"
      },
      "id": "9cfa8b56-41bf-11e6-8a84-bae500000014",
@@ -2765,7 +2765,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/9cfa9b0e-41bf-11e6-8a84-bae500000015",
-       "type": "purchase return item",
+       "type": "purchasereturnposition",
        "mediaType": "application/json"
      },
      "id": "9cfa9b0e-41bf-11e6-8a84-bae500000015",
@@ -2815,7 +2815,7 @@ Successful request. The result is a JSON representation of a Purchase Returns li
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "type": "purchase return item",
+     "type": "purchasereturnposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",
@@ -2870,7 +2870,7 @@ Successful request. The result is a JSON representation of the updated Purchase 
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "type": "purchase return item",
+     "type": "purchasereturnposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",

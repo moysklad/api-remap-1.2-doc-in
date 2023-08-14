@@ -332,7 +332,7 @@ Successful request. Result: JSON object including fields:
        "fsrarId": "1963703",
        "payerVat": true,
        "utmUrl": "10.250.110.81",
-       "bonusprogram": {
+       "bonusProgram": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
@@ -341,7 +341,7 @@ Successful request. Result: JSON object including fields:
            "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
          }
        },
-       "bonus points": 0
+       "bonusPoints": 0
      }
    ]
 }
@@ -1340,7 +1340,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "utmUrl": "10.250.110.81",
    "director": "Administrator",
    "chiefAccountant": "Administrator",
-   "bonusprogram": {
+   "bonusProgram": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
@@ -1349,7 +1349,7 @@ Successful request. The result is a JSON representation of the legal entity with
        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
      }
    },
-   "bonus points": 0
+   "bonusPoints": 0
 }
 ```
 

@@ -1821,7 +1821,7 @@ Request to receive a pre-filled Receiving based on a vendor order. As a result o
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "purchase Order": {
+             "purchaseOrder": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/22b4caaa-3f74-11e6-8a84-bae500000069",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",

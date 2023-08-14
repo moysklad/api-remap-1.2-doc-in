@@ -136,7 +136,7 @@ Successful request. The result is a JSON representation of the list of Employees
        "lastName": "Administrator",
        "fullName": "Administrator",
        "shortFio": "Administrator",
-       "retail store": {
+       "retailStore": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -491,7 +491,7 @@ Successful request. The result is a JSON representation of the Employee.
          "type": "admin",
          "mediaType": "application/json"
        },
-   "retail store": {
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -675,7 +675,7 @@ Successful request. The result is a JSON representation of the updated Employee.
    "lastName": "Moyskladkin",
    "fullName": "Pyotr Ivanovich Moiskkin",
    "shortFio": "Moyskladkin P.I.",
-     "retail store": {
+     "retailStore": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",

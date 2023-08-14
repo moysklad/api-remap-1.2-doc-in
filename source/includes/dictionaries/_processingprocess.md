@@ -214,11 +214,11 @@ Required fields for creating:
           "name": "We make the engine",
           "positions": [
               {
-                  "processing stage": {
+                  "processingStage": {
                       "meta": {
                           "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
                           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
-                          "type": "processing stage",
+                          "type": "processingstage",
                           "mediaType": "application/json",
                           "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=364b1107-9bd3-11ed-ac12-000c0000006a"
                       }
@@ -304,7 +304,7 @@ In the body of the request, specify the fields that need to be changed for Routi
                         "type": "processingprocessposition",
                         "mediaType": "application/json"
                     },
-                    "processing stage": {
+                    "processingStage": {
                         "meta": {
                             "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/c18373c0-9aea-11ed-ac12-000e000000c2",
                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -314,7 +314,7 @@ In the body of the request, specify the fields that need to be changed for Routi
                     }
                 },
                 {
-                    "processing stage": {
+                    "processingStage": {
                         "meta": {
                             "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -449,7 +449,7 @@ Successful request. The result is a JSON representation of a list of individual 
      }
    },
    "meta": {
-     "href": "hauto_awesome",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions",
      "type": "processingprocessposition",
      "mediaType": "application/json",
      "size": 1,
@@ -465,7 +465,7 @@ Successful request. The result is a JSON representation of a list of individual 
        },
        "id": "d5069da5-988e-11ed-ac19-00040000002a",
        "accountId": "dbb8cfc1-cbfa-11e1-6dfb-889ffa6f49fd",
-       "processing stage": {
+       "processingStage": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/d4fed5b7-988e-11ed-ac19-000400000023",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -508,7 +508,7 @@ Successful request. The result is a JSON representation of a single Routing item
    },
    "id": "23a62e19-a6bb-11ed-ac12-000900000043",
    "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-   "processing stage": {
+   "processingStage": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -537,7 +537,7 @@ Successful request. The result is a JSON representation of a single Routing item
       -H "Content-Type: application/json"
       -d' [
             {
-                "processing stage": {
+                "processingStage": {
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -562,7 +562,7 @@ Successful request. The result is a JSON representation of the generated Routing
      },
      "id": "23a62e19-a6bb-11ed-ac12-000900000043",
      "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-     "processing stage": {
+     "processingStage": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -592,7 +592,7 @@ Successful request. The result is a JSON representation of the generated Routing
       -H "Authorization: Basic <Credentials>"
       -H "Content-Type: application/json"
       -d' {
-            "processing stage": {
+            "processingStage": {
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -615,7 +615,7 @@ Successful request. The result is a JSON representation of the updated Routing i
    },
    "id": "23a62e19-a6bb-11ed-ac12-000900000043",
    "accountId": "c0b1ef18-9aea-11ed-ac12-000b00000011",
-   "processing stage": {
+   "processingStage": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/4b5662f4-9bd3-11ed-ac12-000c00000070",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
@@ -673,7 +673,7 @@ containing the JSON representation of the Routings you want to create or update.
                 "name": "Galvanized",
                 "positions": [
                     {
-                        "processingstage": {
+                        "processingStage": {
                             "meta": {
                                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingstage/364b1107-9bd3-11ed-ac12-000c0000006a",
                                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingstage/metadata",
