@@ -193,7 +193,7 @@ Successful request. The result is a JSON representation of the list of Stock Adj
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/enter/2e12d827-5338-11e6-8a84-bae50000008e/positions",
-           "type": "enteritem",
+           "type": "enterposition",
            "mediaType": "application/json",
            "size": 5,
            "limit": 1000,
@@ -255,7 +255,7 @@ Successful request. The result is a JSON representation of the list of Stock Adj
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/enter/bf19f3fe-4f28-11e6-8a84-bae50000006d/positions",
-           "type": "enteritem",
+           "type": "enterposition",
            "mediaType": "application/json",
            "size": 1,
            "limit": 1000,
@@ -466,7 +466,7 @@ Successful request. The result is a JSON representation of the generated Stock A
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7cfff21a-533b-11e6-8a84-bae50000001f/positions",
-       "type": "enteritem",
+       "type": "enterposition",
        "mediaType": "application/json",
        "size": 3,
        "limit": 1000,
@@ -730,7 +730,7 @@ Successful request. The result is a JSON array of representations of the created
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7cfff21a-533b-11e6-8a84-bae50000001f/positions",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json",
          "size": 3,
          "limit": 1000,
@@ -830,7 +830,7 @@ Successful request. The result is a JSON array of representations of the created
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7cfff21a-533b-11e6-8a84-bae50000001f/positions",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
@@ -1081,7 +1081,7 @@ Successful request. The result is a JSON representation of Stock Adjustment.
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/enter/2e12d827-5338-11e6-8a84-bae50000008e/positions",
-       "type": "enteritem",
+       "type": "enterposition",
        "mediaType": "application/json",
        "size": 5,
        "limit": 1000,
@@ -1248,7 +1248,7 @@ Successful request. The result is a JSON representation of the updated Stock Adj
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7cfff21a-533b-11e6-8a84-bae50000001f/positions",
-       "type": "enteritem",
+       "type": "enterposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -1305,7 +1305,7 @@ Successful request. The result is a JSON representation of a list of items of a 
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions",
-     "type": "enteritem",
+     "type": "enterposition",
      "mediaType": "application/json",
      "size": 5,
      "limit": 1000,
@@ -1315,7 +1315,7 @@ Successful request. The result is a JSON representation of a list of items of a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/2e12e9aa-5338-11e6-8a84-bae50000008f",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json"
        },
        "id": "2e12e9aa-5338-11e6-8a84-bae50000008f",
@@ -1335,7 +1335,7 @@ Successful request. The result is a JSON representation of a list of items of a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/2e12f062-5338-11e6-8a84-bae500000090",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json"
        },
        "id": "2e12f062-5338-11e6-8a84-bae500000090",
@@ -1357,7 +1357,7 @@ Successful request. The result is a JSON representation of a list of items of a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/2e12f5d2-5338-11e6-8a84-bae500000091",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json"
        },
        "id": "2e12f5d2-5338-11e6-8a84-bae500000091",
@@ -1378,7 +1378,7 @@ Successful request. The result is a JSON representation of a list of items of a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/2e12fb31-5338-11e6-8a84-bae500000092",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json"
        },
        "id": "2e12fb31-5338-11e6-8a84-bae500000092",
@@ -1399,7 +1399,7 @@ Successful request. The result is a JSON representation of a list of items of a 
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/2e1300c8-5338-11e6-8a84-bae500000093",
-         "type": "enteritem",
+         "type": "enterposition",
          "mediaType": "application/json"
        },
        "id": "2e1300c8-5338-11e6-8a84-bae500000093",
@@ -1485,7 +1485,7 @@ Successful request. The result is a JSON representation of the created item of a
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7ffb0be4-5339-11e6-8a84-bae500000016",
-       "type": "enteritem",
+       "type": "enterposition",
        "mediaType": "application/json"
      },
      "id": "7ffb0be4-5339-11e6-8a84-bae500000016",
@@ -1507,7 +1507,7 @@ Successful request. The result is a JSON representation of the created item of a
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7ffb1271-5339-11e6-8a84-bae500000017",
-       "type": "enteritem",
+       "type": "enterposition",
        "mediaType": "application/json"
      },
      "id": "7ffb1271-5339-11e6-8a84-bae500000017",
@@ -1555,7 +1555,7 @@ Successful request. The result is a JSON representation of a single Stock Adjust
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "enteritem",
+     "type": "enterposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
@@ -1616,7 +1616,7 @@ Successful request. The result is a JSON representation of the updated Stock Adj
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "enteritem",
+     "type": "enterposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",

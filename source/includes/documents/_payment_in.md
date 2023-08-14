@@ -101,7 +101,7 @@ Successful request. The result is a JSON representation of the list of Incoming 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-     "type": "payment",
+     "type": "paymentin",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -112,7 +112,7 @@ Successful request. The result is a JSON representation of the list of Incoming 
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/ad1ffc02-3f8e-11e6-8a84-bae5000000fa",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-         "type": "payment",
+         "type": "paymentin",
          "mediaType": "application/json"
        },
        "id": "ad1ffc02-3f8e-11e6-8a84-bae5000000fa",
@@ -226,7 +226,7 @@ Successful request. The result is a JSON representation of the list of Incoming 
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/d57389cb-3d3e-11e6-8a84-bae500000001",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-         "type": "payment",
+         "type": "paymentin",
          "mediaType": "application/json"
        },
        "id": "d57389cb-3d3e-11e6-8a84-bae500000001",
@@ -361,7 +361,7 @@ Successful request. The result is a JSON representation of the generated Incomin
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/85cf9c48-3f92-11e6-8a84-bae500000096",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-     "type": "payment",
+     "type": "paymentin",
      "mediaType": "application/json"
    },
    "id": "85cf9c48-3f92-11e6-8a84-bae500000096",
@@ -471,7 +471,7 @@ Updated Incoming payments must contain the identifier in the form of metadata.
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/85cf9c48-3f92-11e6-8a84-bae500000096",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-                 "type": "payment",
+                 "type": "paymentin",
                  "mediaType": "application/json"
                },
                "name": "333444",
@@ -496,7 +496,7 @@ Successful request. The result is a JSON array of representations of the created
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/85cf9c48-3f92-11e6-8a84-bae500000096",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-       "type": "payment",
+       "type": "paymentin",
        "mediaType": "application/json"
      },
      "id": "85cf9c48-3f92-11e6-8a84-bae500000096",
@@ -571,7 +571,7 @@ Successful request. The result is a JSON array of representations of the created
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/85cf9c48-3f92-11e6-8a84-bae500000096",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-       "type": "payment",
+       "type": "paymentin",
        "mediaType": "application/json"
      },
      "id": "85cf9c48-3f92-11e6-8a84-bae500000096",
@@ -685,13 +685,13 @@ In the body of the request, you need to pass an array containing the JSON metada
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/7944ef04-f831-11e5-7a69-971500188b1",
                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-                "type": "payment",
+                "type": "paymentin",
                 "mediaType": "application/json"
             },
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/7944ef04-f831-11e5-7a69-971500188b2",
                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-                "type": "payment",
+                "type": "paymentin",
                 "mediaType": "application/json"
             }
         ]'
@@ -1344,7 +1344,7 @@ Successful request. The result is a JSON representation of the Incoming payment.
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/ad1ffc02-3f8e-11e6-8a84-bae5000000fa",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-     "type": "payment",
+     "type": "paymentin",
      "mediaType": "application/json"
    },
    "id": "ad1ffc02-3f8e-11e6-8a84-bae5000000fa",
@@ -1491,7 +1491,7 @@ Successful request. The result is a JSON representation of the updated Incoming 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/85cf9c48-3f92-11e6-8a84-bae500000096",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-     "type": "payment",
+     "type": "paymentin",
      "mediaType": "application/json"
    },
    "id": "85cf9c48-3f92-11e6-8a84-bae500000096",

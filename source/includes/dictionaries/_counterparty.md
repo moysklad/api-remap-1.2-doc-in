@@ -577,7 +577,8 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "meta":{
              "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-             "type":"country","mediaType":"application/json"
+             "type":"country",
+             "mediaType":"application/json"
            }
          },
          "region":{

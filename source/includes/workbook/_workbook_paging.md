@@ -155,7 +155,7 @@ curl -X GET -u login:password -H "Lognex-Pretty-Print-JSON: true" "https://app.k
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/paymentin/58ba7a7f-b0e7-11ea-ac12-000d00000131",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/paymentin/metadata",
-             "type": "payment",
+             "type": "paymentin",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#paymentin/edit?id=58ba7a7f-b0e7-11ea-ac12-000d00000131"
            },

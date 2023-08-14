@@ -106,7 +106,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
    },"meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-     "type": "internalOrder",
+     "type": "internalorder",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -117,7 +117,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-         "type": "internalOrder",
+         "type": "internalorder",
          "mediaType": "application/json"
        },
        "id": "31d58bde-b2fd-11e6-8a84-bae500000068",
@@ -193,7 +193,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068/positions",
-           "type": "internalOrderPosition",
+           "type": "internalorderposition",
            "mediaType": "application/json",
            "size": 2,
            "limit": 1000,
@@ -209,7 +209,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/64e426af-b0d8-11e6-8a84-bae500000064",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/internalorder/metadata",
-         "type": "internalOrder",
+         "type": "internalorder",
          "mediaType": "application/json"
        },
        "id": "64e426af-b0d8-11e6-8a84-bae500000064",
@@ -276,7 +276,7 @@ Successful request. The result is a JSON representation of a list of Internal Or
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/64e426af-b0d8-11e6-8a84-bae500000064/positions",
-           "type": "internalOrderPosition",
+           "type": "internalorderposition",
            "mediaType": "application/json",
            "size": 5,
            "limit": 1000,
@@ -1061,7 +1061,7 @@ In the body of the request, you need to pass an array containing the JSON metada
                 }
             }
         ]'
-        ```
+```
 
 > Successful request. The result is JSON information about deleting Internal Orders.
 
@@ -1444,7 +1444,8 @@ Successful request. The result is a JSON representation of the updated Internal 
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a","metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
