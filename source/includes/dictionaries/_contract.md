@@ -486,7 +486,7 @@ Successful request. The result is a JSON representation of the created Contract.
              "code": "contractWithPartner",
              "externalCode": "extC12fd12a",
              "moment": "2016-07-06 12:53:22",
-             sum: 200000
+             "sum": 200000
              "contractType": "Sales",
              "ownAgent": {
                "meta": {
@@ -496,7 +496,7 @@ Successful request. The result is a JSON representation of the created Contract.
                  "mediaType": "application/json"
                }
              },
-             agent: {
+             "agent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/2e6aa620-2c98-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -993,10 +993,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'contract' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'contract' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'contract' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 deleted successfully"
+     "info":"Entity 'contract' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```

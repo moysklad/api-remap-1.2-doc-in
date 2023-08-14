@@ -6,24 +6,24 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 ### Indicators of counterparties
 #### Indicator attributes
 
-| Title | Type | Filtration | Description |
-| ----- | --------- | ------ | ------ |
-| **averageReceipt** | float | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
-| **balance** | float | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
-| **bonusbalance** | float | | Points<br>`+Required when answering` |
-| **counterparty** | object | | Counterparty. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **demandsCount** | int | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when answering` |
-| **demandssum** | float | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when answering` |
-| **discountSum** | float | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |
+| Title               | Type | Filtration | Description |
+|---------------------| --------- | ------ | ------ |
+| **averageReceipt**  | float | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
+| **balance**         | float | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
+| **bonusBalance**    | float | | Points<br>`+Required when answering` |
+| **counterparty**    | object | | Counterparty. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **demandsCount**    | int | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when answering` |
+| **demandsSum**      | float | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when answering` |
+| **discountSum**     | float | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |
 | **firstDemandDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Date of first sale<br>`+Required when replying` |
-| **lastDemandDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Date of last sale<br>`+Required when replying` |
-| **lastEventDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last event date<br>`+Required when replying` |
-| **lastEventText** | String(255) | `=` `!=` `~` `~=` `=~` | Last event text<br>`+Required when replying` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Report for this counterparty<br>`+Required when replying` |
-| **profit** | float | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when answering` |
-| **returnsCount** | int | `=` `!=` `<` `>` `<=` `>=` | Number of returns<br>`+Required when replying` |
-| **returnsSum** | float | `=` `!=` `<` `>` `<=` `>=` | Refund amount<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last change of the counterparty<br>`+Required when replying` |
+| **lastDemandDate**  | datetime | `=` `!=` `<` `>` `<=` `>=` | Date of last sale<br>`+Required when replying` |
+| **lastEventDate**   | datetime | `=` `!=` `<` `>` `<=` `>=` | Last event date<br>`+Required when replying` |
+| **lastEventText**   | String(255) | `=` `!=` `~` `~=` `=~` | Last event text<br>`+Required when replying` |
+| **meta**            | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Report for this counterparty<br>`+Required when replying` |
+| **profit**          | float | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when answering` |
+| **returnsCount**    | int | `=` `!=` `<` `>` `<=` `>=` | Number of returns<br>`+Required when replying` |
+| **returnsSum**      | float | `=` `!=` `<` `>` `<=` `>=` | Refund amount<br>`+Required when replying` |
+| **updated**         | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last change of the counterparty<br>`+Required when replying` |
 
 ### Additional attributes available for filtering
 
@@ -94,7 +94,7 @@ Successful request. The result is a JSON representation of a report on counterpa
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
      "size": 5,
      "limit": 1000,
@@ -104,14 +104,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "b80ea81b-7058-11e6-8a84-bae500000000",
@@ -136,14 +136,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "df2fdd2d-6934-11e6-8a84-bae500000049",
@@ -168,14 +168,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "12c9ebcf-692c-11e6-8a84-bae50000005d",
@@ -201,14 +201,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "12a8e347-692c-11e6-8a84-bae500000055",
@@ -235,14 +235,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "12a8b923-692c-11e6-8a84-bae500000053",
@@ -295,7 +295,7 @@ The result of a successful request is a JSON representation of the list of repor
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                     "type": "counter party",
+                     "type": "counterparty",
                      "mediaType": "application/json"
                    }
                  }
@@ -305,7 +305,7 @@ The result of a successful request is a JSON representation of the list of repor
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                     "type": "counter party",
+                     "type": "counterparty",
                      "mediaType": "application/json"
                    }
                  }
@@ -331,7 +331,7 @@ Successful request. The result is a JSON representation of a report on counterpa
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -341,7 +341,7 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=49b40d55-66cc-11e7-6adb-ede500000054"
        },
@@ -349,7 +349,7 @@ Successful request. The result is a JSON representation of a report on counterpa
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=49b40d55-66cc-11e7-6adb-ede500000054"
          },
@@ -376,7 +376,7 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=37e4efe0-6ade-11e7-6adb-ede50000001a"
        },
@@ -384,7 +384,7 @@ Successful request. The result is a JSON representation of a report on counterpa
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=37e4efe0-6ade-11e7-6adb-ede50000001a"
          },
@@ -437,14 +437,14 @@ Successful request. The result is a JSON representation of a report on a counter
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "counterparty": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      },
      "id": "df2fdd2d-6934-11e6-8a84-bae500000049",

@@ -94,16 +94,16 @@ Successful request. The result is a JSON representation of the list of Inventory
    "context": {
      "employee": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory",
-     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
      "type": "inventory",
      "mediaType": "application/json",
      "size": 2,
@@ -113,8 +113,8 @@ Successful request. The result is a JSON representation of the list of Inventory
    "rows": [
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7ee45d2d-ad65-11e6-8a84-bc52000000db",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7ee45d2d-ad65-11e6-8a84-bc52000000db",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
          "type": "inventory",
          "mediaType": "application/json"
        },
@@ -122,8 +122,8 @@ Successful request. The result is a JSON representation of the list of Inventory
        "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
        "owner": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -131,8 +131,8 @@ Successful request. The result is a JSON representation of the list of Inventory
        "shared": false,
        "group": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -146,24 +146,24 @@ Successful request. The result is a JSON representation of the list of Inventory
        "published": true,
        "store": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
            "type": "store",
            "mediaType": "application/json"
          }
        },
        "organization": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json"
          }
        },
        "positions": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7ee45d2d-ad65-11e6-8a84-bc52000000db/positions",
-           "type": "inventory position",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7ee45d2d-ad65-11e6-8a84-bc52000000db/positions",
+           "type": "inventoryposition",
            "mediaType": "application/json",
            "size": 1,
            "limit": 1000,
@@ -173,8 +173,8 @@ Successful request. The result is a JSON representation of the list of Inventory
      },
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/8c3e615a-ad65-11e6-8a84-bc52000000df",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8c3e615a-ad65-11e6-8a84-bc52000000df",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
          "type": "inventory",
          "mediaType": "application/json"
        },
@@ -182,8 +182,8 @@ Successful request. The result is a JSON representation of the list of Inventory
        "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
        "owner": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -191,8 +191,8 @@ Successful request. The result is a JSON representation of the list of Inventory
        "shared": false,
        "group": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -204,24 +204,24 @@ Successful request. The result is a JSON representation of the list of Inventory
        "sum": 1020000,
        "store": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
            "type": "store",
            "mediaType": "application/json"
          }
        },
        "organization": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json"
          }
        },
        "positions": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/8c3e615a-ad65-11e6-8a84-bc52000000df/positions",
-           "type": "inventory position",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8c3e615a-ad65-11e6-8a84-bc52000000df/positions",
+           "type": "inventoryposition",
            "mediaType": "application/json",
            "size": 2,
            "limit": 1000,
@@ -252,16 +252,16 @@ Mandatory fields to create:
        -d '{
             "store": {
                 "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json"
                 }
             },
             "organization": {
                 "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
                     "type": "organization",
                     "mediaType": "application/json"
                 }
@@ -275,8 +275,8 @@ Successful request. The result is a JSON representation of the generated Invento
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a",
-     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
      "type": "inventory",
      "mediaType": "application/json"
    },
@@ -284,8 +284,8 @@ Successful request. The result is a JSON representation of the generated Invento
    "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
    "owner": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -293,8 +293,8 @@ Successful request. The result is a JSON representation of the generated Invento
    "shared": false,
    "group": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -306,16 +306,16 @@ Successful request. The result is a JSON representation of the generated Invento
    "sum": 0,
    "store": {
      "meta": {
-       "href":"http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href":"https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -325,8 +325,8 @@ Successful request. The result is a JSON representation of the generated Invento
    "published": true,
    "positions": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a/positions",
-       "type": "inventory position",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a/positions",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -353,16 +353,16 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
             {
                 "store": {
                     "meta": {
-                        "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-                        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
                         "type": "store",
                         "mediaType": "application/json"
                     }
                 },
                 "organization": {
                     "meta": {
-                        "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-                        "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
                         "type": "organization",
                         "mediaType": "application/json"
                     }
@@ -370,8 +370,8 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
             },
             {
                 "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
                     "type": "inventory",
                     "mediaType": "application/json"
                 },
@@ -383,8 +383,8 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
                             "price": 5000.0,
                             "assortment": {
                                 "meta": {
-                                    "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-                                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+                                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                                     "type": "product",
                                     "mediaType": "application/json"
                                 }
@@ -398,8 +398,8 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
                             "price": 4000.0,
                             "assortment": {
                                 "meta": {
-                                    "href": "http://app.kladana.in/api/remap/1.2/entity/product/58948866-ad65-11e6-8a84-bc52000000cf",
-                                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/58948866-ad65-11e6-8a84-bc52000000cf",
+                                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                                     "type": "product",
                                     "mediaType": "application/json"
                                 }
@@ -421,8 +421,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
        "type": "inventory",
        "mediaType": "application/json"
      },
@@ -430,8 +430,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
      "owner": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -439,8 +439,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -452,16 +452,16 @@ Successful request. The result is a JSON array of representations of the created
      "sum": 0,
      "store": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
          "type": "store",
          "mediaType": "application/json"
        }
      },
      "organization": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json"
        }
@@ -471,8 +471,8 @@ Successful request. The result is a JSON array of representations of the created
      "published": true,
      "positions": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a/positions",
-         "type": "inventory position",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/8a2a5d07-ad6d-11e6-8a84-bc520000000a/positions",
+         "type": "inventoryposition",
          "mediaType": "application/json",
          "size": 0,
          "limit": 1000,
@@ -482,8 +482,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
        "type": "inventory",
        "mediaType": "application/json"
      },
@@ -491,8 +491,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
      "owner": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -500,8 +500,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -513,16 +513,16 @@ Successful request. The result is a JSON array of representations of the created
      "sum": 1020000,
      "store": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
          "type": "store",
          "mediaType": "application/json"
        }
      },
      "organization": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json"
        }
@@ -532,8 +532,8 @@ Successful request. The result is a JSON array of representations of the created
      "published": true,
      "positions": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-         "type": "inventory position",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
+         "type": "inventoryposition",
          "mediaType": "application/json",
          "size": 2,
          "limit": 1000,
@@ -598,10 +598,10 @@ In the body of the request, you need to pass an array containing JSON with metad
 ```json
 [
    {
-     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'inventory' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -634,13 +634,13 @@ Successful request. The result is a JSON representation of the Inventory Count m
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -651,7 +651,7 @@ Successful request. The result is a JSON representation of the Inventory Count m
      },
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dc230-ad6e-11e6-8a84-bc52000000ec",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dc230-ad6e-11e6-8a84-bc52000000ec",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -687,7 +687,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -718,8 +718,8 @@ Successful request. The result is a JSON representation of the prefilled write-o
 {
    "owner": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -727,8 +727,8 @@ Successful request. The result is a JSON representation of the prefilled write-o
    "shared": false,
    "group": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -737,16 +737,16 @@ Successful request. The result is a JSON representation of the prefilled write-o
    "sum": 0,
    "store": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -783,8 +783,8 @@ Successful request. The result is a JSON representation of the Inventory Count.
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
-     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
      "type": "inventory",
      "mediaType": "application/json"
    },
@@ -792,8 +792,8 @@ Successful request. The result is a JSON representation of the Inventory Count.
    "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
    "owner": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -801,8 +801,8 @@ Successful request. The result is a JSON representation of the Inventory Count.
    "shared": false,
    "group": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -816,24 +816,24 @@ Successful request. The result is a JSON representation of the Inventory Count.
    "published": true,
    "store": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "positions": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-       "type": "inventory position",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 1,
        "limit": 1000,
@@ -869,8 +869,8 @@ Request to update the Inventory Count with the specified ID.
                         "price": 5000.0,
                         "assortment": {
                             "meta": {
-                                "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-                                "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                                "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                                 "type": "product",
                                 "mediaType": "application/json"
                             }
@@ -884,8 +884,8 @@ Request to update the Inventory Count with the specified ID.
                         "price": 4000.0,
                         "assortment": {
                             "meta": {
-                                "href": "http://app.kladana.in/api/remap/1.2/entity/product/58948866-ad65-11e6-8a84-bc52000000cf",
-                                "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                                "href": "https://app.kladana.in/api/remap/1.2/entity/product/58948866-ad65-11e6-8a84-bc52000000cf",
+                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                                 "type": "product",
                                 "mediaType": "application/json"
                             }
@@ -905,8 +905,8 @@ Successful request. The result is a JSON representation of the updated Inventory
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
-     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
      "type": "inventory",
      "mediaType": "application/json"
    },
@@ -914,8 +914,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
    "owner": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -923,8 +923,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "shared": false,
    "group": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -936,16 +936,16 @@ Successful request. The result is a JSON representation of the updated Inventory
    "sum": 1020000,
    "store": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -955,8 +955,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "published": true,
    "positions": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-       "type": "inventory position",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 2,
        "limit": 1000,
@@ -976,16 +976,16 @@ Successful request. The result is a JSON representation of the updated Inventory
        -d '{
              store: {
                "meta": {
-                 "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-                 "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
                  "type": "store",
                  "mediaType": "application/json"
                }
              },
              organization: {
                "meta": {
-                 "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-                 "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
                  "type": "organization",
                  "mediaType": "application/json"
                }
@@ -993,7 +993,7 @@ Successful request. The result is a JSON representation of the updated Inventory
              "attributes": [
                {
                  "meta": {
-                   "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -1003,7 +1003,7 @@ Successful request. The result is a JSON representation of the updated Inventory
                },
                {
                  "meta": {
-                   "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dc230-ad6e-11e6-8a84-bc52000000ec",
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dc230-ad6e-11e6-8a84-bc52000000ec",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -1020,8 +1020,8 @@ Successful request. The result is a JSON representation of the updated Inventory
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
-     "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
      "type": "inventory",
      "mediaType": "application/json"
    },
@@ -1029,8 +1029,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
    "owner": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4b17cf2-99bb-11e6-8a84-bc520000002a",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1038,8 +1038,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "shared": false,
    "group": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/group/c3cff163-99bb-11e6-8a84-bc5200000002",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1051,16 +1051,16 @@ Successful request. The result is a JSON representation of the updated Inventory
    "sum": 1020000,
    "store": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/c4dee133-99bb-11e6-8a84-bc5200000051",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -1068,7 +1068,7 @@ Successful request. The result is a JSON representation of the updated Inventory
    "attributes": [
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dbb1b-ad6e-11e6-8a84-bc52000000eb",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1079,7 +1079,7 @@ Successful request. The result is a JSON representation of the updated Inventory
      },
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dc230-ad6e-11e6-8a84-bc52000000ec",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/1f7dc230-ad6e-11e6-8a84-bc52000000ec",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1094,8 +1094,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "published": true,
    "positions": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
-       "type": "inventory position",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
+       "type": "inventoryposition",
        "mediaType": "application/json",
        "size": 2,
        "limit": 1000,
@@ -1143,16 +1143,16 @@ Successful request. The result is a JSON representation of a list of items in a 
    "context": {
      "employee": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions",
-     "type": "inventory position",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions",
+     "type": "inventoryposition",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -1161,8 +1161,8 @@ Successful request. The result is a JSON representation of a list of items in a 
    "rows": [
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
-         "type": "inventory position",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
+         "type": "inventoryposition",
          "mediaType": "application/json"
        },
        "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1171,8 +1171,8 @@ Successful request. The result is a JSON representation of a list of items in a 
        "price": 5000.0,
        "assortment": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
@@ -1184,8 +1184,8 @@ Successful request. The result is a JSON representation of a list of items in a 
      },
      {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/20145d98-ad6f-11e6-8a84-bc5200000011",
-         "type": "inventory position",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/20145d98-ad6f-11e6-8a84-bc5200000011",
+         "type": "inventoryposition",
          "mediaType": "application/json"
        },
        "id": "20145d98-ad6f-11e6-8a84-bc5200000011",
@@ -1194,8 +1194,8 @@ Successful request. The result is a JSON representation of a list of items in a 
        "price": 4000.0,
        "assortment": {
          "meta": {
-           "href": "http://app.kladana.in/api/remap/1.2/entity/product/58948866-ad65-11e6-8a84-bc52000000cf",
-           "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://app.kladana.in/api/remap/1.2/entity/product/58948866-ad65-11e6-8a84-bc52000000cf",
+           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
@@ -1236,8 +1236,8 @@ will be added to the existing ones.
      -H "Content-Type: application/json"
        -d '{
             "meta": {
-                "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
-                "type": "inventory position",
+                "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
+                "type": "inventoryposition",
                 "mediaType": "application/json"
             },
             "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1246,8 +1246,8 @@ will be added to the existing ones.
             "price": 2000.0,
             "assortment": {
                 "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json"
                 }
@@ -1262,8 +1262,8 @@ Successful request. The result is a JSON representation of the created item of a
 [
    {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
-       "type": "inventory position",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/201452a2-ad6f-11e6-8a84-bc5200000010",
+       "type": "inventoryposition",
        "mediaType": "application/json"
      },
      "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1272,8 +1272,8 @@ Successful request. The result is a JSON representation of the created item of a
      "price": 2000.0,
      "assortment": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
@@ -1311,8 +1311,8 @@ Successful request. The result is a JSON representation of a single Inventory Co
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "inventory position",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+     "type": "inventoryposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
@@ -1321,8 +1321,8 @@ Successful request. The result is a JSON representation of a single Inventory Co
    "price": 5000.0,
    "assortment": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
        "type": "product",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
@@ -1354,8 +1354,8 @@ Request to update an individual Inventory Count item. There is no way to update 
      -H "Content-Type: application/json"
        -d '{
              "meta": {
-               "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-               "type": "inventory position",
+               "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+               "type": "inventoryposition",
                "mediaType": "application/json"
              },
              "id": "201452a2-ad6f-11e6-8a84-bc5200000010",
@@ -1364,8 +1364,8 @@ Request to update an individual Inventory Count item. There is no way to update 
              "price": 1000.0,
              "assortment": {
                "meta": {
-                 "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-                 "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                  "type": "product",
                  "mediaType": "application/json"
                }
@@ -1379,8 +1379,8 @@ Successful request. The result is a JSON representation of the updated Inventory
 ```json
 {
    "meta": {
-     "href": "http://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "inventory position",
+     "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+     "type": "inventoryposition",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b20",
@@ -1389,8 +1389,8 @@ Successful request. The result is a JSON representation of the updated Inventory
    "price": 1000.0,
    "assortment": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
        "type": "product",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"

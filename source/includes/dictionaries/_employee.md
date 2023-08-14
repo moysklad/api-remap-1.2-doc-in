@@ -136,7 +136,7 @@ Successful request. The result is a JSON representation of the list of Employees
        "lastName": "Administrator",
        "fullName": "Administrator",
        "shortFio": "Administrator",
-       "retail store": {
+       "retailStore": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -365,7 +365,7 @@ curl -X POST
      "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -487,11 +487,11 @@ Successful request. The result is a JSON representation of the Employee.
    "fullName": "Administrator",
    "shortFio": "Administrator",
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
          "type": "admin",
          "mediaType": "application/json"
        },
-   "retail store": {
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -675,7 +675,7 @@ Successful request. The result is a JSON representation of the updated Employee.
    "lastName": "Moyskladkin",
    "fullName": "Pyotr Ivanovich Moiskkin",
    "shortFio": "Moyskladkin P.I.",
-     "retail store": {
+     "retailStore": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -870,7 +870,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **salesReturn** | OPERATION | All ALL | Sales Return |
 | **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
-| **wom** | base | All ALL | Units of measure |
+| **uom* | base | All ALL | Units of measure |
 | **warehouse** | base | All ALL | Warehouses |
 
 For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`

@@ -702,10 +702,10 @@ In the body of the request, you need to pass an array containing the JSON metada
 ```json
 [
    {
-     "info":"Entity 'paymentin' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'paymentin' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'paymentin' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'paymentin' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -903,7 +903,7 @@ As a result of the request, a pre-filled incoming payment template will be creat
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-                   "type": "customer order",
+                   "type": "customerorder",
                    "mediaType": "application/json"
                  }
                }
@@ -967,7 +967,7 @@ Successful request. The result is a JSON representation of the prefilled incomin
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-         "type": "customer order",
+         "type": "customerorder",
          "mediaType": "application/json"
        },
        "linkedSum": 0
@@ -989,7 +989,7 @@ Successful request. The result is a JSON representation of the prefilled incomin
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/4f5e259b-961a-11e6-8a84-bae500000066",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata",
-                   "type": "purchase return",
+                   "type": "purchasereturn",
                    "mediaType": "application/json"
                  }
                }
@@ -1053,7 +1053,7 @@ Successful request. The result is a JSON representation of the prefilled incomin
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/4f5e259b-961a-11e6-8a84-bae500000066",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata",
-         "type": "purchase return",
+         "type": "purchasereturn",
          "mediaType": "application/json"
        },
        "linkedSum": 0
@@ -1311,7 +1311,7 @@ Successful request. The result is a JSON representation of the prefilled incomin
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/commissionreportin/fe44fe4f-b320-11e6-8a84-bae500000092",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/commissionreportin/metadata",
-         "type": "commission report",
+         "type": "commissionreportin",
          "mediaType": "application/json"
        },
        "linkedSum": 10350000

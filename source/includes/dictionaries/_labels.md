@@ -21,7 +21,7 @@ Request for printing labels and price tags according to the template of the prin
 | ---------|----------------------------------------------------| ----------|
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when replying` |
 | **count** | Int                                                | Number of price tags / thermal labels. Maximum number - `1000`<br>`+Required when replying` |
-| **saleprice** | Object                                             | Selling price. [More details here](../dictionaries/#entities-pechat-atiketok-i-cennikow-zapros-na-pechat-atiketok-i-cennikow-atributy-zaprosa-cena-prodazhi)<br>`+Required when answering` |
+| **salePrice** | Object                                             | Selling price. [More details here](../dictionaries/#entities-pechat-atiketok-i-cennikow-zapros-na-pechat-atiketok-i-cennikow-atributy-zaprosa-cena-prodazhi)<br>`+Required when answering` |
 | **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required in response` `+Expand` |
 
 #### Selling price

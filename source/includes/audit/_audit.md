@@ -154,7 +154,7 @@ Successful request. The result is a JSON representation of the list of Changes.
 | --------- | ----------|
 | **filter** | `string` (optional) *Example: filter=entityType=customerorder* filter by entity type |
 
-Example of a query with context filtering by "sales order" type
+Example of a query with context filtering by "customerorder" type
 https://app.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder
 
 > Get Contexts with filtering

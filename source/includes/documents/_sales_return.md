@@ -130,7 +130,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-     "type": "sales return",
+     "type": "salesreturn",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -141,7 +141,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/90f337d1-3f80-11e6-8a84-bae5000000ac",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-         "type": "sales return",
+         "type": "salesreturn",
          "mediaType": "application/json"
        },
        "id": "90f337d1-3f80-11e6-8a84-bae5000000ac",
@@ -201,7 +201,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -217,7 +217,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/90f337d1-3f80-11e6-8a84-bae5000000ac/positions",
-           "type": "sales return position",
+           "type": "salesreturnposition",
            "mediaType": "application/json",
            "size": 6,
            "limit": 1000,
@@ -238,7 +238,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-         "type": "sales return",
+         "type": "salesreturn",
          "mediaType": "application/json"
        },
        "id": "9b83cb6b-3f80-11e6-8a84-bae5000000bb",
@@ -298,7 +298,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -319,7 +319,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
        "salesChannel": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-           "type": "sales channel",
+           "type": "saleschannel",
            "mediaType": "application/json"
          }
        },
@@ -328,7 +328,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
        "positions": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/9b83cb6b-3f80-11e6-8a84-bae5000000bb/positions",
-           "type": "sales return position",
+           "type": "salesreturnposition",
            "mediaType": "application/json",
            "size": 1,
            "limit": 1000,
@@ -392,7 +392,7 @@ When creating a return:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -457,7 +457,7 @@ Successful request. The result is a JSON representation of the generated Sales R
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-     "type": "sales return",
+     "type": "salesreturn",
      "mediaType": "application/json"
    },
    "id": "a8b8e1e3-3f85-11e6-8a84-bae50000008d",
@@ -517,7 +517,7 @@ Successful request. The result is a JSON representation of the generated Sales R
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -567,7 +567,7 @@ Successful request. The result is a JSON representation of the generated Sales R
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d/positions",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json",
        "size": 1,
        "limit": 1000,
@@ -615,11 +615,11 @@ Updated Sales Returns must contain the ID as metadata.
                    "mediaType": "application/json"
                  }
                },
-               agent: {
+               "agent": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                  }
                },
@@ -678,7 +678,7 @@ Updated Sales Returns must contain the ID as metadata.
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-                 "type": "sales return",
+                 "type": "salesreturn",
                  "mediaType": "application/json"
                },
                "updated": "2016-07-01 15:16:37",
@@ -718,7 +718,7 @@ Successful request. The result is a JSON array of representations of the generat
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-       "type": "sales return",
+       "type": "salesreturn",
        "mediaType": "application/json"
      },
      "id": "a8b8e1e3-3f85-11e6-8a84-bae50000008d",
@@ -778,7 +778,7 @@ Successful request. The result is a JSON array of representations of the generat
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -828,7 +828,7 @@ Successful request. The result is a JSON array of representations of the generat
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d/positions",
-         "type": "sales return position",
+         "type": "salesreturnposition",
          "mediaType": "application/json",
          "size": 1,
          "limit": 1000,
@@ -849,7 +849,7 @@ Successful request. The result is a JSON array of representations of the generat
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-       "type": "sales return",
+       "type": "salesreturn",
        "mediaType": "application/json"
      },
      "id": "a8b8e1e3-3f85-11e6-8a84-bae50000008d",
@@ -909,7 +909,7 @@ Successful request. The result is a JSON array of representations of the generat
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -937,7 +937,7 @@ Successful request. The result is a JSON array of representations of the generat
      "salesChannel": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-         "type": "sales channel",
+         "type": "saleschannel",
          "mediaType": "application/json"
        }
      },
@@ -973,7 +973,7 @@ Successful request. The result is a JSON array of representations of the generat
      "positions": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d/positions",
-         "type": "sales return position",
+         "type": "salesreturnposition",
          "mediaType": "application/json",
          "size": 1,
          "limit": 1000,
@@ -1029,7 +1029,7 @@ curl -X POST
         "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b1",
             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-            "type": "sales return",
+            "type": "salesreturn",
             "mediaType": "application/json"
         }
     },
@@ -1037,7 +1037,7 @@ curl -X POST
         "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b2",
             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-            "type": "sales return",
+            "type": "salesreturn",
             "mediaType": "application/json"
         }
     }
@@ -1123,7 +1123,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Open",
        "color": 10066329,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1136,7 +1136,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Completed",
        "color": 15280409,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1149,7 +1149,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Partially Done",
        "color": 15106326,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1162,7 +1162,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "On clearance",
        "color": 34617,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      },
      {
        "meta": {
@@ -1175,7 +1175,7 @@ Successful request. The result is a JSON representation of the additional Sales 
        "name": "Designed",
        "color": 9245744,
        "stateType": "Regular",
-       "entityType": "sales return"
+       "entityType": "salesreturn"
      }
    ],
    "createShared": false
@@ -1259,7 +1259,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -1319,7 +1319,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1352,7 +1352,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -1400,7 +1400,7 @@ Successful request. The result is a JSON representation of the Sales Return with
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/90f337d1-3f80-11e6-8a84-bae5000000ac",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-     "type": "sales return",
+     "type": "salesreturn",
      "mediaType": "application/json"
    },
    "id": "90f337d1-3f80-11e6-8a84-bae5000000ac",
@@ -1458,7 +1458,7 @@ Successful request. The result is a JSON representation of the Sales Return with
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1472,7 +1472,7 @@ Successful request. The result is a JSON representation of the Sales Return with
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    },
@@ -1481,7 +1481,7 @@ Successful request. The result is a JSON representation of the Sales Return with
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/90f337d1-3f80-11e6-8a84-bae5000000ac/positions",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json",
        "size": 6,
        "limit": 1000,
@@ -1555,7 +1555,7 @@ When updating return:
              "positions": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d/positions",
-                 "type": "sales return position",
+                 "type": "salesreturnposition",
                  "mediaType": "application/json",
                  "size": 1,
                  "limit": 1000,
@@ -1573,7 +1573,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
-     "type": "sales return",
+     "type": "salesreturn",
      "mediaType": "application/json"
    },
    "id": "a8b8e1e3-3f85-11e6-8a84-bae50000008d",
@@ -1633,7 +1633,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1661,7 +1661,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    },
@@ -1697,7 +1697,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
    "positions": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/a8b8e1e3-3f85-11e6-8a84-bae50000008d/positions",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json",
        "size": 1,
        "limit": 1000,
@@ -1763,7 +1763,7 @@ Successful request. The result is a JSON representation of the Sales Return item
   },
   "meta": {
     "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions",
-    "type": "sales return position",
+    "type": "salesreturnposition",
     "mediaType": "application/json",
     "size": 6,
     "limit": 1000,
@@ -1773,7 +1773,7 @@ Successful request. The result is a JSON representation of the Sales Return item
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f3f201-3f80-11e6-8a84-bae5000000ad",
-        "type": "sales return position",
+        "type": "salesreturnposition",
         "mediaType": "application/json"
       },
       "id": "90f3f201-3f80-11e6-8a84-bae5000000ad",
@@ -1796,7 +1796,7 @@ Successful request. The result is a JSON representation of the Sales Return item
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f3fc5f-3f80-11e6-8a84-bae5000000ae",
-        "type": "sales return position",
+        "type": "salesreturnposition",
         "mediaType": "application/json"
       },
       "id": "90f3fc5f-3f80-11e6-8a84-bae5000000ae",
@@ -1820,7 +1820,7 @@ Successful request. The result is a JSON representation of the Sales Return item
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f41291-3f80-11e6-8a84-bae5000000af",
-        "type": "sales return position",
+        "type": "salesreturnposition",
         "mediaType": "application/json"
       },
       "id": "90f41291-3f80-11e6-8a84-bae5000000af",
@@ -1844,7 +1844,7 @@ Successful request. The result is a JSON representation of the Sales Return item
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f41a94-3f80-11e6-8a84-bae5000000b0",
-        "type": "sales return position",
+        "type": "salesreturnposition",
         "mediaType": "application/json"
       },
       "id": "90f41a94-3f80-11e6-8a84-bae5000000b0",
@@ -1867,7 +1867,7 @@ Successful request. The result is a JSON representation of the Sales Return item
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f4218b-3f80-11e6-8a84-bae5000000b1",
-        "type": "sales return position",
+        "type": "salesreturnposition",
         "mediaType": "application/json"
       },
       "id": "90f4218b-3f80-11e6-8a84-bae5000000b1",
@@ -1891,7 +1891,7 @@ Successful request. The result is a JSON representation of the Sales Return item
     {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/90f427d1-3f80-11e6-8a84-bae5000000b2",
-        "type": "sales return position",
+        "type": "salesreturnposition",
         "mediaType": "application/json"
       },
       "id": "90f427d1-3f80-11e6-8a84-bae5000000b2",
@@ -2046,7 +2046,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/ea8f2771-3f82-11e6-8a84-bae50000007f",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json"
      },
      "id": "ea8f2771-3f82-11e6-8a84-bae50000007f",
@@ -2070,7 +2070,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/ea8f2f2e-3f82-11e6-8a84-bae500000080",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json"
      },
      "id": "ea8f2f2e-3f82-11e6-8a84-bae500000080",
@@ -2094,7 +2094,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/ea8f35ca-3f82-11e6-8a84-bae500000081",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json"
      },
      "id": "ea8f35ca-3f82-11e6-8a84-bae500000081",
@@ -2118,7 +2118,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/ea8f3bce-3f82-11e6-8a84-bae500000082",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json"
      },
      "id": "ea8f3bce-3f82-11e6-8a84-bae500000082",
@@ -2142,7 +2142,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/ea8f41a9-3f82-11e6-8a84-bae500000083",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json"
      },
      "id": "ea8f41a9-3f82-11e6-8a84-bae500000083",
@@ -2166,7 +2166,7 @@ Successful request. The result is a JSON representation of the created items.
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/ea8f477b-3f82-11e6-8a84-bae500000084",
-       "type": "sales return position",
+       "type": "salesreturnposition",
        "mediaType": "application/json"
      },
      "id": "ea8f477b-3f82-11e6-8a84-bae500000084",
@@ -2216,7 +2216,7 @@ Successful request. The result is a JSON representation of a single Sales Return
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006",
-     "type": "sales return position",
+     "type": "salesreturnposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006",
@@ -2283,7 +2283,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "type": "sales return position",
+     "type": "salesreturnposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",

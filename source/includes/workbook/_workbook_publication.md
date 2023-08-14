@@ -211,7 +211,7 @@ curl
      },
      "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication",
-         "type": "demand",
+         "type": "customerorder",
          "mediaType": "application/json",
          "size": 1,
          "limit": 100,
@@ -249,7 +249,7 @@ curl
      -u login:password
      -H "Content-Type: application/json"
      -H "Lognex-Pretty-Print-JSON: true"
-     ""https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication/aec51463-bbd2-11e6-8a84-bae500000003"
+     "https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication/aec51463-bbd2-11e6-8a84-bae500000003"
 ```
 
 

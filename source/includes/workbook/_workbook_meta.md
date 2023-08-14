@@ -47,7 +47,7 @@ curl -X GET
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
    },
@@ -129,7 +129,7 @@ First, the object itself is described, indicating the type of object, links in t
   "meta": {
     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d92bcdc1-b0e2-11ea-ac12-000d00000073",
     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-    "type": "counter party",
+    "type": "counterparty",
     "mediaType": "application/json",
     "uuidHref": "https://app.kladana.in/app/#company/edit?id=d92bcdc1-b0e2-11ea-ac12-000d00000073"
   }
@@ -323,7 +323,7 @@ In response, we will receive a new set that contains the specified product
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 0.0,
      "currency": {
        "meta": {
@@ -453,7 +453,7 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 0.0,
      "currency": {
        "meta": {
@@ -489,7 +489,7 @@ In the response, you can see that the unit of measure, the `uom` field, has chan
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 0.0,
      "currency": {
        "meta": {
@@ -606,7 +606,8 @@ curl -X GET
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
                  "type": "employee",
-                 "mediaType": "application/json"}
+                 "mediaType": "application/json"
+             }
          }
      },
      "meta": {

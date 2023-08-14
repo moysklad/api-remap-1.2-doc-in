@@ -81,7 +81,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerOrder/metadata","type": "sales order",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerOrder/metadata",
+         "type": "customerorder",
          "mediaType": "application/json"
        },
        "positions": [

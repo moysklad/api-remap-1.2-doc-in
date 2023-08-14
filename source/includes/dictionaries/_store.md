@@ -937,10 +937,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'store' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'store' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'store' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'store' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -2075,10 +2075,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'slot' with UUID: 9177a566-75f8-11ed-ac1a-000d00000000 deleted successfully"
+     "info":"Entity 'slot' with UUID: 9177a566-75f8-11ed-ac1a-000d00000000 successfully deleted"
    },
    {
-     "info":"Entity 'slot' with UUID: 7d479c5f-75f9-11ed-ac1a-000d00000003 deleted successfully"
+     "info":"Entity 'slot' with UUID: 7d479c5f-75f9-11ed-ac1a-000d00000003 successfully deleted"
    }
 ]
 ```

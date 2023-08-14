@@ -79,7 +79,7 @@ The Receiving item object contains the following fields:
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
-| **tracking codes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-priemki-kody-markirowki-towarow-i-transportnyh-upakowok) |
+| **trackingCodes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-priemki-kody-markirowki-towarow-i-transportnyh-upakowok) |
 | **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-stock-adjustment-oprihodowaniq-nakladnye-rashody). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
 | **vat** | Boolean | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
@@ -108,7 +108,7 @@ Supported as a hierarchical JSON structure.
 | -------- | --------|------ |
 | **cis** | string | Marking code value<br>`+Required when replying` `+Required when creating` |
 | **type** | Enum | Marking code type. Possible values: `trackingcode`, `consumerpack`, `transportpack`<br>`+Required when replying` `+Required when creating` |
-| **tracking codes** | Array(Object) | An array of nested marking codes. Can only be present if **type** is `consumerpack` or `transportpack` |
+| **trackingCodes** | Array(Object) | An array of nested marking codes. Can only be present if **type** is `consumerpack` or `transportpack` |
 
 The code value is specified in the **cis** attribute.
 For each code, the **type** type is specified: `trackingcode` (product labeling code), `consumerpack` (consumer package labeling code) or `transportpack` (shipping packaging code).
@@ -246,7 +246,7 @@ Successful request. The result is a JSON representation of the list of Receiving
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf44002-2e58-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -336,7 +336,7 @@ Successful request. The result is a JSON representation of the list of Receiving
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf44002-2e58-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -425,7 +425,7 @@ Successful request. The result is a JSON representation of the list of Receiving
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf44002-2e58-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -503,7 +503,7 @@ Mandatory fields to create:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -595,7 +595,7 @@ Successful request. The result is a JSON representation of the generated Receivi
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -679,7 +679,7 @@ Successful request. The result is a JSON representation of the generated Receivi
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -797,7 +797,7 @@ Successful request. The result is a JSON representation of the generated Receivi
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -917,7 +917,7 @@ Successful request. The result is a JSON representation of the generated Receivi
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -993,18 +993,18 @@ Successful request. The result is a JSON representation of the generated Receivi
                             "mediaType": "application/json"
                         }
                     },
-                    "tracking codes": [
+                    "trackingCodes": [
                         {
                             "cis": "012345678912345672",
                             "type": "transportpack",
-                            "tracking codes": [
+                            "trackingCodes": [
                                 {
                                     "cis": "010463003759026521uHpIIf2111111",
-                                    "type": "tracking code"
+                                    "type": "trackingcode"
                                 },
                                 {
                                     "cis": "010463003759026521uHpIIf2111114",
-                                    "type": "tracking code"
+                                    "type": "trackingcode"
                                 }
                             ]
                         }
@@ -1083,7 +1083,7 @@ Successful request. The result is a JSON representation of the generated Receivi
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1213,7 +1213,7 @@ Updated Receivings must contain the identifier in the form of metadata.
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                  }
                },
@@ -1273,7 +1273,7 @@ Updated Receivings must contain the identifier in the form of metadata.
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                  }
                },
@@ -1415,7 +1415,7 @@ Successful request. The result is a JSON array of representations of the generat
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1523,7 +1523,7 @@ Successful request. The result is a JSON array of representations of the generat
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1821,11 +1821,11 @@ Request to receive a pre-filled Receiving based on a vendor order. As a result o
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "purchase Order": {
+             "purchaseOrder": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/22b4caaa-3f74-11e6-8a84-bae500000069",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",
-                 "type": "purchase order",
+                 "type": "purchaseorder",
                  "mediaType": "application/json"
                }
              }
@@ -1909,7 +1909,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/invoicein/dbf1e704-cf7b-11e7-6a80-332a00000000",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoicein/metadata",
-         "type": "invoice",
+         "type": "invoicein",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#invoicein/edit?id=dbf1e704-cf7b-11e7-6a80-332a00000000"
        }
@@ -1919,7 +1919,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/22b4caaa-3f74-11e6-8a84-bae500000069",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",
-       "type": "purchase order",
+       "type": "purchaseorder",
        "mediaType": "application/json"
      }
    }
@@ -1939,7 +1939,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/invoicein/dbf1e704-cf7b-11e7-6a80-332a00000000",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoicein/metadata",
-                   "type": "invoice",
+                   "type": "invoicein",
                    "mediaType": "application/json",
                    "uuidHref": "https://app.kladana.in/app/#invoicein/edit?id=dbf1e704-cf7b-11e7-6a80-332a00000000"
                  }
@@ -2025,7 +2025,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/invoicein/dbf1e704-cf7b-11e7-6a80-332a00000000",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoicein/metadata",
-         "type": "invoice",
+         "type": "invoicein",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#invoicein/edit?id=dbf1e704-cf7b-11e7-6a80-332a00000000"
        }
@@ -2152,7 +2152,7 @@ Successful request. The result is a JSON representation of the Receiving.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf44002-2e58-11e6-8a84-bae500000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2233,7 +2233,7 @@ When updating the **organization** and **agent** fields, you must also update th
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -2374,7 +2374,7 @@ Successful request. The result is a JSON representation of the updated Receiving
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2629,7 +2629,7 @@ Successful request. The result is a JSON representation of a list of individual 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/de965214-8491-11ea-0a80-037a000002c1",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=de965214-8491-11ea-0a80-037a000002c1"
      }
@@ -2689,29 +2689,29 @@ Successful request. The result is a JSON representation of a list of individual 
              "trackingCodes": [
                {
                  "cis": "010463003759026521uHpIIf-nXIH>0",
-                 "type": "tracking code"
+                 "type": "trackingcode"
                },
                {
                  "cis": "010463003759026521uHpIIf-nXIH>4",
-                 "type": "tracking code"
+                 "type": "trackingcode"
                },
                {
                  "cis": "010463003759026521uHpIIf-111114",
-                 "type": "tracking code"
+                 "type": "trackingcode"
                }
              ]
            },
            {
              "cis": "010463003759026521uHpIIf-111114",
-             "type": "tracking code"
+             "type": "trackingcode"
            },
            {
              "cis": "010463003759026521uHpIIf-nXIH>4",
-             "type": "tracking code"
+             "type": "trackingcode"
            },
            {
              "cis": "010463003759026521uHpIIf-nXIH>0",
-             "type": "tracking code"
+             "type": "trackingcode"
            }
          ],
          "overhead": 0.0
@@ -3021,7 +3021,7 @@ curl --location --request POST 'https://app.kladana.in/api/remap/1.2/entity/supp
                       "uuidHref":"https://app.kladana.in/app/#good/edit?id=aa1b0d42-8493-11ea-0a80-037a00000305"
                    }
                 },
-                "tracking codes":[
+                "trackingCodes":[
                    {
                       "cis":"012345678912345671",
                       "type":"transportpack"
@@ -3029,32 +3029,32 @@ curl --location --request POST 'https://app.kladana.in/api/remap/1.2/entity/supp
                    {
                       "cis":"012345678912345678",
                       "type":"transportpack",
-                      "tracking codes":[
+                      "trackingCodes":[
                          {
                             "cis":"010463003759026521uHpIIf-111114",
-                            "type":"tracking code"
+                            "type": "trackingcode"
                          },
                          {
                             "cis":"010463003759026521uHpIIf-nXIH>4",
-                            "type":"tracking code"
+                            "type": "trackingcode"
                          },
                          {
                             "cis":"010463003759026521uHpIIf-nXIH>0",
-                            "type":"tracking code"
+                            "type": "trackingcode"
                          }
                       ]
                    },
                    {
                       "cis":"010463003759026521uHpIIf-nXIH>1",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis":"010463003759026521uHpIIf-nXIH>2",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    },
                    {
                       "cis":"010463003759026521uHpIIf-111122",
-                      "type":"tracking code"
+                      "type": "trackingcode"
                    }
                 ]
             }'
@@ -3087,32 +3087,32 @@ Successful request. The result is a JSON representation of the created posea sep
              "uuidHref":"https://app.kladana.in/app/#good/edit?id=aa1b0d42-8493-11ea-0a80-037a00000305"
           }
        },
-       "tracking codes":[
+       "trackingCodes":[
           {
              "cis":"012345678912345678",
              "type":"transportpack",
-             "tracking codes":[
+             "trackingCodes":[
                 {
                    "cis":"010463003759026521uHpIIf-nXIH>4",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 },
                 {
                    "cis":"010463003759026521uHpIIf-111114",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 },
                 {
                    "cis":"010463003759026521uHpIIf-nXIH>0",
-                   "type":"tracking code"
+                   "type": "trackingcode"
                 }
              ]
           },
           {
              "cis":"010463003759026521uHpIIf-111122",
-             "type":"tracking code"
+             "type": "trackingcode"
           },
           {
              "cis":"010463003759026521uHpIIf-nXIH>2",
-             "type":"tracking code"
+             "type": "trackingcode"
           },
           {
              "cis":"012345678912345671",
@@ -3120,7 +3120,7 @@ Successful request. The result is a JSON representation of the created posea sep
           },
           {
              "cis":"010463003759026521uHpIIf-nXIH>1",
-             "type":"tracking code"
+             "type": "trackingcode"
           }
        ],
        "overhead":0.0

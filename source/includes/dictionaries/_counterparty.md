@@ -297,7 +297,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -323,7 +323,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
       },
       "inn":"7736570901",
@@ -446,7 +446,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -472,7 +472,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "inn":"7736570902",
@@ -493,7 +493,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -516,7 +516,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counter party",
+         "type":"counterparty",
          "mediaType":"application/json"
        },
        "id":"12c9ebcf-692c-11e6-8a84-bae50000005d",
@@ -567,7 +567,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -592,7 +592,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "accounts":{
@@ -611,7 +611,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -634,7 +634,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counter party",
+         "type":"counterparty",
          "mediaType":"application/json"
        },
        "id":"df2fdd2d-6934-11e6-8a84-bae500000049",
@@ -685,7 +685,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -711,7 +711,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "accounts":{
@@ -730,7 +730,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -1164,7 +1164,7 @@ curl -X POST
               "street": "Tverskaya street",
               "house": "1",
               "apartment": "123",
-              "addinfo": "addinfo",
+              "addInfo": "addinfo",
               "comment": "some words about address"
           },
           "actualAddressFull": {
@@ -1189,7 +1189,7 @@ curl -X POST
               "street": "Tverskaya street",
               "house": "1",
               "apartment": "111",
-              "addinfo": "addinfo",
+              "addInfo": "addinfo",
               "comment": "some words about address"
           },
           "inn": "1251521244152",
@@ -1250,7 +1250,7 @@ curl -X POST
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"88fc07ac-2c8d-11e6-8a84-bae500000050",
@@ -1303,7 +1303,7 @@ curl -X POST
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -1329,7 +1329,7 @@ curl -X POST
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251521244152",
@@ -1392,7 +1392,7 @@ curl -X POST
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -1504,7 +1504,7 @@ curl -X POST
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
+       "type":"counterparty",
        "mediaType":"application/json"
      },
      "id":"b80ea81b-7058-11e6-8a84-bae500000000",
@@ -1547,7 +1547,7 @@ curl -X POST
      "contactpersons":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
-         "type":"contact person",
+         "type":"contactperson",
          "mediaType":"application/json",
          "size":0,
          "limit":1000,
@@ -1583,7 +1583,7 @@ curl -X POST
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
+       "type":"counterparty",
        "mediaType":"application/json"
      },
      "id":"6a9c3857-2c8b-11e6-8a84-bae500000047",
@@ -1642,7 +1642,7 @@ curl -X POST
      "contactpersons":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
-         "type":"contact person",
+         "type":"contactperson",
          "mediaType":"application/json",
          "size":0,
          "limit":1000,
@@ -1720,7 +1720,7 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
      "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
@@ -1760,7 +1760,7 @@ curl -X GET
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type":"state",
-         "mediatype":"application/json"
+         "mediaType":"application/json"
        },
        "id":"fb56c504-2e58-11e6-8a84-bae500000069",
        "accountId":"f976ed28-2e58-11e6-8a84-bae500000001",
@@ -1861,7 +1861,7 @@ curl -X GET
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"b80ea81b-7058-11e6-8a84-bae500000000",
@@ -1905,7 +1905,7 @@ curl -X GET
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -1963,7 +1963,7 @@ curl -X GET
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -1989,10 +1989,10 @@ curl -X GET
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "bonusprogram": {
+   "bonusProgram": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
@@ -2001,7 +2001,7 @@ curl -X GET
        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
      }
    },
-   "bonus points": 0
+   "bonusPoints": 0
 }
 ```
 
@@ -2166,7 +2166,7 @@ curl -X PUT
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "123",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             },
             "actualAddressFull": {
@@ -2191,7 +2191,7 @@ curl -X PUT
                 "street": "Tverskaya street",
                 "house": "1",
                 "apartment": "111",
-                "addinfo": "addinfo",
+                "addInfo": "addinfo",
                 "comment": "some words about address"
             },
             "inn": "1251581244152",
@@ -2215,7 +2215,7 @@ curl -X PUT
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"6a9c3857-2c8b-11e6-8a84-bae500000047",
@@ -2268,7 +2268,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -2294,7 +2294,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251581244152",
@@ -2324,7 +2324,7 @@ curl -X PUT
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -2439,7 +2439,7 @@ curl -X PUT
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"88fc07ac-2c8d-11e6-8a84-bae500000050",
@@ -2492,7 +2492,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -2517,7 +2517,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251581244152",
@@ -2582,7 +2582,7 @@ curl -X PUT
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":2,
        "limit":1000,
@@ -2872,7 +2872,7 @@ curl -X POST
 [
    {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/ceba215c-d5cb-11e7-0532-9eed00000005",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/ceba215c-d5cb-11e7-0532-9eed00000005",
        "type": "contactperson",
        "mediaType": "application/json"
      },
@@ -2887,11 +2887,11 @@ curl -X POST
      "position": "vegetable supplier",
      "agent": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
          "type": "counterparty",
          "mediaType": "application/json",
-         "uuidHref": "http://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+         "uuidHref": "https://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
        }
      }
    }

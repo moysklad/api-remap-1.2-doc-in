@@ -77,7 +77,7 @@ For example, you need to create a Product with multiple images. It can be done i
         "offset": 0
       }
     },
-    "minprice": {
+    "minPrice": {
       "value": 500.0,
       "currency": {
         "meta": {
@@ -103,7 +103,7 @@ For example, you need to create a Product with multiple images. It can be done i
         }
       }
     ],
-    "buyprice": {
+    "buyPrice": {
       "value": 0.0
     },
     "weight": 0,
@@ -225,7 +225,7 @@ curl -X GET
         }
       ]
     },
-    "minprice": {
+    "minPrice": {
       "value": 500.0,
       "currency": {
         "meta": {
@@ -251,7 +251,7 @@ curl -X GET
         }
       }
     ],
-    "buyprice": {
+    "buyPrice": {
       "value": 0.0
     },
     "weight": 0,

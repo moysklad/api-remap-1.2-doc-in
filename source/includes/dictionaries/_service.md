@@ -34,11 +34,11 @@ Search among service objects for matching the search string will be carried out 
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
 | **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-priznak-predmeta-rascheta) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Kit group metadata<br>`+Expand` |
-| **saleprice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
+| **salePrice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
 | **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
-| **wom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
+| **uom* | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | Int                                                || VAT % |
@@ -216,7 +216,7 @@ Successful request. The result is a JSON representation of the list of Services.
        "effectiveVat": 6,
        "effectiveVatEnabled": true,
        "discountProhibited": false,
-       "minprice": {
+       "minPrice": {
         "value": 500.0,
          "currency": {
            "meta": {
@@ -271,7 +271,7 @@ Successful request. The result is a JSON representation of the list of Services.
            }
          }
        ],
-       "buyprice": {
+       "buyPrice": {
          "value": 700.0,
          "currency": {
            "meta": {
@@ -357,7 +357,7 @@ Successful request. The result is a JSON representation of the list of Services.
        "useParentVat": false,
        "effectiveVat": 10,
        "effectiveVatEnabled": true,
-       "minprice": {
+       "minPrice": {
         "value": 500.0,
          "currency": {
            "meta": {
@@ -412,7 +412,7 @@ Successful request. The result is a JSON representation of the list of Services.
            }
          }
        ],
-       "buyprice": {
+       "buyPrice": {
          "value": 700.0,
          "currency": {
            "meta": {
@@ -467,7 +467,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "vat": 10,
              "effectiveVat": 10,
              "discountProhibited": false,
-             "minprice": {
+             "minPrice": {
               "value": 500.0,
                "currency": {
                  "meta": {
@@ -516,7 +516,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  }
                }
              ],
-             "buyprice": {
+             "buyPrice": {
                "value": 1047.0,
                "currency": {
                  "meta": {
@@ -584,7 +584,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "effectiveVat": 10,
    "effectiveVatEnabled": true,
    "discountProhibited": false,
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -639,7 +639,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 1047.0,
      "currency": {
        "meta": {
@@ -775,7 +775,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "description": "Delivery cladding",
              "vat": 6,
              "effectiveVat": 5,
-             "minprice": {
+             "minPrice": {
               "value": 500.0,
                "currency": {
                  "meta": {
@@ -824,7 +824,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  }
                }
              ],
-             "buyprice": {
+             "buyPrice": {
                "value": 700.0
                "currency": {
                  "meta": {
@@ -913,7 +913,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "effectiveVat": 6,
    "effectiveVatEnabled": true,
    "discountProhibited": false,
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -968,7 +968,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 700.0,
      "currency": {
        "meta": {
@@ -1010,7 +1010,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        },
        "id": "0c2e5dc5-2c80-11e6-8a84-bae50000009d",
        "name": "Manufacturer",
-       "type": "counter party",
+       "type": "counterparty",
        "value": "OOO Company"
      }
    ]
@@ -1046,7 +1046,7 @@ The updated Services must contain the identifier in the form of metadata.
                 "externalCode": "deliveryCode",
                 "vat": 11,
                 "effectiveVat": 11,
-                "minprice": {
+                "minPrice": {
                     "value": 500.0,
                     "currency": {
                         "meta": {
@@ -1095,7 +1095,7 @@ The updated Services must contain the identifier in the form of metadata.
                         }
                     }
                 ],
-                "buyprice": {
+                "buyPrice": {
                     "value": 700.0,
                     "currency": {
                         "meta": {
@@ -1237,10 +1237,10 @@ In the body of the request, you need to pass an array containing the JSON metada
 ```json
 [
    {
-     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -1313,7 +1313,7 @@ Successful request. The result is a JSON representation of the Service.
    "effectiveVat": 6,
    "effectiveVatEnabled": true,
    "discountProhibited": false,
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -1368,7 +1368,7 @@ Successful request. The result is a JSON representation of the Service.
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 700.0,
      "currency": {
        "meta": {
@@ -1449,7 +1449,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                "externalCode": "deliveryCode",
                vat: 11
                "effectiveVat": 11,
-               "minprice": {
+               "minPrice": {
                 value: 500.0
                  currency: {
                    "meta": {
@@ -1498,7 +1498,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                    }
                  }
                ],
-               "buyprice": {
+               "buyPrice": {
                  "value": 700.0
                  currency: {
                    "meta": {
@@ -1566,7 +1566,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
     "effectiveVat": 11,
     "effectiveVatEnabled": true,
     "discountProhibited": false,
-    "minprice": {
+    "minPrice": {
       "value": 500.0,
       "currency": {
         "meta": {
@@ -1621,7 +1621,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
         }
       }
     ],
-    "buyprice": {
+    "buyPrice": {
       "value": 700.0,
       "currency": {
         "meta": {
@@ -1668,7 +1668,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
             },
             "vat": 6,
             "effectiveVat": 6,
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -1717,7 +1717,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     }
                 }
             ],
-            "buyprice": {
+            "buyPrice": {
                 "value": 700.0,
                 "currency": {
                     "meta": {
@@ -1813,7 +1813,7 @@ Successful request. The result is a JSON representation of the updated Service.
      }
    },
    "discountProhibited": false,
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -1868,7 +1868,7 @@ Successful request. The result is a JSON representation of the updated Service.
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 700.0,
      "currency": {
        "meta": {

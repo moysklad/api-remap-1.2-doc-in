@@ -129,7 +129,7 @@ Successful request. The result is a list of all discounts of all types for the a
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/96673f4d-9f4d-11e6-8af5-581e0000007b",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
-         "type": "special priced discount",
+         "type": "specialpricediscount",
          "mediaType": "application/json"
        },
        "id": "96673f4d-9f4d-11e6-8af5-581e0000007b",
@@ -796,7 +796,7 @@ Successful request. The result is a JSON representation of the created personal 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
-     "type": "personal discount",
+     "type": "personaldiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
    },

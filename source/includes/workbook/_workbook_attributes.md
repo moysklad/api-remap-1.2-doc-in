@@ -98,7 +98,7 @@ curl
                    }
                  },
                  "minPrice": 50000.0,
-                 "buyprice": {
+                 "buyPrice": {
                    "value": 50000.0,
                    "currency": {
                      "meta": {
@@ -256,7 +256,7 @@ curl
                  "mediaType": "application/json"
              },
              "id": "cf486cca-d383-11e8-ac12-000a000000d4",
-             "name": "[Project]",
+             "name": "Project Megalodon",
              "type": "project",
              "required": false
          },
@@ -268,12 +268,12 @@ curl
              },
              "customEntityMeta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
-                 "type": "customer metadata",
+                 "type": "customentitymetadata",
                  "mediaType": "application/json"
              },
              "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
-             "name": "Region",
-             "type": "custom",
+             "name": "Region 43",
+             "type": "customentity",
              "required": false
          }
      ],
@@ -284,7 +284,8 @@ curl
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                  "type": "state",
                  "mediaType": "application/json"
-             },"id": "5b77c63b-d047-11e8-ac12-000b0000006b",
+             },
+             "id": "5b77c63b-d047-11e8-ac12-000b0000006b",
              "accountId": "5a0480c9-d047-11e8-ac12-000900000000",
              "name": "New",
              "color": 15106326,
@@ -371,7 +372,7 @@ curl
              "attributes": [
                  {
                      "id": "cf486cca-d383-11e8-ac12-000a000000d4",
-                     "name": "[Project]",
+                     "name": "Aurora",
                      "type": "project",
                      "value": {
                          "meta": {
@@ -385,13 +386,13 @@ curl
                  },
                  {
                      "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
-                     "name": "Region",
-                     "type": "custom",
+                     "name": "Region 13",
+                     "type": "customentity",
                      "value": {
                          "meta": {
                              "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/ac120c44-d383-11e8-ac12-000a000000c4/b971966b-d383-11e8-ac12-000a000000ce",
                              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
-                             "type": "custom",
+                             "type": "customentity",
                              "mediaType": "application/json",
                              "uuidHref": "https://app.kladana.in/app/#custom_ac120c44-d383-11e8-ac12-000a000000c4/edit?id=b971966b-d383-11e8-ac12-000a000000ce"
                              }
@@ -408,7 +409,7 @@ curl
      "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=5a5597e3-d385-11e8-ac12-000800000000"
      },
@@ -468,12 +469,12 @@ curl
              },
              "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
              "name": "Region",
-             "type": "custom",
+             "type": "customentity",
              "value": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/ac120c44-d383-11e8-ac12-000a000000c4/b971966b-d383-11e8-ac12-000a000000ce",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
-                     "type": "custom",
+                     "type": "customentity",
                      "mediaType": "application/json",
                      "uuidHref": "https://app.kladana.in/app/#custom_ac120c44-d383-11e8-ac12-000a000000c4/edit?id=b971966b-d383-11e8-ac12-000a000000ce"
                  },
@@ -535,7 +536,7 @@ curl
      -u login:password
      -H 'Accept: application/json'
      -H 'Content-Type: application/json'
-     "https://app.kladana.in/api/remap/1.2/entity/product?filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/630c578a-cb05 -11e8-9109-f8fc0037889a%3E%3D5"
+     "https://app.kladana.in/api/remap/1.2/entity/product?filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/630c578a-cb05-11e8-9109-f8fc0037889a%3E%3D5"
 ```
 
 To do this, we need to specify the href of the additional field for filtering, the comparison sign (in our case `>=`) and the value in the filter parameter. The response will return all entities matching the passed criteria.
