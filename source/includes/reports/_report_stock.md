@@ -31,10 +31,10 @@ An extended stock report is a detailed report that collects data on all products
 | **price** | float | Cost price |
 | **quantity** | float | Available<br>`+Required when replying` |
 | **reserve** | float | Reserve<br>`+Required when replying` |
-| **saleprice** | float | Sale price |
+| **salePrice** | float | Sale price |
 | **stock** | float | Remaining<br>`+Required when answering` |
 | **stockDays** | int | Number of days in stock<br>`+Mandatorylnoe when answering` |
-| **wom** | object | Unit of measurement. [More details here](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-edinica-izmereniq)<br>`+Required when replying` |
+| **uom* | object | Unit of measurement. [More details here](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-edinica-izmereniq)<br>`+Required when replying` |
 
 #### Nested entity attributes
 #### Unit
@@ -167,7 +167,7 @@ The report results can be sorted using the [order](../#mojsklad-json-api-obschie
 | **productCode** | by article |
 | **quantity** | available by value |
 | **reserve** | by reserve value |
-| **saleprice** | at the selling price |
+| **salePrice** | at the selling price |
 | **stock** | by value of remainder |
 | **sumTotal** | by cost |
 
@@ -213,7 +213,7 @@ Successful request. The result is a JSON representation of the report.
      "size": 26,
      "limit": 10,
      "offset": 0,
-     "nextHref": "http://app.kladana.in/api/remap/1.2/report/stock/all?limit=10&offset=10"
+     "nextHref": "https://app.kladana.in/api/remap/1.2/report/stock/all?limit=10&offset=10"
    },
    "rows": [
      {
@@ -807,7 +807,7 @@ The string with "storeId":null corresponds to a reserve for a Sales Order withou
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/stock/bystore/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId =12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13"
+   "https://app.kladana.in/api/remap/1.2/report/stock/bystore/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -903,7 +903,7 @@ To filter by the value of additional fields of the lookup type, you need to use 
 
 An example of filtering by an additional field of the warehouse reference type: `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/ea12a6dd-79e5-11e9-9ff4-31500040893d=https:// app.kladana.in/api/remap/1.2/entity/store/302f2a81-9977-11e9-9109-f8fc00020e02`
 
-Example of filtering by additional field ttype user reference: `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/ea12a6dd-79e5-11e9-9ff4-31500040893d=http://app.kladana.in /api/remap/1.2/entity/customentity/8955249d-997d-11e9-9ff4-3150000e65c3/8955314d-997d-11e9-9ff4-3150000e65c4`
+Example of filtering by additional field ttype user reference: `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/ea12a6dd-79e5-11e9-9ff4-31500040893d=https://app.kladana.in /api/remap/1.2/entity/customentity/8955249d-997d-11e9-9ff4-3150000e65c3/8955314d-997d-11e9-9ff4-3150000e65c4`
 
 To filter by the value of additional fields of the checkbox type, use the `=` operator. Possible values: true, false.
 
@@ -966,7 +966,7 @@ Successful request. The result is a JSON representation of the report.
      "size": 225,
      "limit": 1000,
      "offset": 0,
-     "nextHref": "http://app.kladana.in/api/remap/1.2/report/stock/bystore?limit=25&offset=25"
+     "nextHref": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?limit=25&offset=25"
    },
    "rows": [
      {

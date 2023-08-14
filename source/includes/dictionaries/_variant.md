@@ -39,7 +39,7 @@ Examples:
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
 | **packs** | Array(Object)                                      | | Product variant packages [Details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-towar) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **saleprice** | Array(Object)                                      | | Sale prices. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **salePrice** | Array(Object)                                      | | Sale prices. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
 | **things** | Array(String)                                      | | Serial Numbers<br>`+Read Only` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
@@ -265,7 +265,7 @@ Successful request. The result is a JSON representation of the list of Product v
            "offset": 0
          }
        },
-       "buyprice": {
+       "buyPrice": {
          "value": 0.0
        },
        "salePrices": [
@@ -369,7 +369,7 @@ characteristics by field **name**. If neither **id** nor **name** are specified,
                     "value": "black"
                 }
             ],
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -380,7 +380,7 @@ characteristics by field **name**. If neither **id** nor **name** are specified,
                     }
                 }
             },
-            "buyprice": {
+            "buyPrice": {
                 "value": 20.0
             },
             "salePrices": [
@@ -491,7 +491,7 @@ Successful request. The result is a JSON representation of the created Product v
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -502,7 +502,7 @@ Successful request. The result is a JSON representation of the created Product v
        }
      }
    },
-   "buyprice": {
+   "buyPrice": {
      "value": 20.0
    },
    "salePrices": [
@@ -598,7 +598,7 @@ Updated Product variants must contain the identifier in the form of metadata.
                         "value": "black"
                     }
                 ],
-                "minprice": {
+                "minPrice": {
                     "value": 500.0,
                     "currency": {
                         "meta": {
@@ -609,7 +609,7 @@ Updated Product variants must contain the identifier in the form of metadata.
                         }
                     }
                 },
-                "buyprice": {
+                "buyPrice": {
                     "value": 20.0
                 },
                 "salePrices": [
@@ -690,7 +690,7 @@ Updated Product variants must contain the identifier in the form of metadata.
                 ],
                 "code": "orangeCode",
                 "externalCode": "orange303",
-                "buyprice": {
+                "buyPrice": {
                     "value": 700.0
                 },
                 "salePrices": [
@@ -739,7 +739,7 @@ Updated Product variants must contain the identifier in the form of metadata.
                         "gtin": "00000000000130"
                     }
                 ],
-                "minprice": {
+                "minPrice": {
                     "value": 500.0,
                     "currency": {
                         "meta": {
@@ -806,7 +806,7 @@ Successful request. The result is a JSON array of representations of the created
          "offset": 0
        }
      },
-     "minprice": {
+     "minPrice": {
      "value": 500.0,
        "currency": {
          "meta": {
@@ -817,7 +817,7 @@ Successful request. The result is a JSON array of representations of the created
          }
        }
      },
-     "buyprice": {
+     "buyPrice": {
        "value": 20.0
      },
      "salePrices": [
@@ -941,7 +941,7 @@ Successful request. The result is a JSON array of representations of the created
          "offset": 0
        }
      },
-     "minprice": {
+     "minPrice": {
      "value": 500.0,
        "currency": {
          "meta": {
@@ -952,7 +952,7 @@ Successful request. The result is a JSON array of representations of the created
          }
        }
      },
-     "buyprice": {
+     "buyPrice": {
        "value": 700.0
      },
      "salePrices": [
@@ -1342,7 +1342,7 @@ object is not specified in the update request, its value will be nullified after
             "discountProhibited": false,
             "code": "orangeCode",
             "externalCode": "orange303",
-            "buyprice": {
+            "buyPrice": {
                 "value": 700.0
             },
             "salePrices": [
@@ -1397,7 +1397,7 @@ object is not specified in the update request, its value will be nullified after
                     "content": ""
                 }
             ],
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -1472,7 +1472,7 @@ Successful request. The result is a JSON representation of the Product variant.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -1483,7 +1483,7 @@ Successful request. The result is a JSON representation of the Product variant.
        }
      }
    },
-   "buyprice": {
+   "buyPrice": {
      "value": 700.0
    },
    "salePrices": [

@@ -52,9 +52,9 @@ There are 2 groups of filters in the main interface of MySklad to display the li
 To implement similar list filtering for the JSON API, you need to use the following filters for the task list:
 
 + **Assigned to me**: filter by the **assignee** field, the value of which contains a link to the current employee<br>
-`https://app.kladana.in/api/remap/1.2/entity/task?filter=assignee=http://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
+`https://app.kladana.in/api/remap/1.2/entity/task?filter=assignee=https://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
 + **I instructed**: filter by the field **author** whose value contains a link to the current employee<br>
-`https://app.kladana.in/api/remap/1.2/entity/task?filter=author=http://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
+`https://app.kladana.in/api/remap/1.2/entity/task?filter=author=https://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
 + **All tasks**: does not require filtering. Pay attention to the item [Default list display](../dictionaries/#entities-zadacha-zadachi-otobrazhenie-spiska-po-umolchaniu)
 + **Active**: filter by field **done** with value false<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=false`
@@ -788,8 +788,8 @@ Request to get a list of all comments for this Issue.
 | **limit** | `number` (optional) **Default: 25** *Example: 100* Maximum number of entities to retrieve. `Allowed values are 1 - 100`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in returned list of entities |
 | **updatedBy** | `string` (optional) *Example: admin@admin* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter ). String format : `uid` |
-| **updatedFrom** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
-| **updatedTo** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
+| **updatedFrom** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
+| **updatedTo** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
 
 > Get comments Tasks
 

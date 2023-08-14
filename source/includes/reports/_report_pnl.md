@@ -7,21 +7,21 @@ To access the report via the API, you need the right to view the *Profit and Los
 #### Profitability by goods
 #### Report object attributes
 
-| Title | Type | Description |
-| --------- | -----|---------|
-| **assortment** | object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-towar) and [here](../dictionaries/#entities-usluga)<br>`+Required when answering` |
-| **margin** | float | Profitability<br>`+Required when answering` |
-| **profit** | float | Profit<br>`+Required when answering` |
-| **returnCost** | float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnprice** | float | Price returns<br>`+Required when replying` |
+| Title              | Type | Description |
+|--------------------| -----|---------|
+| **assortment**     | object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-towar) and [here](../dictionaries/#entities-usluga)<br>`+Required when answering` |
+| **margin**         | float | Profitability<br>`+Required when answering` |
+| **profit**         | float | Profit<br>`+Required when answering` |
+| **returnCost**     | float | Cost of returns<br>`+Required when replying` |
+| **returnCostSum**  | float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnPrice**    | float | Price returns<br>`+Required when replying` |
 | **returnQuantity** | int | Number of returns<br>`+Required when replying` |
-| **returnSum** | float | Refund amount<br>`+Required when replying` |
-| **sellCost** | float | Cost price<br>`+Required when answering` |
-| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellprice** | float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity** | int | Quantity sold<br>`+Required when replying` |
-| **sellSum** | float | Sales amount<br>`+Required when answering` |
+| **returnSum**      | float | Refund amount<br>`+Required when replying` |
+| **sellCost**       | float | Cost price<br>`+Required when answering` |
+| **sellCostSum**    | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellPrice**      | float | Sales price (average)<br>`+Required when answering` |
+| **sellQuantity**   | int | Quantity sold<br>`+Required when replying` |
+| **sellSum**        | float | Sales amount<br>`+Required when answering` |
 
 #### Assortment object structure
 
@@ -30,7 +30,7 @@ To access the report via the API, you need the right to view the *Profit and Los
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Service<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Services<br>`+Required when answering` |
 | **code** | String(255) | Product or service code |
-| **wom** | object | Unit of measurement |
+| **uom* | object | Unit of measurement |
 | **article** | String(255) | Product SKU |
 | **images** | object | Product Image |
 
@@ -45,12 +45,12 @@ You cannot specify empty values.
 | **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **store** | object | `=` | a link to the warehouse by which you want to filter. |
 | **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
 | **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
 | **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
@@ -86,8 +86,8 @@ Profitability report for goods includes: goods, kits, services. The product take
 | -----|---------|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -232,21 +232,21 @@ Successful request. The result is a JSON representation of the report.
 #### Profitability by modifications
 #### Report object attributes:
 
-| Title | Type | Description |
-| -----|---------|----- |
-| **assortment** | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-usluga) and [here](../dictionaries/#entities-komplekt)<br>`+ Mandatory when replying` |
-| **margin** | float | Profitability<br>`+Required when answering` |
-| **profit** | float | Profit<br>`+Required when answering` |
-| **returnCost** | float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering`|
-| **returnprice** | float | Price returns<br>`+Required when replying` |
+| Title              | Type | Description |
+|--------------------|---------|----- |
+| **assortment**     | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-usluga) and [here](../dictionaries/#entities-komplekt)<br>`+ Mandatory when replying` |
+| **margin**         | float | Profitability<br>`+Required when answering` |
+| **profit**         | float | Profit<br>`+Required when answering` |
+| **returnCost**     | float | Cost of returns<br>`+Required when replying` |
+| **returnCostSum**  | float | The sum of the cost of returns<br>`+Required when answering`|
+| **returnPrice**    | float | Price returns<br>`+Required when replying` |
 | **returnQuantity** | int | Number of returns<br>`+Required when replying` |
-| **returnSum** | float | Refund amount<br>`+Required when replying` |
-| **sellCost** | float | Cost price<br>`+Required when answering` |
-| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellprice** | float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity** | int | Quantity sold<br>`+Required when replying` |
-| **sellSum** | float | Sales amount<br>`+Required when answering` |
+| **returnSum**      | float | Refund amount<br>`+Required when replying` |
+| **sellCost**       | float | Cost price<br>`+Required when answering` |
+| **sellCostSum**    | float | Sum of cost of sales<br>`+Required when answering` |
+| **sellPrice**      | float | Sales price (average)<br>`+Required when answering` |
+| **sellQuantity**   | int | Quantity sold<br>`+Required when replying` |
+| **sellSum**        | float | Sales amount<br>`+Required when answering` |
 
 #### Assortment object structure
 
@@ -269,12 +269,12 @@ You cannot specify empty values.
 | **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **store** | object | `=` | a link to the warehouse by which you want to filter. |
 | **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
 | **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
 | **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
@@ -310,8 +310,8 @@ The product profitability report includes: products, kits, services and modifica
 | -----|---------|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -416,7 +416,8 @@ Successful request. The result is a JSON representation of the report.
        "margin": 0
      },
      {
-       "assortment": {"meta": {
+       "assortment": {
+         "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "service",
@@ -487,12 +488,12 @@ You cannot specify empty values.
 | **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **store** | object | `=` | a link to the warehouse by which you want to filter. |
 | **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
 | **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
 | **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
@@ -526,8 +527,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -624,12 +625,12 @@ You cannot specify empty values.
 | **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **store**| object | `=` | a link to the warehouse by which you want to filter. |
 | **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
 | **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
 | **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
@@ -663,8 +664,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -707,7 +708,7 @@ Successful request. The result is a JSON representation of the report.
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/3cd88c00-4814-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "name": "LLC \"Buyer\""
@@ -763,7 +764,7 @@ You cannot specify empty values.
 | **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **store** | object | `=` | a link to the warehouse by which you want to filter. |
@@ -800,8 +801,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -842,7 +843,7 @@ Successful request. The result is a JSON representation of the report.
        "meta" : {
          "href" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/656c4032-8552-11e6-8a84-bae500000044",
          "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
-         "type" : "sales channel",
+         "type" : "saleschannel",
          "mediaType" : "application/json",
          "uuidHref" : "https://app.kladana.in/app/#saleschannel/edit?id=656c4032-8552-11e6-8a84-bae500000044"
        },

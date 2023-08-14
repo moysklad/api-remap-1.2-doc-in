@@ -221,7 +221,7 @@ Successful request. The result is a JSON representation of the list of Purchase 
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/14ae5431-32ca-11e6-8a84-bae50000002d",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -321,7 +321,7 @@ Successful request. The result is a JSON representation of the list of Purchase 
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf44002-2e58-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -391,7 +391,7 @@ Mandatory fields to create:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -535,7 +535,7 @@ Successful request. The result is a JSON representation of the created Purchase 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -644,7 +644,7 @@ Successful request. The result is a JSON representation of the created Purchase 
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -836,7 +836,7 @@ Successful request. The result is a JSON representation of the created Purchase 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1054,7 +1054,7 @@ Updated Purchase Orders must contain the identifier in the form of metadata.
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1485d676-32ca-11e6-8a84-bae500000009",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                  }
                },
@@ -1178,7 +1178,7 @@ Successful request. The result is an array of JSON representations of the create
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1331,7 +1331,7 @@ Successful request. The result is an array of JSON representations of the create
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1485d676-32ca-11e6-8a84-bae500000009",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1656,7 +1656,7 @@ Successful request. The result is a JSON representation of the pre-filled Purcha
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942953e-9128-11e6-8a84-bae500000054",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2092,7 +2092,7 @@ Successful request. The result is a JSON representation of the Purchase Order.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/14ae5431-32ca-11e6-8a84-bae50000002d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2183,7 +2183,7 @@ When updating the **organization** and **agent** fields, you must also update th
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1485d676-32ca-11e6-8a84-bae500000009",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -2304,7 +2304,7 @@ Successful request. The result is a JSON representation of the updated Purchase 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1485d676-32ca-11e6-8a84-bae500000009",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },

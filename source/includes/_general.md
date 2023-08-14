@@ -576,14 +576,14 @@ curl -X POST
             "type": "attributemetadata",
             "mediaType": "application/json"
           },
-        "name": "String field",
-           "required": true
-           "description": "Field-string"
+            "name": "String field",
+            "required": true
+            "description": "Field-string"
          },
          {
-           "name": "Integer2",
-          "type": "long",
-          "required": true
+            "name": "Integer2",
+            "type": "long",
+            "required": true
         }
       ]'
 ```
@@ -600,11 +600,11 @@ Successful request. The result is a JSON representation of the created and updat
       "mediaType": "application/json"
     },
     "id": "7bc578d8-6501-11e8-9464-e4de00000004",
-  "name": "String field",
-     "type": "string",
-     "required": true,
-     "show": true,
-     "description": "Field-string"
+    "name": "String field",
+    "type": "string",
+    "required": true,
+    "show": true,
+    "description": "Field-string"
   },
   {
     "meta": {
@@ -745,7 +745,7 @@ curl -X PUT
   -H "Authorization: Basic <Credentials>"
   -H 'Content-Type: application/json' \
   -d '{
-        "name": "updated String field",
+         "name": "updated String field",
          "required": false
          "description": "Updated field-string"
       }'
@@ -756,17 +756,17 @@ Successful request. The result is a JSON representation of the additional shippi
 
 ```json
 {
-  "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004",
-    "type": "attributemetadata",
-    "mediaType": "application/json"
-  },
-  "id": "7bc578d8-6501-11e8-9464-e4de00000004",
+   "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004",
+      "type": "attributemetadata",
+      "mediaType": "application/json"
+   },
+   "id": "7bc578d8-6501-11e8-9464-e4de00000004",
    "name": "updated String field",
    "type": "string",
    "required": false,
    "show": true,
-"description": "Updated field-string"
+   "description": "Updated field-string"
 }
 ```
 #### Delete additional field
@@ -823,7 +823,7 @@ Successful request. The result is a JSON representation of the shipment with upd
       },
       "id": "986314b4-6500-11e8-9464-e4de00000048",
       "name": "String field",
-      "typ  e": "string",
+      "type": "string",
       "value": "new string"
     }
   ]
@@ -1118,12 +1118,12 @@ you can use the following construction to filter the selection by this field:
 
 Link example:
 
-+ `http://app.kladana.in/api/remap/1.2/entity/<type>/<id>`
++ `https://app.kladana.in/api/remap/1.2/entity/<type>/<id>`
 
 Here are some examples:
 
-+ `filter=agent=http://app.kladana.in/api/remap/1.2/entity/counterparty/<id>`
-+ `filter=ownAgent=http://app.kladana.in/api/remap/1.2/entity/organization/<id>`
++ `filter=agent=https://app.kladana.in/api/remap/1.2/entity/counterparty/<id>`
++ `filter=ownAgent=https://app.kladana.in/api/remap/1.2/entity/organization/<id>`
 
 Reference fields available for filtering:
 
@@ -1614,7 +1614,7 @@ curl -X POST
          "legalAddress": "Moscow, Stroiteley st., 12",
          "inn": "7736570901",
          "kpp": "773601001",
-        "accounts": {
+         "accounts": {
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d9593e70-6703-11e7-9464-e4de00000054/accounts",
                 "type": "account",
@@ -1793,9 +1793,9 @@ curl -X PUT
          "companyType": "legal",
          "legalTitle": "Limited Liability Company \"Supplier\"",
          "legalAddress": "Moscow, Stroiteley st., 12",
-        "inn": "7736570901",
-        "kpp": "773601001",
-        "accounts": {
+         "inn": "7736570901",
+         "kpp": "773601001",
+         "accounts": {
             "meta": {
                 "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/d9593e70-6703-11e7-9464-e4de00000054/accounts",
                 "type": "account",
@@ -1888,7 +1888,7 @@ curl -X PUT
         "isEgaisEnable": false,
         "payerVat": true,
         "director": "Administrator",
-         "chiefAccountant": "Administrator"
+        "chiefAccountant": "Administrator"
     },
     "created": "2017-08-24 13:43:48",
     "positions": {
@@ -2044,7 +2044,7 @@ These types have the following fields:
 | **salesReturn** | OPERATION | Sales Return |
 | **supply** | OPERATION | Receivings |
 | **task** | [Special](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Tasks |
-| **wom** | base | Units of measure |
+| **uom* | base | Units of measure |
 | **warehouse** | base | Warehouses |
 | **webhook** | DICTIONARY | Webhooks |
 

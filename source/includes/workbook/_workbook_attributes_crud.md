@@ -13,7 +13,7 @@ article [Additional fields](../#kladana-json-api-general-info-additional-fields)
 Suppose we need to select and sort laptops by some characteristics that are not in the product properties by default.
 For example, the case material, the presence of a CD/DVD-Rom, the presence of a Type-C connector, etc. You need the ability to create, edit and delete product properties.
 Assign the values of these properties to specific products, as well as filter by them. Filtering by the values of additional fields in
-JSON API is described in the article [Additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym- polqm).
+JSON API is described in the article [Additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm).
 To create these characteristics, we will use additional fields (attributes) of the product.
 
 In the web application, object attributes are assigned on the object list page by clicking the gear button on the right.
@@ -47,8 +47,8 @@ curl -X POST
    -H 'Content-Type: application/json'
    "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
    -d '{
-     "name": "Hull Material",
-     "type": "string"
+       "name": "Hull Material",
+       "type": "string"
      }'
 ```
 
@@ -91,8 +91,8 @@ curl -X POST
    -H 'Content-Type: application/json'
    "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes"
    -d '{
-     "name": "Case",
-     "type": "product"
+       "name": "Case",
+       "type": "product"
      }'
 ```
 

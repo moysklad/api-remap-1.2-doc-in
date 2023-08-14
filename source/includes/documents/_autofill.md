@@ -99,7 +99,7 @@ Fills in the product price field **price** (if not explicitly specified) with th
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json",
                     "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
                 }
@@ -142,7 +142,7 @@ Successful request. The result is a JSON representation of the completed documen
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
      }
@@ -199,7 +199,7 @@ the counterparty passed in the **agent** field.
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json",
                     "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
                 }
@@ -241,7 +241,7 @@ the counterparty passed in the **agent** field.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
      }
@@ -413,11 +413,11 @@ Fills in the **cost** fields of items with the cost value calculated according t
      -d'{
             "store": {
                 "meta": {
-                    "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-                    "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json",
-                    "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
+                    "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
                 }
             },
             "moment": "2020-10-20 17:45:00.000",
@@ -455,11 +455,11 @@ Fills in the **cost** fields of items with the cost value calculated according t
 {
    "store": {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-       "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json",
-       "uuidHref": "http://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
+       "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
      }
    },
    "moment": "2020-10-20 17:45:00.000",

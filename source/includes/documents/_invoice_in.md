@@ -201,7 +201,7 @@ Successful request. The result is a JSON representation of a list of Supplier In
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -308,7 +308,7 @@ Successful request. The result is a JSON representation of a list of Supplier In
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1489a08d-32ca-11e6-8a84-bae50000000d",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -380,7 +380,7 @@ Mandatory fields to create:
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             }
@@ -445,7 +445,7 @@ Successful request. The result is a JSON representation of the generated Supplie
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -504,7 +504,7 @@ Successful request. The result is a JSON representation of the generated Supplie
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -601,7 +601,7 @@ Successful request. The result is a JSON representation of the generated Supplie
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -662,7 +662,7 @@ Successful request. The result is a JSON representation of the generated Supplie
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -777,7 +777,7 @@ Successful request. The result is a JSON representation of the generated Supplie
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -862,7 +862,7 @@ Successful request. The result is a JSON representation of the generated Supplie
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -1017,7 +1017,7 @@ Successful request. The result is a JSON representation of the generated Supplie
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1085,7 +1085,7 @@ Updated Supplier Invoices must contain the identifier in the form of metadata.
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                        "type": "counter party",
+                        "type": "counterparty",
                         "mediaType": "application/json"
                     }
                 }
@@ -1124,7 +1124,7 @@ Updated Supplier Invoices must contain the identifier in the form of metadata.
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                        "type": "counter party",
+                        "type": "counterparty",
                         "mediaType": "application/json"
                     }
                 },
@@ -1205,7 +1205,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1305,7 +1305,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1614,7 +1614,7 @@ Successful request. The result is a JSON representation of the prefilled supplie
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1755,7 +1755,7 @@ Successful request. The result is a JSON representation of the prefilled supplie
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/463fb76d-ca1f-11e7-6a80-332a00000054",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=463fb76d-ca1f-11e7-6a80-332a00000054"
      }
@@ -1910,7 +1910,7 @@ Successful request. The result is a JSON representation of the Supplier Invoice.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1489a08d-32ca-11e6-8a84-bae50000000d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1997,7 +1997,7 @@ When updating the **organization** and **agent** fields, you must also update th
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -2086,7 +2086,7 @@ Successful request. The result is a JSON representation of the updated Supplier 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2161,7 +2161,7 @@ Successful request. The result is a JSON representation of the updated Supplier 
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -2268,7 +2268,7 @@ Successful request. The result is a JSON representation of the updated Supplier 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2366,7 +2366,7 @@ Successful request. The result is a JSON representation of the updated Supplier 
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -2502,7 +2502,7 @@ Successful request. The result is a JSON representation of the updated Supplier 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/149b96ba-32ca-11e6-8a84-bae50000001f",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },

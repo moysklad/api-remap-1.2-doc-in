@@ -172,7 +172,7 @@ Successful request. The result is a JSON representation of the Incoming Cash Pay
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/15121cef-32ca-11e6-8a84-bae500000072",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -271,7 +271,7 @@ Successful request. The result is a JSON representation of the Incoming Cash Pay
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1489a08d-32ca-11e6-8a84-bae50000000d",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -369,7 +369,7 @@ Successful request. The result is a JSON representation of the Incoming Cash Pay
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/14c505eb-32ca-11e6-8a84-bae500000045",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -416,7 +416,7 @@ Mandatory fields to create:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              }
@@ -476,7 +476,7 @@ Successful request. The result is a JSON representation of the created Incoming 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    }
@@ -511,7 +511,7 @@ Incoming Cash Payments that are updated must contain the identifier in the form 
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                        "type": "counter party",
+                        "type": "counterparty",
                         "mediaType": "application/json"
                     }
                 }
@@ -624,7 +624,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      }
@@ -688,7 +688,7 @@ Successful request. The result is a JSON array of representations of the created
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1247,7 +1247,7 @@ Successful request. The result is a JSON representation of the prefilled Incomin
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/2b0f10e4-9169-11e6-8a84-bae500000000",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1332,7 +1332,7 @@ Successful request. The result is a JSON representation of the prefilled Incomin
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1456,7 +1456,7 @@ Successful request. The result is a JSON representation of the Incoming Cash Pay
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1489a08d-32ca-11e6-8a84-bae50000000d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1618,7 +1618,7 @@ Successful request. The result is a JSON representation of the updated Incoming 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },

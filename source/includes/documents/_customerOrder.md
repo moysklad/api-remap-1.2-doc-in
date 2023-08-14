@@ -1391,14 +1391,14 @@ curl -X POST
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b1",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-             "type": "sales order",
+             "type": "customerorder",
              "mediaType": "application/json"
          },
          {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b2",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-             "type": "sales order",
+             "type": "customerorder",
              "mediaType": "application/json"
          }
        ]'
@@ -1602,7 +1602,7 @@ Successful request. The result is a JSON representation of the Sales Order.
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerOrder/metadata",
-     "type": "sales order",
+     "type": "customerorder",
      "mediaType": "application/json"
    },
    "id": "34efe2ee-015e-11e6-9464-e4de0000006b",
@@ -1673,7 +1673,7 @@ Successful request. The result is a JSON representation of the Sales Order.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1700,7 +1700,7 @@ Successful request. The result is a JSON representation of the Sales Order.
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    },
@@ -1719,7 +1719,7 @@ Successful request. The result is a JSON representation of the Sales Order.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/34efe2ee-015e-11e6-9464-e4de0000006b/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json",
        "size": 4,
        "limit": 1000,
@@ -1801,7 +1801,7 @@ When updating the **organization** and **agent** fields, you must also update th
             "agent": {
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -1855,7 +1855,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-     "type": "sales order",
+     "type": "customerorder",
      "mediaType": "application/json"
    },
    "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -1909,7 +1909,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1941,11 +1941,11 @@ Successful request. The result is a JSON representation of the updated Sales Ord
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json",
        "size": 3,
        "limit": 1000,
-      "offset": 0
+       "offset": 0
      }
    },
    "reservedSum": 0,
@@ -1999,7 +1999,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
              "agent": {
                "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                }
              },
@@ -2038,7 +2038,7 @@ successful request. The result is a JSON representation of the updated Sales Ord
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-     "type": "sales order",
+     "type": "customerorder",
      "mediaType": "application/json"
    },
    "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -2092,7 +2092,7 @@ successful request. The result is a JSON representation of the updated Sales Ord
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2137,7 +2137,7 @@ successful request. The result is a JSON representation of the updated Sales Ord
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
@@ -2169,7 +2169,7 @@ successful request. The result is a JSON representation of the updated Sales Ord
             "agent": {
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -2245,7 +2245,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-     "type": "sales order",
+     "type": "customerorder",
      "mediaType": "application/json"
    },
    "id": "c49e83b3-01af-11e6-9464-e4de00000026",
@@ -2299,7 +2299,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/71d48933-fd85-11e5-9464-e4de00000005",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2331,7 +2331,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c49e83b3-01af-11e6-9464-e4de00000026/positions",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json",
        "size": 3,
        "limit": 1000,
@@ -2390,7 +2390,7 @@ Successful request. The result is a JSON representation of a list of individual 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-     "type": "sales order position",
+     "type": "customerorderposition",
      "mediaType": "application/json",
      "size": 4,
      "limit": 1000,
@@ -2401,7 +2401,7 @@ Successful request. The result is a JSON representation of a list of individual 
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-         "type": "sales order position",
+         "type": "customerorderposition",
          "mediaType": "application/json"
        },
        "id": "34f6344f-015e-11e6-9464-e4de0000006c",
@@ -2426,7 +2426,7 @@ Successful request. The result is a JSON representation of a list of individual 
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6451e-015e-11e6-9464-e4de0000006d",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-         "type": "sales order position",
+         "type": "customerorderposition",
          "mediaType": "application/json"
        },
        "id": "34f6451e-015e-11e6-9464-e4de0000006d",
@@ -2451,7 +2451,7 @@ Successful request. The result is a JSON representation of a list of individual 
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6551d-015e-11e6-9464-e4de0000006e",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-         "type": "sales order position",
+         "type": "customerorderposition",
          "mediaType": "application/json"
        },
        "id": "34f6551d-015e-11e6-9464-e4de0000006e",
@@ -2476,7 +2476,7 @@ Successful request. The result is a JSON representation of a list of individual 
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f66948-015e-11e6-9464-e4de0000006f",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-         "type": "sales order position",
+         "type": "customerorderposition",
          "mediaType": "application/json"
        },
        "id": "34f66948-015e-11e6-9464-e4de0000006f",
@@ -2549,7 +2549,7 @@ Successful request. The result is a JSON representation of the created item of a
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/a7a61c8b-acdd-11e6-8a84-bae500000000",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json"
      },
      "id": "a7a61c8b-acdd-11e6-8a84-bae500000000",
@@ -2636,7 +2636,7 @@ Successful request. The result is a JSON representation of the list of created i
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f389488d-3f71-11e6-8a84-bae50000005f",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json"
      },
      "id": "f389488d-3f71-11e6-8a84-bae50000005f",
@@ -2661,7 +2661,7 @@ Successful request. The result is a JSON representation of the list of created i
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f389521b-3f71-11e6-8a84-bae500000060",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json"
      },
      "id": "f389521b-3f71-11e6-8a84-bae500000060",
@@ -2686,7 +2686,7 @@ Successful request. The result is a JSON representation of the list of created i
    {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/f3895aa1-3f71-11e6-8a84-bae500000061",
-       "type": "sales order position",
+       "type": "customerorderposition",
        "mediaType": "application/json"
      },
      "id": "f3895aa1-3f71-11e6-8a84-bae500000061",
@@ -2739,7 +2739,7 @@ Successful request. The result is a JSON representation of a single item of the 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-     "type": "sales order position",
+     "type": "customerorderposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",
@@ -2804,7 +2804,7 @@ successful request. The result is a JSON representation of the updated item in t
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-     "type": "sales order position",
+     "type": "customerorderposition",
      "mediaType": "application/json"
    },
    "id": "34f6344f-015e-11e6-9464-e4de0000006c",

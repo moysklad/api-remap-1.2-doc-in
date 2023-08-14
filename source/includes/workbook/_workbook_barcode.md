@@ -71,7 +71,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "name": "good",
     "code": "00006",
     "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-   "archived": false,
+    "archived": false,
     "pathName": "",
     "images": {
       "meta": {
@@ -83,7 +83,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "offset": 0
       }
     },
-    "minprice": {
+    "minPrice": {
       "value": 500.0,
       "currency": {
         "meta": {
@@ -109,7 +109,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         }
       }
     ],
-    "buyprice": {
+    "buyPrice": {
       "value": 0.0
     },
     "weight": 0,
@@ -170,7 +170,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       "type": "product",
       "mediaType": "application/json"
     },
-    "id": "bd1c0a3e-95ee-11e6-8a84-bae500000004","accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+    "id": "bd1c0a3e-95ee-11e6-8a84-bae500000004",
+    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
     "owner": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
@@ -204,7 +205,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "offset": 0
       }
     },
-    "minprice": {
+    "minPrice": {
       "value": 500.0,
       "currency": {
         "meta": {
@@ -230,7 +231,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         }
       }
     ],
-    "buyprice": {
+    "buyPrice": {
       "value": 0.0
     },
     "weight": 0,

@@ -485,7 +485,7 @@ Linking a receipt order to a Sales Order.
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-                   "type": "sales order",
+                   "type": "customerorder",
                    "mediaType": "application/json"
                  }
                }
@@ -549,7 +549,7 @@ The result is a credit note with a new element in the operations collection.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -567,7 +567,7 @@ The result is a credit note with a new element in the operations collection.
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-         "type": "sales order",
+         "type": "customerorder",
          "mediaType": "application/json"
        },
        "linkedSum": 0

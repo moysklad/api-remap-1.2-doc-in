@@ -201,7 +201,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -298,7 +298,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -319,7 +319,7 @@ Successful request. The result is a JSON representation of a list of Sales Retur
        "salesChannel": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-           "type": "sales channel",
+           "type": "saleschannel",
            "mediaType": "application/json"
          }
        },
@@ -392,7 +392,7 @@ When creating a return:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -517,7 +517,7 @@ Successful request. The result is a JSON representation of the generated Sales R
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -619,7 +619,7 @@ Updated Sales Returns must contain the ID as metadata.
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json"
                  }
                },
@@ -778,7 +778,7 @@ Successful request. The result is a JSON array of representations of the generat
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -909,7 +909,7 @@ Successful request. The result is a JSON array of representations of the generat
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -937,7 +937,7 @@ Successful request. The result is a JSON array of representations of the generat
      "salesChannel": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-         "type": "sales channel",
+         "type": "saleschannel",
          "mediaType": "application/json"
        }
      },
@@ -1319,7 +1319,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1458,7 +1458,7 @@ Successful request. The result is a JSON representation of the Sales Return with
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/faf41a7b-2e58-11e6-8a84-bae500000051",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1472,7 +1472,7 @@ Successful request. The result is a JSON representation of the Sales Return with
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    },
@@ -1633,7 +1633,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1661,7 +1661,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    },

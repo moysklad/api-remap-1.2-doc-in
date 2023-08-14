@@ -132,7 +132,7 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/async?filter=state=done;deletionDate%3C2021-02-16%2016:21:09",
+     "href": "https://app.kladana.in/api/remap/1.2/async?filter=state=done;deletionDate<2021-02-16 16:21:09",
      "type": "async",
      "mediaType": "application/json",
      "size": 2,
@@ -209,7 +209,7 @@ curl -X GET
 no body
 
 Titles:
-Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c00000001/apiasynctaskresult/4d363a5f-ae72-4a14-9951-7038a4a67060?temp_url_sig=9a24e12250f72328c27 3491&temp_url_expires=1616516805&filename=asynctask_d1746c6c-8bf3- 11eb-ac12-000b00000001_result.json
+Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c00000001/apiasynctaskresult/4d363a5f-ae72-4a14-9951-7038a4a67060?temp_url_sig=a24e12250f7428c2cc212362cebc97ed43333491&temp_url_expires=1616516805&filename=asynctask_d1746c6c-8bf3-11eb-ac12-000b00000001_result.json
 ```
 
 > Example of received report
@@ -384,7 +384,7 @@ curl -X POST
      "entityType": "async",
      "url": "http://some_url.ru",
      "method": "POST",
-     "encapable": true,
+     "enabled": true,
      "action": "PROCESSED"
 }
 ```

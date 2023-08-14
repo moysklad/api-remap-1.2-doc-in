@@ -45,7 +45,7 @@ The search among the objects of products to match the search string will be carr
 | **paymentItemType**     | Enum                                               | | Sign of the subject of calculation. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-priznak-predmeta-rascheta) |
 | **ppeType**             | Enum                                               | | Nomenclature classification type code for medical personal protective equipment (EAN-13). [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-wida-nomenklaturnoj-klassifikacii-medicinskih-sredstw-indiwidual-noj-zaschity) |
 | **productFolder**       | [Meta](../#kladana-json-api-general-info-metadata) | | Product group metadata<br>`+Expand` |
-| **saleprice**           | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **salePrice**           | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
 | **shared**              | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **supplier**            | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Supplier counterparty metadata<br>`+Expand` |
 | **syncId**              | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
@@ -53,7 +53,7 @@ The search among the objects of products to match the search string will be carr
 | **things**              | Array(String)                                      | | Serial numbers |
 | **tnved**               | String(255)                                        | | TN VED code |
 | **trackingType**        | Enum                                               | | Type of labeled product. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-tip-markiruemoj-produkcii) |
-| **wom**                 | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
+| **uom*                 | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat**        | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **variantsCount**       | Int                                                | | Number of modifications for this product<br>`+Required when replying` `+Read only` |
@@ -170,7 +170,7 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 | **barcodes** | Array(Object)                                      | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
 | **id** | UUID                                               | Product Package ID<br>`+Required when replying` `+Read Only` |
 | **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when answering` `+Required when creating` |
-| **wom** | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand` |
+| **uom* | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand` |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
 
@@ -431,7 +431,7 @@ Successful request. The result is a JSON representation of the list of Products.
            "offset": 0
          }
        },
-       "minprice": {
+       "minPrice": {
          "value": 500.0,
          "currency": {
            "meta": {
@@ -518,7 +518,7 @@ Successful request. The result is a JSON representation of the list of Products.
            "value": "farm \"Petrovich\""
          }
        ],
-       "buyprice": {
+       "buyPrice": {
          "value": 54.0,
          "currency": {
            "meta": {
@@ -605,7 +605,7 @@ Successful request. The result is a JSON representation of the list of Products.
            "offset": 0
          }
        },
-       "minprice": {
+       "minPrice": {
         "value": 500.0,
          "currency": {
            "meta": {
@@ -681,7 +681,7 @@ Successful request. The result is a JSON representation of the list of Products.
            "value": false
          }
        ],
-       "buyprice": {
+       "buyPrice": {
          "value": 23553000.0,
          "currency": {
            "meta": {
@@ -814,7 +814,7 @@ Successful request. The result is a JSON representation of the list of Products.
            }
          }
        ],
-       "buyprice": {
+       "buyPrice": {
          "value": 12.0,
          "currency": {
            "meta": {
@@ -895,7 +895,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     "mediaType": "application/json"
                 }
             },
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -906,7 +906,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     }
                 }
             },
-            "buyprice": {
+            "buyPrice": {
                 "value": 23553000.0,
                 "currency": {
                     "meta": {
@@ -1051,7 +1051,7 @@ Successful request. The result is a JSON representation of the created Product.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -1114,7 +1114,7 @@ Successful request. The result is a JSON representation of the created Product.
        "mediaType": "application/json"
      }
    },
-   "buyprice": {
+   "buyPrice": {
      "value": 23553000.0,
      "currency": {
        "meta": {
@@ -1288,7 +1288,7 @@ Successful request. The result is a JSON representation of the created Product.
                     "mediaType": "application/json"
                 }
             },
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -1299,7 +1299,7 @@ Successful request. The result is a JSON representation of the created Product.
                     }
                 }
             },
-            "buyprice": {
+            "buyPrice": {
                 "value": 54.0,
                 "currency": {
                     "meta": {
@@ -1448,7 +1448,7 @@ Successful request. The result is a JSON representation of the created Product.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -1550,7 +1550,7 @@ Successful request. The result is a JSON representation of the created Product.
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 54.0,
      "currency": {
        "meta": {
@@ -1633,7 +1633,7 @@ Successful request. The result is a JSON representation of the created Product w
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -1659,7 +1659,7 @@ Successful request. The result is a JSON representation of the created Product w
        }
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 0.0
    },
    "weight": 0,
@@ -1815,7 +1815,7 @@ Successful request. The result is a JSON array of created and updated product re
          "mediaType": "application/json"
        }
      },
-     "buyprice": {
+     "buyPrice": {
        "value": 54.0,
        "currency": {
          "meta": {
@@ -2016,7 +2016,7 @@ Successful request. The result is a JSON representation of a separate additional
    },
    "id": "3cd83619-5585-11e6-8a84-bae500000069",
    "name": "Related Entity",
-   "type": "custom",
+   "type": "customentity",
    "required": false
 }
 ```
@@ -2101,7 +2101,7 @@ Successful request. The result is a JSON representation of the Product.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 532000.0,
      "currency": {
        "meta": {
@@ -2177,7 +2177,7 @@ Successful request. The result is a JSON representation of the Product.
        "value": false
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 23553000.0,
      "currency": {
        "meta": {
@@ -2301,7 +2301,7 @@ otherwise, an error will occur, because serial accounting of weight products is 
                     "mediaType": "application/json"
                 }
             },
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -2312,7 +2312,7 @@ otherwise, an error will occur, because serial accounting of weight products is 
                     }
                 }
             },
-            "buyprice": {
+            "buyPrice": {
                 "value": 54.0,
                 "currency": {
                     "meta": {
@@ -2478,7 +2478,7 @@ Successful request. The result is a JSON representation of the updated Product.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -2573,7 +2573,7 @@ Successful request. The result is a JSON representation of the updated Product.
        "mediaType": "application/json"
      }
    },
-   "buyprice": {
+   "buyPrice": {
      "value": 54.0,
      "currency": {
        "meta": {
@@ -2659,7 +2659,7 @@ Successful request. The result is a JSON representation of the updated Product.
                     "mediaType": "application/json"
                 }
             },
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -2670,7 +2670,7 @@ Successful request. The result is a JSON representation of the updated Product.
                     }
                 }
             },
-            "buyprice": {
+            "buyPrice": {
                 "value": 54.0,
                 "currency": {
                     "meta": {
@@ -2806,7 +2806,7 @@ Successful request. The result is a JSON representation of the updated Products.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -2893,7 +2893,7 @@ Successful request. The result is a JSON representation of the updated Products.
        "value": "Kolkhoz \"Ivanovo\""
      }
    ],
-   "buyprice": {
+   "buyPrice": {
      "value": 54.0,
      "currency": {
        "meta": {
@@ -2942,7 +2942,7 @@ Successful request. The result is a JSON representation of the updated Products.
                     "mediaType": "application/json"
                 }
             },
-            "minprice": {
+            "minPrice": {
                 "value": 500.0,
                 "currency": {
                     "meta": {
@@ -2953,7 +2953,7 @@ Successful request. The result is a JSON representation of the updated Products.
                     }
                 }
             },
-            "buyprice": {
+            "buyPrice": {
                 "value": 54.0,
                 "currency": {
                     "meta": {
@@ -3087,7 +3087,7 @@ Successful request. The result is a JSON representation ofnew Product.
        "offset": 0
      }
    },
-   "minprice": {
+   "minPrice": {
      "value": 500.0,
      "currency": {
        "meta": {
@@ -3150,7 +3150,7 @@ Successful request. The result is a JSON representation ofnew Product.
        "mediaType": "application/json"
      }
    },
-   "buyprice": {
+   "buyPrice": {
      "value": 54.0,
      "currency": {
        "meta": {

@@ -92,7 +92,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
              "offset": 0
          }
      },
-     "minprice": {
+     "minPrice": {
         "value": 500.0,
          "currency": {
              "meta": {
@@ -118,7 +118,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
              }
          }
      ],
-     "buyprice": {
+     "buyPrice": {
          "value": 0.0
      },
      "weight": 0,
@@ -212,7 +212,7 @@ curl -X GET
              "offset": 0
          }
      },
-     "minprice": {
+     "minPrice": {
          "value": 0.0,
          "currency": {
              "meta": {
@@ -247,7 +247,7 @@ curl -X GET
              }
          }
      ],
-     "buyprice": {
+     "buyPrice": {
          "value": 0.0,
          "currency": {
              "meta": {

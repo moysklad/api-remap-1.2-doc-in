@@ -99,7 +99,7 @@ Successful request. The result is a JSON representation of a list of Currencies.
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
-         "uuidHref": "http://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
        },
        "id": "6314188d-2c7f-11e6-8a84-bae500000055",
        "system": false,
@@ -132,7 +132,7 @@ Successful request. The result is a JSON representation of a list of Currencies.
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
-         "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
        },
        "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
        "system": true,
@@ -194,7 +194,7 @@ Successful request. The result is a JSON representation of the generated Currenc
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
-         "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
+         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
      },
      "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
      "system": false,
@@ -375,7 +375,7 @@ Successful request. The result is a JSON array of representations of the created
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json",
-       "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
+       "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
      },
      "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
      "system": false,
@@ -401,7 +401,7 @@ Successful request. The result is a JSON array of representations of the created
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json",
-       "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
+       "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
      },
      "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
      "system": false,
@@ -516,7 +516,7 @@ Successful request. The result is a JSON representation of the requested Currenc
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     "uuidHref": "http://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
+     "uuidHref": "https://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
    },
    "id": "6314188d-2c7f-11e6-8a84-bae500000055",
    "system": false,
@@ -582,7 +582,7 @@ Successful request. The result is a JSON representation of the updated Currency.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     "uuidHref": "http://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
+     "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
    },
    "id": "dc5f76ae-2c89-11e6-8a84-bae50000003f",
    "system": false,

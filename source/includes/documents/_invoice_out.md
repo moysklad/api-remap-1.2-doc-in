@@ -202,7 +202,7 @@ Successful request. The result is a JSON representation of a list of Sales Invoi
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -236,7 +236,7 @@ Successful request. The result is a JSON representation of a list of Sales Invoi
        "salesChannel": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-           "type": "sales channel",
+           "type": "saleschannel",
            "mediaType": "application/json"
          }
        }
@@ -313,7 +313,7 @@ Successful request. The result is a JSON representation of a list of Sales Invoi
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -356,7 +356,7 @@ Successful request. The result is a JSON representation of a list of Sales Invoi
        "salesChannel": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-           "type": "sales channel",
+           "type": "saleschannel",
            "mediaType": "application/json"
          }
        }
@@ -468,7 +468,7 @@ Successful request. The result is a JSON representation of a list of Sales Invoi
        "salesChannel": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-           "type": "sales channel",
+           "type": "saleschannel",
            "mediaType": "application/json"
          }
        }
@@ -509,7 +509,7 @@ Mandatory fields to create:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              }
@@ -575,7 +575,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -633,7 +633,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -667,7 +667,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
              "salesChannel": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-                 "type": "sales channel",
+                 "type": "saleschannel",
                  "mediaType": "application/json"
                }
              }
@@ -743,7 +743,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -780,7 +780,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    }
@@ -808,7 +808,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json"
                }
              },
@@ -852,7 +852,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
              "salesChannel": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-                 "type": "sales channel",
+                 "type": "saleschannel",
                  "mediaType": "application/json"
                }
              }
@@ -928,7 +928,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -978,7 +978,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    }
@@ -1006,7 +1006,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
                 "meta": {
                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                    "type": "counter party",
+                    "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
@@ -1137,7 +1137,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1202,7 +1202,7 @@ Updated Sales Invoices must contain the identifier in the form of metadata.
                     "meta": {
                         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                        "type": "counter party",
+                        "type": "counterparty",
                         "mediaType": "application/json"
                     }
                 }
@@ -1292,7 +1292,7 @@ Successful request. The result is an array of JSON representations of created an
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1329,7 +1329,7 @@ Successful request. The result is an array of JSON representations of created an
      "salesChannel": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-         "type": "sales channel",
+         "type": "saleschannel",
          "mediaType": "application/json"
        }
      }
@@ -1399,7 +1399,7 @@ Successful request. The result is an array of JSON representations of created an
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -1435,7 +1435,7 @@ Successful request. The result is an array of JSON representations of created an
      "salesChannel": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-         "type": "sales channel",
+         "type": "saleschannel",
          "mediaType": "application/json"
        }
      }
@@ -1687,7 +1687,7 @@ Successful request. The result is a JSON representation of the prefilled Sales i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6792c8d5-3d19-11e6-8a84-bae500000005",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1816,7 +1816,7 @@ Successful request. The result is a JSON representation of the prefilled Sales i
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/463fe231-ca1f-11e7-6a80-332a00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=463fe231-ca1f-11e7-6a80-332a00000056"
      }
@@ -1955,7 +1955,7 @@ Successful request. The result is a JSON representation of the Sales Invoice.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -1989,7 +1989,7 @@ Successful request. The result is a JSON representation of the Sales Invoice.
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    }
@@ -2103,7 +2103,7 @@ Successful request. The result is a JSON representation of the updated Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2140,7 +2140,7 @@ Successful request. The result is a JSON representation of the updated Sales Inv
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    }
@@ -2251,7 +2251,7 @@ Successful request. The result is a JSON representation of the updated Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2301,7 +2301,7 @@ Successful request. The result is a JSON representation of the updated Sales Inv
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    }
@@ -2417,7 +2417,7 @@ Successful request. The result is a JSON representation of the updated Sales Inv
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/850f1667-f504-11e5-8a84-bae500000163",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -2467,7 +2467,7 @@ Successful request. The result is a JSON representation of the updated Sales Inv
    "salesChannel": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/saleschannel/56446e7f-3633-11ec-ac13-000d00000000",
-       "type": "sales channel",
+       "type": "saleschannel",
        "mediaType": "application/json"
      }
    }

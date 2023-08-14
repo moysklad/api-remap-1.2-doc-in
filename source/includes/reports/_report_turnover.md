@@ -27,7 +27,7 @@ A general Stock movement report for goods and variants without warehouses.
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **productFolder** | object | Product Group or Modification |
-| **wom** | object | Unit of measurement |
+| **uom* | object | Unit of measurement |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
 
@@ -43,12 +43,12 @@ The report results can be filtered using the filter parameter. Only one value ca
 | Title | Type | Filtration | Description |
 | --------- | ---------- | --------- | ----- |
 | **agent** | object | `=` | link to the counterparty by which you want to filter. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **contract** | object | `=` | link to the contract by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **product** | object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
 | **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
 | **store** | object | `=` | a link to the warehouse by which you want to filter. |
 | **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | Enum | `=` | parameter for filtering "document type" by which you can producesti filtering. Possible values are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`. |
@@ -139,7 +139,7 @@ Successful request. The result is a JSON representation of the report.
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/turnover/all",
-     "type": "Stock movement report",
+     "type": "turnover",
      "mediaType": "application/json",
      "size": 3,
      "limit": 1000,
@@ -276,7 +276,7 @@ Stock movement report by products and their variants with detalization by wareho
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **productFolder** | object | Product Group or Modification |
-| **wom** | object | Unit of measurement |
+| **uom* | object | Unit of measurement |
 
 #### Stock movement report object structure detailing by warehouses
 
@@ -304,12 +304,12 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 | Title | Type | Filtration | Description |
 | --------- | ------- |------ | ------- |
 | **agent** | object | `=` | link to the counterparty by which you want to filter. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **contract** | object | `=` | link to the contract by which you want to filter. |
 | **organization** | object | `=` | link to the legal entity by which you want to filter. |
 | **product** | object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
 | **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
+| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
 | **store** | object | `=` | a link to the warehouse by which you want to filter.|
 | **option** | object | `=` | link to the modification by which you want to filter. |
 
@@ -535,7 +535,7 @@ Stock movement report for the producta and their variants with warehouses and tr
 | **code** | String(255) | Product Code |
 | **article** | String(255) | Article of Goods |
 | **productFolder** | object | Product Group or Modification |
-| **wom** | object | Unit of measurement |
+| **uom* | object | Unit of measurement |
 
 #### Operation object structure
 
@@ -556,11 +556,11 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 | Title | Description |
 | --------- | ------- |
 | **agent** | link to the counterparty by which you want to filter. |
-| **agenttag** | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | string with the name of the group of counterparties by which you want to filter. |
 | **contract** | link to the contract by which you want to filter. |
 | **organization** | link to the legal entity by which you want to filter. |
 | **project** | a link to the project by which you want to filter. |
-| **retailstore** | a link to the point of sale by which you want to filter. |
+| **retailStore** | a link to the point of sale by which you want to filter. |
 | **store** | a link to the warehouse by which you want to filter. |
 
 Filtering examples:
@@ -667,7 +667,7 @@ Successful request. The result is a JSON representation of the report.
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/923916c6-b719-11eb-c0a8-800c00000075",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=923916c6-b719-11eb-c0a8-800c00000075"
            },
@@ -722,7 +722,7 @@ Successful request. The result is a JSON representation of the report.
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/92394ebc-b719-11eb-c0a8-800c00000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=92394ebc-b719-11eb-c0a8-800c00000077"
            },
@@ -777,7 +777,7 @@ Successful request. The result is a JSON representation of the report.
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/923916c6-b719-11eb-c0a8-800c00000075",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=923916c6-b719-11eb-c0a8-800c00000075"
            },
@@ -832,7 +832,7 @@ Successful request. The result is a JSON representation of the report.
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/92394ebc-b719-11eb-c0a8-800c00000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=92394ebc-b719-11eb-c0a8-800c00000077"
            },

@@ -493,7 +493,7 @@ Successful request. The result is a JSON representation of the Notification.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order",
+       "type": "customerorder",
        "mediaType": "application/json"
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
@@ -556,7 +556,7 @@ Successful request. The result is a JSON representation of the Notification.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order",
+       "type": "customerorder",
        "mediaType": "application/json"
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
@@ -1575,7 +1575,7 @@ NotificationRetailShiftOpened - the shift is open.
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **retailShift** | object | Shift description<br>`+Required when replying` `+Required when creating` |
-| **retailstore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
+| **retailStore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 | **user** | object | Employee<br>`+Required when replying` `+Required when creating` |
 
@@ -1658,7 +1658,7 @@ NotificationRetailShiftClosed - the shift is closed
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
 | **retailShift** | object | Shift description<br>`+Required when replying` `+Required when creating` |
-| **retailstore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
+| **retailStore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
 | **returns** | int | Number of returns<br>`+Required when replying` `+Required when creating` |
 | **sales** | int | Number of sales<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
@@ -1810,7 +1810,7 @@ Successful request. The result is a JSON representation of the Notification.
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/afa8525a-645b-11eb-0a80-2b47000003b7",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order",
+       "type": "customerorder",
        "mediaType": "application/json"
      },
      "id": "afa8525a-645b-11eb-0a80-2b47000003b7",

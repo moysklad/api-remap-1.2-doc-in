@@ -119,7 +119,7 @@ Successful request. The result is a JSON representation of a list of Counterpart
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
          }
@@ -199,7 +199,7 @@ Successful request. The result is a JSON representation of a list of Counterpart
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
          }
@@ -252,7 +252,7 @@ Mandatory fields to create:
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                 "type": "counter party",
+                 "type": "counterparty",
                  "mediaType": "application/json",
                  "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
                }
@@ -313,7 +313,7 @@ Successful request. The result is a JSON representation of the created Counterpa
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
      }
@@ -362,7 +362,7 @@ Updated Counterparty Balance Adjustments must contain the identifier in the form
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json",
                    "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
                  }
@@ -383,7 +383,7 @@ Updated Counterparty Balance Adjustments must contain the identifier in the form
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                   "type": "counter party",
+                   "type": "counterparty",
                    "mediaType": "application/json",
                    "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
                  }
@@ -445,7 +445,7 @@ Successful request. The result is a JSON array of representations of created and
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
        }
@@ -511,7 +511,7 @@ Successful request. The result is a JSON array of representations of created and
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
        }
@@ -708,7 +708,7 @@ Successful request. The result is a JSON representation of Counterparty Balance 
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
      }
@@ -804,7 +804,7 @@ Successful request. The result is a JSON representation of the updated Counterpa
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
      }

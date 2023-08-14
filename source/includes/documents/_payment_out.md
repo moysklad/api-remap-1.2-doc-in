@@ -940,12 +940,12 @@ Successful request. The result is a JSON representation of a separate additional
    },
    "customEntityMeta": {
      "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/a27aa372-5311-11e6-8a84-bae500000001",
-     "type": "customer metadata",
+     "type": "customentitymetadata",
      "mediaType": "application/json"
    },
    "id": "ed00a639-558a-11e6-8a84-bae500000072",
    "name": "Entities",
-   "type": "custom",
+   "type": "customentity",
    "required": false
 }
 ```

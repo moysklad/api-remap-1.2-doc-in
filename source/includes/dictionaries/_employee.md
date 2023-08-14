@@ -487,7 +487,7 @@ Successful request. The result is a JSON representation of the Employee.
    "fullName": "Administrator",
    "shortFio": "Administrator",
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
          "type": "admin",
          "mediaType": "application/json"
        },
@@ -870,7 +870,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **salesReturn** | OPERATION | All ALL | Sales Return |
 | **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
-| **wom** | base | All ALL | Units of measure |
+| **uom* | base | All ALL | Units of measure |
 | **warehouse** | base | All ALL | Warehouses |
 
 For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`
