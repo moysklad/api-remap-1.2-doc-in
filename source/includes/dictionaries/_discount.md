@@ -10,7 +10,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | -------- |------- | ---------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **active** | Boolean | An indicator of whether the discount is active at the moment<br>`+Required when answering` |
-| **agenttags** | Array(String) | Account tags to which the discount is applied, if not applied to all accounts |
+| **agentTags** | Array(String) | Account tags to which the discount is applied, if not applied to all accounts |
 | **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when answering` |
 | **assortment** | Array(Object) | An array of metadata for Goods and Services that have been selected to apply the discount, if it is not applied to all products |
 | **id** | UUID | Discount ID<br>`+Required when replying` `+Read Only` |
