@@ -23,18 +23,18 @@ An extended stock report is a detailed report that collects data on all products
 | **article** | String(255) | Article |
 | **code** | String(255) | Code<br>`+Required when replying` |
 | **externalCode** | String(255) | External code of the entity for which the balance is displayed<br>`+Required when replying` |
-| **folder** | object | Group of Goods/Modifications/Series. [More details here](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-gruppa)<br>`+Required when replying` |
+| **folder** | Object | Group of Goods/Modifications/Series. [More details here](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-gruppa)<br>`+Required when replying` |
 | **images** | [Meta](../#kladana-json-api-general-info-metadata) | Image metadata of Product/Modification/Series |
-| **inTransit** | float | Waiting<br>`+Required for response` |
+| **inTransit** | Float | Waiting<br>`+Required for response` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Modification/Series for which the rest is issued<br>`+Required when answering` |
 | **name** | String(255) | Name<br>`+Required when answering` |
-| **price** | float | Cost price |
-| **quantity** | float | Available<br>`+Required when replying` |
-| **reserve** | float | Reserve<br>`+Required when replying` |
-| **salePrice** | float | Sale price |
-| **stock** | float | Remaining<br>`+Required when answering` |
-| **stockDays** | int | Number of days in stock<br>`+Mandatorylnoe when answering` |
-| **uom* | object | Unit of measurement. [More details here](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-edinica-izmereniq)<br>`+Required when replying` |
+| **price** | Float | Cost price |
+| **quantity** | Float | Available<br>`+Required when replying` |
+| **reserve** | Float | Reserve<br>`+Required when replying` |
+| **salePrice** | Float | Sale price |
+| **stock** | Float | Remaining<br>`+Required when answering` |
+| **stockDays** | Int | Number of days in stock<br>`+Mandatorylnoe when answering` |
+| **uom* | Object | Unit of measurement. [More details here](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-edinica-izmereniq)<br>`+Required when replying` |
 
 #### Nested entity attributes
 #### Unit
@@ -50,7 +50,7 @@ An extended stock report is a detailed report that collects data on all products
 | ------- | ----------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product group metadata<br>`+Required when replying` |
 | **name** | String(255) | Group name<br>`+Required when replying` |
-| **pathName** | string | Parent group name<br>`+Required when replying` |
+| **pathName** | String | Parent group name<br>`+Required when replying` |
 
 #### Attributes available for filtering
 
@@ -60,20 +60,20 @@ The report results can be filtered using the filter parameter.
 |--------------------|---------- | --------- |----|
 | **archived** | Boolean | `=` | parameter for filtering by archived products. Possible values: true, false. To return both archived and non-archived products, you need to pass two values at once, true and false. |
 | **inTransitOnly** | Boolean | `=` | parameter to filter by wait value. If you pass true, only products with pending will be included in the selection. |
-| **moment** | datetime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni) |
-| **product** | object | `=` `!=` | option to filter by multiple products. The parameter value is a link to a product that should be included in the selection or excluded from it. You can pass multiple values. This filter option can be combined with the `variant` option. |
-| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **moment** | DateTime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni) |
+| **product** | Object | `=` `!=` | option to filter by multiple products. The parameter value is a link to a product that should be included in the selection or excluded from it. You can pass multiple values. This filter option can be combined with the `variant` option. |
+| **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders** | Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **quantityMode** | Enum | `=` | option to filter by value is available. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-quantitymode) |
 | **reserveOnly** | Boolean | `=` | parameter for filtering by reserve value. If you pass true, I will get into the selectiont only goods with a reserve. |
 | **search** | String(255) | `=` `!~` | special text search option. The search is carried out by the occurrence of a substring in the names of goods, modifications, series. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
-| **stockDaysFrom** | int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in stock greater than or equal to the specified one. This filter parameter can be combined with the `stockDaysTo` parameter. |
-| **stockDaysTo** | int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in the warehouse less than or equal to the specified one. This filtering option can be combined with the `stockDaysFrom` option. |
+| **stockDaysFrom** | Int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in stock greater than or equal to the specified one. This filter parameter can be combined with the `stockDaysTo` parameter. |
+| **stockDaysTo** | Int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in the warehouse less than or equal to the specified one. This filtering option can be combined with the `stockDaysFrom` option. |
 | **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is all. [Available values](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
-| **store** | object | `=` `!=` | parameter for filtering by multiple warehouses. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
-| **supplier** | object | `=` `!=` | option to filter by multiple vendors. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
-| **option** | object | `=` `!=` | parameter for filtering by several modifications. The value of the parameter is a reference to the modification that should be included in the selection or excluded from it. You can pass multiple values. This filter option can be combined with the `product` option. |
+| **store** | Object | `=` `!=` | parameter for filtering by multiple warehouses. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
+| **supplier** | Object | `=` `!=` | option to filter by multiple vendors. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
+| **variant** | Object | `=` `!=` | parameter for filtering by several modifications. The value of the parameter is a reference to the modification that should be included in the selection or excluded from it. You can pass multiple values. This filter option can be combined with the `product` option. |
 
 ##### Available values for stockMode
 
@@ -830,7 +830,7 @@ which shows the Remaining for each of the goods in each of the warehouses.
 | Title | Type | Description |
 | -------| ------------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item for which the Balance is given<br>`+Required when answering` |
-| **stockByStore** | object | The rest of the warehouses. [More details here](../reports/#reports-balance-report-ostatki-po-skladam-ostatki-po-skladam)<br>`+Required when replying` |
+| **stockByStore** | Object | The rest of the warehouses. [More details here](../reports/#reports-balance-report-ostatki-po-skladam-ostatki-po-skladam)<br>`+Required when replying` |
 
 #### Stock balances
 The "Stock by stock" field (stockByStore) is a return from objects with the following attributes:
@@ -838,9 +838,9 @@ The "Stock by stock" field (stockByStore) is a return from objects with the foll
 | Title | Type | Description |
 | -------| ------------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata for displaying Remaining<br>`+Required when replying` |
-| **stock** | int | Remaining<br>`+Required when answering` |
-| **inTransit** | int | Waiting<br>`+Required for response` |
-| **reserve** | int | Reserve<br>`+Required when replying` |
+| **stock** | Float | Remaining<br>`+Required when answering` |
+| **inTransit** | Float | Waiting<br>`+Required for response` |
+| **reserve** | Float | Reserve<br>`+Required when replying` |
 | **name** | String(255) | Warehouse name<br>`+Required when replying` |
 
 The dimension of this field is always equal to the number of warehouses in the system.
@@ -851,15 +851,15 @@ The report results can be filtered using the filter parameter. You cannot specif
 
 | Title | Type | Filtration | Description |
 | -------- | -----| -------- | ------------ |
-| **moment** | datetime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-date-i-wremeni) |
-| **product** | object | `=` `!=` | a link to the product you want to filter by. |
-| **productFolder** | object | `=` `!=` | a link to the product group by which you want to filter. |
+| **moment** | DateTime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-date-i-wremeni) |
+| **product** | Object | `=` `!=` | a link to the product you want to filter by. |
+| **productFolder** | Object | `=` `!=` | a link to the product group by which you want to filter. |
 | **search** | String(255) | `=` | special text search option. The search is carried out by the occurrence of a substring in the names of goods, modifications, series. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
 | **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-ostatki-po-skladam-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
-| **store** | object | `=` `!=` | a link to the warehouse for which you want to generate a report. |
-| **supplier** | object | `=` `!=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **option** | object | `=` `!=` | link to the modification by which you want to filter. |
+| **store** | Object | `=` `!=` | a link to the warehouse for which you want to generate a report. |
+| **supplier** | Object | `=` `!=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **variant** | Object | `=` `!=` | link to the modification by which you want to filter. |
 
 ##### Available values for stockMode
 The default value is all.

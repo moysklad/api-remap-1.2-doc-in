@@ -11,11 +11,11 @@ A general Stock movement report for goods and variants without warehouses.
 
 | Title | Type | Description |
 | ---------| ----- | ----- |
-| **assortment** | object | Brief presentation of the Item or Modification in the report. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-assortment)<br>`+Required when answering` |
-| **onPeriodStart** | object | Indicators at the beginning of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **onPeriodEnd** | object | Indicators at the end of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **income** | object | Revenue figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **outcome** | object | Consumption figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-assortment)<br>`+Required when answering` |
+| **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **income** | Object | Revenue figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **outcome** | Object | Consumption figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaram-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
 
 #### Assortment object structure
 
@@ -23,18 +23,18 @@ A general Stock movement report for goods and variants without warehouses.
 | ----- | ----- |--------- |
 | **article** | String(255) | Article of Goods |
 | **code** | String(255) | Product Code |
-| **images** | object | The first image of the Product or Modification |
+| **images** | Object | The first image of the Product or Modification |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
-| **productFolder** | object | Product Group or Modification |
-| **uom* | object | Unit of measurement |
+| **productFolder** | Object | Product Group or Modification |
+| **uom* | Object | Unit of measurement |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
 
 | Title | Type | Description |
 | ----- | ----- |-------- |
-| **sum** | float | Cost amount<br>`+Required when answering` |
-| **quantity** | float | Number of product units<br>`+Required when answering` |
+| **sum** | Float | Cost amount<br>`+Required when answering` |
+| **quantity** | Float | Number of product units<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -42,17 +42,17 @@ The report results can be filtered using the filter parameter. Only one value ca
 
 | Title | Type | Filtration | Description |
 | --------- | ---------- | --------- | ----- |
-| **agent** | object | `=` | link to the counterparty by which you want to filter. |
+| **agent** | Object | `=` | link to the counterparty by which you want to filter. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **contract** | object | `=` | link to the contract by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **product** | object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
+| **contract** | Object | `=` | link to the contract by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **product** | Object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | Enum | `=` | parameter for filtering "document type" by which you can producesti filtering. Possible values are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`. |
-| **option** | object | `=` | link to the modification by which you want to filter. |
+| **variant** | Object | `=` | link to the modification by which you want to filter. |
 | **withoutturnover** | Boolean | `=` | parameter for filtering "Show products without movement". Possible values: `true`, `false`. |
 
 Filtering examples:
@@ -263,8 +263,8 @@ Stock movement report by products and their variants with detalization by wareho
 
 | Title | Type | Description |
 | --------- | ------- |------- |
-| **assortment** | object | Brief presentation of the Item or Modification in the report. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-assortment)<br>`+Required when replying` |
-| **stockByStore** | object | Detailing of Stock movement report by warehouses. [Learn more](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-detalizaciq-oborotow-po-skladam)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-assortment)<br>`+Required when replying` |
+| **stockByStore** | Object | Detailing of Stock movement report by warehouses. [Learn more](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-detalizaciq-oborotow-po-skladam)<br>`+Required when replying` |
 
 #### Assortment object structure
 
@@ -272,28 +272,28 @@ Stock movement report by products and their variants with detalization by wareho
 | --------- | ------- |--------- |
 | **article** | String(255) | Article of Goods |
 | **code** | String(255) | Product Code |
-| **images** | object | The first image of the Product or Modification |
+| **images** | Object | The first image of the Product or Modification |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
-| **productFolder** | object | Product Group or Modification |
-| **uom* | object | Unit of measurement |
+| **productFolder** | Object | Product Group or Modification |
+| **uom* | Object | Unit of measurement |
 
 #### Stock movement report object structure detailing by warehouses
 
 | Title | Type | Description |
 | --------- | ---- |------ |
-| **store** | object | Warehouse.<br>`+Required when replying` |
-| **onPeriodStart** | object | Indicators at the beginning of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **onPeriodEnd** | object | Indicators at the end of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **income** | object | Revenue figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **outcome** | object | Consumption figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **store** | Object | Warehouse.<br>`+Required when replying` |
+| **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **income** | Object | Revenue figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **outcome** | Object | Consumption figures during the reporting period. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-skladam-struktura-ob-ekta-pokazateli-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
 
 | Title | Type | Description |
 | --------- | ------- |----- |
-| **sum** | float | Cost amount<br>`+Required when answering` |
-| **quantity** | float | Number of product units<br>`+Required when answering` |
+| **sum** | Float | Cost amount<br>`+Required when answering` |
+| **quantity** | Float | Number of product units<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -303,15 +303,15 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 
 | Title | Type | Filtration | Description |
 | --------- | ------- |------ | ------- |
-| **agent** | object | `=` | link to the counterparty by which you want to filter. |
+| **agent** | Object | `=` | link to the counterparty by which you want to filter. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **contract** | object | `=` | link to the contract by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **product** | object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter.|
-| **option** | object | `=` | link to the modification by which you want to filter. |
+| **contract** | Object | `=` | link to the contract by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **product** | Object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter.|
+| **variant** | Object | `=` | link to the modification by which you want to filter. |
 
 Filtering examples:
 
@@ -519,12 +519,12 @@ Stock movement report for the product and their variants with warehouses and tra
 
 | Title | Type | Description |
 | --------- | ----- | ---------- |
-| **assortment** | object | Brief presentation of the Item or Modification in the report. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-dokumentam-struktura-ob-ekta-assortment)<br>`+Required when replying` |
-| **store** | object | Warehouse.<br>`+Required when replying` |
-| **operation** | object | The document associated with the Product. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-dokumentam-struktura-ob-ekta-operation)<br>`+Required when replying` |
-| **quantity** | float | Quantity of goods in the document.<br>`+Required when answering` |
-| **cost** | float | The cost of goods in the document.<br>`+Required when answering` |
-| **sum** | float | Cost sum.<br>`+Required when answering` |
+| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-dokumentam-struktura-ob-ekta-assortment)<br>`+Required when replying` |
+| **store** | Object | Warehouse.<br>`+Required when replying` |
+| **operation** | Object | The document associated with the Product. [More details here](#otchety-otchet-oboroty-oboroty-po-towaru-s-detalizaciej-po-dokumentam-struktura-ob-ekta-operation)<br>`+Required when replying` |
+| **quantity** | Float | Quantity of goods in the document.<br>`+Required when answering` |
+| **cost** | Float | The cost of goods in the document.<br>`+Required when answering` |
+| **sum** | Float | Cost sum.<br>`+Required when answering` |
 
 #### Assortment object structure
 
@@ -534,8 +534,8 @@ Stock movement report for the product and their variants with warehouses and tra
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **code** | String(255) | Product Code |
 | **article** | String(255) | Article of Goods |
-| **productFolder** | object | Product Group or Modification |
-| **uom* | object | Unit of measurement |
+| **productFolder** | Object | Product Group or Modification |
+| **uom* | Object | Unit of measurement |
 
 #### Operation object structure
 
@@ -544,8 +544,8 @@ Stock movement report for the product and their variants with warehouses and tra
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when replying` |
 | **name** | String(255) | Document number<br>`+Required when replying` |
 | **dedescription** | String(255) | Document comment |
-| **moment** | object | Date of the document<br>`+Required when replying` |
-| **agent** | object | Document counterparty |
+| **moment** | Object | Date of the document<br>`+Required when replying` |
+| **agent** | Object | Document counterparty |
 
 #### Attributes available for filtering
 

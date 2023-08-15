@@ -8,18 +8,18 @@ Access to the report via the API requires the right to view indicators `viewDash
 
 | Title | Type | Description |
 | ---------- | ------------ | ------ |
-| **credit** | float | Income<br>`+Required when answering` |
-| **debit** | float | Cost<br>`+Required when answering` |
+| **credit** | Float | Income<br>`+Required when answering` |
+| **debit** | Float | Cost<br>`+Required when answering` |
 | **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when answering` |
 
 #### Indicators (series)
 
 | Title | Type | Description |
 | ----------- |  ------------ | ------ |
-| **date** | datetime | Date<br>`+Required when replying` |
-| **credit** | float | Income for the period<br>`+Required when answering` |
-| **debit** | float | Expense for the period<br>`+Required when answering` |
-| **balance** | float | Balance (income-expense)<br>`+Required when answering` |
+| **date** | DateTime | Date<br>`+Required when replying` |
+| **credit** | Float | Income for the period<br>`+Required when answering` |
+| **debit** | Float | Expense for the period<br>`+Required when answering` |
+| **balance** | Float | Balance (income-expense)<br>`+Required when answering` |
 
 #### Parameters available for filtering
 
@@ -27,8 +27,8 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 | Title | Type | Filtration | Description |
 | ------ |------| ------------ | ------ |
-| **organization** | object | `=` | link to legal face |
-| **project** | object | `=` | project link |
+| **organization** | Object | `=` | link to legal face |
+| **project** | Object | `=` | project link |
 
 
 **Parameters**
@@ -170,9 +170,9 @@ Successful request. The result is a JSON representation of the report.
 #### Unit
 | Title | Type | Description |
 | ------------ | ------ |----- |
-| **account** | object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **organization** | object | Organization. [More details here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **balance** | float | Current balance<br>`+Required when answering` |
+| **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **organization** | Object | Organization. [More details here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **balance** | Float | Current balance<br>`+Required when answering` |
 
 #### Organization account
 

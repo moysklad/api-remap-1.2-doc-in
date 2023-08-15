@@ -9,19 +9,19 @@ To access the report via the API, you need the right to view the *Profit and Los
 
 | Title              | Type | Description |
 |--------------------| -----|---------|
-| **assortment**     | object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-towar) and [here](../dictionaries/#entities-usluga)<br>`+Required when answering` |
-| **margin**         | float | Profitability<br>`+Required when answering` |
-| **profit**         | float | Profit<br>`+Required when answering` |
-| **returnCost**     | float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnPrice**    | float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | int | Number of returns<br>`+Required when replying` |
-| **returnSum**      | float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellPrice**      | float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | int | Quantity sold<br>`+Required when replying` |
-| **sellSum**        | float | Sales amount<br>`+Required when answering` |
+| **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-towar) and [here](../dictionaries/#entities-usluga)<br>`+Required when answering` |
+| **margin**         | Float | Profitability<br>`+Required when answering` |
+| **profit**         | Float | Profit<br>`+Required when answering` |
+| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
+| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
+| **returnSum**      | Float | Refund amount<br>`+Required when replying` |
+| **sellCost**       | Float | Cost price<br>`+Required when answering` |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
+| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
+| **sellSum**        | Float | Sales amount<br>`+Required when answering` |
 
 #### Assortment object structure
 
@@ -30,9 +30,9 @@ To access the report via the API, you need the right to view the *Profit and Los
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Service<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Services<br>`+Required when answering` |
 | **code** | String(255) | Product or service code |
-| **uom* | object | Unit of measurement |
+| **uom* | Object | Unit of measurement |
 | **article** | String(255) | Product SKU |
-| **images** | object | Product Image |
+| **images** | Object | Product Image |
 
 #### Attributes available for filtering
 
@@ -42,17 +42,17 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description|
 |------------| -----|---------|------------|
-| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
-| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
+| **counterparty** | Object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
 
@@ -234,19 +234,19 @@ Successful request. The result is a JSON representation of the report.
 
 | Title              | Type | Description |
 |--------------------|---------|----- |
-| **assortment**     | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-usluga) and [here](../dictionaries/#entities-komplekt)<br>`+ Mandatory when replying` |
-| **margin**         | float | Profitability<br>`+Required when answering` |
-| **profit**         | float | Profit<br>`+Required when answering` |
-| **returnCost**     | float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | float | The sum of the cost of returns<br>`+Required when answering`|
-| **returnPrice**    | float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | int | Number of returns<br>`+Required when replying` |
-| **returnSum**      | float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellPrice**      | float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | int | Quantity sold<br>`+Required when replying` |
-| **sellSum**        | float | Sales amount<br>`+Required when answering` |
+| **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-usluga) and [here](../dictionaries/#entities-komplekt)<br>`+ Mandatory when replying` |
+| **margin**         | Float | Profitability<br>`+Required when answering` |
+| **profit**         | Float | Profit<br>`+Required when answering` |
+| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`|
+| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
+| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
+| **returnSum**      | Float | Refund amount<br>`+Required when replying` |
+| **sellCost**       | Float | Cost price<br>`+Required when answering` |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
+| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
+| **sellSum**        | Float | Sales amount<br>`+Required when answering` |
 
 #### Assortment object structure
 
@@ -256,7 +256,7 @@ Successful request. The result is a JSON representation of the report.
 | **name** | String(255) | Entity name<br>`+Required when replying` |
 | **code** | String(255) | Entity code<br>`+Required for response` |
 | **article** | String(255) | Article of Modification or Kit<br>`+Required when answering` |
-| **images** | object | Image Modifications<br>`+Required when answering` |
+| **images** | Object | Image Modifications<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -266,17 +266,17 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| ------|--------|-------|
-| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
-| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
+| **counterparty** | Object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
 
@@ -458,17 +458,17 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|------ |
-| **employees** | object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-sotrudnik)<br>`+Required when answering` |
-| **margin** | float | Profitability<br>`+Required when answering` |
-| **profit** | float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | int | Number of returns<br>`+Required when replying` |
-| **returnSum** | float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | float | Sales amount<br>`+Required when answering` |
+| **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-sotrudnik)<br>`+Required when answering` |
+| **margin** | Float | Profitability<br>`+Required when answering` |
+| **profit** | Float | Profit<br>`+Required when answering` |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCount** | Int | Number of returns<br>`+Required when replying` |
+| **returnSum** | Float | Refund amount<br>`+Required when replying` |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
+| **salesCount** | Int | Number of sales<br>`+Required when answering` |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellSum** | Float | Sales amount<br>`+Required when answering` |
 
 #### Employee object structure
 
@@ -485,17 +485,17 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| -----|----------|------|
-| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
-| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
+| **counterparty** | Object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
 
@@ -595,17 +595,17 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ------- | ----- | ------ |
-| **counterparty** | object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-kontragent)<br>`+Required when answering` |
-| **margin** | float | Profitability<br>`+Required when answering`|
-| **profit** | float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | int | Number of returns<br>`+Required when replying` |
-| **returnSum** | float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | float | Sales amount<br>`+Required when answering` |
+| **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-kontragent)<br>`+Required when answering` |
+| **margin** | Float | Profitability<br>`+Required when answering`|
+| **profit** | Float | Profit<br>`+Required when answering` |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCount** | Int | Number of returns<br>`+Required when replying` |
+| **returnSum** | Float | Refund amount<br>`+Required when replying` |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
+| **salesCount** | Int | Number of sales<br>`+Required when answering` |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellSum** | Float | Sales amount<br>`+Required when answering` |
 
 #### Structure of the counterparty object
 
@@ -622,17 +622,17 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------| ------|--------| ---- |
-| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
-| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **store**| object | `=` | a link to the warehouse by which you want to filter. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
+| **counterparty** | Object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **store**| Object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
 
@@ -733,17 +733,17 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ---------| ---- |----------|
-| **salesChannel** | object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-kanal-prodazh)<br>`+Required when replying` |
-| **margin** | float | Profitability<br>`+Required when answering` |
-| **profit** | float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | int | Number of returns<br>`+Required when replying` |
-| **returnSum** | float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | float | Sales amount<br>`+Required when answering` |
+| **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-kanal-prodazh)<br>`+Required when replying` |
+| **margin** | Float | Profitability<br>`+Required when answering` |
+| **profit** | Float | Profit<br>`+Required when answering` |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCount** | Int | Number of returns<br>`+Required when replying` |
+| **returnSum** | Float | Refund amount<br>`+Required when replying` |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
+| **salesCount** | Int | Number of sales<br>`+Required when answering` |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellSum** | Float | Sales amount<br>`+Required when answering` |
 
 #### SalesChannel object structure
 
@@ -761,16 +761,16 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------------------|-----------|-----------|---------|
-| **product** | object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
-| **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **counterparty** | object | `=` | link to the counterparty by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **salesChannel** | object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
+| **counterparty** | Object | `=` | link to the counterparty by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
 

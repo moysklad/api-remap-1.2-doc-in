@@ -6,24 +6,20 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 ### Indicators of counterparties
 #### Indicator attributes
 
-| Title               | Type | Filtration | Description |
-|---------------------| --------- | ------ | ------ |
-| **averageReceipt**  | float | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
-| **balance**         | float | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
-| **bonusBalance**    | float | | Points<br>`+Required when answering` |
-| **counterparty**    | object | | Counterparty. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **demandsCount**    | int | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when answering` |
-| **demandsSum**      | float | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when answering` |
-| **discountSum**     | float | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |
-| **firstDemandDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Date of first sale<br>`+Required when replying` |
-| **lastDemandDate**  | datetime | `=` `!=` `<` `>` `<=` `>=` | Date of last sale<br>`+Required when replying` |
-| **lastEventDate**   | datetime | `=` `!=` `<` `>` `<=` `>=` | Last event date<br>`+Required when replying` |
-| **lastEventText**   | String(255) | `=` `!=` `~` `~=` `=~` | Last event text<br>`+Required when replying` |
+| Title               | Type                                               | Filtration | Description |
+|---------------------|----------------------------------------------------| ------ | ------ |
+| **averageReceipt**  | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
+| **balance**         | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
+| **bonusBalance**    | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |
+| **firstDemandDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date of first sale<br>`+Required when replying` |
+| **lastDemandDate**  | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date of last sale<br>`+Required when replying` |
+| **lastEventDate**   | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last event date<br>`+Required when replying` |
+| **lastEventText**   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Last event text<br>`+Required when replying` |
 | **meta**            | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Report for this counterparty<br>`+Required when replying` |
-| **profit**          | float | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when answering` |
-| **returnsCount**    | int | `=` `!=` `<` `>` `<=` `>=` | Number of returns<br>`+Required when replying` |
-| **returnsSum**      | float | `=` `!=` `<` `>` `<=` `>=` | Refund amount<br>`+Required when replying` |
-| **updated**         | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last change of the counterparty<br>`+Required when replying` |
+| **profit**          | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when answering` |
+| **returnsCount**    | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Number of returns<br>`+Required when replying` |
+| **returnsSum**      | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Refund amount<br>`+Required when replying` |
+| **updated**         | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last change of the counterparty<br>`+Required when replying` |
 
 ### Additional attributes available for filtering
 

@@ -22,11 +22,11 @@ For **Sales Order**, **Sales Invoice**, **Purchase Order** and **Supplier Invoic
 | ------------- |-----|--------------|
 |**meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata, which is a link to the item for which the Remaining is issued<br>`+Required when answering` |
 |**name** | String(255) | Item name<br>`+Required when answering` |
-|**stock** | float | Remaining<br>`+Required when answering` |
-|**cost** | float | Cost price<br>`+Required when answering` |
-|**inTransit** | float | Waiting<br>`+Required for response` |
-|**reserve**| float | Reserve<br>`+Required when replying` |
-|**quantity** | float | Available. The value of the **Set** entity is always `0`.<br>`+Required for response` |
+|**stock** | Float | Remaining<br>`+Required when answering` |
+|**cost** | Float | Cost price<br>`+Required when answering` |
+|**inTransit** | Float | Waiting<br>`+Required for response` |
+|**reserve**| Float | Reserve<br>`+Required when replying` |
+|**quantity** | Float | Available. The value of the **Set** entity is always `0`.<br>`+Required for response` |
 
 ### Get Transaction balances
 

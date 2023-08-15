@@ -10,11 +10,11 @@ Using the JSON API, you can request sales and orders indicators - the number and
 
 #### Indicators (series)
 
-| Title | Type | Description |
-| ------------ | ------ | -------------- |
-| **date** | datetime | Date<br>`+Required when replying` |
-| **quantity** | int | Quantity<br>`+Required when answering` |
-| **sum** | float | Amount<br>`+Required when answering` |
+| Title | Type     | Description |
+| ------------ |----------| -------------- |
+| **date** | DateTime | Date<br>`+Required when replying` |
+| **quantity** | Int      | Quantity<br>`+Required when answering` |
+| **sum** | Float    | Amount<br>`+Required when answering` |
 
 **Parameters**
 
@@ -42,9 +42,9 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 | Title | Type | Filtration | Description |
 | ------- | ----- | --------- | ------ |
-| **organization** | object | `=` | link to legal face |
-| **store** | object | `=` | warehouse link |
-| **project** | object | `=` | project link |
+| **organization** | Object | `=` | link to legal face |
+| **store** | Object | `=` | warehouse link |
+| **project** | Object | `=` | project link |
 
 > Request for order metrics
 
@@ -142,10 +142,10 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 | Title | Type | Filtration | Description |
 | ------- | ----- | ------- | -------- |
-| **organization** | object | `=` | link to legal face |
-| **store** | object | `=` | warehouse link |
-| **project** | object | `=` | project link |
-| **retailStore** | object | `=` | link to point of sale. When using this parameter, only retail sales are taken into account. |
+| **organization** | Object | `=` | link to legal face |
+| **store** | Object | `=` | warehouse link |
+| **project** | Object | `=` | project link |
+| **retailStore** | Object | `=` | link to point of sale. When using this parameter, only retail sales are taken into account. |
 
 > Request for obtaining sales figures with filtering
 
