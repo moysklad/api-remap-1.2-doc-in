@@ -54,21 +54,21 @@ The Kladana JSON API has the following restrictions:
 
 ### Data types
 
-| Name | Description                                                                                                                                                                                        |
-| ------ |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| **Array(Type)** | An array of objects/values. 'Type' is a type of array elements.                                                                                                                                    |
-| **Boolean** | Represents a `true` or `false` value.                                                                                                                                                              |
-| **DateTime** | Represents a string in the 'yyyy-mm-dd hh-mm-ss' format. Example: `'2016-08-23 15:21:09'`.                                                                                                         |
-| **Enum** | Represents a string that takes a constant set of values.                                                                                                                                           |
-| **Float** | Represents a fractional numeric value. Example: `200.8`.                                                                                                                                           |
-| **int** | Represents an integer numeric value in the range of -2^31 - 2^31. Example: `200`.                                                                                                                  |
-| **Long** | Represents an integer numeric value in the range of -2^63 - 2^63. Example: `1613766951558`.                                                                                                        |
-| **Meta** | Represents an object in the metadata format.                                                                                                                                                       |
-| **MetaArray** | An object with **meta** and **rows** fields, where **rows** is an array of objects. The elements of the **rows** array can be queried using the expand query parameter of the corresponding field. |
-| **Object** | Represents an entity with nested fields.                                                                                                                                                           |
+| Name                  | Description                                                                                                                                                                                        |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| **Array(Type)**       | An array of objects/values. 'Type' is a type of array elements.                                                                                                                                    |
+| **Boolean**           | Represents a `true` or `false` value.                                                                                                                                                              |
+| **DateTime**          | Represents a string in the 'yyyy-mm-dd hh-mm-ss' format. Example: `'2016-08-23 15:21:09'`.                                                                                                         |
+| **Enum**              | Represents a string that takes a constant set of values.                                                                                                                                           |
+| **Float**             | Represents a fractional numeric value. Example: `200.8`.                                                                                                                                           |
+| **Int**               | Represents an integer numeric value in the range of -2^31 - 2^31. Example: `200`.                                                                                                                  |
+| **Long**              | Represents an integer numeric value in the range of -2^63 - 2^63. Example: `1613766951558`.                                                                                                        |
+| **Meta**              | Represents an object in the metadata format.                                                                                                                                                       |
+| **MetaArray**         | An object with **meta** and **rows** fields, where **rows** is an array of objects. The elements of the **rows** array can be queried using the expand query parameter of the corresponding field. |
+| **Object**            | Represents an entity with nested fields.                                                                                                                                                           |
 | **String(MaxLength)** | Represents text data as a sequence of UTF-8 characters. 'MaxLength' is maximum string length for a particular field. Example: `'Moscow'`.                                                          |
-| **URL** | An FRC 3986 and RFC 3987 compliant URI string. Example: `'https://app.kladana.in/api/remap/1.2/entity/counterparty'`.                                                                              |
-| **UUID** | Represents a string in UUID format. Example': `'12a8b923-692c-11e6-8a84-bae500000053'`.                                                                                                            |
+| **URL**               | An FRC 3986 and RFC 3987 compliant URI string. Example: `'https://app.kladana.in/api/remap/1.2/entity/counterparty'`.                                                                              |
+| **UUID**              | Represents a string in UUID format. Example': `'12a8b923-692c-11e6-8a84-bae500000053'`.                                                                                                            |
 
 
 ### Metadata
@@ -94,9 +94,9 @@ data about only one object (for example, the **meta** field in the **context** o
 
 | Title | Type | Description |
 | ---------- | ---- | ---------- |
-| **size** | int | Size of the returned list |
-| **limit** | int | The maximum number of elements in the returned list. The maximum number of elements in the list is 1000. |
-| **offset** | int | Indent in the given list |
+| **size** | Int | Size of the returned list |
+| **limit** | Int | The maximum number of elements in the returned list. The maximum number of elements in the list is 1000. |
+| **offset** | Int | Indent in the given list |
 
 ###### Entity metadata
 
@@ -165,11 +165,11 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 |------|------|-------------|
 | **error** | String(255) | Error name<br>`+Required for response` |
 | **parameter** | String(255) | The parameter on which the error occurred |
-| **code** | int | Error code. If the field contains nothing, see HTTP status code |
+| **code** | Int | Error code. If the field contains nothing, see HTTP status code |
 | **error_message** | String(255) | Message attached to the error |
 | **moreInfo** | link | Link to the error received documentation |
-| **line** | int | The JSON string where the error occurred |
-| **column** | int | The coordinate of the element in the `line` string where the error occurred |
+| **line** | Int | The JSON string where the error occurred |
+| **column** | Int | The coordinate of the element in the `line` string where the error occurred |
 | **dependencies** | Array Meta | Metadata list of dependent entities or documents. It is displayed when it is impossible to delete an entity or a document. If there are dependencies on the entity, the document is deleted |
 | **meta** | meta | Metadata of the entity on which the error occurred |
 
@@ -306,7 +306,7 @@ selected when creating an additional field.
 | [Warehouse] | store |
 | [Employee] | employee |
 | [Product] | product |
-| User directory_name | customization |
+| User directory_name | customentity |
 
 If as a type of additional field is selected [Entities](dictionaries/#entities-user-directory), then as part of the object of this
 additional field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
@@ -1914,34 +1914,34 @@ Returns data about the employee on whose behalf the request is made. The entity 
 
 #### Entity attributes
 
-| Title | Type | Description |
-| ------ | -----| ---------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | Whether the Employee was added to the archive<br>`+Required when replying` `+Read Only` |
-| **attributes** | Array(Object) | Additional Employee fields<br>`+Read-only` |
-| **code** | String(255) | Employee Code<br>`+Read Only` |
-| **created** | datetime | Employee Creation Time<br>`+Required for response` `+Read Only` |
-| **description** | String(4096) | Employee Comment<br>`+Read Only` |
-| **email** | String(255) | Employee Email<br>`+Read Only` |
+| Title            | Type | Description |
+|------------------| -----| ---------- |
+| **accountId**    | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived**     | Boolean | Whether the Employee was added to the archive<br>`+Required when replying` `+Read Only` |
+| **attributes**   | Array(Object) | Additional Employee fields<br>`+Read-only` |
+| **code**         | String(255) | Employee Code<br>`+Read Only` |
+| **created**      | DateTime | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **description**  | String(4096) | Employee Comment<br>`+Read Only` |
+| **email**        | String(255) | Employee Email<br>`+Read Only` |
 | **externalCode** | String(255) | Employee External ID<br>`+Required for response` `+Read Only` |
-| **firstName** | String(255) | Name<br>`+Read Only` |
-| **fullName** | String(255) | First name Middle name Last name<br>`+Read only` |
-| **group** | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
-| **id** | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | object | Photo of an employee. [More here](dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Read only` |
-| **inn** | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
-| **lastName** | String(255) | Last name<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
-| **middleName** | String(255) | Middle name<br>`+Read only` |
-| **name** | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
-| **owner** | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
-| **permissions** | object | Enumeration of employee's permissions. [More details here](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika)<br>`+Required when replying` `+Read only` |
-| **phone** | String(255) | Employee phone<br>`+Read-only` |
-| **position** | String(255) | Job Title<br>`+Read Only` |
-| **shared** | Boolean | Sharing<br>`+Required when replying` `+Read Only` |
-| **shortFio** | String(255) | Short Name<br>`+Read Only` |
-| **id** | String(255) | Employee Login<br>`+Read Only` |
-| **updated** | datetime | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
+| **firstName**    | String(255) | Name<br>`+Read Only` |
+| **fullName**     | String(255) | First name Middle name Last name<br>`+Read only` |
+| **group**        | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
+| **id**           | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
+| **image**        | Object | Photo of an employee. [More here](dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Read only` |
+| **inn**          | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
+| **lastName**     | String(255) | Last name<br>`+Required when replying` `+Read only` |
+| **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
+| **middleName**   | String(255) | Middle name<br>`+Read only` |
+| **name**         | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
+| **owner**        | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
+| **permissions**  | Object | Enumeration of employee's permissions. [More details here](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika)<br>`+Required when replying` `+Read only` |
+| **phone**        | String(255) | Employee phone<br>`+Read-only` |
+| **position**     | String(255) | Job Title<br>`+Read Only` |
+| **shared**       | Boolean | Sharing<br>`+Required when replying` `+Read Only` |
+| **shortFio**     | String(255) | Short Name<br>`+Read Only` |
+| **uid**          | String(255) | Employee Login<br>`+Read Only` |
+| **updated**      | DateTime | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
 
 #### Nested entity attributes
 
@@ -1954,18 +1954,18 @@ The fields of an object represent a single permission, where the name indicates 
 
 ###### User and tariff permissions
 
-| Title | Description |
-| ------| ------------|
-| **admin** | Is the employee an admin |
-| **audit_dashboard** | View audit |
-| **company_crm** | View metrics |
+| Title                | Description |
+|----------------------| ------------|
+| **admin**            | Is the employee an admin |
+| **audit_dashboard**  | View audit |
+| **company_crm**      | View metrics |
 | **customAttributes** | Work with additional fields |
-| **dashboard** | View metrics |
-| **dashboardmoney** | See money balances |
-| **viewCashFlow** | See cash flow |
-| **pnl** | View profitability |
-| **stock** | View inventory by item|
-| **tariff_crm** | Is there a CRM option on the account |
+| **dashboard**        | View metrics |
+| **dashboardMoney**   | See money balances |
+| **viewCashFlow**     | See cash flow |
+| **pnl**              | View profitability |
+| **stock**            | View inventory by item|
+| **tariff_crm**       | Is there a CRM option on the account |
 
 If there is a corresponding permission, the object contains a **VIEW** field with a value of `ALL`
 
@@ -2004,49 +2004,49 @@ These types have the following fields:
 
 ###### Permissions of entities and documents that are present in the request
 
-| Title | Possible values | Description |
-|-------| ---------- |-------------------|
-| **accountAdjustment** | DICTIONARY | Adjustment of account balances |
-| **bonustransaction** | OPERATION | Bonus points |
-| **cashIn** | OPERATION | Receipt order |
-| **cashOut** | OPERATION | Disbursement order |
-| **cashboxAdjustment** | DICTIONARY | Adjustment of cash balances |
-| **company** | DICTIONARY | Contractors |
-| **contract** | DICTIONARY | Contracts |
+| Title                      | Possible values | Description |
+|----------------------------| ---------- |-------------------|
+| **accountAdjustment**      | DICTIONARY | Adjustment of account balances |
+| **bonusTransaction**       | OPERATION | Bonus points |
+| **cashIn**                 | OPERATION | Receipt order |
+| **cashOut**                | OPERATION | Disbursement order |
+| **cashboxAdjustment**      | DICTIONARY | Adjustment of cash balances |
+| **company**                | DICTIONARY | Contractors |
+| **contract**               | DICTIONARY | Contracts |
 | **counterpartyAdjustment** | DICTIONARY | Counterparty balance adjustment |
-| **country** | base | Countries |
-| **currency** | base | Currencies |
-| **customEntity** | base | Elements of user directories |
-| **customerOrder** | OPERATION | Order to buyers |
-| **demand** | OPERATION | Shipment |
-| **employees** | base | Employees |
-| **enter** | OPERATION | Posting |
-| **factoryIn** | OPERATION | Invoices received |
-| **facture** | OPERATION | Invoices issued |
-| **good** | DICTIONARY | Goods and Services |
-| **internalOrder** | OPERATION | Internal orders |
-| **inventory** | DICTIONARY | Inventory |
-| **invoiceIn** | OPERATION | Supplier invoice |
-| **invoiceOut** | OPERATION | Account for buyers |
-| **loss** | OPERATION | Write-off |
-| **move** | OPERATION | Moving |
-| **myCompany** | base | Jur. Faces |
-| **paymentIn** | OPERATION | Incoming payment |
-| **paymentOut** | OPERATION | Outgoing payment |
-| **processingOrder** | OPERATION | Production order |
-| **processingPlan** | base| Those. Maps |
-| **processingStage** | base | Stages of production |
-| **processingProcess** | base | Those. processes |
-| **project** | base | Projects |
-| **purchaseOrder** | OPERATION | Order to suppliers |
-| **purchaseReturn** | OPERATION | Return to supplier |
-| **retailDemand** | OPERATION | Sales |
-| **salesReturn** | OPERATION | Sales Return |
-| **supply** | OPERATION | Receivings |
-| **task** | [Special](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Tasks |
-| **uom* | base | Units of measure |
-| **warehouse** | base | Warehouses |
-| **webhook** | DICTIONARY | Webhooks |
+| **country**                | BASE | Countries |
+| **currency**               | BASE | Currencies |
+| **customEntity**           | BASE | Elements of user directories |
+| **customerOrder**          | OPERATION | Order to buyers |
+| **demand**                 | OPERATION | Shipment |
+| **employees**              | BASE | Employees |
+| **enter**                  | OPERATION | Posting |
+| **factoryIn**              | OPERATION | Invoices received |
+| **facture**                | OPERATION | Invoices issued |
+| **good**                   | DICTIONARY | Goods and Services |
+| **internalOrder**          | OPERATION | Internal orders |
+| **inventory**              | DICTIONARY | Inventory |
+| **invoiceIn**              | OPERATION | Supplier invoice |
+| **invoiceOut**             | OPERATION | Account for buyers |
+| **loss**                   | OPERATION | Write-off |
+| **move**                   | OPERATION | Moving |
+| **myCompany**              | BASE | Jur. Faces |
+| **paymentIn**              | OPERATION | Incoming payment |
+| **paymentOut**             | OPERATION | Outgoing payment |
+| **processingOrder**        | OPERATION | Production order |
+| **processingPlan**         | BASE| Those. Maps |
+| **processingStage**        | BASE | Stages of production |
+| **processingProcess**      | BASE | Those. processes |
+| **project**                | BASE | Projects |
+| **purchaseOrder**          | OPERATION | Order to suppliers |
+| **purchaseReturn**         | OPERATION | Return to supplier |
+| **retailDemand**           | OPERATION | Sales |
+| **retailSalesReturn**            | OPERATION | Sales Return |
+| **supply**                 | OPERATION | Receivings |
+| **task**                   | [Special](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Tasks |
+| **uom*                     | BASE | Units of measure |
+| **warehouse**              | BASE | Warehouses |
+| **webhook**                | DICTIONARY | Webhooks |
 
 ###### Permissions for tasks
 

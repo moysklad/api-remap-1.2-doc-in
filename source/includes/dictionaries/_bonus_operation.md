@@ -15,7 +15,7 @@ Using the JSON API, you can create and update information about Bonus Operations
 | **categoryType**      | Enum | | Bonus operation category. Possible values: `REGULAR`, `WELCOME`<br>`+Read Only` |
 | **code**              | String(255) |`=` `!=` `~` `~=` `=~` | Bonus Transaction Code |
 | **created**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when answering` |
-| **executionDate**     | datetime | | Date of the bonus operation. |
+| **executionDate**     | DateTime | | Date of the bonus operation. |
 | **externalCode**      | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when replying` |
 | **group**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id**                | UUID |`=` `!=` | Bonus transaction ID<br>`+Required for response` `+Read-only` |

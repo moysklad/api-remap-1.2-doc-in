@@ -133,8 +133,8 @@ The directory settings allow the user to change the code uniqueness checking, se
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-unikal-nosti-koda-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
-| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-unikal-nosti-koda-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortiment-atributy-wlozhennyh-suschnostej-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes
@@ -151,7 +151,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 | ----------- | ------ | -------- |
 | **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, kits, modifications and services<br>`+Required when replying` |
 | **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when replying` |
-| **weightBarcodePrefix** | int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
+| **weightBarcodePrefix** | Int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
 
 ### Get Assortment
 

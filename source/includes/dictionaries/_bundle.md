@@ -17,7 +17,7 @@ Using the JSON API, you can create and update information about Bundles, request
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Expand` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Bundle Description |
 | **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
-| **effectiveVat** | int | | Real VAT %<br>`+Read Only`|
+| **effectiveVat** | Int | | Real VAT %<br>`+Read Only`|
 | **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Bundle Code<br>`+Required when replying` |
 | **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
@@ -25,12 +25,12 @@ Using the JSON API, you can create and update information about Bundles, request
 | **id** | UUID | `=` `!=` | Bundle ID<br>`+Required for response` `+Read only` |
 | **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bundle Metadata<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **minprice** | Object | | Minimum price. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Name<br>`+Required when responding` `+Required when creating` |
-| **overhead** | object | | Additional expenses. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-wlozhennyh-suschnostej-dopolnitel-nye-rashody) |
+| **overhead** | Object | | Additional expenses. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-wlozhennyh-suschnostej-dopolnitel-nye-rashody) |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked goods. "true" - the feature is enabled. |
-| **pathName** | string | `=` `!=` `~` `~=` `=~` | The name of the group the Bundle belongs to<br>`+Required when replying` `+Read-only` |
+| **pathName** | String | `=` `!=` `~` `~=` `=~` | The name of the group the Bundle belongs to<br>`+Required when replying` `+Read-only` |
 | **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-suschnosti-priznak-predmeta-rascheta) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Group metadata of Bundles<br>`+Expand` |
 | **salePrice** | Array(Object) | | Sale prices |
@@ -40,12 +40,12 @@ Using the JSON API, you can create and update information about Bundles, request
 | **tnved** | String(255) | | TN VED code |
 | **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-komplekt-komplekty-atributy-suschnosti-tip-markiruemoj-produkcii) |
 | **uom* | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
-| **vat** | int | | VAT % |
+| **vat** | Int | | VAT % |
 | **vatEnabled** | Boolean | | Is VAT included on the item. Using this flag, you can set VAT = 0 or VAT = "without VAT" for the product. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
-| **volume** | int | `=` `!=` `<` `>` `<=` `>=` | Volume |
-| **weight** | int | `=` `!=` `<` `>` `<=` `>=` | Weight |
+| **volume** | Int | `=` `!=` `<` `>` `<=` `>=` | Volume |
+| **weight** | Int | `=` `!=` `<` `>` `<=` `>=` | Weight |
 
 ##### Type of labeled products
 
@@ -140,7 +140,7 @@ Bundle Components is a list of goods/services/modifications that are part of a B
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series that the component represents<br>`+Required for response` `+Expand` |
 | **id** | UUID | Component ID<br>`+Required for response` `+Read-only` |
-| **quantity** | int | Quantity of goods/services of this type in the <br>component`+Required when replying` `+Read-only` |
+| **quantity** | Int | Quantity of goods/services of this type in the <br>component`+Required when replying` `+Read-only` |
 
 ##### Bundles Metadata
 
@@ -184,10 +184,10 @@ an array of elements. **images** field elements have fields:
 | **filename** | String(255) | File name<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
-| **updated** | datetime | File upload time to server<br>`+Required when replying` |
+| **updated** | DateTime | File upload time to server<br>`+Required when replying` |
 
 #### Loading
 
