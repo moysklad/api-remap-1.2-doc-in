@@ -493,9 +493,9 @@ Filtering can be done by the fields described below.
    audit entities should be filtered. List of possible parameter values:
 
 | The value of the eventType parameter | Description |
-| ---------------------------------- | ----------- |
+| --------------------------------- | ----------- |
 | **registration** | Registration |
-| **bulk operation** | Bulk operation |
+| **bulkoperation** | Bulk operation |
 | **closepublication** | Deleting a post |
 | **create** | Creation of entities |
 | **delete** | Deleting entities |

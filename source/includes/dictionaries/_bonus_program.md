@@ -9,7 +9,7 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 | --------- | ------------ | ------------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **active** | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
-| **agenttags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
+| **agentTags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
 | **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-skidki))<br>`+Required when answering` |
 | **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-skidki))<br>`+Required when answering` |
 | **earnRateRoublesToPoint** | int | Accrual rate |

@@ -13,29 +13,29 @@ Search among objects of legal entities to match the search string will be carrie
 
 ### Legal entity
 
-| Title | Type                                               | Filtration | Description |
-| ----------|----------------------------------------------------| -------- | ------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **actualAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
-| **actualAddressFull** | Object                                             | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres) |
-| **archived** | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
-| **bonus points** | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code |
-| **companyType** | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-jurlico-jurlica-tip-urlica)<br>`+Required when answering` |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
-| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
-| **trackingContractDate** | DateTime                                           | | Date of agreement with CRPT |
+| Title                      | Type                                               | Filtration | Description |
+|----------------------------|----------------------------------------------------| -------- | ------- |
+| **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
+| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres) |
+| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
+| **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
+| **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
+| **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code |
+| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-jurlico-jurlica-tip-urlica)<br>`+Required when answering` |
+| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
+| **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
+| **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
+| **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand` |
+| **id**                     | UUID                                               | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only` |
+| **meta**                   | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when replying` |
+| **name**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating` |
+| **owner**                  | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **shared**                 | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **syncId**                 | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
+| **trackingContractDate**   | DateTime                                           | | Date of agreement with CRPT |
 | **trackingContractNumber** | String(255)                                        | | Contract number with CRPT |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when replying` `+Read-only` |
+| **updated**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when replying` `+Read-only` |
 
 #### Detail fields
 

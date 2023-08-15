@@ -39,7 +39,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
 | **attributes**         | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
 | **bonusPoints**        | int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusprogram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
+| **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor Code |
 | **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-kontragent-kontragenty-tip-kontragenta)<br>`+Required when answering` |
 | **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow)<br>`+Expand`|
@@ -577,7 +577,8 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "meta":{
              "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-             "type":"country","mediaType":"application/json"
+             "type":"country",
+             "mediaType":"application/json"
            }
          },
          "region":{

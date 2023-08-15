@@ -31,15 +31,15 @@ The query results can be filtered using the 'filter' parameter.
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
 | **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortiment-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
 | **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni) |
-| **stockstore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
+| **stockStore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | parameter for filtering by entity type (product, service, bundle, variant). Used with the `=` operator. You can pass multiple values. |
 | **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni). |
 | **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
 | **weighed** | parameter for filtering by weight item. Possible values: true, false. |
-| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm-dostupnye-operatory -dlq-fil-tracii-dop-polej). |
+| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm-dostupnye-operatory-dlq-fil-tracii-dop-polej). |
 
-Filtering by additional fields is also available. [Learn more](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po- dopolnitel-nym-polqm) details about filtering by additional fields.
+Filtering by additional fields is also available. [Learn more](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) details about filtering by additional fields.
 
 ##### Available values for stockMode
 The default value is all.
@@ -83,7 +83,7 @@ When using filters **alcoholic.type**, **weighed** and filters **stockMode**, **
 
 ##### Filtering additional fields
 
-The functionality is described in more detail in the section [Filtering by additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel- nym-polqm). 
+The functionality is described in more detail in the section [Filtering by additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm). 
 
 Filtering examples:
 
