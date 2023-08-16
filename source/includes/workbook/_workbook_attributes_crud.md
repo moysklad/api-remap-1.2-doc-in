@@ -362,21 +362,21 @@ curl -X POST
    -H 'Content-Type: application/json'
    "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/delete"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
-             "type": "attributemetadata",
-             "mediaType": "application/json"
-           }
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
-             "type": "attributemetadata",
-             "mediaType": "application/json"
-           }
-           }
-       ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002",
+                  "type": "attributemetadata",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/33b30b2e-b465-11e9-7ae5-884b00015630",
+                  "type": "attributemetadata",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 We will also receive an empty response with a status of 200. As a result, the specified attributes have been removed. If you specify the meta of a non-existent attribute in the body of such a request, then the entire request will not be executed, even if it contains existing meta.

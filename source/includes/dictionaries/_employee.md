@@ -486,11 +486,22 @@ Successful request. The result is a JSON representation of the Employee.
    "lastName": "Administrator",
    "fullName": "Administrator",
    "shortFio": "Administrator",
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
-         "type": "admin",
-         "mediaType": "application/json"
-       },
+   "cashiers": [
+      {
+        "meta": {
+          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/8d2f2a2e-d6a1-11e7-9464-e4de00000060/cashiers/8d2f3fe1-d6a1-11e7-9464-e4de00000061",
+          "type": "cashier",
+          "mediaType": "application/json"
+        }
+      },
+      {
+        "meta": {
+          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/cashiers/58dfeb3e-df24-11e7-9464-e4de00000004",
+          "type": "cashier",
+          "mediaType": "application/json"
+        }
+      }
+    ],
    "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
