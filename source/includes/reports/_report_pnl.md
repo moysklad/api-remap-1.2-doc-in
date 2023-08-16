@@ -695,7 +695,7 @@ Successful request. The result is a JSON representation of the report.
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty",
-     "type": "salesbyCounterparty",
+     "type": "salesbycounterparty",
      "mediaType": "application/json",
      "size": 3,
      "limit": 1,

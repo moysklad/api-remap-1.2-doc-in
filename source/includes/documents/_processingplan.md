@@ -200,7 +200,7 @@ Successful request. The result is a JSON representation of the list of Bill of M
        "name": "Technical card",
        "externalCode": "Lr9zJa9qgpvs6f6laIgtG2",
        "pathName": "Group",
-       "folder": {
+       "parent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/bfb6c5dc-acbb-11e6-5bed-427b00000001",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
@@ -260,7 +260,7 @@ Successful request. The result is a JSON representation of the list of Bill of M
        "name": "Map",
        "externalCode": "QrWcKk6mhnNX2Jhi-WsIh2",
        "pathName": "Group",
-       "folder": {
+       "parent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/bfb6c5dc-acbb-11e6-5bed-427b00000001",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
