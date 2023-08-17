@@ -1664,7 +1664,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity//store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/delete"
+   "https://app.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[

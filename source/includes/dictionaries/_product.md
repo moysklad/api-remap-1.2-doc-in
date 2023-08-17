@@ -2400,7 +2400,7 @@ otherwise, an error will occur, because serial accounting of weight products is 
             "images": [
                 {
                     "filename": "birdimageNew.png",
-                    "content": ""
+                    "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAAEHRFWHRTb2Z0d2FyZQBTaHV0dGVyY4LQCQAAAAxJREFUCNdj+PePAQAE+gH90KA5ZAAAAABJRU5ErkJggg=="
                 }
             ],
             "alcoholic": {
@@ -3181,8 +3181,8 @@ Successful request. The result is a JSON representation ofnew Product.
      }
    ],
    "article": "Ar23",
-    "weight": 100,
-    "volume": 400,
+   "weight": 100,
+   "volume": 400,
    "isSerialTrackable": false,
    "trackingType": "NOT_TRACKED"
 }

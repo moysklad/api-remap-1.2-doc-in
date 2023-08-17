@@ -1394,7 +1394,7 @@ object is not specified in the update request, its value will be nullified after
             "images": [
                 {
                     "filename": "birdimageNew.png",
-                    "content": ""
+                    "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U"
                 }
             ],
             "minPrice": {
