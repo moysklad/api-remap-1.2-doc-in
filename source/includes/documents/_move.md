@@ -777,17 +777,21 @@ In the body of the request, you need to pass an array containing the JSON metada
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d'[
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-                "type": "move",
-                "mediaType": "application/json"
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b1",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+                    "type": "move",
+                    "mediaType": "application/json"
+                }
             },
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
-                "type": "move",
-                "mediaType": "application/json"
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b2",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/move/metadata",
+                    "type": "move",
+                    "mediaType": "application/json"
+                }
             }
         ]'
 ```

@@ -306,7 +306,7 @@ Successful request. The result is a JSON representation of the generated Invento
    "sum": 0,
    "store": {
      "meta": {
-       "href":"https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/store/c4eddfc8-99bb-11e6-8a84-bc5200000053",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
@@ -576,21 +576,23 @@ In the body of the request, you need to pass an array containing JSON with metad
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d'[
-             
-             "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b1",
-               "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
-               "type": "inventory",
-               "mediaType": "application/json"
-           },
-           
-             "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b2",
-               "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
-               "type": "inventory",
-               "mediaType": "application/json"
-           }
-         ]'
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b1",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+                    "type": "inventory",
+                    "mediaType": "application/json"
+                }
+            },
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b2",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/inventory/metadata",
+                    "type": "inventory",
+                    "mediaType": "application/json"
+                }
+            }
+        ]'
 ```
 
 > Successful request. The result is JSON information about deleting Inventory Counts.

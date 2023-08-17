@@ -1475,19 +1475,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-                "type": "invoiceout",
-                "mediaType": "application/json"
-            },
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
-                "type": "invoiceout",
-                "mediaType": "application/json"
-            }
-        ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+                  "type": "invoiceout",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+                  "type": "invoiceout",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. Result - JSON information about the deletion of Sales Invoices.
@@ -1719,7 +1723,7 @@ Successful request. The result is a JSON representation of the prefilled Sales i
    "published": true,
    "positions": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2",
+       "href": "https://app.kladana.in/api/remap/1.2/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/positions",
        "type": "invoiceposition",
        "mediaType": "application/json",
        "size": 0,

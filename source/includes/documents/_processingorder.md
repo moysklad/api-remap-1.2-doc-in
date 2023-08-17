@@ -1234,19 +1234,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
-                "type": "processingorder",
-                "mediaType": "application/json"
-            },
-            "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
-                "type": "processingorder",
-                "mediaType": "application/json"
-            }
-        ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
+                  "type": "processingorder",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingorder/metadata",
+                  "type": "processingorder",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of Production Orders.
