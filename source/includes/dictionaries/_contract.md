@@ -21,7 +21,7 @@ The search among contract objects for matching the search string will be carried
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Required when replying` `+Expand` |
 | **archived** | Boolean | `=` `!=` | Has the Contract been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) |[Additional Operators fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
+| **attributes** | Array(Object) |[Additional Operators fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contract Code |
 | **contractType** | Enum | | Contract type. Possible values: `Commission contract`, `Purchase and sale contract`<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the Contract |
@@ -833,7 +833,7 @@ Successful request. The result is a JSON representation of the created contract.
 
 ### Contracts bulk creating and update
 
-[Сontracts bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+[Сontracts bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the Contracts that you want to create or update.
 Updated Contracts must contain the identifier in the form of metadata.
 

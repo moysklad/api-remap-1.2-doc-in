@@ -3,12 +3,12 @@
 For an extended description and addition of entities with information, in Kladana it is possible to work with
 [Files](../dictionaries/#entities-fajly) to
 [Documents](../documents/#transactions),
-Nomenclature ([Products](../dictionaries/#entities-towar),
-[Kits](../dictionaries/#entities-komplekt),
-[Services](../dictionaries/#entities-usluga),
+Nomenclature ([Products](../dictionaries/#entities-product),
+[Kits](../dictionaries/#entities-bundle),
+[Services](../dictionaries/#entities-service),
 [Modifications](../dictionaries/#entities-modifikaciq)),
-[Tasks](../dictionaries/#entities-zadacha) and
-[Contractors](../dictionaries/#entities-kontragent).
+[Tasks](../dictionaries/#entities-task) and
+[Contractors](../dictionaries/#entities-counterparty).
 Files can be attached to entities and requested at any convenient time.
 Information on files is displayed along with json representation of the entity to which the given file belongs. For getting
 file, you must use the link from the json description of the file representation. You can learn more about Files and working with them

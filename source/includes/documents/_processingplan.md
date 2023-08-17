@@ -806,7 +806,7 @@ Successful request. The result is a JSON representation of the updated Bill of M
 
 ### Bills of Materials
 
-Separate resource for materials management Bill of Materials. With it, you can manage the content of a larger document, the amount of content in which exceeds the limit on the amount of content saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+Separate resource for materials management Bill of Materials. With it, you can manage the content of a larger document, the amount of content in which exceeds the limit on the amount of content saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Bill of Materials
 
@@ -1230,7 +1230,7 @@ curl -X DELETE
 Successful removal of a Bill of Materials.
 
 ### Bills of Materials Products
-Dedicated resource for product management Bills of Materials. With it, you can manage the products of a larger document, the number of products in which exceeds the limit on the number of products saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+Dedicated resource for product management Bills of Materials. With it, you can manage the products of a larger document, the number of products in which exceeds the limit on the number of products saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Bills of Materials Products
 Request for a list of all products of the Bill of Materials.

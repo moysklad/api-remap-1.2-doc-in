@@ -675,9 +675,9 @@ NotificationTaskAssigned - the task has been assigned
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-naznachena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-naznachena-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-naznachena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-naznachena-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -764,9 +764,9 @@ NotificationTaskUnassigned - the task has been unassigned
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-snqta-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-snqta-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-snqta-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating`|
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-snqta-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating`|
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -851,12 +851,12 @@ NotificationTaskChanged - the task has changed
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
 | **created** | datetime | Date and time generatedNotifications<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **diff** | object | Modified fields [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-atributy-wlozhennyh-suschnostej-izmenennye-polq)<br>`+Required when replying` `+Required when creating` |
+| **diff** | object | Modified fields [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-nested-entity-attributes-izmenennye-polq)<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-izmenena-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -959,9 +959,9 @@ NotificationTaskCompleted - task completed
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-wypolnena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-wypolnena-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-wypolnena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-wypolnena-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -1048,9 +1048,9 @@ NotificationTaskDeleted - the task has been deleted
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-udalena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-udalena-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-udalena-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-udalena-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -1127,7 +1127,7 @@ NotificationTaskOverdue - the task is overdue
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-prosrochena-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-prosrochena-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -1198,9 +1198,9 @@ NotificationTaskReopened - the task has been reopened.
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-pereotkryta-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creating` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-pereotkryta-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-pereotkryta-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-zadacha-pereotkryta-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | string(255)| Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -1288,9 +1288,9 @@ NotificationTaskNewComment - new comment for the task
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-nowyj-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-nowyj-kommentarij-k-zadache-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-nowyj-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-nowyj-kommentarij-k-zadache-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -1381,9 +1381,9 @@ NotificationTaskCommentChanged - task comment changed
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-izmenen-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-izmenen-kommentarij-k-zadache-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
 | **read** | Boolean| Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-izmenen-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-zadacha)<br>`+Required when answering` `+Required when creating` |
+| **task** | object | Task [More here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-izmenen-kommentarij-k-zadache-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
@@ -1477,9 +1477,9 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-udalen-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
+| **performedBy** | object | The person who made the change. [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-udalen-kommentarij-k-zadache-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when replying` `+Required when creating ` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-udalen-kommentarij-k-zadache-atributy-wlozhennyh-suschnostej-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creation` |
+| **task** | object | Task [More details here](#uwedomleniq-podrobnoe-opisanie-tipow-uwedomlenij-udalen-kommentarij-k-zadache-nested-entity-attributes-sotrudnik-wypolniwshij-change)<br>`+Required when answering` `+Required when creation` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes

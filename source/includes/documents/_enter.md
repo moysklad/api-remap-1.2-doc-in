@@ -9,7 +9,7 @@ Using the JSON API, you can create and update information about Stock Adjustment
 |---------|-------| -------- |------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) <br> `+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) <br> `+Change-handler` `+Update-provider` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Stock Adjustment Code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Stock Adjustment<br>`+Read Only` |
@@ -28,7 +28,7 @@ Using the JSON API, you can create and update information about Stock Adjustment
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the document publishednt<br>`+Required when replying` `+Read-only` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Stock Adjustment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
@@ -56,11 +56,11 @@ Stock Adjustment items is a list of products and product variants. Stock Adjustm
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **overhead** | int | Overheads. [More here](../dictionaries/#dokumenty-stock-adjustment-oprihodowaniq-nakladnye-rashody). If Stock Adjustment items are not set, then no overheads can be set<br>`+Required in response` `+Read-Only` |
-| **pack** | object | Product packaging. [More info here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) <br> `+Change-handler` `+Update-provider` |
+| **pack** | object | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br> `+Change-handler` `+Update-provider` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **reason** | String(255) | Reason of stock adjustment of the item|
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Object(String) | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
 
 You can work with items using [special resources for managing Stock Adjustment items](../documents/#transactions-stock-adjustment),
@@ -482,7 +482,7 @@ Successful request. The result is a JSON representation of the generated Stock A
 
 ### Stock Adjustments bulk creating and update
 
-[Stock Adjustments bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+[Stock Adjustments bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of Stock Adjustments that you want to create or update.
 Updated Stock Adjustments must contain the ID as metadata.
 
@@ -1259,7 +1259,7 @@ Successful request. The result is a JSON representation of the updated Stock Adj
 
 ### Stock Adjustment Items
 
-A separate resource for managing Stock Adjustment items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+A separate resource for managing Stock Adjustment items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
   
 ### Get Stock Adjustment Items
 

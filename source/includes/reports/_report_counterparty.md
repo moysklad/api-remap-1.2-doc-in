@@ -11,7 +11,7 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 | **averageReceipt** | float | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
 | **balance** | float | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
 | **bonusbalance** | float | | Points<br>`+Required when answering` |
-| **counterparty** | object | | Counterparty. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **counterparty** | object | | Counterparty. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
 | **demandsCount** | int | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when answering` |
 | **demandssum** | float | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when answering` |
 | **discountSum** | float | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |

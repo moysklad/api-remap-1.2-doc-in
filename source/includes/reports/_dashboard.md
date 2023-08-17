@@ -6,9 +6,9 @@ As part of the JSON API, you can request daily, monthly, and weekly metrics. Acc
 
 | Title | Type | Description |
 | ------ | ----- | ---------- |
-| **sales** | object | A nested object that represents sales information for the specified period. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **orders** | object | A nested object representing information about orders for the specified period. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
-| **money** | object | A nested object representing money information for the specified period. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Required when answering` |
+| **sales** | object | A nested object that represents sales information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **orders** | object | A nested object representing information about orders for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **money** | object | A nested object representing money information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
   
 #### Sales for the period
 

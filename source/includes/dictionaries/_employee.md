@@ -16,7 +16,7 @@ The search among employee objects for matching the search string will be carried
 | ------- | -------- |---------- | --------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional fields Employee |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Code |
 | **created** | datetime | | Employee Creation Time<br>`+Required for response` `+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Employee |
@@ -26,7 +26,7 @@ The search among employee objects for matching the search string will be carried
 | **fullName** | String(255) | | First name Middle name Last name<br>`+Read only` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | object | | Photo of an employee. [More here](../dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka) |
+| **images** | object | | Photo of an employee. [More here](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
 | **inn** | String(255) | | TIN of the employee (in the format of the TIN of an individual) |
 | **lastName** | String(255) | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
@@ -58,7 +58,7 @@ The structure of the **image** field that you will receive when requesting an em
 | **updated** | datetime | Last modified time<br>`+Required when replying` |
 
 #### Loading
-To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-sotrudnik-izmenit-sotrudnika) employee (PUT) and in the request body
+To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-employee-change-employee) employee (PUT) and in the request body
 specify the **image** field with the following attributes:
 
 | Title | Description |

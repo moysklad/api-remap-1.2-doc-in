@@ -9,7 +9,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | ------ | ------ | ------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Internal order code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Required when replying` `+Read Only` |
@@ -30,7 +30,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **purchaseOrders** | Array(Object) | | A collection of metadata for related orders to a supplier<br>`+Required when replying` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Internal order status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` |
@@ -50,7 +50,7 @@ Items of the Internal order is a list of products, services, and product variant
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only`|
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
@@ -1535,7 +1535,7 @@ Successful request. The result is a JSON representation of the updated Internal 
 
 ### Internal Order Items
 
-A separate resource for managing Internal Order items. With it, you can manage the items of a larger document, the number of lines in which exceeds 1000. You can read more about limits on the number of lines in a document and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq- worka-s-poziciqmi-dokumentow).
+A separate resource for managing Internal Order items. With it, you can manage the items of a larger document, the number of lines in which exceeds 1000. You can read more about limits on the number of lines in a document and working with large documents [here](../#kladana-json-api-general-info- worka-s-poziciqmi-dokumentow).
 
 ### Get Internal Order Items
 

@@ -19,10 +19,10 @@ The search among currency objects to match the search string will be carried out
 | **id** | UUID | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
 | **indirect** | Boolean | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
 | **isoCode** | String(255) | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **majorUnit** | object | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
+| **majorUnit** | object | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
 | **margin** | double | | Mark-up for automatic course update<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
-| **minorUnit** | object | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#entities-valuta-formy-edinic)<br>`+Required when answering` |
+| **minorUnit** | object | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
 | **multiplicity** | int | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Brief naming of the Currency<br>`+Required when replying` `+Required when creating` |
 | **rate** | double | | Exchange rate<br>`+Required when answering` |
@@ -40,7 +40,7 @@ The **majorUnit** and **minorUnit** fields contain the following attributes:
 | **s2** | The form of the unit used in the numeral 2 |
 | **s5** | The form of the unit used in the numeral 5 |
 
-In the JSON API, currencies are mostly represented as part of entities in the [Metadata](../#kladana-json-api-general-info-metadata) format. In order to expand them as part of another object, you need to use the [expand parameter](../#mojsklad-json-api-obschie-swedeniq-zamena-ssylok-ob-ektami-s-pomosch-u-expand)
+In the JSON API, currencies are mostly represented as part of entities in the [Metadata](../#kladana-json-api-general-info-metadata) format. In order to expand them as part of another object, you need to use the [expand parameter](../#kladana-json-api-general-info-replacing-links-with-objects-using-expand)
 
 ### Get Currencies
 
@@ -50,7 +50,7 @@ The result of a successful request is a JSON representation of a list of currenc
 | ------ | ---------- |
 | **meta** | [Metadata](../#kladana-json-api-general-info-metadata) issuance |
 | **context** | [Metadata](../#kladana-json-api-general-info-metadata) about the person who made the request |
-| **rows** | Array of JSON objects representing [currencies](../dictionaries/#entities-valuta) |
+| **rows** | Array of JSON objects representing [currencies](../dictionaries/#entities-currency) |
 
 **Parameters**
 

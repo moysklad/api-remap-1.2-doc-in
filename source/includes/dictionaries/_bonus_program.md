@@ -10,8 +10,8 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **active** | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
 | **agenttags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
-| **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-skidki))<br>`+Required when answering` |
-| **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-skidki))<br>`+Required when answering` |
+| **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when answering` |
+| **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when answering` |
 | **earnRateRoublesToPoint** | int | Accrual rate |
 | **earnWhileRedeeming** | Boolean | Allow simultaneous accrual and write-off of bonuses. If `true` - bonuses will be credited to the monetary part of the purchase, even if the purchase is partially paid with points.<br>`+Required when answering` |
 | **id** | UUID | Bonus Program ID<br>`+Required when replying` `+Read Only` |
@@ -21,7 +21,7 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 | **postponedBonusesDelayDays** | int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
 | **spendRatePointsToRouble** | int | Write-off rate |
 | **welcomeBonusesEnabled** | Boolean | Ability to earn welcome points<br>`+Required when answering` |
-| **welcomeBonusesEnabled**| Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#entities-bonusnaq-programma-bonusnye-programmy-atributy-suschnosti-uslowiq-bonusnyh-ballow) |
+| **welcomeBonusesEnabled**| Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#entities-bonus-program-bonus-programs-entity-attributes-bonus-points-conditions) |
 | **welcomeBonusesValue** | int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
 
 ##### Bonus points conditions

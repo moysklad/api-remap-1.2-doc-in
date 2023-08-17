@@ -26,7 +26,7 @@ The search among the objects of product groups to match the search string will b
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-gruppa-towarow-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-product-group-tax-system-code) |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | int | | VAT % |
@@ -279,7 +279,7 @@ Successful request. The result is a JSON representation of the created Product G
 ```
 
 ### Product group bulk creating an update
-[Product group bulk creating ang update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+[Product group bulk creating ang update](../#mojsklad-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the Product Groups that you want to create or update.
 Updated Product Groups must contain the identifier in the form of metadata.
 
@@ -591,7 +591,7 @@ Successful request. The result is a JSON representation of the Product Group.
  
 Request to update the Product group with the specified id.
 In the request body, you can specify only those fields that need to be changed for the Product group, except for those that
-are marked `Read Only` in the description of [Product Group attributes](../dictionaries/#entities-gruppa-towarow).
+are marked `Read Only` in the description of [Product Group attributes](../dictionaries/#entities-product-group).
 To update the **pathName** field, you need to update the link to the parent Product Group, i.e. update field
 **productFolder**
 

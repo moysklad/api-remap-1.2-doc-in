@@ -16,12 +16,12 @@ The search among the objects of products to match the search string will be carr
 | Title | Type | Filtration | Description |
 | ---------| ------- | ----- | ------ |
 | **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read Only` |
-| **drunk** | object | | An object containing the fields of alcoholic products. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-ob-ekt-soderzhaschij-polq-alkogol-noj-produkcii) |
+| **drunk** | object | | An object containing the fields of alcoholic products. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-an-object-containing-the-fields-of-alcoholic-products) |
 | **archived** | Boolean | `=` `!=` | Has the Product been added to the archive<br>`+Required when replying` |
 | **article** | String(255) | `=` `!=` `~` `~=` `=~` | Article |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-shtrihkody) |
-| **buyprice** | object | | Purchase price. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-zakupochnaq-cena) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-barcodes) |
+| **buyprice** | object | | Purchase price. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-purchase-price) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product Code |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) || Country Metadata<br>`+Expand` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Product Description |
@@ -32,27 +32,27 @@ The search among the objects of products to match the search string will be carr
 | **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Item ID<br>`+Required when replying` `+Read Only` |
-| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Expand` |
+| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-image) (Maximum number of images - 10)<br>`+Expand` |
 | **isSerialTrackable** | Boolean | `=` `!=` | Accounting for serial numbers. This mark is not compatible with the features **weighed**, **alcoholic**, **ppeType**, **trackingType**, **onTap**. |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product Metadata<br>`+Required when replying` |
-| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **minprice** | object | | Minimum price. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price) |
 | **minimumBalance** | int | `=` `!=` `<` `>` `<=` `>=` | Minimum balance |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **packs** | Array(Object) | | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **packs** | Array(Object) | | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked products. "true" - the feature is enabled. |
 | **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the group that the Product belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-priznak-predmeta-rascheta) |
-| **ppeType** | Enum | | Nomenclature classification type code for medical personal protective equipment (EAN-13). [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-wida-nomenklaturnoj-klassifikacii-medicinskih-sredstw-indiwidual-noj-zaschity) |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-product-products-entity-attributes-sign-of-the-subject-of-calculation) |
+| **ppeType** | Enum | | Nomenclature classification type code for medical personal protective equipment (EAN-13). [More here](../dictionaries/#entities-product-products-entity-attributes-code-for-the-type-of-nomenclature-classification-of-medical-personal-protective-equipment) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Product group metadata<br>`+Expand` |
-| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **saleprice** | Array(Object) | | Sale prices. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-sales-prices) |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **supplier** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Supplier counterparty metadata<br>`+Expand` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code) |
 | **things** | Array(String) | | Serial numbers |
 | **tnved** | String(255) | | TN VED code |
-| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-tip-markiruemoj-produkcii) |
+| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products) |
 | **wom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
@@ -241,7 +241,7 @@ This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, 
 | ---------| ------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the vendor group.<br>`+Required when replying` |
 
-Supplier type - Contractor. You can see the description of the Counterparty entity [here](../dictionaries/#entities-kontragent)
+Supplier type - Contractor. You can see the description of the Counterparty entity [here](../dictionaries/#entities-counterparty)
 
 ##### Sales prices
 
@@ -282,7 +282,7 @@ an array of elements. Field elements **images** have fields:
 
 #### Uploading
 
-To upload images, you need in the body of the request to [create](../dictionaries/#entities-towar-sozdat-towar) or [update](../dictionaries/#entities-towar-izmenit-towar) of the product
+To upload images, you need in the body of the request to [create](../dictionaries/#entities-product-create-product) or [update](../dictionaries/#entities-product-change-product) of the product
 specify the **images** field with a list of elements that have the following attributes:
 
 | Title | Description |
@@ -293,7 +293,7 @@ specify the **images** field with a list of elements that have the following att
 If in the update request **images** contains an empty array of elements, then all Images of the Product will be deleted,
 because the server will assume that the user wants to update the list of Product Images.
 
-The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-izobrazhenie) chapter.
+The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-image) chapter.
 
 ##### Item Group
 
@@ -301,7 +301,7 @@ The API documentation for working with Images can be found in the [Image](../dic
 | ---------| ------- |-------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Product group.<br>`+Required when replying` |
 
-You can see the description of the Group entity [here](../dictionaries/#entities-gruppa-towarow)
+You can see the description of the Group entity [here](../dictionaries/#entities-product-group)
 Updating this attribute will also update the **pathName** attribute.
 
 ##### Weight item

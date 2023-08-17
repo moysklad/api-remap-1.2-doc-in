@@ -80,7 +80,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_1082">1082</a> | File handling error: Can't upload more than 10 files at once | The maximum number of files uploaded by one request cannot exceed 10 pieces. |
 | <a name="error_1083">1083</a> | Error while generating result: {error text} | An error occurred on the server side while generating the response. Try to repeat the request again. |
 | <a name="error_1084">1084</a> | Invalid value '{value}' of query parameter '{parameter}', valid values: '{list of valid values}' | You specified an invalid value for this parameter. Check that the passed value is valid. |
-| <a name="error_1085">1085</a> | The type of authorization used does not contain information about the user | You need a different authorization method that contains information about the user. For example, [basic or token](#mojsklad-json-api-obschie-swedeniq-autentifikaciq) |
+| <a name="error_1085">1085</a> | The type of authorization used does not contain information about the user | You need a different authorization method that contains information about the user. For example, [basic or token](#kladana-json-api-general-info-authentication) |
 | <a name="error_1090">1090</a> | Additional directory {name of directory} is used in: {document names} and cannot be deleted | The additional directory is used as an additional field in the documents listed in the error. |
 | <a name="error_1999">1999</a> | Unknown error | An unexpected error has occurred. Please contact the MySklad service support detailing the conditions under which this error occurred. |
 
@@ -550,7 +550,7 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error Code | Message| Description|
 | ------------| ----------| ---------|
-| <a name="error_61000">61000</a> | Error creating asynchronous task: endpoint does not support asynchronous communication | The request does not support asynchronous execution. The list of available requests can be specified in the [Asynchronous Exchange](#mojsklad-json-api-asinhronnyj-obmen) |
+| <a name="error_61000">61000</a> | Error creating asynchronous task: endpoint does not support asynchronous communication | The request does not support asynchronous execution. The list of available requests can be specified in the [Asynchronous Exchange](#kladana-json-api-asynchronous-exchange) |
 | <a name="error_61001">61001</a> | Error creating asynchronous task: 'offset' and 'limit' parameters cannot be specified for asynchronous request | If you want to make an asynchronous request, don't specify the 'offset' and 'limit' parameters |
 | <a name="error_61002">61002</a> | Error creating an asynchronous task: The limit on the number of concurrently executing asynchronous operations has been exceeded | Wait for one of the queued tasks to complete |
 | <a name="error_61003">61003</a> | Error while requesting the result of an asynchronous task: The result of the task has been deleted | After the date specified in the **deletionDate** field, the result becomes unavailable. Need to create a new task |
@@ -573,7 +573,7 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_63000">63000</a> | Saved filter applied error: Saved filter is incompatible with filter, search and order query parameters | A filter, search, and order parameter was passed, or multiple saved filters were applied |
 | <a name="error_63001">63001</a> | Error applying saved filter: The specified saved filter is not compatible with the current endpoint | A saved filter has been applied that cannot be obtained on the current Angpoint along the path `/entity/[entityType]/namedfilter` |
-| <a name="error_63002">63002</a> | Saved filter application error: Invalid saved filter reference format | The correct link format should be of type [URL](#mojsklad-json-api-obschie-swedeniq-tipy-dannyh) |
+| <a name="error_63002">63002</a> | Saved filter application error: Invalid saved filter reference format | The correct link format should be of type [URL](#kladana-json-api-general-info-data-types) |
 | <a name="error_63003">63003</a> | Error applying saved filter: The specified saved filter reference contains an incompatible filter and endpoint | The passed link contains a filter id that cannot be obtained on the endpoint passed in the link |
 | <a name="error_63004">63004</a> | Error getting saved filters: invalid value '{value}' for query parameter 'owner' | Query parameter value 'owner' does not conform to href format |
 | <a name="error_63005">63005</a> | Error getting saved filters: Applications can only get saved filters with the specified query parameter 'owner' | Applications can receive other users' saved filters, so you need to specify the 'owner' parameter |

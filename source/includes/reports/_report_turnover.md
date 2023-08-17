@@ -79,7 +79,7 @@ To filter by the value of an additional field, you need to pass a reference to t
 
 To filter by the value of additional fields like string, text and link, use the `=` operator. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively.
 
-To filter by the value of additional fields of type integer, real number, date, you can use the operators `=`, `>=`, `<=`. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively. For an additional date-time field, the value is passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni).
+To filter by the value of additional fields of type integer, real number, date, you can use the operators `=`, `>=`, `<=`. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively. For an additional date-time field, the value is passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format).
 
 To filter by the value of additional fields of the lookup type, you can use the `=` and `!=` operators. As a value, you need to pass a reference to the directory object. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively.
 

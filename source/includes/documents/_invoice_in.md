@@ -11,7 +11,7 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Account metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Change-handler` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Change-handler` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Invoice Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
@@ -35,7 +35,7 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` `+Change-handler` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | float | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Account status metadata<br>`+Expand` `+Change-handler` |
@@ -66,7 +66,7 @@ The Account item object contains the following fields:
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object| Product packaging. [Read more here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` |
+| **pack** | Object| Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
@@ -1057,7 +1057,7 @@ Successful request. The result is a JSON representation of the generated Supplie
 
 ### Bulk creating and update of Supplier Invoices
 
-[Bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow) of Supplier Invoices.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Supplier Invoices.
 In the body of the request, you need to pass an array containing the JSON representation of the Developer Accounts you want to create or update.
 Updated Supplier Invoices must contain the identifier in the form of metadata.
 
@@ -2566,7 +2566,7 @@ Successful request. The result is a JSON representation of the updated Supplier 
  
 ### Supplier Invoice Items
 
-A separate resource for managing Supplier Invoice items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+A separate resource for managing Supplier Invoice items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Supplier Invoice Items
 

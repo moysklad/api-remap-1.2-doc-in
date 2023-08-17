@@ -8,7 +8,7 @@ Using the JSON API, you can create and update Inventory Count information, query
 | Title | Type | Filtration | Description |
 | ------- | ------ | ------ | ---- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code of issued Inventory Counts |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
@@ -43,7 +43,7 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | **correctionAmount** | float | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
 | **correctionSum** | float | excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 
@@ -338,7 +338,7 @@ Successful request. The result is a JSON representation of the generated Invento
 
 ### Bulk Inventory Count creating and update
 
-[Bulk Inventory Count creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+[Bulk Inventory Count creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the Inventory Counts that you want to create or update.
 Updated Inventory Counts must contain the identifier in the form of metadata.
 
@@ -1106,7 +1106,7 @@ Successful request. The result is a JSON representation of the updated Inventory
 
 ### Inventory Count Items
 
-A separate resource for managing Inventory Count items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+A separate resource for managing Inventory Count items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Inventory Count Items
 

@@ -454,7 +454,7 @@ The result is a Sales Order with new items in the moves collection.
 
 ### Linking payments to transactions
 
-Payments can be attached to some transactions in the JSON API. There are 4 types of payments: [Incoming payment](../documents/#transactions-vhodqschij-platezh), [Incoming order](../documents/#transactions-prihodnyj-order), [Outgoing payment](.. /documents/#transactions-ishodqschij-platezh), [Expense order](../documents/#transactions-rashodnyj-order).
+Payments can be attached to some transactions in the JSON API. There are 4 types of payments: [Incoming payment](../documents/#transactions-incoming-payment), [Incoming order](../documents/#transactions-incoming-cash-payment), [Outgoing payment](.. /documents/#transactions-outgoing-payment), [Expense order](../documents/#transactions-outgoing-cash-payment).
 
 Transactions that can be associated with payments contain a subcollection of **payments** among the transaction attributes. 
 

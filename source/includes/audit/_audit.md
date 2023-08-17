@@ -95,7 +95,7 @@ Result: JSON object including fields:
 | ----------|-------------------- |
 | **limit** | `number` (optional) **Default: 25** *Example: 25* Maximum number of entities to retrieve. `Allowed values are 1 - 100`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **filter** | `string` (optional) *Example: source=jsonapi* Detailed description of the parameter in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch -u-parametra-filter) Filtering attributes for Audit Contexts are presented in the [Filters](../notification/#audit-audit-fil-try) section |
+| **filter** | `string` (optional) *Example: source=jsonapi* Detailed description of the parameter in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-general-info-fil-traciq-wyborki-s-pomosch -u-parametra-filter) Filtering attributes for Audit Contexts are presented in the [Filters](../notification/#audit-audit-fil-try) section |
 
 > Get Contexts
 
@@ -469,7 +469,7 @@ Successful request. The result is a JSON representation of a list of events.
 ### Filters
 
 The JSON API of the MySklad service provides the ability to filter [Audit contexts](../notification/#audit-audit-kontexty) using the ``filter`` url parameter.
-More details about this parameter can be found in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
+More details about this parameter can be found in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-general-info-filtering-the-selection-using-the-filter-parameter)
 Filtering can be done by the fields described below.
 
 ##### Entity attributes

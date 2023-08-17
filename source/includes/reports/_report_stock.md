@@ -60,17 +60,17 @@ The report results can be filtered using the filter parameter.
 |--------------------|---------- | --------- |----|
 | **archived** | Boolean | `=` | parameter for filtering by archived products. Possible values: true, false. To return both archived and non-archived products, you need to pass two values at once, true and false. |
 | **inTransitOnly** | Boolean | `=` | parameter to filter by wait value. If you pass true, only products with pending will be included in the selection. |
-| **moment** | datetime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni) |
+| **moment** | datetime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
 | **product** | object | `=` `!=` | option to filter by multiple products. The parameter value is a link to a product that should be included in the selection or excluded from it. You can pass multiple values. This filter option can be combined with the `variant` option. |
 | **productFolder** | object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders** | Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
-| **quantityMode** | Enum | `=` | option to filter by value is available. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-quantitymode) |
+| **quantityMode** | Enum | `=` | option to filter by value is available. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-attributes-available-for-filtering-available-values-for-quantitymode) |
 | **reserveOnly** | Boolean | `=` | parameter for filtering by reserve value. If you pass true, I will get into the selectiont only goods with a reserve. |
 | **search** | String(255) | `=` `!~` | special text search option. The search is carried out by the occurrence of a substring in the names of goods, modifications, series. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
 | **stockDaysFrom** | int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in stock greater than or equal to the specified one. This filter parameter can be combined with the `stockDaysTo` parameter. |
 | **stockDaysTo** | int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in the warehouse less than or equal to the specified one. This filtering option can be combined with the `stockDaysFrom` option. |
-| **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is all. [Available values](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
+| **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is all. [Available values](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah-attributes-available-for-filtering-available-values-for-stockmode) |
 | **store** | object | `=` `!=` | parameter for filtering by multiple warehouses. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | object | `=` `!=` | option to filter by multiple vendors. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **option** | object | `=` `!=` | parameter for filtering by several modifications. The value of the parameter is a reference to the modification that should be included in the selection or excluded from it. You can pass multiple values. This filter option can be combined with the `product` option. |
@@ -133,7 +133,7 @@ To filter by the value of an additional field, you need to pass a reference to t
 
 To filter by the value of additional fields like string, text and link, use the `=` operator. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively.
 
-To filter by the value of additional fields of type integer, real number, date, you can use the operators `=`, `>=`, `<=`. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively. For an additional date-time field, the value is passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni).
+To filter by the value of additional fields of type integer, real number, date, you can use the operators `=`, `>=`, `<=`. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively. For an additional date-time field, the value is passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format).
 
 To filter by the value of additional fields of the lookup type, you can use the `=` and `!=` operators. As a value, you need to pass a reference to the directory object. You can also use the `=` and `!=` operators with an empty value to get products with only an empty additional field or only a filled one, respectively.
 
@@ -153,7 +153,7 @@ To filter by the value of a characteristic, use the `=` operator. You can also u
 
 #### Attributes available for sorting
 
-The report results can be sorted using the [order](../#mojsklad-json-api-obschie-swedeniq-sortirowka-ob-ektow) parameter.
+The report results can be sorted using the [order](../#kladana-json-api-general-info-sortirowka-ob-ektow) parameter.
 
 | Title | Description |
 | -------| ------------- |
@@ -686,7 +686,7 @@ that have changed between the time specified in the `changedSince` parameter and
 Residuals in responses to endpoints `/report/stock/all/current` and `/report/stock/bystore/current`
 this is the actual balance at the current time in all warehouses and broken down by warehouses, respectively, not a delta for the period,
 not the balance at the `changedSince` point in time, but the actual balance of the item, whose balance has changed over the interval.
-The parameter value format is a string like "yyyy-mm-dd hh-mm-ss". Example: `changedSince=2016-08-23 15:21:09`. [Learn more](../#mojsklad-json-api-obschie-swedeniq-format-date-i-wremeni)
+The parameter value format is a string like "yyyy-mm-dd hh-mm-ss". Example: `changedSince=2016-08-23 15:21:09`. [Learn more](../#kladana-json-api-general-info-format-date-i-wremeni)
 
 Restrictions and recommendations imposed on the parameter:
 
@@ -851,12 +851,12 @@ The report results can be filtered using the filter parameter. You cannot specif
 
 | Title | Type | Filtration | Description |
 | -------- | -----| -------- | ------------ |
-| **moment** | datetime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-date-i-wremeni) |
+| **moment** | datetime | `=` | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#kladana-json-api-general-info-format-date-i-wremeni) |
 | **product** | object | `=` `!=` | a link to the product you want to filter by. |
 | **productFolder** | object | `=` `!=` | a link to the product group by which you want to filter. |
 | **search** | String(255) | `=` | special text search option. The search is carried out by the occurrence of a substring in the names of goods, modifications, series. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
-| **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-ostatki-po-skladam-atributy-dostupnye-dlq-fil-tracii-dostupnye-znacheniq-dlq-stockmode) |
+| **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-ostatki-po-skladam-attributes-available-for-filtering-available-values-for-stockmode) |
 | **store** | object | `=` `!=` | a link to the warehouse for which you want to generate a report. |
 | **supplier** | object | `=` `!=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
 | **option** | object | `=` `!=` | link to the modification by which you want to filter. |
@@ -897,7 +897,7 @@ To filter by the value of an additional field, you need to pass a reference to t
 
 To filter by the value of additional fields like string, text and link, use the `=` operator.
 
-To filter by the value of additional fields of type integer, real number, date, you can use the operators `=`, `>=`, `<=`. For an additional date-time field, the value is passed as a string in [date-time format](../#mojsklad-json-api-obschie-swedeniq-format-daty-i-wremeni).
+To filter by the value of additional fields of type integer, real number, date, you can use the operators `=`, `>=`, `<=`. For an additional date-time field, the value is passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format).
 
 To filter by the value of additional fields of the lookup type, you need to use the `=` operator. As a value, you need to pass a reference to the directory object.
 
@@ -917,7 +917,7 @@ To filter by the value of a characteristic, use the `=` operator.
 
 #### Attributes available for sorting
 
-The report results can be sorted using the [order](../#mojsklad-json-api-obschie-swedeniq-sortirowka-ob-ektow) parameter.
+The report results can be sorted using the [order](../#kladana-json-api-general-info-sortirowka-ob-ektow) parameter.
 
 | Title | Description |
 | -------| ------------- |
