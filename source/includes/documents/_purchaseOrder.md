@@ -19,7 +19,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned date of shipment |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Purchase Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Purchase Order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Departmentemployee l<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Order ID<br>`+Required when replying` `+Read Only` |
 | **invoicedSum** | float | | Purchase invoice amount<br>`+Read-only` |

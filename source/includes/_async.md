@@ -11,7 +11,7 @@ Asynchronous exchange is not supported for all requests. List of requests that c
 + [Sales and Orders Report](reports/#reports-sales-and-orders-indicators)
 + [Report Counterparties indicators](reports/#reports-report-indicators-of-counterparties) (except [selected indicators](reports/#reports-report-indicators-of-counterparties-selected-indicators-of-counterparties))
 + [Report Metrics](reports/#reports-indicators)
-+ [Getting a list of Counterparties](dictionaries/#entities-counterparty-counterparty-get-a-list-of-counterparties)
++ [Getting a list of Counterparties](dictionaries/#entities-counterparty-get-a-list-of-counterparties)
 + [Get Assortment](dictionaries/#entities-assortment)
 
 After executing a query in asynchronous mode, the result is available within 1 hour.

@@ -18,7 +18,7 @@ Using the JSON API, you can create and update payment information, request lists
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Incoming payment<br>`+Read only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Incoming payment<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximumnumber of files - 100)<br>`+Required when answering` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximumnumber of files - 100)<br>`+Required when answering` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Incoming payment ID<br>`+Required for response` `+Read only` |
 | **incomingDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Incoming date |

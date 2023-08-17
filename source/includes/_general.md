@@ -2041,7 +2041,7 @@ These types have the following fields:
 | **retailDemand** | OPERATION | Sales |
 | **salesReturn** | OPERATION | Sales Return |
 | **supply** | OPERATION | Receivings |
-| **task** | [Special](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions-permissii-dlq-zadach) | Tasks |
+| **task** | [Special](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions-permissions-for-tasks) | Tasks |
 | **wom** | base | Units of measure |
 | **warehouse** | base | Warehouses |
 | **webhook** | DICTIONARY | Webhooks |

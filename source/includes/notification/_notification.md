@@ -1041,17 +1041,17 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskDeleted - the task has been deleted
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
+| Title | Type | Description                                                                                                                                                                                                                              |
+| --------------- | ------ |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
+| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                 |
+| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                          |
+| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                   |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                   |
 | **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-zadacha)<br>`+Required when answering` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                  |
+| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                   |
+| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                        |
 
 #### Nested entity attributes
 ##### Employee who made the change

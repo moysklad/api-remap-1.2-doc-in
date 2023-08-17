@@ -50,7 +50,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
 | **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |

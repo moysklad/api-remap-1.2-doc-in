@@ -17,7 +17,7 @@ Using the JSON API, you can create and update information about tasks, request l
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
 | **done** | Boolean | `=` `!=` | Task completion mark<br>`+Required when answering` |
 | **dueToDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
 | **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering` |

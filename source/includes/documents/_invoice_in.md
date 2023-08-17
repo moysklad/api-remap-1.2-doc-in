@@ -18,7 +18,7 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Supplier Invoice<br>`+Read Only`|
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Supplier Invoice Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Invoice external code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Supplier Invoice ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **incomingDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Incoming date<br>`+Change-handler` |

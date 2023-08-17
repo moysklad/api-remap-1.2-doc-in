@@ -33,7 +33,7 @@ Examples:
 | **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
 | **id** | UUID | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
-| **images** | MetaArray | | [Images] metadata array(../dictionaries/#entities-image) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
+| **images** | MetaArray | | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
 | **minprice** | object | | Minimum price. [More details here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |

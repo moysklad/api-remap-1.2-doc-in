@@ -18,7 +18,7 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Sales Invoice<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Invoice Comment<br> `+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Sales Invoice code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read Only` `+Change-handler |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Invoice Metadata<br>`+Required when replying` `+Change-handler` |

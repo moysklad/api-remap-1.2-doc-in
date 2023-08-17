@@ -399,7 +399,7 @@ Successful removal of Routing
 ### Routing Items
 
 In essence, a item limit of 100 items is set. Learn more about line limits and working with
-a large number of items can be read on the example of working with document items [here] (../#kladana-json-api-general-info-working-with-transaction-items).
+a large number of items can be read on the example of working with document items [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 #### Routing item attributes
 | Title | Type | Description |

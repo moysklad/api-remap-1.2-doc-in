@@ -17,7 +17,7 @@ Using the JSON API, you can create and update information about Incoming Cash Pa
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of the Incoming Cash Payment<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Incoming Cash Payment Commentary |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of the Incoming Cash Payment<br>`+Required when replying` |
-| **files** | MetaArray || [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray || [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Incoming Cash Payment ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Incoming Cash Payment Metadata<br>`+Required when replying` |

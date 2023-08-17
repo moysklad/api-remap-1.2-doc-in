@@ -24,7 +24,7 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response``+Change-handler` `+Update-provider`                                                                                                |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Change<br>`+Required for response``+Change-handler` `+Update-provider`                                                                                               |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                                 |
-| **overhead** | object | | Overheads. [More here](../dictionaries/#transactions-transfer-transfer-overhead-expenses). If Transfer items are not set, then overheads cannot be set<br>`+Update-provider` |
+| **overhead** | object | | Overheads. [More here](../documents/#transactions-transfer-transfer-overhead-expenses). If Transfer items are not set, then overheads cannot be set<br>`+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                                                      |
 | **positions** | MetaArray | | Item Metadata                                                                                                                                                                
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                                                                          |
@@ -58,7 +58,7 @@ The Transfer item object contains the following fields:
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only``+Change-handler` |
-| **overhead** | int | Overheads. [More here](../dictionaries/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
+| **overhead** | int | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
 | **pack** | object | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | float | Price of goods/services in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
