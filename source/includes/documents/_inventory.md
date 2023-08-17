@@ -14,7 +14,7 @@ Using the JSON API, you can create and update Inventory Count information, query
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External ID of the returned Inventory Count<br>`+Required in response` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Inventory Count ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Inventory Count Metadata<br>`+Required when replying` |
@@ -47,7 +47,7 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 
-You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-pozicii-inwentarizacii),
+You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-inventory-count-inventory-count-items),
 and also as part of a separate Inventory Count. When working as part of a separate Inventory Count,
 you can send requests to create separate Inventory Counts with included in the request body
 an array of Inventory Count Items. If the number of items exceeds the maximum allowed, then for
@@ -1215,7 +1215,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/series/modification that the item represents.
 You can also specify a field named **variant** according to
-what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-pozicii-inwentarizacii).
+what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-inventory-count-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create both one and Inventory Count items at the same time. All items created by this query
 will be added to the existing ones.

@@ -19,7 +19,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned date of shipment |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Purchase Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Purchase Order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Departmentemployee l<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Order ID<br>`+Required when replying` `+Read Only` |
 | **invoicedSum** | float | | Purchase invoice amount<br>`+Read-only` |
@@ -2578,7 +2578,7 @@ For successful creation, the following fields must be specified in the request b
 
 +**assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-zakazy-postawschikam-pozicii-zakaza-postawschiku)
+what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
 **Parameters**

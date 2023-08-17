@@ -17,7 +17,7 @@ Using the JSON API, you can create and update information about tasks, request l
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
 | **done** | Boolean | `=` `!=` | Task completion mark<br>`+Required when answering` |
 | **dueToDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
 | **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering` |
@@ -785,8 +785,8 @@ Request to get a list of all comments for this Issue.
 | **limit** | `number` (optional) **Default: 25** *Example: 100* Maximum number of entities to retrieve. `Allowed values are 1 - 100`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in returned list of entities |
 | **updatedBy** | `string` (optional) *Example: admin@admin* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter ). String format : `uid` |
-| **updatedFrom** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
-| **updatedTo** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
+| **updatedFrom** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
+| **updatedTo** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
 
 > Get comments Tasks
 

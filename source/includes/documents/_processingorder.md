@@ -16,7 +16,7 @@ Using the JSON API, you can create and update information about Production Order
 | **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned production date |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Production Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Production Order Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID| `=` `!=` | Production Order ID<br>`+Required when responding` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when responding` `+Read Only` |

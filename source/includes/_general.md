@@ -996,7 +996,7 @@ Exceptions:
    [Legal entity](dictionaries/#entities-entity-legal-entity-attributes-of-entity-address),
    [Points of sale](dictionaries/#entities-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
    [Warehouse](dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address),
-   [Sales Order](documents/#transactions-sales-orders-entity-attributes-39-delivery-address-39),
+   [Sales Order](documents/#transactions-sales-order-sales-orders-entity-attributes-39-delivery-address-39),
    [Shipments](documents/#transactions-shipment-shipments-entity-attributes-delivery-address) does not support deletions by passing `null`.
 To delete an address, pass an empty string `""` to the string field. Specific string fields are given in the relevant sections, the transition to which is carried out via the links above.
 
@@ -1943,7 +1943,7 @@ Returns data about the employee on whose behalf the request is made. The entity 
 
 #### Nested entity attributes
 
-Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee] request (dictionaries/#entities-employee-sotrudniki), a detailed description of which can be found in the corresponding section.
+Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee](dictionaries/#entities-employee-employees) request, a detailed description of which can be found in the corresponding section.
 
 ##### Employee Permissions
 

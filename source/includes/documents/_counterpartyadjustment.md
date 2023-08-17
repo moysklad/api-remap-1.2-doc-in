@@ -17,7 +17,7 @@ The entity code for Counterparty Balance Adjustment as part of the JSON API is t
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Counterparty Balance Adjustment ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Counterparty balance adjustments<br>`+Required when replying` |
@@ -742,7 +742,7 @@ Successful request. The result is a JSON representation of Counterparty Balance 
 
 Request to update the balance adjustment of the counterparty with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in the Adjustment of the balance of the counterparty, except for those that
-are marked `Read-only` in the description of [Attributes of Counterparty Balance Adjustment](../documents/#transactions-korrektirowka-balansa-kontragenta).
+are marked `Read-only` in the description of [Attributes of Counterparty Balance Adjustment](../documents/#transactions-counterparty-balance-adjustment).
 
 **Parameters**
 

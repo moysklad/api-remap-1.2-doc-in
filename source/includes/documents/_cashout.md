@@ -18,7 +18,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Disbursement note commentary |
 | **expenseItem** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying` |

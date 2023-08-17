@@ -16,7 +16,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **deliveryPlannedMoment** | datetime | | Planned acceptance date |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Internal order |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Internal order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Internal Order ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Internal Order Metadata<br>`+Required when Response` `+Read Only` |
@@ -56,7 +56,7 @@ Items of the Internal order is a list of products, services, and product variant
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
-Items can be managed using [special resources for managing Internal Order items](../documents/#transactions-internal-order-poluchit-vnutrennie-zakazy),
+Items can be managed using [special resources for managing Internal Order items](../documents/#transactions-internal-order-get-internal-orders),
 and as part of a separate Internal Order. When working as part of a separate Internal Order,
 you can send requests to create a separate Internal Order with included in the request body
 array of internal order items. 
@@ -1535,7 +1535,7 @@ Successful request. The result is a JSON representation of the updated Internal 
 
 ### Internal Order Items
 
-A separate resource for managing Internal Order items. With it, you can manage the items of a larger document, the number of lines in which exceeds 1000. You can read more about limits on the number of lines in a document and working with large documents [here](../#kladana-json-api-general-info- worka-s-poziciqmi-dokumentow).
+A separate resource for managing Internal Order items. With it, you can manage the items of a larger document, the number of lines in which exceeds 1000. You can read more about limits on the number of lines in a document and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Internal Order Items
 
@@ -1621,7 +1621,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-vnutrennie-zakazy-pozicii-vnutrennego-zakaza)
+what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-internal-order-internal-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Internal Order items at the same time. All items created by this request
 will be added to the existing ones.

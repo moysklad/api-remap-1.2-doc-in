@@ -75,7 +75,7 @@ to false, which makes the created attribute optional when creating a product.
 It is worth paying attention to the creation of an attribute with the Directory type. This type allows an attribute to take other objects as its value,
 including custom ones.
 
-Description of Handbook type attributes in [documentation](../workbook/#kladana-json-api-general-info-additional-fields)
+Description of Handbook type attributes in [documentation](../workbook/#workbook-working-with-additional-fields-via-json-api)
 
 Let's assume that our store also has laptop cases. Let's create a Catalog attribute of the Product type. Now there is an opportunity for
 for each laptop, specify the appropriate case for itl as one of the properties of the laptop.

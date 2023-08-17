@@ -18,7 +18,7 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Sales Invoice<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Invoice Comment<br> `+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Sales Invoice code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read Only` `+Change-handler |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Invoice Metadata<br>`+Required when replying` `+Change-handler` |
@@ -2565,9 +2565,9 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-scheta-pokupatelqm-pozicii-scheta-pokupatelu)
+what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
-Just like when working with [Sales Order Items](../documents/#transactions-sales-order-pozicii-zakaza-pokupatelq), you can create one or more items in one request.
+Just like when working with [Sales Order Items](../documents/#transactions-sales-order-sales-orders-sales-orders-items), you can create one or more items in one request.
 
 **Parameters**
 

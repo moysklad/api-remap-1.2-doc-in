@@ -38,7 +38,7 @@ If an empty request body is sent to this resource, then only standard fields wil
 If the Inventory Count contains more than 500 suitable items, then the write-off template (loss) and Stock Adjustment (entry) will be created for the first 500 items.
 
 Details and examples for each of the transactions can be found in the relevant sections of the documentation.
-For example, for a shipping template - look in [Shipping Templates](../documents/#transactions-shipment-shablon-otgruzki)
+For example, for a shipping template - look in [Shipping Templates](../documents/#transactions-shipment-shipment-template)
 
 ### Context search for transactions
 

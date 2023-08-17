@@ -18,7 +18,7 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Supplier Invoice<br>`+Read Only`|
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Supplier Invoice Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Invoice external code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Supplier Invoice ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **incomingDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Incoming date<br>`+Change-handler` |
@@ -2721,7 +2721,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-scheta-postawschikow-pozicii-scheta-postawschika).
+what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-supplier-invoices-supplier-invoice-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
 **Parameters**

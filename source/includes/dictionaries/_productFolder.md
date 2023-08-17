@@ -279,7 +279,7 @@ Successful request. The result is a JSON representation of the created Product G
 ```
 
 ### Product group bulk creating an update
-[Product group bulk creating ang update](../#mojsklad-json-api-general-info-create-and-update-multiple-objects).
+[Product group bulk creating ang update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the Product Groups that you want to create or update.
 Updated Product Groups must contain the identifier in the form of metadata.
 

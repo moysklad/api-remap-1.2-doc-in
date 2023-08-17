@@ -4,7 +4,7 @@ The JSON API allows you to get information about the balances in different ways,
 
 ### Full synchronization for goods and balances
 
-You can perform full synchronization with MySklad to download all information about products (barcode, prices, descriptions, images) and their balances. To do this, you can use [Extended balance report](../reports/#reports-balance-report-rasshirennyj-otchet-ob-ostatkah) or [Report on balances by warehouses](../reports/#reports-balance-report-ostatki-po-skladam). It is also possible to perform full synchronization via the [assortment](../dictionaries/#entities-assortment) query.
+You can perform full synchronization with MySklad to download all information about products (barcode, prices, descriptions, images) and their balances. To do this, you can use [Extended balance report](../reports/#reports-balance-report-extended-balance-report) or [Report on balances by warehouses](../reports/#reports-balance-report-stock-balances). It is also possible to perform full synchronization via the [assortment](../dictionaries/#entities-assortment) query.
  
 Also, full synchronization can be carried out periodically during operation, for example, once a day. However, this is a rather long and heavy request, and it is often not recommended to use it.
 
@@ -14,7 +14,7 @@ If in the course of work you need to regularly update information only on balanc
  
 To reduce the amount of data transferred, when requesting a Summary of Balances use the `changedSince` parameter. The parameter allows you to get data on the balances only for those products whose balances have changed over the period from `changedSince` to the current moment. This significantly reduces the time it takes to process a request.
  
-If Orders, Receiving, Shipments and other transactions are created irregularly, subscribe to [Webhooks for changing stocks](../dictionaries/#entities-vebhuk-na-change-ostatkow) for goods or warehouses. Webhooks allow you to be notified of changes and request the stock only when there are changes. When you receive a notification, request data using the link in the webhook.
+If Orders, Receiving, Shipments and other transactions are created irregularly, subscribe to [Webhooks for changing stocks](../dictionaries/#entities-webhook-to-change-balances) for goods or warehouses. Webhooks allow you to be notified of changes and request the stock only when there are changes. When you receive a notification, request data using the link in the webhook.
 
 ### Regular product data update
 

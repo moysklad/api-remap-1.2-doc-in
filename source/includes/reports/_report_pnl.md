@@ -86,8 +86,8 @@ Profitability report for goods includes: goods, kits, services. The product take
 | -----|---------|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|----- |
-| **assortment** | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
+| **assortment** | object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-product-variant), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
 | **margin** | float | Profitability<br>`+Required when answering` |
 | **profit** | float | Profit<br>`+Required when answering` |
 | **returnCost** | float | Cost of returns<br>`+Required when replying` |
@@ -310,8 +310,8 @@ The product profitability report includes: products, kits, services and modifica
 | -----|---------|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -526,8 +526,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -663,8 +663,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -800,8 +800,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-fil-traciq-wyborki-s- pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.

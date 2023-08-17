@@ -18,7 +18,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required in response` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required for response` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required in response` |
@@ -71,7 +71,7 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 The value of this attribute is ignored if the item is not in serial accounting.
 Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.
 
-You can work with items using special [resources for managing Purchase Returns items](../documents/#transactions-purchase-returns-pozicii-vozwrata-postawschiku), and as part of a separate Purchase Returns. When operating as part of a separate Purchase Returns,
+You can work with items using special [resources for managing Purchase Returns items](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items), and as part of a separate Purchase Returns. When operating as part of a separate Purchase Returns,
 you can send requests to create a separate Purchase Returns with included in the request body
 an array of items Returned to the supplier. 
 
@@ -2677,7 +2677,7 @@ Request to create a new item in Purchase Returns.
 For successful creation, the following fields must be specified in the request body:
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
-You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-returns-vozwraty-postawschikam-pozicii-vozwrata-postawschiku).
+You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items).
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Purchase Returns items at the same time. All items created by this request

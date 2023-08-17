@@ -1,22 +1,22 @@
 ## Working with Files in Documents, Nomenclature and Accounts
 
 For an extended description and addition of entities with information, in Kladana it is possible to work with
-[Files](../dictionaries/#entities-fajly) to
+[Files](../dictionaries/#entities-files) to
 [Documents](../documents/#transactions),
 Nomenclature ([Products](../dictionaries/#entities-product),
 [Kits](../dictionaries/#entities-bundle),
 [Services](../dictionaries/#entities-service),
-[Modifications](../dictionaries/#entities-modifikaciq)),
+[Modifications](../dictionaries/#entities-product-variant)),
 [Tasks](../dictionaries/#entities-task) and
 [Contractors](../dictionaries/#entities-counterparty).
 Files can be attached to entities and requested at any convenient time.
 Information on files is displayed along with json representation of the entity to which the given file belongs. For getting
 file, you must use the link from the json description of the file representation. You can learn more about Files and working with them
-read in the section [Files](../dictionaries/#entities-fajly).
+read in the section [Files](../dictionaries/#entities-files).
 
 
 Sometimes, in order to describe a product, it is required, in addition to specifying the fields, to attach some file, for example, a certificate for this
-product or instructions for use. It is most convenient to keep such files next to the description of the product to which they are relate. To do this, you can use [Working with Files](../dictionaries/#entities-fajly).
+product or instructions for use. It is most convenient to keep such files next to the description of the product to which they are relate. To do this, you can use [Working with Files](../dictionaries/#entities-files).
 
 For example, you need to create a product and attach the instruction. It can be done on the [Kladana website](https://www.kladana.in/), or with the JSON API. 
 
@@ -430,7 +430,7 @@ For instance, you need to update the list of product files. In Kladana, it can b
 
 As you can see from the example, the complete list of files for the Product was changed with one request. To add and change at the same time
 file list via JSON API there is a limit of 10 elements. For a more detailed description, see the section
-[Files](../dictionaries/#entities-fajly).
+[Files](../dictionaries/#entities-files).
 
 In order to view the file attached to the entity, you need to download it. This can be done using the link
 specified in `downloadHref` in `meta` of the file.

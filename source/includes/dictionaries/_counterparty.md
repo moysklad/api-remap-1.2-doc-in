@@ -33,7 +33,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | Title | Type | Filtration | Description |
 | -------- | ------- | -------- | -------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-scheta-kontragentow)<br>`+Required when replying` `+Expand` |
+| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
 | **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
 | **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
 | **archived** | Boolean | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
@@ -50,7 +50,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
 | **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |

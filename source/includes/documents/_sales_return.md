@@ -18,7 +18,7 @@ Using the JSON API, you can create and update information about Sales Returns, q
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete date Sales Return<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Return Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return External Code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Return ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Return Metadata<br>`+Required in response` `+Change-handler` |
@@ -74,7 +74,7 @@ The Sales Return element object contains the following fields:
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
-You can work with items using special [resources for managing Sales Return items](../documents/#transactions-sales-return-pozicii-wozwrata-pokupatelq),
+You can work with items using special [resources for managing Sales Return items](../documents/#transactions-sales-return-sales-returns-sales-return-items),
 and also as part of a separate Sales Return. When working as part of a separate Sales Return,
 you can submit requests to create a separate Sales Return with included in the request body
 an array of Sales Return items. If the number of items exceeds the maximum allowed, then for

@@ -39,7 +39,7 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shipmentAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Order Delivery Address<br>`+Change-handler` |
-| **shipmentAddressFull** | object | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#transactions-sales-orders-entity-attributes-39-delivery-address-39)<br>`+Change-handler` |
+| **shipmentAddressFull** | object | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#transactions-sales-order-sales-orders-entity-attributes-39-delivery-address-39)<br>`+Change-handler` |
 | **shippedSum** | float | | Amount of shipped products<br>`+Required for response` `+Read-only``+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
@@ -2507,7 +2507,7 @@ For successful creation, the following fields must be specified in the request b
 + **assortment** - Link to the product/service/series/modification/set that the item represents.
 
 You can also specify a field named **product**, **service**, **variant**, **bundle** as per
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-zakazy-pokupatelej-pozicii-zakaza-pokupatelq)
+what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 

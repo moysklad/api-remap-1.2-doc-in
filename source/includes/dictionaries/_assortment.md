@@ -30,11 +30,11 @@ The query results can be filtered using the 'filter' parameter.
 | **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
 | **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-stockmode) |
-| **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#mojsklad-json-api-general-info-date-and-time-format) |
+| **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
 | **stockstore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | parameter for filtering by entity type (product, service, bundle, variant). Used with the `=` operator. You can pass multiple values. |
-| **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#mojsklad-json-api-general-info-date-and-time-format). |
+| **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
 | **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
 | **weighed** | parameter for filtering by weight item. Possible values: true, false. |
 | **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
@@ -134,7 +134,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 | ------------ | ------------- |-------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
 | **uniqueCodeRules** | object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
-| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-nested-entity-attributes-nastrojki-prawil-shtrihkodow-dlq-suschnostej-sprawochnika)<br>`+Required when answering` |
+| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes

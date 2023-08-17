@@ -477,7 +477,7 @@ Successful request. The result is a JSON representation of the Bills of Material
 
 Request to update the Bills of Materials Folderd with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in Bills of Materials Folders, except for those that
-are marked `Read only` in the description of [Bills of Materials Folder Attributes](../documents/#transactions-gruppa-teh-kart-gruppy-teh-kart).
+are marked `Read only` in the description of [Bills of Materials Folder Attributes](../documents/#transactions-bills-of-materials-folder).
 
 To update the **pathName** field, you need to update the link to the parent Bills of Materials Folder, i.e. update field
 **processingplanfolder**.

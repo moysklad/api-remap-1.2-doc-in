@@ -15,7 +15,7 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Write-off<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Write-Off Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of Write-off<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-files) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Write-off ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Write-off Metadata<br>`+Required when replying` `+Change-handler` |
@@ -57,7 +57,7 @@ The Write-off item object contains the following fields:
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.<br>`+Change-handler` |
 
-You can work with items using [special resources for managing Write-off items](../documents/#transactions-write-off-pozicii-spisaniq),
+You can work with items using [special resources for managing Write-off items](../documents/#transactions-write-off-write-off-write-off-items),
 and also as part of a separate Write-off. When working as part of a separate Write-off,
 you can send requests to create a separate Write-off included in the request body
 an array of write-off items. If the number of items exceeds the maximum allowed, then for
@@ -1585,7 +1585,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#transactions-write-off-spisaniq-pozicii-spisaniq)
+what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#transactions-write-off-write-off-write-off-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more write-off items at the same time. All items created by this request
 will be added to the existing ones.
