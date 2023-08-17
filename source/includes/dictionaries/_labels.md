@@ -79,17 +79,13 @@ Nested entity attributes
 > Response 202 Headers
 
 ```json
-{
-  "Location": "link to print status",
-  " Content-Type": "application/json"
-}
+  Location: link to print status,
+  Content-Type: application/json
 ```
 
 > Response 303 headers
 
 ```json
-{
-  "Location": "file link",
-  "Content-Type": "application/json"
-}
+  Location: file link,
+  Content-Type: application/json
 ```
