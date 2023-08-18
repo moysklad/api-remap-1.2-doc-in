@@ -590,7 +590,14 @@ Successful request. The result is a JSON representation of the pre-filled Intern
      }
    },
    "positions": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/internalorder/eb75f6b8-b2ff-11e6-8a84-bae500000000/positions",
+       "type": "internalorderposition",
+       "mediaType": "application/json",
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true

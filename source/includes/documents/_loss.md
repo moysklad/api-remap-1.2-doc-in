@@ -905,14 +905,13 @@ Successful request. Result - JSON npresentation of a pre-filled write-off.
    },
    "positions": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2",
+       "href": "https://app.kladana.in/api/remap/1.2/loss/b014dab4-4f42-11e6-8a84-bae500000006/positions",
        "type": "lossposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    }
 }
 ```
@@ -979,7 +978,7 @@ Successful request. The result is a JSON representation of the prefilled Write-o
    "published": true,
    "positions": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2",
+       "href": "https://app.kladana.in/api/remap/1.2/loss/166909e6-4a99-11e6-8a84-bae500000089/positions",
        "type": "lossposition",
        "mediaType": "application/json",
        "size": 3,

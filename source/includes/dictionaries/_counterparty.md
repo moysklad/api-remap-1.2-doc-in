@@ -240,7 +240,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
     "limit":1000,
     "offset":0
   },
-  "rows":[  
+  "rows": [  
     {  
       "meta":{  
         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",

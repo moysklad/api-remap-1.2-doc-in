@@ -1886,7 +1886,15 @@ Successful request. The result is a JSON representation of the prefilled shipmen
      }
    },
    "positions": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/demand/405f69c0-019e-11e6-9464-e4de00000085/positions",
+       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
+       "type": "demandposition",
+       "mediaType": "application/json",
+       "size": 4,
+       "limit": 1000,
+       "offset": 0
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -2119,7 +2127,13 @@ Successful request. The result is a JSON representation of the prefilled shipmen
      }
    },
    "documents": {
-     "rows": []
+     "meta": {
+       "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/documents",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 100,
+       "offset": 0
+     }
    },
    "positions": {
      "rows": [
@@ -3303,7 +3317,7 @@ Successful request. The result is a JSON representation of the item list of a si
        "limit":1000,
        "offset":0
     },
-    "rows":[
+    "rows": [
        {
           "meta":{
              "href":"https://app.kladana.in/api/remap/1.2/entity/demand/8830a022-8a03-11ea-0a80-01cb00000040/positions/8830b0fe-8a03-11ea-0a80-01cb00000041",

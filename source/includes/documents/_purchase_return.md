@@ -1910,14 +1910,13 @@ Successful request. The result is a JSON representation of a prefilled Purchase 
    "published": true,
    "positions": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2",
+       "href": "https://app.kladana.in/api/remap/1.2/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
        "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -2010,14 +2009,13 @@ Successful request. The result is a JSON representation of a prefilled Purchase 
    "published": true,
    "positions": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2",
+       "href": "https://app.kladana.in/api/remap/1.2/purchasereturn/6d5371fc-41c1-11e6-8a84-bae50000001c/positions",
        "type": "purchasereturnposition",
        "mediaType": "application/json",
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows":[]
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,

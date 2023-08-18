@@ -2029,7 +2029,8 @@ Successful request. The result is a JSON representation of the updated Productio
    },
    "quantity": 5,
    "processingPlan": {
-     "meta": {"href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplan/metadata",
        "type": "processingplan",
        "mediaType": "application/json"

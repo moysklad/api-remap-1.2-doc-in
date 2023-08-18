@@ -215,7 +215,7 @@ Successful request. The result is a JSON representation of the report.
      "type":"moneyreport",
      "mediaType":"application/json"
    },
-   "rows":[
+   "rows": [
      {
        "organization":{
          "meta":{

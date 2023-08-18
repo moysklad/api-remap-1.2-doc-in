@@ -1536,8 +1536,7 @@ Successful request. The result is a JSON representation of the prefilled supplie
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -1773,7 +1772,13 @@ Successful request. The result is a JSON representation of the prefilled supplie
      }
    },
    "documents": {
-     "rows": []
+     "meta": {
+       "href": "https://online.moysklad.ru/api/remap/1.2/entity/invoicein/af6f9b4c-2e64-11e6-8a84-bae500000149/documents",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 100,
+       "offset": 0
+     }
    },
    "positions": {
      "rows": [

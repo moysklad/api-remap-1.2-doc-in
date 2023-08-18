@@ -409,7 +409,7 @@ Successful request. Result - JSON representation of the list of Regions
        "id": "00000000-0000-0000-0000-000000000024",
        "version": 0,
        "updated": "2018-11-29 00:00:00",
-       "name": "Krasnoyarsk Territory",
+       "name": "Indore Territory",
        "code": "24",
        "externalCode": "24"
      },

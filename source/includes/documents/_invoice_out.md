@@ -1636,8 +1636,7 @@ Successful request. The result is a JSON representation of the prefilled Sales I
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -1729,8 +1728,7 @@ Successful request. The result is a JSON representation of the prefilled Sales i
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -1835,7 +1833,13 @@ Successful request. The result is a JSON representation of the prefilled Sales i
      }
    },
    "documents": {
-     "rows": []
+     "meta": {
+       "href": "https://online.moysklad.ru/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/documents",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 100,
+       "offset": 0
+     }
    },
    "positions": {
      "rows": [

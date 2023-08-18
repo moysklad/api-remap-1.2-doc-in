@@ -1676,7 +1676,14 @@ Successful request. The result is a JSON representation of the pre-filled Purcha
      }
    },
    "positions": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/purchaseorder/ae7fa9fb-3f74-11e6-8a84-bae500000070/positions",
+       "type": "purchaseorderposition",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,

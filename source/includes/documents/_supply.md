@@ -1798,10 +1798,23 @@ Successful request. The result is a JSON representation of the prefilled Receivi
      }
    },
    "documents": {
-     "rows": []
+     "meta": {
+       "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 100,
+       "offset": 0
+     }
    },
    "positions": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/supply/5b493f0e-3f68-11e6-8a84-bae500000042/positions",
+       "type": "supplyposition",
+       "mediaType": "application/json",
+       "size": 2,
+       "limit": 1000,
+       "offset": 0
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -1878,7 +1891,13 @@ Successful request. The result is a JSON representation of the prefilled Receivi
      }
    },
    "documents": {
-     "rows": []
+     "meta": {
+       "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 100,
+       "offset": 0
+     }
    },
    "positions": {
      "rows": [
@@ -1994,7 +2013,13 @@ Successful request. The result is a JSON representation of the prefilled Receivi
      }
    },
    "documents": {
-     "rows": []
+     "meta": {
+       "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 100,
+       "offset": 0
+     }
    },
    "positions": {
      "rows": [

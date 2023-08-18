@@ -866,7 +866,14 @@ Successful request. The result is a JSON representation of the prefilled Transfe
      }
    },
    "positions": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/move/544236cb-4f6a-11e6-8a84-bae500000003/positions",
+       "type": "moveposition",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
+     }
    }
 }
 ```

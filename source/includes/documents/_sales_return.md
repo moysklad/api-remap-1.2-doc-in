@@ -1264,8 +1264,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
@@ -1357,8 +1356,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
        "size": 0,
        "limit": 1000,
        "offset": 0
-     },
-     "rows": []
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,

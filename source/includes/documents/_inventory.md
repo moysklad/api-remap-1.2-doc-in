@@ -756,7 +756,14 @@ Successful request. The result is a JSON representation of the prefilled write-o
    "printed": true,
    "published": true,
    "positions": {
-     "rows": []
+       "meta": {
+         "href": "https://app.kladana.in/api/remap/1.2/entity/inventory/57a0bbfb-ad6d-11e6-8a84-bc52000000e7/positions",
+         "type": "inventoryposition",
+         "mediaType": "application/json",
+         "size": 2,
+         "limit": 1000,
+         "offset": 0
+       }
    }
 }
 ```

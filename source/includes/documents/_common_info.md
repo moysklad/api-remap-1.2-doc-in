@@ -176,7 +176,8 @@ The result is a move with the internalOrder field filled in.
        "size": 1,
        "limit": 1000,
        "offset": 0
-     }
+     },
+     "positions": {
    },
    "sourceStore": {
      "meta": {
@@ -420,10 +421,24 @@ The result is a Sales Order with new items in the moves collection.
    "printed": false,
    "published": false,
    "files": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001/files",
+       "type": "files",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
+     }
    },
    "positions": {
-     "rows": []
+     "meta": {
+       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001/positions",
+       "type": "customerorderposition",
+       "mediaType": "application/json",
+       "size": 0,
+       "limit": 1000,
+       "offset": 0
+     }
    },
    "vatEnabled": true,
    "vatIncluded": true,
