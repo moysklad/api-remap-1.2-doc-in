@@ -179,7 +179,7 @@ If the counterparty type is `Individual Entrepreneur`, the following fields of d
 
 | Title                 | Description |
 |-----------------------| -------- |
-| **certificatedate**   | Date of certificate |
+| **certificateDate**   | Date of certificate |
 | **certificateNumber** | Certificate number |
 | **inn**               | TIN |
 | **legalAddress**      | Legal address of the Counterparty |

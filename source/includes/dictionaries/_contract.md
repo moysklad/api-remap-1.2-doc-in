@@ -486,7 +486,7 @@ Successful request. The result is a JSON representation of the created Contract.
              "code": "contractWithPartner",
              "externalCode": "extC12fd12a",
              "moment": "2016-07-06 12:53:22",
-             "sum": 200000
+             "sum": 200000,
              "contractType": "Sales",
              "ownAgent": {
                "meta": {
@@ -931,7 +931,7 @@ Successful request. The result is a JSON array of representations of created and
            "type": "currency",
            "mediaType": "application/json"
          }
-       },
+     },
      "printed": false,
      "published": false
    }
