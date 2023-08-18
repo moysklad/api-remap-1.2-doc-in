@@ -93,7 +93,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
          }
      },
      "minPrice": {
-        "value": 500.0,
+         "value": 500.0,
          "currency": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",

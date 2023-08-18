@@ -606,7 +606,7 @@ Successful request. The result is a JSON representation of the list of Products.
          }
        },
        "minPrice": {
-        "value": 500.0,
+         "value": 500.0,
          "currency": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
