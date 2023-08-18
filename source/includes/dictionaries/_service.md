@@ -468,7 +468,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "effectiveVat": 10,
              "discountProhibited": false,
              "minPrice": {
-              "value": 500.0,
+             "value": 500.0,
                "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
@@ -776,7 +776,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "vat": 6,
              "effectiveVat": 5,
              "minPrice": {
-              "value": 500.0,
+             "value": 500.0,
                "currency": {
                  "meta": {
                    "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
