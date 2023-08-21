@@ -198,7 +198,7 @@ Successful request. The result is a JSON representation of the created Product G
        "mediaType": "application/json"
      }
    },
-   "shared":false,
+   "shared": false,
    "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",

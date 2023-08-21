@@ -178,7 +178,7 @@ curl -X POST
    -d '{
    "name": "dollar",
    "rate": 63,
-   "code" : "840",
+   "code": "840",
    "isoCode": "USD"
 }
 '
@@ -241,37 +241,37 @@ Successful request. The result is a JSON representation of the generated Currenc
 
 ```json
 {
-   "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
-     "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-     "type" : "currency",
-     "mediaType" : "application/json",
-     "uuidHref" : "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "type": "currency",
+     "mediaType": "application/json",
+     "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
-   "id" : "03f1855b-43d7-11ec-ac13-000400000050",
-   "system" : true,
-   "name" : "euro",
-   "fullName" : "Euro",
-   "rate" : 1.0,
-   "multiplicity" : 1,
-   "indirect" : false,
-   "rateUpdateType" : "auto",
-   "code" : "978",
-   "isoCode" : "EUR",
-   "majorUnit" : {
-     "gender" : "masculine",
-     "s1" : "euro",
-     "s2" : "euro",
-     "s5" : "euro"
+   "id": "03f1855b-43d7-11ec-ac13-000400000050",
+   "system": true,
+   "name": "euro",
+   "fullName": "Euro",
+   "rate": 1.0,
+   "multiplicity": 1,
+   "indirect": false,
+   "rateUpdateType": "auto",
+   "code": "978",
+   "isoCode": "EUR",
+   "majorUnit": {
+     "gender": "masculine",
+     "s1": "euro",
+     "s2": "euro",
+     "s5": "euro"
    },
-   "minorUnit" : {
-     "gender" : "masculine",
-     "s1" : "cent",
-     "s2" : "cent",
-     "s5" : "cents"
+   "minorUnit": {
+     "gender": "masculine",
+     "s1": "cent",
+     "s2": "cent",
+     "s5": "cents"
    },
-   "archived" : false,
-   "default" : false
+   "archived": false,
+   "default": false
 }
 ```
 
@@ -295,37 +295,37 @@ Successful request. The result is a JSON representation of the generated Currenc
 
 ```json
 {
-   "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
-     "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-     "type" : "currency",
-     "mediaType" : "application/json",
-     "uuidHref" : "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
+   "meta": {
+     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
+     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "type": "currency",
+     "mediaType": "application/json",
+     "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
-   "id" : "03f1855b-43d7-11ec-ac13-000400000050",
-   "system" : true,
-   "name" : "euro",
-   "fullName" : "Euro",
-   "rate" : 1.0,
-   "multiplicity" : 1,
-   "indirect" : false,
-   "rateUpdateType" : "manual",
-   "code" : "978",
-   "isoCode" : "EUR",
-   "majorUnit" : {
-     "gender" : "masculine",
-     "s1" : "euro",
-     "s2" : "euro",
-     "s5" : "euro"
+   "id": "03f1855b-43d7-11ec-ac13-000400000050",
+   "system": true,
+   "name": "euro",
+   "fullName": "Euro",
+   "rate": 1.0,
+   "multiplicity": 1,
+   "indirect": false,
+   "rateUpdateType": "manual",
+   "code": "978",
+   "isoCode": "EUR",
+   "majorUnit": {
+     "gender": "masculine",
+     "s1": "euro",
+     "s2": "euro",
+     "s5": "euro"
    },
-   "minorUnit" : {
-     "gender" : "masculine",
-     "s1" : "cent",
-     "s2" : "cent",
-     "s5" : "cents"
+   "minorUnit": {
+     "gender": "masculine",
+     "s1": "cent",
+     "s2": "cent",
+     "s5": "cents"
    },
-   "archived" : false,
-   "default" : false
+   "archived": false,
+   "default": false
 }
 ```
 
@@ -345,7 +345,7 @@ curl -X POST
    {
      "name": "dollar",
      "rate": 63,
-     "code" : "840",
+     "code": "840",
      "isoCode": "USD"
    },
    {
@@ -357,7 +357,7 @@ curl -X POST
      },
      "name": "dollar",
      "rate": 66,
-     "code" : "dollarusd",
+     "code": "dollarusd",
      "isoCode": "USD"
    }
 ]
@@ -567,7 +567,7 @@ curl -X PUT
    -d '{
    "name": "dollar",
    "rate": 66,
-   "code" : "dollarusd",
+   "code": "dollarusd",
    "isoCode": "USD"
 }'
 ```

@@ -577,7 +577,7 @@ curl -X POST
             "mediaType": "application/json"
           },
             "name": "String field",
-            "required": true
+            "required": true,
             "description": "Field-string"
          },
          {

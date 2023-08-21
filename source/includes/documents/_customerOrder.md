@@ -1993,8 +1993,8 @@ Successful request. The result is a JSON representation of the updated Sales Ord
              "externalCode": "championCode",
              "code": "codeOfChampion",
              "moment": "2013-04-19 13:50:24",
-             "applicable": true
-             "vatEnabled": true
+             "applicable": true,
+             "vatEnabled": true,
              "vatIncluded": true,
              "agent": {
                "meta": {

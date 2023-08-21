@@ -563,48 +563,49 @@ Successful request. The result is a JSON representation of the created legal ent
    "utmUrl": "10.250.110.81",
    "director":"Kipelova Alexandra",
     "directorPosition":"Head of department",
-    "directorSign" : {
-        "meta" : {
-          "href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13",
-          "mediaType" : "application/octet-stream"
+    "directorSign": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13",
+          "mediaType": "application/octet-stream"
         },
-        "title" : "directorSignTest",
-        "filename" : "directorSignTest.png",
-        "size" : 70,
-        "updated" : "2020-09-23 07:37:26.417",
-        "miniature" : {"href" : "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
-          "mediaType" : "image/png",
+        "title": "directorSignTest",
+        "filename": "directorSignTest.png",
+        "size": 70,
+        "updated": "2020-09-23 07:37:26.417",
+        "miniature": {
+          "href": "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
+          "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     },
     "chiefAccountant":"Podkupnikov Ivan",
-    "chiefAccountSign" : {
-        "meta" : {
-          "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769",
-          "mediaType" : "application/octet-stream"
+    "chiefAccountSign": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769",
+          "mediaType": "application/octet-stream"
         },
-        "title" : "chiefAccountSignTest",
-        "filename" : "chiefAccountSignTest.png",
-        "size" : 70,
-        "updated" : "2020-09-23 07:37:26.434",
-        "miniature" : {
-          "href" : "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
-          "mediaType" : "image/png",
+        "title": "chiefAccountSignTest",
+        "filename": "chiefAccountSignTest.png",
+        "size": 70,
+        "updated": "2020-09-23 07:37:26.434",
+        "miniature": {
+          "href": "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
+          "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     },
-    "stamp" : {
-        "meta" : {
-          "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383",
-          "mediaType" : "application/octet-stream"
+    "stamp": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383",
+          "mediaType": "application/octet-stream"
         },
-        "title" : "stampTest",
-        "filename" : "stampTest.png",
-        "size" : 70,
-        "updated" : "2020-09-23 07:37:26.443",
-        "miniature" : {
-          "href" : "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
-          "mediaType" : "image/png",
+        "title": "stampTest",
+        "filename": "stampTest.png",
+        "size": 70,
+        "updated": "2020-09-23 07:37:26.443",
+        "miniature": {
+          "href": "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
+          "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     }
@@ -613,15 +614,12 @@ Successful request. The result is a JSON representation of the created legal ent
 
 > An example of a request to create a legal entity with legal details for the type Individual Entrepreneur.
 
-```shell
-   curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/organization"
-     -H "Authorization: Basic <Credentials>"
+```sheic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
              "name": "IP Ivanov",
-             "code" : "someCode",
-             "externalCode" : "extCode",
+             "code": "someCode",
+             "externalCode": "extCode",
              "companyType": "entrepreneur",
              "legalLastName": "Ivanov",
              "legalFirstName": "Ivan",
@@ -701,7 +699,7 @@ Successful request. The result is a JSON representation of the created legal ent
        "offset": 0
      }
    },
-   "isEgaisEnable":false,
+   "isEgaisEnable": false,
    "payerVat": true,
    "trackingContractDate": null
 }
@@ -715,31 +713,31 @@ Successful request. The result is a JSON representation of the created legal ent
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "JSC SvetProm",
-             "description": "New legal entity",
-             "code": "666",
-             archived: false
-             "trackingContractNumber": "12345678",
-             "trackingContractDate": "2007-02-07 00:00:00",
-             "legalTitle": "Great Light Prom LLC",
-             "inn": "87654321",
-             "kpp": "15312532",
-             "ogrn": "12345",
-             "okpo": "12345",
-             "email": "svetprom@mail.svet",
-             "phone": "22222222",
-             "fax": "bello123",
-             "attributes": [
-               {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
-                   "type": "attributemetadata",
-                   "mediaType": "application/json"
-                 },
-                 "value": "String value"
-               }
-             ]
-          }'
+            "name": "JSC SvetProm",
+            "description": "New legal entity",
+            "code": "666",
+            "archived": false,
+            "trackingContractNumber": "12345678",
+            "trackingContractDate": "2007-02-07 00:00:00",
+            "legalTitle": "Great Light Prom LLC",
+            "inn": "87654321",
+            "kpp": "15312532",
+            "ogrn": "12345",
+            "okpo": "12345",
+            "email": "svetprom@mail.svet",
+            "phone": "22222222",
+            "fax": "bello123",
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "value": "String value"
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json)
@@ -1468,7 +1466,7 @@ Request to update the legal entity with the specified ID.
            "fax": "bello123",
            "isEgaisEnable": true,
            "fsrarId": "1963703",
-           payerVat: true
+           "payerVat": true,
            "utmUrl": "10.250.110.81",
            "director": "Kipelova Alexandra",
            "chiefAccountant": "Podkupnikov Ivan"

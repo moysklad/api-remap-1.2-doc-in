@@ -288,7 +288,7 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref":"https://app.kladana.in/app/#employee/edit?id=6c771d3c-2032-11ec-9621-0242ac130002"
        }
      },
-     "shared":true,
+     "shared": true,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
@@ -302,7 +302,7 @@ Successful request. The result is a JSON array of representations of the created
      "description":"Creating a sales channel",
      "type":"OTHER",
      "externalCode":"814fhsaf124",
-     "archived":false
+     "archived": false
    },
    {
      "meta":{
@@ -323,7 +323,7 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref":"https://app.kladana.in/app/#employee/edit?id=6c771d3c-2032-11ec-9621-0242ac130002"
        }
      },
-     "shared":true,
+     "shared": true,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
@@ -337,7 +337,7 @@ Successful request. The result is a JSON array of representations of the created
      "description":"Update sales channel description",
      "type":"DIRECT_SALES",
      "externalCode":"df2DGFSG44",
-     "archived":false
+     "archived": false
    }
 ]
 ```

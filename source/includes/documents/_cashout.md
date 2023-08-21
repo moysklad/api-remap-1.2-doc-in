@@ -361,7 +361,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "applicable": true,
        "created": "2016-08-25 19:55:00",
        "printed": true,
-       "published":true,
+       "published": true,
        "rate": {
          "currency": {
            "meta": {

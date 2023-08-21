@@ -153,7 +153,7 @@ remnants with different **url** for users and no more than 1 for the application
      -H "Content-Type: application/json"
        -d '{
              "url": "http://www.example.com",
-             "enabled": true
+             "enabled": true,
              "reportType": "all",
              "stockType": "stock"
            }'

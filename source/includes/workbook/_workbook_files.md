@@ -51,96 +51,96 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
    
 ```json
 {
-     "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-     },
-     "id": "bd1c0a3e-95ee-11e6-8a84-bae500000004",
-     "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
-     "owner": {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-             "type": "employee",
-             "mediaType": "application/json"
-         }
-     },
-     "shared": true,
-     "group": {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
-             "type": "group",
-             "mediaType": "application/json"
-         }
-     },
-     "updated": "2016-10-19 14:25:28",
-     "name": "simplegood",
-     "code": "00006",
-     "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-     "archived": false,
-     "pathName": "",
-     "images": {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
-             "type": "image",
-             "mediaType": "application/json",
-             "size": 0,
-             "limit": 1000,
-             "offset": 0
-         }
-     },
-     "minPrice": {
-         "value": 500.0,
-         "currency": {
-             "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                 "type": "currency",
-                 "mediaType": "application/json"
-             }
-         }
-     },
-     "salePrices": [
-         {
-             "value": 0.0,
-             "priceType": {
-                 "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                 },
-                 "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                 "name": "Sale price",
-                 "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
-             }
-         }
-     ],
-     "buyPrice": {
-         "value": 0.0
-     },
-     "weight": 0,
-     "volume": 0,
-     "barcodes": [
-         {
-             "ean13": "2000000000107"
-         }
-     ],
-     "variantsCount": 0,
-     "isSerialTrackable": false,
-     "trackingType": "NOT_TRACKED",
-     "files": {
-         "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files",
-             "type": "files",
-             "mediaType": "application/json",
-             "size": 2,
-             "limit": 1000,
-             "offset": 0
-         }
-     }
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+    "type": "product",
+    "mediaType": "application/json"
+  },
+  "id": "bd1c0a3e-95ee-11e6-8a84-bae500000004",
+  "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+  "owner": {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json"
+    }
+  },
+  "shared": true,
+  "group": {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2016-10-19 14:25:28",
+  "name": "simplegood",
+  "code": "00006",
+  "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
+  "archived": false,
+  "pathName": "",
+  "images": {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
+      "type": "image",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "minPrice": {
+    "value": 500.0,
+    "currency": {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "salePrices": [
+    {
+      "value": 0.0,
+      "priceType": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+          "type": "pricetype",
+          "mediaType": "application/json"
+        },
+        "id": "672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+        "name": "Sale price",
+        "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+      }
+    }
+  ],
+  "buyPrice": {
+    "value": 0.0
+  },
+  "weight": 0,
+  "volume": 0,
+  "barcodes": [
+    {
+      "ean13": "2000000000107"
+    }
+  ],
+  "variantsCount": 0,
+  "isSerialTrackable": false,
+  "trackingType": "NOT_TRACKED",
+  "files": {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 2,
+      "limit": 1000,
+      "offset": 0
+    }
+  }
 }
   ```
 

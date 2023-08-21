@@ -207,11 +207,13 @@ Request to change the bonus program. In the body of the request, you must pass t
      "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-       -d '{
-"name": "updatedName",
-active: true
-"agentTags": ["tag2"]
-}'
+       -d'{
+              "name": "updatedName",
+              "active": true,
+              "agentTags": [
+                  "tag2"
+              ]
+          }'
 ```
 
 > Response 200(application/json)

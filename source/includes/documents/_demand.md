@@ -2663,8 +2663,8 @@ Successful request. The result is a JSON representation of the updated Shipment.
                }
              },
              "code": "666",
-             "applicable": false
-             "vatEnabled": true
+             "applicable": false,
+             "vatEnabled": true,
              "vatIncluded": true,
              "customerOrder": {
                "meta": {

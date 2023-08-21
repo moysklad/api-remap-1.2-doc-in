@@ -258,7 +258,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
           "mediaType":"application/json"
         }
       },
-      "shared":false,
+      "shared": false,
       "group":{  
         "meta":{  
           "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -270,7 +270,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
       "updated":"2016-08-23 15:21:09",
        "name":"LLC \"Supplier\"",
        "externalCode":"aZBfWOKzj-lcq7c7IWZON3",
-       "archived":false,
+       "archived": false,
        "created":"2007-02-07 17:16:41",
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Supplier\"",
@@ -407,7 +407,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
           "mediaType":"application/json"
         }
       },
-      "shared":false,
+      "shared": false,
       "created":"2007-02-07 17:16:41",
       "group":{  
         "meta":{  
@@ -420,7 +420,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
      "updated":"2016-08-23 15:21:09",
        "name":"OOO \"Buyer\"",
        "externalCode":"DTItQRbDhyl472ZqC5OWw2",
-       "archived":false,
+       "archived": false,
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Buyer\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -529,7 +529,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "mediaType":"application/json"
          }
        },
-       "shared":false,
+       "shared": false,
        "group":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -541,7 +541,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "updated":"2016-08-23 15:21:09",
        "name":"Retail customer",
        "externalCode":"lBvYwLWMiBsct7sVRrFnJ2",
-       "archived":false,
+       "archived": false,
        "created":"2007-02-07 17:16:41",
        "companyType":"legal",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -648,7 +648,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "mediaType":"application/json"
          }
        },
-       "shared":false,
+       "shared": false,
        "group":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -660,7 +660,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "updated":"2016-08-23 16:24:08",
        "name":"trtr",
        "externalCode":"rRlzrdZmjql9r9dveXPE43",
-       "archived":false,
+       "archived": false,
        "created":"2007-02-07 17:16:41",
        "companyType":"legal",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -855,7 +855,7 @@ curl -X POST
       "mediaType":"application/json"
     }
   },
-  "shared":false,
+  "shared": false,
   "group":{  
     "meta":{  
       "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -867,7 +867,7 @@ curl -X POST
   "updated":"2016-09-01 18:28:22",
   "name":"Company LLC",
   "externalCode":"o7732zkki541HDkZZD1Yt3",
-  "archived":false,
+  "archived": false,
   "companyType":"legal",
   "accounts":{  
     "meta":{  
@@ -951,7 +951,7 @@ curl -X POST
       "mediaType":"application/json"
     }
   },
-  "shared":false,
+  "shared": false,
   "group":{  
     "meta":{  
       "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -963,7 +963,7 @@ curl -X POST
   "updated":"2016-09-01 18:28:22",
   "name":"Company LLC",
   "externalCode":"o7732zkki541HDkZZD1Yt3",
-  "archived":false,
+  "archived": false,
   "created":"2007-02-07 17:16:41",
   "companyType":"legal",
   "accounts":{  
@@ -1264,7 +1264,7 @@ curl -X POST
        "mediaType":"application/json"
      }
    },
-   "shared":false,
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -1278,7 +1278,7 @@ curl -X POST
    "description":"Vegetable Delivery Network",
    "code":"ovoshexpressCode",
    "externalCode":"extVagetable",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
    "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -1372,7 +1372,7 @@ curl -X POST
        "id":"0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
        "name":"AttributeName3",
        "type":"boolean",
-       "value":false
+       "value": false
      }
    ],
    "accounts":{
@@ -1518,7 +1518,7 @@ curl -X POST
          "mediaType":"application/json"
        }
      },
-     "shared":false,
+     "shared": false,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -1530,7 +1530,7 @@ curl -X POST
      "updated":"2016-09-01 18:28:22",
      "name":"OOO Rainbow",
      "externalCode":"o7732zkki541HDkZZD1Yt3",
-     "archived":false,
+     "archived": false,
      "companyType":"legal",
      "accounts":{
        "meta":{
@@ -1597,7 +1597,7 @@ curl -X POST
          "mediaType":"application/json"
        }
      },
-     "shared":false,
+     "shared": false,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -1611,7 +1611,7 @@ curl -X POST
      "description":"Network of building materials markets Raduga EXPO",
      "code":"rainbow",
      "externalCode":"extRainbow",
-     "archived":false,
+     "archived": false,
      "created":"2007-02-07 17:16:41",
      "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
      "legalAddress": "Moscow, Chernorabochego street 93/12",
@@ -1753,7 +1753,7 @@ curl -X GET
        "id":"5290a290-0313-11e6-9464-e4de00000020",
        "name":"AttributeName1",
        "type":"boolean",
-       "required":false
+       "required": false
      }
    ],
    "state":[
@@ -1788,7 +1788,7 @@ curl -X GET
      "Suppliers",
      "Buyers"
    ],
-   "createShared":false
+   "createShared": false
 }
 ```
 
@@ -1875,7 +1875,7 @@ curl -X GET
        "mediaType":"application/json"
      }
    },
-   "shared":false,
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -1887,7 +1887,7 @@ curl -X GET
    "updated":"2016-09-01 18:28:22",
    "name":"OOO Rainbow",
    "externalCode":"o7732zkki541HDkZZD1Yt3",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "companyType":"legal",
    "accounts":{
@@ -2229,7 +2229,7 @@ curl -X PUT
        "mediaType":"application/json"
      }
    },
-   "shared":false,
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -2243,7 +2243,7 @@ curl -X PUT
    "description":"Network of building materials markets Raduga EXPO",
    "code":"rainbow",
    "externalCode":"extRainbow",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
    "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -2453,7 +2453,7 @@ curl -X PUT
        "mediaType":"application/json"
      }
    },
-   "shared":false,
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -2467,7 +2467,7 @@ curl -X PUT
    "description":"Vegetable express delivery network",
    "code":"ovoshexpresscode",
    "externalCode":"externalVagetable",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
    "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -2560,7 +2560,7 @@ curl -X PUT
        "id":"0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
        "name":"AttributeName3",
        "type":"boolean",
-       "value":true
+       "value": true
      }
    ],
    "accounts":{

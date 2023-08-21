@@ -460,85 +460,85 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "Delivery",
-             "code": "delivery",
-             "externalCode": "delCode",
-             "description": "Delivery of selected item",
-             "vat": 10,
-             "effectiveVat": 10,
-             "discountProhibited": false,
-             "minPrice": {
-               "value": 500.0,
-               "currency": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "salePrices": [
-               {
-                 "value": 10532.0,
-                 currency: {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               },
-               {
-                 "value": 100,
-                 "currency": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                     "type": "currency",
-                     "mediaType": "application/json"
-                   }
-                 },
-                 "priceType": {
-                   "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-                     "type": "pricetype",
-                     "mediaType": "application/json"
-                   }
-                 }
-               }
-             ],
-             "buyPrice": {
-               "value": 1047.0,
-               "currency": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
-             },
-             "barcodes": [
-               {
-                 "ean13": "34875834765872435"
-               },
-               {
-                 "ean8": "234234234234"
-               },
-               {
-                 "code128": "23423423452351"
-               }
-             ]
-           }'
+            "name": "Delivery",
+            "code": "delivery",
+            "externalCode": "delCode",
+            "description": "Delivery of selected item",
+            "vat": 10,
+            "effectiveVat": 10,
+            "discountProhibited": false,
+            "minPrice": {
+                "value": 500.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "salePrices": [
+                {
+                    "value": 10532.0,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                },
+                {
+                    "value": 100,
+                    "currency": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "type": "currency",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "priceType": {
+                        "meta": {
+                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "type": "pricetype",
+                            "mediaType": "application/json"
+                        }
+                    }
+                }
+            ],
+            "buyPrice": {
+                "value": 1047.0,
+                "currency": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json"
+                    }
+                }
+            },
+            "barcodes": [
+                {
+                    "ean13": "34875834765872435"
+                },
+                {
+                    "ean8": "234234234234"
+                },
+                {
+                    "code128": "23423423452351"
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json)

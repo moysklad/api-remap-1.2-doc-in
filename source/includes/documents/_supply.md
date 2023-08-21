@@ -304,7 +304,7 @@ Successful request. The result is a JSON representation of the list of Receiving
        "moment": "2016-06-13 11:20:00",
        "applicable": true,
        "printed": true,
-       "published":true,
+       "published": true,
        "rate": {
          "currency": {
            "meta": {

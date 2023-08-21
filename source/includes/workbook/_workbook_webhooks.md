@@ -189,7 +189,7 @@ curl -X GET
           "entityType":"service",
           "url":"http://www.example.com",
           "method":"POST",
-          "enabled":true,
+          "enabled": true,
           "action":"CREATE"
        }
     ]
