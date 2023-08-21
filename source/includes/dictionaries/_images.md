@@ -225,7 +225,7 @@ curl -X POST
      -H "Content-Type: application/json"
      -d'[
            {
-             "meta":{
+             "meta": {
                "href":"https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                "type":"image",
                "mediaType":"application/json",

@@ -158,9 +158,9 @@ curl -X GET
 
 ```json
 {
-    "context":{
-       "employee":{
-          "meta":{
+    "context": {
+       "employee": {
+          "meta": {
              "href":"https://app.kladana.in/api/remap/1.2/context/employee",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
              "type":"employee",
@@ -168,7 +168,7 @@ curl -X GET
           }
        }
     },
-    "meta":{
+    "meta": {
        "href":"https://app.kladana.in/api/remap/1.2/entity/webhook",
        "type":"webhook",
        "mediaType":"application/json",
@@ -178,7 +178,7 @@ curl -X GET
     },
     "rows": [
        {
-          "meta":{
+          "meta": {
              "href":"https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
              "type":"webhook",

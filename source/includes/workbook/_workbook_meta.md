@@ -259,8 +259,8 @@ curl -X POST
             "name":"Pencil set",
             "components":[
                {
-                  "assortment":{
-                     "meta":{
+                  "assortment": {
+                     "meta": {
                         "href":"https://app.kladana.in/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002",
                         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                         "type":"product",
@@ -393,8 +393,8 @@ curl -X PUT
    -H 'Cache-Control: no-cache'
    -H 'Content-Type: application/json'
    -d '{
-    "uom":{
-       "meta":{
+    "uom": {
+       "meta": {
           "href":"https://app.kladana.in/api/remap/1.2/entity/uom/061721df-9197-49a5-b637-7f5b4d3be969",
           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
           "type":"uom",

@@ -816,7 +816,7 @@ Successful request. The result is a JSON representation of the created Purchase 
        "mediaType": "application/json"
      }
    },
-   "store":{
+   "store": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",

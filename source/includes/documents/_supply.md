@@ -3037,8 +3037,8 @@ curl --location --request POST 'https://app.kladana.in/api/remap/1.2/entity/supp
                 "price":11100.0,
                 "discount":0.0,
                 "vat":0,
-                "assortment":{
-                   "meta":{
+                "assortment": {
+                   "meta": {
                       "href":"https://app.kladana.in/api/remap/1.2/entity/product/aa1b1814-8493-11ea-0a80-037a00000307",
                       "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
                       "type":"product",
@@ -3091,7 +3091,7 @@ Successful request. The result is a JSON representation of the created posea sep
 ```json
 [
     {
-       "meta":{
+       "meta": {
           "href":"https://app.kladana.in/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f/positions/94d7af93-894f-11ea-0a80-05770000000d",
           "type":"supplyposition",
           "mediaType":"application/json"
@@ -3103,8 +3103,8 @@ Successful request. The result is a JSON representation of the created posea sep
        "discount":0.0,
        "vat":0,
        "vatEnabled": false,
-       "assortment":{
-          "meta":{
+       "assortment": {
+          "meta": {
              "href":"https://app.kladana.in/api/remap/1.2/entity/product/aa1b1814-8493-11ea-0a80-037a00000307",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/product/metadata",
              "type":"product",

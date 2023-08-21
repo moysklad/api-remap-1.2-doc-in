@@ -301,18 +301,18 @@ Successful request. The result is a JSON representation of a list of Sales Order
       "invoicedSum": 408739611676,
       "taxSystem": "GENERAL_TAX_SYSTEM",
       "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
-      "shipmentAddressFull":{
+      "shipmentAddressFull": {
         "postalCode":"125009",
-        "country":{
-          "meta":{
+        "country": {
+          "meta": {
             "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
             "type":"country",
             "mediaType":"application/json"
           }
         },
-        "region":{
-          "meta":{
+        "region": {
+          "meta": {
             "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
             "type":"region",
@@ -524,18 +524,18 @@ Successful request. The result is a JSON representation of the created Sales Ord
                 "mediaType": "application/json"
               }
             },
-            "shipmentAddressFull":{  
+            "shipmentAddressFull": {  
               "postalCode":"125009",
-              "country":{  
-                "meta":{  
+              "country": {  
+                "meta": {  
                   "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
                   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
                   "type":"country",
                   "mediaType":"application/json"
                 }
               },
-              "region":{  
-                "meta":{  
+              "region": {  
+                "meta": {  
                   "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
                   "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
                   "type":"region",
@@ -657,18 +657,18 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "shippedSum": 0,
   "invoicedSum": 0,
   "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
-  "shipmentAddressFull":{
+  "shipmentAddressFull": {
     "postalCode":"125009",
-    "country":{
-      "meta":{
+    "country": {
+      "meta": {
         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
         "type":"country",
         "mediaType":"application/json"
       }
     },
-    "region":{
-      "meta":{
+    "region": {
+      "meta": {
         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
         "type":"region",
@@ -1733,18 +1733,18 @@ Successful request. The result is a JSON representation of the Sales Order.
    "shippedSum": 408739611676,
    "invoicedSum": 408739611676,
    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
-   "shipmentAddressFull":{
+   "shipmentAddressFull": {
      "postalCode":"125009",
-     "country":{
-       "meta":{
+     "country": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
          "type":"country",
          "mediaType":"application/json"
        }
      },
-     "region":{
-       "meta":{
+     "region": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
          "type":"region",
@@ -1953,7 +1953,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
    "shippedSum": 0,
    "invoicedSum": 0,
    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
-   "shipmentAddressFull":{
+   "shipmentAddressFull": {
      "postalCode":"125009",
      "country": {
        "meta": {

@@ -59,9 +59,9 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context":{
-     "employee":{
-       "meta":{
+   "context": {
+     "employee": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/context/employee",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -69,7 +69,7 @@ Successful request. The result is a JSON representation of the report.
        }
      }
    },
-   "meta":{
+   "meta": {
      "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day",
      "type":"moneyplotseries",
      "mediaType":"application/json"
@@ -118,9 +118,9 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context":{
-     "employee":{
-       "meta":{
+   "context": {
+     "employee": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/context/employee",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -128,7 +128,7 @@ Successful request. The result is a JSON representation of the report.
        }
      }
    },
-   "meta":{
+   "meta": {
      "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448",
      "type":"moneyplotseries",
      "mediaType":"application/json"
@@ -200,9 +200,9 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context":{
-     "employee":{
-       "meta":{
+   "context": {
+     "employee": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/context/employee",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -210,15 +210,15 @@ Successful request. The result is a JSON representation of the report.
        }
      }
    },
-   "meta":{
+   "meta": {
      "href":"https://app.kladana.in/api/remap/1.2/report/money/byaccount",
      "type":"moneyreport",
      "mediaType":"application/json"
    },
    "rows": [
      {
-       "organization":{
-         "meta":{
+       "organization": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
@@ -229,8 +229,8 @@ Successful request. The result is a JSON representation of the report.
        "balance":100
      },
      {
-       "organization":{
-         "meta":{
+       "organization": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
@@ -241,8 +241,8 @@ Successful request. The result is a JSON representation of the report.
        "balance":100
      },
      {
-       "account":{
-         "meta":{
+       "account": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"account",
@@ -250,8 +250,8 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"00000"
        },
-       "organization":{
-         "meta":{
+       "organization": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"organization",

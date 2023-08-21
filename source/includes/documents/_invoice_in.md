@@ -1628,7 +1628,7 @@ Successful request. The result is a JSON representation of the prefilled supplie
      }
    },
    "agentAccount": {
-     "meta":{
+     "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1483952f-32ca-11e6-8a84-bae500000007/accounts/1483a4fa-32ca-11e6-8a84-bae500000008",
        "type": "account",
        "mediaType": "application/json"

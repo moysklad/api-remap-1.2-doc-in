@@ -221,9 +221,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
  
  ```json
 {  
-  "context":{  
-    "employee":{  
-      "meta":{  
+  "context": {  
+    "employee": {  
+      "meta": {  
         "href":"https://app.kladana.in/api/remap/1.2/context/employee",
         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type":"employee",
@@ -231,7 +231,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
       }
     }
   },
-  "meta":{  
+  "meta": {  
     "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty",
     "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
     "type":"counterparty",
@@ -242,7 +242,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
   },
   "rows": [  
     {  
-      "meta":{  
+      "meta": {  
         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type":"counterparty",
@@ -250,8 +250,8 @@ Successful request. The result is a JSON representation of the list of Counterpa
       },
       "id":"12a8b923-692c-11e6-8a84-bae500000053",
       "accountId":"1185513e-692c-11e6-8a84-bae500000001",
-      "owner":{  
-        "meta":{  
+      "owner": {  
+        "meta": {  
           "href":"https://app.kladana.in/api/remap/1.2/entity/employee/12747f9e-692c-11e6-8a84-bae50000002a",
           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type":"employee",
@@ -259,8 +259,8 @@ Successful request. The result is a JSON representation of the list of Counterpa
         }
       },
       "shared": false,
-      "group":{  
-        "meta":{  
+      "group": {  
+        "meta": {  
           "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
           "type":"group",
@@ -275,9 +275,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Supplier\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
-      "legalAddressFull":{  
+      "legalAddressFull": {  
         "postalCode":"125009",
-        "country":{  
+        "country": {  
           "meta":{  
             "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",

@@ -253,7 +253,7 @@ Updated Sales Channels must contain the identifier in the form of metadata. For 
                "type":"OTHER"
              },
              {
-               "meta":{
+               "meta": {
                  "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/da7a89fd-202b-11ec-0a82-05080000000a",
                  "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
                  "type":"saleschannel",
@@ -270,7 +270,7 @@ Successful request. The result is a JSON array of representations of the created
 ```json
 [
    {
-     "meta":{
+     "meta": {
        "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/286e7bd0-2032-11ec-9621-0242ac130002",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
        "type":"saleschannel",
@@ -279,8 +279,8 @@ Successful request. The result is a JSON array of representations of the created
      },
      "id":"286e7bd0-2032-11ec-9621-0242ac130002",
      "accountId":"4fcbb42c-1d41-11ec-0a82-06530000009e",
-     "owner":{
-       "meta":{
+     "owner": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/employee/6c771d3c-2032-11ec-9621-0242ac130002",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -289,8 +289,8 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "shared": true,
-     "group":{
-       "meta":{
+     "group": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
          "type":"group",
@@ -305,7 +305,7 @@ Successful request. The result is a JSON array of representations of the created
      "archived": false
    },
    {
-     "meta":{
+     "meta": {
        "href":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/5ca09f14-2032-11ec-9621-0242ac130002",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
        "type":"saleschannel",
@@ -314,8 +314,8 @@ Successful request. The result is a JSON array of representations of the created
      },
      "id":"5ca09f14-2032-11ec-9621-0242ac130002",
      "accountId":"4fcbb42c-1d41-11ec-0a82-06530000009e",
-     "owner":{
-       "meta":{
+     "owner": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/employee/6c771d3c-2032-11ec-9621-0242ac130002",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -324,8 +324,8 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "shared": true,
-     "group":{
-       "meta":{
+     "group": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/537bb8ec-2032-11ec-9621-0242ac130002",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
          "type":"group",
