@@ -1853,8 +1853,8 @@ Fields that were not specified in the request JSON are not changed.
                 "id": "d9560d0e-6703-11e7-9464-e4de00000052",
                 "isDefault": false,
                 "accountNumber": "1234567876543",
-                "bankName": "\"JSC Sberbm;ank\"",
-                "bankLocation": "g Mol;;lskva",
+                "bankName": "JSC Sberbank",
+                "bankLocation": "Moscow",
                 "correspondentAccount": "12314124jkjj2451",
                 "bic": "21412hhhh4"
             },
@@ -1885,8 +1885,8 @@ Successful request.
      "updated": "2017-07-12 16:13:08",
      "isDefault": true,
      "accountNumber": "1234567876543",
-     "bankName": "\"JSC Sberbm;ank\"",
-     "bankLocation": "g Mol;;lskva",
+     "bankName": "JSC Sberbank",
+     "bankLocation": "Moscow",
      "correspondentAccount": "12314124jkjj2451",
      "bic": "21412hhhh4"
    },
