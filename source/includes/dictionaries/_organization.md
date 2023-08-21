@@ -1861,7 +1861,7 @@ Fields that were not specified in the request JSON are not changed.
             {
                 "isDefault": false,
                 "accountNumber": "1234567876543",
-                "bankName": "\"JSC BANK\"",
+                "bankName": "JSC BANK",
                 "bankLocation": "Moscow",
                 "correspondentAccount": "12314124jkjj2451",
                 "bic": "21412555554"
@@ -1901,7 +1901,7 @@ Successful request.
      "updated": "2017-10-25 13:31:00",
      "isDefault": false,
      "accountNumber": "1234567876543",
-     "bankName": "\"JSC BANK\"",
+     "bankName": "JSC BANK",
      "bankLocation": "Moscow",
      "correspondentAccount": "12314124jkjj2451",
      "bic": "21412555554"
