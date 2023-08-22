@@ -13,7 +13,7 @@ The search among the objects of the Series for matching the search string will b
 | Title | Type | Filtration | Description |
 | ------| ------ | ------ | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Link or modification metadata<br>`+Required when responding` `+Required when creating` |
+| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or modification metadata<br>`+Required when responding` `+Required when creating` |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Series barcodes |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Series Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Series Description |

@@ -1,4 +1,4 @@
-### Currency in transactions
+## Currency in transactions
 
 The **rate** field contains an object representing the currency in the transactions.
 

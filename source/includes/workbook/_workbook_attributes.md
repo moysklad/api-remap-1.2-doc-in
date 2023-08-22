@@ -4,7 +4,7 @@ List of entities for which it is possible to create additional. fields, you can 
 
 ### Working with additional fields in the JSON API
 
-As part of the JSON API, you can create additional fields and edit existing ones. This is described in detail in the article [Working with additional fields via API.](../workbook/#workbook-rabota-s-dopolnitel-nymi-polqmi-cherez-json-api)
+As part of the JSON API, you can create additional fields and edit existing ones. This is described in detail in the article [Working with additional fields via API.](../workbook/#workbook-working-with-additional-fields-via-json-api)
 
 ### Getting additional fields
 

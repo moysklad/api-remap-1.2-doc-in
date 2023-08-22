@@ -1,6 +1,6 @@
 ## Publication of transactions
 
-The JSON API allows you to publish to the public a printed form of a transaction based on a [printable template](../dictionaries/#entities-shablon-pechatnoj-formy).
+The JSON API allows you to publish to the public a printed form of a transaction based on a [printable template](../dictionaries/#entities-print-templates).
 The entity code for publishing as part of the JSON API is the **publication** keyword.
 
 User can publish a transaction if the user has permissions to read and print the entity of that type.

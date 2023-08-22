@@ -39,13 +39,13 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shipmentAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Order Delivery Address<br>`+Change-handler` |
-| **shipmentAddressFull** | object | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#transactions-sales-order-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki)<br>`+Change-handler` |
+| **shipmentAddressFull** | object | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#transactions-sales-order-sales-orders-entity-attributes-39-delivery-address-39)<br>`+Change-handler` |
 | **shippedSum** | float | | Amount of shipped products<br>`+Required for response` `+Read-only``+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. Cannot be edited |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq)<br>`+Change-handler` |
+| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
 | **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Date and time of the Sales Order last update<br>`+Required when replying` `+Read-only``+Change-handler` |
  
 ##### Tax system code 
@@ -77,12 +77,12 @@ Sales Order items are arranged as a list of objects (products, services, variant
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of an item (product/service/bundle/variant) <br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **discount** | int | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **id** | UUID | Item ID<br>`+Required for response` `+Read-only``+Change-handler` `+Update-provider` |
-| **pack** | object | Product packaging. [Learn more](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara)<br>`+Change-handler` `+Update-provider` |
+| **pack** | object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | float | Price of a product/service in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | int | The number of product/service items of a certain type. If the item is a product that has tracking by serial numbers enabled, the value in this field is always equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider `|
 | **reserve** | int | The item reserve<br>`+Change-handler` `+Update-provider` |
 | **shipped** | int | Shipped<br>`+Required on response``+Change-handler` |
-| **taxSystem** | Enum | Tax system code. [Learn more](../dictionaries/#entities-towar-towary-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code) |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item, or not. If it is on, you can set VAT = 0, or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying``+Change-handler` ` +Update-provider`|
 
@@ -2345,7 +2345,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
 ```
 
 ### Sales Order Items
-A separate resource for managing the items of the Sales Order. With it, you can manage the items of a large document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+A separate resource for managing the items of the Sales Order. With it, you can manage the items of a large document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Sales Order items
 Request to receive a list of all items of this Sales Order.
@@ -2507,7 +2507,7 @@ For successful creation, the following fields must be specified in the request b
 + **assortment** - Link to the product/service/series/modification/set that the item represents.
 
 You can also specify a field named **product**, **service**, **variant**, **bundle** as per
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-zakazy-pokupatelej-pozicii-zakaza-pokupatelq)
+what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 

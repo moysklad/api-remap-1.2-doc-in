@@ -17,12 +17,12 @@ Search among objects of legal entities to match the search string will be carrie
 | ----------|----| -------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
-| **actualAddressFull** | object | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres) |
+| **actualAddressFull** | object | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address) |
 | **archived** | Boolean | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
 | **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Legal entity code |
-| **companyType** | Enum | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-jurlico-jurlica-tip-urlica)<br>`+Required when answering` |
+| **companyType** | Enum | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
@@ -42,14 +42,14 @@ Search among objects of legal entities to match the search string will be carrie
 | Title | Type | Filtration | Description |
 | ----------|----| -------- | ------- |
 | **accounts** | Array(Object) | | Legal entity accounts metadata<br>`+Required when replying` `+Expand` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional fields of a legal entity |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional fields of a legal entity |
 | **certificatedate** | datetime | | Date of certificate |
 | **certificateNumber** | String(255) | | Certificate number |
-| **ChiefAccountSign** | object | | Signature of the chief accountant. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **ChiefAccountSign** | object | | Signature of the chief accountant. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **ChiefAccountant** | String(255) | | Chief accountant |
 | **director** | String(255) || Head |
 | **directorPosition** | String(255) | | Head position |
-| **directorSign** | object | | Leader's signature. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **directorSign** | object | | Leader's signature. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
 | **fsrarId** | String(255) | | Identifier in FSRAR |
@@ -67,7 +67,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **okpo** | String(255) | | OKPO |
 | **payerVat** | Boolean | | Is this legal entity a VAT payer |
 | **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
-| **stamp** | object | | Seal. [More here](../dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres-podpisi-i-pechat) |
+| **stamp** | object | | Seal. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **utmUrl** | String(255) | | UTM IP address |
 
 #### Nested entity attributes
@@ -89,7 +89,7 @@ The address string is a concatenation of the structured address fields in the fo
 When transferring entities with an address to MySklad, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
-[`null` value](../#mojsklad-json-api-obschie-swedeniq-podderzhka-null) is not supported for address. Passing `null` to this attribute will not remove it.
+[`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
 
 ##### Signatures and seal
@@ -1825,7 +1825,7 @@ Successful request.
 #### Description
 The accounts of the legal entity with the specified ID are updated.
 All fields specified in the request JSON object are updated, except for
-marked `Read only` in the description of [legal entity account attributes](../dictionaries/#entities-jurlico-scheta-urlica).
+marked `Read only` in the description of [legal entity account attributes](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-legal-entity-accounts).
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**

@@ -13,7 +13,7 @@ article [Additional fields](../#kladana-json-api-general-info-additional-fields)
 Suppose we need to select and sort laptops by some characteristics that are not in the product properties by default.
 For example, the case material, the presence of a CD/DVD-Rom, the presence of a Type-C connector, etc. You need the ability to create, edit and delete product properties.
 Assign the values of these properties to specific products, as well as filter by them. Filtering by the values of additional fields in
-JSON API is described in the article [Additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym- polqm).
+JSON API is described in the article [Additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields).
 To create these characteristics, we will use additional fields (attributes) of the product.
 
 In the web application, object attributes are assigned on the object list page by clicking the gear button on the right.
@@ -75,7 +75,7 @@ to false, which makes the created attribute optional when creating a product.
 It is worth paying attention to the creation of an attribute with the Directory type. This type allows an attribute to take other objects as its value,
 including custom ones.
 
-Description of Handbook type attributes in [documentation](../workbook/#kladana-json-api-general-info-additional-fields)
+Description of Handbook type attributes in [documentation](../workbook/#workbook-working-with-additional-fields-via-json-api)
 
 Let's assume that our store also has laptop cases. Let's create a Catalog attribute of the Product type. Now there is an opportunity for
 for each laptop, specify the appropriate case for itl as one of the properties of the laptop.

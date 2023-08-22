@@ -9,14 +9,14 @@ Using the JSON API, you can create and update information about Internal Orders,
 | ------ | ------ | ------- | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Internal order code |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Required when replying` `+Read Only` |
 | **deliveryPlannedMoment** | datetime | | Planned acceptance date |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Internal order |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Internal order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Internal Order ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Internal Order Metadata<br>`+Required when Response` `+Read Only` |
@@ -30,7 +30,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **purchaseOrders** | Array(Object) | | A collection of metadata for related orders to a supplier<br>`+Required when replying` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Internal order status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` |
@@ -50,13 +50,13 @@ Items of the Internal order is a list of products, services, and product variant
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only`|
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
-Items can be managed using [special resources for managing Internal Order items](../documents/#transactions-internal-order-poluchit-vnutrennie-zakazy),
+Items can be managed using [special resources for managing Internal Order items](../documents/#transactions-internal-order-get-internal-orders),
 and as part of a separate Internal Order. When working as part of a separate Internal Order,
 you can send requests to create a separate Internal Order with included in the request body
 array of internal order items. 
@@ -1535,7 +1535,7 @@ Successful request. The result is a JSON representation of the updated Internal 
 
 ### Internal Order Items
 
-A separate resource for managing Internal Order items. With it, you can manage the items of a larger document, the number of lines in which exceeds 1000. You can read more about limits on the number of lines in a document and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq- worka-s-poziciqmi-dokumentow).
+A separate resource for managing Internal Order items. With it, you can manage the items of a larger document, the number of lines in which exceeds 1000. You can read more about limits on the number of lines in a document and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Internal Order Items
 
@@ -1621,7 +1621,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-vnutrennie-zakazy-pozicii-vnutrennego-zakaza)
+what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-internal-order-internal-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Internal Order items at the same time. All items created by this request
 will be added to the existing ones.

@@ -8,11 +8,11 @@ Asynchronous exchange is not supported for all requests. List of requests that c
 + [Report Balance](reports/#reports-balance-report)
 + [Report Profitability](reports/#reports-profitability-report)
 + [Report Money](reports/#reports-money-report)
-+ [Sales and Orders Report](reports/#otchety-pokazateli-prodazh-i-zakazow)
-+ [Report Counterparties indicators](reports/#otchety-otchet-pokazateli-kontragentow) (except [selected indicators](reports/#otchety-otchet-pokazateli-kontragentow-vyborochnye-pokazateli-kontragentow))
-+ [Report Metrics](reports/#otchety-pokazateli)
-+ [Getting a list of Counterparties](dictionaries/#entities-kontragent-poluchit-spisok-kontragentow)
-+ [Get Assortment](dictionaries/#entities-assortiment)
++ [Sales and Orders Report](reports/#reports-sales-and-orders-indicators)
++ [Report Counterparties indicators](reports/#reports-report-indicators-of-counterparties) (except [selected indicators](reports/#reports-report-indicators-of-counterparties-selected-indicators-of-counterparties))
++ [Report Metrics](reports/#reports-indicators)
++ [Getting a list of Counterparties](dictionaries/#entities-counterparty-get-a-list-of-counterparties)
++ [Get Assortment](dictionaries/#entities-assortment)
 
 After executing a query in asynchronous mode, the result is available within 1 hour.
 
@@ -73,7 +73,7 @@ An asynchronous task contains information about the creator of the task, its cur
 | **owner** | [Meta](#kladana-json-api-general-info-metadata) | The user or application that created the Asynchronous Task<br>`+Required on Response` `+Read Only` |
 | **request** | string | The URL of the request that created the Asynchronous Task<br>`+Required for response` `+Read Only` |
 | **resultUrl** | string | Link to the task result. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
-| **state** | Enum | The execution status of the Asynchronous Task. [More details here](#mojsklad-json-api-asinhronnyj-obmen-asinhronnaq-zadacha-atributy-suschnosti-status-wypolneniq-asinhronnoj-zadachi)<br>`+Required when replying` `+Read only` |
+| **state** | Enum | The execution status of the Asynchronous Task. [More details here](#kladana-json-api-asynchronous-exchange-asynchronous-task-entity-attributes-asynchronous-task-execution-status)<br>`+Required when replying` `+Read only` |
 
 ##### Asynchronous task execution status
 

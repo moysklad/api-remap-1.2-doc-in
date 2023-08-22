@@ -12,45 +12,45 @@ includes:
   - dictionaries/assortment
   - dictionaries/bonus_operation
   - dictionaries/bonus_program
-  - dictionaries/currency
-  - dictionaries/webhook
-  - dictionaries/webhookstock
-  - dictionaries/productFolder
-  - dictionaries/contract
-  - dictionaries/uom  
-  - dictionaries/task
-  - dictionaries/images
-  - dictionaries/saleschannel
-  - dictionaries/tracking_code
   - dictionaries/bundle
-  - dictionaries/counterparty
-  - dictionaries/variant
+  - dictionaries/characteristic
   - dictionaries/companysettings
-  - dictionaries/usersettings
-  - dictionaries/group
-  - dictionaries/labels
   - dictionaries/companysubscription
-  - dictionaries/consignment
-  - dictionaries/custom_role
-  - dictionaries/customentity
+  - dictionaries/contract
+  - dictionaries/counterparty
+  - dictionaries/country
+  - dictionaries/currency
+  - dictionaries/group
+  - dictionaries/discount
+  - dictionaries/employee
+  - dictionaries/organization
+  - dictionaries/expenseitem
+  - dictionaries/files
+  - dictionaries/images
+  - dictionaries/tracking_code
+  - dictionaries/pricetypes
+  - dictionaries/labels
+  - dictionaries/template
+  - dictionaries/processingstage
+  - dictionaries/product
+  - dictionaries/productFolder
+  - dictionaries/variant
   - dictionaries/project
   - dictionaries/region
-  - dictionaries/discount
-  - dictionaries/store
-  - dictionaries/employee
-  - dictionaries/named_filter
-  - dictionaries/states  
-  - dictionaries/expenseitem
-  - dictionaries/country
   - dictionaries/processingprocess
-  - dictionaries/pricetypes
-  - dictionaries/product
+  - dictionaries/saleschannel
+  - dictionaries/named_filter
+  - dictionaries/consignment
   - dictionaries/service
-  - dictionaries/files
-  - dictionaries/characteristic
-  - dictionaries/template
-  - dictionaries/organization
-  - dictionaries/processingstage
+  - dictionaries/task
+  - dictionaries/states
+  - dictionaries/uom
+  - dictionaries/customentity
+  - dictionaries/custom_role
+  - dictionaries/usersettings
+  - dictionaries/store
+  - dictionaries/webhook
+  - dictionaries/webhookstock  
   
 search: true
 ---  

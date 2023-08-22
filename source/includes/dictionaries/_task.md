@@ -17,7 +17,7 @@ Using the JSON API, you can create and update information about tasks, request l
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
 | **done** | Boolean | `=` `!=` | Task completion mark<br>`+Required when answering` |
 | **dueToDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
 | **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering` |
@@ -55,7 +55,7 @@ To implement similar list filtering for the JSON API, you need to use the follow
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=assignee=http://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
 + **I instructed**: filter by the field **author** whose value contains a link to the current employee<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=author=http://app.kladana.in/api/remap/1.2/entity/employee/<current employee id> `
-+ **All tasks**: does not require filtering. Pay attention to the item [Default list display](../dictionaries/#entities-zadacha-zadachi-otobrazhenie-spiska-po-umolchaniu)
++ **All tasks**: does not require filtering. Pay attention to the item [Default list display](../dictionaries/#entities-task-tasks-default-list-display)
 + **Active**: filter by field **done** with value false<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=false`
 + **Done**: filter by field **done** with value true<br>
@@ -82,7 +82,7 @@ Result: JSON object including fields:
 | ------ | ------- |------ |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Tasks](../dictionaries/#entities-zadacha). |
+| **rows** | Array(Object) | An array of JSON objects representing [Tasks](../dictionaries/#entities-task). |
 
 **Parameters**
 
@@ -784,9 +784,9 @@ Request to get a list of all comments for this Issue.
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
 | **limit** | `number` (optional) **Default: 25** *Example: 100* Maximum number of entities to retrieve. `Allowed values are 1 - 100`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in returned list of entities |
-| **updatedBy** | `string` (optional) *Example: admin@admin* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter ). String format : `uid` |
-| **updatedFrom** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
-| **updatedTo** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s- pomosch-u-parametra-filter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
+| **updatedBy** | `string` (optional) *Example: admin@admin* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter ). String format : `uid` |
+| **updatedFrom** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
+| **updatedTo** | `string` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time) |
 
 > Get comments Tasks
 

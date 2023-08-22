@@ -91,7 +91,7 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 | Title | Type | Description |
 | ------- | ------- |---------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` |
-| **action** | Enum | The action that the webhook is tracking. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`. Setting `PROCESSED` is only possible for [asynchronous tasks](../#mojsklad-json-api-asinhronnyj-obmen)<br>`+Required when responding` `+Required when creating` |
+| **action** | Enum | The action that the webhook is tracking. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`. Setting `PROCESSED` is only possible for [asynchronous tasks](../#kladana-json-api-asynchronous-exchange)<br>`+Required when responding` `+Required when creating` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the webhook<br> |
 | **diffType** | Enum | Entity change display mode. Only specified for the `UPDATE` action. Possible values: `[NONE, FIELDS]` (default `NONE`) |
 | **enabled** | Boolean | Webhook status checkbox (enabled / disabled)<br>`+Required when replying` |

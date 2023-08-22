@@ -11,7 +11,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
@@ -19,7 +19,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Outgoing payment |
 | **expenseItem** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment external code<br>`+Required when replying` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Outgoing payment ID<br>`+Required for response` `+Read-only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Outgoing payment metadata<br>`+Required when replying` |
@@ -32,7 +32,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Outgoing payment status metadata<br>`+Expand` |
@@ -1487,7 +1487,7 @@ Successful request. The result is a JSON representation of the Outgoing payment.
 
 Request to update the Outgoing payment with the specified id.
 In the body of the request, you can specify only those fields that need to be changed for Outgoing payment, except for those that
-are marked `Read-only` in the description of the [outgoing payment attributes](../documents/#transactions-ishodqschij-platezh).
+are marked `Read-only` in the description of the [outgoing payment attributes](../documents/#transactions-outgoing-payment).
 
 When updating the **organization** and **agent** fields, you must also update the **organizationAccount** and
 **agentAccount** respectively, otherwise an error will occur.

@@ -33,16 +33,16 @@ The fourth search condition for the fields of all contact persons of the counter
 | Title | Type | Filtration | Description |
 | -------- | ------- | -------- | -------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-scheta-kontragentow)<br>`+Required when replying` `+Expand` |
+| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
 | **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres) |
+| **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
 | **archived** | Boolean | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata array fields |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
 | **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor Code |
-| **companyType** | Enum | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-kontragent-kontragenty-tip-kontragenta)<br>`+Required when answering` |
-| **contactpersons** | MetaArray | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow)<br>`+Expand`|
+| **companyType** | Enum | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
+| **contactpersons** | MetaArray | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
 | **discountCardNumber** | String(255) | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
@@ -50,15 +50,15 @@ The fourth search condition for the fields of all contact persons of the counter
 | **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
 | **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
-| **notes** | MetaArray | | Array of Counterparty incidents. [More here](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta)<br>`+Expand` |
+| **notes** | MetaArray | | Array of Counterparty incidents. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType** | object | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-tipy-cen-tipy-cen) |
+| **priceType** | object | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
 | **salesAmount** | int | | Amount of sales<br>`+Required when replying` `+Read only` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
@@ -86,7 +86,7 @@ The fourth search condition for the fields of all contact persons of the counter
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
-You can see the format for displaying discounts in the [Discounts](../dictionaries/#entities-skidki) section.
+You can see the format for displaying discounts in the [Discounts](../dictionaries/#entities-discounts) section.
 
 #### Nested entity attributes
 #### Attributes of entity Address
@@ -106,7 +106,7 @@ The address string is the concatenation of the structured address fields in the 
 When passing entities with an address to Kladana, use either a string address or a structured address.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
-[`null` value](../#mojsklad-json-api-obschie-swedeniq-podderzhka-null) is not supported for address. Passing `null` to this attribute will not remove it.
+[`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
 
 ##### Accounts of Counterparties
@@ -775,7 +775,7 @@ Result: JSON object including fields:
 | ----- | ------ |
 | **limit** | `number` (optional) **Defaul:** 1000 *Example: 1000*. The maximum number of entities to retrieve. `Allowed values are 1 - 1000` |
 | **offset** | `number` (optional) **Defaul:** 0 *Example: 40*. Indentation in the output list of entities |
-| **tags** | `string`(optional) *Example: workers*. For more information about this parameter, see the [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter) section. String format : `string` |
+| **tags** | `string`(optional) *Example: workers*. For more information about this parameter, see the [Filtering the selection using the filter parameter](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter) section. String format : `string` |
 
 ### Create Account
 Mandatory fields to create:
@@ -2114,7 +2114,7 @@ curl -X GET
 
 The view of the Account with the specified id is updated.
 In the request body, you can specify only those fields that need to be changed for the Counterparty, except for those that
-are marked `Read only` in the description of [Account attributes](../dictionaries/#entities-kontragent).
+are marked `Read only` in the description of [Account attributes](../dictionaries/#entities-counterparty).
 Fields that were not specified in the request JSON are not changed.
 The **account** and **contactpersons** fields are updated as members of nested collections. When updating,
 the passed data elements of the collections are treated as "All elements of this collection" and completely replace
@@ -2959,7 +2959,7 @@ curl -X GET
 #### Description
 Update the contact person of the Counterparty with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read only` in the description of [attributes of the Counterparty's contact persons](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-kontaktnye-lica-kontragentow).
+marked `Read only` in the description of [attributes of the Counterparty's contact persons](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties).
 Fields that were not specified in the request JSON are not changed.
 
 > An example of a request to update the contact person of the Counterparty.
@@ -3217,7 +3217,7 @@ curl -X GET
 
 Update the incident of the Account with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read-only` in the description of [Contractor's incident attributes](../dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres-sobytiq-kontragenta).
+marked `Read-only` in the description of [Contractor's incident attributes](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents).
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**
