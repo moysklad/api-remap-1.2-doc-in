@@ -1855,7 +1855,7 @@ Fields that were not specified in the request JSON are not changed.
                 "accountNumber": "1234567876543",
                 "bankName": "JSC Sberbank",
                 "bankLocation": "Moscow",
-                "correspondentAccount": "12314124jkjj2451",
+                "correspondentAccount": "123141242451",
                 "bic": "21412hhhh4"
             },
             {
@@ -1863,7 +1863,7 @@ Fields that were not specified in the request JSON are not changed.
                 "accountNumber": "1234567876543",
                 "bankName": "JSC BANK",
                 "bankLocation": "Moscow",
-                "correspondentAccount": "12314124jkjj2451",
+                "correspondentAccount": "123141242451",
                 "bic": "21412555554"
             }
         ]'
@@ -1887,7 +1887,7 @@ Successful request.
      "accountNumber": "1234567876543",
      "bankName": "JSC Sberbank",
      "bankLocation": "Moscow",
-     "correspondentAccount": "12314124jkjj2451",
+     "correspondentAccount": "123141242451",
      "bic": "21412hhhh4"
    },
    {
@@ -1903,7 +1903,7 @@ Successful request.
      "accountNumber": "1234567876543",
      "bankName": "JSC BANK",
      "bankLocation": "Moscow",
-     "correspondentAccount": "12314124jkjj2451",
+     "correspondentAccount": "123141242451",
      "bic": "21412555554"
    }
 ]
