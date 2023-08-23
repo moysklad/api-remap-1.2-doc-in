@@ -1,6 +1,6 @@
 ## Printing of transaction documents
 
-Using the JSON API, you can request printing of documents using [printable form templates](../dictionaries/#entities-shablon-pechatnoj-formy).
+Using the JSON API, you can request printing of documents using [printable form templates](../dictionaries/#entities-print-templates).
 When requesting the formation of a printed form, the server (when the document is ready, the correct
 printed form and the correct request format) responds with an empty response body with a 303 http code.
 The Location header of the response contains the address of the temporary location of the printed form that is ready to be loaded.

@@ -216,32 +216,32 @@ The JSON API allows you to create, update, and delete additional fields and thei
 
 List of entities with additional fields:
 
-+ [Contract](dictionaries/#entities-dogowor)
-+ [Counterparty](dictionaries/#entities-kontragent)
-+ [Legal entity](dictionaries/#entities-jurlico)
-+ [Project](dictionaries/#entities-proekt)
-+ [Warehouse](dictionaries/#entities-sklad)
-+ [Employee](dictionaries/#entities-sotrudnik)
-+ [Product](dictionaries/#entities-towar)
-+ [Service](dictionaries/#entities-usluga) (located in the Product metadata)
-+ [Bundle](dictionaries/#entities-komplekt) (located in the Product metadata)
-+ [Series](dictionaries/#entities-seriq)
++ [Contract](dictionaries/#entities-contract)
++ [Counterparty](dictionaries/#entities-counterparty)
++ [Legal entity](dictionaries/#entities-entity)
++ [Project](dictionaries/#entities-project)
++ [Warehouse](dictionaries/#entities-warehouse)
++ [Employee](dictionaries/#entities-employee)
++ [Product](dictionaries/#entities-product)
++ [Service](dictionaries/#entities-service) (located in the Product metadata)
++ [Bundle](dictionaries/#entities-bundle) (located in the Product metadata)
++ [Series](dictionaries/#entities-series)
 + All transactions:
   - [Sales Returns](documents/#transactions-sales-return)
   - [Purchase Returns](documents/#transactions-purchase-returns)
-  - [Incoming Payment](documents/#transactions-vhodqschij-platezh)
+  - [Incoming Payment](documents/#transactions-incoming-payment)
   - [Sales Order](documents/#transactions-sales-order)
   - [Purchase Order](documents/#transactions-purchase-order)
-  - [Outgoing Payment](documents/#transactions-ishodqschij-platezh)
+  - [Outgoing Payment](documents/#transactions-outgoing-payment)
   - [Stock Adjustment](documents/#transactions-stock-adjustment)
   - [Shipment](documents/#transactions-shipment)
   - [Transfer](documents/#transactions-transfer)
   - [Receiving](documents/#transactions-receiving)
-  - [Incoming Cash Payment](documents/#transactions-prihodnyj-order)
-  - [Outgoing Cash Payment](documents/#transactions-rashodnyj-order)
+  - [Incoming Cash Payment](documents/#transactions-incoming-cash-payment)
+  - [Outgoing Cash Payment](documents/#transactions-outgoing-cash-payment)
   - [Write-off](documents/#transactions-write-off)
   - [Inventory Count](documents/#transactions-inventory-count)
-  - [Sales Invoice](documents/#transactions-schet-pokupatelu)
+  - [Sales Invoice](documents/#transactions-sales-invoice)
   - [Supplier Invoice](documents/#transactions-supplier-invoice)
   - [Internal Order](documents/#transactions-internal-order)
   - [Production Order](documents/#transactions-production-order)
@@ -347,7 +347,7 @@ To load the value for additional fields of the file type, you need to specify an
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
 | **content** | string | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
-An example of specifying a value for additional file type fields are in the [product creation] section (dictionaries/#entities-towar-sozdat-towar)
+An example of specifying a value for additional file type fields are in the [product creation section](dictionaries/#entities-product-create-product) 
 
 ### Additional entity fields
 Request for additional entity fields.
@@ -836,7 +836,7 @@ The Kladana API allows you to operate with the following transactions:
 
 - [Shipment](documents/#transactions-shipment), 
 - [Sales order](documents/#transactions-sales-order), 
-- [Sales invoice](documents/#transactions-schet-pokupatelu), 
+- [Sales invoice](documents/#transactions-sales-invoice), 
 - [Stock Adjustment](documents/#transactions-stock-adjustment),
 - [Internal order](documents/#transactions-internal-order), 
 - [Inventory](documents/#transactions-inventory-count), 
@@ -847,7 +847,7 @@ The Kladana API allows you to operate with the following transactions:
 - [Purchase Order](documents/#transactions-purchase-order), 
 - [Sales Return](documents/#transactions-sales-return), 
 - [Receiving](documents/#transactions-receiving), 
-- [Supplier Invoice](documents/#documenty-supplier-invoice). 
+- [Supplier Invoice](documents/#transactions-supplier-invoice). 
 
 The transactions contain items that can be worked with both as part of a separate transaction, and with the help of special resources for managing transaction items.
 
@@ -994,12 +994,12 @@ prices and amounts will be recalculated. Overhead costs will also be recalculate
 Exceptions:
 
 + Structured address
-   [Contractor](dictionaries/#entities-kontragent-kontragenty-attributy-suschnosti-adres),
-   [Legal entity](dictionaries/#entities-jurlico-jurlica-attributy-suschnosti-adres),
+   [Contractor](dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address),
+   [Legal entity](dictionaries/#entities-entity-legal-entity-attributes-of-entity-address),
    [Points of sale](dictionaries/#entities-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
-   [Warehouse](dictionaries/#entities-sklad-sklady-attributy-suschnosti-adres),
-   [Sales Order](documents/#transactions-sales-order-zakazy-pokupatelej-attributy-suschnosti-adres-dostawki),
-   [Shipments](documents/#transactions-shipment-otgruzki-attributy-suschnosti-adres-dostawki) does not support deletions by passing `null`.
+   [Warehouse](dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address),
+   [Sales Order](documents/#transactions-sales-order-sales-orders-entity-attributes-39-delivery-address-39),
+   [Shipments](documents/#transactions-shipment-shipments-entity-attributes-delivery-address) does not support deletions by passing `null`.
 To delete an address, pass an empty string `""` to the string field. Specific string fields are given in the relevant sections, the transition to which is carried out via the links above.
 
 ### Empty fields
@@ -1263,7 +1263,7 @@ Similarity operators operate exclusively on fields of string type and are not ca
 
 ### Apply saved filter
 
-The JSON API has the ability to apply saved filters. A detailed description is available in the [relevant section](dictionaries/#entities-sohranennye-fil-try).
+The JSON API has the ability to apply saved filters. A detailed description is available in the [relevant section](dictionaries/#entities-saved-filter).
 
 ### Links to files
 
@@ -1284,7 +1284,7 @@ As the value of this parameter, you need to list all the necessary reference fie
 where you would like to see related objects.
 As a result of a request with this parameter, in the response you will receive an object with expanded nested objects instead of links.
 For example, in documents containing the **agent** field, instead of referring to
-counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#entities-kontragent) will be displayed.
+counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#entities-counterparty) will be displayed.
 Maximum nesting level **expand** : 3.
 Expand is allowed only on a sample size of 100 or less. If a larger limit is specified, but expand is specified, then this parameter will be ignored.
 
@@ -1928,14 +1928,14 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **fullName**     | String(255) | First name Middle name Last name<br>`+Read only` |
 | **group**        | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
 | **id**           | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
-| **image**        | Object | Photo of an employee. [More here](dictionaries/#entities-sotrudnik-sotrudniki-atributy-wlozhennyh-suschnostej-fotografiq-sotrudnika-struktura-i-zagruzka)<br>`+Read only` |
+| **image**        | Object | Photo of an employee. [More here](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
 | **inn**          | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
 | **lastName**     | String(255) | Last name<br>`+Required when replying` `+Read only` |
 | **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
 | **middleName**   | String(255) | Middle name<br>`+Read only` |
 | **name**         | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
 | **owner**        | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
-| **permissions**  | Object | Enumeration of employee's permissions. [More details here](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika)<br>`+Required when replying` `+Read only` |
+| **permissions**  | Object | Enumeration of employee's permissions. [More details here](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
 | **phone**        | String(255) | Employee phone<br>`+Read-only` |
 | **position**     | String(255) | Job Title<br>`+Read Only` |
 | **shared**       | Boolean | Sharing<br>`+Required when replying` `+Read Only` |
@@ -1945,7 +1945,7 @@ Returns data about the employee on whose behalf the request is made. The entity 
 
 #### Nested entity attributes
 
-Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee] request (dictionaries/#entities-sotrudnik-sotrudniki), a detailed description of which can be found in the corresponding section.
+Many attributes presented in this request, with the exception of the `permissions` field, repeat the attributes of the [Employee](dictionaries/#entities-employee-employees) request, a detailed description of which can be found in the corresponding section.
 
 ##### Employee Permissions
 
@@ -2043,7 +2043,7 @@ These types have the following fields:
 | **retailDemand**           | OPERATION | Sales |
 | **retailSalesReturn**            | OPERATION | Sales Return |
 | **supply**                 | OPERATION | Receivings |
-| **task**                   | [Special](#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika-atributy-wlozhennyh-suschnostej-permissii-sotrudnika-permissii-dlq-zadach) | Tasks |
+| **task**                   | [Special](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions-permissions-for-tasks) | Tasks |
 | **uom*                     | BASE | Units of measure |
 | **warehouse**              | BASE | Warehouses |
 | **webhook**                | DICTIONARY | Webhooks |

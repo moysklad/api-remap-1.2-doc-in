@@ -38,7 +38,7 @@ If an empty request body is sent to this resource, then only standard fields wil
 If the Inventory Count contains more than 500 suitable items, then the write-off template (loss) and Stock Adjustment (entry) will be created for the first 500 items.
 
 Details and examples for each of the transactions can be found in the relevant sections of the documentation.
-For example, for a shipping template - look in [Shipping Templates](../documents/#transactions-shipment-shablon-otgruzki)
+For example, for a shipping template - look in [Shipping Templates](../documents/#transactions-shipment-shipment-template)
 
 ### Context search for transactions
 
@@ -470,7 +470,7 @@ The result is a Sales Order with new items in the moves collection.
 
 ### Linking payments to transactions
 
-Payments can be attached to some transactions in the JSON API. There are 4 types of payments: [Incoming payment](../documents/#transactions-vhodqschij-platezh), [Incoming order](../documents/#transactions-prihodnyj-order), [Outgoing payment](.. /documents/#transactions-ishodqschij-platezh), [Expense order](../documents/#transactions-rashodnyj-order).
+Payments can be attached to some transactions in the JSON API. There are 4 types of payments: [Incoming payment](../documents/#transactions-incoming-payment), [Incoming order](../documents/#transactions-incoming-cash-payment), [Outgoing payment](.. /documents/#transactions-outgoing-payment), [Expense order](../documents/#transactions-outgoing-cash-payment).
 
 Transactions that can be associated with payments contain a subcollection of **payments** among the transaction attributes. 
 

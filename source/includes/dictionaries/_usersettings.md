@@ -13,12 +13,12 @@ Using the JSON API, you can get and edit user settings.
 | **defaultPlace** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata that will be used by default in documents<br>`+Required when replying` |
 | **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents<br>`+Required when replying` |
 | **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section<br>`+Required when replying` |
-| **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran)<br>`+Required when replying` |
+| **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#entities-user-settings-start-screen)<br>`+Required when replying` |
 | **fieldsPerRow** | Int                                                | The number of columns in which additional fields will be placed in documents<br>`+Required when answering` |
 | **locale** | Enum                                               | System language. Valid values are "ru_RU" and "en_US"<br>`+Required when replying` |
 | **mailFooter** | Boolean                                            | Substituted in the signature in letters sent from MS<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Settings metadata<br>`+Required when replying` |
-| **printFormat** | Enum                                               | [Document Printing Rules](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow)<br>`+Required when replying` |
+| **printFormat** | Enum                                               | [Document Printing Rules](./#entities-user-settings-rules-for-printing-documents)<br>`+Required when replying` |
 
 #### Rules for printing documents
 
@@ -193,11 +193,11 @@ You can edit the following user settings:
 | **defaultPlace** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata to be used by default in documents |
 | **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents |
 | **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section |
-| **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#suschnosti-nastrojki-pol-zowatelq-startowyj-akran) |
+| **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#entities-user-settings-start-screen) |
 | **fieldsPerRow** | Int                                                | The number of columns in which additional fields will be located in documents |
 | **locale** | Enum                                               | System language. Valid values "ru_RU" and "en_US" |
 | **mailFooter** | Boolean                                            | Substituted in the signature in letters sent from MS |
-| **printFormat** | Enum                                               | [Document printing rules](./#suschnosti-nastrojki-pol-zowatelq-prawila-pechati-dokumentow) |
+| **printFormat** | Enum                                               | [Document printing rules](./#entities-user-settings-rules-for-printing-documents) |
 
 Partial editing is allowed - only the fields present in the request will be edited.
 

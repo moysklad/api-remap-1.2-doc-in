@@ -52,11 +52,11 @@ Product Object of a Bill of Materials contains the following fields:
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
 | **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
 
-You can work with materials and products using [special resources for managing items of Bills of Materials](../documents/#transactions-teh-karta-materialy-teh-karty),
+You can work with materials and products using [special resources for managing items of Bills of Materials](../documents/#transactions-bills-of-materials),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,
 you can send requests to create a separate Bill of Materials included in the request body
 arrays of materials and products of Bills of Materials. If the quantity of materials or products exceeds the maximum allowable, then for
-further replenishment of materials and products will need to workwith special resources "Dashboard Materials" and "Dashboard Products".
+further replenishment of materials and products will need to work with special resources "Dashboard Materials" and "Dashboard Products".
 
 Also, when working as part of a separate Bill of Materials, you can send requests to update the list of materials and products
 with arrays of materials and products included in the Bill of Materials request body. 
@@ -729,7 +729,7 @@ Successful request. The result is a JSON representation of Bills of Materials.
 
 Update Request Bills of Materials with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in Bill of Materials other than those
-are marked `Read-Only` in the description of [Bill of Materials Attribute](../documents/#transactions-teh-karta).
+are marked `Read-Only` in the description of [Bill of Materials Attribute](../documents/#transactions-bills-of-materials).
 
 **Parameters**
 
@@ -809,7 +809,7 @@ Successful request. The result is a JSON representation of the updated Bill of M
 
 ### Bills of Materials
 
-Separate resource for materials management Bill of Materials. With it, you can manage the content of a larger document, the amount of content in which exceeds the limit on the amount of content saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+Separate resource for materials management Bill of Materials. With it, you can manage the content of a larger document, the amount of content in which exceeds the limit on the amount of content saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Bill of Materials
 
@@ -1233,7 +1233,7 @@ curl -X DELETE
 Successful removal of a Bill of Materials.
 
 ### Bills of Materials Products
-Dedicated resource for product management Bills of Materials. With it, you can manage the products of a larger document, the number of products in which exceeds the limit on the number of products saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+Dedicated resource for product management Bills of Materials. With it, you can manage the products of a larger document, the number of products in which exceeds the limit on the number of products saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Bills of Materials Products
 Request for a list of all products of the Bill of Materials.

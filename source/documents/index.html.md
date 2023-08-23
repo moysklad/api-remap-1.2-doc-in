@@ -10,32 +10,32 @@ toc_footers:
 
 includes:
   - documents/common_info
-  - documents/recalc_calculated_quantity
-  - documents/print
-  - documents/publication
   - documents/autofill
-  - documents/internalOrder  
-  - documents/sales_return
-  - documents/purchase_return
-  - documents/payment_in
-  - documents/processingorder
-  - documents/customerOrder
-  - documents/purchaseOrder
-  - documents/inventory
-  - documents/payment_out
-  - documents/counterpartyadjustment
-  - documents/enter
-  - documents/demand
-  - documents/move
-  - documents/supply
-  - documents/cashin
-  - documents/cashout
-  - documents/loss
-  - documents/invoice_out
-  - documents/invoice_in
   - documents/processingplan
   - documents/processingplanfolder
+  - documents/counterpartyadjustment
   - documents/rate
+  - documents/cashin
+  - documents/payment_in
+  - documents/internalOrder
+  - documents/inventory
+  - documents/cashout
+  - documents/payment_out
+  - documents/print
+  - documents/processingorder
+  - documents/publication
+  - documents/purchaseOrder
+  - documents/purchase_return
+  - documents/recalc_calculated_quantity
+  - documents/supply
+  - documents/invoice_out
+  - documents/customerOrder
+  - documents/sales_return
+  - documents/demand
+  - documents/enter
+  - documents/invoice_in
+  - documents/move
+  - documents/loss
   
 search: true
 ---  

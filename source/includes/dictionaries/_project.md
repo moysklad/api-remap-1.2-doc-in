@@ -13,7 +13,7 @@ The search among the project objects for matching the search string will be carr
 | ----- |----------------------------------------------------| ------- | ---------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
-| **attributes** | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Project Description |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |

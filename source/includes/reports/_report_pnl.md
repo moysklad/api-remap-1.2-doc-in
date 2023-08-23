@@ -9,7 +9,7 @@ To access the report via the API, you need the right to view the *Profit and Los
 
 | Title              | Type | Description |
 |--------------------| -----|---------|
-| **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-towar) and [here](../dictionaries/#entities-usluga)<br>`+Required when answering` |
+| **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service)<br>`+Required when answering` |
 | **margin**         | Float | Profitability<br>`+Required when answering` |
 | **profit**         | Float | Profit<br>`+Required when answering` |
 | **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
@@ -86,8 +86,8 @@ Profitability report for goods includes: goods, kits, services. The product take
 | -----|---------|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title              | Type | Description |
 |--------------------|---------|----- |
-| **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-modifikaciq), [here](../dictionaries/#entities-usluga) and [here](../dictionaries/#entities-komplekt)<br>`+ Mandatory when replying` |
+| **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-product-variant), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
 | **margin**         | Float | Profitability<br>`+Required when answering` |
 | **profit**         | Float | Profit<br>`+Required when answering` |
 | **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
@@ -310,8 +310,8 @@ The product profitability report includes: products, kits, services and modifica
 | -----|---------|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -458,7 +458,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|------ |
-| **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-sotrudnik)<br>`+Required when answering` |
+| **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-employee)<br>`+Required when answering` |
 | **margin** | Float | Profitability<br>`+Required when answering` |
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
@@ -527,8 +527,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -595,7 +595,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ------- | ----- | ------ |
-| **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-kontragent)<br>`+Required when answering` |
+| **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-counterparty)<br>`+Required when answering` |
 | **margin** | Float | Profitability<br>`+Required when answering`|
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
@@ -664,8 +664,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+|**momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
@@ -733,7 +733,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ---------| ---- |----------|
-| **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-kanal-prodazh)<br>`+Required when replying` |
+| **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-sales-channel)<br>`+Required when replying` |
 | **margin** | Float | Profitability<br>`+Required when answering` |
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
@@ -751,7 +751,7 @@ Successful request. The result is a JSON representation of the report.
 | ---------| ---- |---------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when responding` |
 | **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
-| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#entities-kanal-prodazh-kanaly-prodazh-tip-kanala-prodazh)<br>`+Required when answering ` |
+| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
 
 #### Attributes available for filtering
 
@@ -801,8 +801,8 @@ Filtering examples:
 | ---------| ---- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
-| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter). |
+| **momentFrom** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
+| **momentTo** | `date` (optional) *Example: 2016-04-15 15:48:46* One of the [selection filter options](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter). |
 If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.

@@ -15,29 +15,29 @@ Search among service objects for matching the search string will be carried out 
 | ----- |----------------------------------------------------| ------ | ------ |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object)                                      | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Collection of additional fields |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-shtrih-kody) |
-| **buyprice** | Object                                             | | Purchasing sale. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-zakupochnaq-cena) |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-service-services-services-metadata-barcodes) |
+| **buyprice** | Object                                             | | Purchasing sale. [More here](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Service Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description of the Service|
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **effectiveVat** | Int                                                | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean                                            | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Service Code<br>`+Required when replying` |
-| **files** | MetaArray                                          | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Expand` |
+| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
-| **minprice** | Object                                             | | Minimum price. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-minimal-naq-cena) |
+| **minprice** | Object                                             | | Minimum price. [More here](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-priznak-predmeta-rascheta) |
+| **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-service-services-entity-attributes-sign-of-the-subject-of-calculation) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Kit group metadata<br>`+Expand` |
-| **salePrice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-usluga-uslugi-metadannye-uslug-ceny-prodazhi) |
+| **salePrice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-service-services-services-metadata-sales-prices) |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-usluga-uslugi-atributy-suschnosti-kod-sistemy-nalogooblozheniq) |
+| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-service-services-entity-attributes-tax-system-code) |
 | **uom* | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
@@ -77,7 +77,7 @@ The values of the taxSystem field.
 Services metadata contains information about additional fields.
 
 View all addons created in the main interface. Service fields,
-as well as all types of prices, you can use the [Products](../dictionaries/#entities-towar-metadannye-towarow) metadata request.
+as well as all types of prices, you can use the [Products](../dictionaries/#entities-product-item-metadata) metadata request.
 
 Structures of objects of individual collections:
 
@@ -120,7 +120,7 @@ About working with Service fields can be read [here](../#kladana-json-api-genera
 | Title | Type | Description |
 | ----- | ------ |------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Services group.<br>`+Required when replying` |
-You can see the description of the Group entity [here](../dictionaries/#entities-gruppa-towarow).
+You can see the description of the Group entity [here](../dictionaries/#entities-product-group).
 Updating this attribute will also update the **pathName** attribute.
 
 ##### Features of filtering the archived field
@@ -135,7 +135,7 @@ Result: JSON object including fields:
 | ----- | ------ |------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Services](../dictionaries/#entities-usluga). |
+| **rows** | Array(Object) | An array of JSON objects representing [Services](../dictionaries/#entities-service). |
 
 **Parameters**
 
@@ -1248,7 +1248,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 ### Services Metadata
 
 View all addons created in the main interface. Service fields,
-as well as all types of prices, you can use the [Products](../dictionaries/#entities-towar-metadannye-towarow) metadata request.
+as well as all types of prices, you can use the [Products](../dictionaries/#entities-product-item-metadata) metadata request.
 
 ### Service
  

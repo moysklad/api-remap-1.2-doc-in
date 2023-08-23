@@ -1,4 +1,4 @@
-### Transaction balances
+## Transaction balances
 
 The report "Balances by Transactions" is the issuance of Balances for the items of the specified
 in the transaction path.

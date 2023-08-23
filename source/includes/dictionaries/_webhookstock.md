@@ -27,7 +27,7 @@ The set of features also depends on your tariff:
 | **accountId** | UUID | Account ID<br>`+Required when replying` |
 | **stockType** | Enum | The type of residues whose change causes the webhook to change residues. Possible values: `[stock]`<br>`+Required when replying` |
 | **reportType** | Enum | The balance report type to which the webhook for changing balances is attached. Possible values: `[all, bystore]`<br>`+Required when replying` |
-| **reportUrl** | String(255) | URL for receiving data on [changed nomenclature for the specified period](../reports/#reports-balance-report-kratkij-otchet-ob-ostatkah)<br>`+Required when replying` |
+| **reportUrl** | String(255) | URL for receiving data on [changed nomenclature for the specified period](../reports/#reports-balance-report-summary-of-balances)<br>`+Required when replying` |
 
 The request parameter **requestId** is the notification identifier.
 

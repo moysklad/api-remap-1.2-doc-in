@@ -5,7 +5,7 @@ Using the JSON API, you can calculate the value of discounts, prices, and taxes 
 - [Stock Adjustment](../documents/#transactions-stock-adjustment)
 - [Sales Order](../documents/#transactions-sales-order)
 - [Purchase Order](../documents/#transactions-purchase-order)
-- [Sales Invoice](../documents/#transactions-schet-pokupatelu)
+- [Sales Invoice](../documents/#transactions-sales-invoice)
 - [Supplier Invoice](../documents/#transactions-supplier-invoice)
 - [Shipment](../documents/#transactions-shipment)
 - [Receiving](../documents/#transactions-receiving)

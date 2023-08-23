@@ -15,7 +15,7 @@ If files contains an empty array of elements in the update request, then all Fil
 the server will assume that the user wants to update the list of Operation Files, Items, Tasks, or Accounts.
 
 The limit of Files saved with an object is 10, if you need to upload more Files for one object, you need to use the method described
-in the section [Working with Files of an Operation, Nomenclature, Task or Counterparty using special resources] (../dictionaries/#entities-fajly-rabota-s-fajlami-operacii-nomenklatury-zadachi-ili-kontragenta-s-pomosch-u -special-nyh-resources).
+in the section [Working with Files of an Operation, Nomenclature, Task or Counterparty using special resources](../dictionaries/#entities-files-working-with-operation-nomenclature-task-or-account-files-using-special-resources).
 
 
 ### Working with Operation, Nomenclature, Task or Account Files using special resources
@@ -47,7 +47,7 @@ Result: JSON object including fields:
 | ---------| -----| ----------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Files](../dictionaries/#entities-fajly). |
+| **rows** | Array(Object) | An array of JSON objects representing [Files](../dictionaries/#entities-files). |
 
 **Parameters**
 

@@ -13,15 +13,15 @@ The user can get detailed information about changes in the system through the JS
 
 + **View the overall audit feed**
 
-To view the general audit feed via the JSON API, the user can [request a list of contexts](../notification/#audit-audit-poluchit-kontexty), which will contain general information
+To view the general audit feed via the JSON API, the user can [request a list of contexts](../audit/#audit-audit-get-contexts), which will contain general information
 about the changes that have occurred in the system, as well as a link to related events.
-To view detailed information on a particular context, you need to [request events for a specific context](../notification/#audit-audit-poluchit-sobytiq-po-kontextu).
-The response to the user will contain detailed information about the entity changes that occurred as part of this update in the system, in [special diff format](../notification/#audit-audit-sobytiq-format-polq-diff)
+To view detailed information on a particular context, you need to [request events for a specific context](../audit/#audit-audit-get-events-by-context).
+The response to the user will contain detailed information about the entity changes that occurred as part of this update in the system, in [special diff format](../audit/#audit-audit-events-39-diff-39-field-format)
 
 + **View events for a single entity**
 
-In order to get events associated with a particular entity, you need to use the [entity event query](../notification/#audit-audit-poluchit-sobytiq-po-kontextu).
-The response will contain a list of events related to this entity or operation, where the [special diff field](../notification/#audit-audit-sobytiq-format-polq-diff) will reflect detailed changes to the fields of the entity or operation.
+In order to get events associated with a particular entity, you need to use the [entity event query](../audit/#audit-audit-get-events-by-context).
+The response will contain a list of events related to this entity or operation, where the [special diff field](../audit/#audit-audit-events-39-diff-39-field-format) will reflect detailed changes to the fields of the entity or operation.
 
 ### Contexts
 
@@ -76,7 +76,7 @@ Possible values for the `source` parameter are listed below:
 | **retail** | Point of sale |
 | **app** | All actions |
 
-Possible values of the `eventType` and `entityType` parameters are given in the [Filters](../notification/#audit-audit-poluchit-fil-try) section.
+Possible values of the `eventType` and `entityType` parameters are given in the [Filters](../audit/#audit-audit-get-filters) section.
 
 ### Get Contexts
 
@@ -95,7 +95,7 @@ Result: JSON object including fields:
 | ----------|-------------------- |
 | **limit** | `number` (optional) **Default: 25** *Example: 25* Maximum number of entities to retrieve. `Allowed values are 1 - 100`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **filter** | `string` (optional) *Example: source=jsonapi* Detailed description of the parameter in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch -u-parametra-filter) Filtering attributes for Audit Contexts are presented in the [Filters](../notification/#audit-audit-fil-try) section |
+| **filter** | `string` (optional) *Example: source=jsonapi* Detailed description of the parameter in the section [Filtering the selection using the filter parameter](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter) Filtering attributes for Audit Contexts are presented in the [Filters](../audit/#audit-audit-filters) section |
 
 > Get Contexts
 
@@ -222,7 +222,7 @@ Audit events contain detailed information about the changes that have occurred, 
 
 #### Event Types
 Events are divided into several types, ranging from entity creation audit to print audit,
-and consist of information about the time of the event and the changes that occurred during this event. Different types of events differ from each other [diff field format](../notification/#audit-audit-sobytiq-format-polq-diff),
+and consist of information about the time of the event and the changes that occurred during this event. Different types of events differ from each other [diff field format](../audit/#audit-audit-events-39-diff-39-field-format),
 more about which below.
 
 + Account registration
@@ -239,21 +239,21 @@ more about which below.
 
 #### Entity attributes
 
-| Title | Type | Description |
-| ----------| -----|--------- |
-| **additionalInfo** | String(4096) | Additional Event Information<br>`+Read Only` |
-| **audit** | Enum | Context metadata<br>`+Required for response` `+Read-only` |
-| **diff** | object | Changes occurred in the Event, in the special diff format described in the [Diff Field Format] section(../notification/#audit-audit-sobytiq-format-polq-diff)<br>`+Required for response` `+Only for reading` |
-| **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only` |
-| **entityType** | Enum | Entity name<br>`+Required for response` `+Read only` |
-| **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only` |
-| **moment** | datetime | Event creation time<br>`+Required for response` `+Read-only` |
-| **name** | String(255) | Entity name<br>`+Required for response` `+Read-only` |
-| **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only` |
-| **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying` |
-| **source** | Enum | Type of change<br>`+Required for response` `+Read only` |
-| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only` |
-| **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
+| Title | Type | Description                                                                                                                                                                                                   |
+| ----------| -----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **additionalInfo** | String(4096) | Additional Event Information<br>`+Read Only`                                                                                                                                                                  |
+| **audit** | Enum | Context metadata<br>`+Required for response` `+Read-only`                                                                                                                                                     |
+| **diff** | object | Changes occurred in the Event, in the special diff format described in the [Diff Field Format](../audit/#audit-audit-events-39-diff-39-field-format) section<br>`+Required for response` `+Only for reading` |
+| **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only`                                                                             |
+| **entityType** | Enum | Entity name<br>`+Required for response` `+Read only`                                                                                                                                                          |
+| **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only`                                                                                                                                                          |
+| **moment** | datetime | Event creation time<br>`+Required for response` `+Read-only`                                                                                                                                                  |
+| **name** | String(255) | Entity name<br>`+Required for response` `+Read-only`                                                                                                                                                          |
+| **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only`                                                                                                                                            |
+| **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying`                     |
+| **source** | Enum | Type of change<br>`+Required for response` `+Read only`                                                                                                                                                       |
+| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only`                                                               |
+| **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only`                                                                                                                                                      |
 
 #### 'Diff' field format
 This field displays the changes in the fields of the entity that occurred in the Event.
@@ -262,7 +262,7 @@ Information about changes in entity fields is displayed for all fields, includin
 For fields used in the JSON API for entities and documents, the name of the entity attribute will be the same as the name of the corresponding field,
 described in the section for a given entity or document.
 
-Below are the possible formats for the ``diff`` field for different [Event types](../notification/#audit-audit-sobytiq-tipy-sobytij).
+Below are the possible formats for the ``diff`` field for different [Event types](../audit/#audit-audit-events-event-types).
 For entity creation events, the ``diff`` field will be absent.
 
 #### Registration event
@@ -468,8 +468,8 @@ Successful request. The result is a JSON representation of a list of events.
 
 ### Filters
 
-The JSON API of the MySklad service provides the ability to filter [Audit contexts](../notification/#audit-audit-kontexty) using the ``filter`` url parameter.
-More details about this parameter can be found in the section [Filtering the selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
+The JSON API of the MySklad service provides the ability to filter [Audit contexts](../audit/#audit-audit-contexts) using the ``filter`` url parameter.
+More details about this parameter can be found in the section [Filtering the selection using the filter parameter](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter)
 Filtering can be done by the fields described below.
 
 ##### Entity attributes
@@ -489,7 +489,7 @@ Filtering can be done by the fields described below.
     Line format : `href`
 
 + **eventType** -
-   String type parameter. The [Event type](../notification/#audit-audit-sobytiq-tipy-sobytij) should be passed as a value, according to which
+   String type parameter. The [Event type](../audit/#audit-audit-events-event-types) should be passed as a value, according to which
    audit entities should be filtered. List of possible parameter values:
 
 | The value of the eventType parameter | Description |

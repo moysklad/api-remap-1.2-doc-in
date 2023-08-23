@@ -14,9 +14,9 @@ The search among warehouse objects for matching the search string will be carrie
 |----- |----------------------------------------------------| ----- | ------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **address** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse address |
-| **addressFull** | Object                                             | | Address with details on individual fields. [More here](../dictionaries/#entities-sklad-sklady-attributy-suschnosti-adres) |
+| **addressFull** | Object                                             | | Address with details on individual fields. [More here](../dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address) |
 | **archived** | Boolean                                            | `=` `!=` | Has the Warehouse been archived<br>`+Required when replying` |
-| **attributes** | Array(Object)                                      | [Statements of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Array of metadata of additional warehouse fields |
+| **attributes** | Array(Object)                                      | [Statements of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional warehouse fields |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Warehouse |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of the Warehouse<br>`+Required when replying` |
@@ -30,7 +30,7 @@ The search among warehouse objects for matching the search string will be carrie
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
 | **zones** | MetaArray                                          | | warehouse zones. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
-| **slots** | MetaArray                                          | | Warehouse cells. [Learn more](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Read-only` `+Expand` |
+| **slots** | MetaArray                                          | | Warehouse cells. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Read-only` `+Expand` |
 
 #### Attributes of entity Address
 
@@ -50,7 +50,7 @@ The address string is a concatenation of the structured address fields in the fo
 When transferring entities with an address to MySklad, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
-[`null` value](../#mojsklad-json-api-obschie-swedeniq-podderzhka-null) is not supported for address. Passing `null` to this attribute will not remove it.
+[`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, pass the empty string `""` to the `address` string field.
 
 Learn more about [additional fields of warehouses](../#kladana-json-api-general-info-additional-fields)
@@ -721,7 +721,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ### Warehouses bulk creation and update
 
-[Warehouses bulk creation and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+[Warehouses bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing JSON representations of the Warehouses that you want to create or update.
 Updated Warehouses must contain the identifier in the form of metadata.
 
@@ -1151,7 +1151,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
 #### Description
 The view of the Warehouse with the specified ID is updated.
 In the body of the request, you can specify only those fields that should not be changed at the Warehouse,
-except for fields marked `Read Only` in the description of [Warehouse attributes](../dictionaries/#entities-sklad).
+except for fields marked `Read Only` in the description of [Warehouse attributes](../dictionaries/#entities-warehouse).
 
 **Parameters**
 
@@ -1796,7 +1796,7 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------|-----------|
-| **meta** | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadata) | Issuance metadata. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Warehouse Bins. |
 

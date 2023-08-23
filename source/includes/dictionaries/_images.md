@@ -27,7 +27,7 @@ Result: JSON object including fields:
 | ---------| -----| ----------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing [Images](../dictionaries/#entities-izobrazhenie). |
+| **rows** | Array(Object) | An array of JSON objects representing [Images](../dictionaries/#entities-image). |
 
 
 **Parameters**

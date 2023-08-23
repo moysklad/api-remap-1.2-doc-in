@@ -5,11 +5,11 @@ without using multiple paging requests.
 In the case of a large amount of unloaded data, the use of asynchronous exchange allows you to get the same result as
 spending less time in locks.
 
-You can see the list of requests for which the ability to work in asynchronous mode is implemented in [documentation](../#mojsklad-json-api-asinhronnyj-obmen).
+You can see the list of requests for which the ability to work in asynchronous mode is implemented in [documentation](../#kladana-json-api-asynchronous-exchange).
 
 Let's consider the advantage of working with the JSON API in asynchronous mode with some example.
 Suppose you need to obtain information on the balance of the entire range in order to replenish the reserves in stores.
-With a large number of items and warehouses, it was previously necessary to request a [stock balance report] (../reports/#reports-balance-report-poluchit-ostatki-po-skladam)
+With a large number of items and warehouses, it was previously necessary to request a [stock balance report](../reports/#reports-balance-report-get-stock-balances)
 several times, specifying the **offset** parameter to get reports on all items. Since the construction of large reports takes
 some time, up to 5 minutes, collecting all the information can take a long time.
 In addition, each individual request forces you to keep the connection open while waiting for the result.

@@ -11,14 +11,14 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required in response` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required for response` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required in response` |
@@ -30,7 +30,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
-| **rate** | object | | Currency. [More details here](../documents/#transactions-teh-operaciq-valuta-w-dokumentah)<br>`+Required when replying` |
+| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
@@ -60,10 +60,10 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is an item<br>`+Required when answering` `+Expand` |
 | **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-sklad-yachejki-sklada)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
@@ -71,7 +71,7 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 The value of this attribute is ignored if the item is not in serial accounting.
 Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.
 
-You can work with items using special [resources for managing Purchase Returns items](../documents/#transactions-purchase-returns-pozicii-vozwrata-postawschiku), and as part of a separate Purchase Returns. When operating as part of a separate Purchase Returns,
+You can work with items using special [resources for managing Purchase Returns items](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items), and as part of a separate Purchase Returns. When operating as part of a separate Purchase Returns,
 you can send requests to create a separate Purchase Returns with included in the request body
 an array of items Returned to the supplier. 
 
@@ -1127,7 +1127,7 @@ Successful request. The result is a JSON representation of the generated Purchas
 
 ### Purchase Returns Bulk creating and update
 
-[Bulk creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow) of Purchase Returns.
+[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Purchase Returns.
 In the body of the request, you need to pass an array containing the JSON representation of the Returns to the provider that you want to create or update.
 Updated Returns to the supplier must contain the identifier in the form of metadata.
 
@@ -2454,7 +2454,7 @@ Successful request. The result is a JSON representation of the updated Purchase 
 
 ### Purchase Return Items
 
-Separate resource for managing Purchase Return items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+Separate resource for managing Purchase Return items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get items
 
@@ -2678,7 +2678,7 @@ Request to create a new item in Purchase Returns.
 For successful creation, the following fields must be specified in the request body:
 
 + **assortment** - Link to the product/service/series/modification that the item represents.
-You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-returns-vozwraty-postawschikam-pozicii-vozwrata-postawschiku).
+You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items).
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Purchase Returns items at the same time. All items created by this request

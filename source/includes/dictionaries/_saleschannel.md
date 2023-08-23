@@ -23,7 +23,7 @@ The search among the objects of the sales channel for matching the search string
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **type** | Enum                                               | `=` `!=` | Sales Channel Type [Details here](../dictionaries/#entities-kanal-prodazh-kanaly-prodazh-tip-kanala-sale)<br>`+Required when answering` `+Required when creating` |
+| **type** | Enum                                               | `=` `!=` | Sales Channel Type [Details here](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering` `+Required when creating` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Sales channel type

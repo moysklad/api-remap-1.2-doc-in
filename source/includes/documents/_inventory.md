@@ -8,13 +8,13 @@ Using the JSON API, you can create and update Inventory Count information, query
 | Title | Type | Filtration | Description |
 | ------- | ------ | ------ | ---- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter-fil-traciq-po-dopolnitel-nym-polqm) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code of issued Inventory Counts |
 | **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External ID of the returned Inventory Count<br>`+Required in response` |
-| **files** | MetaArray | | [Files] array metadata(../dictionaries/#entities-fajly) (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Inventory Count ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Inventory Count Metadata<br>`+Required when replying` |
@@ -43,11 +43,11 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | **correctionAmount** | float | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
 | **correctionSum** | float | excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-towar-towary-atributy-wlozhennyh-suschnostej-upakowki-towara) |
+| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
 | **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 
-You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-pozicii-inwentarizacii),
+You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-inventory-count-inventory-count-items),
 and also as part of a separate Inventory Count. When working as part of a separate Inventory Count,
 you can send requests to create separate Inventory Counts with included in the request body
 an array of Inventory Count Items. If the number of items exceeds the maximum allowed, then for
@@ -338,7 +338,7 @@ Successful request. The result is a JSON representation of the generated Invento
 
 ### Bulk Inventory Count creating and update
 
-[Bulk Inventory Count creating and update](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-upnowlenie-neskol-kih-ob-ektow).
+[Bulk Inventory Count creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
 In the body of the request, you need to pass an array containing the JSON representation of the Inventory Counts that you want to create or update.
 Updated Inventory Counts must contain the identifier in the form of metadata.
 
@@ -1116,7 +1116,7 @@ Successful request. The result is a JSON representation of the updated Inventory
 
 ### Inventory Count Items
 
-A separate resource for managing Inventory Count items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+A separate resource for managing Inventory Count items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 ### Get Inventory Count Items
 
@@ -1225,7 +1225,7 @@ For successful creation, the following fields must be specified in the request b
 
 + **assortment** - Link to the product/series/modification that the item represents.
 You can also specify a field named **variant** according to
-what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-pozicii-inwentarizacii).
+what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-inventory-count-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create both one and Inventory Count items at the same time. All items created by this query
 will be added to the existing ones.

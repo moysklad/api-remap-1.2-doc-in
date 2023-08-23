@@ -12,7 +12,7 @@ The search among the objects of Product variants to match the search string will
 + by product name with Product variant **name**
 
 It is possible to filter the list of Product variants by product **id** - filtering parameter **productid**. The available filter operators are `=` `!=` .
-You can read more about filtering in the section [Filtering a selection using the filter parameter](../#mojsklad-json-api-obschie-swedeniq-fil-traciq-wyborki-s-pomosch-u-parametra-filter)
+You can read more about filtering in the section [Filtering a selection using the filter parameter](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter)
 
 Examples:
 
@@ -26,20 +26,20 @@ Examples:
 | ------|----------------------------------------------------| ------- | ------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Whether the product was added to the archive<br>`+Required when replying` |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-shtrih-kody) |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [More details here](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-barcodes) |
 | **buyprice** | Object                                             | | Purchase price |
-| **characteristics** | Array(Object)                                      | | Characteristics Product variants. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-metadannye-modifikacij-harakteristiki-modifikacii)<br>`+Required when answering` `+Required when creating` |
+| **characteristics** | Array(Object)                                      | | Characteristics Product variants. [More details here](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when answering` `+Required when creating` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product variant Code |
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
 | **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
-| **images** | MetaArray                                          | | [Images] metadata array(../dictionaries/#entities-izobrazhenie) (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
+| **images** | MetaArray                                          | | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
-| **minprice** | object                                             | | Minimum price. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-minimal-naq-cena) |
+| **minprice** | object                                             | | Minimum price. [More details here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
-| **packs** | Array(Object)                                      | | Product variant packages [Details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-upakowki-modifikacii) |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-towar) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **salePrice** | Array(Object)                                      | | Sale prices. [More details here](../dictionaries/#entities-modifikaciq-modifikacii-atributy-wlozhennyh-suschnostej-ceny-prodazhi) |
+| **packs** | Array(Object)                                      | | Product variant packages [Details here](../dictionaries/#entities-product-variant-product-variants-loading-packaging-product-variants) |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-product) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **salePrice** | Array(Object)                                      | | Sale prices. [More details here](../dictionaries/#entities-product-variant-product-variants-loading-sales-prices) |
 | **things** | Array(String)                                      | | Serial Numbers<br>`+Read Only` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
@@ -123,7 +123,7 @@ an array of elements. **images** field elements have fields:
 
 #### Loading
 
-To upload images, you need in the body of the request to [create](../dictionaries/#entities-modifikaciq-sozdat-modifikaciu) or [update](../dictionaries/#entities-modifikaciq-izmenit-modifikaciu) Product variants
+To upload images, you need in the body of the request to [create](../dictionaries/#entities-product-variant-create-product-variant) or [update](../dictionaries/#entities-product-variant-change-product-variant) Product variants
 specify the **images** field with a list of elements that have the following attributes:
 
 | Title | Description |
@@ -134,7 +134,7 @@ specify the **images** field with a list of elements that have the following att
 If in the update request **images** contains an empty array of elements, then all Images from the Product variant will be deleted,
 because the server will assume that the user wants to update the list of Product variant Images.
 
-The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-izobrazhenie) chapter.
+The API documentation for working with Images can be found in the [Image](../dictionaries/#entities-image) chapter.
 
 ##### Sales prices
 If the Product variant does not have separate sales prices, the corresponding sales prices of the product will be displayed in the response.

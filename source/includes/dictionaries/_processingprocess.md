@@ -32,7 +32,7 @@ The Routing item object contains the following fields:
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#entities-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
 ### Get the list of Routings
 
@@ -398,7 +398,7 @@ Successful removal of Routing
 ### Routing Items
 
 In essence, a item limit of 100 items is set. Learn more about line limits and working with
-a large number of items can be read on the example of working with document items [here] (../#mojsklad-json-api-obschie-swedeniq-rabota-s-poziciqmi-dokumentow).
+a large number of items can be read on the example of working with document items [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
 #### Routing item attributes
 | Title | Type | Description |
@@ -406,7 +406,7 @@ a large number of items can be read on the example of working with document item
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#entities-jetap-proizwodstwa) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
 ### Get Routing items
 Request to get a list of all items of this Routing.

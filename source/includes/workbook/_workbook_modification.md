@@ -5,7 +5,7 @@ have different parameters: size, color, etc. They need to be somehow distinguish
 individual goods. Mods can solve this problem.
 
 In fact, a product variant is a product with specific characteristics, such as color, weight, size, and so on. More
-you can read about working with product variants [here](../dictionaries/#entities-modifikaciq-sozdat-modifikaciu).
+you can read about working with product variants [here](../dictionaries/#entities-product-variant-create-product-variant).
 
 Before adding new or using old characteristics of the product variant, you need to understand which ones are already
 have been created and used.
