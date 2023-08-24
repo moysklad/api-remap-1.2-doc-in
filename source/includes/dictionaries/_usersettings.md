@@ -5,20 +5,20 @@ Using the JSON API, you can get and edit user settings.
 #### User Settings
 #### Entity attributes
 
-| Title | Type | Description |
-| ---------| ---- |----------|
-| **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ---------|----------------------------------------------------|----------|
+| **autoShowReports** | Boolean                                            | Whether to build reports automatically when switching to a tab with a report<br>`+Required when replying` |
 | **defaultCompany** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata to be used by default in documents<br>`+Required when replying` |
 | **defaultCustomerCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section<br>`+Required when replying` |
 | **defaultPlace** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata that will be used by default in documents<br>`+Required when replying` |
 | **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents<br>`+Required when replying` |
 | **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section<br>`+Required when replying` |
-| **defaultscreen** | Enum | [The page that opens when the user logs in](./#entities-user-settings-start-screen)<br>`+Required when replying` |
-| **fieldsPerRow** | int | The number of columns in which additional fields will be placed in documents<br>`+Required when answering` |
-| **locale** | Enum | System language. Valid values are "ru_RU" and "en_US"<br>`+Required when replying` |
-| **mailFooter** | Boolean | Substituted in the signature in letters sent from MS<br>`+Required when replying` |
+| **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#entities-user-settings-start-screen)<br>`+Required when replying` |
+| **fieldsPerRow** | Int                                                | The number of columns in which additional fields will be placed in documents<br>`+Required when answering` |
+| **locale** | Enum                                               | System language. Valid values are "ru_RU" and "en_US"<br>`+Required when replying` |
+| **mailFooter** | Boolean                                            | Substituted in the signature in letters sent from MS<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Settings metadata<br>`+Required when replying` |
-| **printFormat** | Enum | [Document Printing Rules](./#entities-user-settings-rules-for-printing-documents)<br>`+Required when replying` |
+| **printFormat** | Enum                                               | [Document Printing Rules](./#entities-user-settings-rules-for-printing-documents)<br>`+Required when replying` |
 
 #### Rules for printing documents
 
@@ -154,12 +154,12 @@ Successful request. The result is a JSON representation of Company Settings:
    },
    "defaultCustomerCounterparty": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultPurchaseCounterparty": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultProject": {
@@ -185,19 +185,19 @@ Successful request. The result is a JSON representation of Company Settings:
 
 You can edit the following user settings:
 
-| Title | Type | Description |
-| ------| -----|-------------|
-| **autoShowReports** | Boolean | Whether to build reports automatically when switching to a tab with a report |
+| Title | Type                                               | Description |
+| ------|----------------------------------------------------|-------------|
+| **autoShowReports** | Boolean                                            | Whether to build reports automatically when switching to a tab with a report |
 | **defaultCompany** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata to be used by default in documents |
 | **defaultCustomerCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section |
 | **defaultPlace** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata to be used by default in documents |
 | **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents |
 | **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section |
-| **defaultscreen** | Enum | [The page that opens when the user logs in](./#entities-user-settings-start-screen) |
-| **fieldsPerRow** | int | The number of columns in which additional fields will be located in documents |
-| **locale** | Enum | System language. Valid values "ru_RU" and "en_US" |
-| **mailFooter** | Boolean | Substituted in the signature in letters sent from MS |
-| **printFormat** | Enum | [Document printing rules](./#entities-user-settings-rules-for-printing-documents) |
+| **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#entities-user-settings-start-screen) |
+| **fieldsPerRow** | Int                                                | The number of columns in which additional fields will be located in documents |
+| **locale** | Enum                                               | System language. Valid values "ru_RU" and "en_US" |
+| **mailFooter** | Boolean                                            | Substituted in the signature in letters sent from MS |
+| **printFormat** | Enum                                               | [Document printing rules](./#entities-user-settings-rules-for-printing-documents) |
 
 Partial editing is allowed - only the fields present in the request will be edited.
 
@@ -216,12 +216,12 @@ curl -X PUT
    },
    "defaultCustomerCounterparty": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultPurchaseCounterparty": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultProject": {
@@ -261,12 +261,12 @@ Successful request. The result is a JSON representation of the User Settings.
    },
    "defaultCustomerCounterparty": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultPurchaseCounterparty": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultProject": {

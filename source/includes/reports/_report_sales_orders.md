@@ -10,11 +10,11 @@ Using the JSON API, you can request sales and orders indicators - the number and
 
 #### Indicators (series)
 
-| Title | Type | Description |
-| ------------ | ------ | -------------- |
-| **date** | datetime | Date<br>`+Required when replying` |
-| **quantity** | int | Quantity<br>`+Required when answering` |
-| **sum** | float | Amount<br>`+Required when answering` |
+| Title | Type     | Description |
+| ------------ |----------| -------------- |
+| **date** | DateTime | Date<br>`+Required when replying` |
+| **quantity** | Int      | Quantity<br>`+Required when answering` |
+| **sum** | Float    | Amount<br>`+Required when answering` |
 
 **Parameters**
 
@@ -42,9 +42,9 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 | Title | Type | Filtration | Description |
 | ------- | ----- | --------- | ------ |
-| **organization** | object | `=` | link to legal face |
-| **store** | object | `=` | warehouse link |
-| **project** | object | `=` | project link |
+| **organization** | Object | `=` | link to legal face |
+| **store** | Object | `=` | warehouse link |
+| **project** | Object | `=` | project link |
 
 > Request for order metrics
 
@@ -59,7 +59,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -78,12 +78,12 @@ Successful request. The result is a JSON representation of the report.
      {
        "date": "2018-09-06 00:00:00",
        "quantity": 3,
-       sum: 600
+       "sum": 600
      },
      {
        "date": "2018-09-06 01:00:00",
-       quantity: 2
-       sum: 200
+       "quantity": 2,
+       "sum": 200
      }
    ]
 }
@@ -93,7 +93,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-06 01:00:01&interval=hour&filter=organization=https://app .kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897 -11e7-7a34-5acf000c8448;store=https://app.kladana.in/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1"
+   "https://app.kladana.in/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-06 01:00:01&interval=hour&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448;store=https://app.kladana.in/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -102,7 +102,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/context/employee",
@@ -113,20 +113,20 @@ Successful request. The result is a JSON representation of the report.
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2016-09-06 01:00:01&interval=hour&filter=organization=https ://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project /02e64f51-6897-11e7-7a34-5acf000c8448;store=https://app.kladana.in/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1",
+     "href": "https://app.kladana.in/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2016-09-06 01:00:01&interval=hour&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448;store=https://app.kladana.in/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1",
      "type": "ordersplotseries",
      "mediaType": "application/json"
    },
    "series": [
      {
        "date": "2018-09-06 00:00:00",
-       quantity: 1
-       sum: 100
+       "quantity": 1,
+       "sum": 100
      },
      {
        "date": "2018-09-06 01:00:00",
-       quantity: 1
-       sum: 100
+       "quantity": 1,
+       "sum": 100
      }
    ]
 }
@@ -142,16 +142,16 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 | Title | Type | Filtration | Description |
 | ------- | ----- | ------- | -------- |
-| **organization** | object | `=` | link to legal face |
-| **store** | object | `=` | warehouse link |
-| **project** | object | `=` | project link |
-| **retailstore** | object | `=` | link to point of sale. When using this parameter, only retail sales are taken into account. |
+| **organization** | Object | `=` | link to legal face |
+| **store** | Object | `=` | warehouse link |
+| **project** | Object | `=` | project link |
+| **retailStore** | Object | `=` | link to point of sale. When using this parameter, only retail sales are taken into account. |
 
 > Request for obtaining sales figures with filtering
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore =https://app.kladana.in/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://app.kladana.in/api/remap/1.2/entity /project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://app.kladana.in/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https:/ /app.kladana.in/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060"
+   "https://app.kladana.in/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://app.kladana.in/api/remap/1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://app.kladana.in/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https://app.kladana.in/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -160,7 +160,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -171,20 +171,20 @@ Successful request. The result is a JSON representation of the report.
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval =hour&filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://app.kladana.in/api/remap /1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://app.kladana.in/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization =https://app.kladana.in/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060",
-     "type": "salesplot series",
+     "href": "https://app.kladana.in/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://app.kladana.in/api/remap/1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://app.kladana.in/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https://app.kladana.in/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060",
+     "type": "salesplotseries",
      "mediaType": "application/json"
    },
    "series": [
      {
        "date": "2018-09-06 00:00:00",
        "quantity": 3,
-       sum: 900
+       "sum": 900
      },
      {
        "date": "2018-09-06 01:00:00",
        "quantity": 4,
-       sum: 400
+       "sum": 400
      }
    ]
 }

@@ -9,19 +9,19 @@ The search among objects of units of measurement for matching the search string 
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------- | -------- |------ | -------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Read Only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code Units |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Units |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------|------ | -------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Read Only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Units |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Units |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department Employee<br>`+Expand` `+For custom units. measurements` |
-| **id** | UUID | `=` `!=` | ID Units<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | `=` `!=` | ID Units<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Units<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when answering` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom units. measurements` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` `+For custom units. measurements` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when replying` `+Read-only` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` `+For custom units. measurements` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when replying` `+Read-only` |
 
 ### Get Units of measure
 Request to get a list of all units of measure for the given account.
@@ -53,7 +53,7 @@ Successful request. The result is a JSON representation of a list of units of me
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -68,11 +68,11 @@ Successful request. The result is a JSON representation of a list of units of me
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
      "type": "uom",
      "mediaType": "application/json",
-     size: 60
-     limit: 5
-     offset: 0
+     "size": 60,
+     "limit": 5,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/uom/061721df-9197-49a5-b637-7f5b4d3be969",
@@ -161,8 +161,8 @@ Successful request. The result is a JSON representation of a list of units of me
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -222,8 +222,8 @@ Successful request. The result is a JSON representation of the generated unit of
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -312,8 +312,8 @@ Successful request. The result is a JSON array of representations of the generat
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -365,21 +365,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-             "type": "uom",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
-             "type": "uom",
-             "mediaType": "application/json"
-         }
-       ]'
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/uom/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                "type": "uom",
+                "mediaType": "application/json"
+            }
+        },
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/uom/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+                "type": "uom",
+                "mediaType": "application/json"
+            }
+        }
+    ]'
 ```
 
 > Successful request. The result is JSON information about the removal of Units.
@@ -387,10 +389,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'uom' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'uom' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'uom' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'uom' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -479,8 +481,8 @@ Successful request. The result is a JSON representation of the updated Unit of M
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=1fe747fc-7df4-11e8-7e04-3e5a0000002d"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/19062b38-7df4-11e8-7e04-3e5a00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",

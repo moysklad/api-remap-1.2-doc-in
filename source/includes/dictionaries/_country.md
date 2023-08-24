@@ -9,19 +9,19 @@ The search among country objects for matching the search string will be carried 
 + by country description **description**
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| -------| ------ | -------- |----- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Read Only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Country Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Countries |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Country Code<br>`+Required when replying` |
+| Title | Type                                               | Filtration | Description |
+| -------|----------------------------------------------------| -------- |----- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Read Only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Country Code |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Countries |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Country Code<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department-owner<br>`+Expand` `+For custom countries` |
-| **id** | UUID | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Required when answering` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Country Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Country Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee-owner<br>`+Expand` `+For custom countries` |
-| **shared** | Boolean | `=` `!=` | Flag Share<br>`+For custom countries` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **shared** | Boolean                                            | `=` `!=` | Flag Share<br>`+For custom countries` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 ### Get Countries
 Request to get a list of all Countries for this account.
@@ -53,7 +53,7 @@ Successful request. The result is a JSON representation of the list of Countries
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -68,11 +68,11 @@ Successful request. The result is a JSON representation of the list of Countries
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
      "type": "country",
      "mediaType": "application/json",
-     size: 248
-     limit: 1000
-     offset: 0
+     "size": 248,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
@@ -165,8 +165,8 @@ Successful request. The result is a JSON representation of the list of Countries
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -228,8 +228,8 @@ Successful request. The result is a JSON representation of the created Country.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -303,8 +303,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -337,8 +337,8 @@ Successful request. The result is a JSON array of representations of the created
          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -414,7 +414,7 @@ curl -X POST
      "info":"Entity 'country' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'country' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'country' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -512,8 +512,8 @@ Successful request. The result is a JSON representation of the updated Country.
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",

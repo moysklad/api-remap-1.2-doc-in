@@ -32,7 +32,7 @@ the number converted to 10 is the representation of the status color in the JSON
 
 Example: the color `rgb(162, 198, 23)` will match the following value of the `"color" field: 10667543`.
 
-You can view lists of existing statuses in the context of transaction metadata, for example by making a GET request to the URL http://app.kladana.in/api/remap/1.2/entity/demand/metadata
+You can view lists of existing statuses in the context of transaction metadata, for example by making a GET request to the URL https://app.kladana.in/api/remap/1.2/entity/demand/metadata
 The list of statuses for the `demand` transaction is displayed in the states collection.
 
 ### Get metadata
@@ -200,7 +200,7 @@ Successful request. The result is a JSON representation of the changed Status.
    "id": "6262b270-60c3-11e7-6adb-ede50000000d",
    "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
    "name": "Approved",
-   color: 255
+   "color": 255,
    "stateType": "Regular",
    "entityType": "counterparty"
 }

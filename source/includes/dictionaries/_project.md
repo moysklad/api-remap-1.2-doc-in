@@ -9,21 +9,21 @@ The search among the project objects for matching the search string will be carr
 + according to the Project description **description**
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| ----- | ------ | ------- | ---------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Project Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Project Description |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
+| Title | Type                                               | Filtration | Description |
+| ----- |----------------------------------------------------| ------- | ---------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Code |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Project Description |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Project ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Project ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Project Metadata<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | MetadataOwner's (Employee)<br>`+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 About working with Project fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -58,7 +58,7 @@ Successful request. The result is a JSON representation of a list of projects.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -73,11 +73,11 @@ Successful request. The result is a JSON representation of a list of projects.
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
@@ -95,8 +95,8 @@ Successful request. The result is a JSON representation of a list of projects.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -109,7 +109,7 @@ Successful request. The result is a JSON representation of a list of projects.
        "description": "Tomato paste collection and processing project from all suppliers",
        "code": "1248y12hrd",
        "externalCode": "HZV7dGc8iAnf0aNjrvQvN0",
-       archived: false
+       "archived": false,
        "attributes": [
          {
            "meta": {
@@ -140,8 +140,8 @@ Successful request. The result is a JSON representation of a list of projects.
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -154,7 +154,7 @@ Successful request. The result is a JSON representation of a list of projects.
        "description": "Project tracking the implementation of the sales plan",
        "code": "124721fsavy",
        "externalCode": "lv7MmPK4jvaqq-nA3g3NL2",
-       archived: false
+       "archived": false,
        "attributes": [
          {
            "meta": {
@@ -213,8 +213,8 @@ Successful request. The result is a JSON representation of the created project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -278,8 +278,8 @@ Successful request. The result is a JSON representation of the created project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -292,7 +292,7 @@ Successful request. The result is a JSON representation of the created project.
    "description": "Project for the transition to a new product accounting system",
    "code": "0026",
    "externalCode": "213zzz",
-   archived: false
+   "archived": false,
    "attributes": [
      {
        "meta": {
@@ -364,8 +364,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -397,8 +397,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -447,21 +447,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
-             "type": "project",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
-             "type": "project",
-             "mediaType": "application/json"
-         }
-       ]'
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+                "type": "project",
+                "mediaType": "application/json"
+            }
+        },
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+                "type": "project",
+                "mediaType": "application/json"
+            }
+        }
+    ]'
 ```
 
 > Successful request. The result is JSON information about deleting Projects.
@@ -469,10 +471,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'project' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'project' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'project' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'project' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -590,8 +592,8 @@ Successful request. The result is a JSON representation of the project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -604,7 +606,7 @@ Successful request. The result is a JSON representation of the project.
    "description": "Tomato paste collection and processing project from all suppliers",
    "code": "1248y12hrd",
    "externalCode": "HZV7dGc8iAnf0aNjrvQvN0",
-   archived: false
+   "archived": false,
    "attributes": [
      {
        "meta": {
@@ -666,8 +668,8 @@ Successful request. The result is a JSON representation of the updated project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -699,7 +701,8 @@ Successful request. The result is a JSON representation of the updated project.
              "attributes": [
                {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a","type": "attributemetadata",
+                   "href": "https://app.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
                  "value": "Extremely high"
@@ -729,8 +732,8 @@ Successful request. The result is a JSON representation of the updated project.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -743,7 +746,7 @@ Successful request. The result is a JSON representation of the updated project.
    "description": "Project for the transition to a new system of accounting and marketing of products",
    "code": "123",
    "externalCode": "fbeuf21dof1f",
-   archived: false
+   "archived": false,
    "attributes": [
      {
        "meta": {

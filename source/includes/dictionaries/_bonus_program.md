@@ -9,20 +9,20 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 | --------- | ------------ | ------------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **active** | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
-| **agenttags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
+| **agentTags** | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
 | **allAgents** | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when answering` |
 | **allProducts** | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when answering` |
-| **earnRateRoublesToPoint** | int | Accrual rate |
+| **earnRateRoublesToPoint** | Int | Accrual rate |
 | **earnWhileRedeeming** | Boolean | Allow simultaneous accrual and write-off of bonuses. If `true` - bonuses will be credited to the monetary part of the purchase, even if the purchase is partially paid with points.<br>`+Required when answering` |
 | **id** | UUID | Bonus Program ID<br>`+Required when replying` `+Read Only` |
-| **maxPaidRatePercents** | int | Maximum percentage of payment by points |
+| **maxPaidRatePercents** | Int | Maximum percentage of payment by points |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when answering` |
 | **name** | String(255) | Name of the Bonus program |
-| **postponedBonusesDelayDays** | int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
-| **spendRatePointsToRouble** | int | Write-off rate |
+| **postponedBonusesDelayDays** | Int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
+| **spendRatePointsToRouble** | Int | Write-off rate |
 | **welcomeBonusesEnabled** | Boolean | Ability to earn welcome points<br>`+Required when answering` |
 | **welcomeBonusesEnabled**| Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#entities-bonus-program-bonus-programs-entity-attributes-bonus-points-conditions) |
-| **welcomeBonusesValue** | int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
+| **welcomeBonusesValue** | Int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
 
 ##### Bonus points conditions
 
@@ -75,7 +75,7 @@ Successful request. The result is a list of all bonus programs for the account.
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "size": 2,
      "limit": 1000,
@@ -86,7 +86,7 @@ Successful request. The result is a list of all bonus programs for the account.
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-         "type": "bonus program",
+         "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
        },
@@ -109,7 +109,7 @@ Successful request. The result is a list of all bonus programs for the account.
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-         "type": "bonus program",
+         "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
        },
@@ -148,17 +148,20 @@ Request to create a new bonus program. Required fields: **name** (name of the di
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-"name": "bonus program",
-active: true
-"allProducts": true
-"allAgents": false
-"agentTags": ["tag1", "tag2"],
-"earnRateRoublesToPoint": 7,
-     "spendRatePointsToRouble": 4,
-     "maxPaidRatePercents": 50,
-     "postponedBonusesDelayDays": 7,
-     "earnWhileRedeeming": false
-}'
+              "name": "bonus program",
+              "active": true,
+              "allProducts": true,
+              "allAgents": false,
+              "agentTags": [
+                  "tag1",
+                  "tag2"
+              ],
+              "earnRateRoublesToPoint": 7,
+              "spendRatePointsToRouble": 4,
+              "maxPaidRatePercents": 50,
+              "postponedBonusesDelayDays": 7,
+              "earnWhileRedeeming": false
+          }'
 ```
 
 > Response 200(application/json)
@@ -169,7 +172,7 @@ Successful request. The result is a JSON representation of the created bonus pro
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
    },
@@ -204,11 +207,13 @@ Request to change the bonus program. In the body of the request, you must pass t
      "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-       -d '{
-"name": "updatedName",
-active: true
-"agentTags": ["tag2"]
-}'
+       -d'{
+              "name": "updatedName",
+              "active": true,
+              "agentTags": [
+                  "tag2"
+              ]
+          }'
 ```
 
 > Response 200(application/json)
@@ -219,7 +224,7 @@ Successful request. The result is a JSON representation of the modified bonus pr
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
    },
@@ -261,7 +266,7 @@ Successful request. The result is a JSON representation of the Bonus Program wit
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-     "type": "bonus program",
+     "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
    },
@@ -316,14 +321,14 @@ curl -X POST
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-             "type": "bonus program",
+             "type": "bonusprogram",
              "mediaType": "application/json"
          },
          {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-             "type": "bonus program",
+             "type": "bonusprogram",
              "mediaType": "application/json"
          }
        ]'
@@ -334,10 +339,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'bonusprogram' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'bonusprogram' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'bonusprogram' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'bonusprogram' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```

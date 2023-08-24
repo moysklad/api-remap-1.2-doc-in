@@ -52,7 +52,7 @@ Successful request. The result is a JSON representation of list Bills of Materia
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -67,11 +67,11 @@ Successful request. The result is a JSON representation of list Bills of Materia
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "type": "processingplanfolder",
      "mediaType": "application/json",
-     size: 1
-     limit: 1000
-     offset: 0
+     "size": 1,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
@@ -89,8 +89,8 @@ Successful request. The result is a JSON representation of list Bills of Materia
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -101,7 +101,7 @@ Successful request. The result is a JSON representation of list Bills of Materia
        "updated": "2022-04-18 09:48:28.563",
        "name": "Bills of Materials Folder",
        "externalCode": "gt6UOfuXgb2ChJBcVn55H2",
-       archived: false
+       "archived": false,
        "pathName": ""
      }
    ]
@@ -150,8 +150,8 @@ Successful request. The result is a JSON representation of the created Bills of 
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -162,7 +162,7 @@ Successful request. The result is a JSON representation of the created Bills of 
    "updated": "2016-06-07 15:42:07",
    "name": "Group 1",
    "externalCode": "mRQao-5IgY3soIY1EaI083",
-   archived: false
+   "archived": false,
    "pathName": ""
 }
 ```
@@ -202,8 +202,8 @@ Successful request. The result is a JSON representation of the created Bills of 
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -215,7 +215,7 @@ Successful request. The result is a JSON representation of the created Bills of 
    "name": "Group 2",
    "code": "13321",
    "externalCode": "extGroup",
-   archived: false
+   "archived": false,
    "pathName": ""
 }
 ```
@@ -271,8 +271,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -283,7 +283,7 @@ Successful request. The result is a JSON array of representations of the created
      "updated": "2022-04-19 09:48:28.563",
      "name": "Group Auto",
      "externalCode": "HiQQWfW-jK5Z8e5KxjkCb2",
-     archived: false
+     "archived": false,
      "pathName": ""
    },
    {
@@ -303,8 +303,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -315,7 +315,7 @@ Successful request. The result is a JSON array of representations of the created
      "updated": "2022-04-19 09:48:28.563",
      "name": "Furniture Group",
      "externalCode": "furnitureCode",
-     archived: false
+     "archived": false,
      "pathName": ""
    }
 ]
@@ -377,10 +377,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'processingplanfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 was deleted successfully"
+     "info":"Entity 'processingplanfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'processingplanfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'processingplanfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -456,8 +456,8 @@ Successful request. The result is a JSON representation of the Bills of Material
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -468,7 +468,7 @@ Successful request. The result is a JSON representation of the Bills of Material
    "updated": "2022-04-19 09:48:28.563",
    "name": "Furniture Group",
    "externalCode": "furnitureCode",
-   archived: false
+   "archived": false,
    "pathName": ""
 }
 ```
@@ -523,8 +523,8 @@ Successful request. The result is a JSON representation of the updated Bills of 
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -536,7 +536,7 @@ Successful request. The result is a JSON representation of the updated Bills of 
    "name": "Group 1",
    "code": "groupCode",
    "externalCode": "extGroupCode",
-   archived: false
+   "archived": false,
    "pathName": ""
 }
 ```

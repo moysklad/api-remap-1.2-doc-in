@@ -29,11 +29,11 @@ curl
      "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes",
      "type": "attributemetadata",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
@@ -88,56 +88,56 @@ curl
      -H 'Content-Type: application/json'
      "https://app.kladana.in/api/remap/1.2/entity/product"
      -d '{
-         "name": "Notebook",
-         vat: 18
-         "effectiveVat": 18,
-         "uom": {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "type": "uom"
-           }
-         },
-         "minPrice": 50000.0,
-         "buyprice": {
-           "value": 50000.0
-           currency: {
-             "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-               "type": "currency"
-             }
-           }
-         },
-         "salePrices": [
-           {
-             "value": 100000.0
-             currency: {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                 "type": "currency"
-               }
-             },
-             "priceType": "Sell Price"
-           }
-         ],
-         "attributes": [
-             {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
-                 "type": "attributemetadata"
-               },
-               value: 9.6
-             },
-             {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/7385ab6e-ad06-11e8-9ff4-34e80004fb35",
-                 "type": "attributemetadata"
-               },
-               "id": "7385ab6e-ad06-11e8-9ff4-34e80004fb35",
-               "name": "Link to online store",
-               "value": "https://example.com"
-             }
-         ]
-     }'
+                 "name": "Notebook",
+                 "vat": 18,
+                 "effectiveVat": 18,
+                 "uom": {
+                   "meta": {
+                     "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+                     "type": "uom"
+                   }
+                 },
+                 "minPrice": 50000.0,
+                 "buyPrice": {
+                   "value": 50000.0,
+                   "currency": {
+                     "meta": {
+                       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                       "type": "currency"
+                     }
+                   }
+                 },
+                 "salePrices": [
+                   {
+                     "value": 100000.0,
+                     "currency": {
+                       "meta": {
+                         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                         "type": "currency"
+                       }
+                     },
+                     "priceType": "Sell Price"
+                   }
+                 ],
+                 "attributes": [
+                     {
+                       "meta": {
+                         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
+                         "type": "attributemetadata"
+                       },
+                       "value": 9.6
+                     },
+                     {
+                       "meta": {
+                         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/7385ab6e-ad06-11e8-9ff4-34e80004fb35",
+                         "type": "attributemetadata"
+                       },
+                       "id": "7385ab6e-ad06-11e8-9ff4-34e80004fb35",
+                       "name": "Link to online store",
+                       "value": "https://example.com"
+                     }
+                 ]
+        }'
 ```
 
 For the new product "Laptop" we specified the values of two additional fields: `Battery life` and `Link to online store`.
@@ -154,25 +154,25 @@ curl
      -H 'Content-Type: application/json'
      "https://app.kladana.in/api/remap/1.2/entity/product/630c578a-cb05-11e8-9109-f8fc0037889a"
      -d '{
-   "name": "Notebook updated",
-   "attributes": [
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
-         "type": "attributemetadata"
-       },
-       value: 10.6
-     },
-     {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/52ae09f9-8fe7-11ed-0a80-07ae000000ef",
-         "type": "attributemetadata"
-       },
-       "value": "true"
-     }
-   ]
-}'
-```
+           "name": "Notebook updated",
+           "attributes": [
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/839ca663-75f7-11e8-9107-5048001126a2",
+                 "type": "attributemetadata"
+               },
+               "value": 10.6
+             },
+             {
+               "meta": {
+                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/52ae09f9-8fe7-11ed-0a80-07ae000000ef",
+                 "type": "attributemetadata"
+               },
+               "value": "true"
+             }
+           ]
+        }'
+        ```
 In the example, we updated the value of the `Battery life` field, set when creating the product, and also set the value of the `Keyboard backlight` field - we left it empty when creating the product.
 
 Also for optional fields it is possible to reset the field value. To do this, you must pass the value **null** in the **value** field.
@@ -207,19 +207,19 @@ curl
      -H 'Content-Type: application/json'
      "https://app.kladana.in/api/remap/1.2/entity/product"
      -d '{
-     "name": "Notebook",
-     "attributes": [
-         {
-           "id": "839ca663-75f7-11e8-9107-5048001126a3",
-           "name": "Specification",
-           "type": "file",
-           "file": {
-             "filename": "filename",
-             "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
-           }
-         }
-     ]
-}'
+             "name": "Notebook",
+             "attributes": [
+                 {
+                   "id": "839ca663-75f7-11e8-9107-5048001126a3",
+                   "name": "Specification",
+                   "type": "file",
+                   "file": {
+                     "filename": "filename",
+                     "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
+                   }
+                 }
+             ]
+        }'
 ```
 
 ### Additional field of the List type
@@ -256,7 +256,7 @@ curl
                  "mediaType": "application/json"
              },
              "id": "cf486cca-d383-11e8-ac12-000a000000d4",
-             "name": "[Project]",
+             "name": "Project Megalodon",
              "type": "project",
              "required": false
          },
@@ -268,12 +268,12 @@ curl
              },
              "customEntityMeta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
-                 "type": "customer metadata",
+                 "type": "customentitymetadata",
                  "mediaType": "application/json"
              },
              "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
-             "name": "Region",
-             "type": "custom",
+             "name": "Region 43",
+             "type": "customentity",
              "required": false
          }
      ],
@@ -284,7 +284,8 @@ curl
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                  "type": "state",
                  "mediaType": "application/json"
-             },"id": "5b77c63b-d047-11e8-ac12-000b0000006b",
+             },
+             "id": "5b77c63b-d047-11e8-ac12-000b0000006b",
              "accountId": "5a0480c9-d047-11e8-ac12-000900000000",
              "name": "New",
              "color": 15106326,
@@ -367,38 +368,38 @@ curl
      -H 'Content-Type: application/json'
      "https://app.kladana.in/api/remap/1.2/entity/counterparty"
      -d '{
-     "name": "OOO Vostok",
-     "attributes": [
-         {
-             "id": "cf486cca-d383-11e8-ac12-000a000000d4",
-             "name": "[Project]",
-             "type": "project",
-             "value": {
-                 "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/project/c5ed49c2-d384-11e8-ac12-000a000000d8",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+             "name": "OOO Vostok",
+             "attributes": [
+                 {
+                     "id": "cf486cca-d383-11e8-ac12-000a000000d4",
+                     "name": "Aurora",
                      "type": "project",
-                     "mediaType": "application/json",
-                     "uuidHref": "https://app.kladana.in/app/#project/edit?id=c5ed49c2-d384-11e8-ac12-000a000000d8"
-                 }
-             }
-         },
-         {
-             "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
-             "name": "Region",
-             "type": "custom",
-             "value": {
-                 "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/ac120c44-d383-11e8-ac12-000a000000c4/b971966b-d383-11e8-ac12-000a000000ce",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
-                     "type": "custom",
-                     "mediaType": "application/json",
-                     "uuidHref": "https://app.kladana.in/app/#custom_ac120c44-d383-11e8-ac12-000a000000c4/edit?id=b971966b-d383-11e8-ac12-000a000000ce"
+                     "value": {
+                         "meta": {
+                             "href": "https://app.kladana.in/api/remap/1.2/entity/project/c5ed49c2-d384-11e8-ac12-000a000000d8",
+                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/project/metadata",
+                             "type": "project",
+                             "mediaType": "application/json",
+                             "uuidHref": "https://app.kladana.in/app/#project/edit?id=c5ed49c2-d384-11e8-ac12-000a000000d8"
+                         }
                      }
+                 },
+                 {
+                     "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
+                     "name": "Region 13",
+                     "type": "customentity",
+                     "value": {
+                         "meta": {
+                             "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/ac120c44-d383-11e8-ac12-000a000000c4/b971966b-d383-11e8-ac12-000a000000ce",
+                             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
+                             "type": "customentity",
+                             "mediaType": "application/json",
+                             "uuidHref": "https://app.kladana.in/app/#custom_ac120c44-d383-11e8-ac12-000a000000c4/edit?id=b971966b-d383-11e8-ac12-000a000000ce"
+                             }
+                         }
                  }
-         }
-     ]
-}'
+             ]
+        }'
 ```
 
 > Result:
@@ -408,7 +409,7 @@ curl
      "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=5a5597e3-d385-11e8-ac12-000800000000"
      },
@@ -423,8 +424,8 @@ curl
              "uuidHref": "https://app.kladana.in/app/#employee/edit?id=5a929317-d047-11e8-ac12-000b0000002e"
          }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/group/5a05b13e-d047-11e8-ac12-000900000001",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -432,11 +433,11 @@ curl
              "mediaType": "application/json"
          }
      },
-     version: 0
+     "version": 0,
      "updated": "2018-10-19 12:57:13.000",
      "name": "OOO Vostok",
      "externalCode": "fN3pbKAWhwfAOiz3MFMsA0",
-     archived: false
+     "archived": false,
      "created": "2018-10-19 12:57:13.000",
      "companyType": "legal",
      "attributes": [
@@ -468,12 +469,12 @@ curl
              },
              "id": "cf489b7c-d383-11e8-ac12-000a000000d5",
              "name": "Region",
-             "type": "custom",
+             "type": "customentity",
              "value": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/ac120c44-d383-11e8-ac12-000a000000c4/b971966b-d383-11e8-ac12-000a000000ce",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/companysettings/metadata/customEntities/ac120c44-d383-11e8-ac12-000a000000c4",
-                     "type": "custom",
+                     "type": "customentity",
                      "mediaType": "application/json",
                      "uuidHref": "https://app.kladana.in/app/#custom_ac120c44-d383-11e8-ac12-000a000000c4/edit?id=b971966b-d383-11e8-ac12-000a000000ce"
                  },
@@ -486,9 +487,9 @@ curl
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000/accounts",
              "type": "account",
              "mediaType": "application/json",
-             size: 0
-             limit: 100
-             offset: 0
+             "size": 0,
+             "limit": 100,
+             "offset": 0
          }
      },
      "tags": [],
@@ -497,22 +498,22 @@ curl
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000/contactpersons",
              "type": "contactperson",
              "mediaType": "application/json",
-             size: 0
-             limit: 100
-             offset: 0
+             "size": 0,
+             "limit": 100,
+             "offset": 0
          }
      },
-     notes: {
+     "notes": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5a5597e3-d385-11e8-ac12-000800000000/notes",
              "type": "note",
              "mediaType": "application/json",
-             size: 0
-             limit: 100
-             offset: 0
+             "size": 0,
+             "limit": 100,
+             "offset": 0
          }
      },
-     state: {
+     "state": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/5b77c63b-d047-11e8-ac12-000b0000006b",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
@@ -520,7 +521,7 @@ curl
              "mediaType": "application/json"
          }
      },
-     salesAmount: 0
+     "salesAmount": 0
 }
 ```
 ### Filtering by the value of the additional field
@@ -535,7 +536,7 @@ curl
      -u login:password
      -H 'Accept: application/json'
      -H 'Content-Type: application/json'
-     "https://app.kladana.in/api/remap/1.2/entity/product?filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/630c578a-cb05 -11e8-9109-f8fc0037889a%3E%3D5"
+     "https://app.kladana.in/api/remap/1.2/entity/product?filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/630c578a-cb05-11e8-9109-f8fc0037889a%3E%3D5"
 ```
 
 To do this, we need to specify the href of the additional field for filtering, the comparison sign (in our case `>=`) and the value in the filter parameter. The response will return all entities matching the passed criteria.

@@ -31,7 +31,7 @@ The query results can be filtered using the 'filter' parameter.
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
 | **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-stockmode) |
 | **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
-| **stockstore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
+| **stockStore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | parameter for filtering by entity type (product, service, bundle, variant). Used with the `=` operator. You can pass multiple values. |
 | **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
@@ -133,8 +133,8 @@ The directory settings allow the user to change the code uniqueness checking, se
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
-| **barcodeRules** | object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
+| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
+| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes
@@ -151,7 +151,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 | ----------- | ------ | -------- |
 | **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, kits, modifications and services<br>`+Required when replying` |
 | **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when replying` |
-| **weightBarcodePrefix** | int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
+| **weightBarcodePrefix** | Int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
 
 ### Get Assortment
 
@@ -310,6 +310,7 @@ curl -X GET
       "inTransit": 0,
       "quantity": 0
     },
+    {
       "stock": 0,
       "reserve": 0,
       "inTransit": 0,
@@ -802,7 +803,7 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'service' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    },
    {
      "info":"Entity 'product' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
@@ -857,16 +858,16 @@ curl -X PUT
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '{
-  "uniqueCodeRules": {
-    "checkUniqueCodeBoolean": true,
-    "fillUniqueCode": true
-  },
-  "barcodeRules": {
-    "fillEAN13Barcode": true,
-    "weightBarcodePrefix": 55
-  },
-  "createdShared": false
-}'
+        "uniqueCodeRules": {
+          "checkUniqueCodeBoolean": true,
+          "fillUniqueCode": true
+        },
+        "barcodeRules": {
+          "fillEAN13Barcode": true,
+          "weightBarcodePrefix": 55
+        },
+        "createdShared": false
+      }'
 ```
 
 > Response 200 (application/json)

@@ -48,7 +48,7 @@ Successful request. The result is a JSON representation of the created custom di
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b",
-     "type": "custom",
+     "type": "customentity",
      "mediaType": "application/json"
    },
    "id": "3f9a2f30-76af-11e7-6adb-ede50000000b",
@@ -85,7 +85,7 @@ Successful request. The result is a JSON representation of the updated user guid
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b",
-     "type": "custom",
+     "type": "customentity",
      "mediaType": "application/json"
    },
    "id": "3f9a2f30-76af-11e7-6adb-ede50000000b",
@@ -160,7 +160,7 @@ Successful request. The result is a JSON representation of a list of user direct
  
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -173,19 +173,19 @@ Successful request. The result is a JSON representation of a list of user direct
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customentity/metadata",
-     "type": "custom",
+     "type": "customentity",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/01b29035-2656-11e6-8a84-bae500000048",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/7944ef04-f831-11e5-7a69-971500188b19",
-         "type": "custom",
+         "type": "customentity",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19/edit?id=01b29035-2656-11e6-8a84-bae500000048"
        },
@@ -204,8 +204,8 @@ Successful request. The result is a JSON representation of a list of user direct
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -218,7 +218,7 @@ Successful request. The result is a JSON representation of a list of user direct
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/3fbe37f2-2659-11e6-8a84-bae500000013",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/7944ef04-f831-11e5-7a69-971500188b19",
-         "type": "custom",
+         "type": "customentity",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19/edit?id=3fbe37f2-2659-11e6-8a84-bae500000013"
        },
@@ -236,8 +236,8 @@ Successful request. The result is a JSON representation of a list of user direct
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -250,7 +250,7 @@ Successful request. The result is a JSON representation of a list of user direct
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/7944ef04-f831-11e5-7a69-971500188b19",
-         "type": "custom",
+         "type": "customentity",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19/edit?id=6343f631-265d-11e6-8a84-bae500000014"
        },
@@ -270,8 +270,8 @@ Successful request. The result is a JSON representation of a list of user direct
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
          }
        },
-       shared: true
-       group: {
+       "shared": true,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -306,7 +306,7 @@ is the **name** field.
              "code": "partner3",
              "description": "Description",
              "externalCode": "5434665867876",
-             shared: false
+             "shared": false
            }'
 ```
 
@@ -318,7 +318,7 @@ Successful request. The result is a JSON representation of the created custom di
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/7944ef04-f831-11e5-7a69-971500188b19",
-     "type": "custom",
+     "type": "customentity",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19/edit?id=6343f631-265d-11e6-8a84-bae500000014"
    },
@@ -338,8 +338,8 @@ Successful request. The result is a JSON representation of the created custom di
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -398,7 +398,7 @@ Successful request. The result is a JSON representation of the user directory el
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/7944ef04-f831-11e5-7a69-971500188b19",
-     "type": "custom",
+     "type": "customentity",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19/edit?id=6343f631-265d-11e6-8a84-bae500000014"
    },
@@ -418,8 +418,8 @@ Successful request. The result is a JSON representation of the user directory el
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -463,7 +463,7 @@ Successful request. The result is a JSON representation of the updated user dire
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/7944ef04-f831-11e5-7a69-971500188b19",
-     "type": "custom",
+     "type": "customentity",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#custom_7944ef04-f831-11e5-7a69-971500188b19/edit?id=6343f631-265d-11e6-8a84-bae500000014"
    },
@@ -483,8 +483,8 @@ Successful request. The result is a JSON representation of the updated user dire
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",

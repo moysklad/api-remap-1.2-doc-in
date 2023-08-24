@@ -12,33 +12,33 @@ The search among employee objects for matching the search string will be carried
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------- | -------- |---------- | --------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Code |
-| **created** | datetime | | Employee Creation Time<br>`+Required for response` `+Read Only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to Employee |
-| **email** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Email |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
-| **firstName** | String(255) | `=` `!=` `~` `~=` `=~`| Name |
-| **fullName** | String(255) | | First name Middle name Last name<br>`+Read only` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------|---------- | --------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Code |
+| **created** | DateTime                                           | | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Employee |
+| **email** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Email |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
+| **firstName** | String(255)                                        | `=` `!=` `~` `~=` `=~`| Name |
+| **fullName** | String(255)                                        | | First name Middle name Last name<br>`+Read only` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | object | | Photo of an employee. [More here](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
-| **inn** | String(255) | | TIN of the employee (in the format of the TIN of an individual) |
-| **lastName** | String(255) | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
+| **images** | Object                                             | | Photo of an employee. [More here](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
+| **inn** | String(255)                                        | | TIN of the employee (in the format of the TIN of an individual) |
+| **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
-| **middleName** | String(255) | `=` `!=` `~` `~=` `=~` | Middle name |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
+| **middleName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Middle name |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **phone** | String(255) | `=` `!=` `~` `~=` `=~` | Employee phone |
-| **position** | String(255) | | Employee position |
-| **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` |
-| **shortFio** | String(255) | | Short Name<br>`+Read Only` |
-| **id** | String(255) | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
+| **phone** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee phone |
+| **position** | String(255)                                        | | Employee position |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shortFio** | String(255)                                        | | Short Name<br>`+Read Only` |
+| **id** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
 
 The **owner**, **group** and **archived** fields can only be modified by an administrator. The **email** field can be changed by the administrator and the employee himself.
 
@@ -47,15 +47,15 @@ The **owner**, **group** and **archived** fields can only be modified by an admi
 ##### Employee photo: structure and loading.
 The structure of the **image** field that you will receive when requesting an employee with a photo:
 
-| Title | Type | Description |
-| ------- | -------- |---------- |
-| **filename** | String(255) | File name<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ------- |----------------------------------------------------|---------- |
+| **filename** | String(255)                                        | File name<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
-| **title** | String(255) | Image Title<br>`+Required when replying` |
-| **updated** | datetime | Last modified time<br>`+Required when replying` |
+| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
+| **updated** | DateTime                                           | Last modified time<br>`+Required when replying` |
 
 #### Loading
 To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-employee-change-employee) employee (PUT) and in the request body
@@ -101,7 +101,7 @@ Successful request. The result is a JSON representation of the list of Employees
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
@@ -113,11 +113,11 @@ Successful request. The result is a JSON representation of the list of Employees
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
      "type": "employee",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
@@ -130,13 +130,13 @@ Successful request. The result is a JSON representation of the list of Employees
        "updated": "2016-03-28 19:45:46",
        "name": "Administrator",
        "externalCode": "4A039QXHgbZdAHdXbcUI71",
-       archived: false
+       "archived": false,
        "uid": "admin@reqwy1",
        "email": "asdad@sfasf.erq",
        "lastName": "Administrator",
        "fullName": "Administrator",
        "shortFio": "Administrator",
-       "retail store": {
+       "retailStore": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -159,7 +159,7 @@ Successful request. The result is a JSON representation of the list of Employees
        "updated": "2016-04-15 15:07:25",
        "name": "Druganov L. A.",
        "externalCode": "4pGL0jazh3dGTpJfdcP1a1",
-       archived: false
+       "archived": false,
        "uid": "employee@company",
        "email": "company@company.ru",
        "phone": "8 800 250-04-32",
@@ -178,7 +178,7 @@ Successful request. The result is a JSON representation of the list of Employees
            "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
            "name": "AttributeName1",
            "type": "long",
-           value: 200
+           "value": 200
          }
        ]
      }
@@ -199,26 +199,26 @@ Updated Employees must contain the identifier in the form of metadata.
      "https://app.kladana.in/api/remap/1.2/entity/employee"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
-       -d'[
-             {
-               "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-                 "type": "employee",
-                 "mediaType": "application/json"
-               },
-               "firstName": "Peter",
-               "middleName": "Ivanovich",
-               "lastName": "Moyskladkin",
-               "inn": "222490425273",
-               "position": "Director"
-             },
-             {
-               "firstName": "Ivan",
-               "middleName": "Petrovich",
-               "lastName": "Moyskladkin"
-             }
-           ]'
+     -d' [
+            {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                    "type": "employee",
+                    "mediaType": "application/json"
+                },
+                "firstName": "Peter",
+                "middleName": "Ivanovich",
+                "lastName": "Moyskladkin",
+                "inn": "222490425273",
+                "position": "Director"
+            },
+            {
+                "firstName": "Ivan",
+                "middleName": "Petrovich",
+                "lastName": "Moyskladkin"
+            }
+        ]'
 ```
 
 > Response 200(application/json)
@@ -243,8 +243,8 @@ Successful request. The result is a JSON array of representations of the updated
          "mediaType": "application/json"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -255,7 +255,7 @@ Successful request. The result is a JSON array of representations of the updated
      "updated": "2018-10-17 14:51:30",
      "name": "Moyskladkin P.I.",
      "externalCode": "wNxghfHlg5n2rJGO9Lpud0",
-     archived: false
+     "archived": false,
      "created": "2018-10-17 13:25:14",
      "uid": "admin@company",
      "email": "company@mail.ru",
@@ -284,8 +284,8 @@ Successful request. The result is a JSON array of representations of the updated
          "mediaType": "application/json"
        }
      },
-     shared: true
-     group: {
+     "shared": true,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -296,7 +296,7 @@ Successful request. The result is a JSON array of representations of the updated
      "updated": "2018-10-17 14:51:30",
      "name": "Moyskladkin I.P.",
      "externalCode": "0freFxtniG9a1MNZ7ADin2",
-     archived: false
+     "archived": false,
      "created": "2018-10-17 14:51:30",
      "firstName": "Ivan",
      "middleName": "Petrovich",
@@ -338,20 +338,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1","metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-             "type": "employee",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
-             "type": "employee",
-             "mediaType": "application/json"
-         }
-       ]'
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "type": "employee",
+                "mediaType": "application/json"
+            }
+        },
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "type": "employee",
+                "mediaType": "application/json"
+            }
+        }
+    ]'
 ```
 
 > Successful request. The result is JSON information about the removal of Employees.
@@ -362,7 +365,7 @@ curl -X POST
      "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'employee' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -477,21 +480,29 @@ Successful request. The result is a JSON representation of the Employee.
    "updated": "2016-03-28 19:45:46",
    "name": "Administrator",
    "externalCode": "4A039QXHgbZdAHdXbcUI71",
-   archived: false
+   "archived": false,
    "uid": "admin@reqwy1",
    "email": "asdad@sfasf.erq",
    "lastName": "Administrator",
    "fullName": "Administrator",
    "shortFio": "Administrator",
-     {
-       "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/admins/58dfeb3e-df24-11e7-9464-e4de00000004",
-         "type": "admin",
-         "mediaType": "application/json"
-       }
-     }
-   ],
-   "retail store": {
+   "cashiers": [
+      {
+        "meta": {
+          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/8d2f2a2e-d6a1-11e7-9464-e4de00000060/cashiers/8d2f3fe1-d6a1-11e7-9464-e4de00000061",
+          "type": "cashier",
+          "mediaType": "application/json"
+        }
+      },
+      {
+        "meta": {
+          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/cashiers/58dfeb3e-df24-11e7-9464-e4de00000004",
+          "type": "cashier",
+          "mediaType": "application/json"
+        }
+      }
+    ],
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -509,7 +520,7 @@ Successful request. The result is a JSON representation of the Employee.
        "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
        "name": "AttributeName1",
        "type": "long",
-       value: 200
+       "value": 200
      }
    ],
    "inn": "222490425273",
@@ -573,8 +584,8 @@ Successful request. The result is a JSON representation of the created Employee.
        "mediaType": "application/json"
      }
    },
-   shared: true
-   group: {
+   "shared": true,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/ffbc0889-cd3a-11e8-ac12-000700000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -586,7 +597,7 @@ Successful request. The result is a JSON representation of the created Employee.
    "name": "Moyskladkin P.I.",
    "description": "Description",
    "externalCode": "tJfzU8g2hVgXFOiFGTMIe3",
-   archived: false
+   "archived": false,
    "created": "2018-10-11 17:48:37",
    "phone": "+7(999)888-7766",
    "firstName": "Peter",
@@ -666,7 +677,7 @@ Successful request. The result is a JSON representation of the updated Employee.
    "name": "Moyskladkin P.I.",
    "description": "Description",
    "externalCode": "4A039QXHgbZdAHdXbcUI71",
-   archived: false
+   "archived": false,
    "phone": "+7(999)888-7766",
    "uid": "admin@reqwy1",
    "email": "asdad@sfasf.erq",
@@ -675,15 +686,14 @@ Successful request. The result is a JSON representation of the updated Employee.
    "lastName": "Moyskladkin",
    "fullName": "Pyotr Ivanovich Moiskkin",
    "shortFio": "Moyskladkin P.I.",
-     "retail store": {
+     "retailStore": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
          "type": "retailstore",
          "mediaType": "application/json"
        }
-     }
-   },
+     },
    "attributes": [
      {
        "meta": {
@@ -694,7 +704,7 @@ Successful request. The result is a JSON representation of the updated Employee.
        "id": "d49d59bd-12dc-11e6-9464-e4de0000006b",
        "name": "AttributeName1",
        "type": "long",
-       value: 200
+       "value": 200
      },
      {
        "meta": {
@@ -720,16 +730,16 @@ employee with `System Administrator` rights.
 
 #### Entity attributes
 
-| Title | Type | Description |
-| ----- | -------- | ----------- |
+| Title | Type          | Description |
+| ----- |---------------| ----------- |
 | **authorizedHosts** | Array(String) | List of ipv4 addresses from which account access is allowed |
-| **authorizedIpNetmask** | String(255) | Subnet mask with account access rights |
-| **authorizedIpNetwork** | String(255) | Ipv4 address identifying the corresponding subnet, with the right to access the account |
-| **email** | String(255) | Employee mail |
-| **group** | object | Metadata of the Group, as well as its ID and name<br>`+Required when replying` |
-| **isActive** | Boolean | Access to Kladana<br>`+Required when replying` |
-| **login** | String(255) | Employee login to enter Kladana |
-| **role** | object | Information about the role of the Employee |
+| **authorizedIpNetmask** | String(255)   | Subnet mask with account access rights |
+| **authorizedIpNetwork** | String(255)   | Ipv4 address identifying the corresponding subnet, with the right to access the account |
+| **email** | String(255)   | Employee mail |
+| **group** | Object        | Metadata of the Group, as well as its ID and name<br>`+Required when replying` |
+| **isActive** | Boolean       | Access to Kladana<br>`+Required when replying` |
+| **login** | String(255)   | Employee login to enter Kladana |
+| **role** | Object        | Information about the role of the Employee |
 
 #### Nested entity attributes
 ##### Role
@@ -871,7 +881,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **salesReturn** | OPERATION | All ALL | Sales Return |
 | **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
-| **wom** | base | All ALL | Units of measure |
+| **uom* | base | All ALL | Units of measure |
 | **warehouse** | base | All ALL | Warehouses |
 
 For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`
@@ -1410,7 +1420,7 @@ If the tariff does not allow changing permissions and the transferred or previou
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             group: {
+             "group": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1421,10 +1431,10 @@ If the tariff does not allow changing permissions and the transferred or previou
              "authorizedHosts": [
                  "20.20.15.5"
              ],
-             role: {
+             "role": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-                     "type": "system role",
+                     "type": "systemrole",
                      "mediaType": "application/json"
                  }
              }
@@ -1436,10 +1446,10 @@ Successful request. The result is a JSON representation of updated information a
 
 ```json
 {
-     "isActive": true
+     "isActive": true,
      "login": "example@lognex",
      "email": "example@example.ru",
-     group: {
+     "group": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1454,10 +1464,10 @@ Successful request. The result is a JSON representation of updated information a
      ],
      "authorizedIpNetwork": "80.8.8.8",
      "authorizedIpNetmask": "1.8.8.8",
-     role: {
+     "role": {
          "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-             "type": "system role",
+             "type": "systemrole",
              "mediaType": "application/json"
          }
      }
@@ -1490,7 +1500,7 @@ In this case, you can use the previously set password for this user.
      -H "Content-Type: application/json"
        -d '{
              "login": "newmanager@lognex",
-             group: {
+             "group": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -1498,10 +1508,10 @@ In this case, you can use the previously set password for this user.
                      "mediaType": "application/json"
                  }
              },
-             role: {
+             "role": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/role/manager",
-                     "type": "system role",
+                     "type": "systemrole",
                      "mediaType": "application/json"
                  }
              }
@@ -1575,7 +1585,7 @@ Successful request. The result is a JSON representation of information about the
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
-     "type": "system role",
+     "type": "systemrole",
      "mediaType": "application/json"
    }
 }
@@ -1598,7 +1608,7 @@ Successful request. The result is a JSON representation of the individual role i
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/role/individual",
-     "type": "individual role",
+     "type": "individualrole",
      "mediaType": "application/json"
    }
 }

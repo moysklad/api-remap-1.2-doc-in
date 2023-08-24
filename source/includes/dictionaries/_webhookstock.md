@@ -65,7 +65,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -78,18 +78,18 @@ Successful request. The result is a JSON representation of a list of webhooks fo
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-     "type": "web hook",
+     "type": "webhookstock",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-         "type": "web hook",
+         "type": "webhookstock",
          "mediaType": "application/json"
        },
        "authorApplication" : {
@@ -111,7 +111,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-         "type": "web hook",
+         "type": "webhookstock",
          "mediaType": "application/json"
        },
        "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
@@ -125,7 +125,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d946c7ff-bbd2-11e6-8a84-bae500000005",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-         "type": "web hook",
+         "type": "webhookstock",
          "mediaType": "application/json"
        },
        "id": "d946c7ff-bbd2-11e6-8a84-bae500000005",
@@ -153,7 +153,7 @@ remnants with different **url** for users and no more than 1 for the application
      -H "Content-Type: application/json"
        -d '{
              "url": "http://www.example.com",
-             "enabled": true
+             "enabled": true,
              "reportType": "all",
              "stockType": "stock"
            }'
@@ -167,7 +167,7 @@ Successful request. The result is a JSON representation of the created webhook f
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-     "type": "web hook",
+     "type": "webhookstock",
      "mediaType": "application/json"
    },
    "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
@@ -201,7 +201,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-                 "type": "web hook",
+                 "type": "webhookstock",
                  "mediaType": "application/json"
                },
                "url": "http://www.example.com",
@@ -220,7 +220,7 @@ Successful request. The result is a JSON array of generated and updated webhooks
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-       "type": "web hook",
+       "type": "webhookstock",
        "mediaType": "application/json"
      },
      "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
@@ -234,7 +234,7 @@ Successful request. The result is a JSON array of generated and updated webhooks
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-       "type": "web hook",
+       "type": "webhookstock",
        "mediaType": "application/json"
      },
      "id": "aec51463-bbd2-11e6-8a84-bae500000003",
@@ -272,7 +272,7 @@ Successful request. The result is a JSON representation of a webhook for changin
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-     "type": "web hook",
+     "type": "webhookstock",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b19",
@@ -315,7 +315,7 @@ Successful request. The result is a JSON representation of the modified webhook 
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-     "type": "web hook",
+     "type": "webhookstock",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b19",
@@ -356,7 +356,7 @@ Successful request. The result is a JSON representation of a disabled webhook fo
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-     "type": "web hook",
+     "type": "webhookstock",
      "mediaType": "application/json"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b19",
@@ -403,14 +403,14 @@ curl -X POST
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b1",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-             "type": "web hook",
+             "type": "webhookstock",
              "mediaType": "application/json"
          },
          {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b2",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
-             "type": "web hook",
+             "type": "webhookstock",
              "mediaType": "application/json"
          }
        ]'
@@ -421,7 +421,7 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'webhookstock' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'webhookstock' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
      "info":"Entity 'webhookstock' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"

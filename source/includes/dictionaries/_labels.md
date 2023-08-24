@@ -17,11 +17,11 @@ Request for printing labels and price tags according to the template of the prin
 
 #### Request attributes
 
-| Title| Type| Description|
-| ---------| -----| ----------|
+| Title| Type                                               | Description|
+| ---------|----------------------------------------------------| ----------|
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when replying` |
-| **count** | int | Number of price tags / thermal labels. Maximum number - `1000`<br>`+Required when replying` |
-| **saleprice** | object | Selling price. [More details here](../dictionaries/#entities-print-labels-and-price-tags-request-to-print-labels-and-price-tags-selling-price)<br>`+Required when answering` |
+| **count** | Int                                                | Number of price tags / thermal labels. Maximum number - `1000`<br>`+Required when replying` |
+| **salePrice** | Object                                             | Selling price. [More details here](../dictionaries/#entities-print-labels-and-price-tags-request-to-print-labels-and-price-tags-selling-price)<br>`+Required when answering` |
 | **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required in response` `+Expand` |
 
 #### Selling price
@@ -47,45 +47,45 @@ Nested entity attributes
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
-            "organization": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/organization/107430bc-36e7-11e7-8a7f-40d000000090",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
-                "type": "organization",
-                "mediaType": "application/json",
-                "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=107430bc-36e7-11e7-8a7f-40d000000090"
+              "organization": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/organization/107430bc-36e7-11e7-8a7f-40d000000090",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                      "type": "organization",
+                      "mediaType": "application/json",
+                      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=107430bc-36e7-11e7-8a7f-40d000000090"
+                  }
+              },
+              "count": 10,
+              "salePrice": {
+                  "priceType": {
+                      "meta": {
+                          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                          "type": "pricetype",
+                          "mediaType": "application/json"
+                      }
+                  }
+              },
+              "template": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/f8e295eb-15c6-3184-b934-14fe90b3ea81",
+                      "type": "embeddedtemplate",
+                      "mediaType": "application/json"
+                  }
               }
-            },
-            "count": 10,
-            "salePrice": {
-              "priceType": {
-                "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
-                  "type": "pricetype",
-                  "mediaType": "application/json"
-                }
-              }
-            },
-            "template": {
-              "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/f8e295eb-15c6-3184-b934-14fe90b3ea81",
-                "type": "embeddedtemplate",
-                "mediaType": "application/json"
-              }
-            }
           }'  
 ```
 
 > Response 202 Headers
 
 ```json
-Location: link to print status
-   Content-Type: application/json
+  Location: link to print status,
+  Content-Type: application/json
 ```
 
 > Response 303 headers
 
 ```json
-   Location: file link
+  Location: file link,
   Content-Type: application/json
 ```

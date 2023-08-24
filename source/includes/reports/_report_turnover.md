@@ -11,11 +11,11 @@ A general Stock movement report for goods and variants without warehouses.
 
 | Title | Type | Description |
 | ---------| ----- | ----- |
-| **assortment** | object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when answering` |
-| **onPeriodStart** | object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **onPeriodEnd** | object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **income** | object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **outcome** | object | Consumption figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when answering` |
+| **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **income** | Object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **outcome** | Object | Consumption figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
 
 #### Assortment object structure
 
@@ -23,18 +23,18 @@ A general Stock movement report for goods and variants without warehouses.
 | ----- | ----- |--------- |
 | **article** | String(255) | Article of Goods |
 | **code** | String(255) | Product Code |
-| **images** | object | The first image of the Product or Modification |
+| **images** | Object | The first image of the Product or Modification |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
-| **productFolder** | object | Product Group or Modification |
-| **wom** | object | Unit of measurement |
+| **productFolder** | Object | Product Group or Modification |
+| **uom* | Object | Unit of measurement |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
 
 | Title | Type | Description |
 | ----- | ----- |-------- |
-| **sum** | float | Cost amount<br>`+Required when answering` |
-| **quantity** | float | Number of product units<br>`+Required when answering` |
+| **sum** | Float | Cost amount<br>`+Required when answering` |
+| **quantity** | Float | Number of product units<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -42,17 +42,17 @@ The report results can be filtered using the filter parameter. Only one value ca
 
 | Title | Type | Filtration | Description |
 | --------- | ---------- | --------- | ----- |
-| **agent** | object | `=` | link to the counterparty by which you want to filter. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **contract** | object | `=` | link to the contract by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **product** | object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter. |
-| **supplier** | object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
+| **agent** | Object | `=` | link to the counterparty by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **contract** | Object | `=` | link to the contract by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **product** | Object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | Enum | `=` | parameter for filtering "document type" by which you can producesti filtering. Possible values are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`. |
-| **option** | object | `=` | link to the modification by which you want to filter. |
+| **variant** | Object | `=` | link to the modification by which you want to filter. |
 | **withoutturnover** | Boolean | `=` | parameter for filtering "Show products without movement". Possible values: `true`, `false`. |
 
 Filtering examples:
@@ -127,7 +127,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -139,13 +139,13 @@ Successful request. The result is a JSON representation of the report.
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/turnover/all",
-     "type": "Stock movement report",
+     "type": "turnover",
      "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
+     "size": 3,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -158,20 +158,20 @@ Successful request. The result is a JSON representation of the report.
          "name": "product 2"
        },
        "onPeriodStart": {
-         "quantity": 0.0
-         sum: 0.0
+         "quantity": 0.0,
+         "sum": 0.0
        },
        "onPeriodEnd": {
          "quantity": 1.0,
-         sum: 0.0
+         "sum": 0.0
        },
        "income": {
          "quantity": 3.0,
-         sum: 0.0
+         "sum": 0.0
        },
        "outcome": {
          "quantity": 2.0,
-         sum: 0.0
+         "sum": 0.0
        }
      },
      {
@@ -186,20 +186,20 @@ Successful request. The result is a JSON representation of the report.
          "name": "2 (char)"
        },
        "onPeriodStart": {
-         "quantity": 0.0
-         sum: 0.0
+         "quantity": 0.0,
+         "sum": 0.0
        },
        "onPeriodEnd": {
          "quantity": 2.0,
-         sum: 20000.0
+         "sum": 20000.0
        },
        "income": {
          "quantity": 3.0,
-         sum: 30000.0
+         "sum": 30000.0
        },
        "outcome": {
          "quantity": 1.0,
-         sum: 10000.0
+         "sum": 10000.0
        }
      },
      {
@@ -235,20 +235,20 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "onPeriodStart": {
-         "quantity": 0.0
-         sum: 0.0
+         "quantity": 0.0,
+         "sum": 0.0
        },
        "onPeriodEnd": {
          "quantity": 2.0,
-         sum: 4400.0
+         "sum": 4400.0
        },
        "income": {
          "quantity": 3.0,
-         sum: 6600.0
+         "sum": 6600.0
        },
        "outcome": {
          "quantity": 1.0,
-         sum: 2200.0
+         "sum": 2200.0
        }
      }
    ]
@@ -263,8 +263,8 @@ Stock movement report by products and their variants with detalization by wareho
 
 | Title | Type | Description |
 | --------- | ------- |------- |
-| **assortment** | object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
-| **stockByStore** | object | Detailing of Stock movement report by warehouses. [Learn more](#reports-stock-movement-report-stock-movement-report-by-product-with-warehouses-details-stock-movement-report-object-structure-detailing-by-warehouses)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
+| **stockByStore** | Object | Detailing of Stock movement report by warehouses. [Learn more](#reports-stock-movement-report-stock-movement-report-by-product-with-warehouses-details-stock-movement-report-object-structure-detailing-by-warehouses)<br>`+Required when replying` |
 
 #### Assortment object structure
 
@@ -272,28 +272,28 @@ Stock movement report by products and their variants with detalization by wareho
 | --------- | ------- |--------- |
 | **article** | String(255) | Article of Goods |
 | **code** | String(255) | Product Code |
-| **images** | object | The first image of the Product or Modification |
+| **images** | Object | The first image of the Product or Modification |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
-| **productFolder** | object | Product Group or Modification |
-| **wom** | object | Unit of measurement |
+| **productFolder** | Object | Product Group or Modification |
+| **uom* | Object | Unit of measurement |
 
 #### Stock movement report object structure detailing by warehouses
 
 | Title | Type | Description |
 | --------- | ---- |------ |
-| **store** | object | Warehouse.<br>`+Required when replying` |
-| **onPeriodStart** | object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **onPeriodEnd** | object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **income** | object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **outcome** | object | Consumption figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **store** | Object | Warehouse.<br>`+Required when replying` |
+| **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **income** | Object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **outcome** | Object | Consumption figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
 
 | Title | Type | Description |
 | --------- | ------- |----- |
-| **sum** | float | Cost amount<br>`+Required when answering` |
-| **quantity** | float | Number of product units<br>`+Required when answering` |
+| **sum** | Float | Cost amount<br>`+Required when answering` |
+| **quantity** | Float | Number of product units<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -303,15 +303,15 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 
 | Title | Type | Filtration | Description |
 | --------- | ------- |------ | ------- |
-| **agent** | object | `=` | link to the counterparty by which you want to filter. |
-| **agenttag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **contract** | object | `=` | link to the contract by which you want to filter. |
-| **organization** | object | `=` | link to the legal entity by which you want to filter. |
-| **product** | object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
-| **project** | object | `=` | a link to the project by which you want to filter. |
-| **retailstore** | object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | object | `=` | a link to the warehouse by which you want to filter.|
-| **option** | object | `=` | link to the modification by which you want to filter. |
+| **agent** | Object | `=` | link to the counterparty by which you want to filter. |
+| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
+| **contract** | Object | `=` | link to the contract by which you want to filter. |
+| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
+| **product** | Object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
+| **project** | Object | `=` | a link to the project by which you want to filter. |
+| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse by which you want to filter.|
+| **variant** | Object | `=` | link to the modification by which you want to filter. |
 
 Filtering examples:
 
@@ -349,7 +349,7 @@ To successfully complete the request, one of the filtering parameters **product*
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe -11eb-c0a8-800c00000016"
+   "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -358,7 +358,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -369,14 +369,14 @@ Successful request. The result is a JSON representation of the report.
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product /66990dc7-bdfe-11eb-c0a8-800c00000016",
-     "type": "Stock movement report by store",
+     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016",
+     "type": "turnoverbystore",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -399,7 +399,7 @@ Successful request. The result is a JSON representation of the report.
        },
        "stockByStore": [
          {
-           store: {
+           "store": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -410,20 +410,20 @@ Successful request. The result is a JSON representation of the report.
              "name": "Main warehouse"
            },
            "onPeriodStart": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "onPeriodEnd": {
              "quantity": 1.0,
-             sum: 0.0
+             "sum": 0.0
            },
            "income": {
              "quantity": 3.0,
-             sum: 0.0
+             "sum": 0.0
            },
            "outcome": {
              "quantity": 2.0,
-             sum: 0.0
+             "sum": 0.0
            }
          }
        ]
@@ -450,7 +450,7 @@ Successful request. The result is a JSON representation of the report.
        },
        "stockByStore": [
          {
-           store: {
+           "store": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -461,24 +461,24 @@ Successful request. The result is a JSON representation of the report.
              "name": "Main warehouse"
            },
            "onPeriodStart": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "onPeriodEnd": {
              "quantity": 2.0,
-             sum: 20000.0
+             "sum": 20000.0
            },
            "income": {
              "quantity": 3.0,
-             sum: 30000.0
+             "sum": 30000.0
            },
            "outcome": {
              "quantity": 1.0,
-             sum: 10000.0
+             "sum": 10000.0
            }
          },
          {
-           store: {
+           "store": {
              "meta": {
                "href": "https://app.kladana.in/api/remap/1.2/entity/store/8d3d4ad8-be02-11eb-c0a8-800c00000025",
                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -489,20 +489,20 @@ Successful request. The result is a JSON representation of the report.
              "name": "warehouse 2"
            },
            "onPeriodStart": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "onPeriodEnd": {
              "quantity": -5.0,
-             sum: 0.0
+             "sum": 0.0
            },
            "income": {
-             "quantity": 0.0
-             sum: 0.0
+             "quantity": 0.0,
+             "sum": 0.0
            },
            "outcome": {
              "quantity": 5.0,
-             sum: 0.0
+             "sum": 0.0
            }
          }
        ]
@@ -513,18 +513,18 @@ Successful request. The result is a JSON representation of the report.
 
 ### Stock movement report by product with details by transactions
 
-Stock movement report for the producta and their variants with warehouses and transactions details.
+Stock movement report for the product and their variants with warehouses and transactions details.
 
 #### Report object attributes
 
 | Title | Type | Description |
 | --------- | ----- | ---------- |
-| **assortment** | object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
-| **store** | object | Warehouse.<br>`+Required when replying` |
-| **operation** | object | The document associated with the Product. [More details here](#reports-stock-movement-report-stock-movement-report-by-product-with-details-by-transactions-operation-object-structure)<br>`+Required when replying` |
-| **quantity** | float | Quantity of goods in the document.<br>`+Required when answering` |
-| **cost** | float | The cost of goods in the document.<br>`+Required when answering` |
-| **sum** | float | Cost sum.<br>`+Required when answering` |
+| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
+| **store** | Object | Warehouse.<br>`+Required when replying` |
+| **operation** | Object | The document associated with the Product. [More details here](#reports-stock-movement-report-stock-movement-report-by-product-with-details-by-transactions-operation-object-structure)<br>`+Required when replying` |
+| **quantity** | Float | Quantity of goods in the document.<br>`+Required when answering` |
+| **cost** | Float | The cost of goods in the document.<br>`+Required when answering` |
+| **sum** | Float | Cost sum.<br>`+Required when answering` |
 
 #### Assortment object structure
 
@@ -534,8 +534,8 @@ Stock movement report for the producta and their variants with warehouses and tr
 | **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
 | **code** | String(255) | Product Code |
 | **article** | String(255) | Article of Goods |
-| **productFolder** | object | Product Group or Modification |
-| **wom** | object | Unit of measurement |
+| **productFolder** | Object | Product Group or Modification |
+| **uom* | Object | Unit of measurement |
 
 #### Operation object structure
 
@@ -544,8 +544,8 @@ Stock movement report for the producta and their variants with warehouses and tr
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when replying` |
 | **name** | String(255) | Document number<br>`+Required when replying` |
 | **dedescription** | String(255) | Document comment |
-| **moment** | object | Date of the document<br>`+Required when replying` |
-| **agent** | object | Document counterparty |
+| **moment** | Object | Date of the document<br>`+Required when replying` |
+| **agent** | Object | Document counterparty |
 
 #### Attributes available for filtering
 
@@ -556,11 +556,11 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 | Title | Description |
 | --------- | ------- |
 | **agent** | link to the counterparty by which you want to filter. |
-| **agenttag** | string with the name of the group of counterparties by which you want to filter. |
+| **agentTag** | string with the name of the group of counterparties by which you want to filter. |
 | **contract** | link to the contract by which you want to filter. |
 | **organization** | link to the legal entity by which you want to filter. |
 | **project** | a link to the project by which you want to filter. |
-| **retailstore** | a link to the point of sale by which you want to filter. |
+| **retailStore** | a link to the point of sale by which you want to filter. |
 | **store** | a link to the warehouse by which you want to filter. |
 
 Filtering examples:
@@ -595,7 +595,7 @@ Request to receive the Stock movement report by product with transaction details
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe -11eb-c0a8-800c00000016"
+   "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -604,7 +604,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -615,14 +615,14 @@ Successful request. The result is a JSON representation of the report.
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product /66990dc7-bdfe-11eb-c0a8-800c00000016",
-     "type": "Stock movement report by operation",
+     "href": "https://app.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://app.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016",
+     "type": "turnoverbyoperation",
      "mediaType": "application/json",
-     size: 4
-     limit: 1000
-     offset: 0
+     "size": 4,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "assortment": {
          "meta": {
@@ -643,7 +643,7 @@ Successful request. The result is a JSON representation of the report.
            "name": "10^6 m3"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -653,7 +653,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/supply/29d1cb69-bfb7-11eb-c0a8-800d00000039",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/supply/metadata",
@@ -663,11 +663,11 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "00001",
          "moment": "2021-05-28 16:18:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/923916c6-b719-11eb-c0a8-800c00000075",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=923916c6-b719-11eb-c0a8-800c00000075"
            },
@@ -675,8 +675,8 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "quantity": 3.0,
-       cost: 0.0
-       sum: 0.0
+       "cost": 0.0,
+       "sum": 0.0
      },
      {
        "assortment": {
@@ -698,7 +698,7 @@ Successful request. The result is a JSON representation of the report.
            "name": "10^6 m3"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -708,7 +708,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/0410e6b6-bfb7-11eb-c0a8-800d0000000f",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
@@ -718,11 +718,11 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "00001",
          "moment": "2021-05-28 16:25:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/92394ebc-b719-11eb-c0a8-800c00000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=92394ebc-b719-11eb-c0a8-800c00000077"
            },
@@ -730,8 +730,8 @@ Successful request. The result is a JSON representation of the report.
          }
        },
        "quantity": -2.0,
-       cost: 0.0
-       sum: 0.0
+       "cost": 0.0,
+       "sum": 0.0
      },
      {
        "assortment": {
@@ -753,7 +753,7 @@ Successful request. The result is a JSON representation of the report.
            "name": "10^6 m3"
          }
        },
-store: {
+        "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -763,7 +763,7 @@ store: {
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/supply/5588e522-c1f1-11eb-c0a8-800c0000000c",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/supply/metadata",
@@ -773,11 +773,11 @@ store: {
          },
          "name": "00002",
          "moment": "2021-05-31 12:19:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/923916c6-b719-11eb-c0a8-800c00000075",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=923916c6-b719-11eb-c0a8-800c00000075"
            },
@@ -785,8 +785,8 @@ store: {
          }
        },
        "quantity": 3.0,
-       "cost": 10000.0
-       sum: 30000.0
+       "cost": 10000.0,
+       "sum": 30000.0
      },
      {
        "assortment": {
@@ -808,7 +808,7 @@ store: {
            "name": "10^6 m3"
          }
        },
-       store: {
+       "store": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/store/9238b396-b719-11eb-c0a8-800c00000074",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
@@ -818,7 +818,7 @@ store: {
          },
          "name": "Main warehouse"
        },
-       operation: {
+       "operation": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/5d21e1a0-c1f1-11eb-c0a8-800c00000012",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata",
@@ -828,11 +828,11 @@ store: {
          },
          "name": "00002",
          "moment": "2021-05-31 12:19:00.000",
-         agent: {
+         "agent": {
            "meta": {
              "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/92394ebc-b719-11eb-c0a8-800c00000077",
              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
+             "type": "counterparty",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#company/edit?id=92394ebc-b719-11eb-c0a8-800c00000077"
            },
@@ -841,7 +841,7 @@ store: {
        },
        "quantity": -1.0,
        "cost": -10000.0,
-       sum: -10000.0
+       "sum": -10000.0
      }
    ]
 }

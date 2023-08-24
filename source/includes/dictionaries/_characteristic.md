@@ -14,7 +14,7 @@ Using the json api, you can add new variant characteristics.
 | **type** | String(255) | Value type Characteristics, always has the value string<br>`+Required for response` `+Read-only` |
 
 You can view lists of existing characteristics in the context of metadata
-variants, for example by making a GET request to the URL http://app.kladana.in/api/remap/1.2/entity/variant/metadata or http://app.kladana.in/api/remap/1.2/entity/variant/ metadata/characteristics
+variants, for example by making a GET request to the URL https://app.kladana.in/api/remap/1.2/entity/variant/metadata or https://app.kladana.in/api/remap/1.2/entity/variant/ metadata/characteristics
 The list of variant characteristics will be displayed in the characteristics collection.
 
 ### Get metadata

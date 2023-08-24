@@ -9,28 +9,28 @@ The search among the objects of product groups to match the search string will b
 + by code Group of goods (code)
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| ----- | ------ |------- | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean | `=` `!=` | Has the Product group been added to the archive<br>`+Required when replying` `+Read-only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Product group code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description Product groups |
-| **effectiveVat** | int | | Real VAT %<br>`+Read only` |
-| **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of Product group<br>`+Required when replying` |
+| Title | Type                                               | Filtration | Description |
+| ----- |----------------------------------------------------|------- | ------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Product group been added to the archive<br>`+Required when replying` `+Read-only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product group code |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Product groups |
+| **effectiveVat** | Int                                                | | Real VAT %<br>`+Read only` |
+| **effectiveVatEnabled** | Boolean                                            | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Code of Product group<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Product Group ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Product Group ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product Group Metadata<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Product Group Name<br>`+ Mandatory forresponse` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product Group Name<br>`+ Mandatory forresponse` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **pathName** | string | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
+| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-product-group-tax-system-code) |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
-| **vat** | int | | VAT % |
-| **vatEnabled** | Boolean | | Is VAT included for the group. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for a group. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-product-group-tax-system-code) |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
+| **vat** | Int                                                | | VAT % |
+| **vatEnabled** | Boolean                                            | | Is VAT included for the group. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for a group. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
 
 ### Tax system code
 The values of the taxSystem field.
@@ -75,7 +75,7 @@ Successful request. The result is a JSON representation of the list of Product G
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -90,11 +90,11 @@ Successful request. The result is a JSON representation of the list of Product G
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productFolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
@@ -112,8 +112,8 @@ Successful request. The result is a JSON representation of the list of Product G
            "mediaType": "application/json"
          }
        },
-       shared: false
-       group: {
+       "shared": false,
+       "group": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -125,7 +125,7 @@ Successful request. The result is a JSON representation of the list of Product G
        "name": "Vegetables",
        "code": "13321Fruits1",
        "externalCode": "mRQao-5IgY3soIY1EaI083",
-       archived: false
+       "archived": false,
        "pathName": "",
        "vatEnabled": false,
        "useParentVat": true
@@ -143,10 +143,10 @@ Successful request. The result is a JSON representation of the list of Product G
        "name": "Fruits",
        "code": "13321Fruits",
        "externalCode": "extFruits",
-       archived: false
+       "archived": false,
        "pathName": "",
-       vat: 3,
-       "vatEnabled": true
+       "vat": 3,
+       "vatEnabled": true,
        "useParentVat": false,
        "effectiveVat": 3,
        "effectiveVatEnabled": true,
@@ -198,8 +198,8 @@ Successful request. The result is a JSON representation of the created Product G
        "mediaType": "application/json"
      }
    },
-   shared:false,
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -211,7 +211,7 @@ Successful request. The result is a JSON representation of the created Product G
    "name": "Vegetables",
    "code": "13321Fruits1",
    "externalCode": "mRQao-5IgY3soIY1EaI083",
-   archived: false
+   "archived": false,
    "pathName": "",
    "vatEnabled": false,
    "useParentVat": true
@@ -255,8 +255,8 @@ Successful request. The result is a JSON representation of the created Product G
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -268,10 +268,10 @@ Successful request. The result is a JSON representation of the created Product G
    "name": "Fruits",
    "code": "13321Fruits",
    "externalCode": "extFruits",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 3,
-   "vatEnabled": true
+   "vat": 3,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 3,
    "effectiveVatEnabled": true
@@ -304,7 +304,7 @@ Updated Product Groups must contain the identifier in the form of metadata.
                "name": "Group Vegetables",
                "code": "vegetableFolderCode",
                "externalCode": "extVegCode",
-               vat: 5,
+               "vat": 5,
                "effectiveVat": 5
              }
            ]'
@@ -332,8 +332,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -345,10 +345,10 @@ Successful request. The result is a JSON array of representations of the created
      "name": "Vegetables",
      "code": "13321Fruits1",
      "externalCode": "mRQao-5IgY3soIY1EaI083",
-     archived: false
+     "archived": false,
      "pathName": "",
      "vatEnabled": false,
-     "useParentVat": true,
+     "useParentVat": true
    },
    {
      "meta": {
@@ -367,8 +367,8 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
-     shared: false
-     group: {
+     "shared": false,
+     "group": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -380,10 +380,10 @@ Successful request. The result is a JSON array of representations of the created
      "name": "Group Vegetables",
      "code": "vegetableFolderCode",
      "externalCode": "extVegCode",
-     archived: false
+     "archived": false,
      "pathName": "",
-     vat: 5,
-     "vatEnabled": true
+     "vat": 5,
+     "vatEnabled": true,
      "useParentVat": false,
      "effectiveVat": 5,
      "effectiveVatEnabled": true
@@ -423,21 +423,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-             "type": "productfolder",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
-             "type": "productfolder",
-             "mediaType": "application/json"
-         }
-       ]'
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                  "type": "productfolder",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                  "type": "productfolder",
+                  "mediaType": "application/json"
+              }
+          }
+      ]'
 ```
 
 > Successful request. Result - JSON information about deleting Product Groups.
@@ -445,10 +447,10 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
-     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 was deleted successfully"
+     "info":"Entity 'productfolder' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
    }
 ]
 ```
@@ -567,8 +569,8 @@ Successful request. The result is a JSON representation of the Product Group.
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -580,10 +582,10 @@ Successful request. The result is a JSON representation of the Product Group.
    "name": "Vegetables",
    "code": "13321Fruits1",
    "externalCode": "mRQao-5IgY3soIY1EaI083",
-   archived: false
+   "archived": false,
    "pathName": "",
    "vatEnabled": false,
-   "useParentVat": true,
+   "useParentVat": true
 }
 ```
 
@@ -612,7 +614,7 @@ To update the **pathName** field, you need to update the link to the parent Prod
              "name": "Group Vegetables",
              "code": "vegetableFolderCode",
              "externalCode": "extVegCode",
-             vat: 5,
+             "vat": 5,
              "effectiveVat": 5
            }'
 ```
@@ -638,8 +640,8 @@ Successful request. The result is a JSON representation of the updated Product G
        "mediaType": "application/json"
      }
    },
-   shared: false
-   group: {
+   "shared": false,
+   "group": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -651,10 +653,10 @@ Successful request. The result is a JSON representation of the updated Product G
    "name": "Group Vegetables",
    "code": "vegetableFolderCode",
    "externalCode": "extVegCode",
-   archived: false
+   "archived": false,
    "pathName": "",
-   vat: 5,
-   "vatEnabled": true
+   "vat": 5,
+   "vatEnabled": true,
    "useParentVat": false,
    "effectiveVat": 5,
    "effectiveVatEnabled": true

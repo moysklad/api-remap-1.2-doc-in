@@ -30,59 +30,59 @@ The fourth search condition for the fields of all contact persons of the counter
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| -------- | ------- | -------- | -------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts** | MetaArray | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
-| **actualAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull** | object | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
-| **archived** | Boolean | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
-| **bonus points** | int | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusprogram** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor Code |
-| **companyType** | Enum | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
-| **contactpersons** | MetaArray | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
-| **discountCardNumber** | String(255) | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
-| **discounts** | Array(Object) || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
-| **email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
-| **fax** | String(255) | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
-| **notes** | MetaArray | | Array of Counterparty incidents. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **phone** | String(255) | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType** | object | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
-| **salesAmount** | int | | Amount of sales<br>`+Required when replying` `+Read only` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
-| **tags** | Array(String) | `=` `!=` | Account groups |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| Title                  | Type                                               | Filtration | Description |
+|------------------------|----------------------------------------------------| -------- | -------- |
+| **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
+| **actualAddress**      | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
+| **actualAddressFull**  | object                                             | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
+| **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
+| **attributes**         | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
+| **bonusPoints**        | int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
+| **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
+| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor Code |
+| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
+| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
+| **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
+| **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
+| **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
+| **discounts**          | Array(Object)                                      || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
+| **email**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | Email address |
+| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
+| **fax**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Fax number |
+| **files**              | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id**                 | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
+| **meta**               | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
+| **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
+| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
+| **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
+| **priceType**          | object                                             | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
+| **salesAmount**        | int                                                | | Amount of sales<br>`+Required when replying` `+Read only` |
+| **shared**             | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
+| **syncId**             | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
+| **tags**               | Array(String)                                      | `=` `!=` | Account groups |
+| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
 
 ##### Detail fields
 
-| Title | Type | Filtration | Description |
-| ----- | ------ | ------ | ---- |
-| **certificatedate** | datetime | | Date of certificate |
-| **certificateNumber** | String(255) | | Certificate number |
-| **inn** | String(255) | `=` `!=` `~` `~=` `=~` | TIN |
-| **kpp** | String(255) | `=` `!=` `~` `~=` `=~` | Checkpoint |
-| **legalAddress** | String(255) | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
-| **legalAddressFull** | object | | Legal address of the Counterparty with details on individual fields|
-| **legalFirstName** | String(255) | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName** | String(255) | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | String(255) | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legal title** | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty of the type `[Legal entity]`. Ignored for Counterparties of type `[Individual entrepreneur, Individual]`, if one of the values for full name is passed and is generated automatically based on the received full name of the Counterparty |
-| **ogrn** | String(255) | | OGRN |
-| **ogrnip** | String(255) | | OGRNIP |
-| **okpo** | String(255) | | OKPO |
+| Title                 | Type         | Filtration | Description |
+|-----------------------|--------------| ------ | ---- |
+| **certificateDate**   | DateTime     | | Date of certificate |
+| **certificateNumber** | String(255)  | | Certificate number |
+| **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | TIN |
+| **kpp**               | String(255)  | `=` `!=` `~` `~=` `=~` | Checkpoint |
+| **legalAddress**      | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
+| **legalAddressFull**  | object       | | Legal address of the Counterparty with details on individual fields|
+| **legalFirstName**    | String(255)  | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName**     | String(255)  | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName**   | String(255)  | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalTitle**        | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty of the type `[Legal entity]`. Ignored for Counterparties of type `[Individual entrepreneur, Individual]`, if one of the values for full name is passed and is generated automatically based on the received full name of the Counterparty |
+| **ogrn**              | String(255)  | | OGRN |
+| **ogrnip**            | String(255)  | | OGRNIP |
+| **okpo**              | String(255)  | | OKPO |
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
@@ -111,46 +111,46 @@ To delete an address, you need to pass an empty string `""` to the string field 
 
 ##### Accounts of Counterparties
 
-| Title | Type | Description |
-| ------| ------- | ------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **accountNumber** | String(255) | Account number<br>`+Required when replying` `+Required when creating` |
-| **bankLocation** | String(255) | Bank address |
-| **bankName** | String(255) | Bank name |
-| **bic** | String(255) | BIC |
-| **correspondentAccount** | String(255) | Corr account |
-| **id** | UUID | Account ID<br>`+Required when replying` `+Read only` |
-| **isDefault** | Boolean | Is the account the main account of the Counterparty<br>`+Required when answering` |
+| Title | Type                                               | Description |
+| ------|----------------------------------------------------| ------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountNumber** | String(255)                                        | Account number<br>`+Required when replying` `+Required when creating` |
+| **bankLocation** | String(255)                                        | Bank address |
+| **bankName** | String(255)                                        | Bank name |
+| **bic** | String(255)                                        | BIC |
+| **correspondentAccount** | String(255)                                        | Corr account |
+| **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
+| **isDefault** | Boolean                                            | Is the account the main account of the Counterparty<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when replying` |
-| **updated** | datetime | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime                                           | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
 
 ##### Contact persons of Counterparties
 
-| Title | Type | Description |
-| ------ | ------ | ------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------| ------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required when replying` `+Expand` |
-| **description** | String(4096) | Description of the contact person |
-| **email** | String(255) | Email address of the contact person |
-| **externalCode** | String(255) | External contact code |
-| **id** | UUID | Contact ID<br>`+Required when replying` `+Read only` |
+| **description** | String(4096)                                       | Description of the contact person |
+| **email** | String(255)                                        | Email address of the contact person |
+| **externalCode** | String(255)                                        | External contact code |
+| **id** | UUID                                               | Contact ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Contact person of the Counterparty<br>`+Required when replying` |
-| **name** | String(255) | Name of the contact person<br>`+Required when replying` `+Required when creating` |
-| **phone** | String(255) | Phone number of the contact person |
-| **position** | String(255) | Item of contact person |
-| **updated** | datetime | Moment of last update<br>`+Required when replying` `+Read Only` |
+| **name** | String(255)                                        | Name of the contact person<br>`+Required when replying` `+Required when creating` |
+| **phone** | String(255)                                        | Phone number of the contact person |
+| **position** | String(255)                                        | Item of contact person |
+| **updated** | DateTime                                           | Moment of last update<br>`+Required when replying` `+Read Only` |
 
 ##### Account incidents
 
-| Title | Type | Description |
-| ------ | ----- | ----- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Description |
+| ------ |----------------------------------------------------| ----- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required for response` `+Read-only` `+Expand` |
 | **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
-| **created** | datetime | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
-| **description** | String(4096) | Contractor incident text<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | incident ID<br>`+Required for response` `+Read only` |
+| **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
+| **description** | String(4096)                                       | Contractor incident text<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | incident ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required for response` |
 
 #### Counterparty type
@@ -165,43 +165,43 @@ Counterparty types and corresponding values that can be passed in this field:
 
 If the counterparty type is `Legal entity`, the following fields of details will be displayed:
 
-| Title | Description |
-| ---------------- | ------------------------------- |
-| **inn** | TIN |
-| **kpp** | Checkpoint |
+| Title            | Description |
+|------------------| ------------------------------- |
+| **inn**          | TIN |
+| **kpp**          | Checkpoint |
 | **legalAddress** | Legal address of the Counterparty |
-| **legal title** | Full name of the Counterparty |
-| **ogrn** | OGRN |
-| **okpo** | OKPO |
-| **tags** | Groups (array) |
+| **legalTitle**   | Full name of the Counterparty |
+| **ogrn**         | OGRN |
+| **okpo**         | OKPO |
+| **tags**         | Groups (array) |
 
 If the counterparty type is `Individual Entrepreneur`, the following fields of details will be displayed:
 
-| Title | Description |
-| ------| -------- |
-| **certificatedate** | Date of certificate |
+| Title                 | Description |
+|-----------------------| -------- |
+| **certificateDate**   | Date of certificate |
 | **certificateNumber** | Certificate number |
-| **inn** | TIN |
-| **legalAddress** | Legal address of the Counterparty |
-| **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName** | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for counterparties of type `[Legal entity]` |
-| **legalLastName** | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legal title** | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
-| **ogrnip** | OGRNIP |
-| **okpo** | OKPO |
+| **inn**               | TIN |
+| **legalAddress**      | Legal address of the Counterparty |
+| **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
+| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for counterparties of type `[Legal entity]` |
+| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalTitle**        | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
+| **ogrnip**            | OGRNIP |
+| **okpo**              | OKPO |
 
 If the counterparty type is `Individual`, the following fields of details will be displayed:
 
-| Title | Description |
-| ------| ------- |
-| **inn** | TIN |
-| **legalAddress** | Legal address of the Counterparty |
+| Title                | Description |
+|----------------------| ------- |
+| **inn**              | TIN |
+| **legalAddress**     | Legal address of the Counterparty |
 | **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName** | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName** | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legal title** | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
+| **legalFirstName**   | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName**    | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalMiddleName**  | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalTitle**       | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
 
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -221,9 +221,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
  
  ```json
 {  
-  "context":{  
-    "employee":{  
-      "meta":{  
+  "context": {  
+    "employee": {  
+      "meta": {  
         "href":"https://app.kladana.in/api/remap/1.2/context/employee",
         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type":"employee",
@@ -231,7 +231,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
       }
     }
   },
-  "meta":{  
+  "meta": {  
     "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty",
     "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
     "type":"counterparty",
@@ -240,9 +240,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
     "limit":1000,
     "offset":0
   },
-  "rows":[  
+  "rows": [  
     {  
-      "meta":{  
+      "meta": {  
         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type":"counterparty",
@@ -250,17 +250,17 @@ Successful request. The result is a JSON representation of the list of Counterpa
       },
       "id":"12a8b923-692c-11e6-8a84-bae500000053",
       "accountId":"1185513e-692c-11e6-8a84-bae500000001",
-      "owner":{  
-        "meta":{  
+      "owner": {  
+        "meta": {  
           "href":"https://app.kladana.in/api/remap/1.2/entity/employee/12747f9e-692c-11e6-8a84-bae50000002a",
           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type":"employee",
           "mediaType":"application/json"
         }
       },
-      "shared":false,
-      "group":{  
-        "meta":{  
+      "shared": false,
+      "group": {  
+        "meta": {  
           "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
           "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/group/metadata",
           "type":"group",
@@ -270,14 +270,14 @@ Successful request. The result is a JSON representation of the list of Counterpa
       "updated":"2016-08-23 15:21:09",
        "name":"LLC \"Supplier\"",
        "externalCode":"aZBfWOKzj-lcq7c7IWZON3",
-       "archived":false,
+       "archived": false,
        "created":"2007-02-07 17:16:41",
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Supplier\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
-      "legalAddressFull":{  
+      "legalAddressFull": {  
         "postalCode":"125009",
-        "country":{  
+        "country": {  
           "meta":{  
             "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
             "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
@@ -297,7 +297,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -323,7 +323,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
       },
       "inn":"7736570901",
@@ -407,7 +407,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
           "mediaType":"application/json"
         }
       },
-      "shared":false,
+      "shared": false,
       "created":"2007-02-07 17:16:41",
       "group":{  
         "meta":{  
@@ -420,7 +420,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
      "updated":"2016-08-23 15:21:09",
        "name":"OOO \"Buyer\"",
        "externalCode":"DTItQRbDhyl472ZqC5OWw2",
-       "archived":false,
+       "archived": false,
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Buyer\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -446,7 +446,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -472,7 +472,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "inn":"7736570902",
@@ -493,7 +493,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -516,7 +516,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counter party",
+         "type":"counterparty",
          "mediaType":"application/json"
        },
        "id":"12c9ebcf-692c-11e6-8a84-bae50000005d",
@@ -529,7 +529,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "mediaType":"application/json"
          }
        },
-       "shared":false,
+       "shared": false,
        "group":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -541,7 +541,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "updated":"2016-08-23 15:21:09",
        "name":"Retail customer",
        "externalCode":"lBvYwLWMiBsct7sVRrFnJ2",
-       "archived":false,
+       "archived": false,
        "created":"2007-02-07 17:16:41",
        "companyType":"legal",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -567,7 +567,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -577,7 +577,8 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "meta":{
              "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-             "type":"country","mediaType":"application/json"
+             "type":"country",
+             "mediaType":"application/json"
            }
          },
          "region":{
@@ -592,7 +593,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "accounts":{
@@ -611,7 +612,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -634,7 +635,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type":"counter party",
+         "type":"counterparty",
          "mediaType":"application/json"
        },
        "id":"df2fdd2d-6934-11e6-8a84-bae500000049",
@@ -647,7 +648,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
            "mediaType":"application/json"
          }
        },
-       "shared":false
+       "shared": false,
        "group":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -659,7 +660,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "updated":"2016-08-23 16:24:08",
        "name":"trtr",
        "externalCode":"rRlzrdZmjql9r9dveXPE43",
-       "archived":false,
+       "archived": false,
        "created":"2007-02-07 17:16:41",
        "companyType":"legal",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -685,7 +686,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"123",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -711,7 +712,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "street": "Tverskaya street",
          "house":"1",
          "apartment":"111",
-         "addinfo":"addinfo",
+         "addInfo":"addinfo",
          "comment":"some words about address"
        },
        "accounts":{
@@ -730,7 +731,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "contactpersons":{
          "meta":{
            "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049/contactpersons",
-           "type":"contact person",
+           "type":"contactperson",
            "mediaType":"application/json",
            "size":0,
            "limit":1000,
@@ -798,39 +799,40 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d '{
-     "name": "OOO Rainbow",
-     "description": "Building materials chain Raduga EXPO",
-     "code": "rainbowCode",
-     "externalCode": "extRainbw",
-     "email": "raduga@stroi.ru",
-     "phone": "+7 495 331 22 33",
-     "fax": "1257752",
-     "actualAddress": "Moscow, Academician Mil street, 15/21",
-     "legalTitle": "Limited Liability Company \"Rainbow\"",
-     "legalAddress": "Moscow, Aviastroiteley street 93/12",
-     "inn": "125152124152",
-     "kpp": "12155521",
-     "ogrn": "1251512",
-     "okpo": "201355",
-     "tags": [
-       "Builders",
-       "Rainbow",
-       "Repair"
-     ],
-     state: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
-         "type": "state",
-         "mediaType": "application/json"
-       }
-     },
-     "priceType": {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222","type": "pricetype",
-         "mediaType": "application/json"
-       }
-     }
-   }'
+    "name": "OOO Rainbow",
+    "description": "Building materials chain Raduga EXPO",
+    "code": "rainbowCode",
+    "externalCode": "extRainbw",
+    "email": "raduga@stroi.ru",
+    "phone": "+7 495 331 22 33",
+    "fax": "1257752",
+    "actualAddress": "Moscow, Academician Mil street, 15/21",
+    "legalTitle": "Limited Liability Company \"Rainbow\"",
+    "legalAddress": "Moscow, Aviastroiteley street 93/12",
+    "inn": "125152124152",
+    "kpp": "12155521",
+    "ogrn": "1251512",
+    "okpo": "201355",
+    "tags": [
+        "Builders",
+        "Rainbow",
+        "Repair"
+    ],
+    "state": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+            "type": "state",
+            "mediaType": "application/json"
+        }
+    },
+    "priceType": {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+            "type": "pricetype",
+            "mediaType": "application/json"
+        }
+    }
+}'
 ```
 
 > Response 200. Successful request. The result is a JSON representation of the created Counterparty.
@@ -853,7 +855,7 @@ curl -X POST
       "mediaType":"application/json"
     }
   },
-  "shared":false,
+  "shared": false,
   "group":{  
     "meta":{  
       "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -865,7 +867,7 @@ curl -X POST
   "updated":"2016-09-01 18:28:22",
   "name":"Company LLC",
   "externalCode":"o7732zkki541HDkZZD1Yt3",
-  "archived":false,
+  "archived": false,
   "companyType":"legal",
   "accounts":{  
     "meta":{  
@@ -949,7 +951,7 @@ curl -X POST
       "mediaType":"application/json"
     }
   },
-  "shared":false,
+  "shared": false,
   "group":{  
     "meta":{  
       "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -961,7 +963,7 @@ curl -X POST
   "updated":"2016-09-01 18:28:22",
   "name":"Company LLC",
   "externalCode":"o7732zkki541HDkZZD1Yt3",
-  "archived":false,
+  "archived": false,
   "created":"2007-02-07 17:16:41",
   "companyType":"legal",
   "accounts":{  
@@ -1013,21 +1015,21 @@ curl -X POST
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '{
-        "name": "Ivanov LLC",
-        "code" : "someCode",
-        "externalCode" : "extCode",
-        "companyType": "entrepreneur",
-        "legalLastName": "Ivanov",
-        "legalFirstName": "Ivan",
-        "legalMiddleName": "Ivanovich",
-        "actualAddress": "Moscow, Academician Mil street, 15/21",
-         "legalAddress": "Moscow, Aviastroiteley street 93/12",
-         "inn": "87654321",
-         "kpp": "15312532",
-         "ogrn": "12345",
-         "okpo": "12345",
-         "ogrnip": "58632598y21jk"
-       }'
+    "name": "Ivanov LLC",
+    "code": "someCode",
+    "externalCode": "extCode",
+    "companyType": "entrepreneur",
+    "legalLastName": "Ivanov",
+    "legalFirstName": "Ivan",
+    "legalMiddleName": "Ivanovich",
+    "actualAddress": "Moscow, Academician Mil street, 15/21",
+    "legalAddress": "Moscow, Aviastroiteley street 93/12",
+    "inn": "87654321",
+    "kpp": "15312532",
+    "ogrn": "12345",
+    "okpo": "12345",
+    "ogrnip": "58632598y21jk"
+}'
 ```
 > Response 200. Successful request. The result is a JSON representation of the created Counterparty.
 
@@ -1065,7 +1067,7 @@ curl -X POST
    "name": "IP Ivanov",
    "code": "someCode",
    "externalCode": "extCode",
-   archived: false
+   "archived": false,
    "created": "2020-06-17 18:21:53",
    "companyType": "entrepreneur",
    "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
@@ -1133,113 +1135,113 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d '{
-   "name":"Vegetable Express LLC",
-   "description":"Vegetable Delivery Network",
-   "code":"ovoshexpressCode",
-   "externalCode":"extVagetable",
-   "email":"ovosh@delivery.ru",
-   "phone":"+7 495 662 12 23",
-   "fax":"1052034",
-   "legalTitle":"Limited Liability Company \"Vegetable Express\"",
-   "legalAddressFull":{
-     "postalCode":"125009",
-     "country":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type":"country",
-         "mediaType":"application/json"
-       }
-     },
-     "region":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type":"region",
-         "mediaType":"application/json"
-       }
-     },
-     "city":"Moscow",
-     "street": "Tverskaya street",
-     "house":"1",
-     "apartment":"123",
-     "addinfo":"addinfo",
-     "comment":"some words about address"
-   },
-   "actualAddressFull":{
-     "postalCode":"125009",
-     "country":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type":"country",
-         "mediaType":"application/json"
-       }
-     },
-     "region":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type":"region",
-         "mediaType":"application/json"
-       }
-     },
-     "city":"Moscow",
-     "street": "Tverskaya street",
-     "house":"1",
-     "apartment":"111",
-     "addinfo":"addinfo",
-     "comment":"some words about address"
-   },
-   "inn":"1251521244152",
-   "kpp":"121555212",
-   "ogrn":"1251552",
-   "okpo":"201323",
-   "tags":[
-     "Vegetables",
-     "Food",
-     "Delivery"
-   ],
-   "attributes":[
-     {
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
-         "type":"attributemetadata",
-         "mediaType":"application/json"
-       },
-       "name":"AttributeName1",
-       "type":"double",
-       "value":0.75
-     },
-     {
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
-         "type":"attributemetadata",
-         "mediaType":"application/json"
-       },
-       "name":"AttributeName2",
-       "type":"time",
-       "value":"2016-06-07 12:52:33"
-     },
-     {
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
-         "type":"attributemetadata",
-         "mediaType":"application/json"
-       },
-       "name":"AttributeName3",
-       "type":"boolean",
-       "value":false
-     }
-   ],
-   "state":{
-     "meta":{
-       "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
-       "type":"state",
-       "mediaType":"application/json"
-     }
-   }
-}'
+          "name": "Vegetable Express LLC",
+          "description": "Vegetable Delivery Network",
+          "code": "ovoshexpressCode",
+          "externalCode": "extVagetable",
+          "email": "ovosh@delivery.ru",
+          "phone": "+7 495 662 12 23",
+          "fax": "1052034",
+          "legalTitle": "Limited Liability Company \"Vegetable Express\"",
+          "legalAddressFull": {
+              "postalCode": "125009",
+              "country": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                      "type": "country",
+                      "mediaType": "application/json"
+                  }
+              },
+              "region": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                      "type": "region",
+                      "mediaType": "application/json"
+                  }
+              },
+              "city": "Moscow",
+              "street": "Tverskaya street",
+              "house": "1",
+              "apartment": "123",
+              "addInfo": "addinfo",
+              "comment": "some words about address"
+          },
+          "actualAddressFull": {
+              "postalCode": "125009",
+              "country": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                      "type": "country",
+                      "mediaType": "application/json"
+                  }
+              },
+              "region": {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                      "type": "region",
+                      "mediaType": "application/json"
+                  }
+              },
+              "city": "Moscow",
+              "street": "Tverskaya street",
+              "house": "1",
+              "apartment": "111",
+              "addInfo": "addinfo",
+              "comment": "some words about address"
+          },
+          "inn": "1251521244152",
+          "kpp": "121555212",
+          "ogrn": "1251552",
+          "okpo": "201323",
+          "tags": [
+              "Vegetables",
+              "Food",
+              "Delivery"
+          ],
+          "attributes": [
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
+                      "type": "attributemetadata",
+                      "mediaType": "application/json"
+                  },
+                  "name": "AttributeName1",
+                  "type": "double",
+                  "value": 0.75
+              },
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
+                      "type": "attributemetadata",
+                      "mediaType": "application/json"
+                  },
+                  "name": "AttributeName2",
+                  "type": "time",
+                  "value": "2016-06-07 12:52:33"
+              },
+              {
+                  "meta": {
+                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
+                      "type": "attributemetadata",
+                      "mediaType": "application/json"
+                  },
+                  "name": "AttributeName3",
+                  "type": "boolean",
+                  "value": false
+              }
+          ],
+          "state": {
+              "meta": {
+                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                  "type": "state",
+                  "mediaType": "application/json"
+              }
+          }
+      }'
 ```
 
 > Response 200. Successful request. The result is a JSON representation of the created Counterparty.
@@ -1249,7 +1251,7 @@ curl -X POST
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"88fc07ac-2c8d-11e6-8a84-bae500000050",
@@ -1262,7 +1264,7 @@ curl -X POST
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -1276,7 +1278,7 @@ curl -X POST
    "description":"Vegetable Delivery Network",
    "code":"ovoshexpressCode",
    "externalCode":"extVagetable",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
    "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -1302,7 +1304,7 @@ curl -X POST
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -1328,7 +1330,7 @@ curl -X POST
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251521244152",
@@ -1370,7 +1372,7 @@ curl -X POST
        "id":"0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
        "name":"AttributeName3",
        "type":"boolean",
-       "value":false
+       "value": false
      }
    ],
    "accounts":{
@@ -1391,7 +1393,7 @@ curl -X POST
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -1428,70 +1430,71 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-   {
-     "name":"OOO Rainbow",
-     "description":"Building materials chain Raduga EXPO",
-     "code":"rainbowCode",
-     "externalCode":"extRainbw",
-     "email": "raduga@stroi.ru",
-     "phone":"+7 495 331 22 33",
-     "fax":"1257752",
-     "actualAddress": "Moscow, Academician Mil street, 15/21",
-     "legalTitle":"Limited Liability Company \"Rainbow\"",
-     "legalAddress": "Moscow, Aviastroiteley street 93/12",
-     "inn":"125152124152",
-     "kpp":"12155521",
-     "ogrn":"1251512",
-     "okpo":"201355",
-     "tags":[
-       "Builders",
-       "Rainbow","Repair"
-     ],
-     "state":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
-         "type":"state",
-         "mediaType":"application/json"
-       }
-     },
-     "priceType":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
-         "type":"pricetype",
-         "mediaType":"application/json"
-       }
-     }
-   },
-   {
-     "meta":{
-       "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
-       "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
-       "mediaType":"application/json"
-     },
-     "name":"Raduga EXPO LLC",
-     "description":"Network of building materials markets Raduga EXPO",
-     "code":"rainbow",
-     "externalCode":"extRainbow",
-     "email": "raduga@retail.ru",
-     "phone":"+7 495 162 32 23",
-     "fax":"1052054",
-     "actualAddress": "Moscow, Stroiteley st. 331",
-     "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
-     "legalAddress": "Moscow, Chernorabochego street 93/12",
-     "inn":"1251581244152",
-     "kpp":"121557212",
-     "ogrn":"1253552",
-     "okpo":"201313",
-     "tags":[
-       "Builders",
-       "Repair",
-       "Rainbow",
-       "Concrete",
-       "BURN"
-     ]
-   }
-]'
+        {
+            "name": "OOO Rainbow",
+            "description": "Building materials chain Raduga EXPO",
+            "code": "rainbowCode",
+            "externalCode": "extRainbw",
+            "email": "raduga@stroi.ru",
+            "phone": "+7 495 331 22 33",
+            "fax": "1257752",
+            "actualAddress": "Moscow, Academician Mil street, 15/21",
+            "legalTitle": "Limited Liability Company \"Rainbow\"",
+            "legalAddress": "Moscow, Aviastroiteley street 93/12",
+            "inn": "125152124152",
+            "kpp": "12155521",
+            "ogrn": "1251512",
+            "okpo": "201355",
+            "tags": [
+                "Builders",
+                "Rainbow",
+                "Repair"
+            ],
+            "state": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
+                    "type": "state",
+                    "mediaType": "application/json"
+                }
+            },
+            "priceType": {
+                "meta": {
+                    "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                    "type": "pricetype",
+                    "mediaType": "application/json"
+                }
+            }
+        },
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                "type": "counterparty",
+                "mediaType": "application/json"
+            },
+            "name": "Raduga EXPO LLC",
+            "description": "Network of building materials markets Raduga EXPO",
+            "code": "rainbow",
+            "externalCode": "extRainbow",
+            "email": "raduga@retail.ru",
+            "phone": "+7 495 162 32 23",
+            "fax": "1052054",
+            "actualAddress": "Moscow, Stroiteley st. 331",
+            "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
+            "legalAddress": "Moscow, Chernorabochego street 93/12",
+            "inn": "1251581244152",
+            "kpp": "121557212",
+            "ogrn": "1253552",
+            "okpo": "201313",
+            "tags": [
+                "Builders",
+                "Repair",
+                "Rainbow",
+                "Concrete",
+                "BURN"
+            ]
+        }
+    ]'
 ```
 
 > Response 200. Successful request. The result is a JSON array of representations of created and updated Accounts.
@@ -1502,7 +1505,7 @@ curl -X POST
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
+       "type":"counterparty",
        "mediaType":"application/json"
      },
      "id":"b80ea81b-7058-11e6-8a84-bae500000000",
@@ -1515,7 +1518,7 @@ curl -X POST
          "mediaType":"application/json"
        }
      },
-     "shared":false
+     "shared": false,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -1527,7 +1530,7 @@ curl -X POST
      "updated":"2016-09-01 18:28:22",
      "name":"OOO Rainbow",
      "externalCode":"o7732zkki541HDkZZD1Yt3",
-     "archived":false,
+     "archived": false,
      "companyType":"legal",
      "accounts":{
        "meta":{
@@ -1545,7 +1548,7 @@ curl -X POST
      "contactpersons":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
-         "type":"contact person",
+         "type":"contactperson",
          "mediaType":"application/json",
          "size":0,
          "limit":1000,
@@ -1581,7 +1584,7 @@ curl -X POST
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type":"counter party",
+       "type":"counterparty",
        "mediaType":"application/json"
      },
      "id":"6a9c3857-2c8b-11e6-8a84-bae500000047",
@@ -1594,7 +1597,7 @@ curl -X POST
          "mediaType":"application/json"
        }
      },
-     "shared":false
+     "shared": false,
      "group":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -1608,7 +1611,7 @@ curl -X POST
      "description":"Network of building materials markets Raduga EXPO",
      "code":"rainbow",
      "externalCode":"extRainbow",
-     "archived":false,
+     "archived": false,
      "created":"2007-02-07 17:16:41",
      "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
      "legalAddress": "Moscow, Chernorabochego street 93/12",
@@ -1632,7 +1635,7 @@ curl -X POST
      },
      "tags":[
        "burning",
-       "builders"
+       "builders",
        "concrete",
        "repair",
        "rainbow"
@@ -1640,7 +1643,7 @@ curl -X POST
      "contactpersons":{
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
-         "type":"contact person",
+         "type":"contactperson",
          "mediaType":"application/json",
          "size":0,
          "limit":1000,
@@ -1696,21 +1699,21 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-             "type": "counter party",
-             "mediaType": "application/json"
-         }
-       ]'
+    {
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b1",
+            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+            "type": "counterparty",
+            "mediaType": "application/json"
+        },
+        "meta": {
+            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b2",
+            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+            "type": "counterparty",
+            "mediaType": "application/json"
+        }
+    }
+]'
 ```
 
 > Successful request. Result - JSON information about deleting Counterparties.
@@ -1718,7 +1721,7 @@ curl -X POST
 ```json
 [
    {
-     "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 deleted successfully"
+     "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b1 successfully deleted"
    },
    {
      "info":"Entity 'counterparty' with UUID: 7944ef04-f831-11e5-7a69-971500188b2 successfully deleted"
@@ -1750,7 +1753,7 @@ curl -X GET
        "id":"5290a290-0313-11e6-9464-e4de00000020",
        "name":"AttributeName1",
        "type":"boolean",
-       "required":false
+       "required": false
      }
    ],
    "state":[
@@ -1758,7 +1761,7 @@ curl -X GET
        "meta":{
          "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/states/fb56c504-2e58-11e6-8a84-bae500000069",
          "type":"state",
-         "mediatype":"application/json"
+         "mediaType":"application/json"
        },
        "id":"fb56c504-2e58-11e6-8a84-bae500000069",
        "accountId":"f976ed28-2e58-11e6-8a84-bae500000001",
@@ -1782,10 +1785,10 @@ curl -X GET
      }
    ],
    "tags":[
-     "Suppliers"
+     "Suppliers",
      "Buyers"
    ],
-   "createShared":false
+   "createShared": false
 }
 ```
 
@@ -1859,7 +1862,7 @@ curl -X GET
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"b80ea81b-7058-11e6-8a84-bae500000000",
@@ -1872,7 +1875,7 @@ curl -X GET
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
@@ -1884,7 +1887,7 @@ curl -X GET
    "updated":"2016-09-01 18:28:22",
    "name":"OOO Rainbow",
    "externalCode":"o7732zkki541HDkZZD1Yt3",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "companyType":"legal",
    "accounts":{
@@ -1903,7 +1906,7 @@ curl -X GET
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -1961,7 +1964,7 @@ curl -X GET
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -1987,19 +1990,19 @@ curl -X GET
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "bonusprogram": {
+   "bonusProgram": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
-       "type": "bonus program",
+       "type": "bonusprogram",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
      }
    },
-   "bonus points": 0
+   "bonusPoints": 0
 }
 ```
 
@@ -2018,7 +2021,7 @@ curl -X GET
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
    },
@@ -2134,76 +2137,76 @@ curl -X PUT
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
      -d '{
-   "name":"Raduga EXPO LLC",
-   "description":"Network of building materials markets Raduga EXPO",
-   "code":"rainbow",
-   "externalCode":"extRainbow",
-   "email": "raduga@retail.ru",
-   "phone":"+7 495 162 32 23",
-   "fax":"1052054",
-   "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
-   "legalAddressFull":{
-     "postalCode":"125009",
-     "country":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type":"country",
-         "mediaType":"application/json"
-       }
-     },
-     "region":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type":"region",
-         "mediaType":"application/json"
-       }
-     },
-     "city":"Moscow",
-     "street": "Tverskaya street",
-     "house":"1",
-     "apartment":"123",
-     "addinfo":"addinfo",
-     "comment":"some words about address"
-   },
-   "actualAddressFull":{
-     "postalCode":"125009",
-     "country":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/country/metadata",
-         "type":"country",
-         "mediaType":"application/json"
-       }
-     },
-     "region":{
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/region/metadata",
-         "type":"region",
-         "mediaType":"application/json"
-       }
-     },
-     "city":"Moscow",
-     "street": "Tverskaya street",
-     "house":"1",
-     "apartment":"111",
-     "addinfo":"addinfo",
-     "comment":"some words about address"
-   },
-   "inn":"1251581244152",
-   "kpp":"121557212",
-   "ogrn":"1253552",
-   "okpo":"201313",
-   "tags":[
-     "Builders",
-     "Repair",
-     "Rainbow",
-     "Concrete",
-     "BURN"
-   ]
-}'
+            "name": "Raduga EXPO LLC",
+            "description": "Network of building materials markets Raduga EXPO",
+            "code": "rainbow",
+            "externalCode": "extRainbow",
+            "email": "raduga@retail.ru",
+            "phone": "+7 495 162 32 23",
+            "fax": "1052054",
+            "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
+            "legalAddressFull": {
+                "postalCode": "125009",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "city": "Moscow",
+                "street": "Tverskaya street",
+                "house": "1",
+                "apartment": "123",
+                "addInfo": "addinfo",
+                "comment": "some words about address"
+            },
+            "actualAddressFull": {
+                "postalCode": "125009",
+                "country": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "type": "country",
+                        "mediaType": "application/json"
+                    }
+                },
+                "region": {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "type": "region",
+                        "mediaType": "application/json"
+                    }
+                },
+                "city": "Moscow",
+                "street": "Tverskaya street",
+                "house": "1",
+                "apartment": "111",
+                "addInfo": "addinfo",
+                "comment": "some words about address"
+            },
+            "inn": "1251581244152",
+            "kpp": "121557212",
+            "ogrn": "1253552",
+            "okpo": "201313",
+            "tags": [
+                "Builders",
+                "Repair",
+                "Rainbow",
+                "Concrete",
+                "BURN"
+            ]
+        }'
 ```
 
 > Response 200 (application/json) Successful update. The result is a JSON representation of the updated Contractor.
@@ -2213,7 +2216,7 @@ curl -X PUT
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"6a9c3857-2c8b-11e6-8a84-bae500000047",
@@ -2226,7 +2229,7 @@ curl -X PUT
        "mediaType":"application/json"
      }
    },
-   "shared":false,
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -2240,7 +2243,7 @@ curl -X PUT
    "description":"Network of building materials markets Raduga EXPO",
    "code":"rainbow",
    "externalCode":"extRainbow",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
    "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -2266,7 +2269,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -2292,7 +2295,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251581244152",
@@ -2322,7 +2325,7 @@ curl -X PUT
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/6a9c3857-2c8b-11e6-8a84-bae500000047/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":0,
        "limit":1000,
@@ -2349,86 +2352,85 @@ curl -X PUT
    "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
-     -d'
-{
-   "name": "Vegetable Express LLC",
-   "description": "Vegetable express delivery network",
-   "code": "ovoshexpresscode",
-   "externalCode": "externalVagetable",
-   "email": "ovoshi@delivery.ru",
-   "phone": "+7 495 162 12 23",
-   "fax": "1052014",
-   "legalTitle": "Limited Liability Company \"Vegetable Express\"",
-   "inn": "1251581244152",
-   "kpp": "121557212",
-   "ogrn": "1253552",
-   "okpo": "201313",
-   "tags": [
-     "Vegetables",
-     "Food",
-     "Delivery",
-     "Express",
-     "Edovozy"
-   ],
-   "contactpersons": [
-     {
-       "name": "Vasya",
-       "description": "Vegetable cutter Vasya",
-       "position": "Vegetable cutter"
-     },
-     {
-       "name": "Petya",
-       "position": "Vegetable carrier"
-     }
-   ],
-   "accounts": [
-     {
-       isDefault: true
-       "accountNumber": "12512568161257981",
-       "bankName": "JSC Sberbank",
-       "bankLocation": "Moscow, Vavilova 19",
-       "correspondentAccount": "375632785587",
-       "bic": "1234532"
-     },
-     {
-       "accountNumber": "12512568161257982",
-       "bankName": "VTB",
-       "bic": "7654352"
-     }
-   ],
-   "attributes": [
-     {
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
-         "type":"attributemetadata",
-         "mediaType":"application/json"
-       },
-       "name": "AttributeName1",
-       "type": "double",
-       value: 0.35
-     },
-     {
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
-         "type":"attributemetadata",
-         "mediaType":"application/json"
-       },
-       "name": "AttributeName2",
-       "type": "time",
-       "value": "2016-06-07 10:52:33"
-     },
-     {
-       "meta":{
-         "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
-         "type":"attributemetadata",
-         "mediaType":"application/json"
-       },
-       "name": "AttributeName3",
-       "type": "boolean",
-       "value": true
-     }
-   ]
-}'
+     -d'{
+            "name": "Vegetable Express LLC",
+            "description": "Vegetable express delivery network",
+            "code": "ovoshexpresscode",
+            "externalCode": "externalVagetable",
+            "email": "ovoshi@delivery.ru",
+            "phone": "+7 495 162 12 23",
+            "fax": "1052014",
+            "legalTitle": "Limited Liability Company \"Vegetable Express\"",
+            "inn": "1251581244152",
+            "kpp": "121557212",
+            "ogrn": "1253552",
+            "okpo": "201313",
+            "tags": [
+                "Vegetables",
+                "Food",
+                "Delivery",
+                "Express",
+                "Edovozy"
+            ],
+            "contactpersons": [
+                {
+                    "name": "Vasya",
+                    "description": "Vegetable cutter Vasya",
+                    "position": "Vegetable cutter"
+                },
+                {
+                    "name": "Petya",
+                    "position": "Vegetable carrier"
+                }
+            ],
+            "accounts": [
+                {
+                    "isDefault": true,
+                    "accountNumber": "12512568161257981",
+                    "bankName": "JSC Sberbank",
+                    "bankLocation": "Moscow, Vavilova 19",
+                    "correspondentAccount": "375632785587",
+                    "bic": "1234532"
+                },
+                {
+                    "accountNumber": "12512568161257982",
+                    "bankName": "VTB",
+                    "bic": "7654352"
+                }
+            ],
+            "attributes": [
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d129ff5-2c8c-11e6-8a84-bae5000000f3",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "AttributeName1",
+                    "type": "double",
+                    "value": 0.35
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12a9a5-2c8c-11e6-8a84-bae5000000f4",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "AttributeName2",
+                    "type": "time",
+                    "value": "2016-06-07 10:52:33"
+                },
+                {
+                    "meta": {
+                        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
+                        "type": "attributemetadata",
+                        "mediaType": "application/json"
+                    },
+                    "name": "AttributeName3",
+                    "type": "boolean",
+                    "value": true
+                }
+            ]
+        }'
 ```
 
 > Response 200(application/json). Successful update. The result is a JSON representation of the updated Contractor.
@@ -2438,7 +2440,7 @@ curl -X PUT
    "meta":{
      "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/88fc07ac-2c8d-11e6-8a84-bae500000050",
      "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-     "type":"counter party",
+     "type":"counterparty",
      "mediaType":"application/json"
    },
    "id":"88fc07ac-2c8d-11e6-8a84-bae500000050",
@@ -2451,7 +2453,7 @@ curl -X PUT
        "mediaType":"application/json"
      }
    },
-   "shared":false
+   "shared": false,
    "group":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
@@ -2465,7 +2467,7 @@ curl -X PUT
    "description":"Vegetable express delivery network",
    "code":"ovoshexpresscode",
    "externalCode":"externalVagetable",
-   "archived":false,
+   "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
    "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
@@ -2491,7 +2493,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"123",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
@@ -2516,7 +2518,7 @@ curl -X PUT
      "street": "Tverskaya street",
      "house":"1",
      "apartment":"111",
-     "addinfo":"addinfo",
+     "addInfo":"addinfo",
      "comment":"some words about address"
    },
    "inn":"1251581244152",
@@ -2558,7 +2560,7 @@ curl -X PUT
        "id":"0d12b1e7-2c8c-11e6-8a84-bae5000000f5",
        "name":"AttributeName3",
        "type":"boolean",
-       "value":true
+       "value": true
      }
    ],
    "accounts":{
@@ -2581,7 +2583,7 @@ curl -X PUT
    "contactpersons":{
      "meta":{
        "href":"https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003/contactpersons",
-       "type":"contact person",
+       "type":"contactperson",
        "mediaType":"application/json",
        "size":2,
        "limit":1000,
@@ -2626,7 +2628,7 @@ curl -X GET
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -2714,7 +2716,7 @@ curl -X GET
    "id": "a6aa5466-2ca2-11e6-8a84-bae500000017",
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "updated": "2016-06-07 14:26:17",
-   isDefault: false
+   "isDefault": false,
    "accountNumber": "12512568161257982",
    "bankName": "VTB",
    "bic": "7654352"
@@ -2779,11 +2781,11 @@ curl -X GET
        "email": "advopetr@mail.ru",
        "phone": "87127418",
        "position": "Lawyer",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        }
@@ -2803,11 +2805,11 @@ curl -X GET
        "email": "travolta@mail.ru",
        "phone": "125815120",
        "position": "Secretary",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        }
@@ -2827,11 +2829,11 @@ curl -X GET
        "email": "mail@mail.rq",
        "phone": "12412512512",
        "position": "Accountant",
-       agent: {
+       "agent": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        }
@@ -2871,7 +2873,7 @@ curl -X POST
 [
    {
      "meta": {
-       "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/ceba215c-d5cb-11e7-0532-9eed00000005",
+       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/ceba215c-d5cb-11e7-0532-9eed00000005",
        "type": "contactperson",
        "mediaType": "application/json"
      },
@@ -2884,13 +2886,13 @@ curl -X POST
      "email": "petr@ovoshy.com",
      "phone": "+777 666 228",
      "position": "vegetable supplier",
-     agent: {
+     "agent": {
        "meta": {
-         "href": "http://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
-         "metadataHref": "http://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
+         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "type": "counterparty",
          "mediaType": "application/json",
-         "uuidHref": "http://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+         "uuidHref": "https://app.kladana.in/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
        }
      }
    }
@@ -2936,11 +2938,11 @@ curl -X GET
    "email": "petr@ovoshy.com",
    "phone": "+777 666 228",
    "position": "vegetable supplier",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    }
@@ -2996,11 +2998,11 @@ Fields that were not specified in the request JSON are not changed.
    "email": "petr@ovoshy.com",
    "phone": "+777 666 228",
    "position": "vegetable supplier",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/ee15550e-2c9e-11e6-8a84-bae500000003",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    }
@@ -3031,7 +3033,7 @@ curl -X GET
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -3064,7 +3066,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -3091,7 +3093,7 @@ curl -X GET
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          }
        },
@@ -3141,11 +3143,11 @@ curl -X POST
      "accountId": "674f0d4f-3c9c-11e7-8af5-581e00000001",
      "created": "2017-05-19 19:29:22",
      "description": "text",
-     agent: {
+     "agent": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        }
      },
@@ -3193,11 +3195,11 @@ curl -X GET
    "accountId": "674f0d4f-3c9c-11e7-8af5-581e00000001",
    "created": "2017-05-19 19:29:22",
    "description": "text",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },
@@ -3252,11 +3254,11 @@ Fields that were not specified in the request JSON are not changed.
    "accountId": "674f0d4f-3c9c-11e7-8af5-581e00000001",
    "created": "2017-05-19 19:29:22",
    "description": "changed text",
-   agent: {
+   "agent": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      }
    },

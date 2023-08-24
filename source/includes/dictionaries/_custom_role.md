@@ -748,38 +748,38 @@ curl -X POST
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
       -d '{
-  "name": "testRole",
-  "permissions": {
-    "importData": false,
-    "exportData": false,
-    "onlineShops": false,
-    "apiRequest": false,
-    "sendEmail": false,
-    "viewProductCostAndProfit": false,
-    "viewDashboard": false,
-    "viewRecycleBin": false,
-    "viewAudit": false,
-    "viewSaleProfit": false,
-    "viewCommissionGoods": false,
-    "viewPurchaseFunnel": false,
-    "viewStockReport": false,
-    "viewTurnover": false,
-    "viewSerialNumbers": false,
-    "viewCashFlow": false,
-    "viewCustomerBalanceList": false,
-    "viewProfitAndLoss": false,
-    "viewCompanyCRM": false,
-    "viewMoneyDashboard": false,
-    "restoreFromRecycleBin": false,
-    "deleteFromRecycleBin": false,
-    "editDocumentsOfRestrictedPeriod": false,
-    "editDocumentTemplates": false,
-    "editCurrencyRateOfDocument": false,
-    "subscriptionControl": false,
-    "purchaseControl": false,
-    "listenCalls": false
-  }
-}'
+            "name": "testRole",
+            "permissions": {
+              "importData": false,
+              "exportData": false,
+              "onlineShops": false,
+              "apiRequest": false,
+              "sendEmail": false,
+              "viewProductCostAndProfit": false,
+              "viewDashboard": false,
+              "viewRecycleBin": false,
+              "viewAudit": false,
+              "viewSaleProfit": false,
+              "viewCommissionGoods": false,
+              "viewPurchaseFunnel": false,
+              "viewStockReport": false,
+              "viewTurnover": false,
+              "viewSerialNumbers": false,
+              "viewCashFlow": false,
+              "viewCustomerBalanceList": false,
+              "viewProfitAndLoss": false,
+              "viewCompanyCRM": false,
+              "viewMoneyDashboard": false,
+              "restoreFromRecycleBin": false,
+              "deleteFromRecycleBin": false,
+              "editDocumentsOfRestrictedPeriod": false,
+              "editDocumentTemplates": false,
+              "editCurrencyRateOfDocument": false,
+              "subscriptionControl": false,
+              "purchaseControl": false,
+              "listenCalls": false
+            }
+          }'
 ```
 
 > Response 200 (application/json)
@@ -1137,38 +1137,38 @@ curl -X PUT
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
       -d '{
-  "name": "updatedTestRole",
-  "permissions": {
-    "importData": true,
-    "exportData": false,
-    "onlineShops": false,
-    "apiRequest": false,
-    "sendEmail": false,
-    "viewProductCostAndProfit": false,
-    "viewDashboard": false,
-    "viewRecycleBin": false,
-    "viewAudit": false,
-    "viewSaleProfit": false,
-    "viewCommissionGoods": false,
-    "viewPurchaseFunnel": false,
-    "viewStockReport": false,
-    "viewTurnover": false,
-    "viewSerialNumbers": false,
-    "viewCashFlow": false,
-    "viewCustomerBalanceList": false,
-    "viewProfitAndLoss": false,
-    "viewCompanyCRM": false,
-    "viewMoneyDashboard": false,
-    "restoreFromRecycleBin": false,
-    "deleteFromRecycleBin": false,
-    "editDocumentsOfRestrictedPeriod": false,
-    "editDocumentTemplates": false,
-    "editCurrencyRateOfDocument": false,
-    "subscriptionControl": false,
-    "purchaseControl": false,
-    "listenCalls": false
-  }
-}'
+            "name": "updatedTestRole",
+            "permissions": {
+              "importData": true,
+              "exportData": false,
+              "onlineShops": false,
+              "apiRequest": false,
+              "sendEmail": false,
+              "viewProductCostAndProfit": false,
+              "viewDashboard": false,
+              "viewRecycleBin": false,
+              "viewAudit": false,
+              "viewSaleProfit": false,
+              "viewCommissionGoods": false,
+              "viewPurchaseFunnel": false,
+              "viewStockReport": false,
+              "viewTurnover": false,
+              "viewSerialNumbers": false,
+              "viewCashFlow": false,
+              "viewCustomerBalanceList": false,
+              "viewProfitAndLoss": false,
+              "viewCompanyCRM": false,
+              "viewMoneyDashboard": false,
+              "restoreFromRecycleBin": false,
+              "deleteFromRecycleBin": false,
+              "editDocumentsOfRestrictedPeriod": false,
+              "editDocumentTemplates": false,
+              "editCurrencyRateOfDocument": false,
+              "subscriptionControl": false,
+              "purchaseControl": false,
+              "listenCalls": false
+            }
+          }'
 ```
 
 > Response 200 (application/json)

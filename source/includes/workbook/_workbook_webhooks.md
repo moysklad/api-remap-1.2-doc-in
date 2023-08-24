@@ -70,10 +70,10 @@ curl -X POST
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "url": "http://www.example.com",
-   "action": "CREATE",
-   "entityType": "service"
-}'
+           "url": "http://www.example.com",
+           "action": "CREATE",
+           "entityType": "service"
+        }'
 ```
 
 The response should be json containing a description of the webhook
@@ -93,7 +93,7 @@ The response should be json containing a description of the webhook
      "entityType": "service",
      "url": "http://www.example.com",
      "method": "POST",
-     "enabled": true
+     "enabled": true,
      "action": "CREATE"
 }
 ```
@@ -121,8 +121,8 @@ curl -X PUT
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "action": "UPDATE"
-}'
+           "action": "UPDATE"
+        }'
 ```
 
 > Sample request with webhook disabled.
@@ -133,8 +133,8 @@ curl -X PUT
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "enabled": false
-}'
+           "enabled": false
+        }'
 ```
 
 > Deleting a webhook is done in the same way, but only using the DELETE method.
@@ -159,9 +159,9 @@ curl -X GET
 
 ```json
 {
-    "context":{
-       "employee":{
-          "meta":{
+    "context": {
+       "employee": {
+          "meta": {
              "href":"https://app.kladana.in/api/remap/1.2/context/employee",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
              "type":"employee",
@@ -169,7 +169,7 @@ curl -X GET
           }
        }
     },
-    "meta":{
+    "meta": {
        "href":"https://app.kladana.in/api/remap/1.2/entity/webhook",
        "type":"webhook",
        "mediaType":"application/json",
@@ -177,9 +177,9 @@ curl -X GET
        "limit":25,
        "offset":0
     },
-    "rows":[
+    "rows": [
        {
-          "meta":{
+          "meta": {
              "href":"https://app.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
              "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/webhook/metadata",
              "type":"webhook",
@@ -190,7 +190,7 @@ curl -X GET
           "entityType":"service",
           "url":"http://www.example.com",
           "method":"POST",
-          "enabled":true
+          "enabled": true,
           "action":"CREATE"
        }
     ]
@@ -236,10 +236,10 @@ a unique test url that must be specified in the webhook and interactively shows 
     -H 'Cache-Control: no-cache'
     -H 'Content-Type: application/json'
     -d '{
-    "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
-    "action": "CREATE",
-    "entityType": "service"
-  }'
+            "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
+            "action": "CREATE",
+            "entityType": "service"
+          }'
   ```
  
 <p>3. Create a webhook, in the example below, a webhook for creating a service.</p>
@@ -252,8 +252,8 @@ curl -X POST
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
-   "name": "Sharpening skates"
-}'
+           "name": "Sharpening skates"
+        }'
 ```
 
 <p>4. We create a service in Kladana, in the example below, the creation of a service through the JSON API.</p>

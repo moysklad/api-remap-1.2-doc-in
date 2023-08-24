@@ -82,7 +82,7 @@ Successful request. The result is a JSON representation of a report on counterpa
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -94,24 +94,24 @@ Successful request. The result is a JSON representation of a report on counterpa
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
-     size: 5
-     limit: 1000
-     offset: 0
+     "size": 5,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "b80ea81b-7058-11e6-8a84-bae500000000",
@@ -127,23 +127,23 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-09-01 18:32:17"
      },
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "df2fdd2d-6934-11e6-8a84-bae500000049",
@@ -159,8 +159,8 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
+       "balance": 0,
+       "profit": 0,
        "lastEventDate": "2016-09-08 13:07:30",
        "lastEventText": "sale",
        "updated": "2016-08-23 16:24:08"
@@ -168,14 +168,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "12c9ebcf-692c-11e6-8a84-bae50000005d",
@@ -191,24 +191,24 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
+       "balance": 0,
        "bonusBalance": 120,
        "profit": -103040600,
-       "lastEventDate": null
-       "lastEventText": null
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-08-23 15:21:09"
      },
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "12a8e347-692c-11e6-8a84-bae500000055",
@@ -228,21 +228,21 @@ Successful request. The result is a JSON representation of a report on counterpa
        "balance": 1241255000,
        "bonusBalance": 298,
        "profit": 50000,
-       "lastEventDate": null
-       "lastEventText": null
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-08-23 15:21:09"
      },
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json"
          },
          "id": "12a8b923-692c-11e6-8a84-bae500000053",
@@ -259,10 +259,10 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2016-08-23 15:21:09"
      }
    ]
@@ -295,7 +295,7 @@ The result of a successful request is a JSON representation of the list of repor
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                     "type": "counter party",
+                     "type": "counterparty",
                      "mediaType": "application/json"
                    }
                  }
@@ -305,7 +305,7 @@ The result of a successful request is a JSON representation of the list of repor
                    "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-                     "type": "counter party",
+                     "type": "counterparty",
                      "mediaType": "application/json"
                    }
                  }
@@ -319,7 +319,7 @@ Successful request. The result is a JSON representation of a report on counterpa
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -331,17 +331,17 @@ Successful request. The result is a JSON representation of a report on counterpa
    },
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json",
-     size: 2
-     limit: 1000
-     offset: 0
+     "size": 2,
+     "limit": 1000,
+     "offset": 0
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=49b40d55-66cc-11e7-6adb-ede500000054"
        },
@@ -349,7 +349,7 @@ Successful request. The result is a JSON representation of a report on counterpa
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=49b40d55-66cc-11e7-6adb-ede500000054"
          },
@@ -367,16 +367,16 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2017-07-12 09:35:26"
      },
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
-         "type": "counter party",
+         "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=37e4efe0-6ade-11e7-6adb-ede50000001a"
        },
@@ -384,7 +384,7 @@ Successful request. The result is a JSON representation of a report on counterpa
          "meta": {
            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-           "type": "counter party",
+           "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=37e4efe0-6ade-11e7-6adb-ede50000001a"
          },
@@ -402,10 +402,10 @@ Successful request. The result is a JSON representation of a report on counterpa
        "returnsCount": 0,
        "returnsSum": 0,
        "discountsSum": 0,
-       balance: 0
-       profit: 0
-       "lastEventDate": null
-       "lastEventText": null
+       "balance": 0,
+       "profit": 0,
+       "lastEventDate": null,
+       "lastEventText": null,
        "updated": "2017-07-17 13:54:30"
      }
    ]
@@ -437,14 +437,14 @@ Successful request. The result is a JSON representation of a report on a counter
 {
    "meta": {
      "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
-     "type": "counter party",
+     "type": "counterparty",
      "mediaType": "application/json"
    },
    "counterparty": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-       "type": "counter party",
+       "type": "counterparty",
        "mediaType": "application/json"
      },
      "id": "df2fdd2d-6934-11e6-8a84-bae500000049",

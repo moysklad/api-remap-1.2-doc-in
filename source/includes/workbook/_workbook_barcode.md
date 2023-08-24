@@ -32,7 +32,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
                  "code128": "code128 barcode"
                },
                {
-                 gtin: "00000000000130"
+                 "gtin": "00000000000130"
                }
              ]
            }'
@@ -71,7 +71,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "name": "good",
     "code": "00006",
     "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-   "archived": false,
+    "archived": false,
     "pathName": "",
     "images": {
       "meta": {
@@ -80,12 +80,12 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "mediaType": "application/json",
         "size": 2,
         "limit": 1000,
-        "offset"': 0
+        "offset": 0
       }
     },
-    "minprice": {
+    "minPrice": {
       "value": 500.0,
-      "currency"': {
+      "currency": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -109,7 +109,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         }
       }
     ],
-    "buyprice": {
+    "buyPrice": {
       "value": 0.0
     },
     "weight": 0,
@@ -153,7 +153,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
                  "code128": "code128 barcode 1"
                },
                {
-                 gtin: "00000000000131"
+                 "gtin": "00000000000131"
                }
              ]
            }'
@@ -170,7 +170,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       "type": "product",
       "mediaType": "application/json"
     },
-    "id": "bd1c0a3e-95ee-11e6-8a84-bae500000004","accountId": "b8b74698-9128-11e6-8a84-bae500000001",
+    "id": "bd1c0a3e-95ee-11e6-8a84-bae500000004",
+    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
     "owner": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
@@ -179,8 +180,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "mediaType": "application/json"
       }
     },
-    shared: true
-    group: {
+    "shared": true,
+    "group": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
@@ -192,21 +193,21 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "name": "good",
     "code": "00006",
     "externalCode": "0bmPIvHxgEDlNIZrZ6GLt2",
-    archived: false
+    "archived": false,
     "pathName": "",
     "images": {
       "meta": {
         "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
         "type": "image",
         "mediaType": "application/json",
-        size: 2
-        limit: 1000
-        offset: 0
+        "size": 2,
+        "limit": 1000,
+        "offset": 0
       }
     },
-    "minprice": {
-      value: 500.0
-      currency: {
+    "minPrice": {
+      "value": 500.0,
+      "currency": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
@@ -217,7 +218,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     },
     "salePrices": [
       {
-        value: 0.0
+        "value": 0.0,
         "priceType": {
           "meta": {
             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -230,11 +231,11 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         }
       }
     ],
-    "buyprice": {
-      value: 0.0
+    "buyPrice": {
+      "value": 0.0
     },
-    weight: 0
-    volume: 0
+    "weight": 0,
+    "volume": 0,
     "barcodes": [
       {
         "ean8": "20000001"
@@ -246,11 +247,11 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "code128": "code128 barcode 1"
       },
       {
-        gtin: "00000000000131"
+        "gtin": "00000000000131"
       }
     ],
     "variantsCount": 0,
-    "isSerialTrackable": false
+    "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
   ```

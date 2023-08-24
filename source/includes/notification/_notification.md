@@ -3,15 +3,15 @@
 ## Notification feed
 ### General notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
-| **description** | String(4096) | Notification description<br>`+Required for response` `+Read only` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
+| **description** | String(4096)                                       | Notification description<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata. Contains the specific notification type<br>`+Required in response` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` |
-| **title** | String(255) | Brief notification text<br>`+Required when replying` `+Read only` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` |
+| **title** | String(255)                                        | Brief notification text<br>`+Required when replying` `+Read only` |
 
 ### Get notification feed
 Request to receive a notification feed.
@@ -43,52 +43,106 @@ Successful request. The result is a JSON representation of the list of Notificat
 
 ```json
 {
-   "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification",
-     "type": "notification",
-     "mediaType": "application/json",
-     size: 3
-     limit: 1000
-     offset: 0
-   },
-   rows: [
-     {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/notification/32f118d3-5b8f-11e9-9bea-3ff700000070",
-       "type": "NotificationGoodCountTooLow",
-       "mediaType": "application/json"
-     },
-     "id": "32f118d3-5b8f-11e9-9bea-3ff700000070",
-     "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
-     "created": "2019-04-10 15:50:20.271",
-     read: true
-     "title": "Out of Stock Potatoes (yes)",
-     "description": "Remainder below 1",
-     good: {
-       "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/0daf8e9a-5b7a-11e9-727d-307300000007",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "id": "0daf8e9a-5b7a-11e9-727d-307300000007",
-       "name": "Potato (yes)"
-     },
-     "actualBalance": 0,
-     "minimumBalance": 1
-     },
-     {
-     "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/notification/0f423542-5b7a-11e9-9bea-3ff70000000f",
-       "type": "NotificationImportCompleted",
-       "mediaType": "application/json"
-     },
-     "id": "0f423542-5b7a-11e9-9bea-3ff70000000f",
-     "accountId": "45b76d0a-5aa2-11e9-ization:Basic <Credentials>"
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/notification",
+    "type": "notification",
+    "mediaType": "application/json",
+    "size": 3,
+    "limit": 1000,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/notification/32f118d3-5b8f-11e9-9bea-3ff700000070",
+        "type": "NotificationGoodCountTooLow",
+        "mediaType": "application/json"
+      },
+      "id": "32f118d3-5b8f-11e9-9bea-3ff700000070",
+      "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
+      "created": "2019-04-10 15:50:20.271",
+      "read": true,
+      "title": "Out of Stock Potatoes (yes)",
+      "description": "Remainder below 1",
+      "good": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/product/0daf8e9a-5b7a-11e9-727d-307300000007",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        },
+        "id": "0daf8e9a-5b7a-11e9-727d-307300000007",
+        "name": "Potato (yes)"
+      },
+      "actualBalance": 0,
+      "minimumBalance": 1
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/notification/0f423542-5b7a-11e9-9bea-3ff70000000f",
+        "type": "NotificationImportCompleted",
+        "mediaType": "application/json"
+      },
+      "id": "0f423542-5b7a-11e9-9bea-3ff70000000f",
+      "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
+      "created": "2019-04-10 13:19:01.123",
+      "read": true,
+      "title": "Import completed",
+      "description": "0002",
+      "message": "Handle 7 row",
+      "taskType": "importer_good",
+      "taskState": "completed",
+      "createdDocumentName": "00002"
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/notification/a805beb5-5adf-11e9-9bea-3ff700000025",
+        "type": "NotificationTaskChanged",
+        "mediaType": "application/json"
+      },
+      "id": "a805beb5-5adf-11e9-9bea-3ff700000025",
+      "accountId": "45b76d0a-5aa2-11e9-727d-307300000002",
+      "created": "2019-04-09 18:53:45.314",
+      "read": true,
+      "title": "Task changed",
+      "description": "admin task changed",
+      "performedBy": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/188cb787-5aa5-11e9-727d-30730000009c",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json"
+        },
+        "id": "188cb787-5aa5-11e9-727d-30730000009c",
+        "name": "admin"
+      },
+      "task": {
+        "meta": {
+          "href": "https://app.kladana.in/api/remap/1.2/entity/task/14ac66b6-5add-11e9-727d-30730000002f",
+          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+          "type": "task",
+          "mediaType": "application/json"
+        },
+        "id": "14ac66b6-5add-11e9-727d-30730000002f",
+        "name": "New task description",
+        "deadline": "2019-04-02 18:53:00.000"
+      },
+      "diff": {
+        "description": {
+          "oldValue": "Old task description",
+          "newValue": "New task description"
+        },
+        "deadline": {
+          "newValue": "2019-04-02 18:53:00.000"
+        }
+      }
+    }
+  ]
+}
 ```
 
-> Response 200(application/json)
-Successful affixing of the sign "read".
+[//]: # (TODO: https://lognex.atlassian.net/browse/MC-64540)
+[//]: # (Здесь пропущены разделы: Получить Уведомление, Удалить Уведомление, Отметить Уведомление как прочитанное)
 
 ### Mark all Notifications as read
 Mark all Notifications of the current user as read.
@@ -194,20 +248,20 @@ The format of oldValue and newValue is the same as the format of the field whose
 NotificationExportCompleted - export completion
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **createdDocumentName** | String(255) | The name of the exported document |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **errorMessage** | String(255) | Error message |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **message** | String(255) | Export completion message |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **createdDocumentName** | String(255)                                        | The name of the exported document |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **errorMessage** | String(255)                                        | Error message |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
+| **message** | String(255)                                        | Export completion message |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **taskState** | object | Completion status. Can be `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when responding` `+Required when creating` |
-| **taskType** | object | [Export type](/#notifications-notification-types-field-formats-possible-export-type-values)<br>`+Required when replying` `+Required when creating` |
-| **title**| String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **taskState** | Object                                             | Completion status. Can be `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when responding` `+Required when creating` |
+| **taskType** | Object                                             | [Export type](/#notifications-notification-types-field-formats-possible-export-type-values)<br>`+Required when replying` `+Required when creating` |
+| **title**| String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -236,7 +290,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "02950e3c-35f2-11e9-9ff4-34e8000799c0",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-21 19:01:55.277",
-   read: true
+   "read": true,
    "title": "Export completed",
    "description": "Export of goods (Excel). Exported 43465 goods and 2080 modifications",
    "message": "43465 items and 2080 modifications exported",
@@ -252,20 +306,20 @@ NotificationImportCompleted is an import completion.
 
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **createdDocumentName** | String(255) | The name of the exported document |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **errorMessage** | String(255) | Error message |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
-| **message** | String(255) | Export completion message |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **createdDocumentName** | String(255)                                        | The name of the exported document |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **errorMessage** | String(255)                                        | Error message |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
+| **message** | String(255)                                        | Export completion message |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **taskState** | object | Completion status. Can take the values `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when replying` `+Required when creating` |
-| **taskType** | object | [Export type](/#notifications-notification-types-field-formats-possible-export-type-values)<br>`+Required when replying` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **taskState** | Object                                             | Completion status. Can take the values `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when replying` `+Required when creating` |
+| **taskType** | Object                                             | [Export type](/#notifications-notification-types-field-formats-possible-export-type-values)<br>`+Required when replying` `+Required when creating` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -294,7 +348,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "02950e31-35f2-11e9-9ff4-34e8000799c0",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-21 19:01:55.277",
-   read: true
+   "read": true,
    "title": "Import completed",
    "description": "Import of accounts (Excel). 3 rows processed, 0 accounts created, 0 accounts updated.",
    "message": "3 lines processed, 0 accounts created, 0 accounts updated.",
@@ -311,18 +365,18 @@ NotificationGoodCountTooLow - reducing the balance of goods below the irreducibl
 
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **actualBalance** | int | Remaining goods<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **actualBalance** | Int                                                | Remaining goods<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
 | **good** | [Meta](../#kladana-json-api-general-info-metadata) | Product metadata<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **minimumBalance** | int | Minimum balance of goods<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **minimumBalance** | Int                                                | Minimum balance of goods<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -351,10 +405,10 @@ Successful request. Result - JSONpresentation of the notice.
    "id": "9338c8bd-56e5-11e9-c0a8-100b00000023",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 17:26:02.000",
-   read: false
+   "read": false,
    "title": "Out of stock 1",
    "description": "Remainder below 200",
-   good: {
+   "good": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/product/bdca925e-56e1-11e9-c0a8-100a00000016",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
@@ -374,19 +428,19 @@ Successful request. Result - JSONpresentation of the notice.
 NotificationInvoiceOutOverdue - customer's invoice is overdue
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **agentName** | String(255) | Counterparty name<br>`+Required when replying` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **agentName** | String(255)                                        | Counterparty name<br>`+Required when replying` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **invoice** | [Meta](../#kladana-json-api-general-info-metadata) | Invoice metadata<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **paymentPlannedMoment** | datetime | Scheduled payment date<br>`+Required when replying` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **sum** | int | Invoice amount<br>`+Required when answering` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **paymentPlannedMoment** | DateTime                                           | Scheduled payment date<br>`+Required when replying` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **sum** | Int                                                | Invoice amount<br>`+Required when answering` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -415,7 +469,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "572d1dd9-56fc-11e9-c0a8-100b00000006",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 20:09:00.000",
-   read: false
+   "read": false,
    "title": "Invoice for buyer #00003 is overdue",
    "description": "Date of payment: 04/01/2019 20:08. Amount: 500.00. Buyer: Retail buyer.",
    "invoice": {
@@ -428,7 +482,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "571b1ac4-56fc-11e9-c0a8-100e0000002b",
      "name": "00003",
      "paymentPlannedMoment": "2019-04-01 20:08:00.000",
-     sum: 50000
+     "sum": 50000,
      "customerName": "Retail customer"
    }
 }
@@ -442,19 +496,19 @@ NotificationOrderNew - new order.
 
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **agentName** | String(255) | Counterparty name<br>`+Required when replying` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **deliveryPlannedMoment** | datetime | Estimated time of shipment<br>`+Required when replying` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **agentName** | String(255)                                        | Counterparty name<br>`+Required when replying` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **deliveryPlannedMoment** | DateTime                                           | Estimated time of shipment<br>`+Required when replying` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **order** | [Meta](../#kladana-json-api-general-info-metadata) | Order metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **sum** | int | Invoice amount<br>`+Required when answering` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **sum** | Int                                                | Invoice amount<br>`+Required when answering` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -483,14 +537,14 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c6082a9e-56e1-11e9-c0a8-100b00000011",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "New Sales Order #00001",
    "description": "Amount: 499.99. Buyer: Retail buyer.",
-   order: {
+   "order": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order",
+       "type": "customerorder",
        "mediaType": "application/json"
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
@@ -506,18 +560,18 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationOrderOverdue - overdue order
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` || **agentName* | String(255) | Counterparty name<br>`+Required when replying` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **deliveryPlannedMoment** | datetime | Estimated time of shipment<br>`+Required when replying` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` || **agentName* | String(255) | Counterparty name<br>`+Required when replying` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **deliveryPlannedMoment** | DateTime                                           | Estimated time of shipment<br>`+Required when replying` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **order** | [Meta](../#kladana-json-api-general-info-metadata) | Order metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **sum** | int | Invoice amount<br>`+Required when answering` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **sum** | Int                                                | Invoice amount<br>`+Required when answering` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -546,19 +600,19 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c6082a9e-56e1-11e9-c0a8-100b00000011",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "Sales Order #00001 Expired",
    "description": "Sales Order #00001 Expired Amount: 300.00. Buyer: Retail Buyer.",
-   order: {
+   "order": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order",
+       "type": "customerorder",
        "mediaType": "application/json"
      },
      "id": "c5ab5d93-56e1-11e9-c0a8-100a0000001d",
      "name": "00001",
-     sum: 30000
+     "sum": 30000,
      "agentName": "Retail customer"
    }
 }
@@ -570,15 +624,15 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationSubscribeExpired - subscription expiration
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Etcsign of whether the Notification was read<br>`+Required when replying` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Etcsign of whether the Notification was read<br>`+Required when replying` `+Required when creating` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -607,7 +661,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c2582a9e-56e1-11e9-c0a8-100b00000123",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "End Subscription",
    "description": "AccountName's subscription has ended. You can still work using the free plan. The subscription will resume when the balance is replenished."
 }
@@ -618,16 +672,16 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationSubscribeTermsExpired - subscription terms expire
 #### Attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **daysLeft** | int | Number of remaining days of subscription<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **daysLeft** | Int                                                | Number of remaining days of subscription<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -656,7 +710,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c2582a9e-56e1-11e9-c0a8-100b00000125",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "Until the end of the subscription 5 days",
    "description": "There are 3 days left until the end of the subscription on AccountName. We recommend topping up the balance in advance.",
    "daysLeft": 5
@@ -668,17 +722,17 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskAssigned - the task has been assigned
 #### Notification attributes
 
-| Title | Type | Description|
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description|
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-assigned-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-assigned-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-assigned-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-assigned-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -691,12 +745,12 @@ NotificationTaskAssigned - the task has been assigned
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 
 **Parameters**
@@ -726,7 +780,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "bcd815b9-56ca-11e9-c0a8-100b00000001",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 14:13:56.000",
-   read: false
+   "read": false,
    "title": "New task: Task text 1",
    "description": "ntest1 has assigned you a task Task text 1",
    "performedBy": {
@@ -739,7 +793,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -757,17 +811,17 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskUnassigned - the task has been unassigned
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                                |
-| --------------- | ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                          |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                   |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                            |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                     |
+| Title | Type                                               | Description                                                                                                                                                                                                                                |
+| --------------- |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                          |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                   |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                            |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                     |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                     |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-canceled-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                    |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-canceled-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                    |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                          |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-canceled-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                    |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-canceled-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                    |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                          |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -780,12 +834,12 @@ NotificationTaskUnassigned - the task has been unassigned
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -814,7 +868,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "80c8a58b-56cb-11e9-c0a8-100b00000009",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 14:19:25.000",
-   read: false
+   "read": false,
    "title": "Task canceled: New text for task 1",
    "description": "ntest1 has removed the task from you",
    "performedBy": {
@@ -827,7 +881,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -846,18 +900,18 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskChanged - the task has changed
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                               |
-| --------------- | ------ |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                         |
-| **created** | datetime | Date and time generatedNotifications<br>`+Required when replying` `+Required when creating`                                                                                                                                               |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                           |
-| **diff** | object | Modified fields [More here](#notifications-detailed-description-of-notification-types-task-changed-nested-entity-attributes-changed-fields)<br>`+Required when replying` `+Required when creating`                                       |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                    |
+| Title | Type                                               | Description                                                                                                                                                                                                                               |
+| --------------- |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                         |
+| **created** | DateTime                                           | Date and time generatedNotifications<br>`+Required when replying` `+Required when creating`                                                                                                                                               |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                           |
+| **diff** | Object                                             | Modified fields [More here](#notifications-detailed-description-of-notification-types-task-changed-nested-entity-attributes-changed-fields)<br>`+Required when replying` `+Required when creating`                                       |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                    |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                    |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-changed-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                   |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-changed-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                    |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                         |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-changed-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                   |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-changed-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                    |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                         |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -880,12 +934,12 @@ NotificationTaskChanged - the task has changed
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -914,7 +968,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "bd0dbccf-56ca-11e9-c0a8-100b00000003",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 14:13:56.000",
-   read: false
+   "read": false,
    "title": "Task changed: New text of task 1",
    "description": "ntest1 changed task",
    "performedBy": {
@@ -927,7 +981,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -939,7 +993,7 @@ Successful request. The result is a JSON representation of the Notification.
      "deadline": "2019-05-27 15:49:00.000"
    },
    "diff": {
-     deadline: {
+     "deadline": {
        "oldValue": "2019-05-29 15:47:00.000",
        "newValue": "2019-05-27 15:49:00.000"
      }
@@ -952,17 +1006,17 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskCompleted - task completed
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                                   |
-| --------------- | ------ |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                             |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                      |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                               |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
+| Title | Type                                               | Description                                                                                                                                                                                                                                   |
+| --------------- |----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                             |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                      |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                               |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-accomplished-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                       |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-accomplished-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                   |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                             |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-accomplished-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                       |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-accomplished-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                   |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                             |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -975,12 +1029,12 @@ NotificationTaskCompleted - task completed
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -1009,7 +1063,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "7945a089-56fd-11e9-c0a8-100b00000008",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:47:47.000",
-   read: false
+   "read": false,
    "title": "Task completed: New task text 1",
    "description": "ntest1 completed task New task text 1 Deadline: 05/29/2019 15:47",
    "performedBy": {
@@ -1022,7 +1076,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1041,17 +1095,17 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskDeleted - the task has been deleted
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                              |
-| --------------- | ------ |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                 |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                          |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                   |
+| Title | Type                                               | Description                                                                                                                                                                                                                              |
+| --------------- |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                 |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                          |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                   |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                   |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                  |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                   |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                        |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                  |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-deleted-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                   |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                        |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -1095,10 +1149,10 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "8d07388c-56cb-11e9-c0a8-100b0000000d",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:58:45.000",
-   read: false
+   "read": false,
    "title": "Task Deleted: Task Text 2",
    "description": "ntest1 deleted task Task text 2",
-   task: {
+   "task": {
      "name": "Text of task 2"
    },
    "performedBy": {
@@ -1119,16 +1173,16 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskOverdue - the task is overdue
 #### Notification attributes
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-expired-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when answering` `+Required when creating` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-expired-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when answering` `+Required when creating` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -1166,10 +1220,10 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "51a5b0a3-56e4-11e9-c0a8-100b00000014",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:49:01.000",
-   read: false
+   "read": false,
    "title": "Task Overdue: New Task 1 Text",
    "description": "Task is overdue New task text 1 Deadline: 05/27/2019 15:49",
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1191,17 +1245,17 @@ NotificationTaskReopened - the task has been reopened.
 
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                                      |
-| --------------- | ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                         |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                  |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                           |
+| Title | Type                                               | Description                                                                                                                                                                                                                                      |
+| --------------- |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                         |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                  |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                           |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                           |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-reopened-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when answering` `+Required when creating` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                          |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-task-reopened-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                    |
-| **title** | string(255)| Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                                |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-task-reopened-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when answering` `+Required when creating` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                          |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-task-reopened-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                    |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                                |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -1214,12 +1268,12 @@ NotificationTaskReopened - the task has been reopened.
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -1248,7 +1302,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "df0c3e22-56fd-11e9-c0a8-100b0000000a",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:48:06.000",
-   read: false
+   "read": false,
    "title": "Issue open: New text for issue 1",
    "description": "ntest1 opened task New task text 1 Deadline: 05/29/2019 15:47",
    "performedBy": {
@@ -1261,7 +1315,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1280,18 +1334,18 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskNewComment - new comment for the task
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                                              |
-| --------------- | ------ |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                        |
-| **created** | datetime| Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                                 |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                          |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                   |
+| Title | Type                                               | Description                                                                                                                                                                                                                                              |
+| --------------- |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                        |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                                 |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                          |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                   |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                   |
-| **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                   |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-new-comment-for-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating ` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                                  |
-| **task** | object | Task [More here](#notifications-detailed-description-of-notification-types-new-comment-for-the-task-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                            |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
+| **noteContent** | String(4096)                                       | Comment content<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                   |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-new-comment-for-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating ` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                                  |
+| **task** | Object                                             | Task [More here](#notifications-detailed-description-of-notification-types-new-comment-for-the-task-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                            |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                                        |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -1304,12 +1358,12 @@ NotificationTaskNewComment - new comment for the task
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -1338,7 +1392,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "240706df-5704-11e9-c0a8-100b00000003",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:50:16.000",
-   read: false
+   "read": false,
    "title": "New comment: New text for task 1",
    "description": "ntest1 added comment Comment 1",
    "performedBy": {
@@ -1351,7 +1405,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1372,19 +1426,19 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskCommentChanged - task comment changed
 #### Notification attributes
 
-| Title | Type | Description                                                                                                                                                                                                                                                |
-| --------------- | ------ |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                          |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                                   |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                            |
-| **diff** | String(255) | Comment changes in [field change format](/#notifications-notification-types-field-formats-changed-field-format)<br>`+Required when replying` `+Required when creating`                                                                                     |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                     |
+| Title | Type                                               | Description                                                                                                                                                                                                                                                |
+| --------------- |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                          |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating`                                                                                                                                                   |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                            |
+| **diff** | String(255)                                        | Comment changes in [field change format](/#notifications-notification-types-field-formats-changed-field-format)<br>`+Required when replying` `+Required when creating`                                                                                     |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                     |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                     |
-| **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                     |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-changed-the-comment-to-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating ` |
-| **read** | Boolean| Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                                    |
-| **task** | object | Task [More here](#notifications-detailed-description-of-notification-types-changed-the-comment-to-the-task-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                            |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                                          |
+| **noteContent** | String(4096)                                       | Comment content<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                     |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-changed-the-comment-to-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating ` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`                                                                                                                                                    |
+| **task** | Object                                             | Task [More here](#notifications-detailed-description-of-notification-types-changed-the-comment-to-the-task-nested-entity-attributes-task)<br>`+Required when answering` `+Required when creating`                                                            |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating`                                                                                                                                                                          |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -1397,12 +1451,12 @@ NotificationTaskCommentChanged - task comment changed
 
 ##### Task
 
-| Title | Type | Description |
-| ------------ | ------ | ------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| ------------ |----------------------------------------------------| ------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -1431,7 +1485,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "3d3423ee-5704-11e9-c0a8-100b00000007",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:50:53.000",
-   read: false
+   "read": false,
    "title": "Comment changed: New text for task 1",
    "description": "ntest1 changed comment New text for comment 1, Comment 1",
    "performedBy": {
@@ -1444,7 +1498,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1469,18 +1523,18 @@ Successful request. The result is a JSON representation of the Notification.
 NotificationTaskCommentDeleted - the comment to the task has been deleted
 #### Notification attributes
 
-| Title | Type | Description|
-| --------------- | ------ | --------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
+| Title | Type                                               | Description|
+| --------------- |----------------------------------------------------| --------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
-| **noteContent** | String(4096) | Comment content<br>`+Required when replying` `+Required when creating` |
-| **performedBy** | object | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-removed-comment-on-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating ` |
-| **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | object | Task [More details here](#notifications-detailed-description-of-notification-types-removed-comment-on-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when answering` `+Required when creation` |
-| **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
+| **noteContent** | String(4096)                                       | Comment content<br>`+Required when replying` `+Required when creating` |
+| **performedBy** | Object                                             | The person who made the change. [More details here](#notifications-detailed-description-of-notification-types-removed-comment-on-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating ` |
+| **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
+| **task** | Object                                             | Task [More details here](#notifications-detailed-description-of-notification-types-removed-comment-on-the-task-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when answering` `+Required when creation` |
+| **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
 ##### Employee who made the change
@@ -1493,12 +1547,12 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 
 ##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **deadline** | datetime | Estimated completion date of the task<br>`+Required when replying` |
-| **id** | UUID| Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Name of Counterparty<br>`+Required when replying` |
 
 **Parameters**
 
@@ -1527,7 +1581,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "3d2abf0f-5704-11e9-c0a8-100b00000005",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-05-27 15:51:09.000",
-   read: false
+   "read": false,
    "title": "Comment deleted: New text for task 1",
    "description": "ntest1 deleted comment New comment text 1",
    "performedBy": {
@@ -1540,7 +1594,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "c4e1397b-807c-11e9-9ff4-31500025d4ed",
      "name": "ntest1"
    },
-   task: {
+   "task": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
@@ -1566,15 +1620,15 @@ NotificationRetailShiftOpened - the shift is open.
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **retailShift** | object | Shift description<br>`+Required when replying` `+Required when creating` |
-| **retailstore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
+| **retailShift** | Object | Shift description<br>`+Required when replying` `+Required when creating` |
+| **retailStore** | Object | Point of sale<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
-| **user** | object | Employee<br>`+Required when replying` `+Required when creating` |
+| **user** | Object | Employee<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -1603,7 +1657,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "8002409b-351d-11e9-9ff4-34e80002a126",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-20 17:40:42.000",
-   read: true
+   "read": true,
    "title": "Shift is open at Point of sale",
    "description": "Cashier: Cashier Kladkin",
    "user": {
@@ -1616,7 +1670,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
      "name": "Cashier Kladkin"
    },
-   "retail store": {
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -1626,7 +1680,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "ffa5bbf4-351b-11e9-9ff4-34e800131be8",
      "name": "Point of sale"
    },
-   retailShift: {
+   "retailShift": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailshift/7e41bd3c-351c-11e9-9ff4-34e80012cfc1",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailshift/metadata",
@@ -1649,17 +1703,17 @@ NotificationRetailShiftClosed - the shift is closed
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **retailShift** | object | Shift description<br>`+Required when replying` `+Required when creating` |
-| **retailstore** | object | Point of sale<br>`+Required when replying` `+Required when creating` |
-| **returns** | int | Number of returns<br>`+Required when replying` `+Required when creating` |
-| **sales** | int | Number of sales<br>`+Required when replying` `+Required when creating` |
+| **retailShift** | Object | Shift description<br>`+Required when replying` `+Required when creating` |
+| **retailStore** | Object | Point of sale<br>`+Required when replying` `+Required when creating` |
+| **returns** | Int | Number of returns<br>`+Required when replying` `+Required when creating` |
+| **sales** | Int | Number of sales<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255) | Brief text of notification<br>`+Required when replying` `+Required when creating` |
-| **user** | object | Employee<br>`+Required when replying` `+Required when creating` |
+| **user** | Object | Employee<br>`+Required when replying` `+Required when creating` |
 
 **Parameters**
 
@@ -1688,7 +1742,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "3929d717-351c-11e9-9ff4-34e800029ad4",
    "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
    "created": "2019-02-20 17:31:34.000",
-   read: true
+   "read": true,
    "title": "Shift closed at Point of sale",
    "description": "Cashier: Cashier Kladkin. Duration: 1 min. Sales: 2. Refunds: 0. Revenue: 40000.00",
    "user": {
@@ -1701,7 +1755,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
      "name": "Cashier Kladkin"
    },
-   "retail store": {
+   "retailStore": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
@@ -1711,7 +1765,7 @@ Successful request. The result is a JSON representation of the Notification.
      "id": "ffa5bbf4-351b-11e9-9ff4-34e800131be8",
      "name": "Point of sale"
    },
-   retailShift: {
+   "retailShift": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/retailshift/08fd47a8-351c-11e9-9109-f8fc0013f6cd",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailshift/metadata",
@@ -1737,7 +1791,7 @@ NotificationScript - notification from a script
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
+| **created** | DateTime | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
 | **description** | String(255) | Notification description<br>`+Required for response` `+Read only` |
 | **entities** | Object | Script object reference<br>`+Required for response` `+Read-only` |
 | **eventType** | Event | Script event type<br>`+Required for response` `+Read-only` |
@@ -1799,15 +1853,15 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "b22dc861-645b-11eb-0a80-1f8500000044",
    "accountId": "882bbcfa-645b-11eb-0a80-1f8000000016",
    "created": "2021-02-01 10:04:15.907",
-   read: false
+   "read": false,
    "title": "subject",
    "description": "notification text",
    "eventType": "MODIFY",
-   entity: {
+   "entity": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/afa8525a-645b-11eb-0a80-2b47000003b7",
        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
-       "type": "sales order",
+       "type": "customerorder",
        "mediaType": "application/json"
      },
      "id": "afa8525a-645b-11eb-0a80-2b47000003b7",
@@ -1828,8 +1882,8 @@ FacebookTokenExpirationNotification - warning about the imminent expiration of a
 | --------------- | ------ | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
 | **connectorName** | String(4096) | Connector name "Instagram and Facebook"<br>`+Required when replying` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
-| **daysLeftToExpiration** | int | Number of days left before Facebook account access expires<br>`+Required when replying` |
+| **created** | DateTime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **daysLeftToExpiration** | Int | Number of days left before Facebook account access expires<br>`+Required when replying` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
@@ -1863,7 +1917,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "9596251d-da73-11eb-ac12-000c00000015",
    "accountId": "54148a9e-d8fa-11eb-ac12-000b00000001",
    "created": "2021-07-01 16:52:33",
-   read: true
+   "read": true,
    "title": "Update Facebook Link",
    "description": "In order for the Instagram shop to work properly, account access needs to be renewed every 60 days - just click the button in the settings. Days until synchronization stops: 5",
    "connectorName": "Instagram store",
@@ -1882,7 +1936,7 @@ NotificationBonusMoney - Bonus money has been credited to the account.
 | Title | Type | Description |
 | --------------- | ------ | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Required when creating` |
-| **created** | datetime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **created** | DateTime | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
 | **description** | String(4096) | Notification description<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
@@ -1916,7 +1970,7 @@ Successful request. The result is a JSON representation of the Notification.
    "id": "c2582a9e-56e1-11e9-c0a8-100b00000123",
    "accountId": "c45c23d5-5640-11e9-c0a8-100a00000001",
    "created": "2019-04-04 16:58:50.000",
-   read: false
+   "read": false,
    "title": "Account replenished",
    "description": "500 bonus rubles have been credited to your account"
 }
@@ -1960,35 +2014,36 @@ Successful request. JSON representation of notification settings.
 ```json
 {
    "groups" : {
-     "sales order" : {
-       "enabled" : true
+     "customer_order" : {
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "invoice" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "stock" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "retail" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
-     "task" : {"enabled" : true
+     "task" : {
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "data_exchange" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "scripts" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      },
      "online_stores" : {
-       "enabled" : true
+       "enabled" : true,
        "channels" : [ "email", "push" ]
      }
    }
@@ -2010,36 +2065,36 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
      -H "Content-Type: application/json"
        -d '{
              "groups" : {
-               "sales order" : {
-                 "enabled" : true
+               "customer_order" : {
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "invoice" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "stock" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "retail" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "task" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "data_exchange" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "scripts" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
                "online_stores" : {
-                 "enabled" : true
+                 "enabled" : true,
                  "channels" : [ "email", "push" ]
                }
              }

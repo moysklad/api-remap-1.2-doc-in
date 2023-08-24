@@ -8,18 +8,18 @@ Access to the report via the API requires the right to view indicators `viewDash
 
 | Title | Type | Description |
 | ---------- | ------------ | ------ |
-| **credit** | float | Income<br>`+Required when answering` |
-| **debit** | float | Cost<br>`+Required when answering` |
+| **credit** | Float | Income<br>`+Required when answering` |
+| **debit** | Float | Cost<br>`+Required when answering` |
 | **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when answering` |
 
 #### Indicators (series)
 
 | Title | Type | Description |
 | ----------- |  ------------ | ------ |
-| **date** | datetime | Date<br>`+Required when replying` |
-| **credit** | float | Income for the period<br>`+Required when answering` |
-| **debit** | float | Expense for the period<br>`+Required when answering` |
-| **balance** | float | Balance (income-expense)<br>`+Required when answering` |
+| **date** | DateTime | Date<br>`+Required when replying` |
+| **credit** | Float | Income for the period<br>`+Required when answering` |
+| **debit** | Float | Expense for the period<br>`+Required when answering` |
+| **balance** | Float | Balance (income-expense)<br>`+Required when answering` |
 
 #### Parameters available for filtering
 
@@ -27,8 +27,8 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 | Title | Type | Filtration | Description |
 | ------ |------| ------------ | ------ |
-| **organization** | object | `=` | link to legal face |
-| **project** | object | `=` | project link |
+| **organization** | Object | `=` | link to legal face |
+| **project** | Object | `=` | project link |
 
 
 **Parameters**
@@ -59,9 +59,9 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context":{
-     "employee":{
-       "meta":{
+   "context": {
+     "employee": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/context/employee",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -69,7 +69,7 @@ Successful request. The result is a JSON representation of the report.
        }
      }
    },
-   "meta":{
+   "meta": {
      "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day",
      "type":"moneyplotseries",
      "mediaType":"application/json"
@@ -81,25 +81,25 @@ Successful request. The result is a JSON representation of the report.
        "date":"2018-09-01 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-02 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-03 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-04 00:00:00",
        "credit":100,
        "debit":50,
-       balance:50
+       "balance":50
      }
    ]
 }
@@ -109,7 +109,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in /api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34 -5acf000c8448"
+   "https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -118,9 +118,9 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context":{
-     "employee":{
-       "meta":{
+   "context": {
+     "employee": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/context/employee",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -128,8 +128,8 @@ Successful request. The result is a JSON representation of the report.
        }
      }
    },
-   "meta":{
-     "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app .kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897 -11e7-7a34-5acf000c8448",
+   "meta": {
+     "href":"https://app.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://app.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448",
      "type":"moneyplotseries",
      "mediaType":"application/json"
    },
@@ -140,7 +140,7 @@ Successful request. The result is a JSON representation of the report.
        "date":"2018-09-01 00:00:00",
        "credit":50,
        "debit":0,
-       balance:50
+       "balance":50
      },
      {
        "date":"2018-09-02 00:00:00",
@@ -150,15 +150,15 @@ Successful request. The result is a JSON representation of the report.
      },
      {
        "date":"2018-09-03 00:00:00",
-       credit:0,
+       "credit":0,
        "debit":0,
-       balance:0
+       "balance":0
      },
      {
        "date":"2018-09-04 00:00:00",
-       credit:0,
+       "credit":0,
        "debit":0,
-       balance:0
+       "balance":0
      }
    ]
 }
@@ -170,9 +170,9 @@ Successful request. The result is a JSON representation of the report.
 #### Unit
 | Title | Type | Description |
 | ------------ | ------ |----- |
-| **account** | object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **organization** | object | Organization. [More details here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **balance** | float | Current balance<br>`+Required when answering` |
+| **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **organization** | Object | Organization. [More details here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **balance** | Float | Current balance<br>`+Required when answering` |
 
 #### Organization account
 
@@ -200,9 +200,9 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context":{
-     "employee":{
-       "meta":{
+   "context": {
+     "employee": {
+       "meta": {
          "href":"https://app.kladana.in/api/remap/1.2/context/employee",
          "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
@@ -210,15 +210,15 @@ Successful request. The result is a JSON representation of the report.
        }
      }
    },
-   "meta":{
+   "meta": {
      "href":"https://app.kladana.in/api/remap/1.2/report/money/byaccount",
      "type":"moneyreport",
      "mediaType":"application/json"
    },
-   "rows":[
+   "rows": [
      {
-       organization:{
-         "meta":{
+       "organization": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
@@ -226,11 +226,11 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"OOO Chamomile"
        },
-       balance:100
+       "balance":100
      },
      {
-       organization:{
-         "meta":{
+       "organization": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
@@ -238,11 +238,11 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"OOO Serious Legal Entity"
        },
-       balance:100
+       "balance":100
      },
      {
-       "account":{
-         "meta":{
+       "account": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"account",
@@ -250,8 +250,8 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"00000"
        },
-       organization:{
-         "meta":{
+       "organization": {
+         "meta": {
            "href":"https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
            "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
@@ -259,7 +259,7 @@ Successful request. The result is a JSON representation of the report.
          },
          "name":"OOO Serious Legal Entity"
        },
-       balance:200
+       "balance":200
      }
    ]
 }

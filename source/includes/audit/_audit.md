@@ -154,7 +154,7 @@ Successful request. The result is a JSON representation of the list of Changes.
 | --------- | ----------|
 | **filter** | `string` (optional) *Example: filter=entityType=customerorder* filter by entity type |
 
-Example of a query with context filtering by "sales order" type
+Example of a query with context filtering by "customerorder" type
 https://app.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder
 
 > Get Contexts with filtering
@@ -493,9 +493,9 @@ Filtering can be done by the fields described below.
    audit entities should be filtered. List of possible parameter values:
 
 | The value of the eventType parameter | Description |
-| ---------------------------------- | ----------- |
+| --------------------------------- | ----------- |
 | **registration** | Registration |
-| **bulk operation** | Bulk operation |
+| **bulkoperation** | Bulk operation |
 | **closepublication** | Deleting a post |
 | **create** | Creation of entities |
 | **delete** | Deleting entities |

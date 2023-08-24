@@ -47,7 +47,7 @@ curl
 
 ```json
 {
-    context: {
+    "context": {
       "employee": {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -61,11 +61,11 @@ curl
       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/embeddedtemplate/",
       "type": "embeddedtemplate",
       "mediaType": "application/json",
-      size: 1
-      limit: 100
-      offset: 0
+      "size": 1,
+      "limit": 100,
+      "offset": 0
     },
-    rows: [
+    "rows": [
       {
         "meta": {
           "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/embeddedtemplate/6ffea5e5-1b69-4a88-be59-4856281d439c",
@@ -95,7 +95,7 @@ curl
 
 ```json
 {
-     context: {
+     "context": {
              "employee": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -109,11 +109,11 @@ curl
              "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/customtemplate/",
              "type": "customtemplate",
              "mediaType": "application/json",
-             size: 1
-             limit: 100
-             offset: 0
+             "size": 1,
+             "limit": 100,
+             "offset": 0
          },
-         rows: [
+         "rows": [
              {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/customtemplate/13b49a38-0b64-4129-9fb8-0f9f936fa575",
@@ -170,7 +170,7 @@ The response is a JSON representation of the publication. If such a publication 
      "type": "operationpublication",
      "mediaType": "application/json"
    },
-   template: {
+   "template": {
      "meta": {
        "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/embeddedtemplate/6ffea5e5-1b69-4a88-be59-4856281d439c",
        "type": "embeddedtemplate",
@@ -199,7 +199,7 @@ curl
 
 ```json
 {
-     context: {
+     "context": {
          "employee": {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -211,20 +211,20 @@ curl
      },
      "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication",
-         "type": "demand",
+         "type": "customerorder",
          "mediaType": "application/json",
-         size: 1
-         limit: 100
-         offset: 0
+         "size": 1,
+         "limit": 100,
+         "offset": 0
      },
-     rows: [
+     "rows": [
          {
              "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication/aec51463-bbd2-11e6-8a84-bae500000003",
                  "type": "operationpublication",
                  "mediaType": "application/json"
              },
-             template: {
+             "template": {
                  "meta": {
                      "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata/embeddedtemplate/6ffea5e5-1b69-4a88-be59-4856281d439c",
                      "type": "embeddedtemplate",
@@ -249,7 +249,7 @@ curl
      -u login:password
      -H "Content-Type: application/json"
      -H "Lognex-Pretty-Print-JSON: true"
-     ""https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication/aec51463-bbd2-11e6-8a84-bae500000003"
+     "https://app.kladana.in/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication/aec51463-bbd2-11e6-8a84-bae500000003"
 ```
 
 

@@ -5,16 +5,16 @@ Using the JSON API, you can request a list of Russian regions and information on
 The entity code for Regions in the JSON API is the **region** keyword.
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| ------- |  ------- | ---- | -------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Region Code |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Region Code<br>`+Required when replying` |
-| **id** | UUID | `=` `!=` | Region ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------| ---- | -------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Region Code |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Region Code<br>`+Required when replying` |
+| **id** | UUID                                               | `=` `!=` | Region ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Region metadata<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Region Name<br>`+Required when replying` `+Required when creating` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **version** | int | | Entity version<br>`+Required for response` `+Read-only` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Region Name<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **version** | Int                                                | | Entity version<br>`+Required for response` `+Read-only` |
 
 
 #### Attributes available for sorting
@@ -58,7 +58,7 @@ Successful request. Result - JSON representation of the list of Regions
 
 ```json
 {
-   context: {
+   "context": {
      "employee": {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
@@ -72,12 +72,12 @@ Successful request. Result - JSON representation of the list of Regions
      "href": "https://app.kladana.in/api/remap/1.2/entity/region/",
      "type": "region",
      "mediaType": "application/json",
-     size: 86
-     limit: 25
-     offset: 0
+     "size": 86,
+     "limit": 25,
+     "offset": 0,
      "nextHref": "https://app.kladana.in/api/remap/1.2/entity/region/?limit=25&offset=25"
    },
-   rows: [
+   "rows": [
      {
        "meta": {
          "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000001",
@@ -86,7 +86,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000001",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Adygea",
        "code": "01",
@@ -100,7 +100,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000002",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Bashkortostan",
        "code": "02",
@@ -114,7 +114,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000003",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Buryatia",
        "code": "03",
@@ -128,7 +128,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000004",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Resp Altai",
        "code": "04",
@@ -142,7 +142,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000005",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Dagestan",
        "code": "05",
@@ -156,7 +156,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000006",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Ingushetia",
        "code": "06",
@@ -170,7 +170,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000007",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Kabardino-Balkarian Republic",
        "code": "07",
@@ -184,7 +184,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000008",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Kalmykia",
        "code": "08",
@@ -198,7 +198,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000009",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Karachay-Cherkess Republic",
        "code": "09",
@@ -212,7 +212,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000010",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Karelia",
        "code": "10",
@@ -226,7 +226,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000011",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Resp Komi",
        "code": "11",
@@ -240,7 +240,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000012",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Resp Mari El",
        "code": "12",
@@ -254,7 +254,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000013",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Mordovia",
        "code": "13",
@@ -268,7 +268,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000014",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Sakha /Yakutia/",
        "code": "14",
@@ -282,7 +282,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000015",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. North Ossetia - Alania",
        "code": "15",
@@ -296,7 +296,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000016",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep. Tatarstan",
        "code": "16",
@@ -310,7 +310,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000017",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Rep Tyva",
        "code": "17",
@@ -324,7 +324,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000018",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Udmurt Republic",
        "code": "18",
@@ -338,7 +338,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000019",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00","name": "Rep Khakassia",
        "code": "19",
        "externalCode": "19"
@@ -351,7 +351,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000020",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Chechen Republic",
        "code": "20",
@@ -365,7 +365,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000021",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Chuvash Republic - Chuvashia",
        "code": "21",
@@ -379,7 +379,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000022",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Altai Territory",
        "code": "22",
@@ -393,7 +393,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000023",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Krasnodar Territory",
        "code": "23",
@@ -407,9 +407,9 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000024",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
-       "name": "Krasnoyarsk Territory",
+       "name": "Indore Territory",
        "code": "24",
        "externalCode": "24"
      },
@@ -421,7 +421,7 @@ Successful request. Result - JSON representation of the list of Regions
          "mediaType": "application/json"
        },
        "id": "00000000-0000-0000-0000-000000000025",
-       version: 0
+       "version": 0,
        "updated": "2018-11-29 00:00:00",
        "name": "Primorsky Territory",
        "code": "25",
@@ -462,7 +462,7 @@ Successful request. The result is a JSON representation of the Region with the s
      "mediaType": "application/json"
    },
    "id": "00000000-0000-0000-0000-000000000077",
-   version: 0
+   "version": 0,
    "updated": "2018-11-29 00:00:00",
    "name": "Moscow",
    "code": "77",
