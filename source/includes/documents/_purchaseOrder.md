@@ -74,7 +74,6 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | **inTransit** | int | Waiting<br>`+Required for response` |
 | **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this item flag, you canset VAT = 0 or VAT = "without VAT". (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
-| **wait** | Boolean | This item is expected |
 
 You can work with items using special resources for managing Order items,
 and also as part of a separate Purchase Order. When working as part of a separate Purchase Order,
