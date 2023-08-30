@@ -14,28 +14,29 @@ Sorting is supported for the following field types:
 Depending on the called endpoint, the sorted fields may differ.
 The tables below show the sortable fields of directories and documents.
 
-| Endpoint (directories) | Sortable fields |
-|----------------|------------- |
-| <a href="../dictionaries/#entities-counterparty">Account</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `phone`, `email`, `fax` |
-| <a href="../dictionaries/#entities-assortment">Assortment</a>| `name`, `code` |
-| <a href="../dictionaries/#entities-currency">Currency</a>|`id`, `name`, `archived`, `default`, `fullname`, `code`, `isoCode`, `multiplicity` |
-| <a href="../dictionaries/#entities-product">Product</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `isSerialTrackable`, `weighed`, `weight`, `volume`, `syncId` |
-| <a href="../dictionaries/#entities-service">Service</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `syncId` |
-| <a href="../dictionaries/#entities-bundle">Bundle</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `pathName`, `article`, `weight`, `volume`, `syncId` |
-| <a href="../dictionaries/#entities-product-variant">Variant</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
-| <a href="../dictionaries/#entities-product-group">Product group</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `externalCode`, ` archived`, `pathName` |
-| <a href="../dictionaries/#entities-series">Series</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
-| <a href="../dictionaries/#entities-contract">Contract</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `moment` |
-| <a href="../dictionaries/#entities-project">Project</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `code`,`externalCode`, `archived` |
-| <a href="../dictionaries/#entities-expense-item">Expense item</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description` , `code`,`externalCode` |
-| <a href="../dictionaries/#entities-country">Country</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode` |
-| <a href="../dictionaries/#entities-department">Department</a>|`id` |
-| <a href="../dictionaries/#entities-unit-of-measure">Unit</a>|`id`, `version`, `updated`, `name`, `description`, `code`, ` externalCode` |
-| <a href="../dictionaries/#entities-employee">Employee</a>|`id`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `archived`,`email`,`phone`,`lastname`, `firstname`, `middlename`, `uid` |
-| <a href="../dictionaries/#entities-warehouse">Warehouse</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `address`, `archived`, `pathName` |
-| <a href="../dictionaries/#entities-entity">Legal entity</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `inn`, `actualAddress`, `legalTitle`, `legalAddress`, `kpp`, `phone`, `email`, `fax` |
-| <a href="../dictionaries/#entities-tochka-prodazh">Point of sale</a>|`id`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`, `address`, `active` |
-| <a href="../dictionaries/#entities-task">Task</a>|`id`, `created`, `version`, `updated`, `description`, `dueToDate`, `done` |
+| Endpoint (directories)                                                       | Sortable fields                                                                                                                                                                                   |
+|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <a href="../dictionaries/#entities-counterparty">Account</a>                 | `id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `phone`, `email`, `fax`                                                            |
+| <a href="../dictionaries/#entities-assortment">Assortment</a>                | `name`, `code`                                                                                                                                                                                    |
+| <a href="../dictionaries/#entities-currency">Currency</a>                    | `id`, `name`, `archived`, `default`, `fullname`, `code`, `isoCode`, `multiplicity`                                                                                                                |
+| <a href="../dictionaries/#entities-product">Product</a>                      | `id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `isSerialTrackable`, `weighed`, `weight`, `volume`, `syncId`                                     |
+| <a href="../dictionaries/#entities-service">Service</a>                      | `id`, `version`, `updated`, `updatedBy`, `name`, `code`, `externalCode`, `archived`, `pathName`, `syncId`                                                                                         |
+| <a href="../dictionaries/#entities-bundle">Bundle</a>                        | `id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `pathName`, `article`, `weight`, `volume`, `syncId`                                           |
+| <a href="../dictionaries/#entities-product-variant">Variant</a>              | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`                                                                                                              |
+| <a href="../dictionaries/#entities-product-group">Product group</a>          | `id`, `version`, `updated`, `updatedBy`, `name`, `externalCode`, ` archived`, `pathName`                                                                                                          |
+| <a href="../dictionaries/#entities-series">Series</a>                        | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`                                                                                                              |
+| <a href="../dictionaries/#entities-contract">Contract</a>                    | `id`, `version`, `updated`, `updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `moment`                                                                                      |
+| <a href="../dictionaries/#entities-project">Project</a>                      | `id`,`version`, `updated`,`updatedBy`, `name`, `code`,`externalCode`, `archived`                                                                                                                  |
+| <a href="../dictionaries/#entities-expense-item">Expense item</a>            | `id`,`version`, `updated`,`updatedBy`, `name`, `description` , `code`,`externalCode`                                                                                                              |
+| <a href="../dictionaries/#entities-country">Country</a>                      | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`                                                                                                              |
+| <a href="../dictionaries/#entities-bills-of-materials">Bill of Materials</a> | `id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`                                                                                                          |
+| <a href="../dictionaries/#entities-department">Department</a>                | `id`                                                                                                                                                                                              |
+| <a href="../dictionaries/#entities-unit-of-measure">Unit</a>                 | `id`, `version`, `updated`, `name`, `description`, `code`, ` externalCode`                                                                                                                        |
+| <a href="../dictionaries/#entities-employee">Employee</a>                    | `id`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `archived`,`email`,`phone`,`lastname`, `firstname`, `middlename`, `uid`                                           |
+| <a href="../dictionaries/#entities-warehouse">Warehouse</a>                  | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `address`, `archived`, `pathName`                                                                           |
+| <a href="../dictionaries/#entities-entity">Legal entity</a>                  | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `inn`, `actualAddress`, `legalTitle`, `legalAddress`, `kpp`, `phone`, `email`, `fax` |
+| <a href="../dictionaries/#entities-tochka-prodazh">Point of sale</a>         | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`, `address`, `active`                                                                                                |
+| <a href="../dictionaries/#entities-task">Task</a>                            | `id`, `created`, `version`, `updated`, `description`, `dueToDate`, `done`                                                                                                                         |
 
 | Endpoint (transactions) | Sortable fields |
 |---------------|---------|
@@ -57,7 +58,6 @@ The tables below show the sortable fields of directories and documents.
 | <a href="../documents/#transactions-sales-return">Sales Return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-purchase-returns">Purchase Return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-inventory-count">Inventory Count</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../dictionaries/#entities-bills-of-materials">Bill of Materials</a>|`id`, `syncId`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`|
 | <a href="../documents/#transactions-production-order">Production Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`,`moment`, `applicable`, `sum`, `created`, `deliveryPlannedMoment`, `quantity`|
 | <a href="../documents/#transactions-internal-order">Internal Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created`, `quantity` |
 
