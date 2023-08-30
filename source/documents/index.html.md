@@ -11,8 +11,6 @@ toc_footers:
 includes:
   - documents/common_info
   - documents/autofill
-  - documents/processingplan
-  - documents/processingplanfolder
   - documents/counterpartyadjustment
   - documents/rate
   - documents/cashin

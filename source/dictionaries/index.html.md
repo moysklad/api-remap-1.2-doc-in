@@ -37,6 +37,8 @@ includes:
   - dictionaries/variant
   - dictionaries/project
   - dictionaries/region
+  - documents/processingplan
+  - documents/processingplanfolder
   - dictionaries/processingprocess
   - dictionaries/saleschannel
   - dictionaries/named_filter
