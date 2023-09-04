@@ -52,7 +52,7 @@ Product Object of a Bill of Materials contains the following fields:
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
 | **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
 
-You can work with materials and products using [special resources for managing items of Bills of Materials](../documents/#transactions-bills-of-materials),
+You can work with materials and products using [special resources for managing items of Bills of Materials](../dictionaries/#entities-bills-of-materials),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,
 you can send requests to create a separate Bill of Materials included in the request body
 arrays of materials and products of Bills of Materials. If the quantity of materials or products exceeds the maximum allowable, then for
@@ -729,7 +729,7 @@ Successful request. The result is a JSON representation of Bills of Materials.
 
 Update Request Bills of Materials with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in Bill of Materials other than those
-are marked `Read-Only` in the description of [Bill of Materials Attribute](../documents/#transactions-bills-of-materials).
+are marked `Read-Only` in the description of [Bill of Materials Attribute](../dictionaries/#entities-bills-of-materials).
 
 **Parameters**
 
