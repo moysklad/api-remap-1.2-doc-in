@@ -9,6 +9,7 @@ toc_footers:
   - <a href='https://github.com/moysklad/api-remap-1.2-doc-in/issues'>Report an issue</a>
 
 includes:
+  - workbook/workbook_first_steps
   - workbook/workbook_webhooks
   - workbook/workbook_meta
   - workbook/workbook_paging
