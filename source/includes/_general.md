@@ -996,7 +996,7 @@ Exceptions:
 + Structured address
    [Contractor](dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address),
    [Legal entity](dictionaries/#entities-entity-legal-entity-attributes-of-entity-address),
-   [Points of sale](dictionaries/#entities-tochka-prodazh-tochki-prodazh-atributy-suschnosti-attributy-suschnosti-status-attributy-suschnosti-adres),
+   Points of sale,
    [Warehouse](dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address),
    [Sales Order](documents/#transactions-sales-order-sales-orders-entity-attributes-39-delivery-address-39),
    [Shipments](documents/#transactions-shipment-shipments-entity-attributes-delivery-address) does not support deletions by passing `null`.

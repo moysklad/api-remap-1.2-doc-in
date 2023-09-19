@@ -35,11 +35,11 @@ The tables below show the sortable fields of directories and documents.
 | <a href="../dictionaries/#entities-employee">Employee</a>                    | `id`, `version`, `updated`, `updatedBy`, `name`, `description`, `externalCode`, `archived`,`email`,`phone`,`lastname`, `firstname`, `middlename`, `uid`                                           |
 | <a href="../dictionaries/#entities-warehouse">Warehouse</a>                  | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `address`, `archived`, `pathName`                                                                           |
 | <a href="../dictionaries/#entities-entity">Legal entity</a>                  | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, `code`, `externalCode`, `archived`, `created`, `inn`, `actualAddress`, `legalTitle`, `legalAddress`, `kpp`, `phone`, `email`, `fax` |
-| <a href="../dictionaries/#entities-tochka-prodazh">Point of sale</a>         | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`, `address`, `active`                                                                                                |
+| Point of sale</a>         | `id`,`version`, `updated`,`updatedBy`, `name`, `description`, ` externalCode`, `address`, `active`                                                                                                |
 | <a href="../dictionaries/#entities-task">Task</a>                            | `id`, `created`, `version`, `updated`, `description`, `dueToDate`, `done`                                                                                                                         |
 
 | Endpoint (transactions) | Sortable fields |
-|---------------|---------|
+|-----------|---------|
 | <a href="../documents/#transactions-stock-adjustment">Stock Adjustment</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created` |
 | <a href="../documents/#transactions-sales-order">Sales Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, ` description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
 | <a href="../documents/#transactions-purchase-order">Purchase Order</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`,`name`, `description`, `externalCode`,`moment`, `applicable`,`sum`, `created`, `deliveryPlannedMoment`|
@@ -53,8 +53,8 @@ The tables below show the sortable fields of directories and documents.
 | <a href="../documents/#transactions-receiving">Receiving</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-write-off">Write-off</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-transfer">Transfer</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#transactions-vnesenie-deneg">Depositing money</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
-| <a href="../documents/#transactions-vyplata-deneg">Payout</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| Depositing money</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
+| Payout</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-sales-return">Sales Return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-purchase-returns">Purchase Return</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, ` description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
 | <a href="../documents/#transactions-inventory-count">Inventory Count</a>|`id`, `syncId`,`version`, `updated`,`updatedBy`, `name`, `description`, `externalCode`,`moment`, `applicable`, `sum`, `created` |
