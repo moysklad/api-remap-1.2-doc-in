@@ -141,7 +141,6 @@ Successful request. The result is a JSON representation of the list of Notificat
 }
 ```
 
-[//]: # (TODO: https://lognex.atlassian.net/browse/MC-64540)
 [//]: # (Здесь пропущены разделы: Получить Уведомление, Удалить Уведомление, Отметить Уведомление как прочитанное)
 
 ### Mark all Notifications as read
