@@ -376,7 +376,7 @@ curl -X POST
                   "mediaType": "application/json"
               }
           }
-      ]'
+        ]'
 ```
 
 We will also receive an empty response with a status of 200. As a result, the specified attributes have been removed. If you specify the meta of a non-existent attribute in the body of such a request, then the entire request will not be executed, even if it contains existing meta.

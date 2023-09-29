@@ -137,7 +137,7 @@ https://app.kladana.in/api/remap/1.2/entity/product
         "weight": 0.1,
         "syncId": "3d7c97cf-cf77-4f7e-b200-d264125578ab"
     }
-]'
+   ]'
 ```
 
 To get a collection of products sorted by name, you must specify the `name` field and sort direction, as in the example below.

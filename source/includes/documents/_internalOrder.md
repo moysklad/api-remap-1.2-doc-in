@@ -812,7 +812,7 @@ Updated Internal Orders must contain the identifier in the form of metadata.
                 "vatSum": 0,
                 "deliveryPlannedMoment": "2016-12-30 13:52:00"
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)
@@ -1067,7 +1067,7 @@ In the body of the request, you need to pass an array containing the JSON metada
                     "mediaType": "application/json"
                 }
             }
-        ]'
+          ]'
 ```
 
 > Successful request. The result is JSON information about deleting Internal Orders.
@@ -1691,7 +1691,7 @@ will be added to the existing ones.
                     }
                 }
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)

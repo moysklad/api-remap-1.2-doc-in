@@ -1392,7 +1392,7 @@ Updated Returns to the supplier must contain the identifier in the form of metad
                     }
                 ]
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)
@@ -1704,21 +1704,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata",
-             "type": "purchasereturn",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata",
-             "type": "purchasereturn",
-             "mediaType": "application/json"
-         }
-       ]'
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata",
+                "type": "purchasereturn",
+                "mediaType": "application/json"
+            }
+        },
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/purchasereturn/metadata",
+                "type": "purchasereturn",
+                "mediaType": "application/json"
+            }
+        }
+      ]'
 ```
 
 > Successful request. The result is JSON information about the removal of Returns to suppliers.
@@ -2728,8 +2730,7 @@ difference in **quantity** items (the quantity in the item in the return can be 
                  }
                }
              }
-           ]
-'
+           ]'
 ```
 
 > Response 200(application/json)
