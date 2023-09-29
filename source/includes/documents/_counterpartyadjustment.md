@@ -574,21 +574,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-             "type": "counterpartyadjustment",
-             "mediaType": "application/json"
-         },
-         {
-           "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
-             "type": "counterpartyadjustment",
-             "mediaType": "application/json"
-         }
-       ]'
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+                "type": "counterpartyadjustment",
+                "mediaType": "application/json"
+            }
+        },
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+                "type": "counterpartyadjustment",
+                "mediaType": "application/json"
+            }
+        }
+      ]'
 ```
 
 > Successful request. Result - JSON information about the deletion of counterparty balance adjustments.

@@ -411,7 +411,7 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
                     ]
                 }
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)
@@ -592,7 +592,7 @@ In the body of the request, you need to pass an array containing JSON with metad
                     "mediaType": "application/json"
                 }
             }
-        ]'
+          ]'
 ```
 
 > Successful request. The result is JSON information about deleting Inventory Counts.

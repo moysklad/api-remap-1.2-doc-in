@@ -1494,7 +1494,7 @@ curl -X POST
                 "BURN"
             ]
         }
-    ]'
+      ]'
 ```
 
 > Response 200. Successful request. The result is a JSON array of representations of created and updated Accounts.
@@ -1699,21 +1699,23 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
-    {
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b1",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-            "type": "counterparty",
-            "mediaType": "application/json"
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                "type": "counterparty",
+                "mediaType": "application/json"
+            }
         },
-        "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b2",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
-            "type": "counterparty",
-            "mediaType": "application/json"
+        {
+            "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                "type": "counterparty",
+                "mediaType": "application/json"
+            }
         }
-    }
-]'
+      ]'
 ```
 
 > Successful request. Result - JSON information about deleting Counterparties.

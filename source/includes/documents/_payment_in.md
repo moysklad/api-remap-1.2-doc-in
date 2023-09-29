@@ -698,7 +698,7 @@ In the body of the request, you need to pass an array containing the JSON metada
                   "mediaType": "application/json"
               }
           }
-      ]'
+        ]'
 ```
 
 > Successful request. Result - JSON information about deleting Incoming payments.

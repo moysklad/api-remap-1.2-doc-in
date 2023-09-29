@@ -567,7 +567,7 @@ Incoming Cash Payments that are updated must contain the identifier in the form 
                     }
                 ]
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)

@@ -1250,7 +1250,7 @@ curl -X POST
                   "mediaType": "application/json"
               }
           }
-      ]'
+        ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of Production Orders.

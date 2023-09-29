@@ -463,7 +463,7 @@ curl -X POST
                 "mediaType": "application/json"
             }
         }
-    ]'
+      ]'
 ```
 
 > Successful request. The result is JSON information about deleting Projects.

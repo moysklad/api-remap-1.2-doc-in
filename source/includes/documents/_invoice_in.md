@@ -1143,7 +1143,7 @@ Updated Supplier Invoices must contain the identifier in the form of metadata.
                 "incomingNumber": "66355",
                 "incomingDate": "2016-12-05 11:42:54"
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)
@@ -1394,7 +1394,7 @@ curl -X POST
                     "mediaType": "application/json"
                 }
             }
-        ]'
+          ]'
 ```
 
 > Successful request. The result is JSON information about the deletion of Suppliers' Invoices.

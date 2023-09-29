@@ -759,7 +759,7 @@ curl -X POST
                   "mediaType": "application/json"
               }
           }
-      ]'
+        ]'
 ```
 
 > Successful request. Result - JSON information about deleting Write-offs.
@@ -1641,8 +1641,7 @@ will be added to the existing ones.
                },
                "reason": "marriage"
              }
-           ]
-'
+           ]'
 ```
 
 > Response 200(application/json)

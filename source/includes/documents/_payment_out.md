@@ -831,7 +831,7 @@ curl -X POST
                   "mediaType": "application/json"
               }
           }
-      ]'
+        ]'
 ```
 
 > Successful request. Result - JSON information about deleting Outgoing payments.

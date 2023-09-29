@@ -1229,7 +1229,7 @@ Updated Sales Invoices must contain the identifier in the form of metadata.
                     }
                 }
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)
@@ -1491,7 +1491,7 @@ curl -X POST
                   "mediaType": "application/json"
               }
           }
-      ]'
+        ]'
 ```
 
 > Successful request. Result - JSON information about the deletion of Sales Invoices.

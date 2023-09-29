@@ -1654,7 +1654,7 @@ curl -X POST
                     "mediaType": "application/json"
                 }
             }
-        ]'
+          ]'
 ```
 
 > Successful request. The result is JSON information about the removal of Receivings.
@@ -2935,7 +2935,7 @@ Successful request. The result is a JSON representation of the created single Re
                     }
                 }
             }
-        ]'
+          ]'
 ```
 
 > Response 200(application/json)
