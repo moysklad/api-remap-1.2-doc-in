@@ -5,23 +5,23 @@ Statuses can be added, modified and removed via API.
 ### Statuses
 #### Entity attributes
 
-| Title | Type | Description |
-| ------| -----|-------------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **color** | String(255) | Status Color<br>`+Required when replying` `+Required when creating` |
-| **entityType** | String(255) | Entity type to which Status refers (keyword within the JSON API)<br>`+Required for response` `+Read-only` |
-| **id** | UUID | Status ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Status Metadata<br>`+Required when replying` `+Read Only` |
-| **name** | String(255) | Status Name<br>`+Required when replying` `+Required when creating` |
-| **stateType** | Enum | Status Type<br>`+Required when replying` `+Required when creating` |
+| Title         | Type                                               | Description                                                                                              |
+|---------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                     |
+| **color**     | Int                                                | Status Color<br>`+Required when replying` `+Required when creating`                                      |
+| **entityType**| String(255)                                        | Entity type to which Status refers (keyword within the JSON API)<br>`+Required for response` `+Read-only`|
+| **id**        | UUID                                               | Status ID<br>`+Required when replying` `+Read Only`                                                      |
+| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Status Metadata<br>`+Required when replying` `+Read Only`                                                |
+| **name**      | String(255)                                        | Status Name<br>`+Required when replying` `+Required when creating`                                       |
+| **stateType** | Enum                                               | Status Type<br>`+Required when replying` `+Required when creating`                                       |
 
 ##### Status type
 
-| Title | Description |
-| ------| ------------|
-| regular | Normal (default) |
-| successful | Final positive |
-| Unsuccessful | Final negative |
+| Title        | Description     |
+|--------------|-----------------|
+| regular      | Normal (default)|
+| successful   | Final positive  |
+| Unsuccessful | Final negative  |
 
 The **color** field is passed to the API as an integer consisting of 4 bytes.
 Because color is transmitted in the ARGB color space, each byte is responsible for its own
