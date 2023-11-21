@@ -2013,7 +2013,7 @@ These types have the following fields:
 | **cashboxAdjustment**      | DICTIONARY | Adjustment of cash balances |
 | **company**                | DICTIONARY | Contractors |
 | **contract**               | DICTIONARY | Contracts |
-| **counterpartyAdjustment** | DICTIONARY | Counterparty balance adjustment |
+| **counterpartyAdjustment** | DICTIONARY | Adjustment of counterparty or employee balances |
 | **country**                | BASE | Countries |
 | **currency**               | BASE | Currencies |
 | **customEntity**           | BASE | Elements of user directories |
