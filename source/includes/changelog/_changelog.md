@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 27-11-2023
+#### Fixed
+- Actualized [Contract](../dictionaries/#entities-contract) `Required when creating` fields
+
 ### 03-08-2023
 #### Fixed
 - Links in documentation sections
