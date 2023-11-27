@@ -30,7 +30,7 @@ The search among contract objects for matching the search string will be carried
 | **id** | UUID | `=` `!=` | Contract ID<br>`+Required when replying` `+Read Only`|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Contract Metadata<br>`+Required when replying` |
 | **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Contract Date<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Contract number<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Contract number<br>`+Required when replying` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Account metadata of your legal entity<br>`+Expand` |
 | **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
@@ -361,7 +361,6 @@ Mandatory fields for creating a Contract:
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
-             "name": "666",
              "ownAgent": {
                "meta": {
                  "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
@@ -377,18 +376,8 @@ Mandatory fields for creating a Contract:
                  "type": "counterparty",
                  "mediaType": "application/json"
                }
-             },
-             "rate": {
-               "currency": {
-                 "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
-                   "type": "currency",
-                   "mediaType": "application/json"
-                 }
-               }
              }
-           }'
+           }
 ```
 
 > Response 200(application/json)
