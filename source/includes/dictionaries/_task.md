@@ -45,10 +45,11 @@ If the current employee has administrator rights, then when requesting a list of
 For an employee who is not an administrator, but has the right to view all tasks, the list of tasks by default will be similar to the list of tasks displayed for the administrator. Otherwise, when requesting a list of tasks without any filters, active (**done** = false) tasks created by the current employee and tasks for which the current employee is responsible will be displayed.
 
 #### Filters from the web interface
-There are 2 groups of filters in the main interface of MySklad to display the list of tasks:
+There are 3 groups of filters in the main interface of MySklad to display the list of tasks:
 
 + Filter by relationship with the current employee: `Assigned to me`, `I assigned`, `All tasks` (only displayed for administrators)
 + Filter by task readiness: `Active`, `Completed`.
++ Filter by task type.
 
 To implement similar list filtering for the JSON API, you need to use the following filters for the task list:
 
@@ -61,6 +62,8 @@ To implement similar list filtering for the JSON API, you need to use the follow
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=false`
 + **Done**: filter by field **done** with value true<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=true`
++ **Task type**: filter by field **state.name**<br>
++ `https://app.kladana.in/api/remap/1.2/entity/task?filter=state.name=<task type name>`
 
 #### Permissions
 | Operation | Access |
