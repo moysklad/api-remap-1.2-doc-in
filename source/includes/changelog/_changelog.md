@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+## 19-12-2023
+### Added
+- Field `state` added in [Task](../dictionaries/#entities-task) - [Task type](../dictionaries/#entities-task-task-type) entity
+
 ### 27-11-2023
 #### Fixed
 - Actualized [Contract](../dictionaries/#entities-contract) `Required when creating` fields
