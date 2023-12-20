@@ -36,6 +36,18 @@ The task comment object contains the following fields:
 | **moment** | DateTime                                           | When the comment was created<br>`+Required when replying` `+Read only` |
 | **description** | String(4096)                                       | Comment text<br>`+Required when replying` `+Required when creating` |
 
+#### Task type
+The task type object contains the following fields:
+
+| Title       | Type                                                       | Description                                                                |
+| -------------- |:----------------------------------------------------------|:------------------------------------------------------------------------|
+| **accountId**  | UUID                                                      | account ID<br>`+Required when replying` `+Read Only`                    |
+| **color**      | Int                                                       | Task type color<br>`+Required when replying` `+Required when creating` |
+| **entityType** | String(255)                                               | entity type - always is task<br>`+Required when replying` `+Read Only`  |
+| **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                  |
+| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | task type metadata<br>`+Required when replying` `+Read Only`            |
+| **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`   |
+
 #### Default list display
 ##### For administrator
 If the current employee has administrator rights, then when requesting a list of tasks, all active (**done** = false) tasks will be displayed to him, like those
