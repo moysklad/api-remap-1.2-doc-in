@@ -6,8 +6,8 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-## 21-12-2023
-### Created
+### 21-12-2023
+#### Created
 - Add `materialProcessingPlan` for [BoM](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials), BoM for material
 
 ### 27-11-2023
