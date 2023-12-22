@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 21-12-2023
 #### Created
-- Add `materialProcessingPlan` for [BoM](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials), BoM for material
+- Add `materialProcessingPlan` for [BoM](../dictionaries/#entities-bills-of-materials), BoM for material
 
 ### 27-11-2023
 #### Fixed
