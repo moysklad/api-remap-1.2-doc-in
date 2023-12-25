@@ -8,6 +8,8 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 25-12-2023
 #### Changed
+- Changed type of `agent` attribute in [Balance adjustment](../documents/#transactions-balance-adjustment). Now it can take `employee` value.
+- Transaction `Counterparty Balance adjustment` was renamed to `Balance adjustment`
 - Changed type of `agent` attribute in [Outgoing Payment](../documents/#transactions-outgoing-payment). Now it can take `employee` value.
 
 ### 27-11-2023
