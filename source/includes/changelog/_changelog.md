@@ -10,6 +10,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Changed type of `agent` attribute in [Outgoing Payment](../documents/#transactions-outgoing-payment). Now it can take `employee` value.
 
+### 27-11-2023
+#### Fixed
+- Actualized [Contract](../dictionaries/#entities-contract) `Required when creating` fields
+
 ### 03-08-2023
 #### Fixed
 - Links in documentation sections
