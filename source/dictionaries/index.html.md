@@ -53,6 +53,7 @@ includes:
   - dictionaries/store
   - dictionaries/webhook
   - dictionaries/webhookstock  
+  - dictionaries/thing
   
 search: true
 ---  

@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 20-12-2023
+#### Added
+- Endpoint [Serial numbers](../dictionaries/#entities-serial-number)
+
 ### 25-12-2023
 #### Changed
 - Changed type of `agent` attribute in [Balance adjustment](../documents/#transactions-balance-adjustment). Now it can take `employee` value.
