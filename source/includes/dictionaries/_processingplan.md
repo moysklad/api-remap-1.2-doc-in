@@ -28,14 +28,15 @@ Using the JSON API, you can create and update information about Bills of Materia
 
 Bills of Materials are a list of products and product variants. Material object of Bills of Materials contains the following fields:
 
-| Title | Type| Description |
-| -------- | -------- |---------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
-| **id** | UUID | Stuff ID<br>`+Required when replying` `+Read Only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
-| **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
-| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Process item metadata<br>`+Required when replying` |
+| Title                         | Type| Description                                                                                                                                                                               |
+|-------------------------------| -------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**                 | UUID | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                      |
+| **assortment**                | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand`                                                                                                               |
+| **id**                        | UUID | Stuff ID<br>`+Required when replying` `+Read Only`                                                                                                                                        |
+| **product**                   | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
+| **quantity**                  | int | Quantity of goods of this type in item<br>`+Required when answering`                                                                                                                      |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Process item metadata<br>`+Required when replying`                                                                                                                                        |
+| **materialProcessingPlan**    | [Meta](../#kladana-json-api-general-info-metadata) | Material BoM item metadata<br>`+Read Only`                                                                                                                                                |
 
 Peculiarities: if you do not specify a connection with the item of the technological process when adding a material, then by default the material will be linked to the first item of the technological process.
 
