@@ -838,7 +838,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **cashboxAdjustment** | DICTIONARY | All ALL | Adjustment of cash balances |
 | **company** | DICTIONARY | All ALL | Contractors |
 | **contract** | DICTIONARY | All ALL | Contracts |
-| **counterpartyAdjustment** | DICTIONARY | All ALL | Counterparty balance adjustment |
+| **counterpartyAdjustment** | DICTIONARY | All ALL | Adjustment of counterparty or employee balances |
 | **country** | base | All ALL | Countries |
 | **crptCancellation** | DICTIONARY | All NO | Writing off marking codes |
 | **crptPackageCreation** | DICTIONARY | All NO | Formation of packaging |

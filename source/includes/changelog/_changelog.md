@@ -6,9 +6,15 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 21-12-2023
+### 11-01-2023
 #### Created
 - Add `materialProcessingPlan` for [BoM](../dictionaries/#entities-bills-of-materials), BoM for material
+
+### 25-12-2023
+#### Changed
+- Changed type of `agent` attribute in [Balance adjustment](../documents/#transactions-balance-adjustment). Now it can take `employee` value.
+- Transaction `Counterparty Balance adjustment` was renamed to `Balance adjustment`
+- Changed type of `agent` attribute in [Outgoing Payment](../documents/#transactions-outgoing-payment). Now it can take `employee` value.
 
 ### 27-11-2023
 #### Fixed
