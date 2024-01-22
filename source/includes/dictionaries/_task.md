@@ -39,14 +39,15 @@ The task comment object contains the following fields:
 #### Task type
 The task type object contains the following fields:
 
-| Title       | Type                                                       | Description                                                                |
-| -------------- |:----------------------------------------------------------|:------------------------------------------------------------------------|
-| **accountId**  | UUID                                                      | account ID<br>`+Required when replying` `+Read Only`                    |
+| Title       | Type                                                       | Description                                                            |
+| -------------- |:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| **accountId**  | UUID                                                      | account ID<br>`+Required when replying` `+Read Only`                   |
 | **color**      | Int                                                       | Task type color<br>`+Required when replying` `+Required when creating` |
-| **entityType** | String(255)                                               | entity type - always is task<br>`+Required when replying` `+Read Only`  |
-| **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                  |
-| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | task type metadata<br>`+Required when replying` `+Read Only`            |
-| **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`   |
+| **entityType** | String(255)                                               | entity type - always is task<br>`+Required when replying` `+Read Only` |
+| **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                 |
+| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | task type metadata<br>`+Required when replying` `+Read Only`           |
+| **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`  |
+| **stateType**  | Enum                                                      | State type<br>`+Required when replying`                               |
 
 #### Default list display
 ##### For administrator
