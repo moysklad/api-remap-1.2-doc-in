@@ -49,6 +49,15 @@ The task type object contains the following fields:
 | **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`  |
 | **stateType**  | Enum                                                      | State type<br>`+Required when replying`                               |
 
+The **color** field is passed to the API as an integer consisting of 4 bytes.
+Because color is transmitted in the ARGB color space, each byte is responsible for its own
+color respectively: 1 - for transparency, 2 - for red, 3 - for green,
+4 - for blue. Each byte takes values from 0 to 255 as well as the color in each of
+color space channels. The result of 4 consecutive bytes written
+the number converted to 10 is the representation of the status color in the JSON API.
+
+Example: the color `rgb(162, 198, 23)` will match the following value of the `"color" field: 10667543`.
+
 #### Default list display
 ##### For administrator
 If the current employee has administrator rights, then when requesting a list of tasks, all active (**done** = false) tasks will be displayed to him, like those
@@ -1127,7 +1136,7 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/task",
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
     "mediaType": "application/json"
   },
   "states": [
