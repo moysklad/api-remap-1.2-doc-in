@@ -1,45 +1,45 @@
-## Counterparty balance adjustment
+## Balance adjustment
 
-Using the JSON API, you can create and update information about Counterparty Balance Adjustments, query lists of Counterparty Balance Adjustments, and information on individual Counterparty Balance Adjustments.
+Using the JSON API, you can create and update information about Balance Adjustments, query lists of Balance Adjustments, and information on individual Balance Adjustments.
 
-The entity code for Counterparty Balance Adjustment as part of the JSON API is the **counterpartyadjustment** keyword. Learn more about [counterparty balance adjusting](https://kladana.zendesk.com/hc/en-us/articles/6512840609821-How-to-adjust-balance-of-counterparty).
+The entity code for Balance Adjustment as part of the JSON API is the **counterpartyadjustment** keyword. Learn more about [balance adjusting](https://kladana.zendesk.com/hc/en-us/articles/6512840609821-How-to-adjust-balance-of-counterparty).
 
-### Counterparty balance adjustments
+### Balance adjustments
 #### Entity attributes
 
-| Title | | Filtration | Description |
-| ------- | ---- | ---- | ----- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying` |
+| Title | | Filtration | Description                                                                                                                                   |
+| ------- | ---- | ---- |-----------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                          |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or Employee metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                            |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering`                                                                                                      |
+| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                                   |
+| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                                       |
+| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only`                                                                      |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments                                                                                                      |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying`                                                                    |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Counterparty Balance Adjustment ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Counterparty balance adjustments<br>`+Required when replying` |
-| **moment** | datetime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Counterparty balance adjustments<br>`+Required when replying` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of Counterparty Balance Adjustment in rupees<br>`+Required when replying` `+Read only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand`                                                                                  |
+| **id** | UUID | `=` `!=` | Balance Adjustment ID<br>`+Required when replying` `+Read only`                                                                               |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Counterparty balance adjustments<br>`+Required when replying`                                                                        |
+| **moment** | datetime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                                    |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Counterparty balance adjustments<br>`+Required when replying`                                                                            |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                        |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                       |
+| **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only`                                                                           |
+| **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only`                                                                           |
+| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                          |
+| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in rupees<br>`+Required when replying` `+Read only`                                                              |
+| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only`                                              |
 
-### Get a list of Counterparty Balance Adjustments
-Request for all Counterparty Balance Adjustments on a given account.
+### Get a list of Balance Adjustments
+Request for all Balance Adjustments on a given account.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | -------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing counterparty balance adjustments. |
+| **rows** | Array(Object) | An array of JSON objects representing balance adjustments. |
 
 **Parameters**
 
@@ -49,7 +49,7 @@ Result: JSON object including fields:
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 | **search** |`string` (optional) *Example: 0001* Filter documents by the specified search string. |
 
-> Get a list of Counterparty Balance Adjustments
+> Get a list of Balance Adjustments
 
 ```shell
 curl -X GET
@@ -58,7 +58,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of Counterparty Balance Adjustments.
+Successful request. The result is a JSON representation of a list of Balance Adjustments.
 
 ```json
 {
@@ -231,16 +231,16 @@ Successful request. The result is a JSON representation of a list of Counterpart
 }
 ```
 
-### Create Counterparty Balance Adjustment
-Request to create a new Counterparty Balance Adjustment.
+### Create Balance Adjustment
+Request to create a new Balance Adjustment.
 Mandatory fields to create:
 
-| Parameter | Description |
-| ------- | -------- |
-| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **agent** | Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| Parameter | Description                                                                                                   |
+| ------- |---------------------------------------------------------------------------------------------------------------|
+| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)                |
+| **agent** | Link to the counterparty or employee in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
-> An example of creating a new Counterparty Balance Adjustment.
+> An example of creating a new Balance Adjustment.
 
 ```shell
    curl -X POST
@@ -272,7 +272,7 @@ Mandatory fields to create:
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the created Counterparty Balance Adjustment.
+Successful request. The result is a JSON representation of the created Balance Adjustment.
 
 ```json
 {
@@ -343,13 +343,13 @@ Successful request. The result is a JSON representation of the created Counterpa
 }
 ```
 
-### Bulk creation and updating of counterparty balance adjustments
+### Bulk creation and updating of balance adjustments
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Counterparty balance adjustments.
-In the body of the request, you need to pass an array containing a JSON representation of the Counterparty Balance Adjustments that you want to create or update.
-Updated Counterparty Balance Adjustments must contain the identifier in the form of metadata.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Balance adjustments.
+In the body of the request, you need to pass an array containing a JSON representation of the Balance Adjustments that you want to create or update.
+Updated Balance Adjustments must contain the identifier in the form of metadata.
 
-> Example of creating and updating multiple Counterparty Balance Adjustments
+> Example of creating and updating multiple Balance Adjustments
 
 ```shell
    curl -X POST
@@ -403,7 +403,7 @@ Updated Counterparty Balance Adjustments must contain the identifier in the form
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON array of representations of created and updated Counterparty Balance Adjustments.
+Successful request. The result is a JSON array of representations of created and updated Balance Adjustments.
 
 ```json
 [
@@ -542,13 +542,13 @@ Successful request. The result is a JSON array of representations of created and
 ]
 ```
 
-### Delete counterparty balance adjustment
+### Delete balance adjustment
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Counterparty balance adjustments. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
 
 > Request to delete Account adjustments of the counterparty with the specified id.
 
@@ -559,14 +559,14 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful deletion of Counterparty Balance Adjustments.
+Successful deletion of Balance Adjustments.
 
-### Bulk deletion of counterparty balance adjustments
+### Bulk deletion of balance adjustments
 
-In the body of the request, you need to pass an array containing JSON of the metadata of the Counterparty Balance Adjustments that you want to delete.
+In the body of the request, you need to pass an array containing JSON of the metadata of the Balance Adjustments that you want to delete.
 
 
-> Request for bulk deletion of counterparty balance adjustments.
+> Request for bulk deletion of balance adjustments.
 
 ```shell
 curl -X POST
@@ -593,7 +593,7 @@ curl -X POST
       ]'
 ```
 
-> Successful request. Result - JSON information about the deletion of counterparty balance adjustments.
+> Successful request. Result - JSON information about the deletion of balance adjustments.
 
 ```json
 [
@@ -606,20 +606,20 @@ curl -X POST
 ]
 ```
 
-### Metadata of Counterparty Balance Adjustments
-#### Metadata of Counterparty Balance Adjustments
+### Metadata of Balance Adjustments
+#### Metadata of Balance Adjustments
 
-Request to receive metadata of counterparty balance adjustments. The result is a JSON object including:
+Request to receive metadata of balance adjustments. The result is a JSON object including:
 
 | Parameter | Description |
 | ------- | -------- |
-| **meta** | Link to metadata of counterparty balance adjustments |
-| **attributes** | Array of objects additional counterparty balance adjustment fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
-| **createShared** | create new counterparty balance adjustments labeled "General" |
+| **meta** | Link to metadata of balance adjustments |
+| **attributes** | Array of objects additional balance adjustment fields in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **createShared** | create new balance adjustments labeled "General" |
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
-> Metadata of Counterparty Balance Adjustments
+> Metadata of Balance Adjustments
 
 ```shell
 curl -X GET
@@ -628,7 +628,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the additional counterparty balance adjustment fields.
+Successful request. The result is a JSON representation of the additional balance adjustment fields.
 
 ```json
 {
@@ -650,17 +650,17 @@ Successful request. The result is a JSON representation of the additional counte
 }
 ```
 
-### Counterparty balance adjustment
+### Balance adjustment
 
-### Get counterparty balance adjustment
+### Get balance adjustment
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Counterparty balance adjustments. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
 
-> Request to receive a separate Counterparty Balance Adjustment with the specified id.
+> Request to receive a separate Balance Adjustment with the specified id.
 
 ```shell
 curl -X GET
@@ -669,7 +669,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of Counterparty Balance Adjustments.
+Successful request. The result is a JSON representation of Balance Adjustments.
 
 ```json
 {
@@ -740,19 +740,19 @@ Successful request. The result is a JSON representation of Counterparty Balance 
 }
 ```
 
-### Change counterparty balance adjustment
+### Change balance adjustment
 
 Request to update the balance adjustment of the counterparty with the specified id.
 In the body of the request, you can specify only those fields that need to be changed in the Adjustment of the balance of the counterparty, except for those that
-are marked `Read-only` in the description of [Attributes of Counterparty Balance Adjustment](../documents/#transactions-counterparty-balance-adjustment).
+are marked `Read-only` in the description of [Attributes of Balance Adjustment](../documents/#transactions-balance-adjustment).
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Counterparty balance adjustments. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
 
-> An example of a request to update a single Counterparty Balance Adjustment.
+> An example of a request to update a single Balance Adjustment.
 
 ```shell
    curl -X PUT
@@ -765,7 +765,7 @@ are marked `Read-only` in the description of [Attributes of Counterparty Balance
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the updated Counterparty Balance Adjustment.
+Successful request. The result is a JSON representation of the updated Balance Adjustment.
 
 ```json
 {
