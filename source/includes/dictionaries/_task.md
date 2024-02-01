@@ -5,25 +5,26 @@ Using the JSON API, you can create and update information about tasks, request l
 ### Tasks
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-| ------ |----------------------------------------------------| ----- | ------- |
-| **accountId** | UUID                                               | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only` |
+| Title | Type                                               | Filtration | Description                                                                                                                                                          |
+| ------ |----------------------------------------------------| ----- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                               | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only`                                                                                                         |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Account or legal entity associated with the task. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
-| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when replying` `+Read-only` `+Expand` |
-| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Application that created the task<br>`+Read Only` `+Expand` |
-| **completed** | DateTime                                           | | Task execution time<br>`+Required for response` `+Read-only` |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read only` |
-| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating` |
-| **done** | Boolean                                            | `=` `!=` | Task completion mark<br>`+Required when answering` |
-| **dueToDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Task deadline |
-| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only` |
-| **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering` |
-| **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when replying` `+Expand` |
-| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only` |
+| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                                                 |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when replying` `+Read-only` `+Expand`           |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Application that created the task<br>`+Read Only` `+Expand`                                                                                          |
+| **completed** | DateTime                                           | | Task execution time<br>`+Required for response` `+Read-only`                                                                                                         |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read only`                                                                                                              |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating`                                                                                                     |
+| **done** | Boolean                                            | `=` `!=` | Task completion mark<br>`+Required when answering`                                                                                                                   |
+| **dueToDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Task deadline                                                                                                                                                        |
+| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`                                       |
+| **id** | UUID                                               | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only`                                                                                                                    |
+| **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand`                                                                                            |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering`                                                                                                                          |
+| **state**             | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Task type metadata<br>`+Expand`                                                                                                                                      |
+| **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when replying` `+Expand`                                                                                                         |
+| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand`               |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only`                                                                                                    |
 
 #### Task comments
 The task comment object contains the following fields:
@@ -35,6 +36,28 @@ The task comment object contains the following fields:
 | **moment** | DateTime                                           | When the comment was created<br>`+Required when replying` `+Read only` |
 | **description** | String(4096)                                       | Comment text<br>`+Required when replying` `+Required when creating` |
 
+#### Task type
+The task type object contains the following fields:
+
+| Title       | Type                                                       | Description                                                            |
+| -------------- |:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| **accountId**  | UUID                                                      | account ID<br>`+Required when replying` `+Read Only`                   |
+| **color**      | Int                                                       | Task type color<br>`+Required when replying` `+Required when creating` |
+| **entityType** | String(255)                                               | entity type - always is task<br>`+Required when replying` `+Read Only` |
+| **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                 |
+| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | task type metadata<br>`+Required when replying` `+Read Only`           |
+| **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`  |
+| **stateType**  | Enum                                                      | State type<br>`+Required when replying`                               |
+
+The **color** field is passed to the API as an integer consisting of 4 bytes.
+Because color is transmitted in the ARGB color space, each byte is responsible for its own
+color respectively: 1 - for transparency, 2 - for red, 3 - for green,
+4 - for blue. Each byte takes values from 0 to 255 as well as the color in each of
+color space channels. The result of 4 consecutive bytes written
+the number converted to 10 is the representation of the status color in the JSON API.
+
+Example: the color `rgb(162, 198, 23)` will match the following value of the `"color" field: 10667543`.
+
 #### Default list display
 ##### For administrator
 If the current employee has administrator rights, then when requesting a list of tasks, all active (**done** = false) tasks will be displayed to him, like those
@@ -44,10 +67,11 @@ If the current employee has administrator rights, then when requesting a list of
 For an employee who is not an administrator, but has the right to view all tasks, the list of tasks by default will be similar to the list of tasks displayed for the administrator. Otherwise, when requesting a list of tasks without any filters, active (**done** = false) tasks created by the current employee and tasks for which the current employee is responsible will be displayed.
 
 #### Filters from the web interface
-There are 2 groups of filters in the main interface of MySklad to display the list of tasks:
+There are 3 groups of filters in the main interface of MySklad to display the list of tasks:
 
 + Filter by relationship with the current employee: `Assigned to me`, `I assigned`, `All tasks` (only displayed for administrators)
 + Filter by task readiness: `Active`, `Completed`.
++ Filter by task type.
 
 To implement similar list filtering for the JSON API, you need to use the following filters for the task list:
 
@@ -60,6 +84,8 @@ To implement similar list filtering for the JSON API, you need to use the follow
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=false`
 + **Done**: filter by field **done** with value true<br>
 `https://app.kladana.in/api/remap/1.2/entity/task?filter=done=true`
++ **Task type**: filter by field **state.name**<br>
++ `https://app.kladana.in/api/remap/1.2/entity/task?filter=state.name=<task type name>`
 
 #### Permissions
 | Operation | Access |
@@ -1091,3 +1117,231 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the comment to the Task.
+
+### Task type
+
+### Get task type
+
+> Get metadata including task types
+
+```shell
+curl -X GET
+  "https://app.kladana.in/api/remap/1.2/entity/task/metadata"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+
+```json
+{
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+    "mediaType": "application/json"
+  },
+  "states": [
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/4f70c518-60a1-11e7-6adb-ede500000003",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+        "type": "state",
+        "mediaType": "application/json"
+      },
+      "id": "4f70c518-60a1-11e7-6adb-ede500000003",
+      "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+      "name": "Meeting",
+      "color": 15106326,
+      "stateType": "Regular",
+      "entityType": "task"
+    },
+    {
+      "meta": {
+        "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/3b6eb61a-60c5-11e7-6adb-ede500000001",
+        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+        "type": "state",
+        "mediaType": "application/json"
+      },
+      "id": "3b6eb61a-60c5-11e7-6adb-ede500000001",
+      "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+      "name": "Follow-up",
+      "color": 10667543,
+      "stateType": "Regular",
+      "entityType": "task"
+    }
+  ]
+}
+```
+
+### Create task type
+
+The Task type is created based on the passed JSON object,
+which contains a representation of the new Task type.
+The result is a JSON representation of the generated Task type. To create a new Task type,
+it is necessary and sufficient to specify non-empty fields `name`, `color` in the passed object.
+
+> Create one Task type.
+
+```shell
+  curl -X POST
+    "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "name": "Meeting",
+            "color": 69446
+          }'  
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the generated Task type.
+
+```json
+{
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/6262b270-60c3-11e7-6adb-ede50000000d",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+    "type": "state",
+    "mediaType": "application/json"
+  },
+  "id": "6262b270-60c3-11e7-6adb-ede50000000d",
+  "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+  "name": "Meeting",
+  "color": 69446,
+  "stateType": "Regular",
+  "entityType": "task"
+}
+```
+
+### Change task type
+
+The Task type changes based on the passed JSON object.
+The result is a JSON representation of the updated or created Task type.
+To update the Task type, you must specify in the passed object
+one or more fields with new values: `name`, `color`.
+
+**Parameters**
+
+| Parameter       | Description                                                                          |
+| :------------- |:----------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* task type id. |
+
+> Task type change.
+
+```shell
+  curl -X PUT
+    "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "color": 255
+          }'  
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the changed Task type.
+
+```json
+{
+  "meta": {
+    "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/6262b270-60c3-11e7-6adb-ede50000000d",
+    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+    "type": "state",
+    "mediaType": "application/json"
+  },
+  "id": "6262b270-60c3-11e7-6adb-ede50000000d",
+  "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+  "name": "Meeting",
+  "color": 255,
+  "stateType": "Regular",
+  "entityType": "task"
+}
+```
+
+### Bulk creation and updating of Task types
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Task types.
+In the body of the request, you need to pass an array containing the JSON representation of the Task types that you want to create or update.
+Updated Task types must contain the identifier in the form of metadata.
+
+> Example of creating and updating multiple Task types.
+
+```shell
+  curl -X POST
+    "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '[
+            {
+              "name": "Meeting",
+              "color": 8767198
+            },
+            {
+              "meta": {
+                "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/b56215dc-60c3-11e7-6adb-ede500000013",
+                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+                "type": "state",
+                "mediaType": "application/json"
+              },
+              "name": "Follow-up",
+              "color": 34617
+            }
+          ]'  
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON array of representations of the created and updated Task types.
+
+```json
+[
+  {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/b55d2ddf-60c3-11e7-6adb-ede500000010",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+      "type": "state",
+      "mediaType": "application/json"
+    },
+    "id": "b55d2ddf-60c3-11e7-6adb-ede500000010",
+    "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+    "name": "Meeting",
+    "color": 8767198,
+    "stateType": "Regular",
+    "entityType": "task"
+  },
+  {
+    "meta": {
+      "href": "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/b56215dc-60c3-11e7-6adb-ede500000013",
+      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+      "type": "state",
+      "mediaType": "application/json"
+    },
+    "id": "b56215dc-60c3-11e7-6adb-ede500000013",
+    "accountId": "0af94520-54f7-11e7-6adb-ede500000001",
+    "name": "Follow-up",
+    "color": 34617,
+    "stateType": "Regular",
+    "entityType": "task"
+  }
+]
+```
+
+### Delete task type
+
+**Parameters**
+
+| Parameter       | Description                                                                       |
+| :------------- |:----------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* task type id. |
+
+> Request to delete the Task type with the specified id.
+
+```shell
+curl -X DELETE
+  "https://app.kladana.in/api/remap/1.2/entity/task/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful deletion of the Task type.
