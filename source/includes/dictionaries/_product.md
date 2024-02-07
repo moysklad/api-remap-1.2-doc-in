@@ -275,10 +275,10 @@ an array of elements. Field elements **images** have fields:
 | **filename** | String(255) | File name<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | int | File size in bytes<br>`+Required when replying` |
+| **size** | Int | File size in bytes<br>`+Required when replying` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
 | **title** | String(255) | Image Title<br>`+Required when replying` |
-| **updated** | datetime | File upload time to server<br>`+Required when replying` |
+| **updated** | DateTime | File upload time to server<br>`+Required when replying` |
 
 #### Uploading
 

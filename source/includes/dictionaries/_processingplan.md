@@ -5,36 +5,36 @@ Using the JSON API, you can create and update information about Bills of Materia
 ### Bills of Materials
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------ | ------ | ------ |-----|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code Bills of Materials |
-| **cost** | int | | Production cost |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last removal Bills of Materials<br>`+Read Only` |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when answering` |
+| Title | Type                                               | Filtration | Description |
+| ------ |----------------------------------------------------| ------ |-----|
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Bills of Materials |
+| **cost** | Int                                                | | Production cost |
+| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last removal Bills of Materials<br>`+Read Only` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when answering` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
-| **materials** | MetaArray | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
+| **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when answering` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **parent** | [Meta](../#kladana-json-api-general-info-metadata) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
-| **pathName** | string | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
-| **products** | MetaArray | | Collection of finished products metadata Bills of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when replying` `+Read only` |
+| **pathName** | String                                             | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
+| **products** | MetaArray                                          | | Collection of finished products metadata Bills of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when replying` `+Read only` |
 
 #### Bills of Materials
 
 Bills of Materials are a list of products and product variants. Material object of Bills of Materials contains the following fields:
 
-| Title                         | Type| Description                                                                                                                                                                               |
-|-------------------------------| -------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**                 | UUID | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                      |
+| Title                         | Type                                               | Description                                                                                                                                                                               |
+|-------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**                 | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                      |
 | **assortment**                | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand`                                                                                                               |
-| **id**                        | UUID | Stuff ID<br>`+Required when replying` `+Read Only`                                                                                                                                        |
+| **id**                        | UUID                                               | Stuff ID<br>`+Required when replying` `+Read Only`                                                                                                                                        |
 | **product**                   | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
-| **quantity**                  | int | Quantity of goods of this type in item<br>`+Required when answering`                                                                                                                      |
+| **quantity**                  | Int                                                | Quantity of goods of this type in item<br>`+Required when answering`                                                                                                                      |
 | **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Process item metadata<br>`+Required when replying`                                                                                                                                        |
 | **materialProcessingPlan**    | [Meta](../#kladana-json-api-general-info-metadata) | Material BoM item metadata<br>`+Read Only`                                                                                                                                                |
 
@@ -51,7 +51,7 @@ Product Object of a Bill of Materials contains the following fields:
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
 | **id** | UUID | Product ID<br>`+Required when replying` `+Read Only` |
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
-| **quantity** | int | Quantity of goods of this type in item<br>`+Required when answering` |
+| **quantity** | Int | Quantity of goods of this type in item<br>`+Required when answering` |
 
 You can work with materials and products using [special resources for managing items of Bills of Materials](../dictionaries/#entities-bills-of-materials),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,

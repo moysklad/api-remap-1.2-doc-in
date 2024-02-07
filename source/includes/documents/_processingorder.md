@@ -11,16 +11,16 @@ Using the JSON API, you can create and update information about Production Order
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Production Order Code |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when the Production Order was last deleted<br>`+Read Only` |
-| **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned production date |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time when the Production Order was last deleted<br>`+Read Only` |
+| **deliveryPlannedMoment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Planned production date |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Production Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Production Order Code<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID| `=` `!=` | Production Order ID<br>`+Required when responding` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when responding` `+Read Only` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Order Name<br>`+Required when replying` `+Required when creating` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
@@ -30,12 +30,12 @@ Using the JSON API, you can create and update information about Production Order
 | **processingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **quantity** | int | `=` `!=` `<` `>` `<=` `>=` | Production volume<br>`+Required when replying` `+Read only` |
+| **quantity** | Int | `=` `!=` `<` `>` `<=` `>=` | Production volume<br>`+Required when replying` `+Read only` |
 | **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Production Order Status Metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the Production Order was last updated<br>`+Required when replying` `+Read Only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the Production Order was last updated<br>`+Required when replying` `+Read Only` |
 
 #### Links to other transactions
 
@@ -51,9 +51,9 @@ Production Order Items is a list of products and product variants corresponding 
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **reserve** | int | Reserve this item<br>`+Required when replying`|
+| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **reserve** | Int | Reserve this item<br>`+Required when replying`|
 
 You can work with items using special resources for managing Production Order items,
 and as part of a separate Production Order. When working as part of a separate Production Order,

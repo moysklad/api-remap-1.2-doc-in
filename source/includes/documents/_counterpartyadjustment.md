@@ -13,23 +13,23 @@ The entity code for Balance Adjustment as part of the JSON API is the **counterp
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or Employee metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                            |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering`                                                                                                      |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                                   |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                                       |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only`                                                                      |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                                       |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only`                                                                      |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments                                                                                                      |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying`                                                                    |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand`                                                                                  |
 | **id** | UUID | `=` `!=` | Balance Adjustment ID<br>`+Required when replying` `+Read only`                                                                               |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Counterparty balance adjustments<br>`+Required when replying`                                                                        |
-| **moment** | datetime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                                    |
+| **moment** | DateTime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                                    |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Counterparty balance adjustments<br>`+Required when replying`                                                                            |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                        |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                       |
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only`                                                                           |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only`                                                                           |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                          |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in rupees<br>`+Required when replying` `+Read only`                                                              |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only`                                              |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in rupees<br>`+Required when replying` `+Read only`                                                              |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only`                                              |
 
 ### Get a list of Balance Adjustments
 Request for all Balance Adjustments on a given account.

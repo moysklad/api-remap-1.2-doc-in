@@ -30,7 +30,7 @@ You can also print a set of documents. To do this, instead of the **template** f
 | Title | Type | Description |
 | ------------ | ---------- | --------------- |
 | **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template metadata<br>`+Required when replying` |
-| **count** | int | The number of copies of the printed form. From 1 to 10.<br>`+Required when answering` |
+| **count** | Int | The number of copies of the printed form. From 1 to 10.<br>`+Required when answering` |
 
 If the request contains both a **templates** field and a **template** field (outside the **templates** array element), an error will occur. Only 1 of these fields is allowed in a request.
 When printing kits <u>you don't need</u> to specify the **extension** field - all kits are printed in *pdf*.

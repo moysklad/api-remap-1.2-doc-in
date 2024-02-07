@@ -14,44 +14,44 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Change-handler` `+Update-provider` |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Receiving Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when Receiving was last deleted<br>`+Read Only`|
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time when Receiving was last deleted<br>`+Read Only`|
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Receiving Comment<br>`+Change-handler` `+Update-provider` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Receiving Code<br>`+Required in response` `+Change-handler` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Receive ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **incomingDate** | datetime | | Incoming date<br>`+Change-handler` `+Update-provider` |
+| **incomingDate** | DateTime | | Incoming date<br>`+Change-handler` `+Update-provider` |
 | **incomingNumber** | String(255) | | Incoming number<br>`+Change-handler` `+Update-provider` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Receiving Metadata<br>`+Required in response` `+Change-handler` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response` `+Change-handler` `+Update-provider` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Receiving<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider`|
-| **overhead** | object | | Overheads. [More details here](../documents/#transactions-receiving-receivings-overhead). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
+| **overhead** | Object | | Overheads. [More details here](../documents/#transactions-receiving-receivings-overhead). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **paidSum** | float | | Amount of incoming payments on Receiving<br>`+Required when replying` `+Read only` |
+| **paidSum** | Float | | Amount of incoming payments on Receiving<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray | | Receiving item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Receiving Status Metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler`|
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler`|
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Receiving last updated time<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Receiving last updated time<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatIncluded** | Boolean | | Is VAT included in the price<br>`+Change-handler` `+Update-provider` |
-| **vatSum** | float | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatSum** | Float | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
 #### Overhead
 Description of overhead fields
 
 | Title | Type | Description |
 | ---------------- | --- | ------ |
-| **sum** | int | Amount in rupees<br>`+Required when replying` `+Update-provider` |
+| **sum** | Int | Amount in rupees<br>`+Required when replying` `+Update-provider` |
 | **distribution** | Enum | Overhead allocation `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider`|
 
 #### Links to other documents
@@ -67,22 +67,22 @@ Description of overhead fields
 Receiving Items is a list of goods/services/modifications/series.
 The Receiving item object contains the following fields:
 
-| Title | Type | Description |
-| -------- | --------|-------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| Title | Type                                               | Description |
+| -------- |----------------------------------------------------|-------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
-| **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **id** | UUID | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | object | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
-| **price** | float | Price of goods/services in rupees<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **quantity** | int | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
+| **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **pack** | Object                                             | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
+| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
-| **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
-| **trackingCodes** | Array(Object) | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
-| **overhead** | int | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
-| **vat** | Boolean | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
+| **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
+| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
+| **overhead** | Int                                                | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
+| **vat** | Boolean                                            | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
 Items can be managed using [special resources for managing Receiving items](../documents/#transactions-receiving-receivings-receiving-items),
 and also as part of a separate Receiving. When working as part of a separate Receiving,

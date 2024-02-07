@@ -17,9 +17,9 @@ Using the JSON API, you can create and update information about Bills of Materia
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Bills of Materials Folder Metadata<br>`+Required when replying` |
 | **name** | String(255) | Bills of Materials Folder Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee) metadata<br>`+Expand` |
-| **pathName** | string | Name of the Bills of Materials Folder<br>`+Required when replying` `+Read Only` |
+| **pathName** | String | Name of the Bills of Materials Folder<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | Sharing<br>`+Required when replying` |
-| **updated** | datetime | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 ### Get list of Bills of Materials Folder
 
