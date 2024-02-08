@@ -14,38 +14,38 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of last deletion of the Purchase Order<br>`+Read Only` |
-| **deliveryPlannedMoment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Planned date of shipment |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of last deletion of the Purchase Order<br>`+Read Only` |
+| **deliveryPlannedMoment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Planned date of shipment |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Purchase Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Purchase Order<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Departmentemployee l<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Order ID<br>`+Required when replying` `+Read Only` |
-| **invoicedSum** | float | | Purchase invoice amount<br>`+Read-only` |
+| **invoicedSum** | Float | | Purchase invoice amount<br>`+Read-only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Order Metadata<br>`+Required when replying` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Name<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **paidSum** | float | | Amount of incoming payments for the Order<br>`+Read Only` |
+| **paidSum** | Float | | Amount of incoming payments for the Order<br>`+Read Only` |
 | **positions** | MetaArray | | Metadata of Purchase Order items<br>`+Required for response` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required``+Read-Only`` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shippedSum** | float | | Amount shipped<br>`+Read only` |
+| **shippedSum** | Float | | Amount shipped<br>`+Read only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Order status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | The amount of the Purchase Order in the specified currency<br>`+Read only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | The amount of the Purchase Order in the specified currency<br>`+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Purchase Order<br>`+Required when replying` `+Read only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Purchase Order<br>`+Required when replying` `+Read only` |
 | **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
 | **vatIncluded** | Boolean | | Is VAT included in the price |
-| **vatSum** | float | | VAT amount<br>`+Read only` |
-| **waitSum** | float | | Amount of goods in transit<br> |
+| **vatSum** | Float | | VAT amount<br>`+Read only` |
+| **waitSum** | Float | | Amount of goods in transit<br> |
 
 #### Links to other documents
 
@@ -65,14 +65,14 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | ------------ | ---------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
-| **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
+| **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **shipped** | int | Accepted<br>`+Required when replying` |
-| **inTransit** | int | Waiting<br>`+Required for response` |
-| **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
+| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float | The price of the product/service in rupees<br>`+Required when answering` |
+| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **shipped** | Int | Accepted<br>`+Required when replying` |
+| **inTransit** | Int | Waiting<br>`+Required for response` |
+| **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this item flag, you canset VAT = 0 or VAT = "without VAT". (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
 You can work with items using special resources for managing Order items,

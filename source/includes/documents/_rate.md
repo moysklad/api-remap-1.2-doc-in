@@ -7,6 +7,6 @@ The **rate** field contains an object representing the currency in the transacti
 | Title | Type | Description |
 | ------------ | ------- | ---------- |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Currency metadata<br>`+Required when replying` `+Expand` |
-| **value** | float | Currency rate in this document (contained in the response if the rate value is different from 1) |
+| **value** | Float | Currency rate in this document (contained in the response if the rate value is different from 1) |
 
 Instead of a currency reference, you can get the entire currency object using the `?expand=rate.currency` query parameter.

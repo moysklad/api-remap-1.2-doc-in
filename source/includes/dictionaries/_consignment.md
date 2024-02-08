@@ -23,7 +23,7 @@ The search among the objects of the Series for matching the search string will b
 | **label** | String(255) | | Series Label<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Series Metadata<br>`+Required when replying`|
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Series. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Nested entity attributes
 ##### Series Metadata

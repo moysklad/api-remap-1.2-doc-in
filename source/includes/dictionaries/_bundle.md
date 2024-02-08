@@ -121,7 +121,7 @@ The structure of the overhead object.
 
 | Title | Type | Description |
 | ------| ----- |------ |
-| **value** | float | Price value<br>`+Required when answering` |
+| **value** | Float | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
@@ -129,7 +129,7 @@ The structure of the minPrice object.
 
 | Title | Type | Description |
 | ------|------| -------------|
-| **value** | float | Price value<br>`+Required when answering` |
+| **value** | Float | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 #### Bundle Components

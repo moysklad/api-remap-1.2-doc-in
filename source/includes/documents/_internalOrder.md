@@ -5,56 +5,56 @@ Using the JSON API, you can create and update information about Internal Orders,
 ### Internal Order
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------ | ------ | ------- | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Internal order code |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Required when replying` `+Read Only` |
-| **deliveryPlannedMoment** | datetime | | Planned acceptance date |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Internal order |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Internal order<br>`+Required when replying` |
-| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| Title | Type                                               | Filtration | Description |
+| ------ |----------------------------------------------------| ------- | ------- |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **applicable** | Boolean                                            | `=` `!=` | Check mark<br>`+Required when answering` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Internal order code |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Required when replying` `+Read Only` |
+| **deliveryPlannedMoment** | DateTime                                           | | Planned acceptance date |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment of Internal order |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of the Internal order<br>`+Required when replying` |
+| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Internal Order ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Internal Order ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Internal Order Metadata<br>`+Required when Response` `+Read Only` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
-| **moves** | Array(Object) | | A collection of metadata for related transfer orders<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Internal Order Name<br>`+Required when replying` `+Required when creating` |
+| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moves** | Array(Object)                                      | | A collection of metadata for related transfer orders<br>`+Required when replying` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Internal Order Name<br>`+Required when replying` `+Required when creating` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **positions** | MetaArray | | Metadata of Internal Order Items<br>`+Required on Response` `+Read Only` `+Expand` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray                                          | | Metadata of Internal Order Items<br>`+Required on Response` `+Read Only` `+Expand` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
-| **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **purchaseOrders** | Array(Object) | | A collection of metadata for related orders to a supplier<br>`+Required when replying` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
+| **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
+| **purchaseOrders** | Array(Object)                                      | | A collection of metadata for related orders to a supplier<br>`+Required when replying` |
+| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Internal order status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Internal order in rupees<br>`+Required when replying` `+Read only` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when Internal Order was last updated<br>`+Required when replying` `+Read Only` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
-| **vatIncluded** | Boolean | | Is VAT included in the price |
-| **vatSum** | float | | VAT amount<br>`+Required when replying` `+Read only` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Internal order in rupees<br>`+Required when replying` `+Read only` |
+| **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when Internal Order was last updated<br>`+Required when replying` `+Read Only` |
+| **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when answering` |
+| **vatIncluded** | Boolean                                            | | Is VAT included in the price |
+| **vatSum** | Float                                              | | VAT amount<br>`+Required when replying` `+Read only` |
 
 #### Internal order items
 
 Items of the Internal order is a list of products, services, and product variants. The Internal Order item object contains the following fields:
 
-| Title | Type | Description |
-| ------- | ------- |---------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only`|
+| Title | Type                                               | Description |
+| ------- |----------------------------------------------------|---------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`|
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
-| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
-| **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
+| **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
+| **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when answering` |
+| **quantity** | Int                                                | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` |
+| **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
 Items can be managed using [special resources for managing Internal Order items](../documents/#transactions-internal-order-get-internal-orders),
 and as part of a separate Internal Order. When working as part of a separate Internal Order,
@@ -1566,7 +1566,7 @@ Request for a list of all items in this Internal Order.
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Internal order id. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **search** | string` (optional) *Example: 0001* Filter documents by the specified search string. |
+| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string. |
 
 > Get internal order items
 

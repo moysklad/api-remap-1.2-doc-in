@@ -126,7 +126,7 @@ Successful deletion of the user directory.
 | **id** | UUID | `=` `!=` | Element ID of the User Directory<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the User Directory element<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the User Directory element<br>`+Required when replying` `+Required when creating` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the User Directory element<br>`+Required when replying` `+Read only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the User Directory element<br>`+Required when replying` `+Read only` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |

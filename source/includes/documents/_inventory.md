@@ -10,15 +10,15 @@ Using the JSON API, you can create and update Inventory Count information, query
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Code of issued Inventory Counts |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External ID of the returned Inventory Count<br>`+Required in response` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Inventory Count ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Inventory Count Metadata<br>`+Required when replying` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of returned Inventory Count<br>`+Required for response` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
@@ -28,24 +28,24 @@ Using the JSON API, you can create and update Inventory Count information, query
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Inventory Count Status Metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in rupees<br>`+Required when replying` `+Read only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in rupees<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Last update time of Inventory Count<br>`+Required when replying` `+Read Only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last update time of Inventory Count<br>`+Required when replying` `+Read Only` |
 
 #### Inventory Count Items
 Inventory Count Items is the liast of products and product variants. Inventory Count item object contains the following fields:
 
-| Title | Type | Description |
-| ----------- | -------- |--------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Description |
+| ----------- |----------------------------------------------------|--------- |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
-| **calculatedQuantity** | float | estimated balance<br>`+Required when answering` |
-| **correctionAmount** | float | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
-| **correctionSum** | float | excess/shortage<br>`+Required when replying` `+Read only` |
-| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **calculatedQuantity** | Float                                              | estimated balance<br>`+Required when answering` |
+| **correctionAmount** | Float                                              | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
+| **correctionSum** | Float                                              | excess/shortage<br>`+Required when replying` `+Read only` |
+| **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
+| **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when answering` |
+| **quantity** | Int                                                | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 
 You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-inventory-count-inventory-count-items),
 and also as part of a separate Inventory Count. When working as part of a separate Inventory Count,

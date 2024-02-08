@@ -29,20 +29,20 @@ The search among contract objects for matching the search string will be carried
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Contract ID<br>`+Required when replying` `+Read Only`|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Contract Metadata<br>`+Required when replying` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Contract Date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Contract Date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Contract number<br>`+Required when replying` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Account metadata of your legal entity<br>`+Expand` |
 | **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **rate** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency metadata<br>`+Required when replying` `+Expand` |
-| **rewardPercent** | int | | Reward in percent (from 0 to 100) |
+| **rewardPercent** | Int | | Reward in percent (from 0 to 100) |
 | **rewardType** | Enum | | Reward Type. Possible values: `Percentage of the sale amount`, `Do not calculate` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract status metadata<br>`+Expand` |
-| **sum** | int | | Amount of the Contract<br>`+Required when answering` |
+| **sum** | Int | | Amount of the Contract<br>`+Required when answering` |
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only` |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=`| When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=`| When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 
 Table of fields, their values and their values in JSON representation:

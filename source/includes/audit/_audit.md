@@ -39,8 +39,8 @@ The context contains only general information about the events related to it.
 | **id** | UUID | Context ID<br>`+Required for response` `+Read Only` |
 | **info** | String(255) | Short Description<br>`+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Context entity metadata<br>`+Required for response` `+Read-only` |
-| **moment** | datetime | Modified date<br>`+Required when replying` `+Read only` |
-| **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only` |
+| **moment** | DateTime | Modified date<br>`+Required when replying` `+Read only` |
+| **objectCount** | Int | number of objects changed<br>`+Required for response` `+Read only` |
 | **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying` |
 | **source** | Enum | Type of change<br>`+Required for response` `+Read only` |
 | **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only` |
@@ -247,9 +247,9 @@ more about which below.
 | **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only`                                                                             |
 | **entityType** | Enum | Entity name<br>`+Required for response` `+Read only`                                                                                                                                                          |
 | **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only`                                                                                                                                                          |
-| **moment** | datetime | Event creation time<br>`+Required for response` `+Read-only`                                                                                                                                                  |
+| **moment** | DateTime | Event creation time<br>`+Required for response` `+Read-only`                                                                                                                                                  |
 | **name** | String(255) | Entity name<br>`+Required for response` `+Read-only`                                                                                                                                                          |
-| **objectCount** | int | number of objects changed<br>`+Required for response` `+Read only`                                                                                                                                            |
+| **objectCount** | Int | number of objects changed<br>`+Required for response` `+Read only`                                                                                                                                            |
 | **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying`                     |
 | **source** | Enum | Type of change<br>`+Required for response` `+Read only`                                                                                                                                                       |
 | **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only`                                                               |

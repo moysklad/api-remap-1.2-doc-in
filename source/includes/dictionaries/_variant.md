@@ -35,7 +35,7 @@ Examples:
 | **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
 | **images** | MetaArray                                          | | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
-| **minprice** | object                                             | | Minimum price. [More details here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
+| **minprice** | Object                                             | | Minimum price. [More details here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when replying` |
 | **packs** | Array(Object)                                      | | Product variant packages [Details here](../dictionaries/#entities-product-variant-product-variants-loading-packaging-product-variants) |
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-product) to which the Product variant is attached<br>`+Required when replying` `+Expand` `+Required when creating` |
