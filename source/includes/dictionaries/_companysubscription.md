@@ -5,12 +5,12 @@ Get information about the current subscription of the company.
 #### Company Subscription
 #### Entity attributes
 
-| Title | Type | Description |
-| ---------| ----- | ---------- |
+| Title | Type        | Description |
+| ---------|-------------| ---------- |
 | **role** | String(255) | Authorized user role (USER/ADMIN)<br>`+Required when replying` `+Read-only` |
 | **tariff** | String(255) | Account's current rate<br>`+Required when replying` `+Read only` |
-| **isSubscriptionChangeAvailable** | Boolean | Subscription Change Availability<br>`+Required for Response` `+Read Only` |
-| **subscriptionEndDate** | long | Date (in milliseconds) when the current tariff expires, if the tariff is different from “Trial” and “Free”<br>`+Required when replying` `+Read Only` |
+| **isSubscriptionChangeAvailable** | Boolean     | Subscription Change Availability<br>`+Required for Response` `+Read Only` |
+| **subscriptionEndDate** | Long        | Date (in milliseconds) when the current tariff expires, if the tariff is different from “Trial” and “Free”<br>`+Required when replying` `+Read Only` |
 
 #### Current account rate
 Tariff field values

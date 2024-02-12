@@ -161,17 +161,17 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Structure of the 'Error' object
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name | Type        | Description |
+|------|-------------|-------------|
 | **error** | String(255) | Error name<br>`+Required for response` |
 | **parameter** | String(255) | The parameter on which the error occurred |
-| **code** | Int | Error code. If the field contains nothing, see HTTP status code |
+| **code** | Int         | Error code. If the field contains nothing, see HTTP status code |
 | **error_message** | String(255) | Message attached to the error |
-| **moreInfo** | link | Link to the error received documentation |
-| **line** | Int | The JSON string where the error occurred |
-| **column** | Int | The coordinate of the element in the `line` string where the error occurred |
-| **dependencies** | Array Meta | Metadata list of dependent entities or documents. It is displayed when it is impossible to delete an entity or a document. If there are dependencies on the entity, the document is deleted |
-| **meta** | meta | Metadata of the entity on which the error occurred |
+| **moreInfo** | Link        | Link to the error received documentation |
+| **line** | Int         | The JSON string where the error occurred |
+| **column** | Int         | The coordinate of the element in the `line` string where the error occurred |
+| **dependencies** | Array Meta  | Metadata list of dependent entities or documents. It is displayed when it is impossible to delete an entity or a document. If there are dependencies on the entity, the document is deleted |
+| **meta** | Meta        | Metadata of the entity on which the error occurred |
 
 #### Returned HTTP error statuses and their description
 
@@ -345,7 +345,7 @@ To load the value for additional fields of the file type, you need to specify an
 | Title | Type | Description |
 | ----- |---- | ---------- |
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
-| **content** | string | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
+| **content** | String | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
 An example of specifying a value for additional file type fields are in the [product creation section](dictionaries/#entities-product-create-product) 
 

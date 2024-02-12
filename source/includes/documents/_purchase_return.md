@@ -14,15 +14,15 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required in response` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required for response` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required in response` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
@@ -30,16 +30,16 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount Purchase Returns in rupees<br>`+Required when replying` `+Read Only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount Purchase Returns in rupees<br>`+Required when replying` `+Read Only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
 | **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
 | **vatIncluded** | Boolean | | Is VAT included in the price |
-| **vatSum** | float | | VAT amount<br>`+Required when answering` |
+| **vatSum** | Float | | VAT amount<br>`+Required when answering` |
 
 #### Links to other documents
 
@@ -58,14 +58,14 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is an item<br>`+Required when answering` `+Expand` |
-| **discount** | int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
+| **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float | The price of the product/service in rupees<br>`+Required when answering` |
+| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
-| **vat** | int | VAT applicable to the current item<br>`+Required when replying` |
+| **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
 The value of this attribute is ignored if the item is not in serial accounting.

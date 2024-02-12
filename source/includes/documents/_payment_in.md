@@ -14,17 +14,17 @@ Using the JSON API, you can create and update payment information, request lists
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Incoming payment code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Incoming payment<br>`+Read only` |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Incoming payment<br>`+Read only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Incoming payment<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximumnumber of files - 100)<br>`+Required when answering` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Incoming payment ID<br>`+Required for response` `+Read only` |
-| **incomingDate** | datetime | `=` `!=` `<` `>` `<=` `>=` | Incoming date |
-| **incomingNumber** | int | `=` `!=` `~` `~=` `=~` | Incoming number |
+| **incomingDate** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Incoming date |
+| **incomingNumber** | Int | `=` `!=` `~` `~=` `=~` | Incoming number |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Incoming payment metadata<br>`+Required when replying` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Incoming payment name<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
@@ -33,13 +33,13 @@ Using the JSON API, you can create and update payment information, request lists
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`|
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Incoming payment status metadata<br>`+Expand` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming payment in the specified currency<br>`+Required when replying` `+Read only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming payment in the specified currency<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Incoming payment<br>`+Required when replying` `+Read only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Incoming payment<br>`+Required when replying` `+Read only` |
 
 #### Links to other transactions
 

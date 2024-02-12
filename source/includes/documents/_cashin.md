@@ -5,38 +5,38 @@ Using the JSON API, you can create and update information about Incoming Cash Pa
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------- | ------ | ------- |-------|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                               | Filtration | Description |
+| ------- |----------------------------------------------------| ------- |-------|
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Incoming Cash Payment Code |
+| **applicable** | Boolean                                            | `=` `!=` | Check mark<br>`+Required when answering` |
+| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Incoming Cash Payment Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of the Incoming Cash Payment<br>`+Read Only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Incoming Cash Payment Commentary |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of the Incoming Cash Payment<br>`+Required when replying` |
-| **files** | MetaArray || [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of the Incoming Cash Payment<br>`+Read Only` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Incoming Cash Payment Commentary |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Code of the Incoming Cash Payment<br>`+Required when replying` |
+| **files** | MetaArray                                          || [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Incoming Cash Payment ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Incoming Cash Payment ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Incoming Cash Payment Metadata<br>`+Required when replying` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Incoming Cash Payment<br>`+Required when replying` |
+| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of Incoming Cash Payment<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **paymentPurpose** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
-| **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
+| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`|
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Incoming Cash Payment Status Metadata<br>`+Expand` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming Cash Payment in the specified currency<br>`+Required when replying` `+Read Only` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of last update of the Incoming Cash Payment<br>`+Required when replying` `+Read Only` |
-| **vatSum** | float | | VAT amount<br>`+Required when answering` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming Cash Payment in the specified currency<br>`+Required when replying` `+Read Only` |
+| **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of last update of the Incoming Cash Payment<br>`+Required when replying` `+Read Only` |
+| **vatSum** | Float                                              | | VAT amount<br>`+Required when answering` |
 
 #### Links to other transactions
 

@@ -2,9 +2,17 @@
 
 JSON API 1.2 changes will be added here soon.
 
-## 20-12-2023
+## 12-02-2024
 ### Added
 - Endpoint [Serial numbers](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-serial-number)
+
+## 31-01-2024
+### Added
+- Field `state` added in [Task](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-task) - [Task type](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-task-task-type) entity
+
+## 11-01-2024
+### Created
+- Add `materialProcessingPlan` for [BoM](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials), BoM for material
 
 ## 25-12-2023
 ### Changed

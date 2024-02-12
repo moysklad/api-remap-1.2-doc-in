@@ -13,8 +13,8 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
-| **created** | datetime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time of the last deletion of the Disbursement Note<br>`+Read Only` |
+| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time of the last deletion of the Disbursement Note<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Disbursement note commentary |
 | **expenseItem** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying` |
@@ -22,7 +22,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying` |
-| **moment** | datetime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Outgoing Order<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
@@ -34,10 +34,10 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=`| Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Expenditure note status metadata<br>`+Expand` |
-| **sum** | int | `=` `!=` `<` `>` `<=` `>=` | Amount Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying` `+Read-only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying` `+Read-only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | datetime | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only` |
-| **vatSum** | float | | VAT amount<br>`+Required when answering` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only` |
+| **vatSum** | Float | | VAT amount<br>`+Required when answering` |
 
 
 #### Links to other documents

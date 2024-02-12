@@ -35,10 +35,10 @@ The fourth search condition for the fields of all contact persons of the counter
 | **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
 | **actualAddress**      | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull**  | object                                             | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
+| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
 | **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
 | **attributes**         | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
-| **bonusPoints**        | int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
+| **bonusPoints**        | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor Code |
 | **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
@@ -58,8 +58,8 @@ The fourth search condition for the fields of all contact persons of the counter
 | **notes**              | MetaArray                                          | | Array of Counterparty incidents. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
 | **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType**          | object                                             | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
-| **salesAmount**        | int                                                | | Amount of sales<br>`+Required when replying` `+Read only` |
+| **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
+| **salesAmount**        | Int                                                | | Amount of sales<br>`+Required when replying` `+Read only` |
 | **shared**             | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
 | **syncId**             | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
@@ -75,7 +75,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | TIN |
 | **kpp**               | String(255)  | `=` `!=` `~` `~=` `=~` | Checkpoint |
 | **legalAddress**      | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
-| **legalAddressFull**  | object       | | Legal address of the Counterparty with details on individual fields|
+| **legalAddressFull**  | Object       | | Legal address of the Counterparty with details on individual fields|
 | **legalFirstName**    | String(255)  | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
 | **legalLastName**     | String(255)  | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
 | **legalMiddleName**   | String(255)  | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
@@ -3303,7 +3303,7 @@ Using the JSON API, you can manage the settings of the counterparty directory.
 | Title | Type | Description |
 | ----- | ------  | ------ |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparties directory settings<br>`+Required when replying` |
-| **uniqueCodeRules** | object | Counterparty codes settings<br>`+Required when replying` |
+| **uniqueCodeRules** | Object | Counterparty codes settings<br>`+Required when replying` |
 | **createShared** | Boolean | Create new transactions with the label "General"<br>`+Required when replying` |
 
 #### Counterparty code settings
