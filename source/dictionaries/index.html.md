@@ -42,6 +42,7 @@ includes:
   - dictionaries/processingprocess
   - dictionaries/saleschannel
   - dictionaries/named_filter
+  - dictionaries/thing
   - dictionaries/consignment
   - dictionaries/service
   - dictionaries/task
@@ -52,8 +53,7 @@ includes:
   - dictionaries/usersettings
   - dictionaries/store
   - dictionaries/webhook
-  - dictionaries/webhookstock  
-  - dictionaries/thing
+  - dictionaries/webhookstock
   
 search: true
 ---  
