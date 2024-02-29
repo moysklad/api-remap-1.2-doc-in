@@ -52,6 +52,14 @@ The Kladana JSON API has the following restrictions:
 - Under 4 asynchronous tasks queued for an account. 
 - Under 1000 elements of objects (items, materials, products) in one array for a request. If the number of elements exceeds the number allowed, an error with status 413 occurs. If the number of items exceeds the limit, use the resources described separately for each entity.
 
+
+### HTTP Response Compression
+
+The Kladana API utilizes compression for response content, therefore the HTTP request header Accept-Encoding should specify Accept-Encoding: gzip.
+Requests without this header, as well as requests with a header specifying a different compression encoding, will not be processed. The server will respond with a 415 status code without a response body.
+In rare cases, the server may not apply compression to the response. When compression is used, the API will indicate this in the Content-Encoding header.
+
+
 ### Data types
 
 | Name                  | Description                                                                                                                                                                                        |
