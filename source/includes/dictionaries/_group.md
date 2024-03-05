@@ -33,6 +33,7 @@ Search among objects of departments to match the search string will be carried o
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/group"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -100,6 +101,7 @@ Successful request. The result is a JSON representation of a list of departments
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -133,6 +135,7 @@ If you need to put a new department at the top of the list, just pass 0 in the `
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/group"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "New department",
@@ -163,6 +166,7 @@ Successful request. The result is a JSON representation of the created Departmen
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/group"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "New department",
@@ -198,6 +202,7 @@ Request to update the name and/or serial number of the Department.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "New department name",
@@ -228,6 +233,7 @@ Successful request. The result is a JSON representation of the created Product.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "index": 0
@@ -266,6 +272,7 @@ Successful request. The result is a JSON representation of the created Departmen
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

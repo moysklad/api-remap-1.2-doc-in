@@ -66,6 +66,7 @@ The result of a successful request is a JSON representation of a list of currenc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/currency/"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -174,6 +175,7 @@ You cannot specify a currency rate (**rate**) equal to zero in the request body.
 curl -X POST
    https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H 'Content-Type: application/json'
    -d '{
    "name": "dollar",
@@ -228,6 +230,7 @@ Additionally, you can specify **rateUpdateType** and **margin**
 curl -X POST
    https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H 'Content-Type: application/json'
    -d '{
    "system": true,
@@ -281,6 +284,7 @@ Successful request. The result is a JSON representation of the generated Currenc
 curl -X POST
    https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H 'Content-Type: application/json'
    -d '{
    "system": true,
@@ -340,6 +344,7 @@ Updated Currencies must contain the identifier in the form of metadata.
 curl -X POST
    https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H 'Content-Type: application/json'
    -d'[
    {
@@ -439,6 +444,7 @@ Request to delete the Currency with the specified id. The accounting currency ca
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -455,6 +461,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/currency/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -504,6 +511,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -564,6 +572,7 @@ for currencies based on the system currency directory. You can't change the exch
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -d '{
    "name": "dollar",
    "rate": 66,

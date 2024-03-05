@@ -45,6 +45,7 @@ Nested entity attributes
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/product/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
               "organization": {

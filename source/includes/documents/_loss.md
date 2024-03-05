@@ -96,6 +96,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/loss"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -316,6 +317,7 @@ Request to create a new Write-off. For successful creation, the following fields
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/loss"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "store": {
@@ -459,6 +461,7 @@ Updated Write-offs must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/loss"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -725,6 +728,7 @@ Successful request. The result is a JSON array of representations of created and
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -741,6 +745,7 @@ In the request body, you need to pass an array containing JSON of the Write-offs
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/loss/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -795,6 +800,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/loss/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -848,6 +854,7 @@ Successful request. The result is a JSON representation of the Write-offs metada
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/loss/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -876,6 +883,7 @@ Successful request. The result is a JSON representation of a separate additional
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/loss/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```
@@ -927,6 +935,7 @@ As a result of the request, a pre-filled Write-off template will be created base
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/loss/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "salesReturn": {
@@ -1064,6 +1073,7 @@ Successful request. The result is a JSON representation of the prefilled Write-o
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1171,6 +1181,7 @@ Request to update the write-off with the specified id.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "00606234",
@@ -1298,6 +1309,7 @@ Successful request. The result is a JSON representation of the updated Write-off
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "00606234",
@@ -1489,6 +1501,7 @@ Request to receive a list of all items of this Write-off.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1603,6 +1616,7 @@ will be added to the existing ones.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1711,6 +1725,7 @@ Successful request. The result is a JSON representation of the created item of a
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1756,6 +1771,7 @@ Request to update a separate line item of the Write-off. There is no way to upda
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 172,
@@ -1806,6 +1822,7 @@ Successful request. The result is a JSON representation of the updated Write-off
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

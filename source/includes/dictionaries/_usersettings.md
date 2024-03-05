@@ -134,6 +134,7 @@ Valid start screen values:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/context/usersettings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -207,6 +208,7 @@ Partial editing is allowed - only the fields present in the request will be edit
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/context/usersettings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
        -d '{
    "defaultCompany": {

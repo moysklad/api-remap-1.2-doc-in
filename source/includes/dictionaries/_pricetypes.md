@@ -21,6 +21,7 @@ The entity code for the Price Type in the JSON API is the **pricetype** keyword.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -76,6 +77,7 @@ Restrictions:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
            {
@@ -129,6 +131,7 @@ Successful request. The result is a JSON representation of the updated list of p
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
            {
@@ -196,6 +199,7 @@ Successful request. The result is a JSON representation of the updated list of p
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -222,6 +226,7 @@ Successful request. The result is an updated price type.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/default"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

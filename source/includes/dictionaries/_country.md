@@ -46,6 +46,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/country"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -196,6 +197,7 @@ to create a Country - field **name**.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/country"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Panama 2",
@@ -256,6 +258,7 @@ Updated Countries must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/country"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -371,6 +374,7 @@ You can only delete countries created through the main interface or through the 
    curl -X DELETE
      "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -387,6 +391,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/country/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -443,6 +448,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -482,6 +488,7 @@ Only countries created through the main interface or through the POST method can
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Other Russia",

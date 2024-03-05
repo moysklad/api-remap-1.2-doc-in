@@ -52,6 +52,7 @@ Transactions included in the report can be filtered using the **filter** paramet
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -111,6 +112,7 @@ Successful request. The result is a JSON representation of the report.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -193,6 +195,7 @@ Successful request. The result is a JSON representation of the report.
 ```shell
 curl -X GET"https://api.kladana.in/api/remap/1.2/report/money/byaccount"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

@@ -93,6 +93,7 @@ Fills in the product price field **price** (if not explicitly specified) with th
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_price"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'{
             "agent": {
@@ -193,6 +194,7 @@ the counterparty passed in the **agent** field.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_discount"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'{
             "agent": {
@@ -288,6 +290,7 @@ taxes and **vat** fields for items with the value from the product card, if the 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_vat"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'{
             "organization": {
@@ -409,6 +412,7 @@ Fills in the **cost** fields of items with the cost value calculated according t
    curl -X POST
    "https://api.kladana.in/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
      -d'{
             "store": {

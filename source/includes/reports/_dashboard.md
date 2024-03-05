@@ -43,6 +43,7 @@ As part of the JSON API, you can request daily, monthly, and weekly metrics. Acc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/dashboard/day"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -78,6 +79,7 @@ Successful request. The result is a JSON representation of the metrics.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/dashboard/week"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -114,6 +116,7 @@ Successful request. The result is a JSON representation of the metrics.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/dashboard/month"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

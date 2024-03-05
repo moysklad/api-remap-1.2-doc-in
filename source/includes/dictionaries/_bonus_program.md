@@ -55,6 +55,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/bonusprogram"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -146,6 +147,7 @@ Request to create a new bonus program. Required fields: **name** (name of the di
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/bonusprogram"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
               "name": "bonus program",
@@ -206,6 +208,7 @@ Request to change the bonus program. In the body of the request, you must pass t
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'{
               "name": "updatedName",
@@ -256,6 +259,7 @@ Successful request. The result is a JSON representation of the modified bonus pr
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
   
 > Response 200(application/json)
@@ -300,6 +304,7 @@ Successful request. The result is a JSON representation of the Bonus Program wit
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -315,6 +320,7 @@ In the body of the request, you need to pass an array containing JSON metadata o
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {

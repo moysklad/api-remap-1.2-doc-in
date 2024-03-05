@@ -161,6 +161,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/assortment"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, modifications and series.
@@ -779,6 +780,7 @@ In the body of the request, you need to pass an array containing JSON of the met
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/assortment/delete"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '[
         {
@@ -821,6 +823,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/assortment/settings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -858,6 +861,7 @@ The response will return the full entity, even if the update was partial.
 curl -X PUT
   "https://api.kladana.in/api/remap/1.2/entity/assortment/settings"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '{
         "uniqueCodeRules": {

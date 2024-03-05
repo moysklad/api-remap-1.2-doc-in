@@ -123,6 +123,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/task"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -274,6 +275,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/task"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "description": "Correct details of a legal entity",
@@ -366,6 +368,7 @@ Updated Tasks must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/task"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -557,6 +560,7 @@ Also, you cannot delete tasks created by other employees without administrator r
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -573,6 +577,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/task/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -623,6 +628,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -701,6 +707,7 @@ Also, you cannot modify tasks created by other employees without administrator r
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "description": "Specify contact persons",
@@ -823,6 +830,7 @@ Request to get a list of all comments for this Issue.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
  
 > Response 200(application/json)
@@ -909,6 +917,7 @@ For successful creation, the following fields must be specified in the request b
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "text": "text of comment 3"
@@ -947,6 +956,7 @@ Successful request. The result is a JSON representation of the created comment f
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1021,6 +1031,7 @@ Single comment to the Issue with the specified comment id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1068,6 +1079,7 @@ For successful creation, the following fields must be specified in the request b
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "text": "new comment text 1"
@@ -1113,6 +1125,7 @@ Successful request. The result is a JSON representation of the updated issue com
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

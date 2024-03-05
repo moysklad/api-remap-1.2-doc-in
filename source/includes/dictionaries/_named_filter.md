@@ -33,6 +33,7 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
   curl -X GET
     "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"  
 ```
 
@@ -93,6 +94,7 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
   curl -X GET
     "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter?owner=https://api.kladana.in/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"  
 ```
 
@@ -157,6 +159,7 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
   curl -X GET
     "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"  
 ```
 

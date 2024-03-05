@@ -94,6 +94,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/employee"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
  
 > Response 200(application/json)
@@ -198,6 +199,7 @@ Updated Employees must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/employee"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d' [
             {
@@ -321,6 +323,7 @@ Successful request. The result is a JSON array of representations of the updated
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -336,6 +339,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/employee/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -389,6 +393,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/employee/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -427,6 +432,7 @@ Successful request. The result is a JSON representation of the additional employ
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -462,6 +468,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -541,6 +548,7 @@ Request to create an employee. Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/employee/"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "firstName": "Peter",
@@ -638,6 +646,7 @@ Request to update an existing Employee. The **lastName** field must be specified
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "firstName": "Peter",
@@ -931,6 +940,7 @@ Request for information about the rights of the Employee.
    curl -X GET
      "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1418,6 +1428,7 @@ If the tariff does not allow changing permissions and the transferred or previou
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "group": {
@@ -1497,6 +1508,7 @@ In this case, you can use the previously set password for this user.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "login": "newmanager@lognex",
@@ -1543,6 +1555,7 @@ Request to deactivate an Employee in Kladana.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response 204
@@ -1563,6 +1576,7 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response 204
@@ -1576,6 +1590,7 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
    curl -X GET
      "https://api.kladana.in/api/remap/1.2/entity/role/admin"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1599,6 +1614,7 @@ Successful request. The result is a JSON representation of information about the
    curl -X GET
      "https://api.kladana.in/api/remap/1.2/entity/role/individual"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

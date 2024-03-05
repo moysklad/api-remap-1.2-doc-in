@@ -62,6 +62,7 @@ for Sales Invoice:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "template": {
@@ -99,6 +100,7 @@ for Sales Invoice:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "templates": [

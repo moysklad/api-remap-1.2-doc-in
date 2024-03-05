@@ -35,6 +35,7 @@ The action is only available to a user with administrative rights.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/customentity"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "custom dictionary"
@@ -72,6 +73,7 @@ The action is only available to a user with administrative rights.
    curl -X PUT
      "ttps://api.kladana.in/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "new name"
@@ -109,6 +111,7 @@ The action is only available to a user with administrative rights.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -153,6 +156,7 @@ Result: JSON object including fields:
   curl -X GET
     "https://api.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -300,6 +304,7 @@ is the **name** field.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Partner 3",
@@ -366,6 +371,7 @@ Request to delete an element of the user directory.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -388,6 +394,7 @@ Successful deletion of the user directory element.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -446,6 +453,7 @@ A request to change an object that is an element of a user directory.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/customentity/7944ef04-f831-11e5-7a69-971500188b19/6343f631-265d-11e6-8a84-bae500000014"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Peter Mikhalych from LLC Enterprise",

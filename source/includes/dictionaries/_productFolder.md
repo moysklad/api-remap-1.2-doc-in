@@ -68,6 +68,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/productfolder"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -171,6 +172,7 @@ Mandatory fields for creating a Group of goods:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/productfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Vegetables"
@@ -224,6 +226,7 @@ Successful request. The result is a JSON representation of the created Product G
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/productfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Fruits",
@@ -289,6 +292,7 @@ Updated Product Groups must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/productfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -405,6 +409,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -421,6 +426,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/productfolder/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -473,6 +479,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -511,6 +518,7 @@ Successful request. The result is a JSON representation of the additional Produc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -546,6 +554,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -609,6 +618,7 @@ To update the **pathName** field, you need to update the link to the parent Prod
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Group Vegetables",

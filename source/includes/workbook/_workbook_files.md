@@ -30,6 +30,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/product"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "simplegood",
@@ -154,6 +155,7 @@ creating, receiving or updating a product.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004&expand=files&limit=100"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -361,6 +363,7 @@ For instance, you need to update the list of product files. In Kladana, it can b
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -441,6 +444,7 @@ specified in `downloadHref` in `meta` of the file.
    curl -X GET
      "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
    ```
 The response will come with a 302 (Found) status, where the download link will be indicated in the response header in `Location`. Important

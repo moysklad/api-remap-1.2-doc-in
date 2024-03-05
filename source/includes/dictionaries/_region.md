@@ -51,6 +51,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/region"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -447,6 +448,7 @@ Successful request. Result - JSON representation of the list of Regions
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

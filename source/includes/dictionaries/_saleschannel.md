@@ -79,6 +79,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/saleschannel"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -184,6 +185,7 @@ to create a sales channel are **name** and **type**.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/saleschannel"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Phone call",
@@ -245,6 +247,7 @@ Updated Sales Channels must contain the identifier in the form of metadata. For 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/saleschannel"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type:application/json"
        -d'[
              {
@@ -356,6 +359,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -372,6 +376,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/saleschannel/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -421,6 +426,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -478,6 +484,7 @@ Request to change the Sales Channel object. For Sales Channels that were created
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/saleschannel/b2dc42f0-203e-11ec-9621-0242ac130002"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "CommerceML Exchange"

@@ -54,6 +54,7 @@ Each user directory contains the fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/context/companysettings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -152,6 +153,7 @@ Partial editing is allowed - only the fields present in the request will be edit
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/context/companysettings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
        -d '{
                 "globalOperationNumbering": true,
@@ -247,6 +249,7 @@ Successful request. The result is a JSON representation of Company Settings.
 curl -X GET
    "ttps://api.kladana.in/api/remap/1.2/context/companysettings/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

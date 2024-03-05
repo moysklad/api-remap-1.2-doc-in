@@ -32,6 +32,7 @@ The transactions of the following types can be published: Sales Order, Sales Inv
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -97,6 +98,7 @@ Request to publish a transaction. The transaction publication is based on the pa
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "template": {
@@ -167,6 +169,7 @@ Successful request. The result is a JSON representation of the created Post.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 204(application/json)
@@ -188,6 +191,7 @@ Successful deletion of the Post.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

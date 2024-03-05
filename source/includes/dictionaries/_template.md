@@ -26,6 +26,7 @@ Using the JSON API, you can request lists of printable templates for entities. H
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/embeddedtemplate/"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -151,6 +152,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/embeddedtemplate/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -188,6 +190,7 @@ Successful request. The result is a JSON representation of the default template 
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -256,6 +259,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/assortment/metadata/embeddedtemplate/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -300,6 +304,7 @@ Successful request. The result is a JSON representation of a basic template for 
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata/customtemplate/"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -359,6 +364,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata/customtemplate/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -396,6 +402,7 @@ Successful request. The result is a JSON representation of the custom template f
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/assortment/metadata/customtemplate/"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -464,6 +471,7 @@ Successful request. The result is a JSON representation of a list of custom temp
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/assortment/metadata/customtemplate/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

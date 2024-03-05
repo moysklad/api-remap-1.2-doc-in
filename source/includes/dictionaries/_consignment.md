@@ -61,6 +61,7 @@ The result of a successful request is a JSON representation of a list of Series 
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/consignment"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -147,6 +148,7 @@ Request to create a new series. To successfully create a series, the fields must
    curl -X POST
      "\https://api.kladana.in/api/remap/1.2/entity/consignment"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'{
             "label": "Label",
@@ -226,6 +228,7 @@ Successful request. The result is a JSON representation of the created series.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -242,6 +245,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/consignment/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -288,6 +292,7 @@ Updated Series must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/consignment"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -439,6 +444,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -494,6 +500,7 @@ Successful request. The result is a JSON representation of the series metadata.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -531,6 +538,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

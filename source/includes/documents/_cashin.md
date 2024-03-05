@@ -79,6 +79,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/cashin"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -402,6 +403,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/cashin"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "organization": {
@@ -495,6 +497,7 @@ Incoming Cash Payments that are updated must contain the identifier in the form 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/cashin"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -746,6 +749,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -762,6 +766,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/cashin/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
@@ -813,6 +818,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/cashin/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -932,6 +938,7 @@ Successful request. The result is a JSON representation of the additional fields
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/cashin/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -959,6 +966,7 @@ Successful request. The result is a JSON representation of a separate additional
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/cashin/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```
@@ -992,6 +1000,7 @@ As a result of the request, there will be a pre-filled Incoming Cash Payment bas
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/cashin/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "operations": [
@@ -1064,6 +1073,7 @@ Successful request. The result is a JSON representation of the prefilled Incomin
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/cashin/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "operations": [
@@ -1136,6 +1146,7 @@ Successful request. The result is a JSON representation of the prefilled Incomin
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/cashin/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "operations": [
@@ -1208,6 +1219,7 @@ Successful request. The result is a JSON representation of the prefilled Incomin
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/cashin/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "operations": [
@@ -1375,6 +1387,7 @@ Successful request. The result is a JSON representation of the prefilled Incomin
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1507,6 +1520,7 @@ Also, for each document, you can specify the amount paid for this document from 
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "owner": {

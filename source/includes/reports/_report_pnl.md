@@ -98,6 +98,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/profit/byproduct"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -322,6 +323,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/profit/byvariant"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -539,6 +541,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/profit/byemployee"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -676,6 +679,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/profit/bycounterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -813,6 +817,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/profit/bysaleschannel"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

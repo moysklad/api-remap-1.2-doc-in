@@ -42,6 +42,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingstage"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -120,6 +121,7 @@ To create a new Production Operation, it is necessary and sufficient to specify 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingstage"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Production Operation 1",
@@ -179,6 +181,7 @@ Updated Production Operations must contain the identifier in the form of metadat
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingstage"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -286,6 +289,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -302,6 +306,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/processingstage/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -352,6 +357,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -408,6 +414,7 @@ Request to update an existing Production Operation.
     curl -X PUT
       "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
       -H "Authorization: Basic <Credentials>"
+      -H "Accept-Encoding: gzip"
       -H "Content-Type: application/json"
         -d '{
               "name": "Production Operation 1.1"

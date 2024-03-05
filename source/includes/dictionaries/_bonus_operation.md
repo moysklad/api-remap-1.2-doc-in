@@ -62,6 +62,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/bonustransaction"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -284,6 +285,7 @@ Mandatory fields to create:
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/bonustransaction"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "name": "d00001",
@@ -399,6 +401,7 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/bonustransaction"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '[
             {
@@ -657,6 +660,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -673,6 +677,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/delete"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '[
         {
@@ -723,6 +728,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -814,6 +820,7 @@ A request to change an object representing a bonus operation. It is not possible
   curl -X PUT
     "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "bonusValue": 15524

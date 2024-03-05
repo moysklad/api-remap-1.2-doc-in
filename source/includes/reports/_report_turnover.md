@@ -120,6 +120,7 @@ Request to receive the Stock movement report by goods.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/turnover/all"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -351,6 +352,7 @@ To successfully complete the request, one of the filtering parameters **product*
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/turnover/bystore?filter=product=https://api.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -597,6 +599,7 @@ Request to receive the Stock movement report by product with transaction details
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/turnover/byoperations?filter=product=https://api.kladana.in/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

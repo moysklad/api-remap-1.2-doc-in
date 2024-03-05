@@ -150,6 +150,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/service"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -458,6 +459,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "name": "Delivery",
@@ -669,6 +671,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Service for which we only came up with a name"
@@ -767,6 +770,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    curl-X POST
      "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Cover",
@@ -1029,6 +1033,7 @@ The updated Services must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -1196,6 +1201,7 @@ Successful request. The result is a JSON array of representations of the created
    curl -X DELETE
      "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
 Successful deletion of the Service.
@@ -1211,6 +1217,7 @@ In the body of the request, you need to pass an array containing the JSON metada
   curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/service/delete"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
             {
@@ -1268,6 +1275,7 @@ A separate Service, which is accessed by its id value.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1442,6 +1450,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      curl -X PUT
        "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
        -H "Authorization: Basic <Credentials>"
+       -H "Accept-Encoding: gzip"
        -H "Content-Type: application/json"
          -d '{
                "name": "Product Delivery",
@@ -1652,6 +1661,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
     curl -X PUT
       "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
       -H "Authorization: Basic <Credentials>"
+      -H "Accept-Encoding: gzip"
       -H "Content-Type: application/json"
         -d '{
             "name": "Cargo lining",

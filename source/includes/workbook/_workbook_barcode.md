@@ -18,6 +18,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/product"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "good",
@@ -140,6 +141,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "barcodes": [

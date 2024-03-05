@@ -87,6 +87,7 @@ About working with Internal Order fields can be read [here](../#kladana-json-api
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/internalorder"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -314,6 +315,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/internalorder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "owner": {
@@ -527,6 +529,7 @@ Request for an Internal Order template.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/internalorder/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```
@@ -617,6 +620,7 @@ Updated Internal Orders must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/internalorder/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -1033,6 +1037,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b1"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1049,6 +1054,7 @@ In the body of the request, you need to pass an array containing the JSON metada
   curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/internalorder/delete"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
             {
@@ -1102,6 +1108,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1160,6 +1167,7 @@ Successful request. The result is a JSON representation of the Internal Orders m
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1195,6 +1203,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1347,6 +1356,7 @@ Request to update an Internal Order with the specified id.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "owner": {
@@ -1574,6 +1584,7 @@ Request for a list of all items in this Internal Order.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1650,6 +1661,7 @@ will be added to the existing ones.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -1783,6 +1795,7 @@ Successful request. Result - JSON preSubmission of the created item of a separat
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/positions/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1805,6 +1818,7 @@ Successful deletion of an Internal Order item.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1852,6 +1866,7 @@ Request to update an Internal Order line item.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "quantity": 2,

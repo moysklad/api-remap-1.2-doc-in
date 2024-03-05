@@ -140,6 +140,7 @@ Result: JSON object with the following fields:
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/customerorder"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
@@ -347,6 +348,7 @@ The fields required to create:
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "organization": {
@@ -479,6 +481,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "name": "000034",
@@ -691,6 +694,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "name" : "000034",
@@ -858,6 +862,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "name": "000034",
@@ -1063,6 +1068,7 @@ In the body of the request, you need to pass an array containing JSON representa
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/customerorder"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '[
             {
@@ -1354,6 +1360,7 @@ The result is a JSON representations array of created and updated Sales Orders.
 curl -X DELETE
   "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
@@ -1386,6 +1393,7 @@ In the request body, you need to pass an array containing JSON metadata of the S
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
@@ -1424,6 +1432,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1558,6 +1567,7 @@ Successful request. The result is a JSON representation of the additional fields
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1593,6 +1603,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1781,6 +1792,7 @@ When updating the **organization** and **agent** fields, you must also update th
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "name": "000039",
@@ -1987,6 +1999,7 @@ Successful request. The result is a JSON representation of the updated Sales Ord
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "000039",
@@ -2157,6 +2170,7 @@ successful request. The result is a JSON representation of the updated Sales Ord
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "name": "000039",
@@ -2371,6 +2385,7 @@ Request to receive a list of all items of this Sales Order.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2524,6 +2539,7 @@ what the indicated item is. You can read more about this field in the descriptio
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 49,
@@ -2579,6 +2595,7 @@ Successful request. The result is a JSON representation of the created item of a
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -2729,6 +2746,7 @@ Line item of the Order with the specified item id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2779,6 +2797,7 @@ Request to update a line item of the Order. There is no way to update the item r
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 111,
@@ -2842,6 +2861,7 @@ successful request. The result is a JSON representation of the updated item in t
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

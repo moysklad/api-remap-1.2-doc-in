@@ -16,6 +16,7 @@ have been created and used.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/variant/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -65,6 +66,7 @@ After it became clear that some characteristics are missing to describe the prod
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Size"
@@ -94,6 +96,7 @@ Successful request. The result is a JSON representation of the generated Feature
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {

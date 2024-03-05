@@ -102,6 +102,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/enter"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -283,6 +284,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/enter"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "enter100",
@@ -492,6 +494,7 @@ Updated Stock Adjustments must contain the ID as metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/enter"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -855,6 +858,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -871,6 +875,7 @@ In the body of the request, you need to pass an array,containing the JSON Stock 
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/enter/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -925,6 +930,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/enter/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -981,6 +987,7 @@ Successful request. The result is a JSON representation of the Stock Adjustments
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/enter/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1016,6 +1023,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1109,6 +1117,7 @@ Request to update of Stock Adjustment with specified id.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "name": "xX0enter0Xx",
@@ -1288,6 +1297,7 @@ Request to get a list of all items of the given Stock Adjustment.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1446,6 +1456,7 @@ will be added to the existing ones.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1548,6 +1559,7 @@ Successful request. The result is a JSON representation of the created item of a
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1595,6 +1607,7 @@ Request to update an individual Stock Adjustment item. There is no way to update
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 3,
@@ -1654,6 +1667,7 @@ Successful request. The result is a JSON representation of the updated Stock Adj
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)

@@ -75,6 +75,7 @@ The result of a successful request is a JSON representation of a list of reports
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/counterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -287,6 +288,7 @@ The result of a successful request is a JSON representation of the list of repor
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/report/counterparty"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "counterparties": [
@@ -428,6 +430,7 @@ Successful request. The result is a JSON representation of a report on counterpa
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

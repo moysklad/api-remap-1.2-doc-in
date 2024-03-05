@@ -184,6 +184,7 @@ The result of a successful request is a JSON representation of the list of Produ
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/variant"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -356,6 +357,7 @@ characteristics by field **name**. If neither **id** nor **name** are specified,
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/variant"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "name": "(overripe, yellow)",
@@ -584,6 +586,7 @@ Updated Product variants must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/variant"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -1035,6 +1038,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1051,6 +1055,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/variant/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
@@ -1101,6 +1106,7 @@ Request to get metadata of Product variants. The result is a JSON object includi
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/variant/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1160,6 +1166,7 @@ Working with Product variant with specified id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1323,6 +1330,7 @@ object is not specified in the update request, its value will be nullified after
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/variant/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "characteristics": [

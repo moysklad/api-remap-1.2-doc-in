@@ -51,6 +51,7 @@ The result of a successful request is a JSON representation of a list of Marking
    curl -X GET
      "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
 ```
 
 > Response200
@@ -111,6 +112,7 @@ Nested Marking Codes are replaced by those specified in the request.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -154,6 +156,7 @@ If the Marking Code is specified in the request contains nested codes, they are 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {

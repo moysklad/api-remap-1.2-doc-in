@@ -97,6 +97,7 @@ About working with Relocation fields can be read [here](../#kladana-json-api-gen
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/move"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -314,6 +315,7 @@ Request to create a new Transfer. Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/move"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "organization": {
@@ -448,6 +450,7 @@ Updated Transfers must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/move"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -760,6 +763,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -775,6 +779,7 @@ In the body of the request, you need to pass an array containing the JSON metada
   curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/move/delete"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
             {
@@ -818,6 +823,7 @@ In the body of the request, you need to pass an array containing the JSON metada
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/move/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```
@@ -887,6 +893,7 @@ Request for a pre-filled transfer template based on an Internal Order. The respo
 ```shell
    curl -X PUT"https://api.kladana.in/api/remap/1.2/entity/move/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "internalOrder": {
@@ -1053,6 +1060,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/move/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1121,6 +1129,7 @@ Successful request. The result is a JSON representation of the Transfers metadat
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/move/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1156,6 +1165,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1271,6 +1281,7 @@ Request to update Transfers with the specified id.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "705507",
@@ -1476,6 +1487,7 @@ A request to get a list of all items in this Transfer.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1845,6 +1857,7 @@ will be added to the existing ones.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1943,6 +1956,7 @@ Successful request. The result is a JSON representation of the created item of t
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1989,6 +2003,7 @@ Request to update a line item Transfers. There is no way to update the item requ
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 44,
@@ -2038,6 +2053,7 @@ Successful request. The result is a JSON representation of the updated Transfer 
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

@@ -22,6 +22,7 @@ Request for a new token. As in other requests, in the `Authorization` header, th
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/security/token"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 > Response 200 (application/json): Successful request. The result is a JSON object containing the token.
 
@@ -121,6 +122,7 @@ selection by specifying only the necessary entities in the **type** filter.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/metadata?filter=type=product;type=service;type=demand"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Example of the request body:
@@ -386,6 +388,7 @@ Result: JSON object including fields:
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -522,6 +525,7 @@ Request to create a new fields for the specified entity type.
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '[
         {
@@ -576,6 +580,7 @@ Successful request. The result is a JSON representation of the created additiona
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '[
         {
@@ -635,6 +640,7 @@ Successful request. The result is a JSON representation of the created and updat
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
         "customEntityMeta": {
@@ -680,6 +686,7 @@ Request to remove multiple additional shipping fields.
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/delete"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '[
         {
@@ -720,6 +727,7 @@ Request for a separate additional shipment fields with the specified id.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -751,6 +759,7 @@ Request to update a separate additional fields for the passed entity type.
 curl -X PUT
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
          "name": "updated String field",
@@ -787,6 +796,7 @@ Request for deletion shipment fields with the specified id.
 curl -X DELETE
   "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -801,6 +811,7 @@ Request to update collection fields of a particular entity.
 curl -X PUT
   "https://api.kladana.in/api/remap/1.2/entity/demand/7bc578d8-6501-11e8-9464-e4de00000001"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
         "attributes": [
@@ -879,6 +890,7 @@ The JSON API provides special resources for managing document items. These resou
 curl -X DELETE 
   "https://api.kladana.in/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/179dd832-960c-11e6-8a84-bae5000000dc
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 
@@ -896,6 +908,7 @@ It is also possible to bulk delete document items using the POST method to the U
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/delete
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Sample request body:
@@ -1308,6 +1321,7 @@ You can also use **expand** on the results of create and update operations.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Sales Return object in its normal view, with a link to the shipment
@@ -1342,6 +1356,7 @@ We pass the parameter **expand**=demand.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > In response, the return of the buyer will come, which, instead of a reference to the shipment for which the return is made, will have an attached object with all the fields of this shipment.
@@ -1424,6 +1439,7 @@ parameter **expand** equal to two.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand.agent"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response with expanded Demand and Demand.Agent
@@ -1500,6 +1516,7 @@ curl -X GET
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/demand?expand=agent"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
           "name": "0001",
@@ -1702,6 +1719,7 @@ The response will be a modified shipment with expanded counterparty object (**ag
 curl -X PUT
   "https://api.kladana.in/api/remap/1.2/entity/demand/1c3f30d2-88b9-11e7-9464-e4de00000000?expand=agent,organization"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
           "name": "3738"
@@ -2088,6 +2106,7 @@ Request to get the context of the Employee's request.
   curl -X GET
     "https://api.kladana.in/api/remap/1.2/context/employee/"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2519,6 +2538,7 @@ Returns the parameters of the application within which the request is made (simi
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/context/application"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ``` 
 
 > Response 200 (application/json) Successful request. Result JSON object containing application data
@@ -2551,6 +2571,7 @@ Returns the parameters of the installed application by the id of the application
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/application/b58a6312-f958-11e9-ac12-000a00000020"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ``` 
 
 > Response 200 (application/json) Successful request. Result JSON object containing application data

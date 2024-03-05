@@ -58,6 +58,7 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/webhookstock"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -150,6 +151,7 @@ remnants with different **url** for users and no more than 1 for the application
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/webhookstock"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "url": "http://www.example.com",
@@ -190,6 +192,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/webhookstock"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -262,6 +265,7 @@ Successful request. The result is a JSON array of generated and updated webhooks
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -299,6 +303,7 @@ An example of a request to change webhook details for changing balances.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "url": "http://www.example.com",
@@ -342,6 +347,7 @@ An example of a request to disable a webhook to change balances.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "enabled": false
@@ -382,6 +388,7 @@ Successful request. The result is a JSON representation of a disabled webhook fo
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -398,6 +405,7 @@ In the body of the request, you need to pass an array containing JSON metadata f
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/webhookstock/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {

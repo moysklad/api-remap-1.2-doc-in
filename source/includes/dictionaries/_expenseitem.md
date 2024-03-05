@@ -35,6 +35,7 @@ The search among the objects of the Items of expenditure for matching the search
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/expenseitem"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -191,6 +192,7 @@ Request to create a new expense item. Mandatory field for creating an expense it
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/expenseitem"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
                 "name": "Taxes and non-taxes",
@@ -232,6 +234,7 @@ Updated Line Items must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/expenseitem"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -307,6 +310,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -323,6 +327,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/expenseitem/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -376,6 +381,7 @@ Working with an expense item with the specified id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -414,6 +420,7 @@ Request to change an existing expense item.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Not taxes and taxes",

@@ -27,6 +27,7 @@ You can receive and change roles on behalf of an employee with `System Administr
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -376,6 +377,7 @@ Successful request. The result is a JSON representation of the custom role.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/role/"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -746,6 +748,7 @@ Successful request. The result is a JSON representation of user roles.
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/role/"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
       -d '{
             "name": "testRole",
@@ -1135,6 +1138,7 @@ Successful request. The result is a JSON representation of the created role.
 curl -X PUT
   "https://api.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
       -d '{
             "name": "updatedTestRole",

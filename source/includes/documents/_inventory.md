@@ -84,6 +84,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/inventory"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -248,6 +249,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/inventory"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "store": {
@@ -348,6 +350,7 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/inventory"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -558,6 +561,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -574,6 +578,7 @@ In the body of the request, you need to pass an array containing JSON with metad
   curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/inventory/delete"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
             {
@@ -628,6 +633,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/inventory/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -681,6 +687,7 @@ Successful request. The result is a JSON representation of the Inventory Count m
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/inventory/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -709,6 +716,7 @@ Successful request. The result is a JSON representation of a separate additional
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/inventory/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```
@@ -784,6 +792,7 @@ Successful request. The result is a JSON representation of the prefilled write-o
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -868,6 +877,7 @@ Request to update the Inventory Count with the specified ID.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "name": "newname",
@@ -981,6 +991,7 @@ Successful request. The result is a JSON representation of the updated Inventory
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              store: {
@@ -1242,6 +1253,7 @@ will be added to the existing ones.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "meta": {
@@ -1312,6 +1324,7 @@ Successful request. The result is a JSON representation of the created item of a
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1360,6 +1373,7 @@ Request to update an individual Inventory Count item. There is no way to update 
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "meta": {
@@ -1426,6 +1440,7 @@ Successful request. The result is a JSON representation of the updated Inventory
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

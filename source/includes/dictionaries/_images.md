@@ -44,6 +44,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
 Successful request. The result is an array of all Product Images.
@@ -144,6 +145,7 @@ In the `content` field, you need to specify an image encoded in Base64, in the `
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d '{
              "filename": "birdimageNew.png",
@@ -223,6 +225,7 @@ If it is necessary to leave some Images for the Product, Bundle or Modification,
 curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
            {
@@ -312,6 +315,7 @@ When deleting an image, the first image found with the given identifier is delet
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
 Successful deletion of the Image.
@@ -333,6 +337,7 @@ When deleting several images for a Product, Kit or Modification, the first image
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
          -d'[
                 {

@@ -55,6 +55,7 @@ as well as the cost price of transaction items according to FIFO, taking into ac
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/byoperation?operation.id=34efe2ee-015e-11e6-9464-e4de0000006b"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

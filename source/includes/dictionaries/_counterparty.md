@@ -214,6 +214,7 @@ About working with Counterparty fields can be read [here](../#kladana-json-api-g
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -797,6 +798,7 @@ which contains the representation of the new Contractor.
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/counterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
     "name": "OOO Rainbow",
@@ -925,6 +927,7 @@ curl -X POST
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/counterparty"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '{
         "name": "ООО Радуга"
@@ -1013,6 +1016,7 @@ curl -X POST
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/counterparty"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '{
     "name": "Ivanov LLC",
@@ -1133,6 +1137,7 @@ curl -X POST
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/counterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
           "name": "Vegetable Express LLC",
@@ -1428,6 +1433,7 @@ curl -X POST
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/counterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -1682,6 +1688,7 @@ Updated Counterparties must contain the identifier in the form of metadata.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200. Successful deletion of the Account.
@@ -1697,6 +1704,7 @@ In the body of the request, you need to pass an array containing JSON metadata o
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -1740,6 +1748,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Successful request. The result is a JSON representation of the additional Counterparty fields.
@@ -1820,6 +1829,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 >Response 200(application/json). Successful request. The result is a JSON representation of a separate additional fields.
@@ -1855,6 +1865,7 @@ The counterparty, which is accessed by the value of its id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). The result is a JSON representation of the Contractor with the specified id.
@@ -2014,6 +2025,7 @@ curl -X GET
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Successful request. The result is a JSON representation of the Counterparty of the Individual Entrepreneur type with the specified id.
@@ -2137,6 +2149,7 @@ elements previously present in it.
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
      -d '{
             "name": "Raduga EXPO LLC",
@@ -2353,6 +2366,7 @@ curl -X PUT
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
      -d'{
             "name": "Vegetable Express LLC",
@@ -2624,6 +2638,7 @@ List of accounts of the Counterparty with the specified id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Returns an array of JSON representations of accounts of the Contractor.
@@ -2704,6 +2719,7 @@ curl -X GET
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Returns a JSON representation of the Counterparty's account.
@@ -2743,6 +2759,7 @@ curl -X GET
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Returns an array of JSON representations of the Contractor's contact persons.
@@ -2859,6 +2876,7 @@ Create a contact person of the Counterparty with the specified id.
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
      -d '{
            "name": "Peter",
@@ -2920,6 +2938,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Returns a JSON representation of an individual contact person of the Account.
@@ -2972,6 +2991,7 @@ Fields that were not specified in the request JSON are not changed.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Peter",
@@ -3029,6 +3049,7 @@ Fields that were not specified in the request JSON are not changed.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056/notes"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Successful request.
@@ -3125,6 +3146,7 @@ curl -X GET
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056/notes"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
      -d '{
            "description": "text"
@@ -3182,6 +3204,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/notes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Returns a JSON representation of a single Account incident.
@@ -3237,6 +3260,7 @@ Fields that were not specified in the request JSON are not changed.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/notes/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "description": "changed text"
@@ -3290,6 +3314,7 @@ Fields that were not specified in the request JSON are not changed.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/67e5a691-3c9c-11e7-8af5-581e00000056/notes/50b318cb-3cb0-11e7-8af5-581e00000007"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json). Successful deletion of the incidentincident.
@@ -3321,6 +3346,7 @@ Using the JSON API, you can manage the settings of the counterparty directory.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/settings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -3353,6 +3379,7 @@ The response will return the full entity, even if the update was partial.
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/counterparty/settings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
    "uniqueCodeRules": {

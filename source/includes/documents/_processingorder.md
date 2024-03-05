@@ -90,6 +90,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingorder"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -557,6 +558,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingorder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "organization": {
@@ -681,6 +683,7 @@ Successful request. The result is a JSON representation of the created Productio
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingorder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "000034",
@@ -833,6 +836,7 @@ Successful request. The result is a JSON representation of the created Productio
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingorder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "organization": {
@@ -984,6 +988,7 @@ Updated Production Orders must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingorder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1216,6 +1221,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1232,6 +1238,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -1286,6 +1293,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1423,6 +1431,7 @@ Successful request. The result is a JSON representation of the additional fields
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1455,6 +1464,7 @@ As a result of the request, a pre-filled Production Order template will be creat
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingorder/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "processingPlan": {
@@ -1555,6 +1565,7 @@ Successful request. The result is a JSON representation of the prefilled Product
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1659,6 +1670,7 @@ When you update the **organization** field, you must also update the **organizat
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "000034",
@@ -1763,6 +1775,7 @@ Successful request. The result is a JSON representation of the updated Productio
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "processingPlan": {
@@ -1889,6 +1902,7 @@ Successful request. The result is a JSON representation of the updated Productio
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "processingPlan": {
@@ -2067,6 +2081,7 @@ Request to get a list of all items of this Production Order.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2156,6 +2171,7 @@ Line item of the Production Order with the specified item id.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2202,6 +2218,7 @@ Request to update a line item of the Production Order. There is no way to update
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "meta": {
@@ -2264,6 +2281,7 @@ Successful request. The result is a JSON representation of the updated Productio
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

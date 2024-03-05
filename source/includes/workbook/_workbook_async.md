@@ -24,6 +24,7 @@ Asynchronous exchange offers a different sequence of actions.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true"
    -H "Authorization: Bearer <Access-Token>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Reply
@@ -53,6 +54,7 @@ asynchronous tasks and when you repeat the request, you will get error 61002:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089"
    -H "Authorization: Bearer <Access-Token>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response when task is in progress
@@ -115,6 +117,7 @@ As soon as the status of the task becomes `DONE`, the result of the task is read
 ```shell
 curl -X GET"https://api.kladana.in/api/remap/1.2/async?filter=state=done&deletionDate<2021-02-16 16:21:09"
    -H "Authorization: Bearer <Access-Token>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Reply
@@ -200,6 +203,7 @@ Let's say you want to get all asynchronous tasks for which a result is available
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
    -H "Authorization: Bearer <Access-Token>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Reply
@@ -325,6 +329,7 @@ similar to the one returned by the synchronous resource call.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
    -H "Authorization: Bearer <Access-Token>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > An example of a task result that contains a description of the error
@@ -360,6 +365,7 @@ As with regular webhooks, you need to set:
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/webhook"
    -H "Authorization: Bearer <Access-Token>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
            "url": "http://some_url.ru",

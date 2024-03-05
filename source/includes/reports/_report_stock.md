@@ -192,6 +192,7 @@ Examples of using the `includeRelated` parameter: <br> `filter=variant!=<URL>&in
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/all"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -732,6 +733,7 @@ Multiple values can be specified separated by commas or multiple parameters:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/all/current"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -750,6 +752,7 @@ Successful request. The result is a JSON representation of the report.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/all/current?stockType=quantity&include=zeroLines"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -770,6 +773,7 @@ Successful request. The result is a JSON representation of the report.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/all/current?changedSince=2022-08-23 15:00:00"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -788,6 +792,7 @@ Successful request. The result is a JSON representation of the report.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/bystore/current?stockType=freeStock"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -809,6 +814,7 @@ The string with "storeId":null corresponds to a reserve for a Sales Order withou
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/bystore/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -945,6 +951,7 @@ By default, the selection is sorted by product group and product name.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/report/stock/bystore"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

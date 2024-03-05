@@ -64,6 +64,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -173,6 +174,7 @@ A maximum of 10 Files can be added in one request.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d '[
             {
@@ -264,6 +266,7 @@ When a File is deleted, the first File found with the given ID is deleted from t
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
 Successful deletion of the File.

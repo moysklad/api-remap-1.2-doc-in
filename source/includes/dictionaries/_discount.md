@@ -71,6 +71,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/discount"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -312,6 +313,7 @@ Request to create a new cumulative discount. Required fields: **name** (discount
 curl -X POST
 "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
     -d '{
             "name": "discountName",
@@ -414,6 +416,7 @@ Request for a cumulative discount.
 curl -X GET
 "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -483,6 +486,7 @@ Request to change the cumulative discount. In the body of the request, you must 
 curl -X PUT
 "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
     -d '{
             "name": "updatedName",
@@ -587,6 +591,7 @@ Request to remove a cumulative discount.
 curl -X DELETE
 "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -601,6 +606,7 @@ Request to create a new personal discount. Required fields: **name** (discount n
 curl -X POST
 "https://api.kladana.in/api/remap/1.2/entity/personaldiscount"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 -H "Content-Type: application/json"
 -d '{
         "name": "discountName",
@@ -694,6 +700,7 @@ Request for a personal discount.
 curl -X GET
 "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -756,6 +763,7 @@ Request to change a personal discount. In the body of the request, you must pass
 curl -X PUT
 "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 -H "Content-Type: application/json"
 -d '{
         "name": "updatedName",
@@ -848,6 +856,7 @@ Request to remove a personal discount
 curl -X DELETE
 "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -862,6 +871,7 @@ Request to create a new special price. Required fields: **name** (name of the di
 curl -X POST
 "https://api.kladana.in/api/remap/1.2/entity/specialpriceddiscount"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 -H "Content-Type: application/json"
 -d ' {
           "name": "Special price",
@@ -973,6 +983,7 @@ Request for a special price.
 curl -X GET
 "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1049,6 +1060,7 @@ Request to change the special price. In the body of the request, you must pass t
 curl -X PUT
 "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 -H "Content-Type: application/json"
 -d '{
     "name": "updatedName",
@@ -1133,6 +1145,7 @@ Request to remove a special price.
 curl -X DELETE
 "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1151,6 +1164,7 @@ Request to change the rounding of rupees. In the body of the request, you must p
 curl -X PUT
 "https://api.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
 -H "Content-Type: application/json"
 -d '{
     "name": "updatedName",

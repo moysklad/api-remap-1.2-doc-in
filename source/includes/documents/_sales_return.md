@@ -110,6 +110,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -372,6 +373,7 @@ When creating a return:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/salesreturn"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "0003",
@@ -598,6 +600,7 @@ Updated Sales Returns must contain the ID as metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/salesreturn"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1007,6 +1010,7 @@ Successful request. The result is a JSON array of representations of the generat
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1023,6 +1027,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
@@ -1076,6 +1081,7 @@ The structure of a separate object representing the additional field is describe
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1196,6 +1202,7 @@ Successful request. The result is a JSON representation of the additional Sales 
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1226,6 +1233,7 @@ A request to get a Sales Return template prefilled with standard values without 
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/salesretrn/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```
@@ -1284,6 +1292,7 @@ can then be used to create a new return using a POST request.
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/salesreturn/new"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "demand": {
@@ -1388,6 +1397,7 @@ Successful request. The result is a JSON representation of the prefilled Sales R
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1524,6 +1534,7 @@ When updating return:
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "updated": "2016-07-01 15:16:37",
@@ -1742,6 +1753,7 @@ Request to get a list of all items of this Sales Return.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1940,6 +1952,7 @@ difference in **quantity** items (the quantity in the item in the return can be 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -2205,6 +2218,7 @@ Successful request. The result is a JSON representation of the created items.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2256,6 +2270,7 @@ Moreover, this number must be within , where n is the number of the item in the 
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 1,
@@ -2319,6 +2334,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

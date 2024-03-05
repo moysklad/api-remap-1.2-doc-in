@@ -58,6 +58,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -145,6 +146,7 @@ Successful request. The result is a JSON representation of the Routings list.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -209,6 +211,7 @@ Required fields for creating:
   curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/processingprocess"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
     -d '{
           "name": "We make the engine",
@@ -292,6 +295,7 @@ In the body of the request, specify the fields that need to be changed for Routi
   curl -X PUT
   "https://api.kladana.in/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022"
     -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
     -d' {
             "name": "We are making engine #2",
@@ -390,6 +394,7 @@ Successful request. The result is a JSON representation of the updated Routing.
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -431,6 +436,7 @@ Request to get a list of all items of this Routing.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -494,6 +500,7 @@ Successful request. The result is a JSON representation of a list of individual 
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -534,6 +541,7 @@ Successful request. The result is a JSON representation of a single Routing item
   curl -X POST
     "https://api.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions"
       -H "Authorization: Basic <Credentials>"
+      -H "Accept-Encoding: gzip"
       -H "Content-Type: application/json"
       -d' [
             {
@@ -590,6 +598,7 @@ Successful request. The result is a JSON representation of the generated Routing
   curl -X PUT
     "https://api.kladana.in/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
       -H "Authorization: Basic <Credentials>"
+      -H "Accept-Encoding: gzip"
       -H "Content-Type: application/json"
       -d' {
             "processingStage": {
@@ -642,6 +651,7 @@ Successful request. The result is a JSON representation of the updated Routing i
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -657,6 +667,7 @@ containing the JSON representation of the Routings you want to create or update.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingprocess"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d' [
             {
@@ -792,6 +803,7 @@ In the body of the request, you need to pass an array containing JSON of the Rou
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/processingprocess/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d' [
             {

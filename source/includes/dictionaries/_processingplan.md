@@ -92,6 +92,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingplan"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -309,6 +310,7 @@ Mandatory fields to create:
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingplan"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Example",
@@ -409,6 +411,7 @@ Updated Bills of Materials must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingplan"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -599,6 +602,7 @@ Successful request. The result is a JSON array of representations created and up
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -615,6 +619,7 @@ In the body of the request, you need to pass an array containing JSON metadata B
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -665,6 +670,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -743,6 +749,7 @@ are marked `Read-Only` in the description of [Bill of Materials Attribute](../di
 ```shellcurl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Technical card",
@@ -836,6 +843,7 @@ Request for a list of all materials of the Bill of Materials.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -920,6 +928,7 @@ For successful creation, the following fields must be specified in the request b
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -983,6 +992,7 @@ Successful request. The result is a JSON representation of the created material 
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1108,6 +1118,7 @@ Successful request. The result is a JSON representation of the list of created m
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1166,6 +1177,7 @@ Request for updating a separate Bill of Materials. To update the material there 
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 5
@@ -1228,6 +1240,7 @@ Successful request. The result is a JSON representation of the updated Tech mate
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1259,6 +1272,7 @@ Request for a list of all products of the Bill of Materials.
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1334,6 +1348,7 @@ For successful creation, the following fields must be specified in the request b
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1390,6 +1405,7 @@ Successful request. The result is a JSON representation of the created product o
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1494,6 +1510,7 @@ Successful request. The result is a JSON representation of the list of created p
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1548,6 +1565,7 @@ Single Product Update Request Bills of Materials. There is no need to update the
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "quantity": 5
@@ -1604,6 +1622,7 @@ Successful request. The result is a JSON representation of the updated Bill of M
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

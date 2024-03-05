@@ -103,6 +103,7 @@ Result: JSON object including fields:
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/audit"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -163,6 +164,7 @@ https://api.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -324,6 +326,7 @@ Request to receive Context events with the specified id. Result: JSON object inc
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19/events"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -406,6 +409,7 @@ Request to receive events by the entity with the specified id. Result: JSON obje
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -585,6 +589,7 @@ Result: JSON object including fields:
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/audit/metadata/filters"
   -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)

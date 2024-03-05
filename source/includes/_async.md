@@ -31,6 +31,7 @@ In addition, elements may be missing if, in parallel with the processing of an A
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 202
@@ -94,6 +95,7 @@ An asynchronous task contains information about the creator of the task, its cur
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/async/"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
@@ -178,6 +180,7 @@ Filtering by **state**, **request**, **deletionDate** fields is available.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -251,6 +254,7 @@ Request to get the execution status of an Asynchronous task.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 200. Successful request. The result is a file with the result of the execution of the Asynchronous task in json format. 
@@ -367,6 +371,7 @@ similar to the one returned by the synchronous resource call.
 curl -X GET
   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > An example of a task result that contains a description of the error
@@ -401,6 +406,7 @@ When forming a request to create a webhook, the `entityType` field must specify 
 curl -X POST
   "https://api.kladana.in/api/remap/1.2/entity/webhook"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '{
           "url": "http://some_url.ru",
@@ -458,6 +464,7 @@ to get the status of an asynchronous task.
 curl -X PUT
   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/cancel"
   -H "Authorization: Bearer <Access-Token>"
+  -H "Accept-Encoding: gzip"
 ```
 
 > Response 204

@@ -79,6 +79,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -452,6 +453,7 @@ The field required for creation - `name` must not be empty.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/store"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "addressFull": {
@@ -577,6 +579,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/store"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "addressFull": {
@@ -731,6 +734,7 @@ Updated Warehouses must contain the identifier in the form of metadata.
    curl -X POST
      "https://api.kladana.in/api/remap/1.2/entity/store"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
             {
@@ -895,6 +899,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -911,6 +916,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/store/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
@@ -963,6 +969,7 @@ The structure of a separate object representing the additional the field is desc
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1002,6 +1009,7 @@ Successful request. The result is a JSON representation of the additional Wareho
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1038,6 +1046,7 @@ Successful request. The result is a JSON representation of a separate additional
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1166,6 +1175,7 @@ except for fields marked `Read Only` in the description of [Warehouse attributes
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "addressFull": {
@@ -1299,6 +1309,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
    curl -X PUT
      "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "addressFull": {
@@ -1478,6 +1489,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1546,6 +1558,7 @@ it is necessary and sufficient to specify a non-empty `name` field in the passed
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
          "name": "zone 1"
@@ -1585,6 +1598,7 @@ Updated Warehouse Zones must contain the identifier in the form of metadata.
      "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones
 "
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -1650,6 +1664,7 @@ When deleting the zone to which the cells are attached, the cells are unlinked f
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1666,6 +1681,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
@@ -1712,6 +1728,7 @@ curl -X POST
 curl -XGET
    "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/zones/7944ef04-f831-11e5-7a69-971500188b18"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1749,6 +1766,7 @@ In the body of the request, you need to pass a JSON representation of the Wareho
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
          "name": "zone 3"
@@ -1813,6 +1831,7 @@ Result: JSON object including fields:
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1888,6 +1907,7 @@ it is necessary and sufficient to specify a non-empty `name` field in the passed
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
          "name": "slot 1"
@@ -1920,6 +1940,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
          "name": "slot 1",
@@ -1973,6 +1994,7 @@ Updated Storage Bins must contain the identifier in the form of metadata.
      "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots
 "
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -2036,6 +2058,7 @@ Successful request. The result is a JSON array of representations of the created
 curl -X DELETE
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2051,6 +2074,7 @@ In the body of the request, you need to pass an array containing the JSON metada
 curl -X POST
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
@@ -2096,6 +2120,7 @@ curl -X POST
 curl -X GET
    "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/slots/7944ef04-f831-11e5-7a69-971500188b18"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -2133,6 +2158,7 @@ In the body of the request, you need to pass a JSON representation of the Storag
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
          "name": "slot 3"
@@ -2165,6 +2191,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 curl -X PUT
    "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d '{
          "name": "slot 3",
