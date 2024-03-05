@@ -59,7 +59,7 @@ The result of a successful request is a JSON representation of a list of Series 
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/consignment"
+   "https://api.kladana.in/api/remap/1.2/entity/consignment"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -71,16 +71,16 @@ Successful request. The result is a JSON representation of a list of custom Seri
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/consignment",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/consignment",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
      "type": "consignment",
      "mediaType": "application/json",
      "size": 1,
@@ -90,8 +90,8 @@ Successful request. The result is a JSON representation of a list of custom Seri
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/c66f4b17-36e7-11e7-8a7f-40d000000113",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/c66f4b17-36e7-11e7-8a7f-40d000000113",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
          "type": "consignment",
          "mediaType": "application/json"
        },
@@ -115,7 +115,7 @@ Successful request. The result is a JSON representation of a list of custom Seri
        ],
        "images": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
            "type": "image",
            "mediaType": "application/json",
            "size": 1,
@@ -125,8 +125,8 @@ Successful request. The result is a JSON representation of a list of custom Seri
        },
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json"
          }
@@ -145,7 +145,7 @@ Request to create a new series. To successfully create a series, the fields must
 
 ```shell
    curl -X POST
-     "\https://app.kladana.in/api/remap/1.2/entity/consignment"
+     "\https://api.kladana.in/api/remap/1.2/entity/consignment"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'{
@@ -163,8 +163,8 @@ Request to create a new series. To successfully create a series, the fields must
             ],
             "assortment": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
                     "type": "variant",
                     "mediaType": "application/json"
                 }
@@ -178,8 +178,8 @@ Successful request. The result is a JSON representation of the created series.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
      "type": "consignment",
      "mediaType": "application/json"
    },
@@ -202,8 +202,8 @@ Successful request. The result is a JSON representation of the created series.
    ],
    "assortment": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
        "type": "variant",
        "mediaType": "application/json"
      }
@@ -224,7 +224,7 @@ Successful request. The result is a JSON representation of the created series.
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -240,22 +240,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/consignment/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/consignment/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
                 "type": "consignment",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
                 "type": "consignment",
                 "mediaType": "application/json"
             }
@@ -286,7 +286,7 @@ Updated Series must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/consignment"
+     "https://api.kladana.in/api/remap/1.2/entity/consignment"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
@@ -304,8 +304,8 @@ Updated Series must contain the identifier in the form of metadata.
                ],
                "assortment": {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
                    "type": "variant",
                    "mediaType": "application/json"
                  }
@@ -313,8 +313,8 @@ Updated Series must contain the identifier in the form of metadata.
              },
              {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
                  "type": "consignment",
                  "mediaType": "application/json"
                },
@@ -335,8 +335,8 @@ Updated Series must contain the identifier in the form of metadata.
                ],
                "assortment": {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
                    "type": "variant",
                    "mediaType": "application/json"
                  }
@@ -352,8 +352,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
        "type": "consignment",
        "mediaType": "application/json"
      },
@@ -376,8 +376,8 @@ Successful request. The result is a JSON array of representations of the created
      ],
      "assortment": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a83c422-3c64-11e6-8a84-bae500000012",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
          "type": "variant",
          "mediaType": "application/json"
        }
@@ -385,8 +385,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
        "type": "consignment",
        "mediaType": "application/json"
      },
@@ -411,8 +411,8 @@ Successful request. The result is a JSON array of representations of the created
      ],
      "assortment": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
          "type": "variant",
          "mediaType": "application/json"
        }
@@ -437,7 +437,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata"
+   "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -447,13 +447,13 @@ Successful request. The result is a JSON representation of the series metadata.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/consignment",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/consignment",
      "mediaType": "application/json"
    },
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/83dc3e6c-3bbf-11e7-8a7f-40d000000001",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/83dc3e6c-3bbf-11e7-8a7f-40d000000001",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -464,7 +464,7 @@ Successful request. The result is a JSON representation of the series metadata.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -492,7 +492,7 @@ Successful request. The result is a JSON representation of the series metadata.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004"
+   "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -502,7 +502,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -529,7 +529,7 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -539,8 +539,8 @@ Successful request. The result is a JSON representation of the custom Series.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/c66f4b17-36e7-11e7-8a7f-40d000000113",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/c66f4b17-36e7-11e7-8a7f-40d000000113",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
      "type": "consignment",
      "mediaType": "application/json"
    },
@@ -564,7 +564,7 @@ Successful request. The result is a JSON representation of the custom Series.
    ],
    "images": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
        "type": "image",
        "mediaType": "application/json",
        "size": 1,
@@ -574,8 +574,8 @@ Successful request. The result is a JSON representation of the custom Series.
    },
    "assortment": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
        "type": "product",
        "mediaType": "application/json"
      }
@@ -597,7 +597,7 @@ Series update request. You can only update fields that are not marked `Read Only
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorityzation:Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -618,8 +618,8 @@ Series update request. You can only update fields that are not marked `Read Only
              ],
              "assortment": {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
                  "type": "variant",
                  "mediaType": "application/json"
                }
@@ -633,8 +633,8 @@ Successful request. The result is a JSON representation of the updated series.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/consignment/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/consignment/17a32a0a-5310-11e6-8a84-bae500000000",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/consignment/metadata",
      "type": "consignment",
      "mediaType": "application/json"
    },
@@ -659,8 +659,8 @@ Successful request. The result is a JSON representation of the updated series.
    ],
    "assortment": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/7a81082f-3c64-11e6-8a84-bae50000000e",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
        "type": "variant",
        "mediaType": "application/json"
      }

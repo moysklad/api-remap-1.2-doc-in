@@ -60,7 +60,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/bonustransaction"
+   "https://api.kladana.in/api/remap/1.2/entity/bonustransaction"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -72,16 +72,16 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/?limit=5",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/?limit=5",
+    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
     "type": "bonustransaction",
     "mediaType": "application/json",
     "size": 4,
@@ -91,8 +91,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
         "type": "bonustransaction",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000028"
@@ -101,8 +101,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "accountId": "ba5d8717-d6e7-4741-9f2e-4e343a447fb9",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -111,8 +111,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -124,8 +124,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "applicable": true,
       "agent": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
           "type": "counterparty",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#company/edit?id=9fea1d90-d488-4271-97bc-a9ad1b9fbcc0"
@@ -134,8 +134,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "created": "2018-09-13 12:36:26",
       "bonusProgram": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
           "type": "bonusprogram",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#discount/edit?id=956f6ff7-718f-4849-be47-7509fdd18db9"
@@ -149,8 +149,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000029",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000029",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
         "type": "bonustransaction",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000029"
@@ -159,8 +159,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "accountId": "ba5d8717-d6e7-4741-9f2e-4e343a447fb9",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -169,8 +169,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -182,8 +182,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "applicable": true,
       "agent": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
           "type": "counterparty",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#company/edit?id=9fea1d90-d488-4271-97bc-a9ad1b9fbcc0"
@@ -192,8 +192,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "created": "2018-09-13 12:36:26",
       "bonusProgram": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
           "type": "bonusprogram",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#discount/edit?id=956f6ff7-718f-4849-be47-7509fdd18db9"
@@ -207,8 +207,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000038",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000038",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
         "type": "bonustransaction",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000038"
@@ -217,8 +217,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "accountId": "ba5d8717-d6e7-4741-9f2e-4e343a447fb9",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -227,8 +227,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -240,8 +240,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "applicable": true,
       "agent": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
           "type": "counterparty",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#company/edit?id=9fea1d90-d488-4271-97bc-a9ad1b9fbcc0"
@@ -250,8 +250,8 @@ Successful request. The result is a JSON representation of the list of Bonus Ope
       "created": "2018-09-13 12:36:26",
       "bonusProgram": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
           "type": "bonusprogram",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#discount/edit?id=956f6ff7-718f-4849-be47-7509fdd18db9"
@@ -282,7 +282,7 @@ Mandatory fields to create:
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/bonustransaction"
+    "https://api.kladana.in/api/remap/1.2/entity/bonustransaction"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -290,21 +290,21 @@ Mandatory fields to create:
             "applicable": true,
             "agent": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/45457cb8-f473-4618-ab19-2294c328f4ba",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/45457cb8-f473-4618-ab19-2294c328f4ba",
                 "type": "counterparty",
                 "mediaType": "application/json"
               }
             },
             "bonusProgram": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/fc2666ba-5d39-4a60-8105-4b678180b059",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/fc2666ba-5d39-4a60-8105-4b678180b059",
                 "type": "bonusprogram",
                 "mediaType": "application/json"
               }
             },
             "parentDocument": {
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/0b0b7d56-2a44-4aa2-adc2-a49dadd61af0",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/0b0b7d56-2a44-4aa2-adc2-a49dadd61af0",
                 "type": "retaildemand",
                 "mediaType": "application/json"
               }
@@ -320,8 +320,8 @@ Successful request. The result is a JSON representation of the created bonus ope
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
+    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
     "type": "bonustransaction",
     "mediaType": "application/json",
     "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000028"
@@ -330,8 +330,8 @@ Successful request. The result is a JSON representation of the created bonus ope
   "accountId": "44245b3a-b685-11e8-727d-307300000001",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -340,8 +340,8 @@ Successful request. The result is a JSON representation of the created bonus ope
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -353,8 +353,8 @@ Successful request. The result is a JSON representation of the created bonus ope
   "applicable": true,
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/341a6b49-b688-11e8-727d-307300000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/341a6b49-b688-11e8-727d-307300000012",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#company/edit?id=341a6b49-b688-11e8-727d-307300000012"
@@ -363,8 +363,8 @@ Successful request. The result is a JSON representation of the created bonus ope
   "created": "2018-09-13 12:36:26",
   "parentDocument": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/e182ab48-b726-11e8-727d-3073000000b4",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/e182ab48-b726-11e8-727d-3073000000b4",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/metadata",
       "type": "retaildemand",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#retaildemand/edit?id=e182ab48-b726-11e8-727d-3073000000b4"
@@ -372,8 +372,8 @@ Successful request. The result is a JSON representation of the created bonus ope
   },
   "bonusProgram": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/3cc6edd8-b688-11e8-727d-30730000001b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/3cc6edd8-b688-11e8-727d-30730000001b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
       "type": "bonusprogram",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#discount/edit?id=3cc6edd8-b688-11e8-727d-30730000001b"
@@ -397,7 +397,7 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
 
 ```shell
   curl -X POST
-    "https://app.kladana.in/api/remap/1.2/entity/bonustransaction"
+    "https://api.kladana.in/api/remap/1.2/entity/bonustransaction"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '[
@@ -406,14 +406,14 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
               "applicable": true,
               "agent": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
                   "type": "counterparty",
                   "mediaType": "application/json"
                 }
               },
               "bonusProgram": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
                   "type": "bonusprogram",
                   "mediaType": "application/json"
                 }
@@ -424,14 +424,14 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
             {
               "agent": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
                   "type": "counterparty",
                   "mediaType": "application/json"
                 }
               },
               "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/956f6ff7-718f-4849-be47-7509fdd18db9",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/956f6ff7-718f-4849-be47-7509fdd18db9",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
                 "type": "bonustransaction",
                 "mediaType": "application/json"
               },
@@ -443,14 +443,14 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
               "applicable": true,
               "agent": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
                   "type": "counterparty",
                   "mediaType": "application/json"
                 }
               },
               "bonusProgram": {
                 "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
                   "type": "bonusprogram",
                   "mediaType": "application/json"
                 }
@@ -468,8 +468,8 @@ Successful request. The result is a JSON array of representations of the created
 [
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
       "type": "bonustransaction",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000028"
@@ -478,8 +478,8 @@ Successful request. The result is a JSON array of representations of the created
     "accountId": "ba5d8717-d6e7-4741-9f2e-4e343a447fb9",
     "owner": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -488,8 +488,8 @@ Successful request. The result is a JSON array of representations of the created
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -501,8 +501,8 @@ Successful request. The result is a JSON array of representations of the created
     "applicable": true,
     "agent": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#company/edit?id=9fea1d90-d488-4271-97bc-a9ad1b9fbcc0"
@@ -511,8 +511,8 @@ Successful request. The result is a JSON array of representations of the created
     "created": "2018-09-13 12:36:26",
     "bonusProgram": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
         "type": "bonusprogram",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#discount/edit?id=956f6ff7-718f-4849-be47-7509fdd18db9"
@@ -526,8 +526,8 @@ Successful request. The result is a JSON array of representations of the created
   },
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000029",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000029",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
       "type": "bonustransaction",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000029"
@@ -536,8 +536,8 @@ Successful request. The result is a JSON array of representations of the created
     "accountId": "ba5d8717-d6e7-4741-9f2e-4e343a447fb9",
     "owner": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -546,8 +546,8 @@ Successful request. The result is a JSON array of representations of the created
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -559,8 +559,8 @@ Successful request. The result is a JSON array of representations of the created
     "applicable": true,
     "agent": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#company/edit?id=9fea1d90-d488-4271-97bc-a9ad1b9fbcc0"
@@ -569,8 +569,8 @@ Successful request. The result is a JSON array of representations of the created
     "created": "2018-09-13 12:36:26",
     "bonusProgram": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
         "type": "bonusprogram",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#discount/edit?id=956f6ff7-718f-4849-be47-7509fdd18db9"
@@ -584,8 +584,8 @@ Successful request. The result is a JSON array of representations of the created
   },
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000038",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000038",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
       "type": "bonustransaction",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000038"
@@ -594,8 +594,8 @@ Successful request. The result is a JSON array of representations of the created
     "accountId": "ba5d8717-d6e7-4741-9f2e-4e343a447fb9",
     "owner": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -604,8 +604,8 @@ Successful request. The result is a JSON array of representations of the created
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -617,8 +617,8 @@ Successful request. The result is a JSON array of representations of the created
     "applicable": true,
     "agent": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/9fea1d90-d488-4271-97bc-a9ad1b9fbcc0",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#company/edit?id=9fea1d90-d488-4271-97bc-a9ad1b9fbcc0"
@@ -627,8 +627,8 @@ Successful request. The result is a JSON array of representations of the created
     "created": "2018-09-13 12:36:26",
     "bonusProgram": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/956f6ff7-718f-4849-be47-7509fdd18db9",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
         "type": "bonusprogram",
         "mediaType": "application/json",
         "uuidHref": "https://app.kladana.in/app/#discount/edit?id=956f6ff7-718f-4849-be47-7509fdd18db9"
@@ -655,7 +655,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -671,22 +671,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/delete"
+  "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/delete"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '[
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
                 "type": "bonustransaction",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
                 "type": "bonustransaction",
                 "mediaType": "application/json"
             }
@@ -721,7 +721,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -731,8 +731,8 @@ Successful request. The result is a JSON representation of the Bonus transaction
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7c6ecd51-b738-11e8-727d-307300000028",
+    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
     "type": "bonustransaction",
     "mediaType": "application/json",
     "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=7c6ecd51-b738-11e8-727d-307300000028"
@@ -741,8 +741,8 @@ Successful request. The result is a JSON representation of the Bonus transaction
   "accountId": "44245b3a-b685-11e8-727d-307300000001",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -751,8 +751,8 @@ Successful request. The result is a JSON representation of the Bonus transaction
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -764,8 +764,8 @@ Successful request. The result is a JSON representation of the Bonus transaction
   "applicable": true,
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/341a6b49-b688-11e8-727d-307300000012",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/341a6b49-b688-11e8-727d-307300000012",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#company/edit?id=341a6b49-b688-11e8-727d-307300000012"
@@ -774,8 +774,8 @@ Successful request. The result is a JSON representation of the Bonus transaction
   "created": "2018-09-13 12:36:26",
   "parentDocument": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/e182ab48-b726-11e8-727d-3073000000b4",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/e182ab48-b726-11e8-727d-3073000000b4",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/metadata",
       "type": "retaildemand",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#retaildemand/edit?id=e182ab48-b726-11e8-727d-3073000000b4"
@@ -783,8 +783,8 @@ Successful request. The result is a JSON representation of the Bonus transaction
   },
   "bonusProgram": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/3cc6edd8-b688-11e8-727d-30730000001b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/3cc6edd8-b688-11e8-727d-30730000001b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
       "type": "bonusprogram",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#discount/edit?id=3cc6edd8-b688-11e8-727d-30730000001b"
@@ -812,7 +812,7 @@ A request to change an object representing a bonus operation. It is not possible
 
 ```shell
   curl -X PUT
-    "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
+    "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
       -d '{
@@ -826,8 +826,8 @@ Successful request. The result is a JSON representation of the updated Bonus ope
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/d8dda7b8-b76d-11e8-727d-3073000000a2",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/d8dda7b8-b76d-11e8-727d-3073000000a2",
+    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonustransaction/metadata",
     "type": "bonustransaction",
     "mediaType": "application/json",
     "uuidHref": "https://app.kladana.in/app/#bonustransaction/edit?id=d8dda7b8-b76d-11e8-727d-3073000000a2"
@@ -836,8 +836,8 @@ Successful request. The result is a JSON representation of the updated Bonus ope
   "accountId": "44245b3a-b685-11e8-727d-307300000001",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4a980e02-b685-11e8-727d-30730000002b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4a980e02-b685-11e8-727d-30730000002b"
@@ -846,8 +846,8 @@ Successful request. The result is a JSON representation of the updated Bonus ope
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/group/4427b6f1-b685-11e8-727d-307300000002",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -859,8 +859,8 @@ Successful request. The result is a JSON representation of the updated Bonus ope
   "applicable": true,
   "agent": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/4ac8d7ea-b685-11e8-727d-307300000056",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/4ac8d7ea-b685-11e8-727d-307300000056",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#company/edit?id=4ac8d7ea-b685-11e8-727d-307300000056"
@@ -869,8 +869,8 @@ Successful request. The result is a JSON representation of the updated Bonus ope
   "created": "2018-09-13 18:58:25",
   "parentDocument": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/90f4f8df-b76b-11e8-727d-307300000090",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retaildemand/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/90f4f8df-b76b-11e8-727d-307300000090",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retaildemand/metadata",
       "type": "retaildemand",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#retaildemand/edit?id=90f4f8df-b76b-11e8-727d-307300000090"
@@ -878,8 +878,8 @@ Successful request. The result is a JSON representation of the updated Bonus ope
   },
   "bonusProgram": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/3cc6edd8-b688-11e8-727d-30730000001b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/3cc6edd8-b688-11e8-727d-30730000001b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
       "type": "bonusprogram",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#discount/edit?id=3cc6edd8-b688-11e8-727d-30730000001b"

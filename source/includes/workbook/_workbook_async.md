@@ -22,7 +22,7 @@ Asynchronous exchange offers a different sequence of actions.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true"
+   "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true"
    -H "Authorization: Bearer <Access-Token>"
 ```
 
@@ -32,8 +32,8 @@ curl -X GET
 no body
 
 Titles:
-Location: https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result
-Content-Location: https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089
+Location: https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result
+Content-Location: https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089
 ```
 
 We make a request for the rest with the `async=true` parameter. The **limit** and **offset** query string parameters do not need to be specified, as the report will be built completely.
@@ -51,7 +51,7 @@ asynchronous tasks and when you repeat the request, you will get error 61002:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089"
+   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089"
    -H "Authorization: Bearer <Access-Token>"
 ```
 
@@ -63,15 +63,15 @@ curl -X GET
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
        "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
        }
    },
    "state" : "PROCESSING",
-   "request": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true"
+   "request": "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true"
 }
 ```
 
@@ -80,7 +80,7 @@ curl -X GET
 ```json
 {
    "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089",
+       "href": "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089",
        "type": "async",
        "mediaType": "application/json"
    },
@@ -88,16 +88,16 @@ curl -X GET
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
        "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
        }
    },
    "state" : "DONE",
-   "request": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
-   "resultUrl": "https://app.kladana.in/api/remap/1.2/async/f97aa1fb-2e58-11e6-8a84-bae500000002/result",
+   "request": "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
+   "resultUrl": "https://api.kladana.in/api/remap/1.2/async/f97aa1fb-2e58-11e6-8a84-bae500000002/result",
    "deletionDate": "2021-02-16 16:21:09"
 }
 ```
@@ -113,7 +113,7 @@ As soon as the status of the task becomes `DONE`, the result of the task is read
 > Request to get Asynchronous tasks with result
 
 ```shell
-curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletionDate<2021-02-16 16:21:09"
+curl -X GET"https://api.kladana.in/api/remap/1.2/async?filter=state=done&deletionDate<2021-02-16 16:21:09"
    -H "Authorization: Bearer <Access-Token>"
 ```
 
@@ -124,15 +124,15 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/async?filter=state=done;deletionDate<2021-02-16 16:21:09",
+     "href": "https://api.kladana.in/api/remap/1.2/async?filter=state=done;deletionDate<2021-02-16 16:21:09",
      "type": "async",
      "mediaType": "application/json",
      "size": 2,
@@ -142,7 +142,7 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/async/baade4ee-a1d0-11eb-ac12-000b00000000",
+         "href": "https://api.kladana.in/api/remap/1.2/async/baade4ee-a1d0-11eb-ac12-000b00000000",
          "type": "async",
          "mediaType": "application/json"
        },
@@ -150,21 +150,21 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
        "accountId": "4f811ce5-983a-11eb-0a80-1d0d00000002",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe188f9-983a-11eb-0a80-39d600000034",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4fe188f9-983a-11eb-0a80-39d600000034",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe188f9-983a-11eb-0a80-39d600000034"
          }
        },
        "state": "DONE",
-       "request": "https://app.kladana.in/api/remap/1.2/report/stock/all?async=true",
-       "resultUrl": "https://app.kladana.in/api/remap/1.2/async/baade4ee-a1d0-11eb-ac12-000b00000000/result",
+       "request": "https://api.kladana.in/api/remap/1.2/report/stock/all?async=true",
+       "resultUrl": "https://api.kladana.in/api/remap/1.2/async/baade4ee-a1d0-11eb-ac12-000b00000000/result",
        "deletionDate": "2021-04-16 16:07:13.027"
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/async/d2bfbf9f-a1e0-11eb-ac12-000b00000000",
+         "href": "https://api.kladana.in/api/remap/1.2/async/d2bfbf9f-a1e0-11eb-ac12-000b00000000",
          "type": "async",
          "mediaType": "application/json"
        },
@@ -172,16 +172,16 @@ curl -X GET"https://app.kladana.in/api/remap/1.2/async?filter=state=done&deletio
        "accountId": "4f811ce5-983a-11eb-0a80-1d0d00000002",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4fe188f9-983a-11eb-0a80-39d600000034",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4fe188f9-983a-11eb-0a80-39d600000034",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#employee/edit?id=4fe188f9-983a-11eb-0a80-39d600000034"
          }
        },
        "state": "DONE",
-       "request": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
-       "resultUrl": "https://app.kladana.in/api/remap/1.2/async/d2bfbf9f-a1e0-11eb-ac12-000b00000000/result",
+       "request": "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
+       "resultUrl": "https://api.kladana.in/api/remap/1.2/async/d2bfbf9f-a1e0-11eb-ac12-000b00000000/result",
        "deletionDate": "2021-04-16 16:07:19.301"
      }
    ]
@@ -198,7 +198,7 @@ Let's say you want to get all asynchronous tasks for which a result is available
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
+   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
    -H "Authorization: Bearer <Access-Token>"
 ```
 
@@ -218,13 +218,13 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
 {
    "context": {
      "employee": {
-       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "href": "https://api.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
        "mediaType": "application/json"
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
+     "href": "https://api.kladana.in/api/remap/1.2/report/stock/bystore?async=true",
      "type": "stockbystore",
      "mediaType": "application/json",
      "size": 2135
@@ -232,16 +232,16 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json"
        },
        "stockByStore": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
              "type": "store",
              "mediaType": "application/json"
            },
@@ -252,8 +252,8 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
              "type": "store",
              "mediaType": "application/json"
            },
@@ -267,16 +267,16 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
      ...
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json"
        },
        "stockByStore": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/store/86c857d6-0302-11e6-9464-e4de00000072",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
              "type": "store",
              "mediaType": "application/json"
            },
@@ -287,8 +287,8 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
              "type": "store",
              "mediaType": "application/json"
            },
@@ -323,7 +323,7 @@ similar to the one returned by the synchronous resource call.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
+   "https://api.kladana.in/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
    -H "Authorization: Bearer <Access-Token>"
 ```
 
@@ -358,7 +358,7 @@ As with regular webhooks, you need to set:
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/webhook"
+   "https://api.kladana.in/api/remap/1.2/entity/webhook"
    -H "Authorization: Bearer <Access-Token>"
    -H "Content-Type: application/json"
    -d '{
@@ -374,8 +374,8 @@ curl -X POST
 ```json
 {
      "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/webhook/c6010bf9-a683-11eb-ac12-000900000001",
-         "metadataHref": "https://app.kladana.in//api/remap/1.2/entity/webhook/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/webhook/c6010bf9-a683-11eb-ac12-000900000001",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhook/metadata",
          "type": "webhook",
          "mediaType": "application/json"
      },

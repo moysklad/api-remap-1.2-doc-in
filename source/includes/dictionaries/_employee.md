@@ -92,7 +92,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/employee"
+   "https://api.kladana.in/api/remap/1.2/entity/employee"
    -H "Authorization: Basic <Credentials>"
 ```
  
@@ -103,14 +103,14 @@ Successful request. The result is a JSON representation of the list of Employees
 {
    "context": {
      "employee": {
-       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "href": "https://api.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
        "mediaType": "application/json"
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/employee/",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
      "type": "employee",
      "mediaType": "application/json",
      "size": 2,
@@ -120,8 +120,8 @@ Successful request. The result is a JSON representation of the list of Employees
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        },
@@ -138,8 +138,8 @@ Successful request. The result is a JSON representation of the list of Employees
        "shortFio": "Administrator",
        "retailStore": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailstore/metadata",
            "type": "retailstore",
            "mediaType": "application/json"
          }
@@ -149,8 +149,8 @@ Successful request. The result is a JSON representation of the list of Employees
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/9e00ad58-0302-11e6-9464-e4de00000076",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9e00ad58-0302-11e6-9464-e4de00000076",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        },
@@ -171,7 +171,7 @@ Successful request. The result is a JSON representation of the list of Employees
        "attributes": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -196,14 +196,14 @@ Updated Employees must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/employee"
+     "https://api.kladana.in/api/remap/1.2/entity/employee"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d' [
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                     "type": "employee",
                     "mediaType": "application/json"
                 },
@@ -228,8 +228,8 @@ Successful request. The result is a JSON array of representations of the updated
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -237,8 +237,8 @@ Successful request. The result is a JSON array of representations of the updated
      "accountId": "ef07c35a-d1f6-11e8-7a33-904100000002",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -246,8 +246,8 @@ Successful request. The result is a JSON array of representations of the updated
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -269,8 +269,8 @@ Successful request. The result is a JSON array of representations of the updated
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/fc86b89c-d202-11e8-7a33-90410000004a",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/fc86b89c-d202-11e8-7a33-90410000004a",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -278,8 +278,8 @@ Successful request. The result is a JSON array of representations of the updated
      "accountId": "ef07c35a-d1f6-11e8-7a33-904100000002",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -287,8 +287,8 @@ Successful request. The result is a JSON array of representations of the updated
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/ef0887b1-d1f6-11e8-7a33-904100000003",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -319,7 +319,7 @@ Successful request. The result is a JSON array of representations of the updated
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -334,22 +334,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/employee/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/employee/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json"
             }
@@ -387,7 +387,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/employee/metadata"
+   "https://api.kladana.in/api/remap/1.2/entity/employee/metadata"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -397,7 +397,7 @@ Successful request. The result is a JSON representation of the additional employ
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
@@ -425,7 +425,7 @@ Successful request. The result is a JSON representation of the additional employ
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -435,7 +435,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -460,7 +460,7 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -470,8 +470,8 @@ Successful request. The result is a JSON representation of the Employee.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/employee/84f88b2f-f504-11e5-8a84-bae500000138",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
      "type": "employee",
      "mediaType": "application/json"
    },
@@ -489,14 +489,14 @@ Successful request. The result is a JSON representation of the Employee.
    "cashiers": [
       {
         "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/8d2f2a2e-d6a1-11e7-9464-e4de00000060/cashiers/8d2f3fe1-d6a1-11e7-9464-e4de00000061",
+          "href": "http://api.kladana.in/api/remap/1.2/entity/retailstore/8d2f2a2e-d6a1-11e7-9464-e4de00000060/cashiers/8d2f3fe1-d6a1-11e7-9464-e4de00000061",
           "type": "cashier",
           "mediaType": "application/json"
         }
       },
       {
         "meta": {
-          "href": "http://app.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/cashiers/58dfeb3e-df24-11e7-9464-e4de00000004",
+          "href": "http://api.kladana.in/api/remap/1.2/entity/retailstore/53302317-df24-11e7-9464-e4de00000001/cashiers/58dfeb3e-df24-11e7-9464-e4de00000004",
           "type": "cashier",
           "mediaType": "application/json"
         }
@@ -504,8 +504,8 @@ Successful request. The result is a JSON representation of the Employee.
     ],
    "retailStore": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailstore/metadata",
        "type": "retailstore",
        "mediaType": "application/json"
      }
@@ -513,7 +513,7 @@ Successful request. The result is a JSON representation of the Employee.
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -539,7 +539,7 @@ Request to create an employee. Mandatory fields to create:
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/employee/"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -553,7 +553,7 @@ Request to create an employee. Mandatory fields to create:
              "attributes": [
                {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -569,8 +569,8 @@ Successful request. The result is a JSON representation of the created Employee.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/bc962452-cd64-11e8-ac12-000800000000",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/employee/bc962452-cd64-11e8-ac12-000800000000",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
      "type": "employee",
      "mediaType": "application/json"
    },
@@ -578,8 +578,8 @@ Successful request. The result is a JSON representation of the created Employee.
    "accountId": "ffb8f6b1-cd3a-11e8-ac12-000700000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/00f76fbb-cd3b-11e8-ac12-00080000002d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/00f76fbb-cd3b-11e8-ac12-00080000002d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -587,8 +587,8 @@ Successful request. The result is a JSON representation of the created Employee.
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/ffbc0889-cd3a-11e8-ac12-000700000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/ffbc0889-cd3a-11e8-ac12-000700000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -608,7 +608,7 @@ Successful request. The result is a JSON representation of the created Employee.
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -636,7 +636,7 @@ Request to update an existing Employee. The **lastName** field must be specified
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -650,7 +650,7 @@ Request to update an existing Employee. The **lastName** field must be specified
              "attributes": [
                {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -666,8 +666,8 @@ Successful request. The result is a JSON representation of the updated Employee.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
      "type": "employee",
      "mediaType": "application/json"
    },
@@ -688,8 +688,8 @@ Successful request. The result is a JSON representation of the updated Employee.
    "shortFio": "Moyskladkin P.I.",
      "retailStore": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailstore/metadata",
          "type": "retailstore",
          "mediaType": "application/json"
        }
@@ -697,7 +697,7 @@ Successful request. The result is a JSON representation of the updated Employee.
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -708,7 +708,7 @@ Successful request. The result is a JSON representation of the updated Employee.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata/attributes/ed14b498-cae3-11e8-9dd2-f3a300000044",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -929,7 +929,7 @@ Request for information about the rights of the Employee.
 
 ```shell
    curl -X GET
-     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
      -H "Authorization: Basic <Credentials>"
 ```
 
@@ -943,8 +943,8 @@ Successful request. The result is a JSON representation of information about the
     "email": "example@example.ru",
     "group": {
         "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000002",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000002",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
             "type": "group",
             "mediaType": "application/json"
         },
@@ -958,7 +958,7 @@ Successful request. The result is a JSON representation of information about the
     "authorizedIpNetmask": "1.8.8.8",
     "role": {
         "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/role/individual",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/role/individual",
             "type": "individualrole",
             "mediaType": "application/json"
         },
@@ -1416,14 +1416,14 @@ If the tariff does not allow changing permissions and the transferred or previou
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
              "group": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
                      "type": "group",
                      "mediaType": "application/json"
                  }
@@ -1433,7 +1433,7 @@ If the tariff does not allow changing permissions and the transferred or previou
              ],
              "role": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/role/admin",
                      "type": "systemrole",
                      "mediaType": "application/json"
                  }
@@ -1451,8 +1451,8 @@ Successful request. The result is a JSON representation of updated information a
      "email": "example@example.ru",
      "group": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
              "type": "group",
              "mediaType": "application/json"
          },
@@ -1466,7 +1466,7 @@ Successful request. The result is a JSON representation of updated information a
      "authorizedIpNetmask": "1.8.8.8",
      "role": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/role/admin",
              "type": "systemrole",
              "mediaType": "application/json"
          }
@@ -1495,22 +1495,22 @@ In this case, you can use the previously set password for this user.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
              "login": "newmanager@lognex",
              "group": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/group/f4b74c5e-443a-11eb-ac12-001000000003",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
                      "type": "group",
                      "mediaType": "application/json"
                  }
              },
              "role": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/role/manager",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/role/manager",
                      "type": "systemrole",
                      "mediaType": "application/json"
                  }
@@ -1541,7 +1541,7 @@ Request to deactivate an Employee in Kladana.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate"
      -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1561,7 +1561,7 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword"
+     "https://api.kladana.in/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword"
      -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1574,7 +1574,7 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
 
 ```shell
    curl -X GET
-     "https://app.kladana.in/api/remap/1.2/entity/role/admin"
+     "https://api.kladana.in/api/remap/1.2/entity/role/admin"
      -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1584,7 +1584,7 @@ Successful request. The result is a JSON representation of information about the
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/role/admin",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/role/admin",
      "type": "systemrole",
      "mediaType": "application/json"
    }
@@ -1597,7 +1597,7 @@ Successful request. The result is a JSON representation of information about the
 
 ```shell
    curl -X GET
-     "https://app.kladana.in/api/remap/1.2/entity/role/individual"
+     "https://api.kladana.in/api/remap/1.2/entity/role/individual"
      -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1607,7 +1607,7 @@ Successful request. The result is a JSON representation of the individual role i
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/role/individual",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/role/individual",
      "type": "individualrole",
      "mediaType": "application/json"
    }

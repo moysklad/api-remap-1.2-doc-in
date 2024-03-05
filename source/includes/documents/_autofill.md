@@ -91,14 +91,14 @@ Fills in the product price field **price** (if not explicitly specified) with th
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_price"
+     "https://api.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_price"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'{
             "agent": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                     "type": "counterparty",
                     "mediaType": "application/json",
                     "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
@@ -108,8 +108,8 @@ Fills in the product price field **price** (if not explicitly specified) with th
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
@@ -120,8 +120,8 @@ Fills in the product price field **price** (if not explicitly specified) with th
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -140,8 +140,8 @@ Successful request. The result is a JSON representation of the completed documen
 {
    "agent": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
@@ -151,8 +151,8 @@ Successful request. The result is a JSON representation of the completed documen
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
@@ -166,8 +166,8 @@ Successful request. The result is a JSON representation of the completed documen
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -191,14 +191,14 @@ the counterparty passed in the **agent** field.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_discount"
+     "https://api.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_discount"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'{
             "agent": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                     "type": "counterparty",
                     "mediaType": "application/json",
                     "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
@@ -208,8 +208,8 @@ the counterparty passed in the **agent** field.
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
@@ -220,8 +220,8 @@ the counterparty passed in the **agent** field.
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -239,8 +239,8 @@ the counterparty passed in the **agent** field.
 {
    "agent": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/eff93a94-c03a-11ea-c0a8-f00c0000001f",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#company/edit?id=eff93a94-c03a-11ea-c0a8-f00c0000001f"
@@ -250,8 +250,8 @@ the counterparty passed in the **agent** field.
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=46628fb5-c1c8-11ea-c0a8-f00c00000018"
@@ -264,8 +264,8 @@ the counterparty passed in the **agent** field.
        "discount": 40.0,
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -286,14 +286,14 @@ taxes and **vat** fields for items with the value from the product card, if the 
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_vat"
+     "https://api.kladana.in/api/remap/1.2/wizard/demand?action=evaluate_vat"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'{
             "organization": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
                     "type": "organization",
                     "mediaType": "application/json",
                     "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
@@ -303,8 +303,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
             "rate": {
                 "currency": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                         "type": "currency",
                         "mediaType": "application/json",
                         "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
@@ -315,8 +315,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
@@ -327,8 +327,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -346,8 +346,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
 {
    "organization": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/44055d92-bf76-11ea-c0a8-f01000000070",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=44055d92-bf76-11ea-c0a8-f01000000070"
@@ -357,8 +357,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/44126ea6-bf76-11ea-c0a8-f01000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#currency/edit?id=44126ea6-bf76-11ea-c0a8-f01000000077"
@@ -369,8 +369,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
@@ -385,8 +385,8 @@ taxes and **vat** fields for items with the value from the product card, if the 
        "vatEnabled": true,
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -407,14 +407,14 @@ Fills in the **cost** fields of items with the cost value calculated according t
 
 ```shell
    curl -X POST
-   "https://app.kladana.in/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
+   "https://api.kladana.in/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
      -d'{
             "store": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json",
                     "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
@@ -425,8 +425,8 @@ Fills in the **cost** fields of items with the cost value calculated according t
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
@@ -436,8 +436,8 @@ Fills in the **cost** fields of items with the cost value calculated according t
                 {
                     "assortment": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                             "type": "product",
                             "mediaType": "application/json",
                             "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"
@@ -455,8 +455,8 @@ Fills in the **cost** fields of items with the cost value calculated according t
 {
    "store": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/store/16a3019e-1204-11eb-c0a8-300c00000072",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#warehouse/edit?id=16a3019e-1204-11eb-c0a8-300c00000072"
@@ -467,8 +467,8 @@ Fills in the **cost** fields of items with the cost value calculated according t
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/46628fb5-c1c8-11ea-c0a8-f00c0000001a",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
@@ -478,8 +478,8 @@ Fills in the **cost** fields of items with the cost value calculated according t
      },
      {"assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/bb989405-bf9e-11ea-c0a8-f0100000000e",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=bb96904c-bf9e-11ea-c0a8-f0100000000c"

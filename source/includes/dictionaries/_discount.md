@@ -69,7 +69,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/discount"
+   "https://api.kladana.in/api/remap/1.2/entity/discount"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -81,16 +81,16 @@ Successful request. The result is a list of all discounts of all types for the a
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/discount",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/discount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/discount",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/discount/metadata",
      "type": "discount",
      "mediaType": "application/json",
      "size": 4,
@@ -100,8 +100,8 @@ Successful request. The result is a list of all discounts of all types for the a
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
          "type": "personaldiscount",
          "mediaType": "application/json"
        },
@@ -117,8 +117,8 @@ Successful request. The result is a list of all discounts of all types for the a
        "assortment": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
              "type": "variant",
              "mediaType": "application/json"
            }
@@ -127,8 +127,8 @@ Successful request. The result is a list of all discounts of all types for the a
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/96673f4d-9f4d-11e6-8af5-581e0000007b",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/96673f4d-9f4d-11e6-8af5-581e0000007b",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
          "type": "specialpricediscount",
          "mediaType": "application/json"
        },
@@ -144,8 +144,8 @@ Successful request. The result is a list of all discounts of all types for the a
        "assortment": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
              "type": "variant",
              "mediaType": "application/json"
            }
@@ -155,8 +155,8 @@ Successful request. The result is a list of all discounts of all types for the a
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/bd1235f2-9c60-11e6-8af5-581e00000009",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/bd1235f2-9c60-11e6-8af5-581e00000009",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
          "type": "specialpriceddiscount",
          "mediaType": "application/json"
        },
@@ -172,8 +172,8 @@ Successful request. The result is a list of all discounts of all types for the a
        "productFolders": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/a7a589e5-9c60-11e6-8af5-581e00000006",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/a7a589e5-9c60-11e6-8af5-581e00000006",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
              "type": "productfolder",
              "mediaType": "application/json"
            }
@@ -182,16 +182,16 @@ Successful request. The result is a list of all discounts of all types for the a
        "assortment": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
              "type": "product",
              "mediaType": "application/json"
            }
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
              "type": "variant",
              "mediaType": "application/json"
            }
@@ -201,7 +201,7 @@ Successful request. The result is a list of all discounts of all types for the a
          "value": 15.0,
          "priceType": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+             "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
              "type": "pricetype",
              "mediaType": "application/json"
            },
@@ -213,8 +213,8 @@ Successful request. The result is a list of all discounts of all types for the a
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/dce08f7f-9a09-11e6-8af5-581e0000007e",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/dce08f7f-9a09-11e6-8af5-581e0000007e",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
          "type": "accumulationdiscount",
          "mediaType": "application/json"
        },"id": "dce08f7f-9a09-11e6-8af5-581e0000007e",
@@ -229,24 +229,24 @@ Successful request. The result is a list of all discounts of all types for the a
        "assortment": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/product/987148b8-9a09-11e6-8af5-581e0000006f",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
              "type": "product",
              "mediaType": "application/json"
            }
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/987d77f1-9a09-11e6-8af5-581e00000074",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/variant/987d77f1-9a09-11e6-8af5-581e00000074",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
              "type": "variant",
              "mediaType": "application/json"
            }
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/variant/9881531b-9a09-11e6-8af5-581e00000078",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
              "type": "variant",
              "mediaType": "application/json"
            }
@@ -265,8 +265,8 @@ Successful request. The result is a list of all discounts of all types for the a
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
          "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
@@ -285,8 +285,8 @@ Successful request. The result is a list of all discounts of all types for the a
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/discount/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/discount/metadata",
          "type": "discount",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -310,7 +310,7 @@ Request to create a new cumulative discount. Required fields: **name** (discount
 
 ```shell
 curl -X POST
-"https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount"
+"https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
     -d '{
@@ -328,8 +328,8 @@ curl -X POST
             "assortment": [
           {
            "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json"
           }
@@ -338,8 +338,8 @@ curl -X POST
            "productFolders": [
           {
            "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "productfolder",
            "mediaType": "application/json"
            }
@@ -354,8 +354,8 @@ Successful request. The result is a JSON representation of the created cumulativ
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
      "type": "accumulationdiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -373,7 +373,7 @@ Successful request. The result is a JSON representation of the created cumulativ
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006","metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006","metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -383,8 +383,8 @@ Successful request. The result is a JSON representation of the created cumulativ
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -412,7 +412,7 @@ Request for a cumulative discount.
 
 ```shell
 curl -X GET
-"https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 ```
 
@@ -422,8 +422,8 @@ Successful request. The result is a JSON representation of the cumulative discou
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
      "type": "accumulationdiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -440,8 +440,8 @@ Successful request. The result is a JSON representation of the cumulative discou
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -451,8 +451,8 @@ Successful request. The result is a JSON representation of the cumulative discou
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -481,7 +481,7 @@ Request to change the cumulative discount. In the body of the request, you must 
 
 ```shell
 curl -X PUT
-"https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"
     -d '{
@@ -501,8 +501,8 @@ curl -X PUT
             "assortment": [
                 {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                         "type": "product",
                         "mediaType": "application/json"
                     }
@@ -511,8 +511,8 @@ curl -X PUT
             "productFolders": [
                 {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                         "type": "productfolder",
                         "mediaType": "application/json"
                     }
@@ -527,8 +527,8 @@ Successful request. The result is a JSON representation of the created cumulativ
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/metadata",
      "type": "accumulationdiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -545,8 +545,8 @@ Successful request. The result is a JSON representation of the created cumulativ
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -556,8 +556,8 @@ Successful request. The result is a JSON representation of the created cumulativ
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -585,7 +585,7 @@ Request to remove a cumulative discount.
 
 ```shell
 curl -X DELETE
-"https://app.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 ```
 
@@ -599,7 +599,7 @@ Request to create a new personal discount. Required fields: **name** (discount n
 
 ```shell
 curl -X POST
-"https://app.kladana.in/api/remap/1.2/entity/personaldiscount"
+"https://api.kladana.in/api/remap/1.2/entity/personaldiscount"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
@@ -614,8 +614,8 @@ curl -X POST
         "assortment": [
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json"
                 }
@@ -624,8 +624,8 @@ curl -X POST
         "productFolders": [
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "productfolder",
                     "mediaType": "application/json"
                 }
@@ -640,8 +640,8 @@ Successful request. The result is a JSON representation of the created personal 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
      "type": "personaldiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -659,8 +659,8 @@ Successful request. The result is a JSON representation of the created personal 
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -670,8 +670,8 @@ Successful request. The result is a JSON representation of the created personal 
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -692,7 +692,7 @@ Request for a personal discount.
 
 ```shell
 curl -X GET
-"https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 ```
 
@@ -702,8 +702,8 @@ Successful request. The result is a JSON representation of the personal discount
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
      "type": "personaldiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -721,8 +721,8 @@ Successful request. The result is a JSON representation of the personal discount
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -732,8 +732,8 @@ Successful request. The result is a JSON representation of the personal discount
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -754,7 +754,7 @@ Request to change a personal discount. In the body of the request, you must pass
 
 ```shell
 curl -X PUT
-"https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
@@ -768,8 +768,8 @@ curl -X PUT
         "assortment": [
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json"
                 }
@@ -778,8 +778,8 @@ curl -X PUT
         "productFolders": [
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "productfolder",
                     "mediaType": "application/json"
                 }
@@ -794,8 +794,8 @@ Successful request. The result is a JSON representation of the created personal 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/personaldiscount/metadata",
      "type": "personaldiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -812,8 +812,8 @@ Successful request. The result is a JSON representation of the created personal 
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -823,8 +823,8 @@ Successful request. The result is a JSON representation of the created personal 
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -846,7 +846,7 @@ Request to remove a personal discount
 
 ```shell
 curl -X DELETE
-"https://app.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 ```
 
@@ -860,7 +860,7 @@ Request to create a new special price. Required fields: **name** (name of the di
 
 ```shell
 curl -X POST
-"https://app.kladana.in/api/remap/1.2/entity/specialpriceddiscount"
+"https://api.kladana.in/api/remap/1.2/entity/specialpriceddiscount"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d ' {
@@ -871,7 +871,7 @@ curl -X POST
           "usePriceType": true,
           "specialprice": {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/5f441404-a419-11ea-ac12-000a00000078",
+                  "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/5f441404-a419-11ea-ac12-000a00000078",
                   "type": "pricetype",
                   "mediaType": "application/json"
               }
@@ -879,8 +879,8 @@ curl -X POST
           "assortment": [
               {
                   "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                      "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+                      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                       "type": "product",
                       "mediaType": "application/json"
                   }
@@ -889,8 +889,8 @@ curl -X POST
           "productFolders": [
               {
                   "meta": {
-                      "href": "https://app.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                      "href": "https://api.kladana.in/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
+                      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                       "type": "productfolder",
                       "mediaType": "application/json"
                   }
@@ -905,8 +905,8 @@ Successful request. The result is a JSON representation of the created special p
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
      "type": "specialpriceddiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -925,8 +925,8 @@ Successful request. The result is a JSON representation of the created special p
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -936,8 +936,8 @@ Successful request. The result is a JSON representation of the created special p
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -948,7 +948,7 @@ Successful request. The result is a JSON representation of the created special p
      "value": 0.0,
      "priceType": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -971,7 +971,7 @@ Request for a special price.
 
 ```shell
 curl -X GET
-"https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 ```
 
@@ -981,8 +981,8 @@ Successful request. The result is a JSON representation of the special price.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
      "type": "specialpriceddiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -1001,8 +1001,8 @@ Successful request. The result is a JSON representation of the special price.
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -1012,8 +1012,8 @@ Successful request. The result is a JSON representation of the special price.
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -1024,7 +1024,7 @@ Successful request. The result is a JSON representation of the special price.
      "value": 0.0,
      "priceType": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -1047,7 +1047,7 @@ Request to change the special price. In the body of the request, you must pass t
 
 ```shell
 curl -X PUT
-"https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
@@ -1063,8 +1063,8 @@ Successful request. The result is a JSON representation of the modified special 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/metadata",
      "type": "specialpriceddiscount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
@@ -1084,8 +1084,8 @@ Successful request. The result is a JSON representation of the modified special 
    "assortment": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/833eac42-b6f4-11ea-ac12-000e00000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=833eac42-b6f4-11ea-ac12-000e00000003"
@@ -1095,8 +1095,8 @@ Successful request. The result is a JSON representation of the modified special 
    "productFolders": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=39c62b64-a722-11ea-ac12-000d00000015"
@@ -1107,7 +1107,7 @@ Successful request. The result is a JSON representation of the modified special 
      "value": 0.0,
      "priceType": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/39c62b64-a722-11ea-ac12-000d00000015",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -1131,7 +1131,7 @@ Request to remove a special price.
 
 ```shell
 curl -X DELETE
-"https://app.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1149,7 +1149,7 @@ Request to change the rounding of rupees. In the body of the request, you must p
 
 ```shell
 curl -X PUT
-"https://app.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001"
+"https://api.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001"
 -H "Authorization: Basic <Credentials>"
 -H "Content-Type: application/json"
 -d '{
@@ -1164,8 +1164,8 @@ Successful request. The result is a JSON representation of the changed rounding 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/discount/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/discount/metadata",
      "type": "discount",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"

@@ -60,13 +60,13 @@ for Sales Invoice:
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
+     "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
              "template": {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
                  "type": "customtemplate",
                  "mediaType": "application/json"
                }
@@ -97,7 +97,7 @@ for Sales Invoice:
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
+     "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -105,7 +105,7 @@ for Sales Invoice:
                 {
                     "template": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/daca545a-1a35-11e7-8a84-bae500000001",
                             "type": "customtemplate",
                             "mediaType": "application/json"
                         }
@@ -115,7 +115,7 @@ for Sales Invoice:
                 {
                     "template": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/factureout/metadata/embeddedtemplate/3d2685b4-cf64-4fd1-87c8-e109966b364b",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/factureout/metadata/embeddedtemplate/3d2685b4-cf64-4fd1-87c8-e109966b364b",
                             "type": "embeddedtemplate",
                             "mediaType": "application/json"
                         }
@@ -125,7 +125,7 @@ for Sales Invoice:
                 {
                     "template": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata/embeddedtemplate/6f3c9a47-6772-4944-9723-92d0d7be2a9c",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/metadata/embeddedtemplate/6f3c9a47-6772-4944-9723-92d0d7be2a9c",
                             "type": "embeddedtemplate",
                             "mediaType": "application/json"
                         }

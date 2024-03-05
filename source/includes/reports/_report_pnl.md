@@ -59,22 +59,22 @@ Simultaneous filtering by **product** and **productFolder** is not supported.
 
 Filtering examples:
 
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
-- `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
-- `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
-- `filter=project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://api.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://api.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
+- `filter=store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=project=https://api.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
 - `filter=agentTag=favorites`
-- `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=supplier=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
 ### Get Product Profitability
 
@@ -96,7 +96,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/profit/byproduct"
+   "https://api.kladana.in/api/remap/1.2/report/profit/byproduct"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -108,28 +108,28 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct",
+     "href": "https://api.kladana.in/api/remap/1.2/report/profit/byproduct",
      "type": "salesbyproduct",
      "mediaType": "application/json",
      "size": 5,
      "limit": 2,
      "offset": 0,
-     "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byproduct?limit=2&offset=2"
+     "nextHref": "https://api.kladana.in/api/remap/1.2/report/profit/byproduct?limit=2&offset=2"
    },
    "rows": [
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/6af0f1c9-4814-11e6-8a84-bae5000006b4",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/6af0f1c9-4814-11e6-8a84-bae5000006b4",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json"
          },
@@ -137,8 +137,8 @@ Successful request. The result is a JSON representation of the report.
          "code": "00067",
          "uom": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
            },
@@ -161,8 +161,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/6a9bdfe4-4814-11e6-8a84-bae500000503",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/6a9bdfe4-4814-11e6-8a84-bae500000503",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "product",
            "mediaType": "application/json"
          },
@@ -170,8 +170,8 @@ Successful request. The result is a JSON representation of the report.
          "code": "00198",
          "uom": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
            },
@@ -194,8 +194,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "service",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=3412d794-484e-11e8-6a80-332a0000008f"
@@ -204,8 +204,8 @@ Successful request. The result is a JSON representation of the report.
          "code": "00045",
          "uom": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
            },
@@ -283,22 +283,22 @@ Simultaneous filtering by **product** and **productFolder** is not supported.
 
 Filtering examples:
 
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
-- `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
-- `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
-- `filter=project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://api.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://api.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
+- `filter=store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=project=https://api.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
 - `filter=agentTag=favorites`
-- `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=supplier=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
 ### Get Profit by modifications
 
@@ -320,7 +320,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/profit/byvariant"
+   "https://api.kladana.in/api/remap/1.2/report/profit/byvariant"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -332,28 +332,28 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant",
+     "href": "https://api.kladana.in/api/remap/1.2/report/profit/byvariant",
      "type": "salesbyvariant",
      "mediaType": "application/json",
      "size": 5,
      "limit": 2,
      "offset": 0,
-     "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/byvariant?limit=2&offset=2"
+     "nextHref": "https://api.kladana.in/api/remap/1.2/report/profit/byvariant?limit=2&offset=2"
    },
    "rows": [
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6af0f1c9-4814-11e6-8a84-bae5000006b4?expand=product.supplier",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/variant/6af0f1c9-4814-11e6-8a84-bae5000006b4?expand=product.supplier",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
            "type": "variant",
            "mediaType": "application/json"
          },
@@ -361,8 +361,8 @@ Successful request. The result is a JSON representation of the report.
          "code": "00067",
          "uom": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
            },
@@ -385,8 +385,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6a9bdfe4-4814-11e6-8a84-bae500000503?expand=product.supplier",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/variant/6a9bdfe4-4814-11e6-8a84-bae500000503?expand=product.supplier",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
            "type": "variant",
            "mediaType": "application/json"
          },
@@ -394,8 +394,8 @@ Successful request. The result is a JSON representation of the report.
          "code": "00198",
          "uom": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
            },
@@ -418,8 +418,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "assortment": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/service/3413f2dd-484e-11e8-6a80-332a00000091",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
            "type": "service",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#good/edit?id=3412d794-484e-11e8-6a80-332a0000008f"
@@ -428,8 +428,8 @@ Successful request. The result is a JSON representation of the report.
          "code": "00045",
          "uom": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
            },
@@ -502,22 +502,22 @@ Simultaneous filtering by **product** and **productFolder** is not supported.
 
 Filtering examples:
 
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
-- `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
-- `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
-- `filter=project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://api.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://api.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
+- `filter=store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=project=https://api.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
 - `filter=agentTag=favorites`
-- `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=supplier=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
 ### Get Profitability by Employee
 
@@ -537,7 +537,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/profit/byemployee"
+   "https://api.kladana.in/api/remap/1.2/report/profit/byemployee"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -549,15 +549,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/profit/byEmployee",
+     "href": "https://api.kladana.in/api/remap/1.2/report/profit/byEmployee",
      "type": "salesbyemployee",
      "mediaType": "application/json",
      "size": 1,
@@ -568,8 +568,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "employee": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/3c9ef5be-4814-11e6-8a84-bae500000028",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/3c9ef5be-4814-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          },
@@ -639,22 +639,22 @@ Simultaneous filtering by **product** and **productFolder** is not supported.
 
 Filtering examples:
 
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
-- `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
-- `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
-- `filter=project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://api.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://api.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
+- `filter=store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=project=https://api.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
 - `filter=agentTag=favorites`
-- `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://app.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=supplier=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
 ### Get Profitability by Customers
 
@@ -674,7 +674,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty"
+   "https://api.kladana.in/api/remap/1.2/report/profit/bycounterparty"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -686,28 +686,28 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty",
+     "href": "https://api.kladana.in/api/remap/1.2/report/profit/bycounterparty",
      "type": "salesbycounterparty",
      "mediaType": "application/json",
      "size": 3,
      "limit": 1,
      "offset": 0,
-     "nextHref": "https://app.kladana.in/api/remap/1.2/report/profit/bycounterparty?limit=1&offset=1"
+     "nextHref": "https://api.kladana.in/api/remap/1.2/report/profit/bycounterparty?limit=1&offset=1"
    },
    "rows": [
      {
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/3cd88c00-4814-11e6-8a84-bae500000053",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/3cd88c00-4814-11e6-8a84-bae500000053",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          },
@@ -777,21 +777,21 @@ Simultaneous filtering by **product** and **productFolder** is not supported.
 
 Filtering examples:
 
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://app.kladana.in/api/ remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://app.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://app.kladana.in/api/ remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
-- `filter=counterparty=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
-- `filter=store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
-- `filter=project=https://app.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;product=https://api.kladana.in/api/remap/1.2/entity/service/706b9cd3-8552-11e6-8a84-bae500000045;product=https://api.kladana.in/api/remap/1.2/entity/bundle/7a5f0ed5-8552-11e6-8a84-bae500000046`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b2;withSubFolders=false`
+- `filter=counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003`
+- `filter=store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=project=https://api.kladana.in/api/remap/1.2/entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046`
 - `filter=agentTag=favorites`
-- `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
-- `filter=salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://app.kladana.in/api/ remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
-- `filter=product=https://app.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://app.kladana.in/api/ remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://app.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://app.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://app.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=supplier=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
+- `filter=salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
+- `filter=product=https://api.kladana.in/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.in/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.in/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.in/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://api.kladana.in/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
 ### Get Profitability by Sales Channels
 
@@ -811,7 +811,7 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/profit/bysaleschannel"
+   "https://api.kladana.in/api/remap/1.2/report/profit/bysaleschannel"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -823,15 +823,15 @@ Successful request. The result is a JSON representation of the report.
    "context" : {
      "employee" : {
        "meta" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href" : "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type" : "employee",
          "mediaType" : "application/json"
        }
      }
    },
    "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/report/profit/bysaleschannel",
+     "href" : "https://api.kladana.in/api/remap/1.2/report/profit/bysaleschannel",
      "type" : "salesbysaleschannel",
      "mediaType" : "application/json",
      "size" : 1,
@@ -841,8 +841,8 @@ Successful request. The result is a JSON representation of the report.
    "rows" : [{
      "salesChannel" : {
        "meta" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/656c4032-8552-11e6-8a84-bae500000044",
-         "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
+         "href" : "https://api.kladana.in/api/remap/1.2/entity/saleschannel/656c4032-8552-11e6-8a84-bae500000044",
+         "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/saleschannel/metadata",
          "type" : "saleschannel",
          "mediaType" : "application/json",
          "uuidHref" : "https://app.kladana.in/app/#saleschannel/edit?id=656c4032-8552-11e6-8a84-bae500000044"

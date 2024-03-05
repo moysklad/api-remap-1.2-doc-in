@@ -49,7 +49,7 @@ The result of a successful request is a JSON representation of a list of Marking
 
 ```shell
    curl -X GET
-     "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
+     "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
      -H "Authorization: Basic <Credentials>"
 ```
 
@@ -60,15 +60,15 @@ The result of a successful request is a JSON representation of a list of Marking
     "context": {
       "employee": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         }
       }
     },
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes",
       "type": "trackingcode",
       "mediaType": "application/json",
       "size": 23,
@@ -109,7 +109,7 @@ Nested Marking Codes are replaced by those specified in the request.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
+     "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
@@ -152,13 +152,13 @@ If the Marking Code is specified in the request contains nested codes, they are 
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
+     "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
              {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/c7eccae6 -1bb9-11ec-ac18-000c00000001",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/c7eccae6 -1bb9-11ec-ac18-000c00000001",
                  "type": "trackingcode",
                  "mediaType": "application/json"
                }

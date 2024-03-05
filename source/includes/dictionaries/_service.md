@@ -148,7 +148,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/service"
+   "https://api.kladana.in/api/remap/1.2/entity/service"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -160,16 +160,16 @@ Successful request. The result is a JSON representation of the list of Services.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/service/",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/service/",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json",
      "size": 2,
@@ -179,8 +179,8 @@ Successful request. The result is a JSON representation of the list of Services.
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "service",
          "mediaType": "application/json"
        },
@@ -188,8 +188,8 @@ Successful request. The result is a JSON representation of the list of Services.
        "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -197,8 +197,8 @@ Successful request. The result is a JSON representation of the list of Services.
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -220,8 +220,8 @@ Successful request. The result is a JSON representation of the list of Services.
          "value": 500.0,
          "currency": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -232,15 +232,15 @@ Successful request. The result is a JSON representation of the list of Services.
            "value": 1052.0,
            "currency": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-               "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+               "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+               "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                "type": "currency",
                "mediaType": "application/json"
              }
            },
            "priceType": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -253,15 +253,15 @@ Successful request. The result is a JSON representation of the list of Services.
            "value": 1020,
            "currency": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-               "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+               "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+               "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                "type": "currency",
                "mediaType": "application/json"
              }
            },
            "priceType": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -275,8 +275,8 @@ Successful request. The result is a JSON representation of the list of Services.
          "value": 700.0,
          "currency": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -296,7 +296,7 @@ Successful request. The result is a JSON representation of the list of Services.
        "attributes": [
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -307,7 +307,7 @@ Successful request. The result is a JSON representation of the list of Services.
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -321,8 +321,8 @@ Successful request. The result is a JSON representation of the list of Services.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "service",
          "mediaType": "application/json"
        },
@@ -330,8 +330,8 @@ Successful request. The result is a JSON representation of the list of Services.
        "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -339,8 +339,8 @@ Successful request. The result is a JSON representation of the list of Services.
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -361,8 +361,8 @@ Successful request. The result is a JSON representation of the list of Services.
          "value": 500.0,
          "currency": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -373,15 +373,15 @@ Successful request. The result is a JSON representation of the list of Services.
            "value": 10532.0,
            "currency": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-               "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+               "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+               "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                "type": "currency",
                "mediaType": "application/json"
              }
            },
            "priceType": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -394,15 +394,15 @@ Successful request. The result is a JSON representation of the list of Services.
            "value": 100,
            "currency": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-               "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+               "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+               "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                "type": "currency",
                "mediaType": "application/json"
              }
            },
            "priceType": {
              "meta": {
-               "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -416,8 +416,8 @@ Successful request. The result is a JSON representation of the list of Services.
          "value": 700.0,
          "currency": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -456,7 +456,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/service"
+     "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -471,8 +471,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                 "value": 500.0,
                 "currency": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                         "type": "currency",
                         "mediaType": "application/json"
                     }
@@ -483,15 +483,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     "value": 10532.0,
                     "currency": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                             "type": "currency",
                             "mediaType": "application/json"
                         }
                     },
                     "priceType": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                             "type": "pricetype",
                             "mediaType": "application/json"
                         }
@@ -501,15 +501,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     "value": 100,
                     "currency": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                             "type": "currency",
                             "mediaType": "application/json"
                         }
                     },
                     "priceType": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                             "type": "pricetype",
                             "mediaType": "application/json"
                         }
@@ -520,8 +520,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                 "value": 1047.0,
                 "currency": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                         "type": "currency",
                         "mediaType": "application/json"
                     }
@@ -547,8 +547,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json"
    },
@@ -556,8 +556,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -565,8 +565,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -588,8 +588,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      "value": 500.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -600,15 +600,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "value": 10532.0,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -621,15 +621,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "value": 100,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -643,8 +643,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      "value": 1047.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -667,7 +667,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/service"
+     "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -681,8 +681,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/service/cce4dae4-2c87-11e6-8a84-bae500000037",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/service/cce4dae4-2c87-11e6-8a84-bae500000037",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json"
    },
@@ -690,8 +690,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -699,8 +699,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -710,15 +710,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "value": 346347237000.0,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -731,15 +731,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "value": 100,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -765,7 +765,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 
 ```shell
    curl-X POST
-     "https://app.kladana.in/api/remap/1.2/entity/service"
+     "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -779,8 +779,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                "value": 500.0,
                "currency": {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                    "type": "currency",
                    "mediaType": "application/json"
                  }
@@ -791,15 +791,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  "value": 1052.0,
                  "currency": {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                      "type": "currency",
                      "mediaType": "application/json"
                    }
                  },
                  "priceType": {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                      "type": "pricetype",
                      "mediaType": "application/json"
                    }
@@ -809,15 +809,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  "value": 1020,
                  "currency": {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                      "type": "currency",
                      "mediaType": "application/json"
                    }
                  },
                  "priceType": {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                      "type": "pricetype",
                      "mediaType": "application/json"
                    }
@@ -828,8 +828,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                "value": 700.0
                "currency": {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                    "type": "currency",
                    "mediaType": "application/json"
                  }
@@ -849,7 +849,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
              "attributes": [
                {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -858,7 +858,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                },
                {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -876,8 +876,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json"
    },
@@ -885,8 +885,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -894,8 +894,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -917,8 +917,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      "value": 500.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -929,15 +929,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "value": 1052.0,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -950,15 +950,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
        "value": 1020,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -972,8 +972,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      "value": 700.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -993,7 +993,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1004,7 +1004,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1027,7 +1027,7 @@ The updated Services must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/service"
+     "https://api.kladana.in/api/remap/1.2/entity/service"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
@@ -1036,8 +1036,8 @@ The updated Services must contain the identifier in the form of metadata.
             },
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "service",
                     "mediaType": "application/json"
                 },
@@ -1050,8 +1050,8 @@ The updated Services must contain the identifier in the form of metadata.
                     "value": 500.0,
                     "currency": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                             "type": "currency",
                             "mediaType": "application/json"
                         }
@@ -1062,15 +1062,15 @@ The updated Services must contain the identifier in the form of metadata.
                         "value": 700.0,
                         "currency": {
                             "meta": {
-                                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                                "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                                 "type": "currency",
                                 "mediaType": "application/json"
                             }
                         },
                         "priceType": {
                             "meta": {
-                                "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                                "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                                 "type": "pricetype",
                                 "mediaType": "application/json"
                             }
@@ -1080,15 +1080,15 @@ The updated Services must contain the identifier in the form of metadata.
                         "value": 7000,
                         "currency": {
                             "meta": {
-                                "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                                "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                                 "type": "currency",
                                 "mediaType": "application/json"
                             }
                         },
                         "priceType": {
                             "meta": {
-                                "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                                "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                                 "type": "pricetype",
                                 "mediaType": "application/json"
                             }
@@ -1099,8 +1099,8 @@ The updated Services must contain the identifier in the form of metadata.
                     "value": 700.0,
                     "currency": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                             "type": "currency",
                             "mediaType": "application/json"
                         }
@@ -1128,8 +1128,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/service/cce4dae4-2c87-11e6-8a84-bae500000037",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/service/cce4dae4-2c87-11e6-8a84-bae500000037",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
        "type": "service",
        "mediaType": "application/json"
      },
@@ -1137,8 +1137,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -1146,8 +1146,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -1157,15 +1157,15 @@ Successful request. The result is a JSON array of representations of the created
          "value": 346347237000.0,
          "currency": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/2b50da23-296b-11e6-8a84-bae500000055",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
          },
          "priceType": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+             "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
              "type": "pricetype",
              "mediaType": "application/json"
            },
@@ -1194,7 +1194,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
    curl -X DELETE
-     "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
 ```
 > Response 200(application/json)
@@ -1209,22 +1209,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
   curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/service/delete"
+     "https://api.kladana.in/api/remap/1.2/entity/service/delete"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
      -d'[
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b1",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b1",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "service",
                     "mediaType": "application/json"
                 }
             },
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b2",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b2",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                     "type": "service",
                     "mediaType": "application/json"
                 }
@@ -1266,7 +1266,7 @@ A separate Service, which is accessed by its id value.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1276,8 +1276,8 @@ Successful request. The result is a JSON representation of the Service.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json"
    },
@@ -1285,8 +1285,8 @@ Successful request. The result is a JSON representation of the Service.
    "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1294,8 +1294,8 @@ Successful request. The result is a JSON representation of the Service.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1317,8 +1317,8 @@ Successful request. The result is a JSON representation of the Service.
      "value": 500.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1329,15 +1329,15 @@ Successful request. The result is a JSON representation of the Service.
        "value": 1052.0,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-"href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+"href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -1350,15 +1350,15 @@ Successful request. The result is a JSON representation of the Service.
        "value": 1020,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -1372,8 +1372,8 @@ Successful request. The result is a JSON representation of the Service.
      "value": 700.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1393,7 +1393,7 @@ Successful request. The result is a JSON representation of the Service.
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1404,7 +1404,7 @@ Successful request. The result is a JSON representation of the Service.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1440,7 +1440,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
   
    ```shell
      curl -X PUT
-       "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
+       "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
        -H "Authorization: Basic <Credentials>"
        -H "Content-Type: application/json"
          -d '{
@@ -1453,8 +1453,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                 value: 500.0
                  currency: {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                      "type": "currency",
                      "mediaType": "application/json"
                    }
@@ -1465,15 +1465,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                    "value": 700.0
                    currency: {
                      "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                        "type": "currency",
                        "mediaType": "application/json"
                      }
                    },
                    "priceType": {
                      "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                        "type": "pricetype",
                        "mediaType": "application/json"
                      }
@@ -1483,15 +1483,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                    value: 7000
                    currency: {
                      "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                        "type": "currency",
                        "mediaType": "application/json"
                      }
                    },
                    "priceType": {
                      "meta": {
-                       "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                        "type": "pricetype",
                        "mediaType": "application/json"
                      }
@@ -1502,8 +1502,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                  "value": 700.0
                  currency: {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                      "type": "currency",
                      "mediaType": "application/json"
                    }
@@ -1529,8 +1529,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
    ```json
   {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/service/f6ecdc65-2c86-11e6-8a84-bae500000027",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
       "type": "service",
       "mediaType": "application/json"
     },
@@ -1538,8 +1538,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
     "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
     "owner": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
@@ -1547,8 +1547,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -1570,8 +1570,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
       "value": 500.0,
       "currency": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json"
         }
@@ -1582,15 +1582,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
         "value": 700.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
         },
         "priceType": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
             "type": "pricetype",
             "mediaType": "application/json"
           },
@@ -1603,15 +1603,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
         "value": 7000,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
         },
         "priceType": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
             "type": "pricetype",
             "mediaType": "application/json"
           },
@@ -1625,8 +1625,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
       "value": 700.0,
       "currency": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json"
         }
@@ -1650,7 +1650,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
  
   ```shell
     curl -X PUT
-      "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
+      "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
       -H "Authorization: Basic <Credentials>"
       -H "Content-Type: application/json"
         -d '{
@@ -1660,8 +1660,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
             "externalCode": "addProtection",
             "productFolder": {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/238e806f-2c89-11e6-8a84-bae5000000a8",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/238e806f-2c89-11e6-8a84-bae5000000a8",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
                     "type": "productfolder",
                     "mediaType": "application/json"
                 }
@@ -1672,8 +1672,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                 "value": 500.0,
                 "currency": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                         "type": "currency",
                         "mediaType": "application/json"
                     }
@@ -1684,15 +1684,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     "value": 778.0,
                     "currency": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                             "type": "currency",
                             "mediaType": "application/json"
                         }
                     },
                     "priceType": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+                            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
                             "type": "pricetype",
                             "mediaType": "application/json"
                         }
@@ -1702,15 +1702,15 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                     "value": 777,
                     "currency": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-                            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+                            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                             "type": "currency",
                             "mediaType": "application/json"
                         }
                     },
                     "priceType": {
                         "meta": {
-                            "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+                            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
                             "type": "pricetype",
                             "mediaType": "application/json"
                         }
@@ -1721,8 +1721,8 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                 "value": 700.0,
                 "currency": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                         "type": "currency",
                         "mediaType": "application/json"
                     }
@@ -1742,7 +1742,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
             "attributes": [
                 {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
                         "type": "attributemetadata",
                         "mediaType": "application/json"
                     },
@@ -1751,7 +1751,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
                 },
                 {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
                         "type": "attributemetadata",
                         "mediaType": "application/json"
                     },
@@ -1768,8 +1768,8 @@ Successful request. The result is a JSON representation of the updated Service.
   ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/service/63e4fa87-2c87-11e6-8a84-bae500000030",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
      "type": "service",
      "mediaType": "application/json"
    },
@@ -1777,8 +1777,8 @@ Successful request. The result is a JSON representation of the updated Service.
    "accountId": "6270cd18-2c7f-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1786,8 +1786,8 @@ Successful request. The result is a JSON representation of the updated Service.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1806,8 +1806,8 @@ Successful request. The result is a JSON representation of the updated Service.
    "effectiveVatEnabled": true,
    "productFolder": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/238e806f-2c89-11e6-8a84-bae5000000a8",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/238e806f-2c89-11e6-8a84-bae5000000a8",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
        "type": "productfolder",
        "mediaType": "application/json"
      }
@@ -1817,8 +1817,8 @@ Successful request. The result is a JSON representation of the updated Service.
      "value": 500.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1829,15 +1829,15 @@ Successful request. The result is a JSON representation of the updated Service.
        "value": 778.0,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -1850,15 +1850,15 @@ Successful request. The result is a JSON representation of the updated Service.
        "value": 777,
        "currency": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
        },
        "priceType": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+           "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
            "type": "pricetype",
            "mediaType": "application/json"
          },
@@ -1872,8 +1872,8 @@ Successful request. The result is a JSON representation of the updated Service.
      "value": 700.0,
      "currency": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1893,7 +1893,7 @@ Successful request. The result is a JSON representation of the updated Service.
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e54cd-2c80-11e6-8a84-bae50000009c",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1904,7 +1904,7 @@ Successful request. The result is a JSON representation of the updated Service.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/0c2e5dc5-2c80-11e6-8a84-bae50000009d",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },

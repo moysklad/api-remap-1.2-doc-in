@@ -52,7 +52,7 @@ Each user directory contains the fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/context/companysettings"
+   "https://api.kladana.in/api/remap/1.2/context/companysettings"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -62,15 +62,15 @@ Successful request. The result is a JSON representation of Company Settings.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/context/companysettings/metadata",
      "type": "companysettings",
      "mediaType": "application/json"
    },
    "currency": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json"
      },
@@ -102,7 +102,7 @@ Successful request. The result is a JSON representation of Company Settings.
    "priceTypes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -112,7 +112,7 @@ Successful request. The result is a JSON representation of Company Settings.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -150,7 +150,7 @@ Partial editing is allowed - only the fields present in the request will be edit
 
 ```shell
 curl -X PUT
-   "https://app.kladana.in/api/remap/1.2/context/companysettings"
+   "https://api.kladana.in/api/remap/1.2/context/companysettings"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
        -d '{
@@ -170,15 +170,15 @@ Successful request. The result is a JSON representation of Company Settings.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/context/companysettings/metadata",
      "type": "companysettings",
      "mediaType": "application/json"
    },
    "currency": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/45ffbac2-24a5-11e6-8a84-bae500000055",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json"
      },
@@ -210,7 +210,7 @@ Successful request. The result is a JSON representation of Company Settings.
    "priceTypes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f2222",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -220,7 +220,7 @@ Successful request. The result is a JSON representation of Company Settings.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f4444",
          "type": "pricetype",
          "mediaType": "application/json"
        },
@@ -245,7 +245,7 @@ Successful request. The result is a JSON representation of Company Settings.
 
 ```shell
 curl -X GET
-   "ttps://app.kladana.in/api/remap/1.2/context/companysettings/metadata"
+   "ttps://api.kladana.in/api/remap/1.2/context/companysettings/metadata"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -255,13 +255,13 @@ Successful request. The result is a JSON representation of company settings meta
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings",
+     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings",
      "mediaType": "application/json"
    },
    "customEntities": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
          "type": "customermetadata",
          "mediaType": "application/json"
        },
@@ -270,7 +270,7 @@ Successful request. The result is a JSON representation of company settings meta
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
+         "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
          "type": "customermetadata",
          "mediaType": "application/json"
        },

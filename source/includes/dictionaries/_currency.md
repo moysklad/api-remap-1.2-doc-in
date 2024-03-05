@@ -64,7 +64,7 @@ The result of a successful request is a JSON representation of a list of currenc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/currency/"
+   "https://api.kladana.in/api/remap/1.2/entity/currency/"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -76,16 +76,16 @@ Successful request. The result is a JSON representation of a list of Currencies.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/currency",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/currency",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
      "size": 2,
@@ -95,8 +95,8 @@ Successful request. The result is a JSON representation of a list of Currencies.
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
@@ -128,8 +128,8 @@ Successful request. The result is a JSON representation of a list of Currencies.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
@@ -172,7 +172,7 @@ You cannot specify a currency rate (**rate**) equal to zero in the request body.
 
 ```shell
 curl -X POST
-   https://app.kladana.in/api/remap/1.2/entity/currency/
+   https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
    -H 'Content-Type: application/json'
    -d '{
@@ -190,8 +190,8 @@ Successful request. The result is a JSON representation of the generated Currenc
 ```json
 {
      "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
@@ -226,7 +226,7 @@ Additionally, you can specify **rateUpdateType** and **margin**
 
 ```shell
 curl -X POST
-   https://app.kladana.in/api/remap/1.2/entity/currency/
+   https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
    -H 'Content-Type: application/json'
    -d '{
@@ -242,8 +242,8 @@ Successful request. The result is a JSON representation of the generated Currenc
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
      "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
@@ -279,7 +279,7 @@ Successful request. The result is a JSON representation of the generated Currenc
 
 ```shell
 curl -X POST
-   https://app.kladana.in/api/remap/1.2/entity/currency/
+   https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
    -H 'Content-Type: application/json'
    -d '{
@@ -296,8 +296,8 @@ Successful request. The result is a JSON representation of the generated Currenc
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/03f1855b-43d7-11ec-ac13-000400000050",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
      "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
@@ -338,7 +338,7 @@ Updated Currencies must contain the identifier in the form of metadata.
 
 ```shell
 curl -X POST
-   https://app.kladana.in/api/remap/1.2/entity/currency/
+   https://api.kladana.in/api/remap/1.2/entity/currency/
    -H "Authorization: Basic <Credentials>"
    -H 'Content-Type: application/json'
    -d'[
@@ -350,8 +350,8 @@ curl -X POST
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json"
      },
@@ -371,8 +371,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
@@ -397,8 +397,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
        "type": "currency",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"
@@ -437,7 +437,7 @@ Request to delete the Currency with the specified id. The accounting currency ca
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -453,22 +453,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/currency/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/currency/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d'[
           {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b1",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                   "type": "currency",
                   "mediaType": "application/json"
               }
           },
           {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b2",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                   "type": "currency",
                   "mediaType": "application/json"
               }
@@ -502,7 +502,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -512,8 +512,8 @@ Successful request. The result is a JSON representation of the requested Currenc
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/6314188d-2c7f-11e6-8a84-bae500000055",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#currency/edit?id=6314188d-2c7f-11e6-8a84-bae500000055"
@@ -562,7 +562,7 @@ for currencies based on the system currency directory. You can't change the exch
 
 ```shell
 curl -X PUT
-   "https://app.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/currency/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -d '{
    "name": "dollar",
@@ -578,8 +578,8 @@ Successful request. The result is a JSON representation of the updated Currency.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/dc5f76ae-2c89-11e6-8a84-bae50000003f",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#currency/edit?id=dc5f76ae-2c89-11e6-8a84-bae50000003f"

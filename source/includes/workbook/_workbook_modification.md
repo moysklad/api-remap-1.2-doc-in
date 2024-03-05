@@ -14,7 +14,7 @@ have been created and used.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/variant/metadata"
+   "https://api.kladana.in/api/remap/1.2/entity/variant/metadata"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -24,7 +24,7 @@ Successful request. The result is a JSON representation of the product variant's
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
      "mediaType": "application/json"
    },
    "characteristics": [
@@ -63,7 +63,7 @@ After it became clear that some characteristics are missing to describe the prod
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+     "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -77,7 +77,7 @@ Successful request. The result is a JSON representation of the generated Feature
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -92,7 +92,7 @@ Successful request. The result is a JSON representation of the generated Feature
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+     "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
@@ -112,7 +112,7 @@ Successful request. The result is a JSON array of representations of the generat
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
        "type": "attributemetadata",
        "mediaType": "application/json"
      },
@@ -123,7 +123,7 @@ Successful request. The result is a JSON array of representations of the generat
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
        "type": "attributemetadata",
        "mediaType": "application/json"
      },

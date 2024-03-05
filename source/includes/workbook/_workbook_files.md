@@ -20,7 +20,7 @@ product or instructions for use. It is most convenient to keep such files next t
 
 For example, you need to create a product and attach the instruction. It can be done on the [Kladana website](https://www.kladana.in/), or with the JSON API. 
 
-In [Kladana](https://app.kladana.in/), you can add, delete or edit the list of product files in Product cards.
+In [Kladana](https://api.kladana.in/), you can add, delete or edit the list of product files in Product cards.
  
 To add a file via the JSON API, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
 
@@ -28,7 +28,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/product"
+     "https://api.kladana.in/api/remap/1.2/entity/product"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -52,8 +52,8 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
+    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json"
   },
@@ -61,8 +61,8 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
   "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json"
     }
@@ -70,8 +70,8 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
   "shared": true,
   "group": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -84,7 +84,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
   "pathName": "",
   "images": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
       "type": "image",
       "mediaType": "application/json",
       "size": 0,
@@ -96,8 +96,8 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
     "value": 500.0,
     "currency": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json"
       }
@@ -108,7 +108,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
       "value": 0.0,
       "priceType": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+          "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
           "type": "pricetype",
           "mediaType": "application/json"
         },
@@ -133,7 +133,7 @@ To add a file via the JSON API, you need to set the `filename` and `context` fie
   "trackingType": "NOT_TRACKED",
   "files": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files",
       "type": "files",
       "mediaType": "application/json",
       "size": 2,
@@ -152,7 +152,7 @@ creating, receiving or updating a product.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004&expand=files&limit=100"
+   "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004&expand=files&limit=100"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -162,8 +162,8 @@ curl -X GET
 ```json
 {
      "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
          "type": "product",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#good/edit?id=69bcd8fd-d16f-11ea-ac12-000d000000ce"
@@ -172,8 +172,8 @@ curl -X GET
      "accountId": "15777764-d16e-11ea-ac12-000c00000000",
      "owner": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/15dc9854-d16e-11ea-ac12-000d00000034",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/employee/15dc9854-d16e-11ea-ac12-000d00000034",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
              "type": "employee",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#employee/edit?id=15dc9854-d16e-11ea-ac12-000d00000034"
@@ -182,8 +182,8 @@ curl -X GET
      "shared": true,
      "group": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/group/157890bb-d16e-11ea-ac12-000c00000001",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/group/157890bb-d16e-11ea-ac12-000c00000001",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
              "type": "group",
              "mediaType": "application/json"
          }
@@ -196,15 +196,15 @@ curl -X GET
      "pathName": "",
      "uom": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
              "type": "uom",
              "mediaType": "application/json"
          }
      },
      "images": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/69bcf5e7-d16f-11ea-ac12-000d000000d1/images",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/product/69bcf5e7-d16f-11ea-ac12-000d000000d1/images",
              "type": "image",
              "mediaType": "application/json",
              "size": 0,
@@ -216,8 +216,8 @@ curl -X GET
          "value": 0.0,
          "currency": {
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/currency/160cd290-d16e-11ea-ac12-000d00000077",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/currency/160cd290-d16e-11ea-ac12-000d00000077",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                  "type": "currency",
                  "mediaType": "application/json",
                  "uuidHref": "https://app.kladana.in/app/#currency/edit?id=160cd290-d16e-11ea-ac12-000d00000077"
@@ -229,8 +229,8 @@ curl -X GET
              "value": 0.0,
              "currency": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/currency/160cd290-d16e-11ea-ac12-000d00000077",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/currency/160cd290-d16e-11ea-ac12-000d00000077",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                      "type": "currency",
                      "mediaType": "application/json",
                      "uuidHref": "https://app.kladana.in/app/#currency/edit?id=160cd290-d16e-11ea-ac12-000d00000077"
@@ -238,7 +238,7 @@ curl -X GET
              },
              "priceType": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/1648fb5e-d16e-11ea-ac12-000d00000078",
+                     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/1648fb5e-d16e-11ea-ac12-000d00000078",
                      "type": "pricetype","mediaType": "application/json"
                  },
                  "id": "1648fb5e-d16e-11ea-ac12-000d00000078",
@@ -251,8 +251,8 @@ curl -X GET
          "value": 0.0,
          "currency": {
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/currency/160cd290-d16e-11ea-ac12-000d00000077",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/currency/160cd290-d16e-11ea-ac12-000d00000077",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
                  "type": "currency",
                  "mediaType": "application/json",
                  "uuidHref": "https://app.kladana.in/app/#currency/edit?id=160cd290-d16e-11ea-ac12-000d00000077"
@@ -267,7 +267,7 @@ curl -X GET
      "attributes": [
          {
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/48b71254-d16f-11ea-ac12-000d000000c4",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/48b71254-d16f-11ea-ac12-000d000000c4",
                  "type": "attributemetadata",
                  "mediaType": "application/json"
              },
@@ -276,8 +276,8 @@ curl -X GET
              "type": "product",
              "value": {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/5fc90499-d16f-11ea-ac12-000d000000c9",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/product/5fc90499-d16f-11ea-ac12-000d000000c9",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                      "type": "product",
                      "mediaType": "application/json",
                      "uuidHref": "https://app.kladana.in/app/#good/edit?id=5fc8840e-d16f-11ea-ac12-000d000000c7"
@@ -295,7 +295,7 @@ curl -X GET
      "trackingType": "NOT_TRACKED",
      "files": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files",
              "type": "files",
              "mediaType": "application/json",
              "size": 2,
@@ -305,17 +305,17 @@ curl -X GET
          "rows": [
              {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                      "type": "files",
                      "mediaType": "application/json",
-                     "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+                     "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
                  },
                  "title": "description",
                  "filename": "description.png",
                  "size": 14052,
                  "updated": "2019-01-24 16:55:24.567",
                  "miniature": {
-                     "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+                     "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
                      "type": "files",
                      "mediaType": "image/png",
                      "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
@@ -328,10 +328,10 @@ curl -X GET
              },
              {
                  "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
                      "type": "files",
                      "mediaType": "application/json",
-                     "downloadHref": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
+                     "downloadHref": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
                  },
                  "title": "additional_description",
                  "filename": "additional_description.txt",
@@ -339,8 +339,8 @@ curl -X GET
                  "updated": "2019-01-24 16:55:25.047",
                  "createdBy": {
                      "meta": {
-                         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-                         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+                         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                          "type": "employee",
                          "mediaType": "application/json",
                          "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
@@ -359,7 +359,7 @@ For instance, you need to update the list of product files. In Kladana, it can b
 
    ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files"
+     "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
@@ -368,10 +368,10 @@ For instance, you need to update the list of product files. In Kladana, it can b
                "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
              },
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                  "type": "files",
                  "mediaType": "application/json",
-                 "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+                 "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
              }
            ]'
    ```
@@ -383,10 +383,10 @@ For instance, you need to update the list of product files. In Kladana, it can b
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
        "type": "files",
        "mediaType": "application/json",
-       "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+       "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
      },
      "title": "new_instruction",
      "filename": "new_instruction.txt",
@@ -394,8 +394,8 @@ For instance, you need to update the list of product files. In Kladana, it can b
      "updated": "2019-01-24 16:55:24.567",
      "createdBy": {
          "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
              "type": "employee",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
@@ -404,17 +404,17 @@ For instance, you need to update the list of product files. In Kladana, it can b
    },
    {
      "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
          "type": "files",
          "mediaType": "application/json",
-         "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+         "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
      },
      "title": "description",
      "filename": "description.png",
      "size": 14052,
      "updated": "2019-01-24 16:55:24.567",
      "miniature": {
-         "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+         "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
          "type": "files",
          "mediaType": "image/png",
          "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
@@ -439,7 +439,7 @@ specified in `downloadHref` in `meta` of the file.
 
    ```shell
    curl -X GET
-     "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+     "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
    ```

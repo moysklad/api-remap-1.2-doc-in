@@ -31,7 +31,7 @@ Search among objects of departments to match the search string will be carried o
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/group"
+   "https://api.kladana.in/api/remap/1.2/entity/group"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -43,16 +43,16 @@ Successful request. The result is a JSON representation of a list of departments
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/group",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/group",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
      "type": "group",
      "mediaType": "application/json",
      "size": 2,
@@ -62,8 +62,8 @@ Successful request. The result is a JSON representation of a list of departments
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        },
@@ -74,8 +74,8 @@ Successful request. The result is a JSON representation of a list of departments
      },
      {
        "meta" : {
-         "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-         "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href" : "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+         "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type" : "group",
          "mediaType" : "application/json"
        },
@@ -98,7 +98,7 @@ Successful request. The result is a JSON representation of a list of departments
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002"
+   "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -108,8 +108,8 @@ Successful request. The result is a JSON representation of an individual departm
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
      "type": "group",
      "mediaType": "application/json"
    },
@@ -131,7 +131,7 @@ If you need to put a new department at the top of the list, just pass 0 in the `
   
    ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/group"
+     "https://api.kladana.in/api/remap/1.2/entity/group"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -145,8 +145,8 @@ Successful request. The result is a JSON representation of the created Departmen
 ```json
 {
    "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-     "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+     "href" : "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+     "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
      "type" : "group",
      "mediaType" : "application/json"
    },
@@ -161,7 +161,7 @@ Successful request. The result is a JSON representation of the created Departmen
   
    ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/group"
+     "https://api.kladana.in/api/remap/1.2/entity/group"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -176,8 +176,8 @@ Successful request. The result is a JSON representation of the created Departmen
 ```json
 {
    "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-     "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+     "href" : "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+     "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
      "type" : "group",
      "mediaType" : "application/json"
    },
@@ -196,7 +196,7 @@ Request to update the name and/or serial number of the Department.
   
    ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
+     "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -210,8 +210,8 @@ Successful request. The result is a JSON representation of the created Product.
 ```json
 {
    "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-     "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+     "href" : "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+     "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
      "type" : "group",
      "mediaType" : "application/json"
    },
@@ -226,7 +226,7 @@ Successful request. The result is a JSON representation of the created Product.
   
    ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
+     "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -240,8 +240,8 @@ Successful request. The result is a JSON representation of the created Departmen
 ```json
 {
    "meta" : {
-     "href" : "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
-     "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+     "href" : "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003",
+     "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
      "type" : "group",
      "mediaType" : "application/json"
    },
@@ -264,7 +264,7 @@ Successful request. The result is a JSON representation of the created Departmen
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
+   "https://api.kladana.in/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
    -H "Authorization: Basic <Credentials>"
 ```
 

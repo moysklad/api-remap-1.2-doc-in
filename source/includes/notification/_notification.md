@@ -34,7 +34,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification"
+   "https://api.kladana.in/api/remap/1.2/notification"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -44,7 +44,7 @@ Successful request. The result is a JSON representation of the list of Notificat
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/notification",
+    "href": "https://api.kladana.in/api/remap/1.2/notification",
     "type": "notification",
     "mediaType": "application/json",
     "size": 3,
@@ -54,7 +54,7 @@ Successful request. The result is a JSON representation of the list of Notificat
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/notification/32f118d3-5b8f-11e9-9bea-3ff700000070",
+        "href": "https://api.kladana.in/api/remap/1.2/notification/32f118d3-5b8f-11e9-9bea-3ff700000070",
         "type": "NotificationGoodCountTooLow",
         "mediaType": "application/json"
       },
@@ -66,8 +66,8 @@ Successful request. The result is a JSON representation of the list of Notificat
       "description": "Remainder below 1",
       "good": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/0daf8e9a-5b7a-11e9-727d-307300000007",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/product/0daf8e9a-5b7a-11e9-727d-307300000007",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json"
         },
@@ -79,7 +79,7 @@ Successful request. The result is a JSON representation of the list of Notificat
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/notification/0f423542-5b7a-11e9-9bea-3ff70000000f",
+        "href": "https://api.kladana.in/api/remap/1.2/notification/0f423542-5b7a-11e9-9bea-3ff70000000f",
         "type": "NotificationImportCompleted",
         "mediaType": "application/json"
       },
@@ -96,7 +96,7 @@ Successful request. The result is a JSON representation of the list of Notificat
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/notification/a805beb5-5adf-11e9-9bea-3ff700000025",
+        "href": "https://api.kladana.in/api/remap/1.2/notification/a805beb5-5adf-11e9-9bea-3ff700000025",
         "type": "NotificationTaskChanged",
         "mediaType": "application/json"
       },
@@ -108,8 +108,8 @@ Successful request. The result is a JSON representation of the list of Notificat
       "description": "admin task changed",
       "performedBy": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/188cb787-5aa5-11e9-727d-30730000009c",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/188cb787-5aa5-11e9-727d-30730000009c",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         },
@@ -118,8 +118,8 @@ Successful request. The result is a JSON representation of the list of Notificat
       },
       "task": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/task/14ac66b6-5add-11e9-727d-30730000002f",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/task/14ac66b6-5add-11e9-727d-30730000002f",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
           "type": "task",
           "mediaType": "application/json"
         },
@@ -150,7 +150,7 @@ Mark all Notifications of the current user as read.
 
 ```shell
 curl -X PUT
-   "https://app.kladana.in/api/remap/1.2/notification/markasreadall"
+   "https://api.kladana.in/api/remap/1.2/notification/markasreadall"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -272,7 +272,7 @@ NotificationExportCompleted - export completion
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/02950e3c-35f2-11e9-9ff4-34e8000799c0"
+   "https://api.kladana.in/api/remap/1.2/notification/02950e3c-35f2-11e9-9ff4-34e8000799c0"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -282,7 +282,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/02950e3c-35f2-11e9-9ff4-34e8000799c0",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/02950e3c-35f2-11e9-9ff4-34e8000799c0",
      "type": "NotificationExportCompleted",
      "mediaType": "application/json"
    },
@@ -330,7 +330,7 @@ NotificationImportCompleted is an import completion.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/02950e31-35f2-11e9-9ff4-34e8000799c0"
+   "https://api.kladana.in/api/remap/1.2/notification/02950e31-35f2-11e9-9ff4-34e8000799c0"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -340,7 +340,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/02950e31-35f2-11e9-9ff4-34e8000799c0",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/02950e31-35f2-11e9-9ff4-34e8000799c0",
      "type": "NotificationImportCompleted",
      "mediaType": "application/json"
    },
@@ -387,7 +387,7 @@ NotificationGoodCountTooLow - reducing the balance of goods below the irreducibl
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/9338c8bd-56e5-11e9-c0a8-100b00000023"
+   "https://api.kladana.in/api/remap/1.2/notification/9338c8bd-56e5-11e9-c0a8-100b00000023"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -397,7 +397,7 @@ Successful request. Result - JSONpresentation of the notice.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/9338c8bd-56e5-11e9-c0a8-100b00000023",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/9338c8bd-56e5-11e9-c0a8-100b00000023",
      "type": "NotificationGoodCountTooLow",
      "mediaType": "application/json"
    },
@@ -409,8 +409,8 @@ Successful request. Result - JSONpresentation of the notice.
    "description": "Remainder below 200",
    "good": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/product/bdca925e-56e1-11e9-c0a8-100a00000016",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/product/bdca925e-56e1-11e9-c0a8-100a00000016",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
        "type": "product",
        "mediaType": "application/json"
      },
@@ -451,7 +451,7 @@ NotificationInvoiceOutOverdue - customer's invoice is overdue
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/572d1dd9-56fc-11e9-c0a8-100b00000006"
+   "https://api.kladana.in/api/remap/1.2/notification/572d1dd9-56fc-11e9-c0a8-100b00000006"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -461,7 +461,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/572d1dd9-56fc-11e9-c0a8-100b00000006",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/572d1dd9-56fc-11e9-c0a8-100b00000006",
      "type": "NotificationInvoiceOutOverdue",
      "mediaType": "application/json"
    },
@@ -473,8 +473,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "Date of payment: 04/01/2019 20:08. Amount: 500.00. Buyer: Retail buyer.",
    "invoice": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/571b1ac4-56fc-11e9-c0a8-100e0000002b",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/571b1ac4-56fc-11e9-c0a8-100e0000002b",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
        "type": "invoiceout",
        "mediaType": "application/json"
      },
@@ -519,7 +519,7 @@ NotificationOrderNew - new order.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011"
+   "https://api.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -529,7 +529,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011",
      "type": "NotificationOrderNew",
      "mediaType": "application/json"
    },
@@ -541,8 +541,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "Amount: 499.99. Buyer: Retail buyer.",
    "order": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata",
        "type": "customerorder",
        "mediaType": "application/json"
      },
@@ -582,7 +582,7 @@ NotificationOrderOverdue - overdue order
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011"
+   "https://api.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -592,7 +592,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011",
      "type": "NotificationOrderOverdue",
      "mediaType": "application/json"
    },
@@ -604,8 +604,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "Sales Order #00001 Expired Amount: 300.00. Buyer: Retail Buyer.",
    "order": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/c5ab5d93-56e1-11e9-c0a8-100a0000001d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata",
        "type": "customerorder",
        "mediaType": "application/json"
      },
@@ -643,7 +643,7 @@ NotificationSubscribeExpired - subscription expiration
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123"
+   "https://api.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -653,7 +653,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123",
      "type": "NotificationOrderOverdue",
      "mediaType": "application/json"
    },
@@ -692,7 +692,7 @@ NotificationSubscribeTermsExpired - subscription terms expire
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000125"
+   "https://api.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000125"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -702,7 +702,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000125",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000125",
      "type": "NotificationOrderOverdue",
      "mediaType": "application/json"
    },
@@ -762,7 +762,7 @@ NotificationTaskAssigned - the task has been assigned
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/bcd815b9-56ca-11e9-c0a8-100b00000001"
+   "https://api.kladana.in/api/remap/1.2/notification/bcd815b9-56ca-11e9-c0a8-100b00000001"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -772,7 +772,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/bcd815b9-56ca-11e9-c0a8-100b00000001",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/bcd815b9-56ca-11e9-c0a8-100b00000001",
      "type": "NotificationTaskAssigned",
      "mediaType": "application/json"
    },
@@ -784,8 +784,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 has assigned you a task Task text 1",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -794,8 +794,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -850,7 +850,7 @@ NotificationTaskUnassigned - the task has been unassigned
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/80c8a58b-56cb-11e9-c0a8-100b00000009"
+   "https://api.kladana.in/api/remap/1.2/notification/80c8a58b-56cb-11e9-c0a8-100b00000009"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -860,7 +860,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/80c8a58b-56cb-11e9-c0a8-100b00000009",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/80c8a58b-56cb-11e9-c0a8-100b00000009",
      "type": "NotificationTaskUnassigned",
      "mediaType": "application/json"
    },
@@ -872,8 +872,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 has removed the task from you",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -882,8 +882,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -950,7 +950,7 @@ NotificationTaskChanged - the task has changed
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/bd0dbccf-56ca-11e9-c0a8-100b00000003"
+   "https://api.kladana.in/api/remap/1.2/notification/bd0dbccf-56ca-11e9-c0a8-100b00000003"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -960,7 +960,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/bd0dbccf-56ca-11e9-c0a8-100b00000003",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/bd0dbccf-56ca-11e9-c0a8-100b00000003",
      "type": "NotificationTaskChanged",
      "mediaType": "application/json"
    },
@@ -972,8 +972,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 changed task",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -982,8 +982,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1045,7 +1045,7 @@ NotificationTaskCompleted - task completed
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/7945a089-56fd-11e9-c0a8-100b00000008"
+   "https://api.kladana.in/api/remap/1.2/notification/7945a089-56fd-11e9-c0a8-100b00000008"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1055,7 +1055,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/7945a089-56fd-11e9-c0a8-100b00000008",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/7945a089-56fd-11e9-c0a8-100b00000008",
      "type": "NotificationTaskCompleted",
      "mediaType": "application/json"
    },
@@ -1067,8 +1067,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 completed task New task text 1 Deadline: 05/29/2019 15:47",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1077,8 +1077,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1131,7 +1131,7 @@ NotificationTaskDeleted - the task has been deleted
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/8d07388c-56cb-11e9-c0a8-100b0000000d"
+   "https://api.kladana.in/api/remap/1.2/notification/8d07388c-56cb-11e9-c0a8-100b0000000d"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1141,7 +1141,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/8d07388c-56cb-11e9-c0a8-100b0000000d",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/8d07388c-56cb-11e9-c0a8-100b0000000d",
      "type": "NotificationTaskDeleted",
      "mediaType": "application/json"
    },
@@ -1156,8 +1156,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1202,7 +1202,7 @@ NotificationTaskOverdue - the task is overdue
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/51a5b0a3-56e4-11e9-c0a8-100b00000014"
+   "https://api.kladana.in/api/remap/1.2/notification/51a5b0a3-56e4-11e9-c0a8-100b00000014"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1212,7 +1212,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/51a5b0a3-56e4-11e9-c0a8-100b00000014",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/51a5b0a3-56e4-11e9-c0a8-100b00000014",
      "type": "NotificationTaskOverdue",
      "mediaType": "application/json"
    },
@@ -1224,8 +1224,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "Task is overdue New task text 1 Deadline: 05/27/2019 15:49",
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1284,7 +1284,7 @@ NotificationTaskReopened - the task has been reopened.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/df0c3e22-56fd-11e9-c0a8-100b0000000a"
+   "https://api.kladana.in/api/remap/1.2/notification/df0c3e22-56fd-11e9-c0a8-100b0000000a"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1294,7 +1294,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/df0c3e22-56fd-11e9-c0a8-100b0000000a",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/df0c3e22-56fd-11e9-c0a8-100b0000000a",
      "type": "NotificationTaskReopened",
      "mediaType": "application/json"
    },
@@ -1306,8 +1306,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 opened task New task text 1 Deadline: 05/29/2019 15:47",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1316,8 +1316,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1374,7 +1374,7 @@ NotificationTaskNewComment - new comment for the task
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/240706df-5704-11e9-c0a8-100b00000003"
+   "https://api.kladana.in/api/remap/1.2/notification/240706df-5704-11e9-c0a8-100b00000003"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1384,7 +1384,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/240706df-5704-11e9-c0a8-100b00000003",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/240706df-5704-11e9-c0a8-100b00000003",
      "type": "NotificationTaskNewComment",
      "mediaType": "application/json"
    },
@@ -1396,8 +1396,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 added comment Comment 1",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1406,8 +1406,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1467,7 +1467,7 @@ NotificationTaskCommentChanged - task comment changed
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/3d3423ee-5704-11e9-c0a8-100b00000007"
+   "https://api.kladana.in/api/remap/1.2/notification/3d3423ee-5704-11e9-c0a8-100b00000007"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1477,7 +1477,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/3d3423ee-5704-11e9-c0a8-100b00000007",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/3d3423ee-5704-11e9-c0a8-100b00000007",
      "type": "NotificationTaskCommentChanged",
      "mediaType": "application/json"
    },
@@ -1489,8 +1489,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 changed comment New text for comment 1, Comment 1",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1499,8 +1499,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1563,7 +1563,7 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/3d2abf0f-5704-11e9-c0a8-100b00000005"
+   "https://api.kladana.in/api/remap/1.2/notification/3d2abf0f-5704-11e9-c0a8-100b00000005"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1573,7 +1573,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/3d2abf0f-5704-11e9-c0a8-100b00000005",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/3d2abf0f-5704-11e9-c0a8-100b00000005",
      "type": "NotificationTaskCommentDeleted",
      "mediaType": "application/json"
    },
@@ -1585,8 +1585,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "ntest1 deleted comment New comment text 1",
    "performedBy": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/c4e1397b-807c-11e9-9ff4-31500025d4ed",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1595,8 +1595,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "task": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/task/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/task/91d6e8a5-807d-11e9-9109-f8fc0024968d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/task/metadata",
        "type": "task",
        "mediaType": "application/json"
      },
@@ -1639,7 +1639,7 @@ NotificationRetailShiftOpened - the shift is open.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/8002409b-351d-11e9-9ff4-34e80002a126"
+   "https://api.kladana.in/api/remap/1.2/notification/8002409b-351d-11e9-9ff4-34e80002a126"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1649,7 +1649,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/8002409b-351d-11e9-9ff4-34e80002a126",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/8002409b-351d-11e9-9ff4-34e80002a126",
      "type": "NotificationRetailShiftOpened",
      "mediaType": "application/json"
    },
@@ -1661,8 +1661,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "Cashier: Cashier Kladkin",
    "user": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1671,8 +1671,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "retailStore": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailstore/metadata",
        "type": "retailstore",
        "mediaType": "application/json"
      },
@@ -1681,8 +1681,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "retailShift": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/retailshift/7e41bd3c-351c-11e9-9ff4-34e80012cfc1",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailshift/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/retailshift/7e41bd3c-351c-11e9-9ff4-34e80012cfc1",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailshift/metadata",
        "type": "retailshift",
        "mediaType": "application/json"
      },
@@ -1724,7 +1724,7 @@ NotificationRetailShiftClosed - the shift is closed
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/3929d717-351c-11e9-9ff4-34e800029ad4"
+   "https://api.kladana.in/api/remap/1.2/notification/3929d717-351c-11e9-9ff4-34e800029ad4"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1734,7 +1734,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/3929d717-351c-11e9-9ff4-34e800029ad4",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/3929d717-351c-11e9-9ff4-34e800029ad4",
      "type": "NotificationRetailShiftClosed",
      "mediaType": "application/json"
    },
@@ -1746,8 +1746,8 @@ Successful request. The result is a JSON representation of the Notification.
    "description": "Cashier: Cashier Kladkin. Duration: 1 min. Sales: 2. Refunds: 0. Revenue: 40000.00",
    "user": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/4d4ba195-0e7b-11e2-480d-3c4a92f3a0a7",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      },
@@ -1756,8 +1756,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "retailStore": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailstore/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/retailstore/ffa5bbf4-351b-11e9-9ff4-34e800131be8",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailstore/metadata",
        "type": "retailstore",
        "mediaType": "application/json"
      },
@@ -1766,8 +1766,8 @@ Successful request. The result is a JSON representation of the Notification.
    },
    "retailShift": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/retailshift/08fd47a8-351c-11e9-9109-f8fc0013f6cd",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/retailshift/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/retailshift/08fd47a8-351c-11e9-9109-f8fc0013f6cd",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/retailshift/metadata",
        "type": "retailshift",
        "mediaType": "application/json"
      },
@@ -1835,7 +1835,7 @@ Valid values for **meta.type**:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/b22dc861-645b-11eb-0a80-1f8500000044"
+   "https://api.kladana.in/api/remap/1.2/notification/b22dc861-645b-11eb-0a80-1f8500000044"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1845,7 +1845,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/b22dc861-645b-11eb-0a80-1f8500000044",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/b22dc861-645b-11eb-0a80-1f8500000044",
      "type": "NotificationScript",
      "mediaType": "application/json"
    },
@@ -1858,8 +1858,8 @@ Successful request. The result is a JSON representation of the Notification.
    "eventType": "MODIFY",
    "entity": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/customerorder/afa8525a-645b-11eb-0a80-2b47000003b7",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/afa8525a-645b-11eb-0a80-2b47000003b7",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata",
        "type": "customerorder",
        "mediaType": "application/json"
      },
@@ -1899,7 +1899,7 @@ FacebookTokenExpirationNotification - warning about the imminent expiration of a
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015"
+   "https://api.kladana.in/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1909,7 +1909,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015",
      "type": "FacebookTokenExpirationNotification",
      "mediaType": "application/json"
    },
@@ -1952,7 +1952,7 @@ NotificationBonusMoney - Bonus money has been credited to the account.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123"
+   "https://api.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1962,7 +1962,7 @@ Successful request. The result is a JSON representation of the Notification.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123",
+     "href": "https://api.kladana.in/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123",
      "type": "NotificationBonusMoney",
      "mediaType": "application/json"
    },
@@ -2003,7 +2003,7 @@ Query the current user's Notification settings.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/notification/subscription"
+   "https://api.kladana.in/api/remap/1.2/notification/subscription"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -2059,7 +2059,7 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/notification/subscription"
+     "https://api.kladana.in/api/remap/1.2/notification/subscription"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{

@@ -31,7 +31,7 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
 
 ```shell
   curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter"
+    "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"  
 ```
@@ -43,15 +43,15 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter",
     "type": "namedfilter",
     "mediaType": "application/json",
     "size": 1,
@@ -61,14 +61,14 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019",
         "type": "namedfilter",
         "mediaType": "application/json"
       },
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/234eee6f-c513-11eb-ac12-000d0000003b",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/234eee6f-c513-11eb-ac12-000d0000003b",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=234eee6f-c513-11eb-ac12-000d0000003b"
@@ -91,7 +91,7 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
 
 ```shell
   curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter?owner=https://app.kladana.in/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234"
+    "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter?owner=https://api.kladana.in/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"  
 ```
@@ -103,15 +103,15 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter",
     "type": "namedfilter",
     "mediaType": "application/json",
     "size": 1,
@@ -121,14 +121,14 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019",
         "type": "namedfilter",
         "mediaType": "application/json"
       },
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=25863410-ca86-11eb-ac12-000d00000234"
@@ -155,7 +155,7 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
 
 ```shell
   curl -X GET
-    "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019"
+    "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019"
     -H "Authorization: Basic <Credentials>"
     -H "Content-Type: application/json"  
 ```
@@ -165,14 +165,14 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
 ```json
   {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019",
     "type": "namedfilter",
     "mediaType": "application/json"
   },
   "owner": {
     "meta": {
-      "href": "https://app.kladana.in/api/remap/1.2/entity/employee/234eee6f-c513-11eb-ac12-000d0000003b",
-      "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.in/api/remap/1.2/entity/employee/234eee6f-c513-11eb-ac12-000d0000003b",
+      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=234eee6f-c513-11eb-ac12-000d0000003b"
@@ -192,7 +192,7 @@ The filtering result is a list of entities that match the conditions saved in th
 To apply filtering, you need to pass a link to the required saved filter in the special query parameter `namedfilter`.
 
 An example URL with a saved filter applied:
-`https://app.kladana.in/api/remap/1.2/entity/product?namedfilter=https://app.kladana.in/api/remap/1.2/entity/product/namedFilter/b5863410-ca86-11eb -ac12-000d00000019`
+`https://api.kladana.in/api/remap/1.2/entity/product?namedfilter=https://api.kladana.in/api/remap/1.2/entity/product/namedFilter/b5863410-ca86-11eb -ac12-000d00000019`
 
 <br>
 

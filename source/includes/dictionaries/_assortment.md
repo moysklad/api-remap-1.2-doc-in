@@ -87,7 +87,7 @@ The functionality is described in more detail in the section [Filtering by addit
 
 Filtering examples:
 
-- `filter=stockStore=https://app.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=stockStore=https://api.kladana.in/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
 - `filter=id=677c4032-8667-11e6-8a84-bae500003344`
 - `filter=name~див`
 - `filter=code~0002`
@@ -97,10 +97,10 @@ Filtering examples:
 - `filter=shared=false`
 - `filter=updated>=2019-07-10 12:00:00;updated<=2019-07-12 12:00:00`
 - `filter=updatedBy=admin@company`
-- `filter=owner=https://app.kladana.in/api/remap/1.2/entity/employee/a88d0702-85c7-11e9-ac12-000d00000321`
-- `filter=group=https://app.kladana.in/api/remap/1.2/entity/group/a99d0702-85c7-11e9-ac12-000d00000551`
+- `filter=owner=https://api.kladana.in/api/remap/1.2/entity/employee/a88d0702-85c7-11e9-ac12-000d00000321`
+- `filter=group=https://api.kladana.in/api/remap/1.2/entity/group/a99d0702-85c7-11e9-ac12-000d00000551`
 - `filter=alcoholic.type=123`
-- `filter=productFolder=https://app.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
+- `filter=productFolder=https://api.kladana.in/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
 - `filter=stockMode=all`
 - `filter=quantityMode=all`
 - `filter=stockMode=all;quantityMode=all`
@@ -108,10 +108,10 @@ Filtering examples:
 - `filter=weighed=true`
 - `filter=archived=true`
 - `filter=archived=false;archived=true`
-- `filter=supplier=https://app.kladana.in/api/remap/1.2/entity/counterparty/656c4032-8667-11e6-8a84-bae5000033aa`
+- `filter=supplier=https://api.kladana.in/api/remap/1.2/entity/counterparty/656c4032-8667-11e6-8a84-bae5000033aa`
 - `filter=search=див`
-- `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/b83c12e7-42bf-11ec-0a80-08bb00000161=color`
-- `filter=https://app.kladana.in/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
+- `filter=https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/b83c12e7-42bf-11ec-0a80-08bb00000161=color`
+- `filter=https://api.kladana.in/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
 
 
 **Parameters**
@@ -159,7 +159,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/assortment"
+   "https://api.kladana.in/api/remap/1.2/entity/assortment"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -170,16 +170,16 @@ curl -X GET
   "context": {
     "employee": {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/assortment",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/assortment/metadata",
+    "href": "https://api.kladana.in/api/remap/1.2/entity/assortment",
+    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/assortment/metadata",
     "type": "assortment",
     "mediaType": "application/json",
     "size": 7,
@@ -189,8 +189,8 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json"
       },
@@ -198,8 +198,8 @@ curl -X GET
       "accountId": "103bff1b-36e7-11e7-8a7f-40d000000004",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         }
@@ -207,8 +207,8 @@ curl -X GET
       "shared": true,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -226,15 +226,15 @@ curl -X GET
       "effectiveVatEnabled": true,
       "uom": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
           "type": "uom",
           "mediaType": "application/json"
         }
       },
       "images": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d1/images",
           "type": "image",
           "mediaType": "application/json",
           "size": 0,
@@ -246,8 +246,8 @@ curl -X GET
         "value": 500.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -258,15 +258,15 @@ curl -X GET
           "value": 1500.0,
           "currency": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+              "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+              "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json"
             }
           },
           "priceType": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+              "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
               "type": "pricetype",
               "mediaType": "application/json"
             },
@@ -278,8 +278,8 @@ curl -X GET
       ],
       "supplier": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/1076cf8b-36e7-11e7-8a7f-40d000000093",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/1076cf8b-36e7-11e7-8a7f-40d000000093",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
           "type": "counterparty",
           "mediaType": "application/json"
         }
@@ -288,8 +288,8 @@ curl -X GET
         "value": 500.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -318,8 +318,8 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/service/437f2d67-36e7-11e7-8a7f-40d0000000df",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/service/437f2d67-36e7-11e7-8a7f-40d0000000df",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
         "type": "service",
         "mediaType": "application/json"
       },
@@ -327,8 +327,8 @@ curl -X GET
       "accountId": "103bff1b-36e7-11e7-8a7f-40d000000004",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         }
@@ -336,8 +336,8 @@ curl -X GET
       "shared": true,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -355,8 +355,8 @@ curl -X GET
       "effectiveVatEnabled": true,
       "uom": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
           "type": "uom",
           "mediaType": "application/json"
         }
@@ -365,8 +365,8 @@ curl -X GET
         "value": 500.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -377,15 +377,15 @@ curl -X GET
           "value": 1500.0,
           "currency": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+              "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+              "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json"
             }
           },
           "priceType": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+              "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
               "type": "pricetype",
               "mediaType": "application/json"
             },
@@ -399,8 +399,8 @@ curl -X GET
         "value": 700.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -414,8 +414,8 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/4f75d130-36e7-11e7-8a7f-40d0000000ef",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/bundle/4f75d130-36e7-11e7-8a7f-40d0000000ef",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
         "type": "bundle",
         "mediaType": "application/json"
       },
@@ -423,8 +423,8 @@ curl -X GET
       "accountId": "103bff1b-36e7-11e7-8a7f-40d000000004",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         }
@@ -432,8 +432,8 @@ curl -X GET
       "shared": true,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -451,15 +451,15 @@ curl -X GET
       "effectiveVatEnabled": true,
       "uom": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
           "type": "uom",
           "mediaType": "application/json"
         }
       },
       "images": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/4f75d130-36e7-11e7-8a7f-40d0000000ef/images",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/bundle/4f75d130-36e7-11e7-8a7f-40d0000000ef/images",
           "type": "image",
           "mediaType": "application/json",
           "size": 0,
@@ -471,8 +471,8 @@ curl -X GET
         "value": 500.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -483,15 +483,15 @@ curl -X GET
           "value": 0.0,
           "currency": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+              "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+              "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json"
             }
           },
           "priceType": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+              "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
               "type": "pricetype",
               "mediaType": "application/json"
             },
@@ -511,7 +511,7 @@ curl -X GET
       ],
       "components": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/bundle/4f75d130-36e7-11e7-8a7f-40d0000000ef/components",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/bundle/4f75d130-36e7-11e7-8a7f-40d0000000ef/components",
           "type": "bundlecomponent",
           "mediaType": "application/json",
           "size": 1,
@@ -522,8 +522,8 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json"
       },
@@ -531,8 +531,8 @@ curl -X GET
       "accountId": "103bff1b-36e7-11e7-8a7f-40d000000004",
       "owner": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/employee/105a788e-36e7-11e7-8a7f-40d000000069",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json"
         }
@@ -540,8 +540,8 @@ curl -X GET
       "shared": true,
       "group": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/group/103cca6f-36e7-11e7-8a7f-40d000000005",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -554,15 +554,15 @@ curl -X GET
       "pathName": "",
       "uom": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/uom/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/uom/metadata",
           "type": "uom",
           "mediaType": "application/json"
         }
       },
       "images": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8/images",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8/images",
           "type": "image",
           "mediaType": "application/json",
           "size": 0,
@@ -574,8 +574,8 @@ curl -X GET
         "value": 500.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -586,15 +586,15 @@ curl -X GET
           "value": 1800.0,
           "currency": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+              "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+              "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json"
             }
           },
           "priceType": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+              "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
               "type": "pricetype",
               "mediaType": "application/json"
             },
@@ -608,8 +608,8 @@ curl -X GET
         "value": 700.0,
         "currency": {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-            "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+            "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json"
           }
@@ -632,8 +632,8 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/68379863-36e7-11e7-8a7f-40d0000000fd",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/variant/68379863-36e7-11e7-8a7f-40d0000000fd",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
         "type": "variant",
         "mediaType": "application/json"
       },
@@ -647,7 +647,7 @@ curl -X GET
       "characteristics": [
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/682beecc-36e7-11e7-8a7f-40d0000000f5",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/682beecc-36e7-11e7-8a7f-40d0000000f5",
             "type": "attributemetadata",
             "mediaType": "application/json"
           },
@@ -661,15 +661,15 @@ curl -X GET
           "value": 1800.0,
           "currency": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+              "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+              "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json"
             }
           },
           "priceType": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+              "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
               "type": "pricetype",
               "mediaType": "application/json"
             },
@@ -686,8 +686,8 @@ curl -X GET
       ],
       "product": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json"
         }
@@ -699,8 +699,8 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/variant/6839f0fa-36e7-11e7-8a7f-40d000000101",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata",
+        "href": "https://api.kladana.in/api/remap/1.2/entity/variant/6839f0fa-36e7-11e7-8a7f-40d000000101",
+        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata",
         "type": "variant",
         "mediaType": "application/json"
       },
@@ -714,7 +714,7 @@ curl -X GET
       "characteristics": [
         {
           "meta": {
-            "href": "https://app.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/682beecc-36e7-11e7-8a7f-40d0000000f5",
+            "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/682beecc-36e7-11e7-8a7f-40d0000000f5",
             "type": "attributemetadata",
             "mediaType": "application/json"
           },
@@ -728,15 +728,15 @@ curl -X GET
           "value": 1800.0,
           "currency": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-              "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/currency/metadata",
+              "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+              "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json"
             }
           },
           "priceType": {
             "meta": {
-              "href": "https://app.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+              "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
               "type": "pricetype",
               "mediaType": "application/json"
             },
@@ -753,8 +753,8 @@ curl -X GET
       ],
       "product": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8",
-          "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.in/api/remap/1.2/entity/product/6830a346-36e7-11e7-8a7f-40d0000000f8",
+          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json"
         }
@@ -777,22 +777,22 @@ In the body of the request, you need to pass an array containing JSON of the met
 
 ```shell
 curl -X POST
-  "https://app.kladana.in/api/remap/1.2/entity/assortment/delete"
+  "https://api.kladana.in/api/remap/1.2/entity/assortment/delete"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '[
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                 "type": "product",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/product/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
                 "type": "service",
                 "mediaType": "application/json"
             }
@@ -819,7 +819,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/assortment/settings"
+   "https://api.kladana.in/api/remap/1.2/entity/assortment/settings"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -829,7 +829,7 @@ Successful request. The result is a JSON representation of the company settings.
 ```json
 {
   "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/entity/assortment/settings",
+    "href" : "https://api.kladana.in/api/remap/1.2/entity/assortment/settings",
     "type" : "assortmentsettings",
     "mediaType" : "application/json"
   },
@@ -856,7 +856,7 @@ The response will return the full entity, even if the update was partial.
 
 ```shell
 curl -X PUT
-  "https://app.kladana.in/api/remap/1.2/entity/assortment/settings"
+  "https://api.kladana.in/api/remap/1.2/entity/assortment/settings"
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d '{
@@ -878,7 +878,7 @@ Successful request. The result is a JSON representation of the product directory
 ```json
 {
   "meta" : {
-    "href" : "https://app.kladana.in/api/remap/1.2/entity/assortment/settings",
+    "href" : "https://api.kladana.in/api/remap/1.2/entity/assortment/settings",
     "type" : "assortmentsettings",
     "mediaType" : "application/json"
   },

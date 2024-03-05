@@ -196,7 +196,7 @@ Request to get a list of legal entities on this account.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/organization"
+   "https://api.kladana.in/api/remap/1.2/entity/organization"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -207,14 +207,14 @@ Successful request. Result: JSON object including fields:
 {
    "context": {
      "employee": {
-       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "href": "https://api.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
        "mediaType": "application/json"
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json",
      "size": 1,
@@ -224,8 +224,8 @@ Successful request. Result: JSON object including fields:
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json"
        },
@@ -233,8 +233,8 @@ Successful request. Result: JSON object including fields:
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -242,8 +242,8 @@ Successful request. Result: JSON object including fields:
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -263,16 +263,16 @@ Successful request. Result: JSON object including fields:
          "postalCode": "125009",
          "country": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
              "type": "country",
              "mediaType": "application/json"
            }
          },
          "region": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
              "type": "region",
              "mediaType": "application/json"
            }
@@ -289,16 +289,16 @@ Successful request. Result: JSON object including fields:
          "postalCode": "125009",
          "country": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
              "type": "country",
              "mediaType": "application/json"
            }
          },
          "region": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
              "type": "region",
              "mediaType": "application/json"
            }
@@ -319,8 +319,8 @@ Successful request. Result: JSON object including fields:
        "fax": "feisafhn0e12f31",
        "accounts": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e/accounts",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
            "type": "account",
            "mediaType": "application/json",
            "size": 2,
@@ -334,8 +334,8 @@ Successful request. Result: JSON object including fields:
        "utmUrl": "10.250.110.81",
        "bonusProgram": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
            "type": "bonusprogram",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
@@ -357,7 +357,7 @@ which contains a representation of the new legal entity.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     "https://api.kladana.in/api/remap/1.2/entity/organization"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -373,16 +373,16 @@ which contains a representation of the new legal entity.
                 "postalCode": "125009",
                 "country": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
                 },
                 "region": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -398,16 +398,16 @@ which contains a representation of the new legal entity.
                 "postalCode": "125009",
                 "country": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
                 },
                 "region": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -454,8 +454,8 @@ Successful request. The result is a JSON representation of the created legal ent
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
@@ -463,8 +463,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -472,8 +472,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -492,16 +492,16 @@ Successful request. The result is a JSON representation of the created legal ent
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -518,16 +518,16 @@ Successful request. The result is a JSON representation of the created legal ent
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -548,8 +548,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "fax": "bello123",
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "account",
        "mediaType": "application/json",
        "size": 1,
@@ -565,7 +565,7 @@ Successful request. The result is a JSON representation of the created legal ent
     "directorPosition":"Head of department",
     "directorSign": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13",
+          "href": "https://api.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13",
           "mediaType": "application/octet-stream"
         },
         "title": "directorSignTest",
@@ -573,7 +573,7 @@ Successful request. The result is a JSON representation of the created legal ent
         "size": 70,
         "updated": "2020-09-23 07:37:26.417",
         "miniature": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
+          "href": "https://api.kladana.in/api/remap/1.2/download/7da0feb5-e110-4021-a49f-35db4ae75f13?miniature=true",
           "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
@@ -581,7 +581,7 @@ Successful request. The result is a JSON representation of the created legal ent
     "chiefAccountant":"Podkupnikov Ivan",
     "chiefAccountSign": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769",
+          "href": "https://api.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769",
           "mediaType": "application/octet-stream"
         },
         "title": "chiefAccountSignTest",
@@ -589,14 +589,14 @@ Successful request. The result is a JSON representation of the created legal ent
         "size": 70,
         "updated": "2020-09-23 07:37:26.434",
         "miniature": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
+          "href": "https://api.kladana.in/api/remap/1.2/download/cdd282d7-7e65-40b7-83a1-c0ef07365769?miniature=true",
           "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
     },
     "stamp": {
         "meta": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383",
+          "href": "https://api.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383",
           "mediaType": "application/octet-stream"
         },
         "title": "stampTest",
@@ -604,7 +604,7 @@ Successful request. The result is a JSON representation of the created legal ent
         "size": 70,
         "updated": "2020-09-23 07:37:26.443",
         "miniature": {
-          "href": "https://app.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
+          "href": "https://api.kladana.in/api/remap/1.2/download/9cccb42b-652e-4e9d-b192-4eabe1823383?miniature=true",
           "mediaType": "image/png",
           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
         }
@@ -640,8 +640,8 @@ Successful request. The result is a JSON representation of the created legal ent
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=713e2125-b147-11ea-0a80-163500000006"
@@ -650,8 +650,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
@@ -660,8 +660,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -691,7 +691,7 @@ Successful request. The result is a JSON representation of the created legal ent
    "legalMiddleName": "Ivanovich",
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006/accounts",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006/accounts",
        "type": "account",
        "mediaType": "application/json",
        "size": 0,
@@ -709,7 +709,7 @@ Successful request. The result is a JSON representation of the created legal ent
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     "https://api.kladana.in/api/remap/1.2/entity/organization"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -730,7 +730,7 @@ Successful request. The result is a JSON representation of the created legal ent
             "attributes": [
                 {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                         "type": "attributemetadata",
                         "mediaType": "application/json"
                     },
@@ -746,8 +746,8 @@ Successful request. The result is a JSON representation of the created legal ent
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
@@ -755,8 +755,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -764,8 +764,8 @@ Successful request. The result is a JSON representation of the created legal ent
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -785,16 +785,16 @@ Successful request. The result is a JSON representation of the created legal ent
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -811,16 +811,16 @@ Successful request. The result is a JSON representation of the created legal ent
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -842,7 +842,7 @@ Successful request. The result is a JSON representation of the created legal ent
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -854,7 +854,7 @@ Successful request. The result is a JSON representation of the created legal ent
    ],
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
        "type": "account",
        "mediaType": "application/json",
        "size": 0,
@@ -874,7 +874,7 @@ Updated legal entities must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/organization"
+     "https://api.kladana.in/api/remap/1.2/entity/organization"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
@@ -905,8 +905,8 @@ Updated legal entities must contain the identifier in the form of metadata.
             },
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
                     "type": "organization",
                     "mediaType": "application/json"
                 },
@@ -941,8 +941,8 @@ Successful request. The result is a JSON array of representations of created and
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      },
@@ -950,8 +950,8 @@ Successful request. The result is a JSON array of representations of created and
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -959,8 +959,8 @@ Successful request. The result is a JSON array of representations of created and
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -985,8 +985,8 @@ Successful request. The result is a JSON array of representations of created and
      "fax": "bello123",
      "accounts": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
          "type": "account",
          "mediaType": "application/json",
          "size": 1,
@@ -1001,8 +1001,8 @@ Successful request. The result is a JSON array of representations of created and
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      },
@@ -1010,8 +1010,8 @@ Successful request. The result is a JSON array of representations of created and
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -1019,8 +1019,8 @@ Successful request. The result is a JSON array of representations of created and
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -1046,7 +1046,7 @@ Successful request. The result is a JSON array of representations of created and
      "fax": "belwo123",
      "accounts": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
          "type": "account",
          "mediaType": "application/json",
          "size": 0,
@@ -1073,7 +1073,7 @@ Successful request. The result is a JSON array of representations of created and
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1089,22 +1089,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/organization/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Content-Type: application/json"
    -d' [
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b1",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b1",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
                     "type": "organization",
                     "mediaType": "application/json"
                 }
             },
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b2",
-                    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b2",
+                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
                     "type": "organization",
                     "mediaType": "application/json"
                 }
@@ -1140,7 +1140,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/organization/metadata"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/metadata"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1150,7 +1150,7 @@ Successful request. The result is a JSON representation of the additional fields
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
@@ -1177,7 +1177,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1187,7 +1187,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -1215,7 +1215,7 @@ Request for obtaining a legal entity with the specified ID.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1225,8 +1225,8 @@ Successful request. The result is a JSON representation of the legal entity with
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
@@ -1234,8 +1234,8 @@ Successful request. The result is a JSON representation of the legal entity with
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1243,8 +1243,8 @@ Successful request. The result is a JSON representation of the legal entity with
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1264,16 +1264,16 @@ Successful request. The result is a JSON representation of the legal entity with
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -1290,16 +1290,16 @@ Successful request. The result is a JSON representation of the legal entity with
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -1323,8 +1323,8 @@ Successful request. The result is a JSON representation of the legal entity with
    "fax": "bello123",
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "account",
        "mediaType": "application/json",
        "size": 1,
@@ -1340,8 +1340,8 @@ Successful request. The result is a JSON representation of the legal entity with
    "chiefAccountant": "Administrator",
    "bonusProgram": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
        "type": "bonusprogram",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#discount/edit?id=129626ee-ac91-11e9-ac12-000d00000009"
@@ -1355,7 +1355,7 @@ Successful request. The result is a JSON representation of the legal entity with
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -1365,8 +1365,8 @@ Successful request. The result is a JSON representation of the legal entity with
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
@@ -1375,8 +1375,8 @@ Successful request. The result is a JSON representation of the legal entity with
    "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
        "uuidHref": "https://app.kladana.in/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
@@ -1385,8 +1385,8 @@ Successful request. The result is a JSON representation of the legal entity with
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1416,7 +1416,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "legalMiddleName": "Ivanovich",
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts",
        "type": "account",
        "mediaType": "application/json",
        "size": 0,
@@ -1443,7 +1443,7 @@ Request to update the legal entity with the specified ID.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -1479,8 +1479,8 @@ Successful request. The result is JSON of the updated legal entity.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
@@ -1488,8 +1488,8 @@ Successful request. The result is JSON of the updated legal entity.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1497,8 +1497,8 @@ Successful request. The result is JSON of the updated legal entity.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1523,8 +1523,8 @@ Successful request. The result is JSON of the updated legal entity.
    "fax": "bello123",
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
        "type": "account",
        "mediaType": "application/json",
        "size": 1,
@@ -1543,7 +1543,7 @@ Successful request. The result is JSON of the updated legal entity.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d '{
@@ -1559,16 +1559,16 @@ Successful request. The result is JSON of the updated legal entity.
                 "postalCode": "125009",
                 "country": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
                 },
                 "region": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -1584,16 +1584,16 @@ Successful request. The result is JSON of the updated legal entity.
                 "postalCode": "125009",
                 "country": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
                 },
                 "region": {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-                        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -1615,7 +1615,7 @@ Successful request. The result is JSON of the updated legal entity.
             "attributes": [
                 {
                     "meta": {
-                        "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "href": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                         "type": "attributemetadata",
                         "mediaType": "application/json"
                     },
@@ -1634,8 +1634,8 @@ Successful request. The result is JSON of the updated legal entity.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
@@ -1643,8 +1643,8 @@ Successful request. The result is JSON of the updated legal entity.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1652,8 +1652,8 @@ Successful request. The result is JSON of the updated legal entity.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1673,16 +1673,16 @@ Successful request. The result is JSON of the updated legal entity.
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -1699,16 +1699,16 @@ Successful request. The result is JSON of the updated legal entity.
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -1730,7 +1730,7 @@ Successful request. The result is JSON of the updated legal entity.
    "attributes": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1742,7 +1742,7 @@ Successful request. The result is JSON of the updated legal entity.
    ],
    "accounts": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/bf182d24-12d7-11e6-9464-e4de00000012/accounts",
        "type": "account",
        "mediaType": "application/json",
        "size": 0,
@@ -1773,7 +1773,7 @@ Returns a JSON array of legal entity account representations.
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+   "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
    -H "Authorization: Basic <Credentials>"
 ```
  
@@ -1784,14 +1784,14 @@ Successful request.
 {
    "context": {
      "employee": {
-       "href": "https://app.kladana.in/api/remap/1.2/context/employee",
+       "href": "https://api.kladana.in/api/remap/1.2/context/employee",
        "type": "employee",
        "mediaType": "application/json"
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "account",
      "mediaType": "application/json",
      "size": 1,
@@ -1801,8 +1801,8 @@ Successful request.
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
          "type": "account",
          "mediaType": "application/json"
        },
@@ -1812,8 +1812,8 @@ Successful request.
        "isDefault": true,
        "agent": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "organization",
            "mediaType": "application/json"
          }
@@ -1840,13 +1840,13 @@ Fields that were not specified in the request JSON are not changed.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+     "https://api.kladana.in/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
      -H "Authorization: Basic <Credentials>"
      -H "Content-Type: application/json"
        -d'[
             {
                 "meta": {
-                    "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+                    "href": "https://api.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
                     "type": "account",
                     "mediaType": "application/json"
                 },
@@ -1876,7 +1876,7 @@ Successful request.
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
        "type": "account",
        "mediaType": "application/json"
      },
@@ -1892,7 +1892,7 @@ Successful request.
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/97fc6499-b96f-11e7-9464-e4de00000006",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/d955aa70-6703-11e7-9464-e4de00000051/accounts/97fc6499-b96f-11e7-9464-e4de00000006",
        "type": "account",
        "mediaType": "application/json"
      },
