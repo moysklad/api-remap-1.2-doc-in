@@ -1451,7 +1451,7 @@ Successful request. The result is a JSON representation of the Product variant.
      },
      {
        "meta": {
-         "href": "https://app.cladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/627610e3-2cb1-11e6-8a84-bae500000054",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
