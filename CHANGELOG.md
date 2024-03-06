@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon.
 
-## 12-02-2024
+## 06-03-2024
 ### Added
 - Endpoint [Serial numbers](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-serial-number)
 
