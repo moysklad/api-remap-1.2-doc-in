@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon.
 
+## 06-03-2024
+### Added
+- Endpoint [Serial numbers](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-serial-number)
+
 ## 31-01-2024
 ### Added
 - Field `state` added in [Task](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-task) - [Task type](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-task-task-type) entity

@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 06-03-2024
+#### Added
+- Endpoint [Serial numbers](../dictionaries/#entities-serial-number)
+
 ### 31-01-2024
 #### Added
 - Field `state` added in [Task](../dictionaries/#entities-task) - [Task type](../dictionaries/#entities-task-task-type) entity
