@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://app.kladana.in/api/remap/1.2
+HOST: https://api.kladana.in/api/remap/1.2
 
 
 # Kladana JSON API 1.2 In production

@@ -66,8 +66,9 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+   "https://api.kladana.in/api/remap/1.2/entity/productfolder"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -78,16 +79,16 @@ Successful request. The result is a JSON representation of the list of Product G
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productFolder",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productFolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productFolder",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productFolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json",
      "size": 2,
@@ -97,8 +98,8 @@ Successful request. The result is a JSON representation of the list of Product G
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json"
        },
@@ -106,8 +107,8 @@ Successful request. The result is a JSON representation of the list of Product G
        "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -115,8 +116,8 @@ Successful request. The result is a JSON representation of the list of Product G
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -132,8 +133,8 @@ Successful request. The result is a JSON representation of the list of Product G
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
          "type": "productfolder",
          "mediaType": "application/json"
        },
@@ -169,8 +170,9 @@ Mandatory fields for creating a Group of goods:
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+     "https://api.kladana.in/api/remap/1.2/entity/productfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Vegetables"
@@ -183,8 +185,8 @@ Successful request. The result is a JSON representation of the created Product G
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json"
    },
@@ -192,8 +194,8 @@ Successful request. The result is a JSON representation of the created Product G
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -201,8 +203,8 @@ Successful request. The result is a JSON representation of the created Product G
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -222,8 +224,9 @@ Successful request. The result is a JSON representation of the created Product G
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+     "https://api.kladana.in/api/remap/1.2/entity/productfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Fruits",
@@ -240,8 +243,8 @@ Successful request. The result is a JSON representation of the created Product G
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/275961ab-2cad-11e6-8a84-bae50000001a",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json"
    },
@@ -249,8 +252,8 @@ Successful request. The result is a JSON representation of the created Product G
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -258,8 +261,8 @@ Successful request. The result is a JSON representation of the created Product G
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -287,8 +290,9 @@ Updated Product Groups must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/productfolder"
+     "https://api.kladana.in/api/remap/1.2/entity/productfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -296,8 +300,8 @@ Updated Product Groups must contain the identifier in the form of metadata.
              },
              {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
                  "type": "productfolder",
                  "mediaType": "application/json"
                },
@@ -317,8 +321,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
        "type": "productfolder",
        "mediaType": "application/json"
      },
@@ -326,8 +330,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -335,8 +339,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -352,8 +356,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
        "type": "productfolder",
        "mediaType": "application/json"
      },
@@ -361,8 +365,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -370,8 +374,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -403,8 +407,9 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -419,22 +424,23 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/productfolder/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/productfolder/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
                   "type": "productfolder",
                   "mediaType": "application/json"
               }
           },
           {
               "meta": {
-                  "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
-                  "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+                  "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
                   "type": "productfolder",
                   "mediaType": "application/json"
               }
@@ -471,8 +477,9 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata"
+   "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -481,7 +488,7 @@ Successful request. The result is a JSON representation of the additional Produc
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
@@ -509,8 +516,9 @@ Successful request. The result is a JSON representation of the additional Produc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -519,7 +527,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -544,8 +552,9 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -554,8 +563,8 @@ Successful request. The result is a JSON representation of the Product Group.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json"
    },
@@ -563,8 +572,8 @@ Successful request. The result is a JSON representation of the Product Group.
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -572,8 +581,8 @@ Successful request. The result is a JSON representation of the Product Group.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -607,8 +616,9 @@ To update the **pathName** field, you need to update the link to the parent Prod
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Group Vegetables",
@@ -625,8 +635,8 @@ Successful request. The result is a JSON representation of the updated Product G
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/productfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/productfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/productfolder/metadata",
      "type": "productfolder",
      "mediaType": "application/json"
    },
@@ -634,8 +644,8 @@ Successful request. The result is a JSON representation of the updated Product G
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -643,8 +653,8 @@ Successful request. The result is a JSON representation of the updated Product G
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }

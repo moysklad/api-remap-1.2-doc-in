@@ -43,8 +43,9 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder"
+   "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -55,16 +56,16 @@ Successful request. The result is a JSON representation of list Bills of Materia
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "type": "processingplanfolder",
      "mediaType": "application/json",
      "size": 1,
@@ -74,8 +75,8 @@ Successful request. The result is a JSON representation of list Bills of Materia
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
          "type": "processingplanfolder",
          "mediaType": "application/json"
        },
@@ -83,8 +84,8 @@ Successful request. The result is a JSON representation of list Bills of Materia
        "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -92,8 +93,8 @@ Successful request. The result is a JSON representation of list Bills of Materia
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -121,8 +122,9 @@ The fields required for the creation of the Bills of Materials Folder:
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder"
+     "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Group 1"
@@ -135,8 +137,8 @@ Successful request. The result is a JSON representation of the created Bills of 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "type": "processingplanfolder",
      "mediaType": "application/json"
    },
@@ -144,8 +146,8 @@ Successful request. The result is a JSON representation of the created Bills of 
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -153,8 +155,8 @@ Successful request. The result is a JSON representation of the created Bills of 
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -171,8 +173,9 @@ Successful request. The result is a JSON representation of the created Bills of 
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder"
+     "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Group 2",
@@ -187,8 +190,8 @@ Successful request. The result is a JSON representation of the created Bills of 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/275961ab-2cad-11e6-8a84-bae50000001a",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/275961ab-2cad-11e6-8a84-bae50000001a",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "type": "processingplanfolder",
      "mediaType": "application/json"
    },
@@ -196,8 +199,8 @@ Successful request. The result is a JSON representation of the created Bills of 
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -205,8 +208,8 @@ Successful request. The result is a JSON representation of the created Bills of 
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -229,8 +232,9 @@ In the body of the request, you need to pass an array containing the JSON repres
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder"
+     "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -239,8 +243,8 @@ In the body of the request, you need to pass an array containing the JSON repres
              },
              {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
                  "type": "processingplanfolder",
                  "mediaType": "application/json"
                },
@@ -256,8 +260,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
        "type": "processingplanfolder",
        "mediaType": "application/json"
      },
@@ -265,8 +269,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -274,8 +278,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -288,8 +292,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/d071992d-bee8-11ec-0a82-031400000004",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/d071992d-bee8-11ec-0a82-031400000004",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
        "type": "processingplanfolder",
        "mediaType": "application/json"
      },
@@ -297,8 +301,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -306,8 +310,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -333,8 +337,9 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -349,22 +354,23 @@ In the body of the request, you need to pass an array containing the JSON Bills 
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
              "type": "processingplanfolder",
              "mediaType": "application/json"
              }
          },
          {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
              "type": "processingplanfolder",
              "mediaType": "application/json"
              }
@@ -401,8 +407,9 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata"
+   "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -411,7 +418,7 @@ Successful request. The result is a JSON representation of the additional fields
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "mediaType": "application/json"
    }
 }
@@ -431,8 +438,9 @@ Successful request. The result is a JSON representation of the additional fields
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/8c329385-bee9-11ec-0a82-04c500000102"
+   "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/8c329385-bee9-11ec-0a82-04c500000102"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -441,8 +449,8 @@ Successful request. The result is a JSON representation of the Bills of Material
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/8c329385-bee9-11ec-0a82-04c500000102",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/8c329385-bee9-11ec-0a82-04c500000102",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "type": "processingplanfolder",
      "mediaType": "application/json"
    },
@@ -450,8 +458,8 @@ Successful request. The result is a JSON representation of the Bills of Material
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -459,8 +467,8 @@ Successful request. The result is a JSON representation of the Bills of Material
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -492,8 +500,9 @@ To update the **pathName** field, you need to update the link to the parent Bill
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "name": "Group 1",
@@ -508,8 +517,8 @@ Successful request. The result is a JSON representation of the updated Bills of 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/3ea73e1a-2cad-11e6-8a84-bae50000001d",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingplanfolder/metadata",
      "type": "processingplanfolder",
      "mediaType": "application/json"
    },
@@ -517,8 +526,8 @@ Successful request. The result is a JSON representation of the updated Bills of 
    "accountId": "da7d9bbe-2c97-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -526,8 +535,8 @@ Successful request. The result is a JSON representation of the updated Bills of 
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }

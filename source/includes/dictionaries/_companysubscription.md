@@ -31,7 +31,7 @@ Tariff field values
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/accountSettings/subscription"
+   "https://api.kladana.in/api/remap/1.2/accountSettings/subscription"
    -H Authorization: Basic <Credentials>
 ```
 

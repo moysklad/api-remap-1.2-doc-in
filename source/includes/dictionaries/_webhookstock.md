@@ -16,7 +16,7 @@ The set of features also depends on your tariff:
    "accountId": "f71cb8b6-f7b5-11ec-ac12-000f000000eb",
    "stockType": "stock",
    "reportType": "all",
-   "reportUrl": "https://app.kladana.in/api/remap/1.2/report/stock/all/current?fromDate=2022-09-24 19:14:32"
+   "reportUrl": "https://api.kladana.in/api/remap/1.2/report/stock/all/current?fromDate=2022-09-24 19:14:32"
 }
 ```
 
@@ -56,8 +56,9 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/webhookstock"
+   "https://api.kladana.in/api/remap/1.2/entity/webhookstock"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -68,16 +69,16 @@ Successful request. The result is a JSON representation of a list of webhooks fo
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
      "type": "webhookstock",
      "mediaType": "application/json",
      "size": 3,
@@ -87,15 +88,15 @@ Successful request. The result is a JSON representation of a list of webhooks fo
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
          "type": "webhookstock",
          "mediaType": "application/json"
        },
        "authorApplication" : {
          "meta" : {
-           "href" : "https://app.kladana.in/api/remap/1.2/entity/application/9e1ad712-3e45-4679-8896-7159973a8ef5",
-           "metadataHref" : "https://app.kladana.in/api/remap/1.2/entity/application/metadata",
+           "href" : "https://api.kladana.in/api/remap/1.2/entity/application/9e1ad712-3e45-4679-8896-7159973a8ef5",
+           "metadataHref" : "https://api.kladana.in/api/remap/1.2/entity/application/metadata",
            "type" : "application",
            "mediaType" : "application/json"
          }
@@ -109,8 +110,8 @@ Successful request. The result is a JSON representation of a list of webhooks fo
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
          "type": "webhookstock",
          "mediaType": "application/json"
        },
@@ -123,8 +124,8 @@ Successful request. The result is a JSON representation of a list of webhooks fo
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d946c7ff-bbd2-11e6-8a84-bae500000005",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/d946c7ff-bbd2-11e6-8a84-bae500000005",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
          "type": "webhookstock",
          "mediaType": "application/json"
        },
@@ -148,8 +149,9 @@ remnants with different **url** for users and no more than 1 for the application
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/webhookstock"
+     "https://api.kladana.in/api/remap/1.2/entity/webhookstock"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "url": "http://www.example.com",
@@ -165,8 +167,8 @@ Successful request. The result is a JSON representation of the created webhook f
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
      "type": "webhookstock",
      "mediaType": "application/json"
    },
@@ -188,8 +190,9 @@ Residue change webhooks that are updated must contain the identifier as metadata
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/webhookstock"
+     "https://api.kladana.in/api/remap/1.2/entity/webhookstock"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
              {
@@ -199,8 +202,8 @@ Residue change webhooks that are updated must contain the identifier as metadata
              },
              {
                "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
                  "type": "webhookstock",
                  "mediaType": "application/json"
                },
@@ -218,8 +221,8 @@ Successful request. The result is a JSON array of generated and updated webhooks
 [
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/d08f9217-bbd2-11e6-8a84-bae500000004",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
        "type": "webhookstock",
        "mediaType": "application/json"
      },
@@ -232,8 +235,8 @@ Successful request. The result is a JSON array of generated and updated webhooks
    },
    {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/aec51463-bbd2-11e6-8a84-bae500000003",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
        "type": "webhookstock",
        "mediaType": "application/json"
      },
@@ -260,8 +263,9 @@ Successful request. The result is a JSON array of generated and updated webhooks
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -270,8 +274,8 @@ Successful request. The result is a JSON representation of a webhook for changin
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
      "type": "webhookstock",
      "mediaType": "application/json"
    },
@@ -297,8 +301,9 @@ An example of a request to change webhook details for changing balances.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "url": "http://www.example.com",
@@ -313,8 +318,8 @@ Successful request. The result is a JSON representation of the modified webhook 
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
      "type": "webhookstock",
      "mediaType": "application/json"
    },
@@ -340,8 +345,9 @@ An example of a request to disable a webhook to change balances.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "enabled": false
@@ -354,8 +360,8 @@ Successful request. The result is a JSON representation of a disabled webhook fo
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
      "type": "webhookstock",
      "mediaType": "application/json"
    },
@@ -380,8 +386,9 @@ Successful request. The result is a JSON representation of a disabled webhook fo
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -396,22 +403,23 @@ In the body of the request, you need to pass an array containing JSON metadata f
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/webhookstock/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/webhookstock/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
                 "type": "webhookstock",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhookstock/metadata",
                 "type": "webhookstock",
                 "mediaType": "application/json"
             }

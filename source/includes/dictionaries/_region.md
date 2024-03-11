@@ -49,8 +49,9 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/region"
+   "https://api.kladana.in/api/remap/1.2/entity/region"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -61,27 +62,27 @@ Successful request. Result - JSON representation of the list of Regions
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/region/",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/region/",
      "type": "region",
      "mediaType": "application/json",
      "size": 86,
      "limit": 25,
      "offset": 0,
-     "nextHref": "https://app.kladana.in/api/remap/1.2/entity/region/?limit=25&offset=25"
+     "nextHref": "https://api.kladana.in/api/remap/1.2/entity/region/?limit=25&offset=25"
    },
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000001",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000001",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -94,8 +95,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000002",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000002",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -108,8 +109,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000003",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000003",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -122,8 +123,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000004",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000004",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -136,8 +137,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000005",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000005",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -150,8 +151,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000006",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000006",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -164,8 +165,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000007",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000007",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -178,8 +179,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000008",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000008",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -192,8 +193,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000009",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000009",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -206,8 +207,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000010",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000010",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -220,8 +221,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000011",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000011",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -234,8 +235,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000012",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000012",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -248,8 +249,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000013",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000013",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -262,8 +263,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000014",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000014",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -276,8 +277,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000015",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000015",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -290,8 +291,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000016",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000016",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -304,8 +305,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000017",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000017",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -318,8 +319,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000018",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000018",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -332,8 +333,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000019",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000019",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -345,8 +346,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000020",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000020",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -359,8 +360,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000021",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000021",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -373,8 +374,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000022",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000022",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -387,8 +388,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000023",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000023",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -401,8 +402,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000024",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000024",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -415,8 +416,8 @@ Successful request. Result - JSON representation of the list of Regions
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000025",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000025",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        },
@@ -445,8 +446,9 @@ Successful request. Result - JSON representation of the list of Regions
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077"
+   "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -456,8 +458,8 @@ Successful request. The result is a JSON representation of the Region with the s
   
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/region/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
      "type": "region",
      "mediaType": "application/json"
    },

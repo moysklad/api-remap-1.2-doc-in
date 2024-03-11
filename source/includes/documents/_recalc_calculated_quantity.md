@@ -16,8 +16,9 @@ Send a request to recalculate the estimated balances of Inventory Count items.
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/rpc/inventory/7944ef04-f831-11e5-7a69-971500188b19/recalcCalculatedQuantity"
+     "https://api.kladana.in/api/remap/1.2/rpc/inventory/7944ef04-f831-11e5-7a69-971500188b19/recalcCalculatedQuantity"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d''
 ```

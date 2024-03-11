@@ -53,8 +53,9 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
+   "https://api.kladana.in/api/remap/1.2/entity/bonusprogram"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -65,16 +66,16 @@ Successful request. The result is a list of all bonus programs for the account.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
      "type": "bonusprogram",
      "mediaType": "application/json",
      "size": 2,
@@ -84,8 +85,8 @@ Successful request. The result is a list of all bonus programs for the account.
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/1223d051-ba76-11e8-3353-995e0000005a",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
          "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
@@ -107,8 +108,8 @@ Successful request. The result is a list of all bonus programs for the account.
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
          "type": "bonusprogram",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
@@ -144,8 +145,9 @@ Request to create a new bonus program. Required fields: **name** (name of the di
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/bonusprogram"
+     "https://api.kladana.in/api/remap/1.2/entity/bonusprogram"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
               "name": "bonus program",
@@ -170,8 +172,8 @@ Successful request. The result is a JSON representation of the created bonus pro
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
      "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
@@ -204,8 +206,9 @@ Request to change the bonus program. In the body of the request, you must pass t
 
 ```shell
    curl -X PUT
-     "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+     "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'{
               "name": "updatedName",
@@ -222,8 +225,8 @@ Successful request. The result is a JSON representation of the modified bonus pr
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
      "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=87c69fae-c1ad-4700-a852-f21939470760"
@@ -254,8 +257,9 @@ Successful request. The result is a JSON representation of the modified bonus pr
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+   "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
   
 > Response 200(application/json)
@@ -264,8 +268,8 @@ Successful request. The result is a JSON representation of the Bonus Program wit
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
      "type": "bonusprogram",
      "mediaType": "application/json",
      "uuidHref": "https://app.kladana.in/app/#discount/edit?id=1223d051-ba76-11e8-3353-995e0000005a"
@@ -298,8 +302,9 @@ Successful request. The result is a JSON representation of the Bonus Program wit
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
+   "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/87c69fae-c1ad-4700-a852-f21939470760"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -313,22 +318,23 @@ In the body of the request, you need to pass an array containing JSON metadata o
 
 ```shell
 curl -X POST
-   "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/delete"
+   "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/delete"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
                 "type": "bonusprogram",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
+                "href": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/bonusprogram/metadata",
                 "type": "bonusprogram",
                 "mediaType": "application/json"
             }

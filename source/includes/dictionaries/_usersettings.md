@@ -132,8 +132,9 @@ Valid start screen values:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/context/usersettings"
+   "https://api.kladana.in/api/remap/1.2/context/usersettings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -142,33 +143,33 @@ Successful request. The result is a JSON representation of Company Settings:
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/context/usersettings",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/usersettings/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/context/usersettings",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/context/usersettings/metadata",
      "type": "usersettings",
      "mediaType": "application/json"
    },
    "defaultCompany": {
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
    "defaultCustomerCounterparty": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultPurchaseCounterparty": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultProject": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
      "type": "project",
      "mediaType": "application/json"
    },
    "defaultPlace": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -205,32 +206,33 @@ Partial editing is allowed - only the fields present in the request will be edit
 
 ```shell
 curl -X PUT
-   "https://app.kladana.in/api/remap/1.2/context/usersettings"
+   "https://api.kladana.in/api/remap/1.2/context/usersettings"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
        -d '{
    "defaultCompany": {
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
    "defaultCustomerCounterparty": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultPurchaseCounterparty": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultProject": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
      "type": "project",
      "mediaType": "application/json"
    },
    "defaultPlace": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -249,33 +251,33 @@ Successful request. The result is a JSON representation of the User Settings.
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/context/usersettings",
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/context/usersettings/metadata",
+     "href": "https://api.kladana.in/api/remap/1.2/context/usersettings",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/context/usersettings/metadata",
      "type": "usersettings",
      "mediaType": "application/json"
    },
    "defaultCompany": {
-     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/organization/metadata",
+     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
      "type": "organization",
      "mediaType": "application/json"
    },
    "defaultCustomerCounterparty": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000073",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultPurchaseCounterparty": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/5f13f655-a419-11ea-ac12-000a00000074",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "defaultProject": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/project/59e1cf55-a70f-11ea-ac12-000d00000001",
      "type": "project",
      "mediaType": "application/json"
    },
    "defaultPlace": {
-     "href": "https://app.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
+     "href": "https://api.kladana.in/api/remap/1.2/entity/store/5f13ac1b-a419-11ea-ac12-000a00000072",
      "type": "store",
      "mediaType": "application/json"
    },

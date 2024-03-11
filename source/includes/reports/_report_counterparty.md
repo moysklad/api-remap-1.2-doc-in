@@ -73,8 +73,9 @@ The result of a successful request is a JSON representation of a list of reports
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/counterparty"
+   "https://api.kladana.in/api/remap/1.2/report/counterparty"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -85,15 +86,15 @@ Successful request. The result is a JSON representation of a report on counterpa
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
+     "href": "https://api.kladana.in/api/remap/1.2/report/counterparty",
      "type": "counterparty",
      "mediaType": "application/json",
      "size": 5,
@@ -103,14 +104,14 @@ Successful request. The result is a JSON representation of a report on counterpa
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
          "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          },
@@ -135,14 +136,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
          "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          },
@@ -167,14 +168,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
          "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          },
@@ -200,14 +201,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
          "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          },
@@ -234,14 +235,14 @@ Successful request. The result is a JSON representation of a report on counterpa
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
          "type": "counterparty",
          "mediaType": "application/json"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          },
@@ -285,16 +286,17 @@ The result of a successful request is a JSON representation of the list of repor
 
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/report/counterparty"
+     "https://api.kladana.in/api/remap/1.2/report/counterparty"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "counterparties": [
                {
                  "counterparty": {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                      "type": "counterparty",
                      "mediaType": "application/json"
                    }
@@ -303,8 +305,8 @@ The result of a successful request is a JSON representation of the list of repor
                {
                  "counterparty": {
                    "meta": {
-                     "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
-                     "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                     "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
+                     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
                      "type": "counterparty",
                      "mediaType": "application/json"
                    }
@@ -322,15 +324,15 @@ Successful request. The result is a JSON representation of a report on counterpa
    "context": {
      "employee": {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/counterparty",
+     "href": "https://api.kladana.in/api/remap/1.2/report/counterparty",
      "type": "counterparty",
      "mediaType": "application/json",
      "size": 2,
@@ -340,15 +342,15 @@ Successful request. The result is a JSON representation of a report on counterpa
    "rows": [
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
          "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=49b40d55-66cc-11e7-6adb-ede500000054"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/49b40d55-66cc-11e7-6adb-ede500000054",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=49b40d55-66cc-11e7-6adb-ede500000054"
@@ -375,15 +377,15 @@ Successful request. The result is a JSON representation of a report on counterpa
      },
      {
        "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
+         "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
          "type": "counterparty",
          "mediaType": "application/json",
          "uuidHref": "https://app.kladana.in/app/#company/edit?id=37e4efe0-6ade-11e7-6adb-ede50000001a"
        },
        "counterparty": {
          "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
-           "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/37e4efe0-6ade-11e7-6adb-ede50000001a",
+           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json",
            "uuidHref": "https://app.kladana.in/app/#company/edit?id=37e4efe0-6ade-11e7-6adb-ede50000001a"
@@ -426,8 +428,9 @@ Successful request. The result is a JSON representation of a report on counterpa
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/report/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.in/api/remap/1.2/report/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -436,14 +439,14 @@ Successful request. The result is a JSON representation of a report on a counter
 ```json
 {
    "meta": {
-     "href": "https://app.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
+     "href": "https://api.kladana.in/api/remap/1.2/report/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
      "type": "counterparty",
      "mediaType": "application/json"
    },
    "counterparty": {
      "meta": {
-       "href": "https://app.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
-       "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/df2fdd2d-6934-11e6-8a84-bae500000049",
+       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      },

@@ -62,8 +62,9 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
+   "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -74,15 +75,15 @@ Successful request. The result is a JSON representation of a list of files.
      "context": {
          "employee": {
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/context/employee",
-                 "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                 "href": "https://api.kladana.in/api/remap/1.2/context/employee",
+                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                  "type": "employee",
                  "mediaType": "application/json"
              }
          }
      },
      "meta": {
-         "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files",
+         "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files",
          "type": "files",
          "mediaType": "application/json",
          "size": 2,
@@ -92,10 +93,10 @@ Successful request. The result is a JSON representation of a list of files.
      "rows": [
          {
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                  "type": "files",
                  "mediaType": "application/json",
-                 "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+                 "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
              },
              "title": "bird image",
              "filename": "birdimage.png",
@@ -103,15 +104,15 @@ Successful request. The result is a JSON representation of a list of files.
              "created": "2019-01-24 16:55:24.567",
              "createdBy": {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                    "type": "employee",
                    "mediaType": "application/json",
                    "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
                  }
              },
              "miniature": {
-                 "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+                 "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
                  "type": "files",
                  "mediaType": "image/png",
                  "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
@@ -124,10 +125,10 @@ Successful request. The result is a JSON representation of a list of files.
          },
          {
              "meta": {
-                 "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9d",
+                 "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9d",
                  "type": "files",
                  "mediaType": "application/json",
-                 "downloadHref": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9d"
+                 "downloadHref": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9d"
              },
              "title": "doc",
              "filename": "doc.pdf",
@@ -135,8 +136,8 @@ Successful request. The result is a JSON representation of a list of files.
              "created": "2019-01-25 17:30:25.021",
              "createdBy": {
                  "meta": {
-                   "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-                   "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+                   "href": "https://api.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
                    "type": "employee",
                    "mediaType": "application/json",
                    "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
@@ -171,8 +172,9 @@ A maximum of 10 Files can be added in one request.
   
 ```shell
    curl -X POST
-     "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
+     "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files"
      -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d '[
             {
@@ -193,10 +195,10 @@ Successful request. The result is an array of all Product Files.
 [
    {
        "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
            "type": "files",
            "mediaType": "application/json",
-           "downloadHref": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+           "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
        },
        "title": "bird image",
        "filename": "birdimage.png",
@@ -204,15 +206,15 @@ Successful request. The result is an array of all Product Files.
        "created": "2019-01-24 16:55:24.567",
        "createdBy": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
              "type": "employee",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
            }
        },
        "miniature": {
-           "href": "https://app.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+           "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
            "type": "files",
            "mediaType": "image/png",
            "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
@@ -225,10 +227,10 @@ Successful request. The result is an array of all Product Files.
    },
    {
        "meta": {
-           "href": "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
+           "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
            "type": "files",
            "mediaType": "application/json",
-           "downloadHref": "https://app.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
+           "downloadHref": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
        },
        "title": "doc",
        "filename": "doc.pdf",
@@ -236,8 +238,8 @@ Successful request. The result is an array of all Product Files.
        "created": "2019-01-25 17:30:25.021",
        "createdBy": {
            "meta": {
-             "href": "https://app.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
-             "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "href": "https://api.kladana.in/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
              "type": "employee",
              "mediaType": "application/json",
              "uuidHref": "https://app.kladana.in/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
@@ -262,8 +264,9 @@ When a File is deleted, the first File found with the given ID is deleted from t
 
 ```shell
 curl -X DELETE
-   "https://app.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
+   "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/files/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
    -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
 Successful deletion of the File.
