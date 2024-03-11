@@ -21,7 +21,7 @@ Using the JSON API, you can create and update information about tasks, request l
 | **id** | UUID                                               | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only`                                                                                                                    |
 | **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand`                                                                                            |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering`                                                                                                                          |
-| **state**             | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) |                             | Task type metadata<br>`+Expand`                                                                                                                                      |
+| **state**             | [Meta](../#kladana-json-api-general-info-metadata) |                             | Task type metadata<br>`+Expand`                                                                                                                                      |
 | **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when replying` `+Expand`                                                                                                         |
 | **operation** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand`               |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only`                                                                                                    |
@@ -45,7 +45,7 @@ The task type object contains the following fields:
 | **color**      | Int                                                       | Task type color<br>`+Required when replying` `+Required when creating` |
 | **entityType** | String(255)                                               | entity type - always is task<br>`+Required when replying` `+Read Only` |
 | **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                 |
-| **meta**       | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | task type metadata<br>`+Required when replying` `+Read Only`           |
+| **meta**       | [Meta](../#kladana-json-api-general-info-metadata) | task type metadata<br>`+Required when replying` `+Read Only`           |
 | **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`  |
 | **stateType**  | Enum                                                      | State type<br>`+Required when replying`                               |
 
