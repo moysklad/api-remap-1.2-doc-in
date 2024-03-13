@@ -32,7 +32,7 @@ The context contains only general information about the events related to it.
 ##### Entity attributes
 
 | Title | Type | Description |
-| ----------------- | ------- |------------- |
+| ----------------- | ------- |-------------- |
 | **entityType** | Enum | Entity name (the field is present only if it is the same for all Events within this Context)<br>`+Required for response` `+Read Only` |
 | **eventType** | Enum | Event Action (the field is present only if it is the same for all Events within the given Context)<br>`+Required for response` `+Read Only` |
 | **events** | Array(Object) | List of Method Audit Events<br>`+Required for response` `+Read Only` |
