@@ -27,12 +27,14 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 Routing items is a list of stages that are included in Routing. Routing can have from 1 to 100 items.
 The Routing item object contains the following fields:
 
-| Title | Type | Description |
-|------------|-----------|-------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
+| Title | Type                                                    | Description                                                                                        |
+|------------|---------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| **accountId** | UUID                                                    | Account ID<br>`+Required when replying` `+Read Only`                                               |
+| **id** | UUID                                                    | Item ID<br>`+Required when replying` `+Read Only`                                                  |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata)      | Routing item metadata<br>`+Required for response` `+Read only`                                     |
 | **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **nextStages**      | MetaArray                                               | Next items metadata for routing item<br>`+Required when responding`                                |
+
 
 ### Get the list of Routings
 

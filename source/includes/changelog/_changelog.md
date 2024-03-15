@@ -6,6 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 14-03-2024
+#### Added
+- Field `nextStages` added in [Routing](../dictionaries/#entities-routing), next items for routing item
+- Errors [25033-25034](../#kladana-json-api-errors-error-codes-for-production-operations)
+
 ### 06-03-2024
 #### Added
 - Endpoint [Serial numbers](../dictionaries/#entities-serial-number)
