@@ -35,7 +35,7 @@ The search among the objects of products to match the search string will be carr
 | **images**              | MetaArray                                          | | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 10)<br>`+Expand` |
 | **isSerialTrackable**   | Boolean                                            | `=` `!=` | Accounting for serial numbers. This mark is not compatible with the features **weighed**, **alcoholic**, **ppeType**, **trackingType**, **onTap**. |
 | **meta**                | [Meta](../#kladana-json-api-general-info-metadata) | | Product Metadata<br>`+Required when replying` |
-| **minprice**            | Object                                             | | Minimum price. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price) |
+| **minPrice**            | Object                                             | | Minimum price. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price) |
 | **minimumBalance**      | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Minimum balance |
 | **name**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Item Name<br>`+Required when replying` `+Required when creating` |
 | **owner**               | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
@@ -53,7 +53,7 @@ The search among the objects of products to match the search string will be carr
 | **things**              | Array(String)                                      | | Serial numbers |
 | **tnved**               | String(255)                                        | | TN VED code |
 | **trackingType**        | Enum                                               | | Type of labeled product. [More here](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products) |
-| **uom*                 | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
+| **uom*                  | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat**        | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **variantsCount**       | Int                                                | | Number of modifications for this product<br>`+Required when replying` `+Read only` |
