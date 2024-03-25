@@ -84,11 +84,13 @@ Structures of objects of individual collections:
 ##### Barcodes:
 When creating a barcode, you need to describe an object with a field that is a lowercase barcode representation format with the string value of the barcode itself. The names of the fields of a separate object representing a barcode:
 
-| Title | Description |
-| ----- | ------ |
-| **ean13** | barcode in EAN13 format if you want to generate an EAN13 barcode |
-| **ean8** | barcode in EAN8 format if you want to generate an EAN8 barcode |
-| **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format |
+| Title       | Description                                                                                            |
+|-------------|--------------------------------------------------------------------------------------------------------|
+| **ean13**   | barcode in EAN13 format if you want to generate an EAN13 barcode                                       |
+| **ean8**    | barcode in EAN8 format if you want to generate an EAN8 barcode                                         |
+| **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format                         |
+| **gtin**    | barcode in GTIN format, if you want to generate a barcode in GTIN format. Validated against GS1 format |
+| **upc**     | barcode in UPC format, if you want to generate a barcode in UPC format                                 |
 
 About working with Service fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
