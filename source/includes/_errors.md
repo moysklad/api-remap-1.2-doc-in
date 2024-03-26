@@ -335,13 +335,16 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Production Operations
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
+| Error code | Message                                                                                                         | Description                                                           |
+| ------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | <a name="error_25001">25001</a> | Error saving technological operation: the items of the operation do not correspond to the items of those. cards | Check the conformity of products and materials of product operations. |
-| <a name="error_25002">25002</a> | Error saving technological operation: composition of items cannot be changed | Composition of products and materials operations cannot be changed. |
-| <a name="error_25030">25030</a> | Save error: number of workflow steps cannot be greater than '100' | The maximum number of stages is 100 per technical process. |
-| <a name="error_25031">25031</a> | Save Error: Workflow cannot contain repetitive manufacturing steps | Each stage of production can occur only once in the process. |
-| <a name="error_25032">25032</a> | Object deletion error: Cannot delete main workflow | Deletion is possible only for custom workflows. |
+| <a name="error_25002">25002</a> | Error saving technological operation: composition of items cannot be changed                                    | Composition of products and materials operations cannot be changed.   |
+| <a name="error_25030">25030</a> | Save error: number of workflow steps cannot be greater than '100'                                               | The maximum number of stages is 100 per technical process.            |
+| <a name="error_25031">25031</a> | Save Error: Workflow cannot contain repetitive manufacturing steps                                              | Each stage of production can occur only once in the process.          |
+| <a name="error_25032">25032</a> | Object deletion error: Cannot delete main workflow                                                              | Deletion is possible only for custom workflows.                       |
+| <a name="error_25033">25033</a> | Save error: Last routing item cannot contain next items                                                         | Last item cannot contain next items                                   |
+| <a name="error_25034">25034</a> | Save error: Routing structure error                                                                             | Routing structure error                                               |
+
 
 ### Error codes for Production Orders
 
