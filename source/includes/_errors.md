@@ -336,7 +336,7 @@ This section lists the JSON API error codes and their descriptions.
 ### Error codes for Production Operations
 
 | Error code | Message | Description |
-| ------------| ---------| ----------|
+| ------------| ----------| ---------|
 | <a name="error_25001">25001</a> | Error saving technological operation: the items of the operation do not correspond to the items of those. cards | Check the conformity of products and materials of product operations. |
 | <a name="error_25002">25002</a> | Error saving technological operation: composition of items cannot be changed | Composition of products and materials operations cannot be changed. |
 | <a name="error_25030">25030</a> | Save error: number of workflow steps cannot be greater than '100' | The maximum number of stages is 100 per technical process. |
