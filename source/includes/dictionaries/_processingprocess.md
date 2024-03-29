@@ -33,7 +33,7 @@ The Routing item object contains the following fields:
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
 | **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
-| **nextPositions** | MetaArray | Next items metadata for routing item<br>`+Required when responding` |
+| **nextPositions** | MetaArray | Next items metadata for routing item<br> |
 
 ### Get the list of Routings
 
