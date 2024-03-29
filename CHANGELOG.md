@@ -2,6 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 14-03-2024
+### Added
+- Field `nextStages` added in [Routing](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-routing), next items for routing item
+- Errors [25033-25034](https://dev.kladana.in/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-operations)
+
 ## 06-03-2024
 ### Added
 - Endpoint [Serial numbers](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-serial-number)

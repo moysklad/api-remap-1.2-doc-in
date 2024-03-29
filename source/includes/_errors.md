@@ -342,6 +342,8 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_25030">25030</a> | Save error: number of workflow steps cannot be greater than '100' | The maximum number of stages is 100 per technical process. |
 | <a name="error_25031">25031</a> | Save Error: Workflow cannot contain repetitive manufacturing steps | Each stage of production can occur only once in the process. |
 | <a name="error_25032">25032</a> | Object deletion error: Cannot delete main workflow | Deletion is possible only for custom workflows. |
+| <a name="error_25033">25033</a> | Save error: Last routing item cannot contain next items | Last item cannot contain next items |
+| <a name="error_25034">25034</a> | Save error: Routing structure error | Routing has several last stages or stages makes a loop |
 
 ### Error codes for Production Orders
 
