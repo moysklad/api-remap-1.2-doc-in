@@ -3,7 +3,7 @@
 
 Transaction template is a JSON object prefilled with standard fields, which can then be used to successfully create a transaction. Using the JSON API, you can get pre-filled transaction templates. They can be pre-filled both on the basis of other Transactions and with standard values without links to other transactions.
 
-To do this, in all Transactions from which you can get a template, there is a special resource `Transaction template`, the address of which is formed as following: `https://api.kladana.in/api/remap/1.2/entity/<transaction keyword>/new`.
+To do this, in all Transactions from which you can get a template, there is a special resource `Transaction template`, the address of which is formed as following: `https://api.kladana.in/api/remap/1.2/entity/{transaction keyword}/new`.
 
 In the body of the PUT request for this resource, you need to pass the metadata of the transaction, on the basis of which the template of the new transaction will be created, or simply pass an empty request body.
 
