@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 24-06-2024
+### Added
+- Error [17023](https://dev.kladana.in/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+
 ## 06-03-2024
 ### Added
 - Endpoint [Serial numbers](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-serial-number)

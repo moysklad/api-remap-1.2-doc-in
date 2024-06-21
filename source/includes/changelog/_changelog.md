@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 24-06-2024
+#### Added
+- Error [17023](https://dev.kladana.in/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+
 ### 06-03-2024
 #### Added
 - Endpoint [Serial numbers](../dictionaries/#entities-serial-number)
