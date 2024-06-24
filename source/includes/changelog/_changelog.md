@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 24-06-2024
 #### Added
-- Error [17023](https://dev.kladana.in/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+- Error [17023](../#kladana-json-api-errors-error-codes-for-documents)
 
 ### 06-03-2024
 #### Added
