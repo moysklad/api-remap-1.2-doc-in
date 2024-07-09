@@ -1980,18 +1980,19 @@ The fields of an object represent a single permission, where the name indicates 
 
 ###### User and tariff permissions
 
-| Title                | Description |
-|----------------------| ------------|
-| **admin**            | Is the employee an admin |
-| **audit_dashboard**  | View audit |
-| **company_crm**      | View metrics |
-| **customAttributes** | Work with additional fields |
-| **dashboard**        | View metrics |
-| **dashboardMoney**   | See money balances |
-| **viewCashFlow**     | See cash flow |
-| **pnl**              | View profitability |
-| **stock**            | View inventory by item|
-| **tariff_crm**       | Is there a CRM option on the account |
+| Title                         | Description                          |
+|-------------------------------|--------------------------------------|
+| **admin**                     | Is the employee an admin             |
+| **audit_dashboard**           | View audit                           |
+| **company_crm**               | View metrics                         |
+| **customAttributes**          | Work with additional fields          |
+| **dashboard**                 | View metrics                         |
+| **dashboardMoney**            | See money balances                   |
+| **viewCashFlow**              | See cash flow                        |
+| **viewProductCostAndProfit**  | See cost price                       |
+| **pnl**                       | View profitability                   |
+| **stock**                     | View inventory by item               |
+| **tariff_crm**                | Is there a CRM option on the account |
 
 If there is a corresponding permission, the object contains a **VIEW** field with a value of `ALL`
 
