@@ -298,7 +298,8 @@ Stock movement report by products and their variants with detalization by wareho
 
 #### Attributes available for filtering
 
-The report results can be filtered using the filter parameter. Only one value can be specified for each parameter. You cannot specify empty values.
+The report results can be filtered using the filter parameter.
+Only one value can be specified for most parameters. You cannot specify empty values.
 
 It is mandatory to specify one of the filtering parameters **product** or **variant**.
 
@@ -311,7 +312,7 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 | **product** | Object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
 | **project** | Object | `=` | a link to the project by which you want to filter. |
 | **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | Object | `=` | a link to the warehouse by which you want to filter.|
+| **store** | Object | `=` | a link to the warehouse(s) by which you want to filter.|
 | **variant** | Object | `=` | link to the modification by which you want to filter. |
 
 Filtering examples:
@@ -325,7 +326,7 @@ Filtering examples:
 - `filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
 - `filter=agentTag=favorites`
 
-### Get Product Stock movement report
+### Get Product Stock movement report detailing by warehouses
 
 Request to receive the Stock movement report by product.
 

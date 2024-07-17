@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 17-07-2024
+### Added
+- The ability to specify multiple warehouses in the [turnover report detailing by warehouses](https://dev.kladana.in/doc/api/remap/1.2/reports/#reports-stock-movement-report-stock-movement-report-by-product-with-warehouses-details)
+
 ## 06-03-2024
 ### Added
 - Endpoint [Serial numbers](https://dev.kladana.in/doc/api/remap/1.2/dictionaries/#entities-serial-number)
