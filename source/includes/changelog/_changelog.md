@@ -6,9 +6,9 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 17-07-2024
+### 22-07-2024
 #### Added
-- The ability to specify multiple warehouses in the [turnover report detailing by warehouses](../reports/#reports-stock-movement-report-stock-movement-report-by-product-with-warehouses-details)
+- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
 
 ### 06-03-2024
 #### Added

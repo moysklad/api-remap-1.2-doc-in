@@ -38,7 +38,8 @@ A general Stock movement report for goods and variants without warehouses.
 
 #### Attributes available for filtering
 
-The report results can be filtered using the filter parameter. Only one value can be specified for each parameter. You cannot specify empty values.
+The report results can be filtered using the filter parameter.
+Only one value can be specified for most parameters. You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 | --------- | ---------- | --------- | ----- |
@@ -49,7 +50,7 @@ The report results can be filtered using the filter parameter. Only one value ca
 | **product** | Object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
 | **project** | Object | `=` | a link to the project by which you want to filter. |
 | **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | Object | `=` | a link to the warehouse by which you want to filter. |
+| **store** | Object | `=` | a link to the warehouse(s) by which you want to filter. |
 | **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | Enum | `=` | parameter for filtering "document type" by which you can producesti filtering. Possible values are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`. |
 | **variant** | Object | `=` | link to the modification by which you want to filter. |
