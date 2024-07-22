@@ -80,7 +80,7 @@ Let's first create products with different names that can start with Latin, Cyri
 
 ```shell
 curl -X POST
-https://api.kladana.in/api/remap/1.2/entity/product
+https://api.kladana.com/api/remap/1.2/entity/product
 -H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
@@ -146,7 +146,7 @@ To get a collection of products sorted by name, you must specify the `name` fiel
 
 ```shell
 curl -X GET
-'https://api.kladana.in/api/remap/1.2/entity/product?order=name'
+'https://api.kladana.com/api/remap/1.2/entity/product?order=name'
 -H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 ```
@@ -171,7 +171,7 @@ Change the sort direction
 
 ```shell
 curl -X GET
-'https://api.kladana.in/api/remap/1.2/entity/product?order=name,desc'
+'https://api.kladana.com/api/remap/1.2/entity/product?order=name,desc'
 -H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 ```
@@ -195,7 +195,7 @@ Let's try to sort products simultaneously in descending order of the `weighed` l
 
 ```shell
 curl -X GET
-'https://api.kladana.in/api/remap/1.2/entity/product?order=weighed,desc;name'
+'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;name'
 -H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
@@ -220,7 +220,7 @@ Let's add sorting by the `weight` numeric field.
 
 ```shell
 curl -X GET
-'https://api.kladana.in/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name'
+'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name'
 -H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
@@ -245,7 +245,7 @@ In addition to text, numeric and boolean fields, sorting by fields of uuid and d
 
 ```shell
 curl -X GET
-'https://api.kladana.in/api/remap/1.2/entity/product?order=syncId'
+'https://api.kladana.com/api/remap/1.2/entity/product?order=syncId'
 -H 'Authorization: Bearer <Access-Token>'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'

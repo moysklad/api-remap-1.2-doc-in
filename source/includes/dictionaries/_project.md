@@ -49,7 +49,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/project"
+   "https://api.kladana.com/api/remap/1.2/entity/project"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -62,16 +62,16 @@ Successful request. The result is a JSON representation of a list of projects.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json",
      "size": 2,
@@ -81,8 +81,8 @@ Successful request. The result is a JSON representation of a list of projects.
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
          "type": "project",
          "mediaType": "application/json"
        },
@@ -90,8 +90,8 @@ Successful request. The result is a JSON representation of a list of projects.
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -99,8 +99,8 @@ Successful request. The result is a JSON representation of a list of projects.
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -114,7 +114,7 @@ Successful request. The result is a JSON representation of a list of projects.
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -126,8 +126,8 @@ Successful request. The result is a JSON representation of a list of projects.
        ]
      },{
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/project/8477d916-0aef-11e6-9464-e4de00000103",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/project/8477d916-0aef-11e6-9464-e4de00000103",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
          "type": "project",
          "mediaType": "application/json"
        },
@@ -135,8 +135,8 @@ Successful request. The result is a JSON representation of a list of projects.
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -144,8 +144,8 @@ Successful request. The result is a JSON representation of a list of projects.
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -159,7 +159,7 @@ Successful request. The result is a JSON representation of a list of projects.
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -182,7 +182,7 @@ to create a project is **name**.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/project"
+     "https://api.kladana.com/api/remap/1.2/entity/project"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -200,8 +200,8 @@ Successful request. The result is a JSON representation of the created project.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/2c013eeb-0af0-11e6-9464-e4de00000026",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/2c013eeb-0af0-11e6-9464-e4de00000026",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json"
    },
@@ -209,8 +209,8 @@ Successful request. The result is a JSON representation of the created project.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -218,8 +218,8 @@ Successful request. The result is a JSON representation of the created project.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -238,7 +238,7 @@ Successful request. The result is a JSON representation of the created project.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/project"
+     "https://api.kladana.com/api/remap/1.2/entity/project"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -250,7 +250,7 @@ Successful request. The result is a JSON representation of the created project.
              "attributes": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -266,8 +266,8 @@ Successful request. The result is a JSON representation of the created project.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/169ed74e-12c3-11e6-9464-e4de00000000",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/169ed74e-12c3-11e6-9464-e4de00000000",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json"
    },
@@ -275,8 +275,8 @@ Successful request. The result is a JSON representation of the created project.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -284,8 +284,8 @@ Successful request. The result is a JSON representation of the created project.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -299,7 +299,7 @@ Successful request. The result is a JSON representation of the created project.
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -321,7 +321,7 @@ Updated Projects must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/project"
+     "https://api.kladana.com/api/remap/1.2/entity/project"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -334,8 +334,8 @@ Updated Projects must contain the identifier in the form of metadata.
              },
              {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/project/76e88dff-3f9b-11e6-8a84-bae50000009b",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/project/76e88dff-3f9b-11e6-8a84-bae50000009b",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
                  "type": "project",
                  "mediaType": "application/json"
                },
@@ -353,8 +353,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/project/2c013eeb-0af0-11e6-9464-e4de00000026",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/project/2c013eeb-0af0-11e6-9464-e4de00000026",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
        "type": "project",
        "mediaType": "application/json"
      },
@@ -362,8 +362,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -371,8 +371,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -386,8 +386,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/project/76e88dff-3f9b-11e6-8a84-bae50000009b",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/project/76e88dff-3f9b-11e6-8a84-bae50000009b",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
        "type": "project",
        "mediaType": "application/json"
      },
@@ -395,8 +395,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -404,8 +404,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -431,7 +431,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -448,23 +448,23 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/project/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/project/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://api.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
                 "type": "project",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://api.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
                 "type": "project",
                 "mediaType": "application/json"
             }
@@ -501,7 +501,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/project/metadata"
+   "https://api.kladana.com/api/remap/1.2/entity/project/metadata"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -512,7 +512,7 @@ Successful request. The result is a JSON representation of the additional fields
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
@@ -540,7 +540,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -551,7 +551,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -575,7 +575,7 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -586,8 +586,8 @@ Successful request. The result is a JSON representation of the project.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/51f263f9-0307-11e6-9464-e4de0000007c",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json"
    },
@@ -595,8 +595,8 @@ Successful request. The result is a JSON representation of the project.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -604,8 +604,8 @@ Successful request. The result is a JSON representation of the project.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -619,7 +619,7 @@ Successful request. The result is a JSON representation of the project.
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -645,7 +645,7 @@ Request to update an existing project with the specified id.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -663,8 +663,8 @@ Successful request. The result is a JSON representation of the updated project.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/2c013eeb-0af0-11e6-9464-e4de00000026",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/2c013eeb-0af0-11e6-9464-e4de00000026",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json"
    },
@@ -672,8 +672,8 @@ Successful request. The result is a JSON representation of the updated project.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -681,8 +681,8 @@ Successful request. The result is a JSON representation of the updated project.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -700,7 +700,7 @@ Successful request. The result is a JSON representation of the updated project.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -712,7 +712,7 @@ Successful request. The result is a JSON representation of the updated project.
              "attributes": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -728,8 +728,8 @@ Successful request. The result is a JSON representation of the updated project.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/project/169ed74e-12c3-11e6-9464-e4de00000000",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/project/169ed74e-12c3-11e6-9464-e4de00000000",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
      "type": "project",
      "mediaType": "application/json"
    },
@@ -737,8 +737,8 @@ Successful request. The result is a JSON representation of the updated project.
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -746,8 +746,8 @@ Successful request. The result is a JSON representation of the updated project.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -761,7 +761,7 @@ Successful request. The result is a JSON representation of the updated project.
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },

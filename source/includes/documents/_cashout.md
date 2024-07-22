@@ -79,7 +79,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/cashout"
+   "https://api.kladana.com/api/remap/1.2/entity/cashout"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -92,16 +92,16 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
      "type": "cashout",
      "mediaType": "application/json",
      "size": 3,
@@ -111,8 +111,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/235c14cf-41b1-11e6-8a84-bae500000073",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/235c14cf-41b1-11e6-8a84-bae500000073",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
          "type": "cashout",
          "mediaType": "application/json"
        },
@@ -120,8 +120,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -129,8 +129,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "shared": true,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -147,8 +147,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "rate": {
          "currency": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -157,31 +157,31 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "sum": 35000,
        "organization": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json"
          }
        },
        "contract": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/contract/2b34d43f-3f52-11e6-8a84-bae500000066",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/contract/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/contract/2b34d43f-3f52-11e6-8a84-bae500000066",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
            "type": "contract",
            "mediaType": "application/json"
          }
        },
        "agent": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/1489a08d-32ca-11e6-8a84-bae50000000d",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/1489a08d-32ca-11e6-8a84-bae50000000d",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          }
        },
        "state": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda7963-41b1-11e6-8a84-bae50000006e",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda7963-41b1-11e6-8a84-bae50000006e",
            "type": "state",
            "mediaType": "application/json"
          }
@@ -189,7 +189,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -202,8 +202,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "paymentPurpose": "Pay for another acceptance",
        "expenseItem": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
            "type": "expenseitem",
            "mediaType": "application/json"
          }
@@ -211,8 +211,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/489afb43-41b1-11e6-8a84-bae50000007a",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/489afb43-41b1-11e6-8a84-bae50000007a",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
          "type": "cashout",
          "mediaType": "application/json"
        },
@@ -220,8 +220,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -229,8 +229,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -247,8 +247,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "rate": {
          "currency": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -257,39 +257,39 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "sum": 3535000,
        "organization": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json"
          }
        },
        "contract": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/contract/37def9c0-41b1-11e6-8a84-bae500000077",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/contract/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/contract/37def9c0-41b1-11e6-8a84-bae500000077",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
            "type": "contract",
            "mediaType": "application/json"
          }
        },
        "project": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/project/722e39f0-313e-11e6-8a84-bae500000008",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/project/722e39f0-313e-11e6-8a84-bae500000008",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
            "type": "project",
            "mediaType": "application/json"
          }
        },
        "agent": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/1509a2f7-32ca-11e6-8a84-bae500000068",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/1509a2f7-32ca-11e6-8a84-bae500000068",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          }
        },
        "state": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda7963-41b1-11e6-8a84-bae50000006e",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda7963-41b1-11e6-8a84-bae50000006e",
            "type": "state",
            "mediaType": "application/json"
          }
@@ -297,7 +297,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -310,8 +310,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "paymentPurpose": "Pay for another acceptance",
        "expenseItem": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
            "type": "expenseitem",
            "mediaType": "application/json"
          }
@@ -319,8 +319,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "operations": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/supply/90ba347d-6b8b-11e6-8a84-bae5000000bd",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/supply/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/supply/90ba347d-6b8b-11e6-8a84-bae5000000bd",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/supply/metadata",
              "type": "supply",
              "mediaType": "application/json"
            },
@@ -330,8 +330,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/fd9b07ea-41b0-11e6-8a84-bae500000069",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/fd9b07ea-41b0-11e6-8a84-bae500000069",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
          "type": "cashout",
          "mediaType": "application/json"
        },
@@ -339,8 +339,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -348,8 +348,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -366,8 +366,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "rate": {
          "currency": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
              "type": "currency",
              "mediaType": "application/json"
            }
@@ -377,39 +377,39 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "sum": 3174603,
        "organization": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json"
          }
        },
        "contract": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/contract/e16fc992-41b0-11e6-8a84-bae500000066",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/contract/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/contract/e16fc992-41b0-11e6-8a84-bae500000066",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
            "type": "contract",
            "mediaType": "application/json"
          }
        },
        "project": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/project/722e39f0-313e-11e6-8a84-bae500000008",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/project/722e39f0-313e-11e6-8a84-bae500000008",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
            "type": "project",
            "mediaType": "application/json"
          }
        },
        "agent": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          }
        },
        "state": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda8542-41b1-11e6-8a84-bae500000070",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda8542-41b1-11e6-8a84-bae500000070",
            "type": "state",
            "mediaType": "application/json"
          }
@@ -417,7 +417,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -430,8 +430,8 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
        "paymentPurpose": "Acceptance payment",
        "expenseItem": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
            "type": "expenseitem",
            "mediaType": "application/json"
          }
@@ -456,31 +456,31 @@ Mandatory fields to create:
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/cashout"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
             "organization": {
                 "meta": {
-                    "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
                     "type": "organization",
                     "mediaType": "application/json"
                 }
             },
             "agent": {
                 "meta": {
-                    "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
                     "type": "counterparty",
                     "mediaType": "application/json"
                 }
             },
             "expenseItem": {
                 "meta": {
-                    "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
                     "type": "expenseitem",
                     "mediaType": "application/json"
                 }
@@ -494,8 +494,8 @@ Successful request. The result is a JSON representation of the created Outgoing 
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
      "type": "cashout",
      "mediaType": "application/json"
    },
@@ -503,16 +503,16 @@ Successful request. The result is a JSON representation of the created Outgoing 
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
    },
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -526,8 +526,8 @@ Successful request. The result is a JSON representation of the created Outgoing 
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -535,24 +535,24 @@ Successful request. The result is a JSON representation of the created Outgoing 
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -570,7 +570,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/cashout"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -579,24 +579,24 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                "name": "0721",
                "organization": {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
                    "type": "organization",
                    "mediaType": "application/json"
                  }
                },
                "agent": {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
                    "type": "counterparty",
                    "mediaType": "application/json"
                  }
                },
                "expenseItem": {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
                    "type": "expenseitem",
                    "mediaType": "application/json"
                  }
@@ -604,8 +604,8 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
              },
              {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
                  "type": "cashout",
                  "mediaType": "application/json"
                },
@@ -620,8 +620,8 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                "paymentPurpose": "Paying a new order to the supplier",
                "expenseItem": {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
                    "type": "expenseitem",
                    "mediaType": "application/json"
                  }
@@ -629,7 +629,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                "attributes": [
                  {
                    "meta": {
-                     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
+                     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
                      "type": "attributemetadata",
                      "mediaType": "application/json"
                    },
@@ -637,7 +637,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                  },
                  {
                    "meta": {
-                     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
+                     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
                      "type": "attributemetadata",
                      "mediaType": "application/json"
                    },
@@ -645,7 +645,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                  },
                  {
                    "meta": {
-                     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+                     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
                      "type": "attributemetadata",
                      "mediaType": "application/json"
                    },
@@ -663,8 +663,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
        "type": "cashout",
        "mediaType": "application/json"
      },
@@ -672,16 +672,16 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      },
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -695,8 +695,8 @@ Successful request. The result is a JSON array of representations of the created
      "rate": {
        "currency": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
@@ -704,24 +704,24 @@ Successful request. The result is a JSON array of representations of the created
      },
      "organization": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json"
        }
      },
      "agent": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
          "type": "counterparty",
          "mediaType": "application/json"
        }
      },
      "expenseItem": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
          "type": "expenseitem",
          "mediaType": "application/json"
        }
@@ -729,8 +729,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
        "type": "cashout",
        "mediaType": "application/json"
      },
@@ -738,8 +738,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -747,8 +747,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -766,8 +766,8 @@ Successful request. The result is a JSON array of representations of the created
      "rate": {
        "currency": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
            "type": "currency",
            "mediaType": "application/json"
          }
@@ -776,16 +776,16 @@ Successful request. The result is a JSON array of representations of the created
      "sum": 900,
      "organization": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json"
        }
      },
      "agent": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
          "type": "counterparty",
          "mediaType": "application/json"
        }
@@ -793,7 +793,7 @@ Successful request. The result is a JSON array of representations of the created
      "attributes": [
        {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
            "type": "attributemetadata",
            "mediaType": "application/json"
          },
@@ -804,7 +804,7 @@ Successful request. The result is a JSON array of representations of the created
        },
        {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
            "type": "attributemetadata",
            "mediaType": "application/json"
          },
@@ -815,7 +815,7 @@ Successful request. The result is a JSON array of representations of the created
        },
        {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
            "type": "attributemetadata",
            "mediaType": "application/json"
          },
@@ -828,8 +828,8 @@ Successful request. The result is a JSON array of representations of the created
      "paymentPurpose": "Paying a new order to the supplier",
      "expenseItem": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
          "type": "expenseitem",
          "mediaType": "application/json"
        }
@@ -851,7 +851,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -868,22 +868,22 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/cashout/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b1",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b1",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
              "type": "cashout",
              "mediaType": "application/json"
          },
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b2",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b2",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
              "type": "cashout",
              "mediaType": "application/json"
          }
@@ -920,7 +920,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata"
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -931,13 +931,13 @@ Successful request. The result is a JSON representation of the additional fields
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -948,7 +948,7 @@ Successful request. The result is a JSON representation of the additional fields
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -959,7 +959,7 @@ Successful request. The result is a JSON representation of the additional fields
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -972,7 +972,7 @@ Successful request. The result is a JSON representation of the additional fields
    "states": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda7963-41b1-11e6-8a84-bae50000006e",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda7963-41b1-11e6-8a84-bae50000006e",
          "type": "state",
          "mediaType": "application/json"
        },
@@ -985,7 +985,7 @@ Successful request. The result is a JSON representation of the additional fields
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda80ad-41b1-11e6-8a84-bae50000006f",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda80ad-41b1-11e6-8a84-bae50000006f",
          "type": "state",
          "mediaType": "application/json"
        },
@@ -998,7 +998,7 @@ Successful request. The result is a JSON representation of the additional fields
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda8542-41b1-11e6-8a84-bae500000070",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda8542-41b1-11e6-8a84-bae500000070",
          "type": "state",
          "mediaType": "application/json"
        },
@@ -1026,7 +1026,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1037,7 +1037,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/b54f1d9c-558a-11e6-8a84-bae50000006c",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/b54f1d9c-558a-11e6-8a84-bae50000006c",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -1055,7 +1055,7 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/new"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1074,16 +1074,16 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "sum": 0,
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1099,7 +1099,7 @@ Request for a pre-filled Outgoing Cash Payment representation based on another t
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/new"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1107,8 +1107,8 @@ Request for a pre-filled Outgoing Cash Payment representation based on another t
              "operations": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/purchaseorder/17a06771-961b-11e6-8a84-bae500000080",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/17a06771-961b-11e6-8a84-bae500000080",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/metadata",
                    "type": "purchaseorder",
                    "mediaType": "application/json"
                  }
@@ -1129,8 +1129,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1139,16 +1139,16 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "sum": 0,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/b942953e-9128-11e6-8a84-bae500000054",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/b942953e-9128-11e6-8a84-bae500000054",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -1157,8 +1157,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/purchaseorder/17a06771-961b-11e6-8a84-bae500000080",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/purchaseorder/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/17a06771-961b-11e6-8a84-bae500000080",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/metadata",
          "type": "purchaseorder",
          "mediaType": "application/json"
        },
@@ -1167,8 +1167,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    ],
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1180,7 +1180,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/new"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1188,8 +1188,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
              "operations": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/salesreturn/3b0f51a4-961b-11e6-8a84-bae500000086",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/3b0f51a4-961b-11e6-8a84-bae500000086",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
                    "type": "salesreturn",
                    "mediaType": "application/json"
                  }
@@ -1210,8 +1210,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1220,16 +1220,16 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "sum": 0,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/2b0f10e4-9169-11e6-8a84-bae500000000",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/2b0f10e4-9169-11e6-8a84-bae500000000",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -1238,8 +1238,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/salesreturn/3b0f51a4-961b-11e6-8a84-bae500000086",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/salesreturn/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/3b0f51a4-961b-11e6-8a84-bae500000086",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
          "type": "salesreturn",
          "mediaType": "application/json"
        },
@@ -1248,8 +1248,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    ],
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1261,7 +1261,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/new"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1269,8 +1269,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
              operations: [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/supply/0f57efd5-91f3-11e6-8a84-bae500000086",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/supply/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/supply/0f57efd5-91f3-11e6-8a84-bae500000086",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/supply/metadata",
                    "type": "supply",
                    "mediaType": "application/json"
                  }
@@ -1291,8 +1291,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1301,16 +1301,16 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "sum": 0,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -1319,8 +1319,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/supply/0f57efd5-91f3-11e6-8a84-bae500000086",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/supply/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/supply/0f57efd5-91f3-11e6-8a84-bae500000086",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/supply/metadata",
          "type": "supply",
          "mediaType": "application/json"
        },
@@ -1329,8 +1329,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    ],
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1342,7 +1342,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/new"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1350,8 +1350,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
              "operations": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/invoicein/e43b34bc-961a-11e6-8a84-bae50000006f",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/invoicein/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/e43b34bc-961a-11e6-8a84-bae50000006f",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoicein/metadata",
                    "type": "invoicein",
                    "mediaType": "application/json"
                  }
@@ -1372,8 +1372,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1382,16 +1382,16 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "sum": 0,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -1400,8 +1400,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/invoicein/e43b34bc-961a-11e6-8a84-bae50000006f",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/invoicein/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/e43b34bc-961a-11e6-8a84-bae50000006f",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoicein/metadata",
          "type": "invoicein",
          "mediaType": "application/json"
        },
@@ -1410,8 +1410,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    ],
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1423,7 +1423,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/new"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1431,8 +1431,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
              "operations": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/commissionreportout/394e3f39-b322-11e6-8a84-bae50000009e",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/commissionreportout/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/commissionreportout/394e3f39-b322-11e6-8a84-bae50000009e",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/commissionreportout/metadata",
                    "type": "commissionreportout",
                    "mediaType": "application/json"
                  }
@@ -1448,8 +1448,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 {
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1457,8 +1457,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1471,8 +1471,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1481,32 +1481,32 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "sum": 10200850,
    "contract": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/contract/c3057574-ab01-11e6-8a84-bae500000070",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/contract/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/contract/c3057574-ab01-11e6-8a84-bae500000070",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
        "type": "contract",
        "mediaType": "application/json"
      }
    },
    "project": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
        "type": "project",
        "mediaType": "application/json"
      }
    },
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -1515,8 +1515,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/commissionreportout/394e3f39-b322-11e6-8a84-bae50000009e",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/commissionreportout/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/commissionreportout/394e3f39-b322-11e6-8a84-bae50000009e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/commissionreportout/metadata",
          "type": "commissionreportout",
          "mediaType": "application/json"
        },
@@ -1525,8 +1525,8 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
    ],
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1548,7 +1548,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1559,8 +1559,8 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/fd9b07ea-41b0-11e6-8a84-bae500000069",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/fd9b07ea-41b0-11e6-8a84-bae500000069",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
      "type": "cashout",
      "mediaType": "application/json"
    },
@@ -1568,8 +1568,8 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1577,8 +1577,8 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1595,8 +1595,8 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/cdbc62de-3f68-11e6-8a84-bae500000050",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1606,39 +1606,39 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "sum": 3174603,
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "contract": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/contract/e16fc992-41b0-11e6-8a84-bae500000066",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/contract/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/contract/e16fc992-41b0-11e6-8a84-bae500000066",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
        "type": "contract",
        "mediaType": "application/json"
      }
    },
    "project": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/project/722e39f0-313e-11e6-8a84-bae500000008",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/project/722e39f0-313e-11e6-8a84-bae500000008",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
        "type": "project",
        "mediaType": "application/json"
      }
    },
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "state": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/states/0eda8542-41b1-11e6-8a84-bae500000070",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/states/0eda8542-41b1-11e6-8a84-bae500000070",
        "type": "state",
        "mediaType": "application/json"
      }
@@ -1646,7 +1646,7 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1659,8 +1659,8 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "paymentPurpose": "Acceptance payment",
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }
@@ -1668,8 +1668,8 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/supply/90ba347d-6b8b-11e6-8a84-bae5000000bd",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/supply/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/supply/90ba347d-6b8b-11e6-8a84-bae5000000bd",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/supply/metadata",
          "type": "supply",
          "mediaType": "application/json"
        },
@@ -1701,7 +1701,7 @@ Also, for each document, you can specify the amount paid for this document from 
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1717,8 +1717,8 @@ Also, for each document, you can specify the amount paid for this document from 
              "paymentPurpose": "Paying a new order to the supplier",
              "expenseItem": {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
                  "type": "expenseitem",
                  "mediaType": "application/json"
                }
@@ -1726,7 +1726,7 @@ Also, for each document, you can specify the amount paid for this document from 
              "attributes": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -1734,7 +1734,7 @@ Also, for each document, you can specify the amount paid for this document from 
                },
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -1742,7 +1742,7 @@ Also, for each document, you can specify the amount paid for this document from 
                },
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
                    "type": "attributemetadata",
                    "mediaType": "application/json"
                  },
@@ -1758,8 +1758,8 @@ Successful request. The result is a JSON representation of the updated Outgoing 
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/e446a227-41b1-11e6-8a84-bae500000005",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
      "type": "cashout",
      "mediaType": "application/json"
    },
@@ -1767,8 +1767,8 @@ Successful request. The result is a JSON representation of the updated Outgoing 
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1776,8 +1776,8 @@ Successful request. The result is a JSON representation of the updated Outgoing 
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1795,8 +1795,8 @@ Successful request. The result is a JSON representation of the updated Outgoing 
    "rate": {
      "currency": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/baac25f0-50ac-11e5-300d-c79b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
          "type": "currency",
          "mediaType": "application/json"
        }
@@ -1805,16 +1805,16 @@ Successful request. The result is a JSON representation of the updated Outgoing 
    "sum": 900,
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
@@ -1822,7 +1822,7 @@ Successful request. The result is a JSON representation of the updated Outgoing 
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88569fc-3f8e-11e6-8a84-bae5000000fd",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1833,7 +1833,7 @@ Successful request. The result is a JSON representation of the updated Outgoing 
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c88570d2-3f8e-11e6-8a84-bae5000000fe",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1844,7 +1844,7 @@ Successful request. The result is a JSON representation of the updated Outgoing 
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/c8857703-3f8e-11e6-8a84-bae5000000ff",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1857,8 +1857,8 @@ Successful request. The result is a JSON representation of the updated Outgoing 
    "paymentPurpose": "Paying a new order to the supplier",
    "expenseItem": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/expenseitem/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
        "type": "expenseitem",
        "mediaType": "application/json"
      }

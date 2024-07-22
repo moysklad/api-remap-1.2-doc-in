@@ -19,7 +19,7 @@ The entity code for the Price Type in the JSON API is the **pricetype** keyword.
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype"
+   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -31,7 +31,7 @@ Successful request. The result is an array of all price types
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+       "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
        "type": "pricetype",
        "mediaType": "application/json"
      },
@@ -41,7 +41,7 @@ Successful request. The result is an array of all price types
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+       "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
        "type": "pricetype",
        "mediaType": "application/json"
      },
@@ -75,14 +75,14 @@ Restrictions:
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype"
+     "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
            {
              "meta": {
-               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+               "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -104,7 +104,7 @@ Successful request. The result is a JSON representation of the updated list of p
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+       "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
        "type": "pricetype",
        "mediaType": "application/json"
      },
@@ -114,7 +114,7 @@ Successful request. The result is a JSON representation of the updated list of p
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+       "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
        "type": "pricetype",
        "mediaType": "application/json"
      },
@@ -129,14 +129,14 @@ Successful request. The result is a JSON representation of the updated list of p
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype"
+     "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
            {
              "meta": {
-               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+               "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -146,7 +146,7 @@ Successful request. The result is a JSON representation of the updated list of p
            },
            {
              "meta": {
-               "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+               "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
                "type": "pricetype",
                "mediaType": "application/json"
              },
@@ -164,7 +164,7 @@ Successful request. The result is a JSON representation of the updated list of p
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+       "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
        "type": "pricetype",
        "mediaType": "application/json"
      },
@@ -174,7 +174,7 @@ Successful request. The result is a JSON representation of the updated list of p
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
+       "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/5fc65f53-a470-11e7-9464-d04800000035",
        "type": "pricetype",
        "mediaType": "application/json"
      },
@@ -197,7 +197,7 @@ Successful request. The result is a JSON representation of the updated list of p
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000"
+   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -208,7 +208,7 @@ Successful request. The result is an updated price type.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+     "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
      "type": "pricetype",
      "mediaType": "application/json"
    },
@@ -224,7 +224,7 @@ Successful request. The result is an updated price type.
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/default"
+   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/default"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -235,7 +235,7 @@ Successful request. The result is the default price type.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
+     "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000",
      "type": "pricetype",
      "mediaType": "application/json"
    },

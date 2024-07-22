@@ -66,7 +66,7 @@ To create a webhook, just specify the url, entityType and action, as in the exam
 
 ```shell
 curl -X POST
-   https://api.kladana.in/api/remap/1.2/entity/webhook
+   https://api.kladana.com/api/remap/1.2/entity/webhook
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
@@ -83,8 +83,8 @@ The response should be json containing a description of the webhook
 ```json
 {
      "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/webhook/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/webhook/metadata",
          "type": "webhook",
          "mediaType": "application/json"
      },
@@ -105,7 +105,7 @@ As with other JSON API entity requests, other actions on webhooks are only possi
 
 ```shell
 curl -X GET
-   https://api.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
 ```
@@ -117,7 +117,7 @@ Example of a request with an event change
 
 ```shell
 curl -X PUT
-   https://api.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
@@ -129,7 +129,7 @@ curl -X PUT
 
 ```shell
 curl -X PUT
-   https://api.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{
@@ -141,7 +141,7 @@ curl -X PUT
 
 ```shell
 curl -X DELETE
-   https://api.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
 ```
@@ -150,7 +150,7 @@ curl -X DELETE
 
 ```shell
 curl -X GET
-   https://api.kladana.in/api/remap/1.2/entity/webhook
+   https://api.kladana.com/api/remap/1.2/entity/webhook
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
 ```
@@ -162,15 +162,15 @@ curl -X GET
     "context": {
        "employee": {
           "meta": {
-             "href":"https://api.kladana.in/api/remap/1.2/context/employee",
-             "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+             "href":"https://api.kladana.com/api/remap/1.2/context/employee",
+             "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
              "type":"employee",
              "mediaType":"application/json"
           }
        }
     },
     "meta": {
-       "href":"https://api.kladana.in/api/remap/1.2/entity/webhook",
+       "href":"https://api.kladana.com/api/remap/1.2/entity/webhook",
        "type":"webhook",
        "mediaType":"application/json",
        "size":1,
@@ -180,8 +180,8 @@ curl -X GET
     "rows": [
        {
           "meta": {
-             "href":"https://api.kladana.in/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
-             "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/webhook/metadata",
+             "href":"https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
+             "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/webhook/metadata",
              "type":"webhook",
              "mediaType":"application/json"
           },
@@ -208,7 +208,7 @@ There are a number of important things to keep in mind when working with webhook
 #### Sending webhooks to the client application
 
 Kladana sends the webhook to the client application using the POST method, specifying the _User-Agent_ header with the value _Kladana webhook touch agent
-  2.0 (/https://www.kladana.in)_. Kladana adds the request parameter _requestId_ to the specified sending address (url) - the notification identifier.
+  2.0 (/https://www.kladana.com)_. Kladana adds the request parameter _requestId_ to the specified sending address (url) - the notification identifier.
 
 When sending a webhook notification, Kladana waits for a response from the client application with status 200 or 204 within 1500 milliseconds to read notification delivered. With an invalid response from the client application, our system makes 3 more attempts to send. These attempts are made sequentially, with no timeouts between them. 
 
@@ -231,7 +231,7 @@ a unique test url that must be specified in the webhook and interactively shows 
  
   ```shell
   curl -X POST
-    https://api.kladana.in/api/remap/1.2/entity/webhook
+    https://api.kladana.com/api/remap/1.2/entity/webhook
     -H 'Authorization: Bearer <Access-Token>'
     -H 'Cache-Control: no-cache'
     -H 'Content-Type: application/json'
@@ -248,7 +248,7 @@ a unique test url that must be specified in the webhook and interactively shows 
 
 ```shell
 curl -X POST
-   https://api.kladana.in/api/remap/1.2/entity/service
+   https://api.kladana.com/api/remap/1.2/entity/service
    -H 'Authorization: Bearer <Access-Token>'
    -H 'Content-Type: application/json'
    -d '{

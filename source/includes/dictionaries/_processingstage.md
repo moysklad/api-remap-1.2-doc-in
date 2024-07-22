@@ -40,7 +40,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/processingstage"
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -53,15 +53,15 @@ Successful request. The result is a JSON representation of the list of Productio
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage",
      "type": "processingstage",
      "mediaType": "application/json",
      "size": 1,
@@ -71,28 +71,28 @@ Successful request. The result is a JSON representation of the list of Productio
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
          "type": "processingstage",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+         "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
        },
        "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
        "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+           "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
          }
        },
        "shared": true,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -119,7 +119,7 @@ To create a new Production Operation, it is necessary and sufficient to specify 
 
    ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/processingstage"
+     "https://api.kladana.com/api/remap/1.2/entity/processingstage"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -136,28 +136,28 @@ Successful request. The result is a JSON representation of the created Productio
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
      "type": "processingstage",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+     "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
    },
    "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
    "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
      }
    },
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -179,7 +179,7 @@ Updated Production Operations must contain the identifier in the form of metadat
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/processingstage"
+     "https://api.kladana.com/api/remap/1.2/entity/processingstage"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -189,11 +189,11 @@ Updated Production Operations must contain the identifier in the form of metadat
              },
              {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
                  "type": "processingstage",
                  "mediaType": "application/json",
-                 "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+                 "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
                },
                "name": "Production Operation 1",
                "description": "Preparation"
@@ -207,28 +207,28 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
        "type": "processingstage",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c2"
+       "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c2"
      },
      "id": "d2308bcc-8fd9-11ed-ac12-000b000000c2",
      "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
        }
      },
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -240,28 +240,28 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
        "type": "processingstage",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+       "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
      },
      "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
      "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
        }
      },
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -287,7 +287,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2"
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -304,23 +304,23 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/processingstage/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
               "meta": {
-                  "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
-                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2",
+                  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
                   "type": "processingstage",
                   "mediaType": "application/json"
               }
           },
           {
               "meta": {
-                  "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+                  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
                   "type": "processingstage",
                   "mediaType": "application/json"
               }
@@ -355,7 +355,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -366,28 +366,28 @@ Successful request. The result is a JSON representation of the Production Operat
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
      "type": "processingstage",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+     "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
    },
    "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
    "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
      }
    },
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -412,7 +412,7 @@ Request to update an existing Production Operation.
 
   ```shell
     curl -X PUT
-      "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
+      "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
       -H "Authorization: Basic <Credentials>"
       -H "Accept-Encoding: gzip"
       -H "Content-Type: application/json"
@@ -426,28 +426,28 @@ Successful request. The result is a JSON representation of the Production Operat
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/processingstage/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
      "type": "processingstage",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
+     "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=d2308bcc-8fd9-11ed-ac12-000b000000c1"
    },
    "id": "d2308bcc-8fd9-11ed-ac12-000b000000c1",
    "accountId": "d063f3f3-8fd9-11ed-ac12-000e00000000",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/d105a6bf-8fd9-11ed-ac12-000b0000004f",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d105a6bf-8fd9-11ed-ac12-000b0000004f"
      }
    },
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }

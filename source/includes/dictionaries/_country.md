@@ -44,7 +44,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/country"
+   "https://api.kladana.com/api/remap/1.2/entity/country"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -57,16 +57,16 @@ Successful request. The result is a JSON representation of the list of Countries
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/country/?limit=5",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/country/?limit=5",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
      "type": "country",
      "mediaType": "application/json",
      "size": 248,
@@ -76,11 +76,11 @@ Successful request. The result is a JSON representation of the list of Countries
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#country/edit?id=000d77a9-3000-4f81-a995-6b9cffdee1d2"
+         "uuidHref": "https://app.kladana.com/app/#country/edit?id=000d77a9-3000-4f81-a995-6b9cffdee1d2"
        },
        "id": "000d77a9-3000-4f81-a995-6b9cffdee1d2",
        "updated": "2012-11-02 11:04:13",
@@ -91,11 +91,11 @@ Successful request. The result is a JSON representation of the list of Countries
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/00999522-23d6-40e6-870e-ec7f7bd8d354",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/00999522-23d6-40e6-870e-ec7f7bd8d354",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#country/edit?id=00999522-23d6-40e6-870e-ec7f7bd8d354"
+         "uuidHref": "https://app.kladana.com/app/#country/edit?id=00999522-23d6-40e6-870e-ec7f7bd8d354"
        },
        "id": "00999522-23d6-40e6-870e-ec7f7bd8d354",
        "updated": "2012-11-02 11:04:15",
@@ -105,11 +105,11 @@ Successful request. The result is a JSON representation of the list of Countries
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/0238a888-c602-4e78-a199-d8f49c4d6c18",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/0238a888-c602-4e78-a199-d8f49c4d6c18",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#country/edit?id=0238a888-c602-4e78-a199-d8f49c4d6c18"
+         "uuidHref": "https://app.kladana.com/app/#country/edit?id=0238a888-c602-4e78-a199-d8f49c4d6c18"
        },
        "id": "0238a888-c602-4e78-a199-d8f49c4d6c18",
        "updated": "2012-11-02 11:04:15",
@@ -120,11 +120,11 @@ Successful request. The result is a JSON representation of the list of Countries
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/02dc7934-0a88-49ea-a733-2da517a000c2",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/02dc7934-0a88-49ea-a733-2da517a000c2",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#country/edit?id=02dc7934-0a88-49ea-a733-2da517a000c2"
+         "uuidHref": "https://app.kladana.com/app/#country/edit?id=02dc7934-0a88-49ea-a733-2da517a000c2"
        },
        "id": "02dc7934-0a88-49ea-a733-2da517a000c2",
        "updated": "2012-11-02 11:04:15",
@@ -135,11 +135,11 @@ Successful request. The result is a JSON representation of the list of Countries
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/04cc9c56-96b1-4ccf-aa7f-78735710381c",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/04cc9c56-96b1-4ccf-aa7f-78735710381c",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#country/edit?id=04cc9c56-96b1-4ccf-aa7f-78735710381c"
+         "uuidHref": "https://app.kladana.com/app/#country/edit?id=04cc9c56-96b1-4ccf-aa7f-78735710381c"
        },
        "id": "04cc9c56-96b1-4ccf-aa7f-78735710381c",
        "updated": "2012-11-02 11:04:15",
@@ -150,27 +150,27 @@ Successful request. The result is a JSON representation of the list of Countries
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/04cc9c56-96b1-4ccf-aa7f-78735710381c",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/04cc9c56-96b1-4ccf-aa7f-78735710381c",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#country/edit?id=04cc9c56-96b1-4ccf-aa7f-78735710381c"
+         "uuidHref": "https://app.kladana.com/app/#country/edit?id=04cc9c56-96b1-4ccf-aa7f-78735710381c"
        },
        "accountId": "95004e42-79f2-11e8-1a0d-4e0d00000001",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
+           "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
          }
        },
        "shared": true,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -195,7 +195,7 @@ to create a Country - field **name**.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/country"
+     "https://api.kladana.com/api/remap/1.2/entity/country"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -213,28 +213,28 @@ Successful request. The result is a JSON representation of the created Country.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/country/04331e4f-24c8-11e6-8a84-bae500000016",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/country/04331e4f-24c8-11e6-8a84-bae500000016",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
      "type": "country",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#country/edit?id=04331e4f-24c8-11e6-8a84-bae500000016"
+     "uuidHref": "https://app.kladana.com/app/#country/edit?id=04331e4f-24c8-11e6-8a84-bae500000016"
    },
    "id": "04331e4f-24c8-11e6-8a84-bae500000016",
    "accountId": "45489428-24a5-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -256,7 +256,7 @@ Updated Countries must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/country"
+     "https://api.kladana.com/api/remap/1.2/entity/country"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -269,8 +269,8 @@ Updated Countries must contain the identifier in the form of metadata.
              },
              {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/country/810b5344-24ca-11e6-8a84-bae500000018",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/country/810b5344-24ca-11e6-8a84-bae500000018",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                  "type": "country",
                  "mediaType": "application/json"
                },
@@ -289,28 +289,28 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/country/04331e4f-24c8-11e6-8a84-bae500000016",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/country/04331e4f-24c8-11e6-8a84-bae500000016",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
        "type": "country",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#country/edit?id=04331e4f-24c8-11e6-8a84-bae500000016"
+       "uuidHref": "https://app.kladana.com/app/#country/edit?id=04331e4f-24c8-11e6-8a84-bae500000016"
      },
      "id": "04331e4f-24c8-11e6-8a84-bae500000016",
      "accountId": "45489428-24a5-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
        }
      },
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -323,28 +323,28 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/country/810b5344-24ca-11e6-8a84-bae500000018",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/country/810b5344-24ca-11e6-8a84-bae500000018",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
        "type": "country",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#country/edit?id=810b5344-24ca-11e6-8a84-bae500000018"
+       "uuidHref": "https://app.kladana.com/app/#country/edit?id=810b5344-24ca-11e6-8a84-bae500000018"
      },
      "id": "810b5344-24ca-11e6-8a84-bae500000018",
      "accountId": "45489428-24a5-11e6-8a84-bae500000001",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
        }
      },
      "shared": true,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -372,7 +372,7 @@ You can only delete countries created through the main interface or through the 
 
 ```shell
    curl -X DELETE
-     "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
 ```
@@ -389,23 +389,23 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/country/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/country/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                 "type": "country",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                 "type": "country",
                 "mediaType": "application/json"
             }
@@ -446,7 +446,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -457,11 +457,11 @@ Successful request. The result is a JSON representation of the Country with the 
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/country/000d77a9-3000-4f81-a995-6b9cffdee1d2",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
      "type": "country",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#country/edit?id=000d77a9-3000-4f81-a995-6b9cffdee1d2"
+     "uuidHref": "https://app.kladana.com/app/#country/edit?id=000d77a9-3000-4f81-a995-6b9cffdee1d2"
    },
    "id": "000d77a9-3000-4f81-a995-6b9cffdee1d2",
    "updated": "2012-11-02 11:04:13",
@@ -486,7 +486,7 @@ Only countries created through the main interface or through the POST method can
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -504,28 +504,28 @@ Successful request. The result is a JSON representation of the updated Country.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/country/810b5344-24ca-11e6-8a84-bae500000018",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/country/810b5344-24ca-11e6-8a84-bae500000018",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
      "type": "country",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#country/edit?id=810b5344-24ca-11e6-8a84-bae500000018"
+     "uuidHref": "https://app.kladana.com/app/#country/edit?id=810b5344-24ca-11e6-8a84-bae500000018"
    },
    "id": "810b5344-24ca-11e6-8a84-bae500000018",
    "accountId": "45489428-24a5-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9bc5de98-79f2-11e8-1a0d-4e0d0000002b",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9bc5de98-79f2-11e8-1a0d-4e0d0000002b"
      }
    },
    "shared": true,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/9504054f-79f2-11e8-1a0d-4e0d00000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }

@@ -50,7 +50,7 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day"
+   "https://api.kladana.com/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -63,15 +63,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href":"https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href":"https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
          "mediaType":"application/json"
        }
      }
    },
    "meta": {
-     "href":"https://api.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day",
+     "href":"https://api.kladana.com/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day",
      "type":"moneyplotseries",
      "mediaType":"application/json"
    },
@@ -110,7 +110,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448"
+   "https://api.kladana.com/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://api.kladana.com/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.com/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -123,15 +123,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href":"https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href":"https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
          "mediaType":"application/json"
        }
      }
    },
    "meta": {
-     "href":"https://api.kladana.in/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448",
+     "href":"https://api.kladana.com/api/remap/1.2/report/money/plotseries?momentFrom=2018-09-01&momentTo=2018-09-04&interval=day&filter=organization=https://api.kladana.com/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.com/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448",
      "type":"moneyplotseries",
      "mediaType":"application/json"
    },
@@ -193,7 +193,7 @@ Successful request. The result is a JSON representation of the report.
 > Request for receipt of cash balances on cash desks and accounts
 
 ```shell
-curl -X GET"https://api.kladana.in/api/remap/1.2/report/money/byaccount"
+curl -X GET"https://api.kladana.com/api/remap/1.2/report/money/byaccount"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -206,15 +206,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href":"https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href":"https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type":"employee",
          "mediaType":"application/json"
        }
      }
    },
    "meta": {
-     "href":"https://api.kladana.in/api/remap/1.2/report/money/byaccount",
+     "href":"https://api.kladana.com/api/remap/1.2/report/money/byaccount",
      "type":"moneyreport",
      "mediaType":"application/json"
    },
@@ -222,8 +222,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "organization": {
          "meta": {
-           "href":"https://api.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-           "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href":"https://api.kladana.com/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
            "mediaType":"application/json"
          },
@@ -234,8 +234,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "organization": {
          "meta": {
-           "href":"https://api.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-           "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href":"https://api.kladana.com/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
            "mediaType":"application/json"
          },
@@ -246,8 +246,8 @@ Successful request. The result is a JSON representation of the report.
      {
        "account": {
          "meta": {
-           "href":"https://api.kladana.in/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
-           "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href":"https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
+           "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type":"account",
            "mediaType":"application/json"
          },
@@ -255,8 +255,8 @@ Successful request. The result is a JSON representation of the report.
        },
        "organization": {
          "meta": {
-           "href":"https://api.kladana.in/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
-           "metadataHref":"https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href":"https://api.kladana.com/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
+           "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type":"organization",
            "mediaType":"application/json"
          },

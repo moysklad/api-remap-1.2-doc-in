@@ -50,7 +50,7 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-06 01:00:01&interval=hour"
+   "https://api.kladana.com/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-06 01:00:01&interval=hour"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -63,15 +63,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2016-09-06 01:00:01&interval =hour",
+     "href": "https://api.kladana.com/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2016-09-06 01:00:01&interval =hour",
      "type": "ordersplotseries",
      "mediaType": "application/json"
    },
@@ -94,7 +94,7 @@ Successful request. The result is a JSON representation of the report.
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-06 01:00:01&interval=hour&filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448;store=https://api.kladana.in/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1"
+   "https://api.kladana.com/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-06 01:00:01&interval=hour&filter=organization=https://api.kladana.com/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.com/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448;store=https://api.kladana.com/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -107,15 +107,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metaseriesHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metaseries",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metaseriesHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metaseries",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2016-09-06 01:00:01&interval=hour&filter=organization=https://api.kladana.in/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.in/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448;store=https://api.kladana.in/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1",
+     "href": "https://api.kladana.com/api/remap/1.2/report/orders/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2016-09-06 01:00:01&interval=hour&filter=organization=https://api.kladana.com/api/remap/1.2/entity/organization/00cd5a99-6897-11e7-7a6c-d2a9000c4fc0;project=https://api.kladana.com/api/remap/1.2/entity/project/02e64f51-6897-11e7-7a34-5acf000c8448;store=https://api.kladana.com/api/remap/1.2/entity/store/32213d37-8101-11e8-9107-50480004c6c1",
      "type": "ordersplotseries",
      "mediaType": "application/json"
    },
@@ -153,7 +153,7 @@ Transactions included in the report can be filtered using the **filter** paramet
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://api.kladana.in/api/remap/1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://api.kladana.in/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https://api.kladana.in/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060"
+   "https://api.kladana.com/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://api.kladana.com/api/remap/1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://api.kladana.com/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https://api.kladana.com/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -166,15 +166,15 @@ Successful request. The result is a JSON representation of the report.
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metaseriesHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metaseries",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metaseriesHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metaseries",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore=https://api.kladana.in/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://api.kladana.in/api/remap/1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://api.kladana.in/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https://api.kladana.in/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060",
+     "href": "https://api.kladana.com/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06 00:00:00&momentTo=2018-09-10 01:00:01&interval=hour&filter=retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/d9a8a213-6703-11e7-9464-e4de00000060&amp;project=https://api.kladana.com/api/remap/1.2/entity/project/d9a8a213-6703-11e7-9464-e4de00000060&amp;store=https://api.kladana.com/api/remap/1.2/entity/store/d9a8a213-6703-11e7-9464-e4de00000060&amp;organization=https://api.kladana.com/api/remap/1.2/entity/organization/d9a8a213-6703-11e7-9464-e4de00000060",
      "type": "salesplotseries",
      "mediaType": "application/json"
    },

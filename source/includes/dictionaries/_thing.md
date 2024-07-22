@@ -32,7 +32,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/thing"
+   "https://app.kladana.com/api/remap/1.2/entity/thing"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -44,16 +44,16 @@ Successful request. The result is a JSON representation of the list of Serial nu
   "context":{
     "employee":{
       "meta":{
-        "href":"https://app.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href":"https://app.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref":"https://app.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type":"employee",
         "mediaType":"application/json"
       }
     }
   },
   "meta":{
-    "href":"https://app.kladana.in/api/remap/1.2/entity/thing",
-    "metadataHref":"https://app.kladana.in/api/remap/1.2/entity/thing/metadata",
+    "href":"https://app.kladana.com/api/remap/1.2/entity/thing",
+    "metadataHref":"https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
     "type":"thing",
     "mediaType":"application/json",
     "size":2,
@@ -63,8 +63,8 @@ Successful request. The result is a JSON representation of the list of Serial nu
   "rows":[
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/thing/metadata",
+        "href": "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
+        "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
         "type": "thing",
         "mediaType": "application/json"
       },
@@ -75,8 +75,8 @@ Successful request. The result is a JSON representation of the list of Serial nu
     },
     {
       "meta": {
-        "href": "https://app.kladana.in/api/remap/1.2/entity/thing/55609d5e-9f2d-11ee-8c90-0242ac120002",
-        "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/thing/metadata",
+        "href": "https://app.kladana.com/api/remap/1.2/entity/thing/55609d5e-9f2d-11ee-8c90-0242ac120002",
+        "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
         "type": "thing",
         "mediaType": "application/json"
       },
@@ -102,7 +102,7 @@ Successful request. The result is a JSON representation of the list of Serial nu
 
 ```shell
 curl -X GET
-   "https://app.kladana.in/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002"
+   "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002"
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -112,8 +112,8 @@ Successful request. The result is a JSON representation of the Serial number wit
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.in/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
-    "metadataHref": "https://app.kladana.in/api/remap/1.2/entity/thing/metadata",
+    "href": "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
+    "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
     "type": "thing",
     "mediaType": "application/json"
   },
