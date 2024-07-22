@@ -255,7 +255,7 @@ curl
 
 ## Publication links
 
-The publication link (for example, https://kldna.in/7sDZyGqk5M) opens a page from which you can download a pdf file.
+The publication link (for example, https://kldna.com/7sDZyGqk5M) opens a page from which you can download a pdf file.
  
 The link will make the latest version of the transaction available, even if you make changes to the transaction after it has been published.
 
