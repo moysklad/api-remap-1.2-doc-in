@@ -10,6 +10,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Error [17023](../#kladana-json-api-errors-error-codes-for-documents)
 
+### 22-07-2024
+#### Added
+- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
+
 ### 06-03-2024
 #### Added
 - Endpoint [Serial numbers](../dictionaries/#entities-serial-number)
