@@ -2,7 +2,7 @@
 ## General Info
 ### Authentication
 
-You can integrate Kladana using the Kladana JSON API. To do this, you first need to log in to Kladan. Kladana supports authentication using the Basic Auth protocol and an access token. 
+You can integrate Kladana using the Kladana JSON API. To do this, you first need to log in to Kladana. Kladana supports authentication using the Basic Auth protocol and an access token. 
 
 - When authenticating using the Basic Auth protocol along with a request, the `Authorization` header is passed with the value of the `login:password` pair encoded in the RFC2045-MIME variant of the Base64 standard.
 
