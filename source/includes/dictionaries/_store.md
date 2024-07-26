@@ -77,7 +77,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store"
+   "https://api.kladana.com/api/remap/1.2/entity/store"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -90,16 +90,16 @@ Successful request. The result is a JSON representation of the list of Warehouse
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json",
      "size": 5,
@@ -109,8 +109,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
          "type": "store",
          "mediaType": "application/json"
        },
@@ -118,8 +118,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -127,8 +127,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -142,16 +142,16 @@ Successful request. The result is a JSON representation of the list of Warehouse
          "postalCode": "125009",
          "country": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
              "type": "country",
              "mediaType": "application/json"
            }
          },
          "region": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
              "type": "region",
              "mediaType": "application/json"
            }
@@ -166,7 +166,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "pathName": "",
        "zones": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000/zones",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000/zones",
            "type": "storezone",
            "mediaType": "application/json",
            "size": 0,
@@ -176,7 +176,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        },
        "slots": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000/slots",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/caf46ce5-0569-11e6-9464-e4de00000000/slots",
            "type": "slot",
            "mediaType": "application/json",
            "size": 0,
@@ -187,8 +187,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
          "type": "store",
          "mediaType": "application/json"
        },
@@ -196,8 +196,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -205,8 +205,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -221,16 +221,16 @@ Successful request. The result is a JSON representation of the list of Warehouse
          "postalCode": "125009",
          "country": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
              "type": "country",
              "mediaType": "application/json"
            }
          },
          "region": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
              "type": "region",
              "mediaType": "application/json"
            }
@@ -244,7 +244,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        },
        "zones": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160/zones",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160/zones",
            "type": "storezone",
            "mediaType": "application/json",
            "size": 0,
@@ -254,7 +254,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        },
        "slots": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160/slots",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/850ee995-f504-11e5-8a84-bae500000160/slots",
            "type": "slot",
            "mediaType": "application/json",
            "size": 0,
@@ -265,7 +265,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -278,8 +278,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
          "type": "store",
          "mediaType": "application/json"
        },
@@ -287,8 +287,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -296,8 +296,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -312,16 +312,16 @@ Successful request. The result is a JSON representation of the list of Warehouse
          "postalCode": "125009",
          "country": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
              "type": "country",
              "mediaType": "application/json"
            }
          },
          "region": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
              "type": "region",
              "mediaType": "application/json"
            }
@@ -336,7 +336,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "pathName": "002",
        "zones": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4/zones",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4/zones",
            "type": "storezone",
            "mediaType": "application/json",
            "size": 0,
@@ -346,7 +346,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        },
        "slots": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4/slots",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/6ebb9094-056a-11e6-9464-e4de000000b4/slots",
            "type": "slot",
            "mediaType": "application/json",
            "size": 0,
@@ -356,8 +356,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        }
      },{
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
          "type": "store",
          "mediaType": "application/json"
        },
@@ -365,8 +365,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json"
          }
@@ -374,8 +374,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -391,16 +391,16 @@ Successful request. The result is a JSON representation of the list of Warehouse
          "postalCode": "125009",
          "country": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
              "type": "country",
              "mediaType": "application/json"
            }
          },
          "region": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
              "type": "region",
              "mediaType": "application/json"
            }
@@ -415,7 +415,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        "pathName": "Main warehouse",
        "zones": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/zones",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/zones",
            "type": "storezone",
            "mediaType": "application/json",
            "size": 0,
@@ -425,7 +425,7 @@ Successful request. The result is a JSON representation of the list of Warehouse
        },
        "slots": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/slots",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/slots",
            "type": "slot",
            "mediaType": "application/json",
            "size": 0,
@@ -451,7 +451,7 @@ The field required for creation - `name` must not be empty.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/store"
+     "https://api.kladana.com/api/remap/1.2/entity/store"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -463,8 +463,8 @@ The field required for creation - `name` must not be empty.
                 "comment": "some words about address2",
                 "country": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
@@ -473,8 +473,8 @@ The field required for creation - `name` must not be empty.
                 "postalCode": "11192342",
                 "region": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -494,8 +494,8 @@ Successful request. The result is a JSON representation of the created Warehouse
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -503,8 +503,8 @@ Successful request. The result is a JSON representation of the created Warehouse
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -512,8 +512,8 @@ Successful request. The result is a JSON representation of the created Warehouse
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -532,8 +532,8 @@ Successful request. The result is a JSON representation of the created Warehouse
      "comment": "some words about address2",
      "country": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
@@ -542,8 +542,8 @@ Successful request. The result is a JSON representation of the created Warehouse
      "postalCode": "11192342",
      "region": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -552,7 +552,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    },
    "zones": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
        "type": "storezone",
        "mediaType": "application/json",
        "size": 0,
@@ -562,7 +562,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    },
    "slots": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
        "type": "slot",
        "mediaType": "application/json",
        "size": 0,
@@ -577,7 +577,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/store"
+     "https://api.kladana.com/api/remap/1.2/entity/store"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -589,8 +589,8 @@ Successful request. The result is a JSON representation of the created Warehouse
                 "comment": "some words about address2",
                 "country": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
@@ -599,8 +599,8 @@ Successful request. The result is a JSON representation of the created Warehouse
                 "postalCode": "11192342",
                 "region": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -614,7 +614,7 @@ Successful request. The result is a JSON representation of the created Warehouse
             "attributes": [
                 {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                         "type": "attributemetadata",
                         "mediaType": "application/json"
                     },
@@ -630,8 +630,8 @@ Successful request. The result is a JSON representation of the created Warehouse
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -639,8 +639,8 @@ Successful request. The result is a JSON representation of the created Warehouse
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -648,8 +648,8 @@ Successful request. The result is a JSON representation of the created Warehouse
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -668,8 +668,8 @@ Successful request. The result is a JSON representation of the created Warehouse
      "comment": "some words about address2",
      "country": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
@@ -678,8 +678,8 @@ Successful request. The result is a JSON representation of the created Warehouse
      "postalCode": "11192342",
      "region": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -688,7 +688,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    },
    "zones": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
        "type": "storezone",
        "mediaType": "application/json",
        "size": 0,
@@ -698,7 +698,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    },
    "slots": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
        "type": "slot",
        "mediaType": "application/json",
        "size": 0,
@@ -709,7 +709,7 @@ Successful request. The result is a JSON representation of the created Warehouse
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -732,7 +732,7 @@ Updated Warehouses must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/store"
+     "https://api.kladana.com/api/remap/1.2/entity/store"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -746,8 +746,8 @@ Updated Warehouses must contain the identifier in the form of metadata.
             },
             {
                 "meta": {
-                    "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
-                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json"
                 },
@@ -758,8 +758,8 @@ Updated Warehouses must contain the identifier in the form of metadata.
                 "externalCode": "EXTCODE",
                 "parent": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                         "type": "store",
                         "mediaType": "application/json"
                     }
@@ -775,8 +775,8 @@ Successful request. The result is a JSON array of representations of the created
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      },
@@ -784,8 +784,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -793,8 +793,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -808,7 +808,7 @@ Successful request. The result is a JSON array of representations of the created
      "address": "Moscow, Vavilov street 19/116",
      "zones": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
          "type": "storezone",
          "mediaType": "application/json",
          "size": 0,
@@ -818,7 +818,7 @@ Successful request. The result is a JSON array of representations of the created
      },
      "slots": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
          "type": "slot",
          "mediaType": "application/json",
          "size": 0,
@@ -829,8 +829,8 @@ Successful request. The result is a JSON array of representations of the created
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      },
@@ -838,8 +838,8 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
@@ -847,8 +847,8 @@ Successful request. The result is a JSON array of representations of the created
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -862,7 +862,7 @@ Successful request. The result is a JSON array of representations of the created
      "address": "Moscow, BaBilova street 20/116",
      "zones": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
          "type": "storezone",
          "mediaType": "application/json",
          "size": 0,
@@ -872,7 +872,7 @@ Successful request. The result is a JSON array of representations of the created
      },
      "slots": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
          "type": "slot",
          "mediaType": "application/json",
          "size": 0,
@@ -897,7 +897,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -914,23 +914,23 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/store/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/store/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
           {
               "meta": {
-                  "href": "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b1",
-                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b1",
+                  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                   "type": "store",
                   "mediaType": "application/json"
               }
           },
           {
               "meta": {
-                  "href": "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b2",
-                  "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b2",
+                  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                   "type": "store",
                   "mediaType": "application/json"
               }
@@ -967,7 +967,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store/metadata"
+   "https://api.kladana.com/api/remap/1.2/entity/store/metadata"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -978,7 +978,7 @@ Successful request. The result is a JSON representation of the additional Wareho
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "mediaType": "application/json"
    },
    "attributes": [
@@ -1007,7 +1007,7 @@ Successful request. The result is a JSON representation of the additional Wareho
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
+   "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1018,7 +1018,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -1044,7 +1044,7 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1055,8 +1055,8 @@ Successful request. The result is a JSON representation of the Warehouse with th
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -1064,8 +1064,8 @@ Successful request. The result is a JSON representation of the Warehouse with th
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1073,8 +1073,8 @@ Successful request. The result is a JSON representation of the Warehouse with th
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1087,8 +1087,8 @@ Successful request. The result is a JSON representation of the Warehouse with th
    "archived": false,
    "parent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
@@ -1099,16 +1099,16 @@ Successful request. The result is a JSON representation of the Warehouse with th
      "postalCode": "125009",
      "country": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
      },
      "region": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -1122,7 +1122,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
    },
    "zones": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/zones",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/zones",
        "type": "storezone",
        "mediaType": "application/json",
        "size": 0,
@@ -1132,7 +1132,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
    },
    "slots": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/slots",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/95dcda62-056b-11e6-9464-e4de000000b7/slots",
        "type": "slot",
        "mediaType": "application/json",
        "size": 0,
@@ -1143,7 +1143,7 @@ Successful request. The result is a JSON representation of the Warehouse with th
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1173,7 +1173,7 @@ except for fields marked `Read Only` in the description of [Warehouse attributes
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1185,8 +1185,8 @@ except for fields marked `Read Only` in the description of [Warehouse attributes
                 "comment": "some words about address2",
                 "country": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
@@ -1195,8 +1195,8 @@ except for fields marked `Read Only` in the description of [Warehouse attributes
                 "postalCode": "11192342",
                 "region": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -1209,8 +1209,8 @@ except for fields marked `Read Only` in the description of [Warehouse attributes
             "externalCode": "EXTCODE",
             "parent": {
                 "meta": {
-                    "href": "https://api.kladana.in/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
-                    "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json"
                 }
@@ -1224,8 +1224,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -1233,8 +1233,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1242,8 +1242,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1262,8 +1262,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "comment": "some words about address2",
        "country": {
            "meta": {
-               "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-               "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+               "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                "type": "country",
                "mediaType": "application/json"
            }
@@ -1272,8 +1272,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "postalCode": "11192342",
        "region": {
            "meta": {
-               "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-               "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+               "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
                "type": "region",
                "mediaType": "application/json"
            }
@@ -1281,7 +1281,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
      "street": "Lenin goru2",
      "zones": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/zones",
          "type": "storezone",
          "mediaType": "application/json",
          "size": 0,
@@ -1291,7 +1291,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
      },
      "slots": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/0c8de58c-056c-11e6-9464-e4de00000003/slots",
          "type": "slot",
          "mediaType": "application/json",
          "size": 0,
@@ -1307,7 +1307,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1319,8 +1319,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
                 "comment": "some words about address2",
                 "country": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
                         "type": "country",
                         "mediaType": "application/json"
                     }
@@ -1329,8 +1329,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
                 "postalCode": "11192342",
                 "region": {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-                        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
                         "type": "region",
                         "mediaType": "application/json"
                     }
@@ -1344,7 +1344,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
             "attributes": [
                 {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
                         "type": "attributemetadata",
                         "mediaType": "application/json"
                     },
@@ -1360,8 +1360,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
      "type": "store",
      "mediaType": "application/json"
    },
@@ -1369,8 +1369,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -1378,8 +1378,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -1398,8 +1398,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
      "comment": "some words about address2",
      "country": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/country/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/country/40e6f69a-991c-4fbc-8be9-d0d906cad180",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
          "type": "country",
          "mediaType": "application/json"
        }
@@ -1408,8 +1408,8 @@ Successful request. The result is a JSON representation of the updated Warehouse
      "postalCode": "11192342",
      "region": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/region/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/region/4bd3542a-f401-11e8-8eb2-f2801f1b9fd1",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/region/metadata",
          "type": "region",
          "mediaType": "application/json"
        }
@@ -1418,7 +1418,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
    },
    "zones": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
        "type": "storezone",
        "mediaType": "application/json",
        "size": 0,
@@ -1428,7 +1428,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
    },
    "slots": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
        "type": "slot",
        "mediaType": "application/json",
        "size": 0,
@@ -1439,7 +1439,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
    "attributes": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/metadata/attributes/0cd74e1e-2e59-11e6-8a84-bae50000008a",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -1487,7 +1487,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1500,15 +1500,15 @@ Successful request. The result is a JSON representation of a list of Warehouse Z
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones",
      "type": "storezone",
      "mediaType": "application/json",
      "size": 2,
@@ -1518,7 +1518,7 @@ Successful request. The result is a JSON representation of a list of Warehouse Z
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7a6a11b6-12c5-11e6-9464-e4de00000007",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7a6a11b6-12c5-11e6-9464-e4de00000007",
          "type": "storezone",
          "mediaType": "application/json"
        },
@@ -1530,7 +1530,7 @@ Successful request. The result is a JSON representation of a list of Warehouse Z
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7a6a11b6-12c5-11e6-9464-e4de00000008",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7a6a11b6-12c5-11e6-9464-e4de00000008",
          "type": "storezone",
          "mediaType": "application/json"
        },
@@ -1556,7 +1556,7 @@ it is necessary and sufficient to specify a non-empty `name` field in the passed
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
@@ -1572,7 +1572,7 @@ Successful request. Result - JSON representation of the created Warehouse Zone.
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
              "mediaType": "application/json"
          },
@@ -1595,7 +1595,7 @@ Updated Warehouse Zones must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones
+     "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones
 "
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
@@ -1606,7 +1606,7 @@ Updated Warehouse Zones must contain the identifier in the form of metadata.
              },
              {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
                  "type": "storezone",
                  "mediaType": "application/json"
                },
@@ -1622,7 +1622,7 @@ Successful request. The result is a JSON array of representations of the created
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
              "mediaType": "application/json"
          },
@@ -1634,7 +1634,7 @@ Successful request. The result is a JSON array of representations of the created
      },
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003",
              "type": "storezone",
              "mediaType": "application/json"
          },
@@ -1662,7 +1662,7 @@ When deleting the zone to which the cells are attached, the cells are unlinked f
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1679,21 +1679,21 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
              "mediaType": "application/json"
            }
          },
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003",
              "type": "storezone",
              "mediaType": "application/json"
            }
@@ -1726,7 +1726,7 @@ curl -X POST
 
 ```shell
 curl -XGET
-   "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/zones/7944ef04-f831-11e5-7a69-971500188b18"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/zones/7944ef04-f831-11e5-7a69-971500188b18"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1737,7 +1737,7 @@ Successful request. The result is a JSON representation of the Warehouse Zone wi
 ```json
 {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/zones/7944ef04-f831-11e5-7a69-971500188b18",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/zones/7944ef04-f831-11e5-7a69-971500188b18",
          "type": "storezone",
          "mediaType": "application/json"
        },
@@ -1764,7 +1764,7 @@ In the body of the request, you need to pass a JSON representation of the Wareho
 
 ```shell
 curl -X PUT
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
@@ -1780,7 +1780,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7d479c5f-75f9-11ed-ac1a-000d00000003",
              "type": "storezone",
              "mediaType": "application/json"
          },
@@ -1829,7 +1829,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1842,15 +1842,15 @@ Successful request. The result is a JSON representation of a list of Warehouse B
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots",
      "type": "slot",
      "mediaType": "application/json",
      "size": 2,
@@ -1860,7 +1860,7 @@ Successful request. The result is a JSON representation of a list of Warehouse B
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7a6a11b6-12c5-11e6-9464-e4de00000007",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7a6a11b6-12c5-11e6-9464-e4de00000007",
          "type": "slot",
          "mediaType": "application/json"
        },
@@ -1872,7 +1872,7 @@ Successful request. The result is a JSON representation of a list of Warehouse B
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7a6a11b6-12c5-11e6-9464-e4de00000008",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7a6a11b6-12c5-11e6-9464-e4de00000008",
          "type": "slot",
          "mediaType": "application/json"
        },
@@ -1883,7 +1883,7 @@ Successful request. The result is a JSON representation of a list of Warehouse B
        "externalCode": "223ddxzv224",
        "zone": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7944ef04-f831-11e5-7a69-971500188b18",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/7944ef04-f831-11e5-7a69-971500188b18",
            "type": "storezone",
            "mediaType": "application/json"
          }
@@ -1905,7 +1905,7 @@ it is necessary and sufficient to specify a non-empty `name` field in the passed
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
@@ -1921,7 +1921,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "slot",
              "mediaType": "application/json"
          },
@@ -1938,7 +1938,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
@@ -1946,7 +1946,7 @@ curl -X POST
          "name": "slot 1",
          "zone": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
              "mediaType": "application/json"
            }
@@ -1961,7 +1961,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "slot",
              "mediaType": "application/json"
          },
@@ -1972,7 +1972,7 @@ Successful request. The result is a JSON representation of the created Warehouse
          "externalCode": "wYIaWipYjrZkJZZlw1Amy1",
          "zone": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
              "mediaType": "application/json"
            }
@@ -1991,7 +1991,7 @@ Updated Storage Bins must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots
+     "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots
 "
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
@@ -2002,7 +2002,7 @@ Updated Storage Bins must contain the identifier in the form of metadata.
              },
              {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
                  "type": "slot",
                  "mediaType": "application/json"
                },
@@ -2018,7 +2018,7 @@ Successful request. The result is a JSON array of representations of the created
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "slot",
              "mediaType": "application/json"
          },
@@ -2030,7 +2030,7 @@ Successful request. The result is a JSON array of representations of the created
      },
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
              "type": "slot",
              "mediaType": "application/json"
          },
@@ -2056,7 +2056,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -2072,21 +2072,21 @@ In the body of the request, you need to pass an array containing the JSON metada
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/9177a566-75f8-11ed-ac1a-000d00000000",
              "type": "slot",
              "mediaType": "application/json"
            }
          },
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
              "type": "slot",
              "mediaType": "application/json"
            }
@@ -2118,7 +2118,7 @@ curl -X POST
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/slots/7944ef04-f831-11e5-7a69-971500188b18"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/slots/7944ef04-f831-11e5-7a69-971500188b18"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -2129,7 +2129,7 @@ Successful request. The result is a JSON representation of the Storage Bin with 
 ```json
 {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/slots/7944ef04-f831-11e5-7a69-971500188b18",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/7944ef04-f831-11e5-7a69-971500188b19/slots/7944ef04-f831-11e5-7a69-971500188b18",
          "type": "slot",
          "mediaType": "application/json"
        },
@@ -2156,7 +2156,7 @@ In the body of the request, you need to pass a JSON representation of the Storag
 
 ```shell
 curl -X PUT
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
@@ -2172,7 +2172,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 [
      {
          "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
              "type": "slot",
              "mediaType": "application/json"
          },
@@ -2189,7 +2189,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 
 ```shell
 curl -X PUT
-   "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
+   "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
@@ -2197,7 +2197,7 @@ curl -X PUT
          "name": "slot 3",
          "zone": {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
              "type": "storezone",
              "mediaType": "application/json"
            }
@@ -2212,7 +2212,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 [
      {
        "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/7d479c5f-75f9-11ed-ac1a-000d00000003",
            "type": "slot",
            "mediaType": "application/json"
        },
@@ -2223,7 +2223,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
        "externalCode": "wYIaWipYjrZkJZZlw1Amy1",
        "zone": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/8277a566-75f8-11ed-ac1a-000d00000000",
            "type": "storezone",
            "mediaType": "application/json"
          }

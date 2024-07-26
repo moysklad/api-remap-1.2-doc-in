@@ -25,7 +25,7 @@ You can receive and change roles on behalf of an employee with `System Administr
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4"
+   "https://api.kladana.com/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -36,7 +36,7 @@ Successful request. The result is a JSON representation of the custom role.
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4",
     "type": "customrole",
     "mediaType": "application/json"
   },
@@ -375,7 +375,7 @@ Successful request. The result is a JSON representation of the custom role.
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/role/"
+   "https://api.kladana.com/api/remap/1.2/entity/role/"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -388,15 +388,15 @@ Successful request. The result is a JSON representation of user roles.
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/entity/role/",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/",
     "mediaType": "application/json",
     "size": 1,
     "limit": 1000,
@@ -405,7 +405,7 @@ Successful request. The result is a JSON representation of user roles.
   "rows": [
     {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4",
         "type": "customrole",
         "mediaType": "application/json"
       },
@@ -746,7 +746,7 @@ Successful request. The result is a JSON representation of user roles.
 
 ```shell
 curl -X POST
-  "https://api.kladana.in/api/remap/1.2/entity/role/"
+  "https://api.kladana.com/api/remap/1.2/entity/role/"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
@@ -791,7 +791,7 @@ Successful request. The result is a JSON representation of the created role.
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c",
     "type": "customrole",
     "mediaType": "application/json"
   },
@@ -1136,7 +1136,7 @@ Successful request. The result is a JSON representation of the created role.
 
 ```shell
 curl -X PUT
-  "https://api.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
+  "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
@@ -1181,7 +1181,7 @@ Successful request. The result is a JSON representation of the updated role.
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c",
     "type": "customrole",
     "mediaType": "application/json"
   },
@@ -1522,7 +1522,7 @@ Successful request. The result is a JSON representation of the updated role.
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
+   "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
    -H "Authorization: Basic <Credentials>
 ```
 

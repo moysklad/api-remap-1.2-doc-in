@@ -53,7 +53,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -66,15 +66,15 @@ Successful request. The result is a JSON representation of a list of Balance Adj
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/",
      "type": "counterpartyadjustment",
      "mediaType": "application/json",
      "size": 2,
@@ -84,28 +84,28 @@ Successful request. The result is a JSON representation of a list of Balance Adj
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
          "type": "counterpartyadjustment",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=1bb899bc-0b17-11ec-ac16-000a00000006"
+         "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=1bb899bc-0b17-11ec-ac16-000a00000006"
        },
        "id": "1bb899bc-0b17-11ec-ac16-000a00000006",
        "accountId": "9067e733-099c-11ec-ac16-000c00000001",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+           "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
          }
        },
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -118,20 +118,20 @@ Successful request. The result is a JSON representation of a list of Balance Adj
        "sum": 12.0,
        "agent": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+           "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
          }
        },
        "organization": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+           "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
          }
        },
        "created": "2021-09-01 14:24:01.873",
@@ -140,7 +140,7 @@ Successful request. The result is a JSON representation of a list of Balance Adj
        "attributes": [
          {
            "meta": {
-             "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes/f478774c-0bfb-11ec-ac12-000d000000d1",
+             "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes/f478774c-0bfb-11ec-ac12-000d000000d1",
              "type": "attributemetadata",
              "mediaType": "application/json"
            },
@@ -152,7 +152,7 @@ Successful request. The result is a JSON representation of a list of Balance Adj
        ],
        "files": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006/files",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/1bb899bc-0b17-11ec-ac16-000a00000006/files",
            "type": "files",
            "mediaType": "application/json",
            "size": 0,
@@ -163,28 +163,28 @@ Successful request. The result is a JSON representation of a list of Balance Adj
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
          "type": "counterpartyadjustment",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=24d56ba6-0b14-11ec-ac16-000b00000013"
+         "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=24d56ba6-0b14-11ec-ac16-000b00000013"
        },
        "id": "24d56ba6-0b14-11ec-ac16-000b00000013",
        "accountId": "9067e733-099c-11ec-ac16-000c00000001",
        "owner": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
            "type": "employee",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+           "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
          }
        },
        "shared": false,
        "group": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
            "type": "group",
            "mediaType": "application/json"
          }
@@ -198,20 +198,20 @@ Successful request. The result is a JSON representation of a list of Balance Adj
        "sum": 21300.0,
        "agent": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+           "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
          }
        },
        "organization": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-           "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
            "type": "organization",
            "mediaType": "application/json",
-           "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+           "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
          }
        },
        "created": "2021-09-01 14:02:48.685",
@@ -219,7 +219,7 @@ Successful request. The result is a JSON representation of a list of Balance Adj
        "published": false,
        "files": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013/files",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/24d56ba6-0b14-11ec-ac16-000b00000013/files",
            "type": "files",
            "mediaType": "application/json",
            "size": 0,
@@ -245,27 +245,27 @@ Mandatory fields to create:
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "agent": {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
                  "type": "counterparty",
                  "mediaType": "application/json",
-                 "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+                 "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
                }
              },
              "organization": {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
                  "type": "organization",
                  "mediaType": "application/json",
-                 "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+                 "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
                }
              },
              "sum": 12.5
@@ -279,28 +279,28 @@ Successful request. The result is a JSON representation of the created Balance A
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
      "type": "counterpartyadjustment",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=2775d672-0b1a-11ec-ac16-000a0000000a"
+     "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=2775d672-0b1a-11ec-ac16-000a0000000a"
    },
    "id": "2775d672-0b1a-11ec-ac16-000a0000000a",
    "accountId": "9067e733-099c-11ec-ac16-000c00000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
      }
    },
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -313,20 +313,20 @@ Successful request. The result is a JSON representation of the created Balance A
    "sum": 12.5,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+       "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+       "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
      }
    },
    "created": "2021-09-01 14:45:50.060",
@@ -334,7 +334,7 @@ Successful request. The result is a JSON representation of the created Balance A
    "published": false,
    "files": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a/files",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/2775d672-0b1a-11ec-ac16-000a0000000a/files",
        "type": "files",
        "mediaType": "application/json",
        "size": 0,
@@ -355,7 +355,7 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment"
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -363,20 +363,20 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
              {
                "agent": {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
                    "type": "counterparty",
                    "mediaType": "application/json",
-                   "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+                   "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
                  }
                },
                organization: {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
                    "type": "organization",
                    "mediaType": "application/json",
-                   "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+                   "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
                  }
                },
                "sum": 12.5
@@ -384,20 +384,20 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
              {
                "agent": {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
                    "type": "counterparty",
                    "mediaType": "application/json",
-                   "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
+                   "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
                  }
                },
                organization: {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
                    "type": "organization",
                    "mediaType": "application/json",
-                   "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
+                   "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
                  }
                },
                "sum": 32
@@ -412,28 +412,28 @@ Successful request. The result is a JSON array of representations of created and
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
        "type": "counterpartyadjustment",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=13bf011a-0b1b-11ec-ac16-000a0000000e"
+       "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=13bf011a-0b1b-11ec-ac16-000a0000000e"
      },
      "id": "13bf011a-0b1b-11ec-ac16-000a0000000e",
      "accountId": "9067e733-099c-11ec-ac16-000c00000001",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
        }
      },
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -446,20 +446,20 @@ Successful request. The result is a JSON array of representations of created and
      "sum": 12.5,
      "agent": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
          "type": "counterparty",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+         "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
        }
      },
      "organization": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+         "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
        }
      },
      "created": "2021-09-01 14:52:26.476",
@@ -467,7 +467,7 @@ Successful request. The result is a JSON array of representations of created and
      "published": false,
      "files": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e/files",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/13bf011a-0b1b-11ec-ac16-000a0000000e/files",
          "type": "files",
          "mediaType": "application/json",
          "size": 0,
@@ -478,28 +478,28 @@ Successful request. The result is a JSON array of representations of created and
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
        "type": "counterpartyadjustment",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=13cc2d25-0b1b-11ec-ac16-000a00000012"
+       "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=13cc2d25-0b1b-11ec-ac16-000a00000012"
      },
      "id": "13cc2d25-0b1b-11ec-ac16-000a00000012",
      "accountId": "9067e733-099c-11ec-ac16-000c00000001",
      "owner": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
        }
      },
      "shared": false,
      "group": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
          "type": "group",
          "mediaType": "application/json"
        }
@@ -512,20 +512,20 @@ Successful request. The result is a JSON array of representations of created and
      "sum": 32.0,
      "agent": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000055",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
          "type": "counterparty",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
+         "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
        }
      },
      "organization": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
          "type": "organization",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
+         "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b00000066"
        }
      },
      "created": "2021-09-01 14:52:26.576",
@@ -533,7 +533,7 @@ Successful request. The result is a JSON array of representations of created and
      "published": false,
      "files": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012/files",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/13cc2d25-0b1b-11ec-ac16-000a00000012/files",
          "type": "files",
          "mediaType": "application/json",
          "size": 0,
@@ -557,7 +557,7 @@ Successful request. The result is a JSON array of representations of created and
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -574,23 +574,23 @@ In the body of the request, you need to pass an array containing JSON of the met
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
    -d'[
         {
             "meta": {
-                "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
                 "type": "counterpartyadjustment",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
                 "type": "counterpartyadjustment",
                 "mediaType": "application/json"
             }
@@ -628,7 +628,7 @@ The structure of a separate object representing the additional the field is desc
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata"
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -639,12 +639,12 @@ Successful request. The result is a JSON representation of the additional balanc
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
      "mediaType": "application/json"
    },
    "attributes": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata/attributes",
        "type": "attributemetadata",
        "mediaType": "application/json",
        "size": 0,
@@ -670,7 +670,7 @@ Successful request. The result is a JSON representation of the additional balanc
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -681,28 +681,28 @@ Successful request. The result is a JSON representation of Balance Adjustments.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
      "type": "counterpartyadjustment",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+     "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b19",
    "accountId": "9067e733-099c-11ec-ac16-000c00000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
      }
    },
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -715,20 +715,20 @@ Successful request. The result is a JSON representation of Balance Adjustments.
    "sum": 12.5,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+       "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+       "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
      }
    },
    "created": "2021-09-01 14:52:26.476",
@@ -736,7 +736,7 @@ Successful request. The result is a JSON representation of Balance Adjustments.
    "published": false,
    "files": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
        "type": "files",
        "mediaType": "application/json",
        "size": 0,
@@ -763,7 +763,7 @@ are marked `Read-only` in the description of [Attributes of Balance Adjustment](
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -778,28 +778,28 @@ Successful request. The result is a JSON representation of the updated Balance A
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata",
      "type": "counterpartyadjustment",
      "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.in/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+     "uuidHref": "https://app.kladana.com/app/#counterpartyadjustment/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
    },
    "id": "7944ef04-f831-11e5-7a69-971500188b19",
    "accountId": "9067e733-099c-11ec-ac16-000c00000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/9334c6a2-099c-11ec-ac16-000b00000042",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
+       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=9334c6a2-099c-11ec-ac16-000b00000042"
      }
    },
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/906f1cd6-099c-11ec-ac16-000c00000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -812,20 +812,20 @@ Successful request. The result is a JSON representation of the updated Balance A
    "sum": 123.0,
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/947ebfcd-099c-11ec-ac16-000b00000083",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
+       "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.in/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
+       "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=94527995-099c-11ec-ac16-000b0000007e"
      }
    },
    "created": "2021-09-01 14:52:26.476",
@@ -833,7 +833,7 @@ Successful request. The result is a JSON representation of the updated Balance A
    "published": false,
    "files": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19/files",
        "type": "files",
        "mediaType": "application/json",
        "size": 0,

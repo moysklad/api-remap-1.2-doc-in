@@ -42,7 +42,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -54,15 +54,15 @@ Successful request. The result is an array of all Product Images.
      "context": {
          "employee": {
              "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                  "type": "employee",
                  "mediaType": "application/json"
              }
          }
      },
      "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images",
          "type": "image",
          "mediaType": "application/json",
          "size": 2,
@@ -72,46 +72,46 @@ Successful request. The result is an array of all Product Images.
      "rows": [
          {
              "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                  "type": "image",
                  "mediaType": "application/json",
-                 "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+                 "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
              },
              "title": "bird image",
              "filename": "birdimage.png",
              "size": 14052,
              "updated": "2019-01-24 16:55:24.567",
              "miniature": {
-                 "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+                 "href": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
                  "type": "image",
                  "mediaType": "image/png",
-                 "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+                 "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
              },
              "tiny": {
-                 "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+                 "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
                  "type": "image",
                  "mediaType": "image/png"
              }
          },
          {
              "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
                  "type": "image",
                  "mediaType": "application/json",
-                 "downloadHref": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
+                 "downloadHref": "https://api.kladana.com/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
              },
              "title": "birdimage1",
              "filename": "birdimage1.png",
              "size": 14052,
              "updated": "2019-01-24 16:55:25.047",
              "miniature": {
-                 "href": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
+                 "href": "https://api.kladana.com/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
                  "type": "image",
                  "mediaType": "image/png",
-                 "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+                 "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
              },
              "tiny": {
-                 "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+                 "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
                  "type": "image",
                  "mediaType": "image/png"
              }
@@ -143,7 +143,7 @@ In the `content` field, you need to specify an image encoded in Base64, in the `
   
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -160,46 +160,46 @@ Successful request. The result is an array of all Product Images.
 [
    {
        "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
            "type": "image",
            "mediaType": "application/json",
-           "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+           "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
        },
        "title": "bird image",
        "filename": "birdimage.png",
        "size": 14052,
        "updated": "2019-01-24 16:55:24.567",
        "miniature": {
-           "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+           "href": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
            "type": "image",
            "mediaType": "image/png",
-           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+           "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
    },
    {
        "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
            "type": "image",
            "mediaType": "application/json",
-           "downloadHref": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
+           "downloadHref": "https://api.kladana.com/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
        },
        "title": "birdimageNew",
        "filename": "birdimageNew.png",
        "size": 16,
        "updated": "2019-01-24 16:55:25.047",
        "miniature": {
-           "href": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
+           "href": "https://api.kladana.com/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
            "type": "image",
            "mediaType": "image/png",
-           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+           "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -223,17 +223,17 @@ If it is necessary to leave some Images for the Product, Bundle or Modification,
 
 ```shell
 curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
      -d'[
            {
              "meta": {
-               "href":"https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+               "href":"https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
                "type":"image",
                "mediaType":"application/json",
-               "downloadHref":"https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+               "downloadHref":"https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
              }
            },
            {
@@ -250,46 +250,46 @@ Successful request. The result is a modified array of all Product Images.
 [
    {
        "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f2728180-6afd-4d37-8a13-f3b48069bbb6",
            "type": "image",
            "mediaType": "application/json",
-           "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+           "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
        },
        "title": "bird image",
        "filename": "birdimage.png",
        "size": 14052,
        "updated": "2019-01-24 16:55:24.567",
        "miniature": {
-           "href": "https://api.kladana.in/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
+           "href": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
            "type": "image",
            "mediaType": "image/png",
-           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+           "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
    },
    {
        "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/933e41ac-1946-4bf0-9b21-51f2051f3e9f",
            "type": "image",
            "mediaType": "application/json",
-           "downloadHref": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
+           "downloadHref": "https://api.kladana.com/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f"
        },
        "title": "birdimageNew",
        "filename": "birdimageNew.png",
        "size": 16,
        "updated": "2019-01-24 16:55:25.047",
        "miniature": {
-           "href": "https://api.kladana.in/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
+           "href": "https://api.kladana.com/api/remap/1.2/download/933e41ac-1946-4bf0-9b21-51f2051f3e9f?miniature=true",
            "type": "image",
            "mediaType": "image/png",
-           "downloadHref": "https://miniature-prod.kladana.in/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+           "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.in/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -313,7 +313,7 @@ When deleting an image, the first image found with the given identifier is delet
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -335,25 +335,25 @@ When deleting several images for a Product, Kit or Modification, the first image
 
 ```shell
 curl -X POST
-   "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/delete"
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/delete"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
    -H "Content-Type: application/json"
          -d'[
                 {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/1aadd77f-90f9-4be6-bede-373f350b0e03",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/1aadd77f-90f9-4be6-bede-373f350b0e03",
                         "type": "image",
                         "mediaType": "application/json",
-                        "downloadHref": "https://api.kladana.in/api/remap/1.2/download/1aadd77f-90f9-4be6-bede-373f350b0e03"
+                        "downloadHref": "https://api.kladana.com/api/remap/1.2/download/1aadd77f-90f9-4be6-bede-373f350b0e03"
                     }
                 },
                 {
                     "meta": {
-                        "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f6aaab17-65a0-4425-841b-277aeef5b089",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/f6aaab17-65a0-4425-841b-277aeef5b089",
                         "type": "image",
                         "mediaType": "application/json",
-                        "downloadHref": "https://api.kladana.in/api/remap/1.2/download/f6aaab17-65a0-4425-841b-277aeef5b089"
+                        "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f6aaab17-65a0-4425-841b-277aeef5b089"
                     }
                 }
             ]'

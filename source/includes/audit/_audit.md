@@ -101,7 +101,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-  "https://api.kladana.in/api/remap/1.2/audit"
+  "https://api.kladana.com/api/remap/1.2/audit"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -114,15 +114,15 @@ Successful request. The result is a JSON representation of the list of Changes.
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/audit/",
+    "href": "https://api.kladana.com/api/remap/1.2/audit/",
     "type": "audit",
     "mediaType": "application/json",
     "size": 1,
@@ -132,7 +132,7 @@ Successful request. The result is a JSON representation of the list of Changes.
   "rows": [
     {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/audit/b912e9d1-3fbe-11e7-8a7f-40d000000000",
+        "href": "https://api.kladana.com/api/remap/1.2/audit/b912e9d1-3fbe-11e7-8a7f-40d000000000",
         "type": "audit",
         "mediaType": "application/json"
       },
@@ -156,13 +156,13 @@ Successful request. The result is a JSON representation of the list of Changes.
 | **filter** | `string` (optional) *Example: filter=entityType=customerorder* filter by entity type |
 
 Example of a query with context filtering by "customerorder" type
-https://api.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder
+https://api.kladana.com/api/remap/1.2/audit?filter=entityType=customerorder
 
 > Get Contexts with filtering
 
 ```shell
 curl -X GET
-  "https://api.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder"
+  "https://api.kladana.com/api/remap/1.2/audit?filter=entityType=customerorder"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -175,15 +175,15 @@ Successful request. The result is a JSON representation of a list of audit event
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/audit?filter=entityType=customerorder",
+    "href": "https://api.kladana.com/api/remap/1.2/audit?filter=entityType=customerorder",
     "type": "audit",
     "mediaType": "application/json",
     "size": 1,
@@ -193,7 +193,7 @@ Successful request. The result is a JSON representation of a list of audit event
   "rows": [
     {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/audit/83732f4b-792a-11e7-9464-d04800000005",
+        "href": "https://api.kladana.com/api/remap/1.2/audit/83732f4b-792a-11e7-9464-d04800000005",
         "type": "audit",
         "mediaType": "application/json"
       },
@@ -206,7 +206,7 @@ Successful request. The result is a JSON representation of a list of audit event
       "entityType": "customerorder",
       "events": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/audit/83732f4b-792a-11e7-9464-d04800000005/events",
+          "href": "https://api.kladana.com/api/remap/1.2/audit/83732f4b-792a-11e7-9464-d04800000005/events",
           "type": "auditevent",
           "mediaType": "application/json",
           "size": 1,
@@ -324,7 +324,7 @@ Request to receive Context events with the specified id. Result: JSON object inc
 
 ```shell
 curl -X GET
-  "https://api.kladana.in/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19/events"
+  "https://api.kladana.com/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19/events"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -337,15 +337,15 @@ Successful request. The result is a JSON representation of a list of events.
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/audit/c107864f-3f88-11e7-8a7f-40d000000041/events",
+    "href": "https://api.kladana.com/api/remap/1.2/audit/c107864f-3f88-11e7-8a7f-40d000000041/events",
     "type": "auditevent",
     "mediaType": "application/json",
     "size": 1,
@@ -368,18 +368,18 @@ Successful request. The result is a JSON representation of a list of events.
       "name": "some product",
       "audit": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19",
+          "href": "https://api.kladana.com/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19",
           "type": "audit",
           "mediaType": "application/json"
         }
       },
       "entity": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19",
-          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
         }
       }
     }
@@ -407,7 +407,7 @@ Request to receive events by the entity with the specified id. Result: JSON obje
 
 ```shell
 curl -X GET
-  "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit"
+  "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -420,15 +420,15 @@ Successful request. The result is a JSON representation of a list of events.
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit",
     "type": "auditevent",
     "mediaType": "application/json",
     "size": 1,
@@ -451,18 +451,18 @@ Successful request. The result is a JSON representation of a list of events.
       "name": "some product",
       "audit": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19",
+          "href": "https://api.kladana.com/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19",
           "type": "audit",
           "mediaType": "application/json"
         }
       },
       "entity": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19",
-          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.in/app/#good/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
         }
       }
     }
@@ -570,7 +570,7 @@ Filtering can be done by the fields described below.
 | **ymlconnectorsettings** | Synchronization setup (YML) |
 
 You can also filter audit contexts by custom lookup. To do this, you must pass the href of the custom directory as the **entityType** parameter.
-Example: https://api.kladana.in/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045
+Example: https://api.kladana.com/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045
 
 ### Get Filters
 
@@ -587,7 +587,7 @@ Result: JSON object including fields:
 
 ```shell
 curl -X GET
-  "https://api.kladana.in/api/remap/1.2/audit/metadata/filters"
+  "https://api.kladana.com/api/remap/1.2/audit/metadata/filters"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -694,7 +694,7 @@ Successful request. The result is a JSON representation of the list of Audit Fil
     "crptpackageitemremoval",
     "crptpackagedisaggregation",
     "evotorsetting",
-    "https://api.kladana.in/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045"
+    "https://api.kladana.com/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045"
   ],
   "eventtype": [
     "create",

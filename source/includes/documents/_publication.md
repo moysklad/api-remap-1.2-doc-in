@@ -30,7 +30,7 @@ The transactions of the following types can be published: Sales Order, Sales Inv
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
+   "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -43,16 +43,16 @@ Successful request. The result is a JSON representation of the list of Publicati
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/context/employee",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"
        }
      }
    },
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
      "type": "demand",
      "mediaType": "application/json",
      "size": 1,
@@ -62,13 +62,13 @@ Successful request. The result is a JSON representation of the list of Publicati
    "rows": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
          "type": "operationpublication",
          "mediaType": "application/json"
        },
        "template": {
          "meta": {
-           "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
            "type": "customtemplate",
            "mediaType": "application/json"
          }
@@ -96,14 +96,14 @@ Request to publish a transaction. The transaction publication is based on the pa
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
+     "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "template": {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
                  "type": "customtemplate",
                  "mediaType": "application/json"
                }
@@ -117,13 +117,13 @@ Successful request. The result is a JSON representation of the previously create
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
      "type": "operationpublication",
      "mediaType": "application/json"
    },
    "template": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
        "type": "customtemplate",
        "mediaType": "application/json"
      }
@@ -138,13 +138,13 @@ Successful request. The result is a JSON representation of the created Post.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
      "type": "operationpublication",
      "mediaType": "application/json"
    },
    "template": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
        "type": "customtemplate",
        "mediaType": "application/json"
      }
@@ -167,7 +167,7 @@ Successful request. The result is a JSON representation of the created Post.
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -189,7 +189,7 @@ Successful deletion of the Post.
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/publication/7944ef04-f831-11e5-7a69-971500188b19"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -200,13 +200,13 @@ Successful request. The result is a JSON representation of the Publication.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/0b71daec-055e-11e6-9464-e4de0000007e/publication/aec51463-bbd2-11e6-8a84-bae500000003",
      "type": "operationpublication",
      "mediaType": "application/json"
    },
    "template": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/customtemplate/38d1c843-1601-11e7-8af5-581e00000009",
        "type": "customtemplate",
        "mediaType": "application/json"
      }

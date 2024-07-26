@@ -14,7 +14,7 @@ Using the json api, you can add new variant characteristics.
 | **type** | String(255) | Value type Characteristics, always has the value string<br>`+Required for response` `+Read-only` |
 
 You can view lists of existing characteristics in the context of metadata
-variants, for example by making a GET request to the URL https://api.kladana.in/api/remap/1.2/entity/variant/metadata or https://api.kladana.in/api/remap/1.2/entity/variant/ metadata/characteristics
+variants, for example by making a GET request to the URL https://api.kladana.com/api/remap/1.2/entity/variant/metadata or https://api.kladana.com/api/remap/1.2/entity/variant/ metadata/characteristics
 The list of variant characteristics will be displayed in the characteristics collection.
 
 ### Get metadata
@@ -23,7 +23,7 @@ The list of variant characteristics will be displayed in the characteristics col
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/variant/metadata"
+   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -33,13 +33,13 @@ curl -X GET
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/variant",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/variant",
      "mediaType": "application/json"
    },
    "characteristics": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/4f70c518-60a1-11e7-6adb-ede500000003",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/4f70c518-60a1-11e7-6adb-ede500000003",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -50,7 +50,7 @@ curl -X GET
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/3b6eb61a-60c5-11e7-6adb-ede500000001",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/3b6eb61a-60c5-11e7-6adb-ede500000001",
          "type": "attributemetadata",
          "mediaType": "application/json"
        },
@@ -77,7 +77,7 @@ The user on whose behalf the request is made must have the rights to edit produc
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -92,7 +92,7 @@ Successful request. The result is a JSON representation of the generated Feature
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/6262b270-60c3-11e7-6adb-ede50000000d",
      "type": "attributemetadata",
      "mediaType": "application/json"
    },
@@ -111,7 +111,7 @@ Successful request. The result is a JSON representation of the generated Feature
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics"
+     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -132,7 +132,7 @@ Successful request. The result is a JSON array of representations of the generat
 [
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
        "type": "attributemetadata",
        "mediaType": "application/json"
      },
@@ -143,7 +143,7 @@ Successful request. The result is a JSON array of representations of the generat
    },
    {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/b56215dc-60c3-11e7-6adb-ede500000013",
        "type": "attributemetadata",
        "mediaType": "application/json"
      },
@@ -169,7 +169,7 @@ Successful request. The result is a JSON array of representations of the generat
 
 ```shell
 curl -X GET
-   "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
+   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -180,7 +180,7 @@ Successful request. The result is a JSON representation of the Feature.
 ```json
 {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010",
        "type": "attributemetadata",
        "mediaType": "application/json"
      },

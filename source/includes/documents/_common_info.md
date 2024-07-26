@@ -3,7 +3,7 @@
 
 Transaction template is a JSON object prefilled with standard fields, which can then be used to successfully create a transaction. Using the JSON API, you can get pre-filled transaction templates. They can be pre-filled both on the basis of other Transactions and with standard values without links to other transactions.
 
-To do this, in all Transactions from which you can get a template, there is a special resource `Transaction template`, the address of which is formed as following: `https://api.kladana.in/api/remap/1.2/entity/{transaction keyword}/new`.
+To do this, in all Transactions from which you can get a template, there is a special resource `Transaction template`, the address of which is formed as following: `https://api.kladana.com/api/remap/1.2/entity/{transaction keyword}/new`.
 
 In the body of the PUT request for this resource, you need to pass the metadata of the transaction, on the basis of which the template of the new transaction will be created, or simply pass an empty request body.
 
@@ -59,9 +59,9 @@ the URI filter parameter **search** is used.
    + by incoming number (incomingNumber)
 
    + Examples of contextual search queries (values must be urlencoded):
-     - `https://api.kladana.in/api/remap/1.2/entity/retaildemand?search=100`
-     - `https://api.kladana.in/api/remap/1.2/entity/salesreturn?search=marriage`
-     - `https://api.kladana.in/api/remap/1.2/entity/retailshift?search=night`
+     - `https://api.kladana.com/api/remap/1.2/entity/retaildemand?search=100`
+     - `https://api.kladana.com/api/remap/1.2/entity/salesreturn?search=marriage`
+     - `https://api.kladana.com/api/remap/1.2/entity/retailshift?search=night`
 
 ### Removing to trash
 
@@ -74,7 +74,7 @@ to the cart is available only if the employee has the appropriate rights, and co
 
 ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/supply/be3a3a0e-370c-11e7-1542-821d00000001/trash"
+     "https://api.kladana.com/api/remap/1.2/entity/supply/be3a3a0e-370c-11e7-1542-821d00000001/trash"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -101,15 +101,15 @@ Associating an internal order with a transfer.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
              "internalOrder": {
                "meta": {
-                 "href": "https://api.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
-                 "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/internalorder/metadata",
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/internalorder/metadata",
                  "type": "internalorder",
                  "mediaType": "application/json"
                }
@@ -123,8 +123,8 @@ The result is a move with the internalOrder field filled in.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/move/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/move/metadata",
      "type": "move",
      "mediaType": "application/json"
    },
@@ -132,8 +132,8 @@ The result is a move with the internalOrder field filled in.
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -141,8 +141,8 @@ The result is a move with the internalOrder field filled in.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -155,16 +155,16 @@ The result is a move with the internalOrder field filled in.
    "sum": 0,
    "project": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
        "type": "project",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -172,7 +172,7 @@ The result is a move with the internalOrder field filled in.
    "created": "2007-02-07 17:16:41",
    "positions": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7/positions",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/move/d9318341-b0da-11e6-8a84-bae5000000c7/positions",
        "type": "moveposition",
        "mediaType": "application/json",
        "size": 1,
@@ -183,24 +183,24 @@ The result is a move with the internalOrder field filled in.
    },
    "sourceStore": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "targetStore": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "internalOrder": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/internalorder/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/internalorder/metadata",
        "type": "internalorder",
        "mediaType": "application/json"
      }
@@ -216,7 +216,7 @@ Linking the invoice to the buyer for the Shipment.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -224,8 +224,8 @@ Linking the invoice to the buyer for the Shipment.
              "invoicesOut": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata",
                    "type": "invoiceout",
                    "mediaType": "application/json"
                  }
@@ -240,8 +240,8 @@ The result is a shipment with a new item in the invoicesOut collection.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/demand/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
      "type": "demand",
      "mediaType": "application/json"
    },
@@ -249,8 +249,8 @@ The result is a shipment with a new item in the invoicesOut collection.
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -258,8 +258,8 @@ The result is a shipment with a new item in the invoicesOut collection.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -272,38 +272,38 @@ The result is a shipment with a new item in the invoicesOut collection.
    "sum": 0,
    "store": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "agentAccount": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
        "type": "account",
        "mediaType": "application/json"
      }
    },
    "organizationAccount": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051/accounts/b932bc5b-9128-11e6-8a84-bae500000052",
        "type": "account",
        "mediaType": "application/json"
      }
@@ -311,7 +311,7 @@ The result is a shipment with a new item in the invoicesOut collection.
    "created": "2007-02-07 17:16:41",
    "positions": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/positions",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/positions",
        "type": "demandposition",
        "mediaType": "application/json",
        "size": 1,
@@ -326,8 +326,8 @@ The result is a shipment with a new item in the invoicesOut collection.
    "invoicesOut": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/invoiceout/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/6cb87758-95f4-11e6-8a84-bae500000067",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata",
          "type": "invoiceout",
          "mediaType": "application/json"
        }
@@ -344,7 +344,7 @@ Linking transfers to the Sales Order.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001"
+     "https://api.kladana.com/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -352,20 +352,20 @@ Linking transfers to the Sales Order.
              "moves": [
                      {
                          "meta": {
-                             "href": "https://api.kladana.in/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
-                             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/move/metadata",
+                             "href": "https://api.kladana.com/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
+                             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/move/metadata",
                              "type": "move",
                              "mediaType": "application/json",
-                             "uuidHref": "https://app.kladana.in/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
+                             "uuidHref": "https://app.kladana.com/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
                          }
                      },
                      {
                          "meta": {
-                             "href": "https://api.kladana.in/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
-                             "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/move/metadata",
+                             "href": "https://api.kladana.com/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
+                             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/move/metadata",
                              "type": "move",
                              "mediaType": "application/json",
-                             "uuidHref": "https://app.kladana.in/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
+                             "uuidHref": "https://app.kladana.com/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
                          }
                      }
                  ]
@@ -379,8 +379,8 @@ The result is a Sales Order with new items in the moves collection.
 {
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -388,8 +388,8 @@ The result is a Sales Order with new items in the moves collection.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -400,24 +400,24 @@ The result is a Sales Order with new items in the moves collection.
    "sum": 0,
    "store": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/store/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
        "type": "store",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
    },
    "state": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata/states/8c33b721-8782-11ed-c0a8-a00c000000b6",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata/states/8c33b721-8782-11ed-c0a8-a00c000000b6",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
        "type": "state",
        "mediaType": "application/json"
      }
@@ -426,7 +426,7 @@ The result is a Sales Order with new items in the moves collection.
    "published": false,
    "files": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001/files",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001/files",
        "type": "files",
        "mediaType": "application/json",
        "size": 0,
@@ -436,7 +436,7 @@ The result is a Sales Order with new items in the moves collection.
    },
    "positions": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001/positions",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/c60e87dc-97b2-11ed-c0a8-a00d00000001/positions",
        "type": "customerorderposition",
        "mediaType": "application/json",
        "size": 0,
@@ -452,20 +452,20 @@ The result is a Sales Order with new items in the moves collection.
    "moves": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/move/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/move/bc8aa8d7-95fa-11ed-c0a8-a00c0000001a",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/move/metadata",
          "type": "move",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
+         "uuidHref": "https://app.kladana.com/app/#move/edit?id=bc8aa8d7-95fa-11ed-c0a8-a00c0000001a"
        }
      },
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/move/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/move/06406b97-9138-11e6-8a84-bae500000000",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/move/metadata",
          "type": "move",
          "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.in/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
+         "uuidHref": "https://app.kladana.com/app/#move/edit?id=06406b97-9138-11e6-8a84-bae500000000"
        }
      }
    ]
@@ -495,7 +495,7 @@ Linking a receipt order to a Sales Order.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/cashin/7944ef04-f831-11e5-7a69-971500188b19"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -503,8 +503,8 @@ Linking a receipt order to a Sales Order.
              "operations": [
                {
                  "meta": {
-                   "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
-                   "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
                    "type": "customerorder",
                    "mediaType": "application/json"
                  }
@@ -519,8 +519,8 @@ The result is a credit note with a new element in the operations collection.
 ```json
 {
    "meta": {
-     "href": "https://api.kladana.in/api/remap/1.2/entity/cashin/834d731c-b313-11e6-8a84-bae50000008e",
-     "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/cashin/metadata",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/cashin/834d731c-b313-11e6-8a84-bae50000008e",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashin/metadata",
      "type": "cashin",
      "mediaType": "application/json"
    },
@@ -528,8 +528,8 @@ The result is a credit note with a new element in the operations collection.
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "owner": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
        "type": "employee",
        "mediaType": "application/json"
      }
@@ -537,8 +537,8 @@ The result is a credit note with a new element in the operations collection.
    "shared": false,
    "group": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
        "type": "group",
        "mediaType": "application/json"
      }
@@ -551,32 +551,32 @@ The result is a credit note with a new element in the operations collection.
    "sum": 32131000,
    "contract": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/contract/92df2d9c-ab02-11e6-8a84-bae500000084",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/contract/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/contract/92df2d9c-ab02-11e6-8a84-bae500000084",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
        "type": "contract",
        "mediaType": "application/json"
      }
    },
    "project": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/project/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
        "type": "project",
        "mediaType": "application/json"
      }
    },
    "agent": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/counterparty/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/b942c396-9128-11e6-8a84-bae500000056",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
        "type": "counterparty",
        "mediaType": "application/json"
      }
    },
    "organization": {
      "meta": {
-       "href": "https://api.kladana.in/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
-       "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/organization/metadata",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
        "type": "organization",
        "mediaType": "application/json"
      }
@@ -585,8 +585,8 @@ The result is a credit note with a new element in the operations collection.
    "operations": [
      {
        "meta": {
-         "href": "https://api.kladana.in/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
-         "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/customerorder/metadata",
+         "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/559adab5-915c-11e6-8a84-bae500000014",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
          "type": "customerorder",
          "mediaType": "application/json"
        },

@@ -16,7 +16,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
 
   ```shell
    curl -X POST
-     "https://api.kladana.in/api/remap/1.2/entity/product"
+     "https://api.kladana.com/api/remap/1.2/entity/product"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -44,8 +44,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
 ```json
   {
     "meta": {
-      "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
-      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json"
     },
@@ -53,8 +53,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
     "owner": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
@@ -62,8 +62,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "shared": true,
     "group": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -76,7 +76,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "pathName": "",
     "images": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
         "type": "image",
         "mediaType": "application/json",
         "size": 2,
@@ -88,8 +88,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       "value": 500.0,
       "currency": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json"
         }
@@ -100,7 +100,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "value": 0.0,
         "priceType": {
           "meta": {
-            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+            "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
             "type": "pricetype",
             "mediaType": "application/json"
           },
@@ -139,7 +139,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
 
   ```shell
    curl -X PUT
-     "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
+     "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -167,8 +167,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
 ```json
   {
     "meta": {
-      "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
-      "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json"
     },
@@ -176,8 +176,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
     "owner": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
@@ -185,8 +185,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "shared": true,
     "group": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
-        "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -199,7 +199,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     "pathName": "",
     "images": {
       "meta": {
-        "href": "https://api.kladana.in/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/images",
         "type": "image",
         "mediaType": "application/json",
         "size": 2,
@@ -211,8 +211,8 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       "value": 500.0,
       "currency": {
         "meta": {
-          "href": "https://api.kladana.in/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
-          "metadataHref": "https://api.kladana.in/api/remap/1.2/entity/currency/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json"
         }
@@ -223,7 +223,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
         "value": 0.0,
         "priceType": {
           "meta": {
-            "href": "https://api.kladana.in/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
+            "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
             "type": "pricetype",
             "mediaType": "application/json"
           },
