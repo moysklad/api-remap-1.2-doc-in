@@ -1,6 +1,6 @@
 ## Entity
 Using the JSON API, you can create and update information about legal entities, request lists of legal entities and information on individual legal entities. With the help of a special resource, you can manage the accounts of a separate legal entity. The entity code for a legal entity in the JSON API is the **organization** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 Search among objects of legal entities to match the search string will be carried out in the following fields:
 
@@ -17,12 +17,12 @@ Search among objects of legal entities to match the search string will be carrie
 |----------------------------|----------------------------------------------------| -------- | ------- |
 | **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
-| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address) |
+| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address) |
 | **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
 | **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
 | **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code |
-| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
+| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
 | **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
 | **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
 | **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
@@ -45,11 +45,11 @@ Search among objects of legal entities to match the search string will be carrie
 | **attributes**        | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional fields of a legal entity |
 | **certificatedate**   | DateTime      | | Date of certificate |
 | **certificateNumber** | String(255)   | | Certificate number |
-| **ChiefAccountSign**  | Object        | | Signature of the chief accountant. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **ChiefAccountSign**  | Object        | | Signature of the chief accountant. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **ChiefAccountant**   | String(255)   | | Chief accountant |
 | **director**          | String(255)   || Head |
 | **directorPosition**  | String(255)   | | Head position |
-| **directorSign**      | Object        | | Leader's signature. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **directorSign**      | Object        | | Leader's signature. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **email**             | String(255)   | `=` `!=` `~` `~=` `=~` | Email address |
 | **fax**               | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number |
 | **fsrarId**           | String(255)   | | Identifier in FSRAR |
@@ -67,7 +67,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **okpo**              | String(255)   | | OKPO |
 | **payerVat**          | Boolean       | | Is this legal entity a VAT payer |
 | **phone**             | String(255)   | `=` `!=` `~` `~=` `=~` | City phone number |
-| **stamp**             | Object        | | Seal. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **stamp**             | Object        | | Seal. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **utmUrl**            | String(255)   | | UTM IP address |
 
 #### Nested entity attributes

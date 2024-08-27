@@ -15,11 +15,11 @@ Shipment supports external widget change notification protocol **change-handler*
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **applicable** | Boolean                                            | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object)                                      | [Operators add. fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object)                                      | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when Shipment was last deleted<br>`+Read Only` |
+| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of the Shipment last deletion<br>`+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Shipment Comment <br/> `+Change-handler` `+Update-provider`|
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Shipment Code<br>`+Required in response` `+Change-handler` |
 | **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata. Maximum number of files - 100.<br>`+Required when replying` `+Expand` |
@@ -27,24 +27,24 @@ Shipment supports external widget change notification protocol **change-handler*
 | **id** | UUID                                               | `=` `!=` | Shipment ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Shipment Metadata<br>`+Required in response` `+Change-handler` |
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Shipment date<br>`+Required for response` `+Change-handler` `+Update-provider` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of Shipment<br>`+Required for response` `+Change-handler` `+Update-provider` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment Name<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **overhead** | Object                                             | | Overheads. [More details here](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
+| **overhead** | Object                                             | | Overhead expenses. [Learn more](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **paidSum** | Float                                              || Amount of incoming payments for Shipment<br>`+Required when replying` `+Read only` |
+| **paidSum** | Float                                              || Amount of incoming payments for the Shipment<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray                                          | | Shipment item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
-| **printed** | Boolean                                            | `=` `!=` | Is the Shipment document printed<br>`+Required when responding` `+Read Only` |
+| **printed** | Boolean                                            | `=` `!=` | Is the Shipment printed or not<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **published** | Boolean                                            | `=` `!=` | Is the Shipment document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **published** | Boolean                                            | `=` `!=` | Is the Shipment published or not<br>`+Required when replying` `+Read Only` |
+| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shipmentAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipping address Shipping <br/> `+Change-handler` |
-| **shipmentAddressFull** | Object                                             | | Delivery address of Shipments with details for individual fields. [More details here](../documents/#transactions-shipment-shipments-entity-attributes-delivery-address)<br> `+Change-handler` |
+| **shipmentAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment delivery address<br/> `+Change-handler` |
+| **shipmentAddressFull** | Object                                             | | Delivery address of Shipments with details for individual fields. [Learn more](../documents/#transactions-shipment-shipments-entity-attributes-delivery-address)<br> `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Shipment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Shipment last updated time<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
@@ -53,12 +53,12 @@ Shipment supports external widget change notification protocol **change-handler*
 
 #### Overhead Expenses
 
-Description of overhead fields.
+Description of overhead expenses fields.
 
 | Title | Type | Description |
 | ------- |------| -------- |
-| **sum** | Int  | Amount in rupees<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
+| **sum** | Int  | Amount in paise<br>`+Required when replying` `+Update-provider` |
+| **distribution** | Enum | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
 #### Links to other transactions
 
@@ -91,18 +91,18 @@ The Shipment item object contains the following fields:
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------| ------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification/bundle, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/product variant/bundle, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **cost** | Int                                                | Cost price (only for services) |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
-| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
 | **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
-| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [More details here](../documents/#transactions-shipment-shipments-codes-for-marking-of-goods-and-transport-packages) |
-| **trackingCodes_1162** | Array(Object)                                      | Codes for marking goods in tag format 1162. [More details here](../documents/#transactions-shipment-shipments-codes-for-marking-goods-and-transport-packages-in-tag-format-1162) |
-| **overhead** | Int                                                | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
+| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [Learn more](../documents/#transactions-shipment-shipments-codes-for-marking-of-goods-and-transport-packages) |
+| **trackingCodes_1162** | Array(Object)                                      | Codes for marking goods in tag format 1162. [Learn more](../documents/#transactions-shipment-shipments-codes-for-marking-goods-and-transport-packages-in-tag-format-1162) |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 

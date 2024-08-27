@@ -303,7 +303,7 @@ Filtering examples:
 
 ### Get Profit and Loss Report by product variants
 
-The Profit and Loss report includes: products, kits, services and product variants. The variants are displayed unlike the parent product.
+The Profit and Loss report includes: products, bundles, services and product variants. The variants are displayed unlike the parent product.
 
 **Parameters**
 
@@ -460,7 +460,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|------ |
-| **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-employee)<br>`+Required when answering` |
+| **employees** | Object | Brief representation of the Employee in the report. [Learn more](../dictionaries/#entities-employee)<br>`+Required when answering` |
 | **margin** | Float | Profitability<br>`+Required when answering` |
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
@@ -737,7 +737,7 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | ---------| ---- |----------|
-| **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-sales-channel)<br>`+Required when replying` |
+| **salesChannel** | Object | A brief representation of the Sales Channel in the report. [Learn more](../dictionaries/#entities-sales-channel)<br>`+Required when replying` |
 | **margin** | Float | Profitability<br>`+Required when answering` |
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
@@ -755,7 +755,7 @@ Successful request. The result is a JSON representation of the report.
 | ---------| ---- |---------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when responding` |
 | **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
-| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
+| **type** | Enum | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
 
 #### Attributes available for filtering
 
