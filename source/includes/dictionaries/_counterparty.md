@@ -3,7 +3,7 @@
 
 Using the JSON API, you can create and update information about Counterparties, request lists of Counterparties and information on individual Counterparties. Accounts of the Counterparty and its contact persons can be managed both as part of a separate Counterparty, and separately - using special resources for managing accounts and contact persons of the Counterparty. The entity code for the Counterparty in the JSON API is the keyword **counterparty**. Learn more about [Counterparties](https://kladana.zendesk.com/hc/en-us/articles/6507246022045-Create-counterparty).
 
-This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
+The entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of the Counterparty is carried out according to several conditions. If the values of the counterparty fields satisfy at least one of the conditions, then the counterparty will be found.
 
@@ -33,16 +33,16 @@ The fourth search condition for the fields of all contact persons of the counter
 | Title                  | Type                                               | Filtration | Description |
 |------------------------|----------------------------------------------------| -------- | -------- |
 | **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
+| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
 | **actualAddress**      | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
+| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
 | **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
 | **attributes**         | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
 | **bonusPoints**        | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty Code |
-| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
-| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
+| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
+| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
 | **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
 | **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
 | **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
@@ -55,10 +55,10 @@ The fourth search condition for the fields of all contact persons of the counter
 | **id**                 | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
 | **meta**               | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
 | **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
-| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
+| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
 | **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
+| **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [Learn more](../dictionaries/#entities-price-type-price-types) |
 | **salesAmount**        | Int                                                | | Amount of sales<br>`+Required when replying` `+Read only` |
 | **shared**             | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |

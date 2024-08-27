@@ -35,7 +35,7 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Receiving Status Metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
@@ -46,13 +46,13 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **vatIncluded** | Boolean | | Is VAT included in the price<br>`+Change-handler` `+Update-provider` |
 | **vatSum** | Float | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
-#### Overhead
-Description of overhead fields
+#### Overhead expenses
+Description of overhead expenses fields
 
 | Title | Type | Description |
 | ---------------- | --- | ------ |
 | **sum** | Int | Amount in paise<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead allocation `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider`|
+| **distribution** | Enum | Overhead expenses allocation `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider`|
 
 #### Links to other documents
 

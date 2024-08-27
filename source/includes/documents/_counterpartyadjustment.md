@@ -28,7 +28,7 @@ The entity code for Balance Adjustment as part of the JSON API is the **counterp
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only`                                                                           |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only`                                                                           |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                          |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in rupees<br>`+Required when replying` `+Read only`                                                              |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in paise<br>`+Required when replying` `+Read only`                                                              |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only`                                              |
 
 ### Get a list of Balance Adjustments

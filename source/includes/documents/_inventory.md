@@ -43,7 +43,7 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | **correctionAmount** | Float                                              | Difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
 | **correctionSum** | Float                                              | Excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
 | **quantity** | Int                                                | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 

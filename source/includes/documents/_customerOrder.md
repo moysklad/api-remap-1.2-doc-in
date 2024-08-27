@@ -45,7 +45,7 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. Cannot be edited |
-| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
+| **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date and time of the Sales Order last update<br>`+Required when replying` `+Read-only``+Change-handler` |
  
 ##### Tax system code 
@@ -78,7 +78,7 @@ Sales Order items are arranged as a list of objects (products, services, variant
 | **discount** | Int                                                | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` `+Update-provider` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
-| **price** | Float                                              | Price of a product/service in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **price** | Float                                              | Price of a product/service in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | Int                                                | The number of product/service items of a certain type. If the item is a product that has tracking by serial numbers enabled, the value in this field is always equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider `|
 | **reserve** | Int                                                | The item reserve<br>`+Change-handler` `+Update-provider` |
 | **shipped** | Int                                                | Shipped<br>`+Required on response``+Change-handler` |

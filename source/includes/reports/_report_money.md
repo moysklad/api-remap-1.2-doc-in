@@ -172,8 +172,8 @@ Successful request. The result is a JSON representation of the report.
 #### Unit
 | Title | Type | Description |
 | ------------ | ------ |----- |
-| **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [More details here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **organization** | Object | Organization. [More details here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **organization** | Object | Organization. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
 | **balance** | Float | Current balance<br>`+Required when answering` |
 
 #### Organization account

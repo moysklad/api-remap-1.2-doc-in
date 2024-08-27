@@ -33,7 +33,7 @@ Bills of Materials are a list of products and product variants. Material object 
 | **accountId**                 | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                      |
 | **assortment**                | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand`                                                                                                               |
 | **id**                        | UUID                                               | Stuff ID<br>`+Required when replying` `+Read Only`                                                                                                                                        |
-| **product**                   | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
+| **product**                   | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a product variant is specified in the **assortment** field, then the field contains the product to which the product variant relates<br>`+Required when replying` `+Expand` |
 | **quantity**                  | Int                                                | Quantity of goods of this type in item<br>`+Required when answering`                                                                                                                      |
 | **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Process item metadata<br>`+Required when replying`                                                                                                                                        |
 | **materialProcessingPlan**    | [Meta](../#kladana-json-api-general-info-metadata) | Material BoM item metadata<br>`+Read Only`                                                                                                                                                |
@@ -50,8 +50,8 @@ Product Object of a Bill of Materials contains the following fields:
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
 | **id** | UUID | Product ID<br>`+Required when replying` `+Read Only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a modification is specified in the **assortment** field, then this field contains the product to which this modification relates<br>`+Required when replying` `+Expand` |
-| **quantity** | Int | Quantity of goods of this type in item<br>`+Required when answering` |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a product variant is specified in the **assortment** field, the field contains the product to which the product variant relates<br>`+Required when replying` `+Expand` |
+| **quantity** | Int | Quantity of products of this type in item<br>`+Required when answering` |
 
 You can work with materials and products using [special resources for managing items of Bills of Materials](../dictionaries/#entities-bills-of-materials),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,

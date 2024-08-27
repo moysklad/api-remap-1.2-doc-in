@@ -25,20 +25,20 @@ Using the JSON API, you can create and update information about Bundles, request
 | **id** | UUID | `=` `!=` | Bundle ID<br>`+Required for response` `+Read only` |
 | **images** | MetaArray | | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 10)<br>`+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bundle Metadata<br>`+Required when replying` |
-| **minprice** | Object | | Minimum price. [More here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
+| **minprice** | Object | | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Name<br>`+Required when responding` `+Required when creating` |
-| **overhead** | Object | | Additional expenses. [More here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-additional-expenses) |
+| **overhead** | Object | | Additional expenses. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-additional-expenses) |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked goods. "true" - the feature is enabled. |
 | **pathName** | String | `=` `!=` `~` `~=` `=~` | The name of the group the Bundle belongs to<br>`+Required when replying` `+Read-only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-bundle-bundles-entity-attributes-sign-of-the-subject-of-calculation) |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-sign-of-the-subject-of-calculation) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Group metadata of Bundles<br>`+Expand` |
 | **salePrice** | Array(Object) | | Sale prices |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-bundle-bundles-entity-attributes-tax-system-code) |
+| **taxSystem** | Enum | | Tax system code. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-tax-system-code) |
 | **tnved** | String(255) | | TN VED code |
-| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-bundle-bundles-entity-attributes-type-of-labeled-products) |
+| **trackingType** | Enum | | Type of labeled product. [](../dictionaries/#entities-bundle-bundles-entity-attributes-type-of-labeled-products) |
 | **uom* | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |

@@ -33,7 +33,7 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             || Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **rate** | Object                                             || Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | Float                                              | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
@@ -64,7 +64,7 @@ Invoice Items is a list of products, product variants, bundles, and services. Th
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
 | **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
 | **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |

@@ -2619,14 +2619,14 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **fullName**     | String(255) | First name Middle name Last name<br>`+Read only` |
 | **group**        | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
 | **id**           | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
-| **image**        | Object | Photo of an employee. [More here](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
+| **image**        | Object | Photo of an employee. [Learn more](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
 | **inn**          | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
 | **lastName**     | String(255) | Last name<br>`+Required when replying` `+Read only` |
 | **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
 | **middleName**   | String(255) | Middle name<br>`+Read only` |
 | **name**         | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
 | **owner**        | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
-| **permissions**  | Object | Enumeration of employee's permissions. [More details here](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
+| **permissions**  | Object | Enumeration of employee's permissions. [Learn more](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
 | **phone**        | String(255) | Employee phone<br>`+Read-only` |
 | **position**     | String(255) | Job Title<br>`+Read Only` |
 | **shared**       | Boolean | Sharing<br>`+Required when replying` `+Read Only` |

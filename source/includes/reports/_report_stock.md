@@ -834,7 +834,7 @@ The report displays a list of products and their quantities at each of your ware
 | Title | Type | Description |
 | -------| ------------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the items in stock<br>`+Required when answering` |
-| **stockByStore** | Object | The stock at the warehouse. [More details here](../reports/#reports-balance-report-stock-balances)<br>`+Required when replying` |
+| **stockByStore** | Object | The stock at the warehouse. [Learn more](../reports/#reports-balance-report-stock-balances)<br>`+Required when replying` |
 
 #### Stock balance
 The `stockByStore` field is returned from objects with the following attributes:

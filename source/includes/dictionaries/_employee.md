@@ -2,7 +2,7 @@
 ### Employees
 Using the JSON API, you can request lists of Employees and information on individual Employees. The entity code for an Employee in the JSON API is the **employee** keyword. 
 Learn more about [Employees](https://kladana.zendesk.com/hc/en-us/articles/7583130803857-Manage-user-access-).
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among employee objects for matching the search string will be carried out using the following fields:
 
@@ -26,7 +26,7 @@ The search among employee objects for matching the search string will be carried
 | **fullName** | String(255)                                        | | First name Middle name Last name<br>`+Read only` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
-| **images** | Object                                             | | Photo of an employee. [More here](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
+| **images** | Object                                             | | Photo of an employee. [Learn more](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
 | **inn** | String(255)                                        | | TIN of the employee (in the format of the TIN of an individual) |
 | **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
