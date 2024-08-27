@@ -63,8 +63,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | --------|---------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Incoming payments. |
 
 **Parameters**
@@ -837,7 +837,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | --------|---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 

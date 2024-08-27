@@ -380,7 +380,7 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------| ------|------------- |
-| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Issuance metadata |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **rows** | Array(Object) | An array of JSON objects representing the additional fields. |
 
 > Get additional shipping fields
@@ -977,14 +977,14 @@ Successful request. The result is a JSON representation of the shipment with upd
 The Kladana API allows you to operate with the following transactions: 
 
 - [Shipment](documents/#transactions-shipment), 
-- [Sales order](documents/#transactions-sales-order), 
-- [Sales invoice](documents/#transactions-sales-invoice), 
+- [Sales Order](documents/#transactions-sales-order), 
+- [Sales Invoice](documents/#transactions-sales-invoice), 
 - [Stock Adjustment](documents/#transactions-stock-adjustment),
-- [Internal order](documents/#transactions-internal-order), 
-- [Inventory](documents/#transactions-inventory-count), 
+- [Internal Order](documents/#transactions-internal-order), 
+- [Inventory Count](documents/#transactions-inventory-count), 
 - [Write-off](documents/#transactions-write-off), 
 - [Transfer](documents/#transactions-transfer), 
-- [Production order](documents/#transactions-production-order), 
+- [Production Order](documents/#transactions-production-order), 
 - [Purchase Return](documents/#transactions-purchase-returns), 
 - [Purchase Order](documents/#transactions-purchase-order), 
 - [Sales Return](documents/#transactions-sales-return), 
@@ -993,17 +993,13 @@ The Kladana API allows you to operate with the following transactions:
 
 The transactions contain items that can be worked with both as part of a separate transaction, and with the help of special resources for managing transaction items.
 
-###### Working with items within a separate document
+###### Working with items within a transaction 
 
-When working with items within a separate document, they can be passed as the **positions** field, which is an array of document items, as part of the object used
-in a request to modify or create a document. In this case, the array of items is perceived as a set of all items of the document
-and completely replaces (in the case of an update request) all already existing items in the document. In the case of an update request, all items that previously existed in the document are
-but were not passed in the body of the update request will be deleted, all existing items whose id matches the id of the transmitted items in the request body will be updated,
-and new items that were not previously among the existing items of the document will be added to the list of items.
+When working with items within a transaction, you can include them in the **positions** field, which is an array of transaction items. This array is used in a request to modify or create a transaction. In this case, the array of items is treated as the complete set of all transaction items and will completely replace all existing items (in the case of an update request). For update requests, any items that previously existed in the transaction but were not included in the request body will be deleted, all existing items whose IDs match those in the request body will be updated, and new items that were not previously part of the transaction will be added.
 
-###### Working with document items using special resources
+###### Working with transaction items using special resources
 
-The JSON API provides special resources for managing document items. These resources are usually available at the following URI and you can use them to remove items from the document by making a request with the DELETE method to the URL of the corresponding resource with the item id:
+The JSON API provides special resources for managing transaction items. These resources are usually available at the following URI and you can use them to remove items from the transaction by making a request with the DELETE method to the URL of the corresponding resource with the item ID:
 
 + `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
@@ -1017,13 +1013,13 @@ curl -X DELETE
 ```
 
 
-When working with special resources, you can request a list of all document items, create new items, and update existing ones. When creating new items using these resources, you can bypass the limit of 1000 items per document. Also, using this resource, you can manage the bulk update of items. To change information on line items, you must use the document line item management resources that are available by URI:
+When working with special resources, you can request a list of all transaction items, create new items, and update existing ones. When creating new items using these resources, you can bypass the limit of 1000 items per transaction. Also, using this resource, you can manage the bulk update of items. To change information on line items, you must use the transaction line item management resources that are available by URI:
 
-+ `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
++ `/{transaction entity code, as part of the JSON API}/{ID of a single transaction}/positions/{ID of a single position}`
 
-Both ways of working with items are also described in the documentation for each of the documents.
+Both ways of working with items are also described for each transaction.
 
-It is also possible to bulk delete document items using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of items to be deleted, specifying the meta field for each of the items.
+It is also possible to bulk delete transaction items using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of items to be deleted, specifying the meta field for each of the items.
 
 > An example URL for a request to bulk delete items using POST:
 
@@ -1062,7 +1058,7 @@ curl -X POST
 ]
 ```
 
-### Balances and cost in document items
+### Balances and cost in transaction items
 
 > Representation of balances and cost as part of an item
 
@@ -1078,7 +1074,7 @@ curl -X POST
 }
 ```
 
-When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example,
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example:
 
 + `/customerorder/{document id}?fields=stock&expand=positions`
 
@@ -1133,12 +1129,12 @@ Within the JSON API, you can remove a value from a field of type object (if this
 the main interface may contain an empty value). For example: the Contract field (**contract**) in any of the documents. This can be done by passing
 request to update the entity in the given null field. For example: `{ "contract": null }`.
 Removing the currency from documents (`{rate: null}`) is equivalent to changing the currency of the document to the default currency. As a result, all
-prices and amounts will be recalculated. Overhead costs will also be recalculated if they have not been explicitly stated.
+prices and amounts will be recalculated. Overhead expenses will also be recalculated if they have not been explicitly stated.
 
 Exceptions:
 
 + Structured address
-   [Contractor](dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address),
+   [Counterparty](dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address),
    [Legal entity](dictionaries/#entities-entity-legal-entity-attributes-of-entity-address),
    Points of sale,
    [Warehouse](dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address),
@@ -1353,7 +1349,7 @@ An example request using the state.name filter:
 `https://api.kladana.com/api/remap/1.2/entity/customerOrder?filter=state.name=Новый;state.name=Принят`
 
 The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of items with the specified assortment entities.
-assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Service, Modification, Bundle, Product group.
+assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Product variant, Service, Bundle, Product group.
 The selection will include those documents that contain the specified entities in the number of items, or, in the case of specifying Product Groups, one of the entities from the specified Product Groups.
 
 An example query using the assortment filter:
@@ -2707,7 +2703,7 @@ These types have the following fields:
 | **cashIn**                 | OPERATION | Receipt order |
 | **cashOut**                | OPERATION | Disbursement order |
 | **cashboxAdjustment**      | DICTIONARY | Adjustment of cash balances |
-| **company**                | DICTIONARY | Contractors |
+| **company**                | DICTIONARY | Counterparties |
 | **contract**               | DICTIONARY | Contracts |
 | **counterpartyAdjustment** | DICTIONARY | Adjustment of counterparty or employee balances |
 | **country**                | BASE | Countries |
@@ -3197,7 +3193,7 @@ Successful request. The result is a JSON representation of information about the
 ```
 
 ### Server applications
-To access the API, a token issued to the Vendor during the installation of the Server Application by the user of MySklad can be used.
+To access the API, a token issued to the Vendor during the installation of the Server Application by the user of Kladana can be used.
 
 #### Get application context
 Returns the parameters of the application within which the request is made (similar to the context of the Employee).
@@ -3227,13 +3223,13 @@ curl -X GET
 ```
 
 #### Getting the entity of the installed application
-Returns the parameters of the installed application by the id of the application installed on the account.
+Returns the parameters of the installed application by the ID of the application installed on the account.
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: b58a6312-f958-11e9-ac12-000a00000020* id of the application installed on the account |
+| **id** | `string` (required) *Example: b58a6312-f958-11e9-ac12-000a00000020* ID of the application installed on the account |
 
 > Sample request to get the entity of an installed application
 

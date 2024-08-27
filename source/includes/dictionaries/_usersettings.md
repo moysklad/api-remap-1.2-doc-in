@@ -70,7 +70,7 @@ Valid start screen values:
 | Receiving Import | imported |
 | Directory import | import custom |
 | Inventory | inventory |
-| Contractors | company |
+| Counterparties | company |
 | Cart | recyclebin |
 | Adjustments | adjustment |
 | Bulk edit | bulkEdit |

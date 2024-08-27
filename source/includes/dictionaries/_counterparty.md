@@ -40,7 +40,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **attributes**         | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
 | **bonusPoints**        | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
-| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor Code |
+| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty Code |
 | **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
 | **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
 | **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
@@ -48,7 +48,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
 | **discounts**          | Array(Object)                                      || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
 | **email**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | Email address |
-| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
+| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty external code<br>`+Required when replying` |
 | **fax**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Fax number |
 | **files**              | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
@@ -64,7 +64,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
 | **syncId**             | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
 | **tags**               | Array(String)                                      | `=` `!=` | Account groups |
-| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Counterparty<br>`+Required when replying` `+Read-only` |
 
 ##### Detail fields
 
@@ -121,7 +121,7 @@ Only for counterparty with type `Legal entity. India`.
 | **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of the Counterparty<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when replying` |
-| **updated** | DateTime                                           | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime                                           | The moment of the last update of the Counterparty<br>`+Required when replying` `+Read-only` |
 
 ##### Contact persons of Counterparties
 
@@ -148,7 +148,7 @@ Only for counterparty with type `Legal entity. India`.
 | **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
 | **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
-| **description** | String(4096)                                       | Contractor incident text<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Counterparty incident text<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID                                               | incident ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required for response` |
 
@@ -178,7 +178,6 @@ If the counterparty type is `Legal entity. India`, the following fields of detai
 | **legalAddress**                  | Legal address of the Counterparty |
 | **legalTitle**                    | Full name of the Counterparty     |
 | **tags**                          | Groups (array)                    |
-
 
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -739,13 +738,13 @@ Successful request. The result is a JSON representation of the list of Counterpa
 }
 ```
 
-Get a list of all Contractors.
+Get a list of all Counterparties.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | -----| ----- | ------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing counterparties. |
 
 **Parameters**
@@ -767,7 +766,7 @@ Mandatory fields to create:
 ##### Description
 
 The counterparty is created based on the passed JSON object,
-which contains the representation of the new Contractor.
+which contains the representation of the new Counterparty.
 
 > Example 1
 
@@ -1520,7 +1519,7 @@ curl -X POST
 ]
 ```
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Contractors.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Counterparties.
 In the body of the request, you need to pass an array containing the JSON representation of the Accounts that you want to create or update.
 Updated Counterparties must contain the identifier in the form of metadata.
 
@@ -1530,7 +1529,7 @@ Updated Counterparties must contain the identifier in the form of metadata.
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b1*. id of the Contractor |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b1*. Counterparty ID |
 
 > Request to delete the Counterparty with the specified id.
 
@@ -1671,7 +1670,7 @@ The structure of a separate object representing the additional the field is desc
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* - id fields. |
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* - Fields ID. |
 
 > Request for information on a separate additional field.
 
@@ -1718,7 +1717,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). The result is a JSON representation of the Contractor with the specified id.
+> Response 200(application/json). The result is a JSON representation of the Counterparty with the specified id.
 
 ```json
 {
@@ -1874,7 +1873,7 @@ curl -X GET
 #### Description
 
 
-The view of the Account with the specified id is updated.
+The view of the Account with the specified ID is updated.
 In the request body, you can specify only those fields that need to be changed for the Counterparty, except for those that
 are marked `Read only` in the description of [Account attributes](../dictionaries/#entities-counterparty).
 Fields that were not specified in the request JSON are not changed.
@@ -1886,7 +1885,7 @@ elements previously present in it.
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 
 > Example
 
@@ -1968,7 +1967,7 @@ curl -X PUT
         }'
 ```
 
-> Response 200 (application/json) Successful update. The result is a JSON representation of the updated Contractor.
+> Response 200 (application/json) Successful update. The result is a JSON representation of the updated Counterparty.
 
 ```json
 {
@@ -2191,7 +2190,7 @@ curl -X PUT
         }'
 ```
 
-> Response 200(application/json). Successful update. The result is a JSON representation of the updated Contractor.
+> Response 200(application/json). Successful update. The result is a JSON representation of the updated Counterparty.
 
 ```json
 {
@@ -2382,7 +2381,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). Returns an array of JSON representations of accounts of the Contractor.
+> Response 200(application/json). Returns an array of JSON representations of accounts of the Counterparty.
 
 ```json
 {
@@ -2448,7 +2447,7 @@ curl -X GET
 | Parameter | Description |
 | ----- | ------ |
 | **accountId** | `string` (required) (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account id. |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account id . |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account ID. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
@@ -2503,7 +2502,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). Returns an array of JSON representations of the Contractor's contact persons.
+> Response 200(application/json). Returns an array of JSON representations of the contact persons of the Counterparty.
 
 ```json
 {
@@ -2666,7 +2665,7 @@ curl -X POST
 
 | Parameter | Description |
 | ----- | ------ |
-| **contactpersonId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - id of the contact person. |
+| **contactpersonId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - ID of the contact person. |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
@@ -2985,7 +2984,7 @@ curl -X GET
 
 Update the incident of the Account with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read-only` in the description of [Contractor's incident attributes](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents).
+marked `Read-only` in the description of ['s incident attributes](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents).
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**

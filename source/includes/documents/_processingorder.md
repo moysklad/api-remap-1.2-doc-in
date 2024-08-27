@@ -49,7 +49,7 @@ Production Order Items is a list of products and product variants corresponding 
 | Title | Type | Description |
 | ------------ | --------------- |----------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
@@ -72,8 +72,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------ | --------------- |------------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Production Orders. |
 
 **Parameters**
@@ -1422,7 +1422,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------------ | --------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Fields ID |
 
  
 > Request for information on a separate additional field.
@@ -1557,9 +1557,9 @@ Successful request. The result is a JSON representation of the prefilled Product
 
 | Parameter | Description |
 | ------------ | --------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The id of the Production Order. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Production Order ID |
  
-> Request to receive a separate Production Order with the specified id.
+> Request to receive a separate Production Order with the specified ID.
 
 ```shell
 curl -X GET
@@ -1662,7 +1662,7 @@ When you update the **organization** field, you must also update the **organizat
 
 | Parameter | Description |
 | ------------ | --------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The id of the Production Order. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Production Order ID |
 
 > An example of a request to update a Production Order.
 
@@ -2063,15 +2063,15 @@ Request to get a list of all items of this Production Order.
 
 | Title | Type | Description |
 | ----- | ------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the items of the Production Order. |
 
 **Parameters**
 
 | Parameter | Description |
 | ---------| -----------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The id of the Production Order. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Production Order ID |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
@@ -2162,7 +2162,7 @@ Line item of the Production Order with the specified item id.
 
 | Parameter | Description |
 | ------------ | --------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The id of the production order. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The of the production order. |
 | **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Production Order item id. |
  
 > Request to receive a separate item of the Production Order with the specified id.
@@ -2209,8 +2209,8 @@ Request to update a line item of the Production Order. There is no way to update
 
 | Parameter | Description |
 | ----------| ------------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The id of the Production Order. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Production Order item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Production Order ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Production Order item ID|
 
 > An example of a request to update a line item in a Production Order.
 
@@ -2272,10 +2272,10 @@ Successful request. The result is a JSON representation of the updated Productio
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* The id of the Production Order. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Production Order item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Production Order ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Production Order item ID |
  
-> Request to delete a Production Order item with the specified id.
+> Request to delete a Production Order item with the specified ID.
 
 ```shell
 curl -X DELETE

@@ -133,7 +133,7 @@ The structure of the minPrice object.
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 #### Bundle Components
-Bundle Components is a list of goods/services/modifications that are part of a Bundle. Bundle can have from 1 to 50 components. Object of a Bundle component contains the following fields:
+Bundle Components is a list of products/services/product variants that are part of a Bundle. Bundle can have from 1 to 50 components. Object of a Bundle component contains the following fields:
 
 | Title | Type | Description |
 | ------------- | --------------- |----------------- |
@@ -212,8 +212,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | ------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Bundles. |
 
 **Parameters**
@@ -1691,8 +1691,8 @@ Request to get a list of all components of this Bundle.
 
 | Title | Type | Description |
 | ------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bundle. |
 
 **Parameters**

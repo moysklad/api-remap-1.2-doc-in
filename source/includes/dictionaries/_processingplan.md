@@ -42,7 +42,7 @@ Peculiarities: if you do not specify a connection with the item of the technolog
 
 #### Products of Bills of Materials
 
-Products of Bills of Materials are a list of goods / modifications obtained during production.
+Products of Bills of Materials are a list of products/ product variants obtained during production.
 Product Object of a Bill of Materials contains the following fields:
 
 | Title | Type | Description |
@@ -74,8 +74,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- | -------- |---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bills of Materials. |
 
 **Parameters**
@@ -825,8 +825,8 @@ Request for a list of all materials of the Bill of Materials.
 
 | Title | Type | Description |
 | -------- | -------- |------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bill of Materials. |
 
 **Parameters**
@@ -1254,8 +1254,8 @@ Request for a list of all products of the Bill of Materials.
 
 | Title |Type | Description |
 | -------- | -------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the products of Bills of Materials. |
 
 **Parameters**
@@ -1614,9 +1614,9 @@ Successful request. The result is a JSON representation of the updated Bill of M
 | Parameter | Description |
 | ---------- | ---------- |
 | **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bills of Materials id. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* product id Bills of Materials. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bills of Materials product ID. |
  
-> Product Removal Request Bills of Materials with the specified id.
+> Product Removal Request Bills of Materials with the specified ID.
 
 ```shell
 curl -X DELETE

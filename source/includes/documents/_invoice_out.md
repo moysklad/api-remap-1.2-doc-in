@@ -61,12 +61,12 @@ Invoice Items is a list of products, product variants, bundles, and services. Th
 | Title | Type                                               | Description |
 | ---------- |----------------------------------------------------|-------- |
 | **accountId** | UUID                                               | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------- | --------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Sales Invoices. |
 
 **Parameters**
@@ -1570,7 +1570,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Fields ID |
  
 #### Separate additional field
  
@@ -2509,9 +2509,9 @@ Request for a list of all items of the Sales Invoice.
 
 | Title | Type | Description |
 | ---------- | --------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the items in the Sales Invoice. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Sales Invoice items. |
 
 **Parameters**
 
@@ -2588,7 +2588,7 @@ Successful request. The result is a JSON representation of the list of items of 
 Request to create a new item in the Sales Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2665,8 +2665,8 @@ Request an item of Sales Invoice with the specified item id.
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Invoice item ID |
  
 > Request to receive a separate item of the Sales Invoice with the specified id.
 
@@ -2715,8 +2715,8 @@ Request to update a line item in an Invoice. There is no way to update the item 
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Invoice item ID |
  
 > An example of a request to update a line item in a Sales Invoice.
 
@@ -2770,8 +2770,8 @@ Successful request. The result is a JSON representation of the updated Sales Inv
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Invoice item ID |
  
 > Request to delete a separate item of the Sales Invoice with the specified id.
 

@@ -163,7 +163,7 @@ Successful request. The result is a JSON array of representations of the generat
 
 | Parameter | Description |
 | ------- | ------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Features. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* ID Features. |
 
 > Request for a separate Feature with the specified id.
 

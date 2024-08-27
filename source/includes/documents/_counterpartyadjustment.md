@@ -553,7 +553,7 @@ Successful request. The result is a JSON array of representations of created and
 | ------- | -------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
 
-> Request to delete Account adjustments of the counterparty with the specified id.
+> Request to delete Account adjustments of the counterparty with the specified ID.
 
 ```shell
 curl -X DELETE

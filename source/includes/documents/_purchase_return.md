@@ -34,7 +34,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount Purchase Returns in rupees<br>`+Required when replying` `+Read Only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Purchase Returns total amount in paise<br>`+Required when replying` `+Read Only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
 | **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
@@ -57,13 +57,13 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | Title | Type | Descriptions|
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is an item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` |
 | **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float | The price of the products/services in paise<br>`+Required when answering` |
+| **quantity** | Int | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------| --------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Returns to Suppliers. |
 
 **Parameters**
@@ -1682,9 +1682,9 @@ Successful request. The result is a JSON array of representations of the generat
 
 | Parameter | Description |
 | ----------| --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Returns id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Returns ID|
  
-> Request to remove the Return to the supplier with the specified id.
+> Request to remove the Return to the supplier with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -1849,7 +1849,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ----------| --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2476,8 +2476,8 @@ Request for a list of all items of the Purchase Return.
 
 | Title | Type | Description |
 | ----------| ----- | ---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Purchase Return items. |
 
 **Parameters**
@@ -2692,7 +2692,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
 Request to create a new item in Purchase Returns.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items).
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

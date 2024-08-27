@@ -78,7 +78,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
-When transferring entities with an address to MySklad, use either a string address or a structured one.
+When transferring entities with an address to Kladana, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
@@ -155,8 +155,8 @@ Request to get a list of legal entities on this account.
 
 | Title | Type | Description|
 | ---------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing a legal entity. |
 
 **Parameters**

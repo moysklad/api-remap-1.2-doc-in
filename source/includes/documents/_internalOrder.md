@@ -34,9 +34,9 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Internal order status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Internal order in rupees<br>`+Required when replying` `+Read only` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Internal Order total amount in paise<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when Internal Order was last updated<br>`+Required when replying` `+Read Only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Internal Order was last updated<br>`+Required when replying` `+Read Only` |
 | **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when answering` |
 | **vatIncluded** | Boolean                                            | | Is VAT included in the price |
 | **vatSum** | Float                                              | | VAT amount<br>`+Required when replying` `+Read only` |
@@ -48,11 +48,11 @@ Items of the Internal order is a list of products, services, and product variant
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------|---------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`|
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
@@ -1158,7 +1158,7 @@ Successful request. The result is a JSON representation of the Internal Orders m
 
 | Parameter | Description |
 | ------- | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
 
  
 > Request for information on a separate additional field.
@@ -1565,9 +1565,9 @@ Request for a list of all items in this Internal Order.
 
 | Title | Type | Description |
 | ------- | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing Internal Order items. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Internal Order items. |
 
 **Parameters**
 
@@ -1642,7 +1642,7 @@ Successful request. The result is a JSON representation of the item list of a si
 Request to create a new item in the Internal Order.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-internal-order-internal-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

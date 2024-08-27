@@ -122,9 +122,9 @@ Result: JSON object with the following fields:
 
 | Name | Type | Description |
 | -----|----- | ----------- |
-| **meta** | Meta | Issuance metadata|
-| **context** | Meta | Metadata about the employee who made the request |
-| **rows** | Array(Object) | JSON object array representing Sales Orders|
+| **meta** | Meta | Issuance metadata.|
+| **context** | Meta | Metadata of the employee who made the request. |
+| **rows** | Array(Object) | JSON object array representing Sales Orders.|
 
 **Parameters**
 
@@ -1558,7 +1558,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------- | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
 
 #### Separate additional field
 > Request for information on a separate additional field.
@@ -2367,9 +2367,9 @@ Request to receive a list of all items of this Sales Order.
 
 | Title | Type | Description |
 | ----------- | ------- | ------------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | issuance metadata,|
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing items in the Sales Order. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | issuance metadata.|
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Sales Order items. |
 
 **Parameters**
 
@@ -2520,7 +2520,7 @@ Successful request. The result is a JSON representation of a list of individual 
 Request to create a new item in the Sales Order.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification/set that the item represents.
++ **assortment** - Link to the product/service/series/product variant/set that the item represents.
 
 You can also specify a field named **product**, **service**, **variant**, **bundle** as per
 what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)

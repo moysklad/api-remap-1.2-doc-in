@@ -35,7 +35,7 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 | **counterparty.email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
 | **counterparty.inn** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty type |
 | **counterparty.phone** | String(255) | `=` `!=` `~` `~=` `=~` | Phone number |
-| **id** | UUID | `=` `!=` | counterparty id |
+| **id** | UUID | `=` `!=` | Counterparty ID |
 
 #### Counterparty
 
@@ -53,13 +53,13 @@ If your plan does not include the CRM option, you will not be able to receive th
 
 ### Get indicators of counterparties
 Request for a report on counterparties.
-The result of a successful request is a JSON representation of a list of reports for individual contractors:
+The result of a successful request is a JSON representation of a list of reports for individual Counterparties:
 
 
 | Title | Type | Description |
 | -------- | ------- | ------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing reports on individual counterparties. |
 
 **Parameters**
@@ -273,13 +273,13 @@ Successful request. The result is a JSON representation of a report on counterpa
 ### Selected indicators of counterparties
 Request to receive a report on the specified counterparties. You need to pass an array of `counterparties`,
 containing metadata of counterparties for which reports are required.
-The result of a successful request is a JSON representation of the list of reports for the specified contractors:
+The result of a successful request is a JSON representation of the list of reports for the specified Counterparties:
 
 
 | Title | Type | Description|
 | ------ | ------- | ------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | json arrayprojects that submit reports on individual counterparties. |
 
 > An example of requesting reports for several counterparties.

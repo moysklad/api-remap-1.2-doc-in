@@ -1,14 +1,14 @@
-## Working with Files in Documents, Nomenclature and Accounts
+## Working with Files in Transactions, Products, Servicies, Bundles, Tasks and Counterparties
 
-For an extended description and addition of entities with information, in Kladana it is possible to work with
-[Files](../dictionaries/#entities-files) to
-[Documents](../documents/#transactions),
-Nomenclature ([Products](../dictionaries/#entities-product),
-[Kits](../dictionaries/#entities-bundle),
+For an extended description and addition of entities with information, in Kladana you can use
+[Files](../dictionaries/#entities-files) in
+[Transactions](../documents/#transactions),
+[Products](../dictionaries/#entities-product),
+[Bundles](../dictionaries/#entities-bundle),
 [Services](../dictionaries/#entities-service),
-[Modifications](../dictionaries/#entities-product-variant)),
+[Product variants](../dictionaries/#entities-product-variant),
 [Tasks](../dictionaries/#entities-task) and
-[Contractors](../dictionaries/#entities-counterparty).
+[Counterparties](../dictionaries/#entities-counterparty).
 Files can be attached to entities and requested at any convenient time.
 Information on files is displayed along with json representation of the entity to which the given file belongs. For getting
 file, you must use the link from the json description of the file representation. You can learn more about Files and working with them

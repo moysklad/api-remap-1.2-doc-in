@@ -75,7 +75,7 @@ Features of creating a list of barcodes when creating a set:
 + If you pass a list of empty barcode values to the input, then no barcodes will be created for the products.
 + If you do not pass the barcodes attribute to the input or pass an empty list in it, then by default one random barcode of the EAN13 type will be created for the product.
 
-About working with Kit fields can be read [here](../#kladana-json-api-general-info-additional-fields)
+Learn more about [bundle fields](../#kladana-json-api-general-info-additional-fields)
 
 ##### Product variant Metadata
 The Product variant Metadata contains information about the characteristics of the Product variants as well as price types.
@@ -167,8 +167,8 @@ The result of a successful request is a JSON representation of the list of Produ
 
 | Title | Type | Description |
 | ------ | --------- |----- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Product variants. |
 
 

@@ -1,7 +1,7 @@
 # Audit
 ## Audit
 
-The MySklad service collects information about all events in the system. This part of the service is called an audit, and the accumulated information is called audit events.
+The Kladana app collects information about all events in the system. This part of the service is called an audit, and the accumulated information is called audit events.
 Changes to a specific entity are available to users if they have view rights.
 
 The main entities in JSON API auditing are contexts and events.
@@ -16,7 +16,7 @@ The user can get detailed information about changes in the system through the JS
 To view the general audit feed via the JSON API, the user can [request a list of contexts](../audit/#audit-audit-get-contexts), which will contain general information
 about the changes that have occurred in the system, as well as a link to related events.
 To view detailed information on a particular context, you need to [request events for a specific context](../audit/#audit-audit-get-events-by-context).
-The response to the user will contain detailed information about the entity changes that occurred as part of this update in the system, in [special diff format](../audit/#audit-audit-events-39-diff-39-field-format)
+The response to the user will contain detailed information about the entity changes that occurred as part of this update in the system, in [special 'diff' format](../audit/#audit-audit-events-39-diff-39-field-format)
 
 + **View events for a single entity**
 
@@ -85,8 +85,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description|
 | ----------- | ------| ------------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the changes. |
 
 **Parameters**
@@ -224,7 +224,7 @@ Audit events contain detailed information about the changes that have occurred, 
 
 #### Event Types
 Events are divided into several types, ranging from entity creation audit to print audit,
-and consist of information about the time of the event and the changes that occurred during this event. Different types of events differ from each other [diff field format](../audit/#audit-audit-events-39-diff-39-field-format),
+and consist of information about the time of the event and the changes that occurred during this event. Different types of events differ from each other ['diff' field format](../audit/#audit-audit-events-39-diff-39-field-format),
 more about which below.
 
 + Account registration
@@ -245,8 +245,8 @@ more about which below.
 | ----------| -----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **additionalInfo** | String(4096) | Additional Event Information<br>`+Read Only`                                                                                                                                                                  |
 | **audit** | Enum | Context metadata<br>`+Required for response` `+Read-only`                                                                                                                                                     |
-| **diff** | object | Changes occurred in the Event, in the special diff format described in the [Diff Field Format](../audit/#audit-audit-events-39-diff-39-field-format) section<br>`+Required for response` `+Only for reading` |
-| **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, modifications, kits deleted before 20.08.2017<br>`+Read only`                                                                             |
+| **diff** | object | Changes occurred in the Event, in the special 'diff' format described in the ['diff' field format](../audit/#audit-audit-events-39-diff-39-field-format) section<br>`+Required for response` `+Only for reading` |
+| **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, product variants, bundles deleted before 20.08.2017<br>`+Read only`                                                                             |
 | **entityType** | Enum | Entity name<br>`+Required for response` `+Read only`                                                                                                                                                          |
 | **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only`                                                                                                                                                          |
 | **moment** | DateTime | Event creation time<br>`+Required for response` `+Read-only`                                                                                                                                                  |
@@ -306,12 +306,12 @@ For entity creation events, the ``diff`` field will be absent.
 | **newValue** | Boolean | Attribute value after update<br>`+Required for response` `+Read-only` |
 
 ### Get Events by Context
-Request to receive Context events with the specified id. Result: JSON object including fields:
+Request to receive Context events with the specified ID. Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------| -----|----------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing events. |
 
 **Parameters**
@@ -388,11 +388,11 @@ Successful request. The result is a JSON representation of a list of events.
 ```
 
 ### Get Events by Entity
-Request to receive events by the entity with the specified id. Result: JSON object including fields:
+Request to receive events by the entity with the specified ID. Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------ | ------------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing events. |
 
@@ -472,7 +472,7 @@ Successful request. The result is a JSON representation of a list of events.
 
 ### Filters
 
-The JSON API of the MySklad service provides the ability to filter [Audit contexts](../audit/#audit-audit-contexts) using the ``filter`` url parameter.
+The JSON API of the Kladana provides the ability to filter [Audit contexts](../audit/#audit-audit-contexts) using the ``filter`` url parameter.
 More details about this parameter can be found in the section [Filtering the selection using the filter parameter](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter)
 Filtering can be done by the fields described below.
 

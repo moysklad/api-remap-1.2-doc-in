@@ -77,8 +77,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | -------- | ----------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Employee. |
 
 **Parameters**
@@ -795,7 +795,7 @@ for which no individual permissions were previously set.
 | **viewRecycleBin** | Boolean | true | View Cart |
 | **viewSaleProfit** | Boolean | true | View profitability |
 | **viewSerialNumbers** | Boolean |true | View serial numbers |
-| **viewStockReport** | Boolean | true | View balances by product |
+| **viewStockReport** | Boolean | true | View the stock by product |
 | **viewTurnover** | Boolean | true | View turnovers |
 
 ###### List of entity permissions
@@ -845,7 +845,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **cashIn** | OPERATION | All ALL | Receipt order |
 | **cashOut** | OPERATION | All ALL | Disbursement order |
 | **cashboxAdjustment** | DICTIONARY | All ALL | Adjustment of cash balances |
-| **company** | DICTIONARY | All ALL | Contractors |
+| **company** | DICTIONARY | All ALL | Counterparties |
 | **contract** | DICTIONARY | All ALL | Contracts |
 | **counterpartyAdjustment** | DICTIONARY | All ALL | Adjustment of counterparty or employee balances |
 | **country** | base | All ALL | Countries |

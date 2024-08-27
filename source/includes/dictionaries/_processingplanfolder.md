@@ -28,9 +28,9 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------ | -------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request |
-| **rows** | Array(Object) | An array of JSON objects representing Bills of Materials Folders |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing Bill of Materials folders. |
 
 **Parameters**
 

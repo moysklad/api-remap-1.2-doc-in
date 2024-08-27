@@ -43,7 +43,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type | Description |
 | -------- |------| ---------- |
-| **amount** | Int  | Amount of savings in rupees<br>`+Required when answering` |
+| **amount** | Int  | Amount of savings in paise<br>`+Required when answering` |
 | **discount** | Int  | Discount percentage corresponding to this amount |
 
 
@@ -54,8 +54,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- |------- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing discounts. |
 
 **Parameters**
@@ -305,7 +305,7 @@ Successful request. The result is a list of all discounts of all types for the a
 
 ### Create a cumulative discount
 
-Request to create a new cumulative discount. Required fields: **name** (discount name), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount valid for all contractors).
+Request to create a new cumulative discount. Required fields: **name** (discount name), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount valid for all counterparties).
 
 > An example of creating a new cumulative discount
 
@@ -408,7 +408,7 @@ Request for a cumulative discount.
 
 | Parameter | Description |
 | -------- |------- |
-| id | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* discount id. |
+| ID| `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* discount ID. |
 
 > An example of obtaining a cumulative discount.
 
@@ -598,7 +598,7 @@ curl -X DELETE
 Successful removal of the cumulative discount.
 
 ### Create a personal discount
-Request to create a new personal discount. Required fields: **name** (discount name), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount valid for all contractors)
+Request to create a new personal discount. Required fields: **name** (discount name), **active** (is the discount active), **allProducts** (is the discount valid for all products), **allAgents** (is the discount valid for all Counterparties)
 
 > Example of creating a new personal discount
 
@@ -1151,14 +1151,14 @@ curl -X DELETE
 > Response 200(application/json)
 Successful removal of special price
 
-### Change rupees rounding
-Request to change the rounding of rupees. In the body of the request, you must pass the fields that will be updated (**name** or **active**). The response will also include the **agentTags** and **allAgents** fields, but they cannot be changed.
+### Change the paise rounding
+Request to change the rounding of paise. In the body of the request, you must pass the fields that will be updated (**name** or **active**). The response will also include the **agentTags** and **allAgents** fields, but they cannot be changed.
 
 | Parameter | Description |
 | -------- |------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Discount ID for rounding of rupees. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Discount ID for rounding of paise. |
 
-> Example of rupees rounding updating
+> Example of paise rounding updating
 
 ```shell
 curl -X PUT

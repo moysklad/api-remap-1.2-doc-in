@@ -1,0 +1,16 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<Message xmlns:msg="http://www.1c.ru/SSL/Exchange/Message" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<msg:Header xmlns:msg="http://www.1c.ru/SSL/Exchange/Message" xmlns:ns4="http://www.v8.1c.ru/ssl/contactinfo" xmlns:ns3="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.0">
+<msg:Format>http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.7</msg:Format>
+<msg:CreationDate>2024-07-31T19:16:17.280+03:00</msg:CreationDate>
+<msg:Confirmation>
+<msg:ExchangePlan>СинхронизацияДанныхЧерезУниверсальныйФормат</msg:ExchangePlan>
+<msg:To>XYZ</msg:To>
+<msg:From>78c7bd57-8d22-432c-8823-06317f972f33</msg:From>
+<msg:MessageNo>0</msg:MessageNo>
+<msg:ReceivedNo>0</msg:ReceivedNo>
+</msg:Confirmation>
+<msg:AvailableVersion>1.7</msg:AvailableVersion>
+</msg:Header>
+<Body xmlns="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.7"></Body>
+</Message>

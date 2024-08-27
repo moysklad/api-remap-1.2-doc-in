@@ -1,6 +1,6 @@
 ### List of entities
 
-List of entities for which it is possible to create additional. fields, you can look in [documentation](../#kladana-json-api-general-info-additional-fields)
+List of entities for which it is possible to create additional. fields, you can look in [documentation](../#kladana-json-api-general-info-additional-fields).
 
 ### Working with additional fields in the JSON API
 
@@ -179,10 +179,10 @@ Also for optional fields it is possible to reset the field value. To do this, yo
 
 If in the body of the request to update/create an entity in an array of additional fields:
 
-+ No id of any additional fields specified - additional fields will not be updated.
-+ The id of additional fields are indicated, which in this entity has not yet been assigned a value - the corresponding additional fields will be assigned the transferred values.
++ No ID of any additional fields specified - additional fields will not be updated.
++ The ID of additional fields are indicated, which in this entity has not yet been assigned a value - the corresponding additional fields will be assigned the transferred values.
 + The ids of additional fields are specified, which have already been assigned a value in this entity - the corresponding additional fields will be assigned new values.
-+ A non-existent id is specified, which is not in the entity's metadata, an error occurs.
++ A non-existent ID is specified, which is not in the entity's metadata, an error occurs.
 
 ### Possible types of additional fields
 
