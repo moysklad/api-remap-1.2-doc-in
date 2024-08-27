@@ -11,11 +11,11 @@ A general Stock movement report for goods and variants without warehouses.
 
 | Title | Type | Description |
 | ---------| ----- | ----- |
-| **assortment** | Object | Brief presentation of the Item or product variant in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when answering` |
-| **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **income** | Object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
-| **outcome** | Object | Consumption figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or product variant in the report. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when answering` |
+| **onPeriodStart** | Object | Indicators at the beginning of the period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **onPeriodEnd** | Object | Indicators at the end of the period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **income** | Object | Revenue figures during the reporting period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
+| **outcome** | Object | Consumption figures during the reporting period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
 
 #### Assortment object structure
 
@@ -265,7 +265,7 @@ Stock movement report by products and their variants with detalization by wareho
 
 | Title | Type | Description |
 | --------- | ------- |------- |
-| **assortment** | Object | Brief presentation of the Item or  in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or  in the report. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
 | **stockByStore** | Object | Detailing of Stock movement report by warehouses. [Learn more](#reports-stock-movement-report-stock-movement-report-by-product-with-warehouses-details-stock-movement-report-object-structure-detailing-by-warehouses)<br>`+Required when replying` |
 
 #### Assortment object structure
@@ -285,10 +285,10 @@ Stock movement report by products and their variants with detalization by wareho
 | Title | Type | Description |
 | --------- | ---- |------ |
 | **store** | Object | Warehouse.<br>`+Required when replying` |
-| **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **income** | Object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
-| **outcome** | Object | Consumption figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **onPeriodStart** | Object | Indicators at the beginning of the period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **onPeriodEnd** | Object | Indicators at the end of the period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **income** | Object | Revenue figures during the reporting period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
+| **outcome** | Object | Consumption figures during the reporting period. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying ` |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
 
@@ -523,9 +523,9 @@ Stock movement report for the product and their variants with warehouses and tra
 
 | Title | Type | Description |
 | --------- | ----- | ---------- |
-| **assortment** | Object | Brief presentation of the item or product variant in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the item or product variant in the report. [Learn more](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
 | **store** | Object | Warehouse.<br>`+Required when replying` |
-| **operation** | Object | The document associated with the Product. [More details here](#reports-stock-movement-report-stock-movement-report-by-product-with-details-by-transactions-operation-object-structure)<br>`+Required when replying` |
+| **operation** | Object | The document associated with the Product. [Learn more](#reports-stock-movement-report-stock-movement-report-by-product-with-details-by-transactions-operation-object-structure)<br>`+Required when replying` |
 | **quantity** | Float | Quantity of goods in the document.<br>`+Required when answering` |
 | **cost** | Float | The cost of goods in the document.<br>`+Required when answering` |
 | **sum** | Float | Cost sum.<br>`+Required when answering` |

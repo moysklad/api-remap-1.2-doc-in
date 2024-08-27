@@ -1,7 +1,7 @@
 ## Project
 ### Projects
 Using the JSON API, you can create and update information about Projects, request lists of Projects, and information on individual Projects. The entity code for a Project in the JSON API is the **project** keyword. Learn more about [Projects](https://kladana.zendesk.com/hc/en-us/articles/6506440075549-Projects).
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the project objects for matching the search string will be carried out using the following fields:
 

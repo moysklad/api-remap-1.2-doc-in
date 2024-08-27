@@ -1,7 +1,7 @@
 ## Service
 Using the JSON API, you can create and update information about the Services, request lists of Services and information on individual Services. The entity code for a Service in the JSON API is the **service** keyword. Service is a special kind of goods, without a purchase price and packaging. You can read more about Products and working with them in the main interface in our support service in the section [Products and Services](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 Search among service objects for matching the search string will be carried out in the following fields:
 
@@ -16,8 +16,8 @@ Search among service objects for matching the search string will be carried out 
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Bundle barcodes. [More here](../dictionaries/#entities-service-services-services-metadata-barcodes) |
-| **buyprice** | Object                                             | | Purchasing sale. [More here](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Bundle barcodes. [Learn more](../dictionaries/#entities-service-services-services-metadata-barcodes) |
+| **buyprice** | Object                                             | | Purchasing sale. [Learn more](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Service Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description of the Service|
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
@@ -28,16 +28,16 @@ Search among service objects for matching the search string will be carried out 
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
-| **minprice** | Object                                             | | Minimum price. [More here](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
+| **minprice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-service-services-entity-attributes-sign-of-the-subject-of-calculation) |
+| **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-service-services-entity-attributes-sign-of-the-subject-of-calculation) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | |  group metadata<br>`+Expand` |
-| **salePrice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-service-services-services-metadata-sales-prices) |
+| **salePrice** | Array(Object)                                      | | Sale prices. [Learn more](../dictionaries/#entities-service-services-services-metadata-sales-prices) |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-service-services-entity-attributes-tax-system-code) |
+| **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-service-services-entity-attributes-tax-system-code) |
 | **uom* | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |

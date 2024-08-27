@@ -51,7 +51,7 @@ Production Order Items is a list of products and product variants corresponding 
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
 | **reserve** | Int | Reserve this item<br>`+Required when replying`|
 

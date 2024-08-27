@@ -28,7 +28,7 @@ Using the JSON API, you can create and update information about Stock Adjustment
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean                                            | `=` `!=` | Is the document publishednt<br>`+Required when replying` `+Read-only` |
-| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Stock Adjustment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
@@ -36,14 +36,14 @@ Using the JSON API, you can create and update information about Stock Adjustment
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time of Stock Adjustment<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
-#### Overhead expenses
+#### Overhead Expenses
 
-Description of overhead fields
+Description of overhead expenses fields.
 
 | Title | Type | Description |
 |---------|-------|------- |
 | **sum** | Int | Stock Adjustment Total in paise<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
+| **distribution** | Enum | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
 #### Stock Adjustment Items
 
@@ -55,12 +55,12 @@ Stock Adjustment items is a list of products and product variants. Stock Adjustm
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then no overheads can be set<br>`+Required in response` `+Read-Only` |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then no overhead expenses can be set<br>`+Required in response` `+Read-Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br> `+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Product/service price in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **quantity** | Int                                                | The number of gproducts/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **reason** | String(255)                                        | Reason of stock adjustment of the item|
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Object(String)                                     | Serial numbers. The value of the attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
 
 You can work with items using [special resources for managing Stock Adjustment items](../documents/#transactions-stock-adjustment),

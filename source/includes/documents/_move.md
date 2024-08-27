@@ -30,7 +30,7 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **printed**       | Boolean                                            | `=` `!=`                                                                                                                                                    | Is the document printed<br>`+Required when responding` `+Read Only`                                                                                                                 |
 | **project**       | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Project metadata<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                   |
 | **published**     | Boolean                                            | `=` `!=`                                                                                                                                                    | Is the document published<br>`+Required when replying` `+Read Only`                                                                                                                 |
-| **rate**          | Object                                             |                                                                                                                                                             | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying``+Change-handler` `+Update-provider`                            |
+| **rate**          | Object                                             |                                                                                                                                                             | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying``+Change-handler` `+Update-provider`                            |
 | **shared**        | Boolean                                            | `=` `!=`                                                                                                                                                    | Sharing<br>`+Required when replying`                                                                                                                                                |
 | **sourceStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse from which the Transfer is made<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                    |
 | **state**         | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Transfer status metadata<br>`+Expand` `+Change-handler` `+Update-provider`                                                                                                          |
@@ -41,12 +41,12 @@ Using the JSON API, you can create and update information about Transfers, reque
 
 #### Overhead Expenses
 
-Description of overhead fields
+Description of overhead expenses fields
 
 | Title | Type | Description |
 | ------- | ---------- |------- |
 | **sum** | Int | Amount in paise<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
+| **distribution** | Enum | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
 #### Transfer items
 
@@ -58,7 +58,7 @@ The Transfer item object contains the following fields:
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` |
-| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overhead expenses can be set<br>`+Required in response` `+Read-Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Price of products/services in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
