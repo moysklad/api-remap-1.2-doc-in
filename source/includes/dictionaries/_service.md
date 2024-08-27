@@ -16,7 +16,7 @@ Search among service objects for matching the search string will be carried out 
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-service-services-services-metadata-barcodes) |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Bundle barcodes. [More here](../dictionaries/#entities-service-services-services-metadata-barcodes) |
 | **buyprice** | Object                                             | | Purchasing sale. [More here](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Service Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description of the Service|
@@ -33,7 +33,7 @@ Search among service objects for matching the search string will be carried out 
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
 | **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [More details here](../dictionaries/#entities-service-services-entity-attributes-sign-of-the-subject-of-calculation) |
-| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Kit group metadata<br>`+Expand` |
+| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | |  group metadata<br>`+Expand` |
 | **salePrice** | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-service-services-services-metadata-sales-prices) |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
@@ -135,8 +135,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----- | ------ |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Services](../dictionaries/#entities-service). |
 
 **Parameters**
@@ -1261,7 +1261,7 @@ as well as all types of prices, you can use the [Products](../dictionaries/#enti
 
 ### Service
  
-A separate Service, which is accessed by its id value.
+A separate Service, which is accessed by its ID value.
 
 ### Get Service
 

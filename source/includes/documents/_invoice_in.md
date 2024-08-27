@@ -1,7 +1,7 @@
 ## Supplier Invoice
 ### Supplier Invoices
 
-Using the JSON API, you can create and update Supplier Invoice information, query lists of Accounts, and query individual Supplier Invoices. Account items can be managed both as part of a separate Account, and separately with the help of special resources for managing Supplier Invoice items. The entity code for the Supplier Invoice as part of the JSON API is the **invoicein** keyword. You can read more about Supplier Invoices and working with them in the main interface in our support service at [this link](https://kladana.zendesk.com/hc/en-us/articles/360017534277-Create-Supplier-Invoices).
+Using the JSON API, you can create and update Supplier Invoice information, query lists of Accounts, and query individual Supplier Invoices. Account items can be managed both as part of a separate Account, and separately with the help of special resources for managing Supplier Invoice items. The entity code for the Supplier Invoice as part of the JSON API is the **invoicein** keyword. [Learn more ](https://kladana.zendesk.com/hc/en-us/articles/360017534277-Create-Supplier-Invoices) about Supplier Invoices and how to work with them in Kladana. 
 
 #### Entity attributes
 
@@ -57,18 +57,18 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 
 #### Supplier Invoice Items
 
-Invoice Items is a list of goods/services/modifications/series.
+Invoice Items is a list of goods/services/product variants/series.
 The Account item object contains the following fields:
 
 | Title | Type                                               | Description |
 | ----------- |----------------------------------------------------|--------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when answering` `+Change-handler` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | --------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Accounts. |
 
 **Parameters**
@@ -1428,7 +1428,7 @@ Request for metadata of Supplier Invoices. The result is a JSON object including
 | **meta** | Link to Supplier Invoice Metadata |
 | **attributes** | Array of objects additional Supplier Invoice fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of statuses of Supplier Invoices |
-| **createShared** | create new Supplier Invoices labeled "General" |
+| **createShared** | Create new Supplier Invoices labeled "General" |
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
@@ -1474,7 +1474,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2601,9 +2601,9 @@ Request to get a list of all items of this Supplier Invoice.
 
 | Title | Type | Description |
 | ------- | --------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing Supplier Invoice items. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Supplier Invoice items. |
 
 **Parameters**
 
@@ -2747,7 +2747,7 @@ Successful request. The result is a JSON representation of a list of items in a 
 Request to create a new item in the Supplier Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-supplier-invoices-supplier-invoice-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

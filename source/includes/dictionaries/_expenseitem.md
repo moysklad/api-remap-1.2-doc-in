@@ -302,9 +302,9 @@ Successful request. The result is a JSON array of representations of the created
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
 
-> Request to delete an Expense Item with the specified id.
+> Request to delete an Expense Item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -412,7 +412,7 @@ Request to change an existing expense item.
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
  
 > An example of a request to update an expense item.
 

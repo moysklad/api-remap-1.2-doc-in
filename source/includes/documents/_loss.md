@@ -31,7 +31,7 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`| Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
@@ -42,33 +42,24 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **salesReturn** | Link to the related of Sales Return in [Metadata](../#kladana-json-api-general-info-metadata) format|
 
 #### Write-off Items
-Write-off items is a list of goods/modifications/series.
+Write-off items is a list of goods/product variants/series.
 The Write-off item object contains the following fields:
 
 | Title | Type                                               | Description|
 | ------------|----------------------------------------------------| --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **reason** | String(255)                                        | Reason for decommissioning this item |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.<br>`+Change-handler` |
 
-You can work with items using [special resources for managing Write-off items](../documents/#transactions-write-off-write-off-write-off-items),
-and also as part of a separate Write-off. When working as part of a separate Write-off,
-you can send requests to create a separate Write-off included in the request body
-an array of write-off items. If the number of items exceeds the maximum allowed, then for
-further replenishment of items, you will need to work with a special resource "Write-off items".
+You can manage Write-off items using [special resources](../documents/#transactions-write-off-write-off-write-off-items) or within individual Write-offs. When working within a specific Write-off, you can send requests to create a Write-off with an array of items included in the request. If the number of items exceeds the maximum limit, you will need to use the 'Write-off Items' resource to add more items. You can also update the list of items within a Write-off by sending a request with an array of items. Note that the collection of items will replace the existing list, meaning extra items will be removed, new ones added, and existing ones updated.
 
-Also, when working as part of a separate Write-off, you can send requests to update the list of items
-with an array of Write-Off items included in the request body. It is important to remember that the collection of items will
-be perceived as "All Write-off items" and will completely replace the existing collection when updating the object. Superfluous
-items will be deleted, new ones added, existing ones changed.
-
-About working with Write-off fields can be read [here](../#kladana-json-api-general-info-additional-fields)
+[Learn more](../#kladana-json-api-general-info-additional-fields) about working with additional fields for Write-offs.
 
 
 ### Get Write-offs
@@ -78,8 +69,8 @@ Result: JSON object including fields:
 
 |Title | Type | Description |
 | ------- | -------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Write-offs. |
 
 **Parameters**
@@ -846,7 +837,7 @@ Successful request. The result is a JSON representation of the Write-offs metada
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -1475,17 +1466,17 @@ Successful request. The result is a JSON representation of the updated Write-off
 
 ### Write-off Items
 
-A separate resource for managing Write-Off items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. Learn more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
+A separate resource for managing Write-Off items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. [Learn more](../#kladana-json-api-general-info-working-with-transaction-items) about document line limits and how to work with large documents. 
 
 ### Get Write-off items
 
-Request to receive a list of all items of this Write-off.
+Request to receive a list of all items of the Write-off.
 
 | Title | Type | Description |
 | ------- | --------- |------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the items of the Debit. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Write-off items. |
 
 **Parameters**
 
@@ -1495,7 +1486,7 @@ Request to receive a list of all items of this Write-off.
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Get Write-Off Items
+> Get Write-off Items
 
 ```shell
 curl -X GET
@@ -1597,9 +1588,9 @@ Successful request. The result is a JSON representation of the list of items of 
 Request to create a new item in the Write-off.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#transactions-write-off-write-off-write-off-items)
+what the indicated item is. You can read more about this field in the description of the [Write-off item](../documents/#transactions-write-off-write-off-write-off-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more write-off items at the same time. All items created by this request
 will be added to the existing ones.

@@ -1,38 +1,35 @@
-## Transaction balances
+## The Transaction Stock
 
-The report "Balances by Transactions" is the issuance of Balances for the items of the specified
-in the transaction path.
+The transaction stock report is a brief variant of the Stock report for the items specified in the transaction path.
 
-Balances can be obtained from the following transactions: Shipment, Sales Order, Supplier Invoice, Sales Invoice, Purchase Order, Receiving, Purchase Return, Sales Return.
+The Stock report by transaction can be obtained for the following transactions: Shipment, Sales Order, Supplier Invoice, Sales Invoice, Purchase Order, Receiving, Purchase Return, Sales Return.
 
-Balances for the transaction **Shipment**, **Receiving**, **Purchase/Sales Return** are calculated at the time of the **moment** field in these transactions.
+The stock for the **Shipment**, **Receiving**, **Purchase/Sales Return** transactions is calculated at the time indicated in the **moment** field in the transaction.
 
-For **Sales Order**, **Sales Invoice**, **Purchase Order** and **Supplier Invoice**, balances are calculated at the current time.
+The stock for the **Sales Order**, **Sales Invoice**, **Purchase Order** and **Supplier Invoice** transactions is calculated at the moment of the request.
 
-#### Report object attributes:
+#### Report object attributes
 
 | Value | TPI | Description |
 | ------------- |-----|--------------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata, which is a link to the transaction for which Remainings are issued<br>`+Required when replying` |
-| **positions** | Array(Object) | An array of objects representing the Remainder for each item.<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the transaction which stock is requested<br>`+Required when replying` |
+| **positions** | Array(Object) | An array of objects representing the stock<br>`+Required when answering` |
 
 #### Item attributes
 
 | Value | TPI | Description |
 | ------------- |-----|--------------|
-|**meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata, which is a link to the item for which the Remaining is issued<br>`+Required when answering` |
+|**meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the transaction which stock is requested<br>`+Required when answering` |
 |**name** | String(255) | Item name<br>`+Required when answering` |
-|**stock** | Float | Remaining<br>`+Required when answering` |
+|**stock** | Float | Stock<br>`+Required when answering` |
 |**cost** | Float | Cost price<br>`+Required when answering` |
 |**inTransit** | Float | Waiting<br>`+Required for response` |
 |**reserve**| Float | Reserve<br>`+Required when replying` |
 |**quantity** | Float | Available. The value of the **Set** entity is always `0`.<br>`+Required for response` |
 
-### Get Transaction balances
+### Get Transaction Stock
 
-Request to receive the "Transaction balance" report.
-Balances for the **Shipment** transaction is calculated at the time of the **moment** field in these transactions.
-For **Sales Order**, balances are calculated at the current time.
+Request to receive the Transaction stock report. The stock for the **Shipment** transaction is calculated at the time indicated in the **moment**. The stock of **Sales Order** is calculated at the moment of request.
 
 This query works with the following types of transactions:
 
@@ -44,12 +41,11 @@ This query works with the following types of transactions:
 + [Purchase Returns](../documents/#transactions-purchase-returns)
 + [Sales Returns](../documents/#transactions-sales-return)
 
-The result of the query is the balances on the items of the transaction, on the date of the transaction, from the warehouse specified in the transaction,
-as well as the cost price of transaction items according to FIFO, taking into account the quantity.
+The result of the query is the stock of items in the transaction, on the date of the transaction, from the warehouse specified in the transaction, the cost price of transaction items according to FIFO, taking into account the quantity.
 
 #### Request examples
 
-> Request to receive current balances without breakdown by warehouses.
+> Request to receive the current stock without detalization by warehouse.
 
 ```shell
 curl -X GET

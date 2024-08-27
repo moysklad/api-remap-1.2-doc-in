@@ -28,7 +28,7 @@ Using the JSON API, you can create and update Inventory Count information, query
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Inventory Count Status Metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in rupees<br>`+Required when replying` `+Read only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in paise<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last update time of Inventory Count<br>`+Required when replying` `+Read Only` |
 
@@ -38,14 +38,14 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | Title | Type                                               | Description |
 | ----------- |----------------------------------------------------|--------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
-| **calculatedQuantity** | Float                                              | estimated balance<br>`+Required when answering` |
-| **correctionAmount** | Float                                              | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
-| **correctionSum** | Float                                              | excess/shortage<br>`+Required when replying` `+Read only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` |
+| **calculatedQuantity** | Float                                              | Estimated balance<br>`+Required when answering` |
+| **correctionAmount** | Float                                              | Difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
+| **correctionSum** | Float                                              | Excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 
 You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-inventory-count-inventory-count-items),
 and also as part of a separate Inventory Count. When working as part of a separate Inventory Count,
@@ -66,8 +66,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | -------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Inventory Counts. |
 
 **Parameters**
@@ -679,7 +679,7 @@ Successful request. The result is a JSON representation of the Inventory Count m
 
 | Parameter | Description |
 | ----------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -1135,9 +1135,9 @@ A request to get a list of all items in a given Inventory Count.
 
 | Title | Type | Description |
 | ----------- | -------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing Inventory Count items. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Inventory Count items. |
 
 **Parameters**
 
@@ -1234,7 +1234,7 @@ Successful request. The result is a JSON representation of a list of items in a 
 Request to create a new item in Inventory Count.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/series/modification that the item represents.
++ **assortment** - Link to the product/series/product variant that the item represents.
 You can also specify a field named **variant** according to
 what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-inventory-count-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
