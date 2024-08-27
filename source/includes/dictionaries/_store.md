@@ -30,7 +30,7 @@ The search among warehouse objects for matching the search string will be carrie
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
 | **zones** | MetaArray                                          | | warehouse zones. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
-| **slots** | MetaArray                                          | | Warehouse cells. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Read-only` `+Expand` |
+| **slots** | MetaArray                                          | | Warehouse bins. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Read-only` `+Expand` |
 
 #### Attributes of entity Address
 
@@ -47,7 +47,7 @@ The search among warehouse objects for matching the search string will be carrie
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
-When transferring entities with an address to MySklad, use either a string address or a structured one.
+When transferring entities with an address to Kladana, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
@@ -63,7 +63,7 @@ Result: JSON object including fields:
 | Title | Type | Description |
 | ----------- | ---------|---------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Warehouses. |
 
 **Parameters**
@@ -1452,7 +1452,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 }
 ```
 
-### Warehouse areas
+### Warehouse Zones
 Warehouse zones are accessed if you have the right to see the corresponding warehouse.
 
 #### Entity attributes
@@ -1473,7 +1473,7 @@ Result: JSON object including fields:
 | Title | Type | Description |
 | ----------- | --------------- |-------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Zones. |
 
 **Parameters**
@@ -1649,7 +1649,7 @@ Successful request. The result is a JSON array of representations of the created
 
 ### Delete warehouse zone
 
-When deleting the zone to which the cells are attached, the cells are unlinked from this zone.
+When deleting the zone to which the bins are attached, the bins are unlinked from this zone.
 
 **Parameters**
 
@@ -1794,19 +1794,19 @@ Successful request. The result is a JSON representation of the updated Warehouse
 ```
 
 ### Storage bins
-Access to the cells of the warehouse is carried out if you have the right to see the corresponding warehouse.
+Access to the bins of the warehouse is carried out if you have the right to see the corresponding warehouse.
 
 #### Entity attributes
 
 | Title | Type                                               | Filtration | Description |
 | --------- |----------------------------------------------------| ----- | -------- |
 | **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
-| **externalCode** | String(255)                                        | | Cell External Code<br>`+Required when replying` |
-| **id** | UUID                                               | | Cell ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Cell Metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | | Cell Name<br>`+Required when replying` `+Required when creating` |
-| **updated** | DateTime                                           | | When Cell was last updated<br>`+Required when replying` `+Read Only` |
-| **zone** | Meta                                               | | Cell zone. [More here](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **externalCode** | String(255)                                        | | Bin External Code<br>`+Required when replying` |
+| **id** | UUID                                               | | Bin ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bin Metadata<br>`+Required when replying` |
+| **name** | String(255)                                        | | Bin Name<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime                                           | | Bin Last Update<br>`+Required when replying` `+Read Only` |
+| **zone** | Meta                                               | | Bin zone. [More here](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
 
 ### Get storage bins
 Get a list of all Warehouse Bins.
@@ -1815,7 +1815,7 @@ Result: JSON object including fields:
 | Title | Type | Description |
 | ----------- | ------|-----------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Warehouse Bins. |
 
 **Parameters**
@@ -1899,7 +1899,7 @@ Successful request. The result is a JSON representation of a list of Warehouse B
 The warehouse bin is created based on the passed JSON object,
 which contains a representation of the new Storage Bin.
 The result is a JSON representation of the created Storage Bin. To create a new Storage Bin,
-it is necessary and sufficient to specify a non-empty `name` field in the passed object. Within the same warehouse, the names of the Cells must be unique.
+it is necessary and sufficient to specify a non-empty `name` field in the passed object. Within the same warehouse, the names of the bins must be unique.
 
 > Request to create a Storage Bin
 

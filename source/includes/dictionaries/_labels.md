@@ -9,7 +9,7 @@ The file in the temporary location is available for download for 5 minutes.
 The server MAY return a 202 response and a Location header with an address to poll for the printable to be ready for download.
 This option will be implemented later.
 
-Printing labels and price tags is available for products, services, kits and modifications.
+Printing labels and price tags is available for products, product variants, services, and bundles.
 
 ### Request to print labels and price tags
 
@@ -36,7 +36,7 @@ Nested entity attributes
 
 | Parameter | Description|
 | ---------| ---------|
-| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* id of the entity for which printing is requested. |
+| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* ID of the entity for which printing is requested. |
 | **type** | `string` (required) *Example: product* the type of the entity for which printing is requested. |
 
 > An example of a request to print labels and price tags based on a template for a printed form for products.

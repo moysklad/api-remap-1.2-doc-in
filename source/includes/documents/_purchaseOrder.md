@@ -64,12 +64,12 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` |
 | **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float | The price of the product/service in paise<br>`+Required when answering` |
+| **quantity** | Int | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **shipped** | Int | Accepted<br>`+Required when replying` |
 | **inTransit** | Int | Waiting<br>`+Required for response` |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
@@ -94,8 +94,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Purchase Orders. |
 
 **Parameters**
@@ -1577,7 +1577,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------------ | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2419,8 +2419,8 @@ Request for a list of all items of the Purchase Order.
 
 | Title | Type | Description |
 | ------- | -------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the items in the Purchase Order. |
 
 **Parameters**
@@ -2598,7 +2598,7 @@ Successful request. The result is a JSON representation of a list of items of an
 Request to create a new item in the Purchase Order.
 For successful creation, the following fields must be specified in the request body:
 
-+**assortment** - Link to the product/service/series/modification that the item represents.
++**assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

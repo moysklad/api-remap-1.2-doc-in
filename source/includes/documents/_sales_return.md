@@ -12,80 +12,78 @@ Using the JSON API, you can create and update information about Sales Returns, q
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
 | **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return Code |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
 | **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last delete date Sales Return<br>`+Read Only` |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last delete date in Sales Return<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Return Comment<br>`+Change-handler` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return External Code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata. The maximum number of files is 100<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | `=` `!=` | Sales Return ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Return Metadata<br>`+Required in response` `+Change-handler` |
-| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Transaction date<br>`+Required when replying` `+Change-handler` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return Name<br>`+Required when replying` `+Change-handler` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **positions** | MetaArray | | Sales Return Item Metadata<br>`+Required in response` `+Expand` `+Change-handler` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray | | Sales Return item metadata<br>`+Required in response` `+Expand` `+Change-handler` |
+| **printed** | Boolean | `=` `!=` | Is the transaction printed or not<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
-| **published** | Boolean | `=` `!=`| Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **published** | Boolean | `=` `!=`| Document publication status (yes/no) <br>`+Required when replying` `+Read Only` |
+| **rate** | Object | | Currency [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Return<br>`+Expand` status metadata `+Change-handler` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Sales Return Total in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Sales Return Total in paisas<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last update date Sales Return<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` |
-| **vatIncluded** | Boolean | | Is VAT included in the price of `+Change-handler` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Sales Return Last update date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **vatEnabled** | Boolean | | Is VAT taken into account or not<br>`+Required when replying` `+Change-handler` |
+| **vatIncluded** | Boolean | | Is VAT included in the price of `+Change-handler` or not|
 | **vatSum** | Float | | VAT amount<br>`+Required when replying` `+Change-handler` |
 
 #### Links to other documents
 
 | Title | Description |
 | -------- | ----- |
-| **demand** | Link to the shipment from which the return occurred in the format [Metadata](../#kladana-json-api-general-info-metadata) The field is required for a return with a reason. |
-| **losses** | An array of links to related Write-offs in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata)|
-| **paidSum** | Amount of outgoing payments by Sales Return |
+| **demand** | Link to the Shipment from which the Sales Return occurred in the [Metadata](../#kladana-json-api-general-info-metadata) format. The field is required for a Unreferenced Return (Return with no reason) |
+| **losses** | An array of links to the related Write-offs in the [Metadata](../#kladana-json-api-general-info-metadata) format|
+| **payments** | An array of links to the related payments in the [Metadata](../#kladana-json-api-general-info-metadata) format|
+| **paidSum** | Amount of Outgoing Payments based on the Sales Return|
 
 #### Sales Return Items
 
-Sales Return Items is the list of products, services, product variants.
+Sales Return Items is the list of products, services, and product variants.
 
 The Sales Return element object contains the following fields:
 
 | Title | Type                                               | Description |
 | ------|----------------------------------------------------|---------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
-| **cost** | Int                                                | Cost price (displayed if the document was created without a reason) |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **cost** | Int                                                | Cost price. It is displayed only for Unreferenced Return (Return with no reason) |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country Metadata<br>`+Expand` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br>`+Change-handler` |
+| **price** | Float                                              |Price of products/services in paise<br>`+Required when answering` `+Change-handler` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
 You can work with items using special [resources for managing Sales Return items](../documents/#transactions-sales-return-sales-returns-sales-return-items),
 and also as part of a separate Sales Return. When working as part of a separate Sales Return,
-you can submit requests to create a separate Sales Return with included in the request body
-an array of Sales Return items. If the number of items exceeds the maximum allowed, then for
-further replenishment of items will need to work with a special resource "Sales Return Items".
+you can submit requests to create a separate Sales Return with an array of Sales Return items included in the request body. If the number of items exceeds the limit, for
+further replenishment of items you should work with the "Sales Return Items" resource.
 
-Also, when working as part of a separate Sales Return, you can send requests to update the list of items
+When working as part of a separate Sales Return, you can send requests to update the list of items
 with an array of Sales Return items included in the request body. It is important to remember that the collection of items will
 be perceived as "All Sales Return Items" and will completely replace the existing collection when updating the object. Superfluous items are deleted, new ones are added, existing ones are changed.
 
-About working with fields of Returns of Sales Returns can be read [here](../#kladana-json-api-general-info-additional-fields)
-
+Learn more about the Sales Return [fields](../#kladana-json-api-general-info-additional-fields).
 
 ### Get Sales Returns
 Request all Sales Returns on this account.
@@ -93,8 +91,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | --------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Sales Returns. |
 
 **Parameters**
@@ -353,12 +351,11 @@ Successful request. The result is a JSON representation of a list of Sales Retur
 ### Create Sales Return
 Required fields when creating a new Sales Return:
 
-+ **organization** - Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)
-+ **store** - Link to the warehouse in the format [Metadata](../#kladana-json-api-general-info-metadata)
-+ **demand** - Link to the shipment from which the return occurred in the format [Metadata](../#kladana-json-api-general-info-metadata), required field only for returns by reason
-+ **agent** - Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata)
-The counterparty specified in the request to create a return must match the counterparty specified in the document,
-on which the refund is generated.
++ **organization** - Link to your legal entity in the [Metadata](../#kladana-json-api-general-info-metadata) format.
++ **store** - Link to the warehouse in the [Metadata](../#kladana-json-api-general-info-metadata) format.
++ **demand** - Link to the Shipment on which the Sales Return is based in the [Metadata](../#kladana-json-api-general-info-metadata) format. The field is required only for Sales Returns with reason.
++ **agent** - Link to the counterparty in the [Metadata](../#kladana-json-api-general-info-metadata)  format.
+The counterparty specified in the Sales Return creation request must match the counterparty specified in the transaction on which this request is based.
 
 When creating a return:
 
@@ -1194,7 +1191,7 @@ Successful request. The result is a JSON representation of the additional Sales 
 
 | Parameter | Description |
 | ------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
 
 > Request for information on a separate additional field.
 
@@ -1727,7 +1724,7 @@ Successful request. The result is a JSON representation of the updated Sales Ret
 
 ### Sales Return items
 
-Separate resource for managing Sales Return items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. Learn more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
+Separate resource for managing Sales Return items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. [Learn more](../#kladana-json-api-general-info-working-with-transaction-items) about transaction limits on the number of lines and working with large transactions.
 
 ### Get items
 
@@ -1735,8 +1732,8 @@ Request to get a list of all items of this Sales Return.
 
 | Title | Type | Description |
 | ------| ------- |------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Sales Return items. |
 
 **Parameters**
@@ -1931,7 +1928,7 @@ Successful request. The result is a JSON representation of the Sales Return item
 Request to create a new item in Sales Return.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortmet** - Link to the product/service/series/modification that the item represents.
++ **assortmet** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of [Sales Return items](../documents/#transactions-sales-return-sales-returns-sales-return-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

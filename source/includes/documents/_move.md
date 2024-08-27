@@ -24,7 +24,7 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **moment**        | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Document date<br>`+Required for response``+Change-handler` `+Update-provider`                                                                                                       |
 | **name**          | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                      | Name of Change<br>`+Required for response``+Change-handler` `+Update-provider`                                                                                                      |
 | **organization**  | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                                        |
-| **overhead**      | Object                                             |                                                                                                                                                             | Overheads. [More here](../documents/#transactions-transfer-transfer-overhead-expenses). If Transfer items are not set, then overheads cannot be set<br>`+Update-provider` |
+| **overhead**      | Object                                             |                                                                                                                                                             | Overhead expenses. [Learn more](../documents/#transactions-transfer-transfer-overhead-expenses). If Transfer items are not set, the overhead expenses cannot be set<br>`+Update-provider` |
 | **owner**         | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                                                             |
 | **positions**     | MetaArray                                          |                                                                                                                                                             | Item Metadata                                                                                                                                                                       |
 | **printed**       | Boolean                                            | `=` `!=`                                                                                                                                                    | Is the document printed<br>`+Required when responding` `+Read Only`                                                                                                                 |
@@ -34,7 +34,7 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **shared**        | Boolean                                            | `=` `!=`                                                                                                                                                    | Sharing<br>`+Required when replying`                                                                                                                                                |
 | **sourceStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse from which the Transfer is made<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                    |
 | **state**         | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Transfer status metadata<br>`+Expand` `+Change-handler` `+Update-provider`                                                                                                          |
-| **sum**           | Int                                                | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Transfer amount in rupees<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                                |
+| **sum**           | Int                                                | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Transfer amount in paise<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                                |
 | **syncId**        | UUID                                               | `=` `!=`                                                                                                                                                    | Synchronization ID. After filling it is not available for change                                                                                                                    |
 | **targetStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse being Transfer to<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                  |
 | **updated**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Last update time Transfers<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                               |
@@ -45,25 +45,25 @@ Description of overhead fields
 
 | Title | Type | Description |
 | ------- | ---------- |------- |
-| **sum** | Int | Amount in rupees<br>`+Required when replying` `+Update-provider` |
+| **sum** | Int | Amount in paise<br>`+Required when replying` `+Update-provider` |
 | **distribution** | Enum | Overhead distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
 #### Transfer items
 
-Transfer Items is a list of products/modifications/series.
+Transfer Items is a list of products/product variants/series.
 The Transfer item object contains the following fields:
 
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------|----------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` |
-| **overhead** | Int                                                | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
-| **pack** | Object                                             | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
-| **sourceSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The location in the warehouse from which the transfer is made. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
-| **targetSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The cell in the warehouse to which the transfer is made. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overheads can be set<br>`+Required in response` `+Read-Only` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
+| **sourceSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The location in the warehouse from which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **targetSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The cell in the warehouse to which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of products in the item will be equal to the number of serial numbers passed in the attribute value.`+Change-handler` |
 
 The value of this attribute is ignored if the item item is not in serial accounting.
@@ -79,7 +79,7 @@ Also, when working as part of a separate Transfer, you can send requests to upda
 with an array of Transfer items included in the request body. It is important to remember that the collection of items will
 be perceived as "all Transfer items" and will completely replace the existing collection when updating the object. Superfluous items are deleted, new ones are added, existing ones are changed.
 
-About working with Relocation fields can be read [here](../#kladana-json-api-general-info-additional-fields)
+[Learn more](../#kladana-json-api-general-info-additional-fields) about working with additional fields.
 
 ### Get Transfers
  
@@ -1121,7 +1121,7 @@ Successful request. The result is a JSON representation of the Transfers metadat
 
 | Parameter | Description |
 | ------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -1468,8 +1468,8 @@ A request to get a list of all items in this Transfer.
 
 | Title | Type | Description |
 | ------- | ----------|---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Transfers. |
 
 **Parameters**
@@ -1838,9 +1838,9 @@ Successful request. The result is a JSON representation of a list of individual 
 Request to create a new item in the Transfer.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-transfer-transfer-items)
+what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-transfer-transfer-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Transfer items at the same time. All items created by this request
 will be added to the existing ones.

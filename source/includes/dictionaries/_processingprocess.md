@@ -41,8 +41,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 |------------|-----------|-------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadataю |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Routings |
 
 **Parameters**
@@ -418,8 +418,8 @@ Request to get a list of all items of this Routing.
 
 | Title | Type | Description |
 |----------|--------|----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Routing items. |
 
 **Parameters**

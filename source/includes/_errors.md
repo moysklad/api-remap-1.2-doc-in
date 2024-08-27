@@ -103,7 +103,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_2012">2012</a> | Format error: unknown type for meta field '{ext. message}' | In the passed objectThose metadata specified an unknown type. Check the request body. Perhaps you are specifying the wrong keyword for the entity. Check the documentation for this entity and make sure the type passed is correct. |
 | <a name="error_2013">2013</a> | Format error: invalid href value for meta field '{ext. message}' | The passed href points to a non-existent object. Make sure the link is correct. The error can be in the API version, resource type (entity/pos/report), entity/(report) keyword, entity id. |
 | <a name="error_2014">2014</a> | Format error: missing meta for field '{field name}' | Metadata type fields (links to other related objects) require a value in the form of an object containing meta. |
-| <a name="error_2015">2015</a> | Format error: missing id for field '{field name}' | When passing nested entities as fields, you must specify the id of these entities. |
+| <a name="error_2015">2015</a> | Format error: missing ID for field '{field name}' | When passing nested entities as fields, you must specify the ID of these entities. |
 | <a name="error_2016">2016</a> | Format error: field value '{field name}' does not match type {field type} | A value of the wrong type was passed for the specified field. Correct the request body. |
 | <a name="error_2017">2017</a> | Format error: unknown error | Failed to unambiguously classify the error. Make sure that the format of the data you are transferring matches the required one. See the documentation for the entity you are using for sample queries. |
 | <a name="error_2018">2018</a> | Format error: missing field `<field>` for meta `<type>` | You didn't specify a required field in the meta object. |
@@ -111,7 +111,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_2022">2022</a> | Format Error: Too many subcollection items | A nested collection can have a maximum of 1000 items. |
 | <a name="error_2024">2024</a> | Format error: href points to an entity of the wrong type '<type>', '<type>' is required | The href passed is pointing to an entity of the wrong type. |
 | <a name="error_2027">2027</a> | Format error: href points to entity of invalid type '<type>', valid values: '<valid types>' | The href passed is pointing to an entity of the wrong type. |
-| <a name="error_2028">2028</a> | Format error: Add field '{name of additional fields}' of the entity with id '{id}' contains a non-numeric value | The received object contains an additional field with an incorrect value |
+| <a name="error_2028">2028</a> | Format error: Add field '{name of additional fields}' of the entity with ID '{id}' contains a non-numeric value | The received object contains an additional field with an incorrect value |
 
 ### Common validation errors
 
@@ -147,7 +147,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3027">3027</a> | Validation error: Invalid header value {header}. The value '{value}' was passed. Valid values: '{values}' | An invalid value of the header specified in the error text was passed |
 | <a name="error_3028">3028</a> | Validation error: Field value '{first field}' conflicts with field value '{second field}'. {description of conflict} required | Incompatible values of the fields specified in the error text were passed. The description of the error indicates what caused the conflict |
 | <a name="error_3030">3030</a> | Error validating header '{header name}': {error description} | An invalid value was passed in the header |
-| <a name="error_3031">3031</a> | Validation error: Cannot bind '{document type}' to id 'document id', it is bound to another 'document type' | You cannot link a document that is already linked and has a limit of 1 link |
+| <a name="error_3031">3031</a> | Validation error: Cannot bind '{document type}' to ID 'document id', it is bound to another 'document type' | You cannot link a document that is already linked and has a limit of 1 link |
 
 ### Error codes for POSs
 
@@ -166,27 +166,27 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_5002">5002</a> | The specified contract was concluded with a counterparty other than that specified in the agent | When creating/updating a commission agent's report, it is mandatory to specify an agreement that belongs to the specified counterparty and has the 'Commission agreement' type. |
 | <a name="error_5003">5003</a> | The specified contract is concluded with a legal entity other than that specified in the organization | The organization must correspond to the organization specified in the contract. |
 
-### Error Codes for Modification Features
+### Error Codes for Product Variant Features
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_10000">10000</a> | Error saving modification characteristic: fields 'id' and 'name' cannot be empty | When updating the characteristics of a modification, the above fields must be specified. Correct the request body. |
-| <a name="error_10001">10001</a> | Error saving modification characteristic: 'id' field refers to non-existent characteristic | It was not possible to find the corresponding characteristic by the passed id. Make sure the id is correct and retry the request. |
-| <a name="error_10002">10002</a> | Error saving modification characteristics: characteristics with the specified fields 'name' already exist | The feature names specified in the query already exist. Check the spelling of the 'name' fields or query for existing characteristics. |
+| <a name="error_10000">10000</a> | Error of saving product variant characteristic: fields 'id' and 'name' cannot be empty | When updating the characteristics of a product variant, the above fields must be specified. Correct the request body. |
+| <a name="error_10001">10001</a> | Error of saving product variant characteristic: 'id' field refers to non-existent characteristic | It was not possible to find the corresponding characteristic by the passed id. Make sure the ID is correct and retry the request. |
+| <a name="error_10002">10002</a> | Error of saving product variant characteristics: characteristics with the specified fields 'name' already exist | The feature names specified in the query already exist. Check the spelling of the 'name' fields or query for existing characteristics. |
 
 ### Error codes for Statuses
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_11000">11000</a> | Status initialization error: parent entity information missing | The document to which this status should be linked could not be found. Check the id of the document, and also, in case of an update, make sure that the document with the given id has not been deleted. |
+| <a name="error_11000">11000</a> | Status initialization error: parent entity information missing | The document to which this status should be linked could not be found. Check the ID of the document, and also, in case of an update, make sure that the document with the given ID has not been deleted. |
 | <a name="error_11001">11001</a> | Status initialization error: status with name '{Status Name}' not found | Check in the metadata of entities of this type that the status with the passed name exists, and correct the request. |
 
 ### Error codes for Balance Reports
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_13000">13000</a> | Empty operation identifier | You requested the Operation balances report without specifying the operation id. Make sure id is passed as a parameter. |
-| <a name="error_13001">13001</a> | Operation with the specified identifier was not found | The operation with the specified <i>operation.id</i> could not be found. Check the id you are passing, and also make sure that the operation with the given id has not been deleted. |
+| <a name="error_13000">13000</a> | Empty operation identifier | You requested the Operation balances report without specifying the operation id. Make sure ID is passed as a parameter. |
+| <a name="error_13001">13001</a> | Operation with the specified identifier was not found | The operation with the specified <i>operation.id</i> could not be found. Check the ID you are passing, and also make sure that the operation with the given ID has not been deleted. |
 | <a name="error_13002">13002</a> | The operation could not be performed on the specified document type '{document type}' | The Operation balances report is only available for operations of the type `Shipment, Retail, Sales order`. |
 | <a name="error_13003">13003</a> | No access to Balances report | The user does not have access to the Remains report. |
 
@@ -197,7 +197,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_14000">14000</a> | Error saving additional field: field '{field name}' does not belong to registry '{entity type}' | You are trying to use additional fields of a different entity type in your query. Make a metadata request for this entity type and use the additional fields that come in response. |
 | <a name="error_14001">14001</a> | Additional field saving error: updating additional fields of type 'File' is not supported | The file type field cannot be updated. |
 | <a name="error_14002">14002</a> | Error saving custom field: Parent entity does not support custom fields | Entities of this type cannot have additional fields. You can specify the list of entity types that can have additional fields in the section [Working with additional fields](#kladana-json-api-general-info-additional-fields) |
-| <a name="error_14003">14003</a> | Error saving extra field: metadata identifier points to a non-existent object | Could not find an additional field with the specified id. Check the list of additional fields and their id using the entity metadata resource. |
+| <a name="error_14003">14003</a> | Error saving extra field: metadata identifier points to a non-existent object | Could not find an additional field with the specified id. Check the list of additional fields and their ID using the entity metadata resource. |
 | <a name="error_14004">14004</a> | Error saving additional field: for an object of type 'user reference', the meta or name field must be specified | At least one of the above fields must not be empty. |
 | <a name="error_14005">14005</a> | Error saving an additional field of the 'File' type: the file size exceeds the maximum allowed (10 mb) | It is not possible to upload a file larger than 10 MB as an additional field value. |
 | <a name="error_14006">14006</a> | Error saving additional field of type 'File': missing file name | The filename field of the value of the additional field of the File type must be filled in. |
@@ -208,15 +208,15 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_14011">14011</a> | Error deleting additional field: invalid meta format of additional field being removed | The passed meta could not identify an additional field to remove. |
 | <a name="error_14012">14012</a> | Error saving custom field: Cannot make required field that is cleared by script | An optional field in a scenario with a Clear field value cannot be made required. If you want to assign mandatory - you need to change the action in the script. |
 
-### Error Codes for Modifications
+### Error Codes for Product Variants
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_15000">15000</a> | Error saving modification: modification with the given set of characteristics already exists for this product | It is impossible to have 2 modifications of a product, in which the sets of characteristic values will match. Make sure this condition is not violated. Otherwise: use an already existing modification. |
-| <a name="error_15001">15001</a> | Error saving modification: characteristics must be specified | When creating/updating a modification, the passed array of characteristics cannot be missing or empty. |
-| <a name="error_15002">15002</a> | Error saving modification: service modification cannot be created | Only product modifications are supported. Make sure the URI on which the request is made is correct. |
-| <a name="error_15003">15003</a> | Modification saving error: Can't create alcohol product modification | Only modifications to regular products are supported. Make sure the URI on which the request is made is correct. |
-| <a name="error_15004">15004</a> | Error saving modification: attribute names must not be repeated | You cannot create a modification with the same characteristics |
+| <a name="error_15000">15000</a> | Error of product variant saving: product variant with the given set of characteristics already exists for this product | It is impossible to have two variants of a product with the same characteristics. Make sure this condition is not violated. Otherwise use the existing product variant. |
+| <a name="error_15001">15001</a> | Error of product variant saving: characteristics must be specified | When creating or updating a product variant, the passed array of characteristics cannot be missing or empty. |
+| <a name="error_15002">15002</a> | Error of product variant saving: product variant service cannot be created | Only product variants are supported. Make sure the URI on which the request is made is correct. |
+| <a name="error_15003">15003</a> | Product variant saving error: Product variant of alcoholic beverages cannot be created| Only product variants of regular products are supported. Make sure the URI on which the request is made is correct. |
+| <a name="error_15004">15004</a> | Error of product variant saving: attribute names must not be repeated | You cannot create a product variant with the same characteristics |
 
 ### Error Codes for Items
 
@@ -233,7 +233,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_16013">16013</a> | Product saving error: a weight product cannot have the attribute of personal protective equipment. | Goods cannot be on tap and have the sign of personal protective equipment at the same time. |
 | <a name="error_16014">16014</a> | Product save error: Draft product cannot have a personal protective equipment attribute. | Draft goods cannot have the sign of personal protective equipment. |
 | <a name="error_16015">16015</a> | Error saving product: Incorrect label type "{label type}" for draft product. | Draft goods can only be combined with MILK, PERFUMERY marking types. |
-| <a name="error_16102">16102</a> | Error saving product: product with label type "{label type}" cannot have modifications | Marked goods of type "{marking type}" cannot have modifications |
+| <a name="error_16102">16102</a> | Error of product saving: product with label type "{label type}" cannot have product variants | Products of the "{marking type}" type cannot have product variants |
 | <a name="error_16103">16103</a> | Product saving error: marked product cannot be accounted for by serial numbers. | Goods cannot be labeled and accounted for by serial numbers at the same time |
 | <a name="error_16104">16104</a> | Product save error: The labeled product cannot be alcoholic. | Goods cannot be labeled and alcoholic at the same time |
 | <a name="error_16105">16105</a> | Product storing error: marked products cannot be sold by weight. | The weight product can only be combined with the MILK marking type. | <a name="error_16106">16106</a> | Product save error: unknown product label type | Product marking type can be only one of the following: NOT_TRACKED, TOBACCO, SHOES, LP_CLOTHES, LP_LINENS, PERFUMERY, ELECTRONICS, TIRES, MILK, WATER, OTP |
@@ -264,8 +264,8 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_17012">17012</a> | Document saving error: You cannot save documents with destination warehouse from another department                                                             | It is not allowed to save documents with a destination warehouse from another department in the document metadata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | <a name="error_17013">17013</a> | Document saving error: You cannot save documents with source warehouse from another department                                                                  | It is not allowed to save documents with a source warehouse from another department in the document metadata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | <a name="error_17014">17014</a> | Error saving document: you cannot unpost a document of type <type> that was checked in                                                                          | You cannot cancel posting from this document, because a return has already been posted for it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| <a name="error_17016">17016</a> | Error saving document: set cannot be part of item of document of type {document_type}                                                                           | A kit cannot be an item in the following documents: supplier order, supplier invoice, Receiving, return to supplier, commission agent report issued, commission agent report received, write-off, capitalization, movement, inventory, technical. map, internal order.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <a name="error_17018">17018</a> | Error saving document: Number of kits must be an integer                                                                                                        | The number of kits in a item must be an integer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| <a name="error_17016">17016</a> | Error saving document: set cannot be part of item of document of type {document_type}                                                                           | A bundle cannot be an item in the following documents: supplier order, supplier invoice, Receiving, return to supplier, commission agent report issued, commission agent report received, write-off, capitalization, movement, inventory, technical. map, internal order.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| <a name="error_17018">17018</a> | Error saving document: Number of bundles must be an integer                                                                                                        | The number of bundles in a item must be an integer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | <a name="error_17020">17020</a> | Error saving document item: item of packaging and item of item differ                                                                                           | For a given document item, the goods from the package and the specified goods differ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | <a name="error_17021">17021</a> | Error saving document item: if it is indicated that the item is taxable, then the vat field must be filled in. Otherwise, vatEnabled for the item must be false | When passing the field `vatEnabled` = true, the value of VAT must also be specified in the item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | <a name="error_17022">17022</a> | Error saving document: {variety type} cannot be part of a item of a document of type {document_type}                                                            | Assortment type to be added cannot be an item in this document type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -284,7 +284,7 @@ This section lists the JSON API error codes and their descriptions.
 | Error code | Message | Description |
 | ------------| ----------| ---------|
 | <a name="error_18000">18000</a> | Sale saving error: amount 'cashSum', 'noCashSum', 'qrSum', 'prepaymentCashSum', 'prepaymentNoCashSum' and 'prepaymentQrSum' does not match the document amount | The sum of the fields cashSum, noCashSum, qrSum, prepaymentCashSum and prepaymentNoCashSum, prepaymentQrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all items in the document. |
-| <a name="error_18002">18002</a> | Document saving error: Shipment under a commission agreement cannot contain a set as part of items | You cannot add a kit to a shipment if it has a contract of the "Commission" type specified for it." |
+| <a name="error_18002">18002</a> | Document saving error: Shipment under a commission agreement cannot contain a set as part of items | You cannot add a bundle to a shipment if it has a contract of the "Commission" type specified for it." |
 | <a name="error_18005">18005</a> | If the 'qrSum' field is filled in, the 'cashSum', 'noCashSum', 'prepaymentCashSum' and 'prepaymentNoCashSum' fields must be empty | Mixed payment with QR code and card or QR code and cash is not allowed. |
 | <a name="error_18006">18006</a> | If the 'prepaymentQrSum' field is filled in, the 'cashSum', 'noCashSum', 'prepaymentCashSum' and 'prepaymentNoCashSum' fields must be empty | In case of prepayment by QR code, payment is possible only by QR code. |
 
@@ -309,7 +309,7 @@ This section lists the JSON API error codes and their descriptions.
 | Error code | Message | Description |
 | ------------| ----------| ---------|
 | <a name="error_21000">21000</a> | Error saving transfer: cannot transfer from warehouse to the same warehouse | Make sure you specify warehouses with different IDs in the sourceStore and targetStore fields. |
-| <a name="error_21001">21001</a> | Error saving move: cannot move to the same cell | Make sure that in the transfer document from the same warehouse, in the sourceSlot and targetSlot fields in the items, specify cells with different identifiers. |
+| <a name="error_21001">21001</a> | Error saving move: cannot move to the same bin | Make sure that in the transfer document from the same warehouse, in the sourceSlot and targetSlot fields in the items, specify bins with different identifiers. |
 
 ### Error codes for Payments
 
@@ -332,7 +332,7 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_24001">24001</a> | Error creating posting template: physical inventory does not require posting | The physical inventory does not contain a surplus, or all required capitalizations have already been created. |
 | <a name="error_24003">24003</a> | Inventory save error: Service cannot be an inventory item | A service cannot be an inventory item. |
-| <a name="error_24004">24004</a> | Error saving inventory: inventory cannot contain duplicate items | A product/service/modification/series/kit can only be added to the inventory once. |
+| <a name="error_24004">24004</a> | Error saving inventory: inventory cannot contain duplicate items | A product, product variant, service, series or bundle can only be added to the inventory once. |
 
 ### Error codes for Production Operations
 
@@ -361,10 +361,10 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_29000">29000</a> | Error saving kit: incorrect number of components | Supports from one to fifty components in one kit. |
-| <a name="error_29001">29001</a> | Error saving kit: additional costs and components cannot be changed because the kit is already in use | Remove dependent sets from documents. |
-| <a name="error_29002">29002</a> | Error saving kit: kit contains duplicate components | Check the composition of the kit components and try again. |
-| <a name="error_29003">29003</a> | Bundle saving error: kit component cannot be a kit, series, alcoholic product, or serially registered product | Check the composition of the kit components and try again. |
+| <a name="error_29000">29000</a> | Error of bundle saving: incorrect number of components | Supports from one to fifty components in a bundle. |
+| <a name="error_29001">29001</a> | Error of bundle saving: additional costs and components cannot be changed because the bundle is already in use | Remove dependent sets from documents. |
+| <a name="error_29002">29002</a> | Error of bundle saving: the bundle contains duplicate components | Check the composition of the bundle components and try again. |
+| <a name="error_29003">29003</a> | Bundle saving error: bundle component cannot be a bundle, series, alcoholic beverages, or serially registered product | Check the composition of the bundle components and try again. |
 
 ### Error codes for Webhooks
 
@@ -392,8 +392,8 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_32001">32001</a> | Error saving agreement: it is not possible to change the type of agreement to commission. Under this contract, there is a shipment, which includes a set of items | Check that there are no shipments of kits under this contract and try again. |
-| <a name="error_32002">32002</a> | Error saving agreement: it is not possible to change the type of agreement to commission. The contract used in documents with kit components cannot be a commission contract | Check that there are no documents with kit components under this agreement and try again. |
+| <a name="error_32001">32001</a> | Error saving agreement: it is not possible to change the type of agreement to commission. Under this contract, there is a shipment, which includes a set of items | Check that there are no shipments of bundles under this contract and try again. |
+| <a name="error_32002">32002</a> | Error saving agreement: it is not possible to change the type of agreement to commission. The contract used in documents with bundle components cannot be a commission contract | Check that there are no documents with bundle components under this agreement and try again. |
 
 ### Error codes for Printed forms
 
@@ -417,7 +417,7 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_34000">34000</a> | Posts for type '{type}' are not supported | Postings are only available for the following types: Purchase Order, Purchase Invoice, Shipment, Vendor Order, Vendor Invoice, Receiving, Incoming Payment, Receiving, Outgoing Payment, Issue Order, Internal Order, Transfer, Posting, Debit, Invoice Issued, Invoice Invoice Received, Return to Supplier, Return to Buyer, Payout, Deposit of Money, Retail Return, Retail Sale, Contract, Retail Shift, Production Order, Commissioner's Report Received, Commissioner's Report Issued, Inventory. |
+| <a name="error_34000">34000</a> | Posts for type '{type}' are not supported | Postings are only available for the following types: Purchase Order, Purchase Invoice, Shipment, Vendor Order, Vendor Invoice, Receiving, Incoming Payment, Receiving, Outgoing Payment, Issue Order, Internal Order, Transfer, Posting, Write-off, Invoice Issued, Invoice Invoice Received, Return to Supplier, Return to Buyer, Payout, Deposit of Money, Retail Return, Retail Sale, Contract, Retail Shift, Production Order, Commissioner's Report Received, Commissioner's Report Issued, Inventory. |
 | <a name="error_34001">34001</a> | Failed to create publication. Check if the template is correct. | An error occurred while generating the document. Check the correctness of the passed template.|
 | <a name="error_34002">34002</a> | Error creating a document publication: Your tariff does not allow creating a document publication based on a custom printable template | Your billing plan does not allow you to use custom templates when publishing documents. |
 | <a name="error_34003">34003</a> | Error: You cannot work with the publication of the entity because there is no access to it on '<read, write>'. | User work with document publications is possible if there is a read right and a print right for an entity of this type. |
@@ -450,7 +450,7 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error Code | Message| Description|
 | ------------| ----------| ---------|
-| <a name="error_41000">41000</a> | Error: user directory with id '{identifier}' not found | User directory with the specified identifier was not found |
+| <a name="error_41000">41000</a> | Error: user directory with ID '{identifier}' not found | User directory with the specified identifier was not found |
 | <a name="error_41001">41001</a> | Error: your tariff does not allow you to work with user directories | For "Free", "Free 2014" and "Individual" tariffs, work with user directories is not supported. |
 
 ### Error codes for Price types
@@ -471,14 +471,14 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_43005">43005</a> | Employee Save Error: Image is missing a filename | When uploading an image, you must specify a non-empty filename in the filename field. |
 | <a name="error_43006">43006</a> | Error saving employee: invalid TIN format | Check that the TIN format matches the individual's TIN format. |
 | <a name="error_43007">43007</a> | Error updating employee rights: you cannot change the rights of an employee who does not have access to the service | You cannot change the rights of an employee who does not have access to the service. |
-| <a name="error_43008">43008</a> | Error updating employee rights: cannot change employee login | When changing rights, you cannot change the employee's access login to the MySklad |
-| <a name="error_43009">43009</a> | Error updating employee rights: user login must end with '{login format}' | Incorrect login format for an employee's access to the MySklad service |
+| <a name="error_43008">43008</a> | Error updating employee rights: cannot change employee login | When changing rights, you cannot change the employee's access login to the Kladana |
+| <a name="error_43009">43009</a> | Error updating employee rights: user login must end with '{login format}' | Incorrect login format for an employee's access to the Kladana service |
 | <a name="error_43010">43010</a> | Error updating employee rights: You cannot specify user rights for this role | You can only set permissions for a custom role. |
 | <a name="error_43011">43011</a> | Error updating employee rights: Permission {permission type} has a child value of permission {permission name}, but no parent value of permission {permission name} | You cannot set a permission value without specifying a value for the parent permission. |
 | <a name="error_43012">43012</a> | Error updating employee rights: Permission {permission type} for {permission name} is set to {permission value}, which is wider than {permission value} for {permission name} | Specified notcompatible types for child and parent permissions. |
 | <a name="error_43013">43013</a> | Error updating employee rights: role cannot be changed, account must have at least one administrator | You must always have at least one employee with the 'Account Administrator' role on your account |
 | <a name="error_43014">43014</a> | Error updating employee rights: Your tariff plan does not allow you to configure access rights for employees | You can set rights for individual roles or create custom roles only on certain tariffs |
-| <a name="error_43015">43015</a> | Error updating employee rights: no role found with id {role id} | The custom role with the specified ID was not found. |
+| <a name="error_43015">43015</a> | Error updating employee rights: no role found with ID {role id} | The custom role with the specified ID was not found. |
 | <a name="error_43016">43016</a> | Employee password reset error: user has no email or invalid email | The employee for whom the password reset was requested does not have a valid email address. |
 | <a name="error_43017">43017</a> | Employee password reset error: employee does not have access rights to the service | You cannot reset the password for an inactive user. |
 | <a name="error_43018">43018</a> | Employee password reset failed: {reason name} | If it was not possible to send the password by mail, then a message is displayed about the reason |
@@ -575,7 +575,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_63000">63000</a> | Saved filter applied error: Saved filter is incompatible with filter, search and order query parameters | A filter, search, and order parameter was passed, or multiple saved filters were applied |
 | <a name="error_63001">63001</a> | Error applying saved filter: The specified saved filter is not compatible with the current endpoint | A saved filter has been applied that cannot be obtained on the current Angpoint along the path `/entity/[entityType]/namedfilter` |
 | <a name="error_63002">63002</a> | Saved filter application error: Invalid saved filter reference format | The correct link format should be of type [URL](#kladana-json-api-general-info-data-types) |
-| <a name="error_63003">63003</a> | Error applying saved filter: The specified saved filter reference contains an incompatible filter and endpoint | The passed link contains a filter id that cannot be obtained on the endpoint passed in the link |
+| <a name="error_63003">63003</a> | Error applying saved filter: The specified saved filter reference contains an incompatible filter and endpoint | The passed link contains a filter ID that cannot be obtained on the endpoint passed in the link |
 | <a name="error_63004">63004</a> | Error getting saved filters: invalid value '{value}' for query parameter 'owner' | Query parameter value 'owner' does not conform to href format |
 | <a name="error_63005">63005</a> | Error getting saved filters: Applications can only get saved filters with the specified query parameter 'owner' | Applications can receive other users' saved filters, so you need to specify the 'owner' parameter |
 
@@ -585,16 +585,16 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_64000">64000</a> | Sales Channel Update Error: You cannot change the type for an Automatically Created Sales Channel | Sales channel created automatically has a read-only immutable type |
 
-### Error codes for Cells and Warehouse Zones
+### Error codes for Bins and Warehouse Zones
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_67000">67000</a> |A cell with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a cell from another warehouse |
-| <a name="error_67001">67001</a> | Cannot specify cell for '{parameter}' | You cannot specify a cell for document items of type Kit or Service |
-| <a name="error_67002">67002</a> | The specified zone '{parameter}' is not a warehouse zone '{parameter}' of the bin | It is not allowed to assign another warehouse zone to a cell |
+| <a name="error_67000">67000</a> |A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse |
+| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}' | You cannot specify a bin for document items of type Bundle or Service |
+| <a name="error_67002">67002</a> | The specified zone '{parameter}' is not a warehouse zone '{parameter}' of the bin | It is not allowed to assign another warehouse zone to a bin |
 | <a name="error_67003">67003</a> | Exceeded the maximum number of zones at the warehouse | The limit on the number of zones on an account has been violated |
 | <a name="error_67004">67004</a> | Zone '{parameter}' is not a warehouse zone '{parameter}' | You cannot change the zone of another warehouse for a given warehouse |
-| <a name="error_67005">67005</a> | Bin '{parameter}' is not a storage bin '{parameter}' | For a given warehouse, you cannot change the cell of another warehouse |
+| <a name="error_67005">67005</a> | Bin '{parameter}' is not a storage bin '{parameter}' | For a given warehouse, you cannot change the bin of another warehouse |
 
 
 ### Error codes for Series

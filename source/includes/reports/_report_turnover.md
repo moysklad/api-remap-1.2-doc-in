@@ -1,8 +1,8 @@
 ## Stock movement report
 
-Using the JSON API, you can request a Stock Movement report for all products and modifications. To access the report via the API, you need the right to view the Stock Movement report.
+Using the JSON API, you can request a Stock Movement report for all products and product variants. To access the report via the API, you need access rights to view the Stock Movement report.
 
-Learn more [Stock Movement report](https://kladana.zendesk.com/hc/en-us/articles/6507166907677-Stock-Movement-report-).
+Learn more about [Stock Movement report](https://kladana.zendesk.com/hc/en-us/articles/6507166907677-Stock-Movement-report-).
 
 ### Stock movement report by goods
 A general Stock movement report for goods and variants without warehouses.
@@ -11,7 +11,7 @@ A general Stock movement report for goods and variants without warehouses.
 
 | Title | Type | Description |
 | ---------| ----- | ----- |
-| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when answering` |
+| **assortment** | Object | Brief presentation of the Item or product variant in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when answering` |
 | **onPeriodStart** | Object | Indicators at the beginning of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
 | **onPeriodEnd** | Object | Indicators at the end of the period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
 | **income** | Object | Revenue figures during the reporting period. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-indicators-object-structure-onperiodstart-onperiodend-income-outcome)<br>`+Required when replying` |
@@ -21,12 +21,12 @@ A general Stock movement report for goods and variants without warehouses.
 
 | Title | Type | Description |
 | ----- | ----- |--------- |
-| **article** | String(255) | Article of Goods |
-| **code** | String(255) | Product Code |
-| **images** | Object | The first image of the Product or Modification |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
-| **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
-| **productFolder** | Object | Product Group or Modification |
+| **article** | String(255) | Article of products |
+| **code** | String(255) | Product code |
+| **images** | Object | The first image of the product or product variant |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant metadata<br>`+Required when replying` |
+| **name** | String(255) | Name of products or product variants<br>`+Required when answering` |
+| **productFolder** | Object | Product group or product variant |
 | **uom* | Object | Unit of measurement |
 
 #### Indicators object structure (onPeriodStart, onPeriodEnd, income, outcome)
@@ -47,13 +47,13 @@ Only one value can be specified for most parameters. You cannot specify empty va
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
 | **contract** | Object | `=` | link to the contract by which you want to filter. |
 | **organization** | Object | `=` | link to the legal entity by which you want to filter. |
-| **product** | Object | `=` | a link to the product you want to filter by. The output will include the product along with its modifications with `groupBy=variant`.|
+| **product** | Object | `=` | a link to the product you want to filter by. The output will include the product along with its product variants with `groupBy=variant`.|
 | **project** | Object | `=` | a link to the project by which you want to filter. |
 | **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
 | **store** | Object | `=` | a link to the warehouse(s) by which you want to filter. |
 | **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified supplier. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | Enum | `=` | parameter for filtering "document type" by which you can producesti filtering. Possible values are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`. |
-| **variant** | Object | `=` | link to the modification by which you want to filter. |
+| **variant** | Object | `=` | link to the product variant by which you want to filter. |
 | **withoutturnover** | Boolean | `=` | parameter for filtering "Show products without movement". Possible values: `true`, `false`. |
 
 Filtering examples:
@@ -105,7 +105,7 @@ Request to receive the Stock movement report by goods.
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 | **momentFrom** | `date` (optional) *Example: 2018-09-01 00:00:00* Report period start |
 | **momentTo** | `date` (optional) *Example: 2018-10-01 00:00:00* Report period end |
-| **groupBy** | `string` (optional) the type to group the output by. By default, the **groupBy** parameter is set to `product`. If you want to see only objects of the product type, you must set the appropriate parameter value. <ul><li>groupBy=product - products only</li><li>groupBy=variant - products and modifications</li></ul> |
+| **groupBy** | `string` (optional) the type to group the output by. By default, the **groupBy** parameter is set to `product`. If you want to see only objects of the product type, you must set the appropriate parameter value. <ul><li>groupBy=product - products only</li><li>groupBy=variant - products and s</li></ul> |
 
 **Headers**
 
@@ -265,19 +265,19 @@ Stock movement report by products and their variants with detalization by wareho
 
 | Title | Type | Description |
 | --------- | ------- |------- |
-| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the Item or  in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
 | **stockByStore** | Object | Detailing of Stock movement report by warehouses. [Learn more](#reports-stock-movement-report-stock-movement-report-by-product-with-warehouses-details-stock-movement-report-object-structure-detailing-by-warehouses)<br>`+Required when replying` |
 
 #### Assortment object structure
 
 | Title | Type | Description |
 | --------- | ------- |--------- |
-| **article** | String(255) | Article of Goods |
-| **code** | String(255) | Product Code |
-| **images** | Object | The first image of the Product or Modification |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
-| **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
-| **productFolder** | Object | Product Group or Modification |
+| **article** | String(255) | Article of products |
+| **code** | String(255) | Product code |
+| **images** | Object | The first image of the product or product variant  |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or <br>`+Required when replying` |
+| **name** | String(255) | Name of products or product variants<br>`+Required when answering` |
+| **productFolder** | Object | Product group or product variant |
 | **uom* | Object | Unit of measurement |
 
 #### Stock movement report object structure detailing by warehouses
@@ -306,15 +306,15 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 
 | Title | Type | Filtration | Description |
 | --------- | ------- |------ | ------- |
-| **agent** | Object | `=` | link to the counterparty by which you want to filter. |
-| **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
-| **contract** | Object | `=` | link to the contract by which you want to filter. |
-| **organization** | Object | `=` | link to the legal entity by which you want to filter. |
-| **product** | Object | `=` | a link to the product you want to filter by. The issue will include the product along with its modifications. |
-| **project** | Object | `=` | a link to the project by which you want to filter. |
-| **retailStore** | Object | `=` | a link to the point of sale by which you want to filter. |
-| **store** | Object | `=` | a link to the warehouse(s) by which you want to filter.|
-| **variant** | Object | `=` | link to the modification by which you want to filter. |
+| **agent** | Object | `=` | Link to the counterparty you want to use as a filter. |
+| **agentTag** | String(255) | `=` | String with the name of the group of counterparties you want to use as a filter. |
+| **contract** | Object | `=` | Link to the contract you want to use as a filter. |
+| **organization** | Object | `=` | Link to the legal entity you want to use as a filter. |
+| **product** | Object | `=` | Link to the product you want to use as a filter. The products are included with the product variants. |
+| **project** | Object | `=` | Link to the project you want to use as a filter. |
+| **retailStore** | Object | `=` | Link to the point of sale you want to use as a filter. |
+| **store** | Object | `=` | Link to the warehouse you want to use as a filter.|
+| **variant** | Object | `=` | Link to the product variant you want to use as a filter. |
 
 Filtering examples:
 
@@ -523,7 +523,7 @@ Stock movement report for the product and their variants with warehouses and tra
 
 | Title | Type | Description |
 | --------- | ----- | ---------- |
-| **assortment** | Object | Brief presentation of the Item or Modification in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
+| **assortment** | Object | Brief presentation of the item or product variant in the report. [More details here](#reports-stock-movement-report-stock-movement-report-by-goods-assortment-object-structure)<br>`+Required when replying` |
 | **store** | Object | Warehouse.<br>`+Required when replying` |
 | **operation** | Object | The document associated with the Product. [More details here](#reports-stock-movement-report-stock-movement-report-by-product-with-details-by-transactions-operation-object-structure)<br>`+Required when replying` |
 | **quantity** | Float | Quantity of goods in the document.<br>`+Required when answering` |
@@ -534,11 +534,11 @@ Stock movement report for the product and their variants with warehouses and tra
 
 | Title | Type | Description |
 | --------- | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Modification<br>`+Required when replying` |
-| **name** | String(255) | Name of Goods or Modifications<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant metadata<br>`+Required when replying` |
+| **name** | String(255) | Product or Product Variant Name<br>`+Required when answering` |
 | **code** | String(255) | Product Code |
-| **article** | String(255) | Article of Goods |
-| **productFolder** | Object | Product Group or Modification |
+| **article** | String(255) | Article of Products |
+| **productFolder** | Object | Product Group or Product Variant |
 | **uom* | Object | Unit of measurement |
 
 #### Operation object structure

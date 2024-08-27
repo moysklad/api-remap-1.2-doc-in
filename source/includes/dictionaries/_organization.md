@@ -86,7 +86,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
-When transferring entities with an address to MySklad, use either a string address or a structured one.
+When transferring entities with an address to Kladana, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
@@ -153,9 +153,9 @@ If the legal entity type is `Individual Entrepreneur`, the following fields of d
 | **inn**               | TIN |
 | **legalAddress**      | Legal address of a legal entity |
 | **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalFirstName**    | Name for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
+| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
+| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of the `[Legal entity]` type |
 | **legalTitle**        | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
 | **ogrnip**            | OGRNIP |
 | **okpo**              | OKPO |
@@ -167,9 +167,9 @@ If the legal entity type is `Individual`, the following fields of details will b
 | Title               | Description|
 |---------------------|----------|
 | **legalTitle**      | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
-| **legalLastName**   | Surnamefor a Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalFirstName**  | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName**   | Surnamefor a Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
+| **legalFirstName**  | Name for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of the `[Legal entity]` type |
+| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
 | **legalAddress**    | Legal address of a legal entity |
 | **inn**             | TIN |
 
@@ -181,8 +181,8 @@ Request to get a list of legal entities on this account.
 
 | Title | Type | Description|
 | ---------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing a legal entity. |
 
 **Parameters**
