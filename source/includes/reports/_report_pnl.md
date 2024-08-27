@@ -308,7 +308,7 @@ Filtering examples:
 
 ### Get Profit and Loss Report by product variants
 
-The Profit and Loss report includes: products, kits, services and product variants. The variants are displayed unlike the parent product.
+The Profit and Loss report includes: products, bundles, services and product variants. The variants are displayed unlike the parent product.
 
 **Parameters**
 
@@ -768,7 +768,7 @@ Successful request. The result is a JSON representation of the report.
 | ---------| ---- |---------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when responding` |
 | **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
-| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
+| **type** | Enum | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
 
 #### Attributes available for filtering
 

@@ -14,7 +14,7 @@ The search among warehouse objects for matching the search string will be carrie
 |----- |----------------------------------------------------| ----- | ------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **address** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse address |
-| **addressFull** | Object                                             | | Address with details on individual fields. [More here](../dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address) |
+| **addressFull** | Object                                             | | Address with details on individual fields. [Learn more](../dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address) |
 | **archived** | Boolean                                            | `=` `!=` | Has the Warehouse been archived<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Statements of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional warehouse fields |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Code |
@@ -1806,7 +1806,7 @@ Access to the bins of the warehouse is carried out if you have the right to see 
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bin Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | | Bin Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | DateTime                                           | | Bin Last Update<br>`+Required when replying` `+Read Only` |
-| **zone** | Meta                                               | | Bin zone. [More here](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **zone** | Meta                                               | | Bin zone. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
 
 ### Get storage bins
 Get a list of all Warehouse Bins.

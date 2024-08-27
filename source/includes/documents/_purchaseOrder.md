@@ -34,7 +34,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required``+Read-Only`` |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | Float | | Amount shipped<br>`+Read only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Order status metadata<br>`+Expand` |

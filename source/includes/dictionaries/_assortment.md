@@ -27,7 +27,7 @@ The query results can be filtered using the 'filter' parameter.
 | **pathname** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that shouldbe included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
 | **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-quantitymode) |
-| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
+| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[Learn more](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
 | **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-stockmode) |
 | **stockMoment** | point in time when you want to withdraw the stock. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
@@ -37,7 +37,7 @@ The query results can be filtered using the 'filter' parameter.
 | **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
 | **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
 | **weighed** | parameter for filtering by weight item. Possible values: true, false. |
-| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
+| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
 
 Filtering by additional fields is also available. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) details about filtering by additional fields.
 
@@ -133,8 +133,8 @@ The directory settings allow the user to change the code uniqueness checking, se
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
-| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
+| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
+| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes

@@ -74,7 +74,7 @@ An asynchronous task contains information about the creator of the task, its cur
 | **owner** | [Meta](#kladana-json-api-general-info-metadata) | The user or application that created the Asynchronous Task<br>`+Required on Response` `+Read Only` |
 | **request** | String | The URL of the request that created the Asynchronous Task<br>`+Required for response` `+Read Only` |
 | **resultUrl** | String | Link to the task result. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
-| **state** | Enum | The execution status of the Asynchronous Task. [More details here](#kladana-json-api-asynchronous-exchange-asynchronous-task-entity-attributes-asynchronous-task-execution-status)<br>`+Required when replying` `+Read only` |
+| **state** | Enum | The execution status of the Asynchronous Task. [Learn more](#kladana-json-api-asynchronous-exchange-asynchronous-task-entity-attributes-asynchronous-task-execution-status)<br>`+Required when replying` `+Read only` |
 
 ##### Asynchronous task execution status
 

@@ -32,7 +32,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                                       |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                             |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                                       |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`                           |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`                           |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                                                       |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                      |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Outgoing payment status metadata<br>`+Expand`                                                                                             |
