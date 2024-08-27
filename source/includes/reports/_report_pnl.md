@@ -1,15 +1,15 @@
-## Profitability Report 
+## Profit and Loss Report 
 
-Using the JSON API, you can request a "Profitability" report for all products, services, modifications, employees, customers, and sales channels.
-To access the report via the API, you need the right to view the *Profit and Loss* report.
+Using the JSON API, you can request the Profit and Loss report for all products, services, product variants, employees, counterparties, and sales channels.
+To access the report via the API, you need the access rights to view the Profit and Loss report.
 
 
-#### Profitability by goods
+#### Profit and Loss by products
 #### Report object attributes
 
 | Title              | Type | Description |
 |--------------------| -----|---------|
-| **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service)<br>`+Required when answering` |
+| **assortment**     | Object | Brief presentation of a product or a service in the report. Learn more [here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service).<br>`+Required when answering` |
 | **margin**         | Float | Profitability<br>`+Required when answering` |
 | **profit**         | Float | Profit<br>`+Required when answering` |
 | **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
@@ -42,7 +42,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description|
 |------------| -----|---------|------------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variantn or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -76,9 +76,9 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Product Profitability
+### Get Profit and Loss Report for a Product
 
-Profitability report for goods includes: goods, kits, services. The product takes into account the profitability of its modifications, but without specifying the modifications themselves.
+Profit and Loss report for products includes: products, bundles, services. The product takes into account the profitability of its variants, but without specifying the variants themselves.
 
 **Parameters**
 
@@ -92,7 +92,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a "Profitability by Products" report.
+> Request for a Profit and Loss Rport by Products.
 
 ```shell
 curl -X GET
@@ -230,17 +230,17 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profitability by modifications
+#### Profit and Loss Reports for product variants
 #### Report object attributes:
 
 | Title              | Type | Description |
 |--------------------|---------|----- |
-| **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-product-variant), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
+| **assortment**     | Object | Brief representation of the Product variant, Service, or Bundle in the report. Learn more about [Product variant](../dictionaries/#entities-product-variant), [Service](../dictionaries/#entities-service) and [Bundle](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
 | **margin**         | Float | Profitability<br>`+Required when answering` |
 | **profit**         | Float | Profit<br>`+Required when answering` |
 | **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
 | **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`|
-| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
+| **returnPrice**    | Float | Price of returns<br>`+Required when replying` |
 | **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
 | **returnSum**      | Float | Refund amount<br>`+Required when replying` |
 | **sellCost**       | Float | Cost price<br>`+Required when answering` |
@@ -253,11 +253,11 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description |
 | -----|---------|-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Modification, Service, or Bundle Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product variant, Service, or Bundle Metadata<br>`+Required when responding` |
 | **name** | String(255) | Entity name<br>`+Required when replying` |
 | **code** | String(255) | Entity code<br>`+Required for response` |
-| **article** | String(255) | Article of Modification or Kit<br>`+Required when answering` |
-| **images** | Object | Image Modifications<br>`+Required when answering` |
+| **article** | String(255) | Article of Product variant or Bundle<br>`+Required when answering` |
+| **images** | Object | Product variant Image<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -267,7 +267,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| ------|--------|-------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to the product, service, bundle, product variant or series which you want to use for filtration. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -301,9 +301,9 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit by modifications
+### Get Profit and Loss Report by product variants
 
-The product profitability report includes: products, kits, services and modifications (the modification itself is displayed, not the parent product).
+The Profit and Loss report includes: products, kits, services and product variants. The variants are displayed unlike the parent product.
 
 **Parameters**
 
@@ -317,7 +317,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for the report "Profitability by modifications".
+> Request for the Profit and Loss report by product variants.
 
 ```shell
 curl -X GET
@@ -455,7 +455,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profitability by employee
+#### Profit and Loss Report by employee
 #### Report object attributes
 
 | Title | Type | Description |
@@ -487,7 +487,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| -----|----------|------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -521,7 +521,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profitability by Employee
+### Get Profit and Loss Report by Employee
 
 **Parameters**
 
@@ -535,7 +535,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a Profitability by Employee report.
+> Request for the Profit and Loss Report by Employee.
 
 ```shell
 curl -X GET
@@ -593,12 +593,12 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profitability by customers
+#### Profit and Loss Report by counterparty
 #### Report object attributes:
 
 | Title | Type | Description |
 | ------- | ----- | ------ |
-| **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-counterparty)<br>`+Required when answering` |
+| **counterparty** | Object | Brief presentation of the counterparty in the report. [Learn more](../dictionaries/#entities-counterparty)<br>`+Required when answering` |
 | **margin** | Float | Profitability<br>`+Required when answering`|
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
@@ -625,7 +625,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------| ------|--------| ---- |
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -659,7 +659,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profitability by Customers
+### Get Profit and Loss Report by Counterparty
 
 **Parameters**
 
@@ -673,7 +673,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a "Profitability by Buyers" report.
+> Request for the Profit and Loss Report by counterparty.
 
 ```shell
 curl -X GET
@@ -732,7 +732,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profitability by sales channel
+#### Profit and Loss Report by sales channel
 #### Report object attributes
 
 | Title | Type | Description |
@@ -765,7 +765,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------------------|-----------|-----------|---------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -777,7 +777,6 @@ You cannot specify empty values.
 | **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
-
 
 Filtering examples:
 
@@ -797,7 +796,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profitability by Sales Channels
+### Get Profit and Loss Report by Sales Channels
 
 **Parameters**
 
@@ -811,7 +810,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a Profitability by Sales Channel report.
+> Request for the Profit and Loss Report by Sales Channel report.
 
 ```shell
 curl -X GET

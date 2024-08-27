@@ -9,8 +9,8 @@
 | **name** | String(255) | Name of the User Directory<br>`+Required when replying` `+Required when creating` |
 
 #### List of user directories
-To work with custom directories, you need to know the id of each directory.
-This id is indicated in the URI parameters of requests to this entity as <metadata_id>. His
+To work with custom directories, you need to know the ID of each directory.
+This ID is indicated in the URI parameters of requests to this entity as <metadata_id>. His
 can be obtained by running a request to get company settings metadata. In the resulting list of entities
 the fields of the meta type will contain a link to each of the directories. In this link, the last substring separated
 character `/` and is an identifier for this directory.
@@ -140,8 +140,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------- | -------- | ------------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the elements of the User Directory. |
 
 **Parameters**
@@ -362,7 +362,7 @@ Request to delete an element of the user directory.
  
 | Parameter | Description |
 | ----- | --------- |
-| **id** | `string` (required) *Example: 6343f631-265d-11e6-8a84-bae500000014* id of the user dictionary element. |
+| **id** | `string` (required) *Example: 6343f631-265d-11e6-8a84-bae500000014* ID of the user dictionary element. |
 | **metadata_id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* user directory id. |
 
 > Delete directory entry
@@ -385,7 +385,7 @@ Successful deletion of the user directory element.
  
 | Parameter | Description |
 | ------- | ---- |
-| **id** | `string` (required) *Example: 6343f631-265d-11e6-8a84-bae500000014* id of the user dictionary element. |
+| **id** | `string` (required) *Example: 6343f631-265d-11e6-8a84-bae500000014* ID of the user dictionary element. |
 | **metadata_id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* user directory id. |
 
 > Request to get a custom dictionary element with the specified id.
@@ -444,7 +444,7 @@ A request to change an object that is an element of a user directory.
  
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 6343f631-265d-11e6-8a84-bae500000014* id of the user dictionary element. |
+| **id** | `string` (required) *Example: 6343f631-265d-11e6-8a84-bae500000014* ID of the user dictionary element. |
 | **metadata_id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* user directory id. |
 
 > An example of a request to update an element of a user directory.

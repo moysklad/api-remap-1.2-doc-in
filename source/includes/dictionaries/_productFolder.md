@@ -51,8 +51,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ------------ |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing product groups. |
 
 **Parameters**
@@ -508,7 +508,7 @@ Successful request. The result is a JSON representation of the additional Produc
 
 | Parameter | Description |
 | ------- | ------------ |
-| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id fields. |
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* Field ID. |
 
 #### Separate additional field
  

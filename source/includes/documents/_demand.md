@@ -113,7 +113,7 @@ Also, when working as part of a separate Shipment, you can send requests to upda
 with an array of Shipment items included in the request body. It is important to remember that the collection of items will be perceived as "all Shipment items" and will completely replace the existing collection when updating the object - superfluous
 items will be deleted, new ones added, existing ones changed.
 
-About working with Shipments fields can be read [here](../#kladana-json-api-general-info-additional-fields).
+[Learn more](../#kladana-json-api-general-info-additional-fields) about working with Shipment fields.
 
 #### Codes for marking of goods and transport packages
 
@@ -196,8 +196,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Shipments. |
 
 **Parameters**
@@ -1265,10 +1265,9 @@ Successful request. The result is a JSON representation of the generated Shipmen
 
 ### Bulk creating and update of Shipments
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Shipments.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Shipments.
 
-In the body of the request, you need to pass an array containing the JSON representation of the Shipments you want to create or update.
-Updated Shipments must contain the identifier in the form of metadata.
+In the request body, pass an array containing the JSON representation of the Shipments you want to create or update. Updated Shipments must contain the identifier in the form of metadata.
 
 > Example of creating and updating multiple Shipments
 
@@ -1642,7 +1641,7 @@ curl -X POST
        ]'
 ```
 
-> Successful request. The result is JSON information about deleting Shipments.
+> Successful request. The result is JSON information about deleting of Shipments.
 
 ```json
 [
@@ -1655,18 +1654,18 @@ curl -X POST
 ]
 ```
 
-### Shipments Metadata
+### Shipment Metadata
 
-Request to get Shipments metadata. The result is a JSON object including:
+Request to get Shipment metadata. The result is a JSON object including:
 
 | Parameter | Description |
 | ---------- | --------- |
-| **meta** | Link to Metadata of Shipments |
+| **meta** | Link to Metadata of Shipment |
 | **attributes** | Array of objects additional Shipments fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Shipments statuses |
 | **createShared** | create new Shipments labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
+The structure of a separate object representing the additional field is described in detail in the following section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Shipment Metadata
 
@@ -3155,8 +3154,8 @@ Request to get a list of all items of this Shipment.
 
 | Title | Type | Description |
 | ------- | ------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Shipment items. |
 
 **Parameters**
@@ -3497,11 +3496,10 @@ Successful request. The result is a JSON representation of the item list of a si
 Request to create a new item in the Shipment.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification/set that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Shipment item](../documents/#transactions-shipment-shipments-shipment-items)
-+ **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
-You can create one or more Shipment items at the same time. All items created by this request
++ **assortment** - Link to the product/service/series/product variant/set that the item represents.
+You can also specify a field named **service** or **variant**, depending on what the indicated item is. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
++ **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
+You can create one or more Shipment items at the same time. All items created by the request
 will be added to the existing ones.
 
 **Parameters**

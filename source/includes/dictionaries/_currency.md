@@ -220,9 +220,9 @@ Successful request. The result is a JSON representation of the generated Currenc
 
 ### Create system currency
 
-A system currency is a currency for which MySklad already has all the parameters and the ability to automatically update the rate.
-To add a system currency, you must specify **system**=**true** and one of the **code** or **isoCode** parameters.
-Additionally, you can specify **rateUpdateType** and **margin**
+A system currency is a currency for which Kladana already has all the parameters and the ability to automatically update the rate.
+To add a system currency, you should specify **system**=**true** and one of the **code** or **isoCode** parameters.
+Additionally, you can specify **rateUpdateType** and **margin**.
 
 > Request to create a system currency with automatic updating of the rate by ISO code.
 
@@ -436,7 +436,7 @@ Request to delete the Currency with the specified id. The accounting currency ca
 
 | Parameter | Description |
 | -------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - currency id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Currency ID |
 
 > Request to delete a Currency
 
@@ -503,7 +503,7 @@ curl -X POST
 
 | Parameter | Description |
 | -------- | ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - currency id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Currency ID |
 
 > Get Currency
 
@@ -564,7 +564,7 @@ for currencies based on the system currency directory. You can't change the exch
 
 | Parameter | Description|
 | -------- | -------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - currency id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Currency ID |
 
 > Change Currency
 

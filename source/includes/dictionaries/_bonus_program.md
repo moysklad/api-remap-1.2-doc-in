@@ -38,8 +38,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | -------- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | Array of JSON objects representing Bonus Programs |
 
 **Parameters**
@@ -198,7 +198,7 @@ Successful request. The result is a JSON representation of the created bonus pro
 
 | Parameter | Description |
 | ------- | ---------- |
-| id | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
+| ID | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
 
 Request to change the bonus program. In the body of the request, you must pass the fields that will be changed
 

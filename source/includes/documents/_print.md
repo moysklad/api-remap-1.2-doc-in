@@ -14,7 +14,7 @@ The server MAY return a 202 Response and a 'Location' header with an address to 
 
 | Parameter | Description |
 | ------------ | ---------- |
-| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* id of the entity for which printing is requested. |
+| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* ID of the entity for which printing is requested. |
 | **type** | `string` (required) *Example: demand* the type of the entity for which printing is requested. |
 
 Request to print a single document based on a printable template.
@@ -33,7 +33,7 @@ You can also print a set of documents. To do this, instead of the **template** f
 | **count** | Int | The number of copies of the printed form. From 1 to 10.<br>`+Required when answering` |
 
 If the request contains both a **templates** field and a **template** field (outside the **templates** array element), an error will occur. Only 1 of these fields is allowed in a request.
-When printing kits <u>you don't need</u> to specify the **extension** field - all kits are printed in *pdf*.
+When printing bundles <u>you don't need</u> to specify the **extension** field - all bundles are printed in *pdf*.
 
 When printing a set, for certain entities, you can use templates to print related documents.
 So, for example, for shipment (demand) you can use templates:

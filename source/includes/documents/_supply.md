@@ -28,7 +28,7 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Receiving<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider`|
-| **overhead** | Object | | Overheads. [More details here](../documents/#transactions-receiving-receivings-overhead). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
+| **overhead** | Object | | Overhead expenses. [Learn more](../documents/#transactions-receiving-receivings-overhead). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **paidSum** | Float | | Amount of incoming payments on Receiving<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray | | Receiving item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
@@ -39,7 +39,7 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Receiving Status Metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler`|
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler`|
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Receiving last updated time<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
@@ -51,7 +51,7 @@ Description of overhead fields
 
 | Title | Type | Description |
 | ---------------- | --- | ------ |
-| **sum** | Int | Amount in rupees<br>`+Required when replying` `+Update-provider` |
+| **sum** | Int | Amount in paise<br>`+Required when replying` `+Update-provider` |
 | **distribution** | Enum | Overhead allocation `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider`|
 
 #### Links to other documents
@@ -64,23 +64,23 @@ Description of overhead fields
 | **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Receiving Items
-Receiving Items is a list of goods/services/modifications/series.
+Receiving Items is a list of goods/services/product variants/series.
 The Receiving item object contains the following fields:
 
 | Title | Type                                               | Description |
 | -------- |----------------------------------------------------|-------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
-| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
-| **overhead** | Int                                                | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
+| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [Learn more](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
 | **vat** | Boolean                                            | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
@@ -137,8 +137,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- | --------|---------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Receivings. |
 
 **Parameters**
@@ -2078,7 +2078,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
 
 | Parameter | Description |
 | -------- | --------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2503,8 +2503,8 @@ Request for a list of all items in the Receiving.
 
 | Title | Type | Description |
 | -------- | --------|-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Receiving items. |
 
 **Parameters**
@@ -2806,7 +2806,7 @@ Successful request. The result is a JSON representation of a list of individual 
 Request to create a new item in Receiving.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/series/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-receivings-receiving-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

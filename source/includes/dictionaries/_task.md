@@ -106,8 +106,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------ | ------- |------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Tasks](../dictionaries/#entities-task). |
 
 **Parameters**
@@ -809,9 +809,9 @@ Request to get a list of all comments for this Issue.
 
 | Title | Type | Description |
 | ------ | ------- | ------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the comment totask. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing comments to a task. |
 
 **Parameters**
 
