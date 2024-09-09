@@ -2,13 +2,13 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 22-07-2024
+### Added
+- The ability to specify multiple warehouses in the [turnover report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-stock-movement-report)
+
 ## 24-06-2024
 ### Added
 - Error [17023](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
-
-## 22-07-2024
-### Added
-- The ability to specify multiple warehouses in the [turnover report](https://dev.kladana.in/doc/api/remap/1.2/reports/#reports-stock-movement-report)
 
 ## 06-03-2024
 ### Added
