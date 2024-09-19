@@ -21,7 +21,7 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 | **postponedBonusesDelayDays** | Int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
 | **spendRatePointsToRouble**   | Int | Write-off rate |
 | **welcomeBonusesEnabled**     | Boolean | Ability to earn welcome points<br>`+Required when answering` |
-| **welcomeBonusesMode**        | Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [More here](../dictionaries/#entities-bonus-program-bonus-programs-entity-attributes-bonus-points-conditions) |
+| **welcomeBonusesMode**        | Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [Learn more](../dictionaries/#entities-bonus-program-bonus-programs-entity-attributes-bonus-points-conditions) |
 | **welcomeBonusesValue**       | Int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
 
 ##### Bonus points conditions
@@ -38,8 +38,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | -------- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | Array of JSON objects representing Bonus Programs |
 
 **Parameters**
@@ -198,7 +198,7 @@ Successful request. The result is a JSON representation of the created bonus pro
 
 | Parameter | Description |
 | ------- | ---------- |
-| id | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
+| ID | `string` (required) *Example: 87c69fae-c1ad-4700-a852-f21939470760* Rewards program ID. |
 
 Request to change the bonus program. In the body of the request, you must pass the fields that will be changed
 

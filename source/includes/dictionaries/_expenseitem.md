@@ -1,7 +1,7 @@
 ## Expense item
 ### Expense items
 Using the JSON API, you can request lists of Expense Items and information on individual Expense Items. The entity code for Expense Items in the JSON API is the **expenseitem** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the Items of expenditure for matching the search string will be carried out in the following fields:
 
@@ -302,9 +302,9 @@ Successful request. The result is a JSON array of representations of the created
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
 
-> Request to delete an Expense Item with the specified id.
+> Request to delete an Expense Item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -412,7 +412,7 @@ Request to change an existing expense item.
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
  
 > An example of a request to update an expense item.
 

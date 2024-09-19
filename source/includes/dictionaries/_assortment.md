@@ -14,7 +14,7 @@ The query results can be filtered using the 'filter' parameter.
 | ---------|-------|
 | **alcoholic.type** | parameter for filtering by the code of the type of alcoholic product. You can use the `=` and `!=` operators. The value of the parameter is an integer. You can pass an empty value, then the selection will include products with a filled or empty value of the product type code. |
 | **archived** | parameter for filtering on the basis of archived goods. Possible values: true, false. To display both regular and archived products, you need to pass two values at once, true and false. By default, only regular products are included in the search results. |
-| **article** | parameter for filtering by article numbers of goods and kits. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **article** | parameter for filtering by article numbers of products and bundles. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **barcode** | parameter for filtering by entity barcodes. A valid operator is `=`. You can pass multiple values. You can specify an empty value. |
 | **code** | parameter for filtering by entity codes. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **description** | parameter for filtering by entity descriptions. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
@@ -27,17 +27,17 @@ The query results can be filtered using the 'filter' parameter.
 | **pathname** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that shouldbe included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
 | **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-quantitymode) |
-| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
+| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[Learn more](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
 | **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-stockmode) |
-| **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
+| **stockMoment** | point in time when you want to withdraw the stock. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
 | **stockStore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
 | **type** | parameter for filtering by entity type (product, service, bundle, variant). Used with the `=` operator. You can pass multiple values. |
 | **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
 | **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
 | **weighed** | parameter for filtering by weight item. Possible values: true, false. |
-| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
+| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
 
 Filtering by additional fields is also available. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) details about filtering by additional fields.
 
@@ -47,11 +47,11 @@ The default value is all.
 | Meaning | Description |
 | --------|---------|
 | **all** | Any value of the remainder |
-| **positiveOnly** | Positive balance |
-| **negativeOnly** | Negative balance |
-| **empty** | Zero balance |
+| **positiveOnly** | Positive stock |
+| **negativeOnly** | Negative stock |
+| **empty** | Zero stock |
 | **nonEmpty** | Non-zero remainder |
-| **underMinimum** | Balance below minimum balance |
+| **underMinimum** | The stock is below the minimum |
 
 ##### Available values for quantityMode
 The default value is all.
@@ -69,14 +69,14 @@ The default value is all.
 For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.
 
     + by the name of the Assortment item **name**
-    + by modification name **name**
+    + by product variant name **name**
     + by code **code**
-    + by modification code **code**
+    + by product variant code **code**
     + by article **article**
     + by barcode **barcode**
-    + by modification barcode **barcode**
+    + by product variant barcode **barcode**
     + by barcode of product packages **barcode**
-    + by the barcode of packages of modifications **barcode**
+    + by the barcode of product variant packages **barcode**
  
 
 When using filters **alcoholic.type**, **weighed** and filters **stockMode**, **quantityMode** with values other than all, services and bundles are not included in the search results.
@@ -120,12 +120,12 @@ Filtering examples:
 | -------------------- | --------------- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **groupBy** | `string` (optional) Grouping parameter. Takes one of the following values: `product` - only products will be displayed, `variant` - products and modifications will be displayed (similar to the absence of a parameter)|
+| **groupBy** | `string` (optional) Grouping parameter. Takes one of the following values: `product` - only products will be displayed, `variant` - products and product variants will be displayed (similar to the absence of a parameter)|
 
 
 #### Directory settings
 
-Goods directory entities are goods, services, kits and groups of goods.
+Goods directory entities are goods, services, bundles and groups of goods.
 The directory settings allow the user to change the code uniqueness checking, setting a unique code when creating entities, setting a unique EAN13 barcode, using barcode prefixes for bulk goods, and configuring the sharing of these entities.
 
 #### Entity attributes
@@ -133,8 +133,8 @@ The directory settings allow the user to change the code uniqueness checking, se
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
-| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
+| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
+| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes
@@ -149,13 +149,13 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 | Title | Type | Description |
 | ----------- | ------ | -------- |
-| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, kits, modifications and services<br>`+Required when replying` |
+| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, bundles, product variants and services<br>`+Required when replying` |
 | **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when replying` |
 | **weightBarcodePrefix** | Int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
 
 ### Get Assortment
 
-> Request to receive all goods, services, kits, modifications and series in the form of a list.
+> Request to receive all goods, services, bundles, product variants and series in the form of a list.
 
 ```shell
 curl -X GET
@@ -164,7 +164,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, modifications and series.
+> Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, product variants and series.
   
 ```json
 {

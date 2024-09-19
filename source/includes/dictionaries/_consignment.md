@@ -13,7 +13,7 @@ The search among the objects of the Series for matching the search string will b
 | Title | Type | Filtration | Description |
 | ------| ------ | ------ | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or modification metadata<br>`+Required when responding` `+Required when creating` |
+| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or product variant metadata<br>`+Required when responding` `+Required when creating` |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Series barcodes |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Series Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Series Description |
@@ -44,8 +44,8 @@ The result of a successful request is a JSON representation of a list of Series 
 
 | Title | Type | Description |
 | ------ | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the series. |
 
 **Parameters**

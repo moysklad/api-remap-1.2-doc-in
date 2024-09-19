@@ -19,8 +19,8 @@ To create these characteristics, we will use additional fields (attributes) of t
 In the web application, object attributes are assigned on the object list page by clicking the gear button on the right.
 A window for editing the properties of objects opens, where the last item is "Additional fields". Here you can view, create, editing and deleting object attributes. All this functionality is available through the JSON API.
 
-### Additional fields for Services, Modifications and Kits
-Additional fields for Goods, Services, Modifications and Kits are common and are located in the Goods metadata.
+### Additional fields for Services, Product Variants and Bundles
+Additional fields for Goods, Services, Product Variants and Bundles are common and are located in the Goods metadata.
 
 ### Creating a new additional field via the JSON API
 Consider the task of adding new attributes to an entity (product). Suppose we want for existing and purchased in the future laptops
@@ -75,7 +75,7 @@ to false, which makes the created attribute optional when creating a product.
 It is worth paying attention to the creation of an attribute with the Directory type. This type allows an attribute to take other objects as its value,
 including custom ones.
 
-Description of Handbook type attributes in [documentation](../workbook/#workbook-working-with-additional-fields-via-json-api)
+Description of Handbook type attributes in [documentation](../workbook/#workbook-working-with-additional-fields-via-json-api).
 
 Let's assume that our store also has laptop cases. Let's create a Catalog attribute of the Product type. Now there is an opportunity for
 for each laptop, specify the appropriate case for itl as one of the properties of the laptop.
@@ -202,7 +202,7 @@ After executing this query, the "Body Material" field will be updated to "Body M
 
 ### Display additional fields via JSON API
 
-To display a list of attributes of an entity (in this case, a product), you need to execute a GET request
+To display a list of attributes of an entity (in this case, a product), you need to execute a GET request.
 
 > Request
 
@@ -266,7 +266,7 @@ curl
 
 ```
 
-If you specify the id of a specific attribute in the request, then we will get only it.
+If you specify a specific attribute ID in the request, we will get only it.
 
 > Request
 
@@ -348,7 +348,7 @@ curl -X DELETE
    "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f"
 ```
 
-We will receive an empty response with a status of 200. The attribute with the specified id will be removed.
+We will receive an empty response with a status of 200. The attribute with the specified ID will be removed.
 
 ### Bulk removal of additional fields via JSON API
 To delete several attributes at once, you need to execute the following POST request, specifying the meta data of the fields to be deleted in the body:

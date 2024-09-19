@@ -28,7 +28,7 @@ The entity code for Balance Adjustment as part of the JSON API is the **counterp
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only`                                                                           |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only`                                                                           |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                          |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in rupees<br>`+Required when replying` `+Read only`                                                              |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in paise<br>`+Required when replying` `+Read only`                                                              |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only`                                              |
 
 ### Get a list of Balance Adjustments
@@ -553,7 +553,7 @@ Successful request. The result is a JSON array of representations of created and
 | ------- | -------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
 
-> Request to delete Account adjustments of the counterparty with the specified id.
+> Request to delete Account adjustments of the counterparty with the specified ID.
 
 ```shell
 curl -X DELETE

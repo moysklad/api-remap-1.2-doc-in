@@ -1,7 +1,7 @@
 ## Region
 
 ### Regions
-Using the JSON API, you can request a list of Russian regions and information on individual regions.
+Using the JSON API, you can request the list of regions of India and information on individual regions.
 The entity code for Regions in the JSON API is the **region** keyword.
 
 #### Entity attributes
@@ -34,8 +34,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ----------- |---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Regions](../dictionaries/#entities-region). |
 
 **Parameters**

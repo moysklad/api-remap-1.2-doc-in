@@ -70,7 +70,7 @@ to the cart is available only if the employee has the appropriate rights, and co
 
 ### Example of deleting Putaway to Trash
 
-> Request to delete the Acceptance with the specified id in the trash.
+> Request to delete the Acceptance with the specified ID in the trash.
 
 ```shell
    curl -X POST
