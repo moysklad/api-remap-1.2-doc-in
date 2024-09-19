@@ -117,6 +117,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when answering` |
 | **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Read only` |
 
 #### Legal entity type
 Depending on the legal entity type **companyType**, its object will display different sets of details.
@@ -1830,7 +1831,16 @@ Successful request.
            "type": "organization",
            "mediaType": "application/json"
          }
-       }
+       },
+       "currency": {
+        "meta": {
+          "href": "https://api.moysklad.ru/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
+          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/currency/metadata",
+          "type": "currency",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.moysklad.ru/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+        }
+      }
      }
    ]
 }
