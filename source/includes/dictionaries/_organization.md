@@ -1834,11 +1834,11 @@ Successful request.
        },
        "currency": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/currency/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.moysklad.ru/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
          }
        }
      }
