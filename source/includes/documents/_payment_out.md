@@ -36,7 +36,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                                                       |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                      |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Outgoing payment status metadata<br>`+Expand`                                                                                             |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming payment in the specified currency<br>`+Required when replying`                                                     |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing payment in the specified currency<br>`+Required when replying`                                                     |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change                                                                          |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Outgoing payment<br>`+Required when replying` `+Read only`                                               |
 | **vatSum** | Float | | VAT amount<br>`+Required when answering`                                                                                                  |
