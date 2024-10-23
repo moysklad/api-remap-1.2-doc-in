@@ -6,9 +6,53 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 03-09-2024
+#### Added
+- "Material warehouse" field (materialStore) in [Bills of Materials](../dictionaries/#suschnosti-tehkarta)
+- "Material warehouse" field  (materialStore) in [Production Operation](../documents/#dokumenty-proizwodstwennoe-zadanie-proizwodstwennye-atapy)
+
+### 28-08-2024
+#### Added
+- Filter parameter `productionTask` in the list request of [Process Tracking](../documents/#dokumenty-vypolnenie-atapa-proizwodstwa-poluchit-spisok-vypolnenij-atapow-proizwodstwa)
+
+### 26-08-2024
+#### Added
+- Filter parameter `moment` in the query of the list of [Process Tracking](../documents/#dokumenty-vypolnenie-atapa-proizwodstwa-poluchit-spisok-vypolnenij-atapow-proizwodstwa)
+- Filter parameters `moment`, `organization`, `deliveryPlannedMoment` in the query of the list of [Production Orders](../documents/#dokumenty-proizwodstwennoe-zadanie)
+
+### 22-08-2024
+#### Added
+- Flag "Without closing documents" for [Outgoing payment](../documents/#dokumenty-ishodqschij-platezh)
+- Flag "Without closing documents" for [Outgoing Cash Payment](../documents/#dokumenty-rashodnyj-order)
+
 ### 22-07-2024
 #### Added
-- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
+- Ability to specify multiple warehouses in the [Stock Movement Report](../reports/#otchety-otchet-oboroty)
+
+### 16-07-2024
+#### Added
+- Added description of getting a link to [image](../dictionaries/#suschnosti-izobrazhenie-poluchit-ssylku-na-izobrazhenie-towara-ili-komplekta-ili-modifikacii)
+
+### 12-07-2024
+#### Added
+- New [Report based on transaction nomenclature](../reports/#otchety-otchet-po-dokumentam-nomenklatury)
+
+### 1-07-2024
+#### Changed
+- Added viewProductCostAndProfit permission to the list of [employee request context] permissions (../#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika)
+
+### 26-06-2024
+#### Added
+- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-general-info-restrictions).
+- Condition for automatically disabling a webhook in [Limitations](../#kladana-json-api-general-info-restrictions).
+
+### 24-06-2024
+#### Added
+- Error [17023](../#kladana-json-api-errors-error-codes-for-documents)
+
+### 22-07-2024
+#### Added
+- The ability to specify multiple warehouses in the [Stock Movement Report](../reports/#reports-stock-movement-report)
 
 ### 24-06-2024
 #### Added

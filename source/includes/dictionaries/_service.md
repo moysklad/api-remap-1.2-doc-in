@@ -16,8 +16,8 @@ Search among service objects for matching the search string will be carried out 
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Bundle barcodes. [Learn more](../dictionaries/#entities-service-services-services-metadata-barcodes) |
-| **buyprice** | Object                                             | | Purchasing sale. [Learn more](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Service barcodes. [Learn more](../dictionaries/#entities-service-services-services-metadata-barcodes) |
+| **buyPrice** | Object   |  | Purchase price. [Learn more](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Service Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description of the Service|
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
@@ -84,29 +84,29 @@ Structures of objects of individual collections:
 ##### Barcodes:
 When creating a barcode, you need to describe an object with a field that is a lowercase barcode representation format with the string value of the barcode itself. The names of the fields of a separate object representing a barcode:
 
-| Title       | Description                                                                                            |
-|-------------|--------------------------------------------------------------------------------------------------------|
-| **ean13**   | barcode in EAN13 format if you want to generate an EAN13 barcode                                       |
-| **ean8**    | barcode in EAN8 format if you want to generate an EAN8 barcode                                         |
-| **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format                         |
+| Title       | Description  |
+| ----------- | ------------ |
+| **ean13**   | barcode in EAN13 format if you want to generate an EAN13 barcode  |
+| **ean8**    | barcode in EAN8 format if you want to generate an EAN8 barcode  |
+| **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format |
 | **gtin**    | barcode in GTIN format, if you want to generate a barcode in GTIN format. Validated against GS1 format |
-| **upc**     | barcode in UPC format, if you want to generate a barcode in UPC format                                 |
+| **upc**     | barcode in UPC format, if you want to generate a barcode in UPC format |
 
 About working with Service fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
 ##### Sales prices
 
-| Title | Type                                               | Description |
-| ----- |----------------------------------------------------|------ |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
+| Title | Type  | Description |
+| ----- | ----- | ----------- |
+| **value** | Float  | Price value<br>`+Required when answering` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
-| **priceType** | Object                                             | Price type<br>`+Required when replying` |
+| **priceType** | Object | Price type<br>`+Required when replying` |
 
 
 ##### Purchase price
 
-| Title | Type                                               | Description |
-| ----- |----------------------------------------------------|------ |
+| Title | Type      | Description |
+| ----- |---------- | ----------- |
 | **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 

@@ -22,10 +22,10 @@ The stock for the **Sales Order**, **Sales Invoice**, **Purchase Order** and **S
 |**meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the transaction which stock is requested<br>`+Required when answering` |
 |**name** | String(255) | Item name<br>`+Required when answering` |
 |**stock** | Float | Stock<br>`+Required when answering` |
-|**cost** | Float | Cost price<br>`+Required when answering` |
-|**inTransit** | Float | Waiting<br>`+Required for response` |
-|**reserve**| Float | Reserve<br>`+Required when replying` |
-|**quantity** | Float | Available. The value of the **Set** entity is always `0`.<br>`+Required for response` |
+|**cost** | Float | Cost price in paise<br>`+Required when answering` |
+|**inTransit** | Float | Waiting. The **bundle** entity always has a value of `0`.<br>`+Required for response` |
+|**reserve**| Float | Reserve. The **bundle** entity always has a value of `0`.<br>`+Required when replying` |
+|**quantity** | Float | Available. The **bundle** entity always has a value of `0`.<br>`+Required for response` |
 
 ### Get Transaction Stock
 

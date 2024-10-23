@@ -1,12 +1,12 @@
 ## Bonus program
 ### Bonus programs
 
-The entity code for Bonus Programs as part of the JSON API is the **bonusprogram** keyword. Create and update operations are not supported. Before working with discounts learn more about [Discounting](https://kladana.zendesk.com/hc/en-us/sections/360005674458-Discounting).
+The entity code for Bonus Programs as part of the JSON API is the **bonusprogram** keyword. Before working with discounts learn more about [Discounting](https://kladana.zendesk.com/hc/en-us/sections/360005674458-Discounting).
 
 #### Entity attributes
 
 | Title                         | Type | Description |
-|-------------------------------| ------------ | ------------- |
+| ------------------------------- | ------------ | ------------- |
 | **accountId**                 | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **active**                    | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
 | **agentTags**                 | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |

@@ -167,7 +167,7 @@ Successful request. The result is a JSON representation of the report.
 ```
 
 ### Cash balances
-#### Report object attributes:
+#### Report object attributes
 
 #### Unit
 | Title | Type | Description |

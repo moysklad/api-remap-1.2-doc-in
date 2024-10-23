@@ -26,7 +26,7 @@ Using the JSON API, you can create and update information about Sales Returns, q
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return Name<br>`+Required when replying` `+Change-handler` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray | | Sales Return item metadata<br>`+Required in response` `+Expand` `+Change-handler` |
 | **printed** | Boolean | `=` `!=` | Is the transaction printed or not<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
@@ -61,14 +61,14 @@ The Sales Return element object contains the following fields:
 | Title | Type                                               | Description |
 | ------|----------------------------------------------------|---------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **cost** | Int                                                | Cost price. It is displayed only for Unreferenced Return (Return with no reason) |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country Metadata<br>`+Expand` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br>`+Change-handler` |
 | **price** | Float                                              |Price of products/services in paise<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
+| **quantity** | Float                                               | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
@@ -1928,7 +1928,7 @@ Successful request. The result is a JSON representation of the Sales Return item
 Request to create a new item in Sales Return.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortmet** - Link to the product/service/series/product variant that the item represents.
++ **assortmet** - Link to the product, service, batch, or product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of [Sales Return items](../documents/#transactions-sales-return-sales-returns-sales-return-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2336,3 +2336,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Sales Return item.
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **id**  | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Sales Return ID |
+
+> Request for bulk deletion of Sales Return items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "internalorderposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "internalorderposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of the Sales Return items.

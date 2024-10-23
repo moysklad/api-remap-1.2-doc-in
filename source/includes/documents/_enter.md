@@ -23,7 +23,7 @@ Using the JSON API, you can create and update information about Stock Adjustment
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Stock Adjustment Number<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **overhead** | Object                                             | | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then overhead expenses cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Stock Adjustment items matadata<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
@@ -45,6 +45,13 @@ Description of overhead expenses fields.
 | **sum** | Int | Stock Adjustment Total in paise<br>`+Required when replying` `+Update-provider` |
 | **distribution** | Enum | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
+#### Links to other transactions
+
+| Title | Description |
+| -------- | -------- |
+| **inventory**  | Link to the Inventory Count related to the Stock Adjustment in the [Meta](../#kladana-json-api-general-info-metadata) format. |
+
+
 #### Stock Adjustment Items
 
 Stock Adjustment items is a list of products and product variants. Stock Adjustment item object contains the following fields:
@@ -52,13 +59,13 @@ Stock Adjustment items is a list of products and product variants. Stock Adjustm
 | Title | Type                                               | Description |
 |---------|----------------------------------------------------|--------|
 | **accountId** | UUID                                               | Account ID<br>`+Required forvete` `+Read Only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batches/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then no overhead expenses can be set<br>`+Required in response` `+Read-Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br> `+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Product/service price in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **quantity** | Int                                                | The number of gproducts/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
+| **quantity** | Float                                                | The number of gproducts/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **reason** | String(255)                                        | Reason of stock adjustment of the item|
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Object(String)                                     | Serial numbers. The value of the attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
@@ -1432,11 +1439,59 @@ Successful request. The result is a JSON representation of a list of items of a 
 }
 ```
 
-### Create Stock Adjustment item
+### Stock Adjustment Item
+ 
+### Get item
+ 
+**Parameters**
+
+| Parameter | Description |
+|---------|-------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Stock Adjustment ID. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item ID. |
+
+> Request for a separate Stock Adjustment item with the specified ID.
+
+```shell
+curl -X GET
+   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+   -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a single Stock Adjustment item.
+
+```json
+{
+   "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+     "type": "enterposition",
+     "mediaType": "application/json"
+   },
+   "id": "7944ef04-f831-11e5-7a69-971500188b20",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "quantity": 1,
+   "price": 0.0,
+   "assortment": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/00de5b31-3303-11e6-8a84-bae500000344",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
+     }
+   },
+   "reason": "REQUIRED",
+   "overhead": 0
+}
+```
+
+### Create Stock Adjustment Item
 
 Request to create a new item in the Stock Adjustment. For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/product variant that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service** or **variant** depending on what the indicated item is. Learn more about this field in the description of [Stock Adjustment items](../documents/#transactions-stock-adjustment-stock-adjustment-stock-adjustment-items).
 + **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
 You can create both one and some Stock Adjustment items at the same time. All items created by this request will be added to the existing ones.
@@ -1445,7 +1500,7 @@ You can create both one and some Stock Adjustment items at the same time. All it
 
 | Parameter | Description |
 |---------|-------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Stock Adjustment id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Stock Adjustment ID. |
 
 > An example of creating items in Stock Adjustment.
 
@@ -1539,54 +1594,6 @@ Successful request. The result is a JSON representation of the created item of a
 ]
 ```
 
-### Stock Adjustment Item
- 
-### Get item
- 
-**Parameters**
-
-| Parameter | Description |
-|---------|-------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Stock Adjustment id. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* item id. |
-
-> Request for a separate Stock Adjustment item with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a single Stock Adjustment item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "enterposition",
-     "mediaType": "application/json"
-   },
-   "id": "7944ef04-f831-11e5-7a69-971500188b20",
-   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   "quantity": 1,
-   "price": 0.0,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/00de5b31-3303-11e6-8a84-bae500000344",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
-     }
-   },
-   "reason": "REQUIRED",
-   "overhead": 0
-}
-```
-
 ### Change item
 
 Request to update an individual Stock Adjustment item. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
@@ -1655,10 +1662,10 @@ Successful request. The result is a JSON representation of the updated Stock Adj
 
 | Parameter | Description |
 |---------|-------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Stock Adjustment id. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Stock Adjustment ID. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item ID. |
 
-> Request to remove a single Stock Adjustment item with the specified id.
+> Request to remove a single Stock Adjustment item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -1669,3 +1676,40 @@ curl -X DELETE
 
 > Response 200 (application/json)
 Successful removal of Stock Adjustment item.
+
+### Bulk deletion of Items
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **id**    | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Stock Adjustment ID. |
+
+> Request for bulk deletion of Stock Adjustment items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/enter/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/enter/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "enterposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/enter/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "enterposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Stock Adjustment items were successfully deleted.

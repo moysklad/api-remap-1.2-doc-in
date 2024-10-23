@@ -1,26 +1,26 @@
 ## Profit and Loss Report 
 
 Using the JSON API, you can request the Profit and Loss report for all products, services, product variants, employees, counterparties, and sales channels.
-To access the report via the API, you need the access rights to view the Profit and Loss report.
+To access the report via the API, you need the access rights to view the Profit report.
 
 
 #### Profit and Loss by products
 #### Report object attributes
 
-| Title              | Type | Description |
-|--------------------| -----|---------|
+| Title              | Type  | Description |
+| ------------------ | ----- | ----------- |
 | **assortment**     | Object | Brief presentation of a product or a service in the report. Learn more [here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service).<br>`+Required when answering` |
 | **margin**         | Float | Profitability<br>`+Required when answering` |
 | **profit**         | Float | Profit<br>`+Required when answering` |
-| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCost**     | Float | Cost of returns in paise<br>`+Required when replying` |
+| **returnCostSum**  | Float | The sum of the return costs in paise<br>`+Required when answering` |
 | **returnPrice**    | Float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
+| **returnQuantity** | Float | Number of returns<br>`+Required when replying` |
 | **returnSum**      | Float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | Float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellCost**       | Float | Cost price in paise<br>`+Required when answering` |
+| **sellCostSum**    | Float | Sum of the sale costs in paise<br>`+Required when answering` |
 | **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
+| **sellQuantity**   | Float | Quantity sold<br>`+Required when replying` |
 | **sellSum**        | Float | Sales amount<br>`+Required when answering` |
 
 #### Assortment object structure
@@ -42,7 +42,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description|
 |------------| -----|---------|------------|
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variantn or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variantn or batches by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -146,18 +146,18 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 8643,
+       "sellQuantity": 8643.0,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0,
-       "sellSum": 1868400300,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 1868400300.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
-       "returnCost": 0,
-       "returnSum": 0,
-       "returnCostSum": 0,
-       "profit": 1868400300,
-       "margin": 0
+       "returnCost": 0.0,
+       "returnSum": 0.0,
+       "returnCostSum": 0.0,
+       "profit": 1868400300.0,
+       "margin": 0.0
      },
      {
        "assortment": {
@@ -179,18 +179,18 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 4765,
+       "sellQuantity": 4765.0,
        "sellPrice": 100000000.0,
-       "sellCost": 0,
-       "sellSum": 476500000000,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 476500000000.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
-       "returnCost": 0,
-       "returnSum": 0,
-       "returnCostSum": 0,
-       "profit": 476500000000,
-       "margin": 0
+       "returnCost": 0.0,
+       "returnSum": 0.0,
+       "returnCostSum": 0.0,
+       "profit": 476500000000.0,
+       "margin": 0.0
      },
      {
        "assortment": {
@@ -213,17 +213,17 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10,
+       "sellQuantity": 10.0,
        "sellPrice": 500000.0,
-       "sellCost": 300000,
-       "sellSum": 5000000,
-       "sellCostSum": 3000000,
-       "returnQuantity": 3,
+       "sellCost": 300000.0,
+       "sellSum": 5000000.0,
+       "sellCostSum": 3000000.0,
+       "returnQuantity": 3.0,
        "returnPrice": 500000.0,
-       "returnCost": 300000,
-       "returnSum": 1500000,
-       "returnCostSum": 900000,
-       "profit": 1400000,
+       "returnCost": 300000.0,
+       "returnSum": 1500000.0,
+       "returnCostSum": 900000.0,
+       "profit": 1400000.0,
        "margin": 0.6666666666666666
      }
    ]
@@ -233,20 +233,20 @@ Successful request. The result is a JSON representation of the report.
 #### Profit and Loss Reports for product variants
 #### Report object attributes:
 
-| Title              | Type | Description |
-|--------------------|---------|----- |
+| Title              | Type    | Description |
+| ------------------ | ------- | ----------- |
 | **assortment**     | Object | Brief representation of the Product variant, Service, or Bundle in the report. Learn more about [Product variant](../dictionaries/#entities-product-variant), [Service](../dictionaries/#entities-service) and [Bundle](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
 | **margin**         | Float | Profitability<br>`+Required when answering` |
 | **profit**         | Float | Profit<br>`+Required when answering` |
-| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`|
+| **returnCost**     | Float | Cost of returns in paise<br>`+Required when replying` |
+| **returnCostSum**  | Float | The sum of the return costs in paise<br>`+Required when answering`|
 | **returnPrice**    | Float | Price of returns<br>`+Required when replying` |
-| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
+| **returnQuantity** | Float | Returned quantity<br>`+Required when replying` |
 | **returnSum**      | Float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | Float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellCost**       | Float | Cost price in paise<br>`+Required when answering` |
+| **sellCostSum**    | Float | Sum of the sale costs in paise<br>`+Required when answering` |
 | **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
+| **sellQuantity**   | Float | Quantity sold<br>`+Required when replying` |
 | **sellSum**        | Float | Sales amount<br>`+Required when answering` |
 
 #### Assortment object structure
@@ -267,7 +267,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| ------|--------|-------|
-| **product** | Object | `=` `!=` | a link to the product, service, bundle, product variant or series which you want to use for filtration. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to the product, service, bundle, product variant or batch which you want to use for filtration. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -371,18 +371,18 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 8643,
+       "sellQuantity": 8643.0,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0,
-       "sellSum": 1868400300,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 1868400300.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
-       "returnCost": 0,
-       "returnSum": 0,
-       "returnCostSum": 0,
-       "profit": 1868400300,
-       "margin": 0
+       "returnCost": 0.0,
+       "returnSum": 0.0,
+       "returnCostSum": 0.0,
+       "profit": 1868400300.0,
+       "margin": 0.0
      },
      {
        "assortment": {
@@ -404,18 +404,18 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 4765,
+       "sellQuantity": 4765.0,
        "sellPrice": 100000000.0,
-       "sellCost": 0,
-       "sellSum": 476500000000,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 476500000000.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
-       "returnCost": 0,
-       "returnSum": 0,
-       "returnCostSum": 0,
-       "profit": 476500000000,
-       "margin": 0
+       "returnCost": 0.0,
+       "returnSum": 0.0,
+       "returnCostSum": 0.0,
+       "profit": 476500000000.0,
+       "margin": 0.0
      },
      {
        "assortment": {
@@ -438,17 +438,17 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10,
+       "sellQuantity": 10.0,
        "sellPrice": 500000.0,
-       "sellCost": 300000,
-       "sellSum": 5000000,
-       "sellCostSum": 3000000,
-       "returnQuantity": 3,
+       "sellCost": 300000.0,
+       "sellSum": 5000000.0,
+       "sellCostSum": 3000000.0,
+       "returnQuantity": 3.0,
        "returnPrice": 500000.0,
-       "returnCost": 300000,
-       "returnSum": 1500000,
-       "returnCostSum": 900000,
-       "profit": 1400000,
+       "returnCost": 300000.0,
+       "returnSum": 1500000.0,
+       "returnCostSum": 900000.0,
+       "profit": 1400000.0,
        "margin": 0.6666666666666666
      }
    ]
@@ -464,12 +464,12 @@ Successful request. The result is a JSON representation of the report.
 | **margin** | Float | Profitability<br>`+Required when answering` |
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCostSum** | Float | The sum of the return costs in paise<br>`+Required when answering` |
 | **returnCount** | Int | Number of returns<br>`+Required when replying` |
 | **returnSum** | Float | Refund amount<br>`+Required when replying` |
 | **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
 | **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellCostSum** | Float | Sum of the sale costs in paise<br>`+Required when answering` |
 | **sellSum** | Float | Sales amount<br>`+Required when answering` |
 
 #### Employee object structure
@@ -487,7 +487,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| -----|----------|------|
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -578,16 +578,16 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "Administrator"
        },
-       "salesCount": 3,
-       "salesAvgCheck": 104498369718788910,
-       "sellSum": 313495109156366700,
-       "sellCostSum": 0,
-       "returnCount": 0,
-       "returnAvgCheck": 0,
-       "returnSum": 0,
-       "returnCostSum": 0,
-       "profit": 313495109156366700,
-       "margin": 0
+       "salesCount": 3.0,
+       "salesAvgCheck": 104498369718788910.0,
+       "sellSum": 313495109156366700.0,
+       "sellCostSum": 0.0,
+       "returnCount": 0.0,
+       "returnAvgCheck": 0.0,
+       "returnSum": 0.0,
+       "returnCostSum": 0.0,
+       "profit": 313495109156366700.0,
+       "margin": 0.0
      }
    ]
 }
@@ -602,18 +602,18 @@ Successful request. The result is a JSON representation of the report.
 | **margin** | Float | Profitability<br>`+Required when answering`|
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCostSum** | Float | The sum of the return costs in paise<br>`+Required when answering` |
 | **returnCount** | Int | Number of returns<br>`+Required when replying` |
 | **returnSum** | Float | Refund amount<br>`+Required when replying` |
 | **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
 | **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellCostSum** | Float | Sum of the sale costs in paise<br>`+Required when answering` |
 | **sellSum** | Float | Sales amount<br>`+Required when answering` |
 
 #### Structure of the counterparty object
 
 | Title | Type | Description |
-| ---------| ---- |------- |
+| --------- | ----- | ------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Buyer Metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of the Buyer<br>`+Required when replying` |
 
@@ -625,7 +625,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------| ------|--------| ---- |
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -717,16 +717,16 @@ Successful request. The result is a JSON representation of the report.
          },
          "name": "LLC \"Buyer\""
        },
-       "salesCount": 1,
-       "salesAvgCheck": 310390615323104640,
-       "sellSum": 310390615323104640,
-       "sellCostSum": 0,
-       "returnCount": 0,
-       "returnAvgCheck": 0,
-       "returnSum": 0,
-       "returnCostSum": 0,
-       "profit": 310390615323104640,
-       "margin": 0
+       "salesCount": 1.0,
+       "salesAvgCheck": 310390615323104640.0,
+       "sellSum": 310390615323104640.0,
+       "sellCostSum": 0.0,
+       "returnCount": 0.0,
+       "returnAvgCheck": 0.0,
+       "returnSum": 0.0,
+       "returnCostSum": 0.0,
+       "profit": 310390615323104640.0,
+       "margin": 0.0
      }
    ]
 }
@@ -741,12 +741,12 @@ Successful request. The result is a JSON representation of the report.
 | **margin** | Float | Profitability<br>`+Required when answering` |
 | **profit** | Float | Profit<br>`+Required when answering` |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
+| **returnCostSum** | Float | The sum of the return costs in paise<br>`+Required when answering` |
 | **returnCount** | Int | Number of returns<br>`+Required when replying` |
 | **returnSum** | Float | Refund amount<br>`+Required when replying` |
 | **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
 | **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
+| **sellCostSum** | Float | Sum of the sale costs in paise<br>`+Required when answering` |
 | **sellSum** | Float | Sales amount<br>`+Required when answering` |
 
 #### SalesChannel object structure
@@ -765,7 +765,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------------------|-----------|-----------|---------|
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |

@@ -1,4 +1,4 @@
-## Sort
+## Sorting
 
 Most of the collections returned by the JSON API are sortable.
 Sorting is supported for the following field types:
@@ -78,63 +78,64 @@ Let's first create products with different names that can start with Latin, Cyri
 ```shell
 curl -X POST
 https://api.kladana.com/api/remap/1.2/entity/product
--H 'Authorization: Bearer <Access-Token>'
--H 'Cache-Control: no-cache'
--H 'Content-Type: application/json'
--d'[
-    {
-        "name": "12345",
-        "weight": 0.1,
-        "weighted": true,
-        "syncId": "8b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "pencil",
-        "weight": 0.01,
-        "syncId": "5b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "Pencil 123",
-        "weight": 0.01,
-        "syncId": "3b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "Pencil Blue",
-        "weight": 0.11,
-        "weighted": true
-    },
-    {
-        "name": "Pencil Red",
-        "weight": 0.2,
-        "syncId": "1b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "Pencil",
-        "weight": 0.1,
-        "syncId": "2b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "Pencil 123",
-        "weight": 0.32,
-        "syncId": "4b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "Pencil yellow",
-        "weight": 0.12,
-        "weighted": true,
-        "syncId": "7b7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "Pencil green",
-        "weight": 0.4,
-        "syncId": "8c7c97cf-cf77-4f7e-b200-d264125578ab"
-    },
-    {
-        "name": "!!! It's a pencil",
-        "weight": 0.1,
-        "syncId": "3d7c97cf-cf77-4f7e-b200-d264125578ab"
-    }
-   ]'
+  -H 'Authorization: Bearer <Access-Token>'
+  -H "Accept-Encoding: gzip"
+  -H 'Cache-Control: no-cache' 
+  -H 'Content-Type: application/json' 
+  -d '[
+     {
+      "name":"12345",
+      "weight":0.1,
+      "weighed":true,
+      "syncId":"8b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"Pencil",
+      "weight":0.01,
+      "syncId":"5b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"Pencil 123",
+      "weight":0.01,
+      "syncId":"3b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"Pencil Blue",
+      "weight":0.11,
+      "weighed":true
+     },
+     {
+      "name":"Pencil Red",
+      "weight":0.2,
+      "syncId":"1b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"!!! Pencil",
+      "weight":0.1,
+      "syncId":"2b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"Pencil 123",
+      "weight":0.32,
+      "syncId":"4b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"Pencil yellow",
+      "weight":0.12,
+      "weighed":true,
+      "syncId":"7b7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"Pencil green",
+      "weight":0.4,
+      "syncId":"8c7c97cf-cf77-4f7e-b200-d264125578ab"
+     },
+     {
+      "name":"!!! This is a pencil",
+      "weight":0.1,
+      "syncId":"3d7c97cf-cf77-4f7e-b200-d264125578ab"
+     }
+  ]'
 ```
 
 To get a collection of products sorted by name, you must specify the `name` field and sort direction, as in the example below.
@@ -145,12 +146,13 @@ To get a collection of products sorted by name, you must specify the `name` fiel
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=name'
 -H 'Authorization: Bearer <Access-Token>'
+-H "Accept-Encoding: gzip"
 -H 'Cache-Control: no-cache'
 ```
 The response will contain the following ascending order:
 
-|name|
-|----|
+| name |
+| ---- |
 | 12345 |
 | pencil |
 | Pencil 123 |
@@ -170,6 +172,7 @@ Change the sort direction
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=name,desc'
 -H 'Authorization: Bearer <Access-Token>'
+-H "Accept-Encoding: gzip"
 -H 'Cache-Control: no-cache'
 ```
 
@@ -179,11 +182,11 @@ curl -X GET
 | Green pencil |
 | Yellow pencil |
 | Pencil 123 |
-| Pencil |
+| !!! Pencil |
 | Pencil Red |
 | Pencil Blue |
 | Pencil 123 |
-| pencil |
+| Pencil |
 | 12345 |
 
 Let's try to sort products simultaneously in descending order of the `weighed` logical field and in ascending order of the `name` field.
@@ -194,21 +197,22 @@ Let's try to sort products simultaneously in descending order of the `weighed` l
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;name'
 -H 'Authorization: Bearer <Access-Token>'
+-H "Accept-Encoding: gzip"
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
-|weighted|name|
-|------------------|------------------|
+| weighted | name |
+| -------- | ---- |
 | true | 12345 |
 | true | Pencil Blue |
-| true | Yellow pencil |
-| false | pencil |
-| false | Pencil 123 |
-| false | Pencil Red |
+| true | Pencil Yellow |
 | false | Pencil |
 | false | Pencil 123 |
-| false | Green pencil |
+| false | Pencil Red |
+| false | !!! Pencil |
+| false | Pencil 123 |
+| false | Pencil Green |
 | false | !!! This is a pencil |
 
 Let's add sorting by the `weight` numeric field.
@@ -219,21 +223,22 @@ Let's add sorting by the `weight` numeric field.
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name'
 -H 'Authorization: Bearer <Access-Token>'
+-H "Accept-Encoding: gzip"
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
-|weighted|weight|name|
-|--------|-------|-----------|
-|true|0.12| Yellow pencil |
+| weighted | weight | name |
+| -------- | ------ | ---- |
+|true|0.12| Pencil Yellow |
 |true|0.11| Pencil Blue |
 |true|0.1| 12345 |
-|false|0.4| Green pencil |
+|false|0.4| Pencil Green |
 |false|0.32| Pencil 123 |
 |false|0.2| Pencil Red |
-|false|0.1| Pencil |
+|false|0.1| !!! Pencil |
 |false|0.1| !!! This is a pencil |
-|false|0.01| pencil |
+|false|0.01| Pencil |
 |false|0.01| Pencil 123 |
 
 In addition to text, numeric and boolean fields, sorting by fields of uuid and date-time types is available. For example, let's sort by the `syncId` field.
@@ -244,21 +249,22 @@ In addition to text, numeric and boolean fields, sorting by fields of uuid and d
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=syncId'
 -H 'Authorization: Bearer <Access-Token>'
+-H "Accept-Encoding: gzip"
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
-|syncId|name|
-|------|-----|
-| 1b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil Red |
-| 2b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil |
-| 3b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil 123 |
-| 3d7c97cf-cf77-4f7e-b200-d264125578ab|!!! This is a pencil |
-| 4b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil 123 |
-| 5b7c97cf-cf77-4f7e-b200-d264125578ab|Pencil |
-| 7b7c97cf-cf77-4f7e-b200-d264125578ab|Yellow pencil |
-| 8b7c97cf-cf77-4f7e-b200-d264125578ab|12345 |
-| 8c7c97cf-cf77-4f7e-b200-d264125578ab|Green pencil |
-| null |Pencil Blue |
+| syncId | name |
+| ------ | ---- |
+| 1b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil Red |
+| 2b7c97cf-cf77-4f7e-b200-d264125578ab | !!! Pencil |
+| 3b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil 123 |
+| 3d7c97cf-cf77-4f7e-b200-d264125578ab | !!! This is a pencil |
+| 4b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil 123 |
+| 5b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil |
+| 7b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil Yellow |
+| 8b7c97cf-cf77-4f7e-b200-d264125578ab | 12345 |
+| 8c7c97cf-cf77-4f7e-b200-d264125578ab | Pencil Green |
+| null | Pencil Blue |
 
 The product `Pencil Blue` does not have a field value, so when sorting in ascending order, it is displayed at the end. Similar behavior for other fields with the value `null`.

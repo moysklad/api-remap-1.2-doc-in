@@ -24,13 +24,13 @@ Using the JSON API, you can create and update information about Production Order
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Order Name<br>`+Required when replying` `+Required when creating` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray | | Metadata of Production Order items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
-| **processingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **processingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | | BOM Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **quantity** | Int | `=` `!=` `<` `>` `<=` `>=` | Production volume<br>`+Required when replying` `+Read only` |
+| **quantity** | Float | `=` `!=` `<` `>` `<=` `>=` | Production volume<br>`+Required when replying` `+Read only` |
 | **shared** | Boolean| `=` `!=` | Sharing<br>`+Required when replying` `+Read Only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Production Order Status Metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
@@ -41,19 +41,19 @@ Using the JSON API, you can create and update information about Production Order
 
 | Title | Description |
 | ------------ | --------------- |
-| **processings** | An array of links to related transactions in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **processings** | An array of links to related production operations in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 
 #### Production Order Items
-Production Order Items is a list of products and product variants corresponding to the materials of the Production Order. The Order item object contains the following fields:
+Production Order Items is a list of products and product variants corresponding to the materials of the BOM. The Order item object contains the following fields:
 
 | Title | Type | Description |
 | ------------ | --------------- |----------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **reserve** | Int | Reserve this item<br>`+Required when replying`|
+| **quantity** | Float  | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **reserve** | Float | Reserve this item<br>`+Required when replying`|
 
 You can work with items using special resources for managing Production Order items,
 and as part of a separate Production Order. When working as part of a separate Production Order,
@@ -2156,7 +2156,7 @@ Successful request. The result is a JSON representation of the item list of a si
 
 Line item of the Production Order with the specified item id.
 
-### Get the Production Order item
+### Get Item
 
 **Parameters**
 
@@ -2201,7 +2201,7 @@ Successful request. The result is a JSON representation of a line item of the Pr
 
 ```
 
-### Change Production Order Item
+### Change Item
 
 Request to update a line item of the Production Order. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
 
@@ -2286,3 +2286,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Production Order item.
+
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| **id**  | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Production Order ID. |
+
+> Request to bulk delete the Production Order items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/processingorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/processingorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "processingorderposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/processingorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "processingorderposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of the Production Order items.
