@@ -22,7 +22,7 @@ For example, you need to create a product and attach the instruction. It can be 
 
 In [Kladana](https://api.kladana.com/), you can add, delete or edit the list of product files in Product cards.
  
-To add a file via the JSON API, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
+To add a file via the JSON API, you need to set the `filename` and `content` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
 
 > Request to create a product with two attached files
 

@@ -33,7 +33,7 @@ A general Stock movement report for goods and variants without warehouses.
 
 | Title | Type | Description |
 | ----- | ----- |-------- |
-| **sum** | Float | Cost amount<br>`+Required when answering` |
+| **sum** | Float | Cost amount in paise<br>`+Required when answering` |
 | **quantity** | Float | Number of product units<br>`+Required when answering` |
 
 #### Attributes available for filtering
@@ -55,6 +55,7 @@ Only one value can be specified for most parameters. You cannot specify empty va
 | **type** | Enum | `=` | parameter for filtering "document type" by which you can producesti filtering. Possible values are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`. |
 | **variant** | Object | `=` | link to the product variant by which you want to filter. |
 | **withoutturnover** | Boolean | `=` | parameter for filtering "Show products without movement". Possible values: `true`, `false`. |
+| **archived**   | Boolean     | `=` | parameter for filtering "Show archived items". Possible values: `true`, `false`.                                                                                                                                                                                                   |
 
 Filtering examples:
 
@@ -294,7 +295,7 @@ Stock movement report by products and their variants with detalization by wareho
 
 | Title | Type | Description |
 | --------- | ------- |----- |
-| **sum** | Float | Cost amount<br>`+Required when answering` |
+| **sum** | Float | Cost amount in paise<br>`+Required when answering` |
 | **quantity** | Float | Number of product units<br>`+Required when answering` |
 
 #### Attributes available for filtering
@@ -312,8 +313,9 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 | **organization** | Object | `=` | Link to the legal entity you want to use as a filter. |
 | **product** | Object | `=` | Link to the product you want to use as a filter. The products are included with the product variants. |
 | **project** | Object | `=` | Link to the project you want to use as a filter. |
-| **retailStore** | Object | `=` | Link to the point of sale you want to use as a filter. |
+| **retailStore** | Object | `=` | Link to the point of sale you want to use as a filter. Multiple values ​​can be specified. |
 | **store** | Object | `=` | Link to the warehouse you want to use as a filter.|
+| **type**  | Enum  | `=`        | Parameter for filtering "document type" by which you can filter. Possible values: `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`, `productionstagecompletion`. |
 | **variant** | Object | `=` | Link to the product variant you want to use as a filter. |
 
 Filtering examples:
@@ -329,7 +331,7 @@ Filtering examples:
 
 ### Get Product Stock movement report detailing by warehouses
 
-Request to receive the Stock movement report by product.
+Request to receive the Stock movement report by product detailing by warehouses.
 
 To successfully complete the request, one of the filtering parameters **product** or **variant** must be specified.
 
@@ -527,13 +529,13 @@ Stock movement report for the product and their variants with warehouses and tra
 | **store** | Object | Warehouse.<br>`+Required when replying` |
 | **operation** | Object | The document associated with the Product. [Learn more](#reports-stock-movement-report-stock-movement-report-by-product-with-details-by-transactions-operation-object-structure)<br>`+Required when replying` |
 | **quantity** | Float | Quantity of goods in the document.<br>`+Required when answering` |
-| **cost** | Float | The cost of goods in the document.<br>`+Required when answering` |
-| **sum** | Float | Cost sum.<br>`+Required when answering` |
+| **cost** | Float | The product cost in the document in paise.<br>`+Required when answering` |
+| **sum** | Float | Cost sum in paise.<br>`+Required when answering` |
 
 #### Assortment object structure
 
 | Title | Type | Description |
-| --------- | ------- |--------- |
+| --------- | ------- | --------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant metadata<br>`+Required when replying` |
 | **name** | String(255) | Product or Product Variant Name<br>`+Required when answering` |
 | **code** | String(255) | Product Code |
@@ -566,6 +568,7 @@ It is mandatory to specify one of the filtering parameters **product** or **vari
 | **project** | a link to the project by which you want to filter. |
 | **retailStore** | a link to the point of sale by which you want to filter. |
 | **store** | a link to the warehouse by which you want to filter. |
+| **type** | parameter to filter "document type" by which to filter. Possible values ​​are `supply`, `purchasereturn`, `demand`, `salesreturn`, `loss`, `enter`, `move`, `processing`, `retaildemand`, `retailsalesreturn`, `productionstagecompletion`. |
 
 Filtering examples:
 

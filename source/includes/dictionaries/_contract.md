@@ -49,10 +49,10 @@ Table of fields, their values and their values in JSON representation:
 
 | Field name | Possible Values | Corresponding value in JSON | Default value |
 | ------- | ---------- | ---- | ------- |
-| **contractType** | Commission contract | commission | Purchase and sale Contract |
-| Purchase and sale Contract | Sales |
-| **rewardType** | Percentage of the sale amount | PercentOfSales | Do not count |
-| Do not count | None |
+| **contractType** | Commission contract | Commission | Purchase and Sale Agreement |
+|  | Purchase and Sale Agreement | Sales |   |
+| **rewardType** | Percentage of sales amount | PercentOfSales | Do not count |
+|  | Do not count | None |   |
 
 About working with fields of the Contracts can be read [here](../#kladana-json-api-general-info-additional-fields).
 
@@ -349,7 +349,7 @@ Mandatory fields for creating a Contract:
 
 | Title | Type | Description |
 | ------- | ---------- | ---- |
-| **name** | String(255) | Contract number<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255) | Contract number<br>`+Required when replying`  |
 | **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 

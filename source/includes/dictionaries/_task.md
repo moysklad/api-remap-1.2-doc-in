@@ -5,8 +5,8 @@ Using the JSON API, you can create and update information about tasks, request l
 ### Tasks
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description                                                                                                                                                          |
-| ------ |----------------------------------------------------| ----- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Title | Type   | Filtration | Description   |
+| ------ | ------ | ----- | ------------ |
 | **accountId** | UUID                                               | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only`                                                                                                         |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Account or legal entity associated with the task. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
 | **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                                                 |
@@ -39,20 +39,21 @@ The task comment object contains the following fields:
 #### Task type
 The task type object contains the following fields:
 
-| Title       | Type                                                       | Description                                                            |
-| -------------- |:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| Title       | Type     | Description   |
+| -------------- | ------------ | ----------------|
 | **accountId**  | UUID                                                      | account ID<br>`+Required when replying` `+Read Only`                   |
 | **color**      | Int                                                       | Task type color<br>`+Required when replying` `+Required when creating` |
-| **entityType** | String(255)                                               | entity type - always is task<br>`+Required when replying` `+Read Only` |
+| **entityType** | String(255)                                               | Entity type.  It is always a task<br>`+Required when replying` `+Read Only` |
 | **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                 |
-| **meta**       | [Meta](../#kladana-json-api-general-info-metadata) | task type metadata<br>`+Required when replying` `+Read Only`           |
+| **meta**       | [Meta](../#kladana-json-api-general-info-metadata) | Task type metadata<br>`+Required when replying` `+Read Only`           |
 | **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`  |
 | **stateType**  | Enum                                                      | State type<br>`+Required when replying`                               |
 
-The **color** field is passed to the API as an integer consisting of 4 bytes.
-Because color is transmitted in the ARGB color space, each byte is responsible for its own
+The **color** field is passed to the API as an integer consisting of 4 bytes because color is transmitted in the ARGB color space. Each byte is responsible for its own
 color respectively: 1 - for transparency, 2 - for red, 3 - for green,
-4 - for blue. Each byte takes values from 0 to 255 as well as the color in each of
+4 - for blue. 
+
+Each byte takes values from 0 to 255 as well as the color in each of
 color space channels. The result of 4 consecutive bytes written
 the number converted to 10 is the representation of the status color in the JSON API.
 
@@ -1131,6 +1132,41 @@ curl -X DELETE
 > Response 200(application/json)
 Successful deletion of the comment to the Task.
 
+
+### Bulk deletion of task comments 
+
+In the request body, you need to pass an array containing JSON metadata of the comments to the Task that you want to delete.
+
+> Request to bulk deletion of the comments to the Task
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/task/a1ff58c4-726a-11ee-c0a8-e00e00000000/notes/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+    -d '[
+          {
+              "meta": {
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/task/a1ff58c4-726a-11ee-c0a8-e00e00000000/notes/a87d4d14-726a-11ee-c0a8-e00e00000011",
+                  "type": "tasknote",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/task/a1ff58c4-726a-11ee-c0a8-e00e00000000/notes/836b63c4-726b-11ee-c0a8-e00e0000001d",
+                  "type": "tasknote",
+                  "mediaType": "application/json"
+              }
+          }
+       ]' 
+```
+
+> Response 200 (application/json)
+Successful deletion of the comments to the Task.
+
+
 ### Task type
 
 ### Get task type
@@ -1235,8 +1271,8 @@ one or more fields with new values: `name`, `color`.
 
 **Parameters**
 
-| Parameter       | Description                                                                          |
-| :------------- |:----------------------------------------------------------------------------------|
+| Parameter   | Description   |
+| ------------- | ------------- |
 | **id**         | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* task type id. |
 
 > Task type change.
@@ -1343,8 +1379,8 @@ Successful request. The result is a JSON array of representations of the created
 
 **Parameters**
 
-| Parameter       | Description                                                                       |
-| :------------- |:----------------------------------------------------------------------------------|
+| Parameter   | Description  |
+| ------------- | ------------- |
 | **id**         | `string` (required) *Example: 4dcb3f23-60c4-11e7-6adb-ede500000019* task type id. |
 
 > Request to delete the Task type with the specified id.

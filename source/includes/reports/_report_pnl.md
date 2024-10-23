@@ -1,7 +1,7 @@
 ## Profit and Loss Report 
 
 Using the JSON API, you can request the Profit and Loss report for all products, services, product variants, employees, counterparties, and sales channels.
-To access the report via the API, you need the access rights to view the Profit and Loss report.
+To access the report via the API, you need the access rights to view the Profit report.
 
 
 #### Profit and Loss by products
@@ -43,7 +43,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description|
 |------------| -----|---------|------------|
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variantn or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variantn or batches by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -147,12 +147,12 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 8643,
+       "sellQuantity": 8643.0,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0,
-       "sellSum": 1868400300,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 1868400300.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
@@ -181,12 +181,12 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 4765,
+       "sellQuantity": 4765.0,
        "sellPrice": 100000000.0,
-       "sellCost": 0,
-       "sellSum": 476500000000,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 476500000000.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
@@ -216,12 +216,12 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10,
+       "sellQuantity": 10.0,
        "sellPrice": 500000.0,
-       "sellCost": 300000,
-       "sellSum": 5000000,
-       "sellCostSum": 3000000,
-       "returnQuantity": 3,
+       "sellCost": 300000.0,
+       "sellSum": 5000000.0,
+       "sellCostSum": 3000000.0,
+       "returnQuantity": 3.0,
        "returnPrice": 500000.0,
        "returnCost": 300000,
        "returnSum": 1500000,
@@ -272,7 +272,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| ------|--------|-------|
-| **product** | Object | `=` `!=` | a link to the product, service, bundle, product variant or series which you want to use for filtration. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to the product, service, bundle, product variant or batch which you want to use for filtration. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -376,12 +376,12 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 8643,
+       "sellQuantity": 8643.0,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0,
-       "sellSum": 1868400300,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 1868400300.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
@@ -410,12 +410,12 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 4765,
+       "sellQuantity": 4765.0,
        "sellPrice": 100000000.0,
-       "sellCost": 0,
-       "sellSum": 476500000000,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 476500000000.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
@@ -445,12 +445,12 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10,
+       "sellQuantity": 10.0,
        "sellPrice": 500000.0,
-       "sellCost": 300000,
-       "sellSum": 5000000,
-       "sellCostSum": 3000000,
-       "returnQuantity": 3,
+       "sellCost": 300000.0,
+       "sellSum": 5000000.0,
+       "sellCostSum": 3000000.0,
+       "returnQuantity": 3.0,
        "returnPrice": 500000.0,
        "returnCost": 300000,
        "returnSum": 1500000,
@@ -496,7 +496,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| -----|----------|------|
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -624,7 +624,7 @@ Successful request. The result is a JSON representation of the report.
 #### Structure of the counterparty object
 
 | Title | Type | Description |
-| ---------| ---- |------- |
+| --------- | ----- | ------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Buyer Metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of the Buyer<br>`+Required when replying` |
 
@@ -636,7 +636,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------| ------|--------| ---- |
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -778,7 +778,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------------------|-----------|-----------|---------|
-| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |

@@ -5,14 +5,15 @@ Using the JSON API, you can create and update information about Transfers, reque
 ### Transfer
 #### Entity attributes
 
-| Title             | Type                                               | Filtration                                                                                                                                                  | Description                                                                                                                                                                         |
-|-------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**     | UUID                                               | `=` `!=`                                                                                                                                                    | Account ID<br>`+Required when replying``+Read-only``+Change-handler`                                                                                                                |
-| **applicable**    | Boolean                                            | `=` `!=`                                                                                                                                                    | Postmark<br>`+Required for response``+Change-handler` `+Update-provider`                                                                                                            |
-| **attributes**    | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider`             |
+| Title     | Type    | Filtration   | Description   |
+| --------- | ------- | ---------- | --------------- |
+| **accountId**     | UUID    | `=` `!=`  | Account ID<br>`+Required when replying``+Read-only``+Change-handler`  |
+| **applicable**    | Boolean   | `=` `!=`  | Postmark<br>`+Required for response``+Change-handler` `+Update-provider`  |
+| **attributes**    | Array(Object)   | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider`             |
 | **code**          | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                      | Transfer Code                                                                                                                                                                       |
 | **created**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Creation date<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                                            |
 | **deleted**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Moments<br>`+Read Only`                                                                                                                                                             |
+**demand** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of Shipment associated with the Transfer<br>`+Read-only` `+Expand` |
 | **description**   | String(4096)                                       | `=` `!=` `~` `~=` `=~`                                                                                                                                      | Transfer Comment<br>`+Change-handler` `+Update-provider`                                                                                                                            |
 | **externalCode**  | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                      | Transfer External Code<br>`+Required on response``+Change-handler`                                                                                                                  |
 | **files**         | MetaArray                                          |                                                                                                                                                             | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`                                                    |
@@ -25,7 +26,7 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **name**          | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                      | Name of Change<br>`+Required for response``+Change-handler` `+Update-provider`                                                                                                      |
 | **organization**  | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                                        |
 | **overhead**      | Object                                             |                                                                                                                                                             | Overhead expenses. [Learn more](../documents/#transactions-transfer-transfer-overhead-expenses). If Transfer items are not set, the overhead expenses cannot be set<br>`+Update-provider` |
-| **owner**         | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                                                             |
+| **owner**         | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`  | Owner (Employee)<br>`+Expand`  |
 | **positions**     | MetaArray                                          |                                                                                                                                                             | Item Metadata                                                                                                                                                                       |
 | **printed**       | Boolean                                            | `=` `!=`                                                                                                                                                    | Is the document printed<br>`+Required when responding` `+Read Only`                                                                                                                 |
 | **project**       | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Project metadata<br>`+Expand``+Change-handler` `+Update-provider`                                                                                                                   |
@@ -34,7 +35,8 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **shared**        | Boolean                                            | `=` `!=`                                                                                                                                                    | Sharing<br>`+Required when replying`                                                                                                                                                |
 | **sourceStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse from which the Transfer is made<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                    |
 | **state**         | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                    | Transfer status metadata<br>`+Expand` `+Change-handler` `+Update-provider`                                                                                                          |
-| **sum**           | Int                                                | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Transfer amount in paise<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                                |
+| **sum**           | Int                                                | `=` `!=` `<` `>` `<=` `>=`   | Transfer amount in paise<br>`+Required when replying` `+Read-only``+Change-handler`   |
+| **supply** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Receiving associated with the Transfer<br>`+Read-only` `+Expand` |
 | **syncId**        | UUID                                               | `=` `!=`                                                                                                                                                    | Synchronization ID. After filling it is not available for change                                                                                                                    |
 | **targetStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse being Transfer to<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                  |
 | **updated**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Last update time Transfers<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                               |
@@ -50,18 +52,17 @@ Description of overhead expenses fields
 
 #### Transfer items
 
-Transfer Items is a list of products/product variants/series.
-The Transfer item object contains the following fields:
+Transfer Items is a list of products, product variants or batches. The Transfer item object contains the following fields:
 
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------|----------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch or product variant which is an item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` |
 | **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overhead expenses can be set<br>`+Required in response` `+Read-Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Price of products/services in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
-| **quantity** | Int                                                | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
+| **quantity** | Float                                               | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
 | **sourceSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The location in the warehouse from which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **targetSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The cell in the warehouse to which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of products in the item will be equal to the number of serial numbers passed in the attribute value.`+Change-handler` |
@@ -886,9 +887,9 @@ Successful request. The result is a JSON representation of the prefilled Transfe
 
 ### Transfer pattern based on Internal Order
 
-Request for a pre-filled transfer template based on an Internal Order. The response to the request will return a pre-filled Transfer template, which can then be used to create a new Transfer using a POST request.
+Request for a pre-filled transfer template based on an Internal Order or a Sales Order. The response to the request will return a pre-filled Transfer template, which can then be used to create a new Transfer using a POST request.
 
-> Sample request for a transfer template based on an internal order.
+> Sample request for a transfer template based on an Internal Order.
 
 ```shell
    curl -X PUT"https://api.kladana.com/api/remap/1.2/entity/move/new"
@@ -1037,6 +1038,159 @@ Successful request. The result is a JSON representation of the prefilled Transfe
        "mediaType": "application/json"
      }
    }
+}
+```
+
+> An example of request to get a Transfer template based on a Sales Order.
+
+```shell
+  curl -X PUT
+    "https://api.kladana.com/api/remap/1.2/entity/move/new"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "customerOrder": {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/64e426af-b0d8-11e6-8a84-bae500000064",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
+                "type": "customerorder",
+                "mediaType": "application/json"
+              }
+            }
+          }'  
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the prefilled Transfer.
+
+```json
+{
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/b905bfb0-9128-11e6-8a84-bae50000002a",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/b8ba0d3f-9128-11e6-8a84-bae500000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "moment": "2016-11-25 18:02:21",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/b942e6f2-9128-11e6-8a84-bae500000058",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "sum": 9910,
+  "project": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/project/6c6dd3f9-97a1-11e6-8a84-bae500000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/project/metadata",
+      "type": "project",
+      "mediaType": "application/json"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/b9324d71-9128-11e6-8a84-bae500000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json"
+    }
+  },
+  "created": "2016-08-25 19:55:00",
+  "printed": true,
+  "published": true,
+  "positions": {
+    "rows": [
+      {
+        "quantity": 1,
+        "price": 2230.0,
+        "assortment": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/f4ac4460-acf7-11e6-8a84-bae500000068",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+            "type": "product",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+          }
+        },
+        "overhead": 0
+      },
+      {
+        "quantity": 1,
+        "price": 100.0,
+        "assortment": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/f4ac4460-acf7-11e6-8a84-bae500000068",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+            "type": "product",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+          }
+        },
+        "overhead": 0
+      },
+      {
+        "quantity": 2,
+        "price": 500.0,
+        "assortment": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/f4ac4460-acf7-11e6-8a84-bae500000068",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+            "type": "product",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+          }
+        },
+        "overhead": 0
+      },
+      {
+        "quantity": 3,
+        "price": 2230.0,
+        "assortment": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/f4ac4460-acf7-11e6-8a84-bae500000068",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+            "type": "product",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
+          }
+        },
+        "overhead": 0
+      }
+    ]
+  },
+  "targetStore": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json"
+    }
+  },
+  "customerOrder": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/64e426af-b0d8-11e6-8a84-bae500000064",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
+      "type": "customerorder",
+      "mediaType": "application/json"
+    }
+  }
 }
 ```
 
@@ -1832,13 +1986,59 @@ Successful request. The result is a JSON representation of a list of individual 
    ]
 }
 ```
+### Transfer Item
 
-### Create item
+### Get Item
+
+**Parameters**
+
+| Parameter | Description |
+| ------------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Transfer ID. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Transfer item ID. |
+
+> Request to get a single Transfer item with the specified id.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of a single Transfer item.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+    "type": "moveposition",
+    "mediaType": "application/json"
+  },
+  "id": "7944ef04-f831-11e5-7a69-971500188b20",
+  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+  "quantity": 4,
+  "price": 0.0,
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/e84aed23-3303-11e6-8a84-bae500014dcd",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type": "product",
+      "mediaType": "application/json",
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+    }
+  },
+  "overhead": 0
+}
+```
+
+### Create Item
 
 Request to create a new item in the Transfer.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/product variant that the item represents.
++ **assortment** - Link to the product, service, batch, or product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-transfer-transfer-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -1939,53 +2139,6 @@ Successful request. The result is a JSON representation of the created item of t
 ]
 ```
 
-### Transfer Items
-   
-### Get Item
-
-**Parameters**
-
-| Parameter | Description|
-| ------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Transfer id. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Transfer id. |
- 
-> Request to get a separate item of the Transfer with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a single Transfer item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "moveposition",
-     "mediaType": "application/json"
-   },
-   "id": "7944ef04-f831-11e5-7a69-971500188b20",
-   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   "quantity": 4,
-   "price": 0.0,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/e84aed23-3303-11e6-8a84-bae500014dcd",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
-     }
-   },
-   "overhead": 0
-}
-```
-
 ### Change Item
 
 Request to update a line item Transfers. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
@@ -2058,3 +2211,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Transfer item.
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| ------------ | -------- |
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Transfer ID. |
+
+> Request for bulk deletion of Transfer items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/move/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/move/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "moveposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/move/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "moveposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Transfer items were successfully removed.

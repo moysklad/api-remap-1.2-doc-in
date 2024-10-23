@@ -3,8 +3,8 @@
 Using the JSON API, you can request lists of Serial numbers and information on individual Serial numbers. The entity code for Serial number in the JSON API is the **thing** keyword.
 
 #### Entity attributes
-| Title           | Type                                               | Filtration             | Description                                                               |
-|-----------------|----------------------------------------------------|------------------------|---------------------------------------------------------------------------|
+| Title    | Type   | Filtration    | Description  |
+| ---------------- | ----------------- | ---------------- | ------------- |
 | **accountId**   | UUID                                               | `=` `!=`               | Account ID<br>`+Read Only`                                                |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Serial numbers                                                |
 | **id**          | UUID                                               | `=` `!=`               | Serial number ID<br>`+Required when replying` `+Read Only`                |
@@ -15,16 +15,16 @@ Using the JSON API, you can request lists of Serial numbers and information on i
 Request to get a list of all Serial numbers for this account.
 Result: JSON object including fields:
 
-| Title       | Type                                                 | Description                                                                             |
-|-------------|------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Title       | Type    | Description   |
+| ------------ | --------------- | ------------- |
 | **meta**    | [Meta](../#kladana-json-api-general-info-metadata)   | Issuance metadata.                                                                      |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata)   | Metadata about the person who made the request.                                         |
 | **rows**    | Array(Object)                                        | An array of JSON objects representing [Serial numbers](../dictionaries/#entities-serial-number). |
 
 **Parameters**
 
-| Parameter  | Description                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Parameter  | Description |
+| ---------- | ----------- |
 | **limit**  | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities.                                          |
 
@@ -94,11 +94,11 @@ Successful request. The result is a JSON representation of the list of Serial nu
 
 **Parameters**
 
-| Parameter | Description                                                                                                                  |
-|-----------|------------------------------------------------------------------------------------------------------------------------------|
-| **id**    | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - *Example: 3840d8d8-9f2d-11ee-8c90-0242ac120002* Serial number id |
+| Parameter | Description  |
+| --------- | ------------ |
+| **id**    | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - *Example: 3840d8d8-9f2d-11ee-8c90-0242ac120002* Serial number ID |
 
-> Request to get the Serial number with the specified id.
+> Request to get the Serial number with the specified ID.
 
 ```shell
 curl -X GET
@@ -107,7 +107,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the Serial number with the specified id.
+Successful request. The result is a JSON representation of the Serial number with the specified ID.
 
 ```json
 {

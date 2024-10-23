@@ -668,7 +668,7 @@ Successful removal of the Bonus operation.
 
 ### Bulk deletion of Bonus Operations
 
-In the body of the request, you need to pass an array containing the JSON metadata of the Bonus Operations that you want to remove.
+In the body of the request, pass an array containing the JSON metadata of the Bonus Operations that you want to remove.
 
 
 > Request for bulk deletion of Bonus Transactions.
@@ -682,16 +682,16 @@ curl -X POST
   -d '[
         {
             "meta": {
-                "href": "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b1",
-                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/metadata",
+                "href": "https://api.moysklad.ru/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/bonustransaction/metadata",
                 "type": "bonustransaction",
                 "mediaType": "application/json"
             }
         },
         {
             "meta": {
-                "href": "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b2",
-                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/metadata",
+                "href": "https://api.moysklad.ru/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/bonustransaction/metadata",
                 "type": "bonustransaction",
                 "mediaType": "application/json"
             }
@@ -699,7 +699,7 @@ curl -X POST
       ]'
 ```        
 
-> Successful request. Result - JSON information about deleting Bonus transactions.
+> Successful request. The result is JSON information about deleting Bonus transactions.
 
 ```json
 [

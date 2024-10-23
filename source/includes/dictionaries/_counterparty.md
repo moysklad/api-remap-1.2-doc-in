@@ -70,6 +70,7 @@ The fourth search condition for the fields of all contact persons of the counter
 
 | Title                 | Type         | Filtration | Description |
 |-----------------------|--------------| ------ | ---- |
+| **birthDate** | DateTime | | Date of birth of the сounterparty if their type is `[Individual]`. It is ignored for counterparties of the types `[Individual Entrepreneur, Legal Entity]` |
 | **certificateDate**   | DateTime     | | Date of certificate |
 | **certificateNumber** | String(255)  | | Certificate number |
 | **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | TIN |
@@ -83,6 +84,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **ogrn**              | String(255)  | | OGRN |
 | **ogrnip**            | String(255)  | | OGRNIP |
 | **okpo**              | String(255)  | | OKPO |
+| **sex**               | String(255)  | | Gender of the Contractor |
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
@@ -90,6 +92,7 @@ You can see the format for displaying discounts in the [Discounts](../dictionari
 
 #### Nested entity attributes
 #### Attributes of entity Address
+
 | Title | Type | Description |
 | -------| ------- | ----- |
 | **addInfo** | String(255) | Other |
@@ -195,6 +198,7 @@ If the counterparty type is `Individual`, the following fields of details will b
 
 | Title                | Description |
 |----------------------| ------- |
+| **birthDate** | DateTime | | Date of birth of the сounterparty if their type is `[Individual]`. It is ignored for counterparties of the types `[Individual Entrepreneur, Legal Entity]` |
 | **inn**              | TIN |
 | **legalAddress**     | Legal address of the Counterparty |
 | **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
@@ -202,9 +206,18 @@ If the counterparty type is `Individual`, the following fields of details will b
 | **legalLastName**    | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
 | **legalMiddleName**  | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
 | **legalTitle**       | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
+| **sex**               | String(255)  | | Gender of the Contractor |
 
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
+#### Counterparty Gender
+
+Counterparty Gender is used only for Counterparty type `[Individual]`. It is ignored for Counterparties type `[Individual Entrepreneur, Legal Entity]`.
+
+| `sex` Field Value   | Counterparty Gender |
+| ------------------- | ---------------- |
+| **MALE** | Male |
+| **FEMALE** | Female |
 
 ### Get a list of Counterparties
 
@@ -1131,6 +1144,120 @@ curl -X POST
   "salesAmount": 0.0
 }
 ```
+
+> Example 4
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty"
+  -H "Authorization: Basic <Credentials>"
+  -H "Content-Type: application/json"
+  -d ' {
+        "name": "Петров",
+        "companyType": "individual",
+        "legalLastName": "Johnson",
+        "legalFirstName": "John",
+        "legalMiddleName": "John",
+        "sex": "MALE",
+        "birthDate": "1953-11-01 00:00:00.000"
+        }'
+```
+> Response 200. Successful request. Result is JSON representation of the created Counterparty.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+    "type": "counterparty",
+    "mediaType": "application/json",
+    "uuidHref": "https://api.kladana.com/app/#company/edit?id=23f049f3-3ad1-11ee-ac13-000c00000000"
+  },
+  "id": "23f049f3-3ad1-11ee-ac13-000c00000000",
+  "accountId": "00081cde-3ad1-11ee-ac13-000d00000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/00f97251-3ad1-11ee-ac13-000e0000004c",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=00f97251-3ad1-11ee-ac13-000e0000004c"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/0009beb8-3ad1-11ee-ac13-000d00000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2023-08-14 21:34:00.817",
+  "name": "Johnson",
+  "externalCode": "mm62KDCZjOpCCNqvW3DtK1",
+  "archived": false,
+  "created": "2023-08-14 21:34:00.817",
+  "companyType": "individual",
+  "legalTitle": "John John Johnson",
+  "legalLastName": "Johnson",
+  "legalFirstName": "John",
+  "legalMiddleName": "John",
+  "birthDate": "1953-11-01 00:00:00.000",
+  "sex": "MALE",
+  "accounts": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/accounts",
+      "type": "account",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "tags": [],
+  "contactpersons": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/contactpersons",
+      "type": "contactperson",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "notes": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/notes",
+      "type": "note",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "state": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/02b158a9-3ad1-11ee-ac13-000e000000b5",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "state",
+      "mediaType": "application/json"
+    }
+  },
+  "salesAmount": 0.0,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  }
+}
+```
+
 > Example with additional fields
 
 ```shell
@@ -2619,16 +2746,16 @@ curl -X PUT
 }
 ```
 
-#### Accounts of the Counterparty
-### Get Counterparty invoices
+### Counterparty Accounts
+### Get Counterparty Accounts
 
-List of accounts of the Counterparty with the specified id.
+List of accounts of the Counterparty with the specified ID.
 
 **Parameters**
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* - The maximum number of entities to retrieve. `Allowed values are 1 - 1000` |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* - Indent in the output list of entities. |
 
@@ -2700,18 +2827,60 @@ curl -X GET
 }
 ```
 
-#### Counterparty's account
+#### Create Counterparty Account
+
+Create a Counterparty account with the specified ID.
 
 **Parameters**
 
 | Parameter | Description |
-| ----- | ------ |
-| **accountId** | `string` (required) (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account id. |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account ID. |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| --------- | ------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 
-### Get Counterparty's account
+> Example of a request to create a Counterparty account.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+    -d '{
+          "accountNumber": "86686868768768757656876876"
+        }'  
+```
+
+> Response 200 (application/json). Successful creation.
+
+```json
+[
+  {
+    "meta": {
+      "href": "http://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
+      "type": "account",
+      "mediaType": "application/json"
+    },
+    "id": "7944ef04-f831-11e5-7a69-971500188b18",
+    "accountId": "4615c8f6-0e7b-11e2-06e0-3c4a92f3a0a7",
+    "updated": "2024-01-22 17:57:54.558",
+    "isDefault": false,
+    "accountNumber": "86686868768768757656876876"
+  }
+]
+```
+
+### Counterparty Account
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **accountId** | `string` (required) (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* - Account ID. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Possible values ​​are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities. |
+
+### Get Counterparty Account
 
 > Get an account Counterparty
 
@@ -2741,13 +2910,66 @@ curl -X GET
 }
 ```
 
-### Contact persons of the Counterparty
+### Change Counterparty account
+
+**Parameters**
+
+| Parameter | Description |
+|---------- | ----------- |
+| **accountId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* - Account ID. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
+
+#### Description
+
+Update the Counterparty account with the specified ID. Fields that were not specified in the JSON request are not changed.
+
+> Example of a request to update a Counterparty account.
+
+  ```shell
+  curl -X PUT
+    "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "accountNumber": "86686868768768757656876876",
+            "isDefault": false,
+            "bankLocation": "Moscow",
+            "bankName": "Bank",
+            "bic": "1005002good",
+            "correspondentAccount": "good200"
+        }'  
+  ```
+
+> Response 200 (application/json). Successful update.
+
+```json
+{
+  "meta": {
+    "href": "http://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
+    "type": "account",
+    "mediaType": "application/json"
+  },
+  "id": "7944ef04-f831-11e5-7a69-971500188b18",
+  "accountId": "4615c8f6-0e7b-11e2-06e0-3c4a92f3a0a7",
+  "updated": "2024-01-22 17:57:54.558",
+  "isDefault": false,
+  "accountNumber": "86686868768768757656876876",
+  "bankName": "Bank",
+  "bankLocation": "Moscow",
+  "correspondentAccount": "good200",
+  "bic": "1005002good"
+}
+```
+
+
+### Counterparty Contact persons
 
 **Parameters**
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
@@ -2980,6 +3202,7 @@ curl -X GET
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
 
 #### Description
+
 Update the contact person of the Counterparty with the specified id.
 All fields specified in the request JSON object are updated, except for
 marked `Read only` in the description of [attributes of the Counterparty's contact persons](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties).

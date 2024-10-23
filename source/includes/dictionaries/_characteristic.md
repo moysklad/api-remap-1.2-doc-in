@@ -1,8 +1,8 @@
-## Characteristics of variants
+## Product Variant Characteristics
 
 Using the json api, you can add new variant characteristics.
 
-### Variant characteristics
+### Product Variant Characteristics
 #### Entity attributes
 
 | Title | Type | Description |
@@ -103,7 +103,7 @@ Successful request. The result is a JSON representation of the generated Feature
 }
 ```
 
-### Bulk Creation of Characteristics
+### Bulk Creation of Product Variant Characteristics
 
 [Bulk Creation](../#kladana-json-api-general-info-create-and-update-multiple-objects) In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
 

@@ -7,6 +7,7 @@ product packaging. The following barcode types are supported:
 - ean8
 - code128
 - gtn
+- upc
 
 A barcode is a convenient means of identifying a product, bundle, service, or product variant. For example, if you need to sell a product, you can make it easier to add and search for the item in the system by acquiring a barcode scanner. After purchasing the scanner, you need to add barcodes to the data of your existing products and services. Let's look at how to do this using a product as an example.
  
@@ -32,6 +33,9 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
                },
                {
                  "gtin": "00000000000130"
+                },
+              {
+                "upc": "400000000015"
                }
              ]
            }'
@@ -125,6 +129,9 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       },
       {
         "gtin": "00000000000130"
+      },
+     {
+       "upc": "400000000015"
       }
     ],
     "variantsCount": 0,
@@ -154,6 +161,9 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
                },
                {
                  "gtin": "00000000000131"
+               },
+              {
+                "upc": "400000000015"
                }
              ]
            }'
@@ -248,6 +258,9 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       },
       {
         "gtin": "00000000000131"
+      },
+     {
+       "upc": "400000000016"
       }
     ],
     "variantsCount": 0,

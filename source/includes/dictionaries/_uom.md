@@ -11,7 +11,7 @@ The search among objects of units of measurement for matching the search string 
 
 | Title | Type                                               | Filtration | Description |
 | ------- |----------------------------------------------------|------ | -------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Read Only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Units |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Units |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |

@@ -31,7 +31,7 @@ Shipment supports external widget change notification protocol **change-handler*
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **overhead** | Object                                             | | Overhead expenses. [Learn more](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float                                              || Amount of incoming payments for the Shipment<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray                                          | | Shipment item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
 | **printed** | Boolean                                            | `=` `!=` | Is the Shipment printed or not<br>`+Required when responding` `+Read Only` |
@@ -91,13 +91,13 @@ The Shipment item object contains the following fields:
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------| ------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/product variant/bundle, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batches/product variant/bundle, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **cost** | Int                                                | Cost price (only for services) |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
 | **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
+| **quantity** | Float                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
 | **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [Learn more](../documents/#transactions-shipment-shipments-codes-for-marking-of-goods-and-transport-packages) |
@@ -1147,10 +1147,13 @@ Successful request. The result is a JSON representation of the generated Shipmen
                         "id": "1bf22e62-8b47-11e8-56c0-000800000006"
                     },
                     "reserve": 30,
-                    "overhead": 20,
                     "cost": 47
                 }
-            ]
+            ],
+            "overhead": {
+              "sum": 60,
+              "distribution": "price"
+            }
         }'
 ```
 
@@ -3491,12 +3494,60 @@ Successful request. The result is a JSON representation of the item list of a si
 }
 ```
 
+### Shipment Items
+### Get item
+
+**Parameters**
+
+| Parameter | Description |
+| ------------ | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Shipment ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Shipment item ID. |
+ 
+> Request to receive a separate Shipment item with the specified ID.
+
+```shell
+curl -X GET
+   "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+   -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Shipment item.
+
+```json
+{
+   "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+     "type": "demandposition",
+     "mediaType": "application/json"
+   },
+   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "quantity": 20,
+   "sum": 200,
+   "discount": 0,
+   "vat": 21,
+   "vatEnabled": true,
+   "assortment": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+     }
+   }
+}
+```
 ### Create Shipment Item
 
 Request to create a new item in the Shipment.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/product variant/set that the item represents.
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
 You can also specify a field named **service** or **variant**, depending on what the indicated item is. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
 + **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
 You can create one or more Shipment items at the same time. All items created by the request
@@ -3874,55 +3925,6 @@ Successful request. The result is a JSON representation of the single Shipment i
 ]
 ```
 
-### Shipment Items
- 
-### Get item
-
-**Parameters**
-
-| Parameter | Description |
-| ------------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Shipment id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Shipment item id. |
- 
-> Request to receive a separate Shipment item with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the Shipment line item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
-     "type": "demandposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-   "quantity": 20,
-   "sum": 200,
-   "discount": 0,
-   "vat": 21,
-   "vatEnabled": true,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-     }
-   }
-}
-```
 
 ### Change item
 
@@ -4011,3 +4013,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Shipment item.
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description|
+| ------- | ------- |
+| **id**  | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Shipment ID.|
+
+> Request for bulk deletion of Shipment items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/demand/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "demandposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "demandposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Shipment items were successfully deleted. 

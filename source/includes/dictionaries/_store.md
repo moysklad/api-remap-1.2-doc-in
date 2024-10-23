@@ -1798,14 +1798,15 @@ Access to the bins of the warehouse is carried out if you have the right to see 
 
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-| --------- |----------------------------------------------------| ----- | -------- |
+| Title | Type   | Filtration | Description |
+| --------- | ------------ | ----- | -------- |
 | **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
 | **externalCode** | String(255)                                        | | Bin External Code<br>`+Required when replying` |
 | **id** | UUID                                               | | Bin ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bin Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | | Bin Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | DateTime                                           | | Bin Last Update<br>`+Required when replying` `+Read Only` |
+| **barcode**   | String(255)  |  | Bin barcode  |
 | **zone** | Meta                                               | | Bin zone. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
 
 ### Get storage bins
