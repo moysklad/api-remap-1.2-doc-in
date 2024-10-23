@@ -120,6 +120,28 @@ Successful request. The result is an array of all Product Images.
 }
 ```
 
+### Get a link to the Image of Product, Product Variant, Bundle
+
+You can get a link to download the image by contacting the address specified in the `downloadHref` field at the image meta.
+
+> Get a link to the Product Image
+
+```shell
+curl -X GET
+  "https://app.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+> Response 302 (application/json)
+Successful request. Result is empty JSON.
+
+```json
+```
+
+The link to download the image is in the `location` header. You can get the image from the link without authorization.
+The link is active for 5 minutes.
+
+
 ### Add Image to Product, Product Variant, Bundle
 Add a new image to a product, product variant, or bundle.
 

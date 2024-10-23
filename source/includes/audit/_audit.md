@@ -485,6 +485,7 @@ Filtering can be done by the fields described below.
    Valid operators for filtering on the ``moment`` attribute: ``['>=', '<=']``
 
     String format : `YYYY-MM-DD HH:MM:SS[.mmm]`, Time zone: `MSK` (Moscow time)
+    Minimum value: `1970-01-01 03:00:00`. The maximum date value is also limited.
 
 + **employee**-
    String type parameter. The ``href`` of the employee entity must be passed as the value.
@@ -525,17 +526,13 @@ Filtering can be done by the fields described below.
 | **connectors** | Synchronization with MI |
 | **copy** | Copy |
 | **emailsend** | Sending a message |
-| **evotor** | Synchronization with Evotor |
 | **export** | Export |
-| **exportediclient1c** | Export to 1C Client EDO |
 | **import** | Import |
-| **importediclient1c** | Import to 1C Client EDO |
-| **jsonapi** | JSON API |
-| **loginlogout** | Entering or exiting MyWarehouse |
+| **jsonapi** | JSON API (remap-1.0, remap-1.1, remap-1.2) |
+| **loginlogout** | Login to Kladana/Logout from Kladana |
 | **phone-1.0** | Phone API |
 | **posapi** | POS API |
 | **restapi** | REST API |
-| **retail** | Point of sale |
 | **scriptor** | Working with scripts |
 
 + **uid**-
@@ -553,12 +550,11 @@ Filtering can be done by the fields described below.
 | **crptcancellation** | Writing off marking codes |
 | **crptdemand** | Shipment of marked products |
 | **crptpackagecreation** | Formation of packaging |
-| **crptpackagedisaggregation** | Unpacking |
-| **crptpackageitemremoval** | Unpacking |
-| **ecwidconnectorsettings** | Setting up synchronization (Ecwid) |
+| **crptpackagedisaggregation** | Dismantling the packaging |
+| **crptpackageitemremoval** | Removal from packaging |
+| **ecwidconnectorsettings** | Synchronization settings (Ecwid) |
 | **entitysettings** | Entity settings |
-| **evotorsetting** | Setting up an exchange with Evotor |
-| **processingplanfolder** | Dashboard group |
+| **processingplanfolder** | Bills of Materials group |
 | **scripttemplate** | Scenario |
 | **smartwebconnectorsettings** | Setting up synchronization (SmartWeb) |
 | **statesettings** | Status settings |

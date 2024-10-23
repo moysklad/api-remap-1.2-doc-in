@@ -5,8 +5,8 @@ Using the JSON API, you can get and edit user settings.
 #### User Settings
 #### Entity attributes
 
-| Title | Type                                               | Description |
-| ---------|----------------------------------------------------|----------|
+| Title | Type    | Description |
+| ----- | ------------ | ------ |
 | **autoShowReports** | Boolean                                            | Whether to build reports automatically when switching to a tab with a report<br>`+Required when replying` |
 | **defaultCompany** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata to be used by default in documents<br>`+Required when replying` |
 | **defaultCustomerCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Buyer, which will be used by default in the documents of the "Sales" section<br>`+Required when replying` |
@@ -75,6 +75,7 @@ Valid start screen values:
 | Adjustments | adjustment |
 | Bulk edit | bulkEdit |
 | Settings | company settings |
+| Getting Started|  homepage  | 
 | News | feed |
 | Stock Movement | turnover |
 | Operations with points | bonus transaction |

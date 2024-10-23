@@ -394,4 +394,4 @@ curl -X POST
 }
 ```
 
-This completes the configuration of the notification about the completion of the asynchronous execution. Now you will receive webhooks, to the specified address, each time the asynchronous task completes. This way you don't need to ask the state of the asynchronous task until the webhook arrives.
+This completes the setup of the notification about the completion of the asynchronous task. Now you will receive webhooks, to the specified address, every time the asynchronous task is completed. This way you will not need to query the status of the asynchronous task until the webhook arrives.

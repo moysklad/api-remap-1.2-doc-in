@@ -24,7 +24,7 @@ Using the JSON API, you can create and update information about Incoming Cash Pa
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                     |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of Incoming Cash Payment<br>`+Required when replying`                                                     |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                         |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                        |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br> `+Expand`                                                        |
 | **paymentPurpose** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering`                                                                           |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                            |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                  |
@@ -36,7 +36,7 @@ Using the JSON API, you can create and update information about Incoming Cash Pa
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming Cash Payment in the specified currency<br>`+Required when replying`                     |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change                                               |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of last update of the Incoming Cash Payment<br>`+Required when replying` `+Read Only`                     |
-| **vatSum** | Float                                              | | VAT amount<br>`+Required when answering`                                                                       |
+| **vatSum** | Float    | | VAT amount<br>`+Required when answering`                                                                       |
 
 #### Links to other transactions
 

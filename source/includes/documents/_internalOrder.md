@@ -12,7 +12,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Internal order code |
 | **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Required when replying` `+Read Only` |
+| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Read Only` |
 | **deliveryPlannedMoment** | DateTime                                           | | Planned acceptance date |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment of Internal order |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of the Internal order<br>`+Required when replying` |
@@ -24,7 +24,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **moves** | Array(Object)                                      | | A collection of metadata for related transfer orders<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Internal Order Name<br>`+Required when replying` `+Required when creating` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Metadata of Internal Order Items<br>`+Required on Response` `+Read Only` `+Expand` |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
@@ -39,20 +39,20 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Internal Order was last updated<br>`+Required when replying` `+Read Only` |
 | **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when answering` |
 | **vatIncluded** | Boolean                                            | | Is VAT included in the price |
-| **vatSum** | Float                                              | | VAT amount<br>`+Required when replying` `+Read only` |
+| **vatSum** | Float    | | VAT amount<br>`+Required when replying` `+Read only` |
 
 #### Internal order items
 
 Items of the Internal order is a list of products, services, and product variants. The Internal Order item object contains the following fields:
 
-| Title | Type                                               | Description |
-| ------- |----------------------------------------------------|---------- |
+| Title | Type   | Description |
+| ------- | ------------- | ---------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`|
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when answering` `+Expand` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
-| **quantity** | Int                                                | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
+| **quantity** | Float                                                 | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
@@ -1642,7 +1642,7 @@ Successful request. The result is a JSON representation of the item list of a si
 Request to create a new item in the Internal Order.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/product variant that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Internal order item](../documents/#transactions-internal-order-internal-order-internal-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -1781,26 +1781,6 @@ Successful request. Result - JSON preSubmission of the created item of a separat
 
 ```
 
-### Delete Internal Order Item
-
-**Parameters**
-
-| Parameter | Description |
-| ------- | ------- |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Internal order item id. |
-
-> Request to delete an Internal Order item with the specified id.
-
-```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/internalorder/positions/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful deletion of an Internal Order item.
-
 ### Internal Order Items
 
 ### Get Internal Order Item
@@ -1910,3 +1890,60 @@ Successful request. The result is a JSON representation of the updated order ite
    }
 }
 ```
+### Delete Internal Order Item
+
+**Parameters**
+
+| Parameter | Description |
+| ------- | ------- |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Internal order item id. |
+
+> Request to delete an Internal Order item with the specified id.
+
+```shell
+curl -X DELETE
+   "https://api.kladana.com/api/remap/1.2/entity/internalorder/positions/7944ef04-f831-11e5-7a69-971500188b19"
+   -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful deletion of an Internal Order item.
+
+
+### Internal Order Item Bulk Deletion
+
+**Parameters**
+
+| Parameter | Description |
+| ------- | ------- |
+| **id**  | `string` (required) *Example: 7623cd58-684d-11ee-ac12-000c0000009e* Internal Order ID.  |
+
+> Request to bulk delete items of Internal Order.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/internalorder/7623cd58-684d-11ee-ac12-000c0000009e/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/7623cd58-684d-11ee-ac12-000c0000009e/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "internalorderposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/7623cd58-684d-11ee-ac12-000c0000009e/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "internalorderposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of items of Internal Order.

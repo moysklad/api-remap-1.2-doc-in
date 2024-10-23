@@ -1,6 +1,6 @@
 ## Transaction statuses
 
-Statuses can be added, modified and removed via API.
+Statuses can be added, changed and deleted through the API only with administrator rights.
 
 ### Statuses
 #### Entity attributes

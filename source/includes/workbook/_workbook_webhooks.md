@@ -205,6 +205,8 @@ There are a number of important things to keep in mind when working with webhook
 * working with webhooks is available only to the account administrator
 * work with webhooks is possible only through JSON API
 
+The conditions for automatic disabling of webhooks are described in [Limitations](../#kladana-json-api-general-info-restrictions).
+
 #### Sending webhooks to the client application
 
 Kladana sends the webhook to the client application using the POST method, specifying the _User-Agent_ header with the value _Kladana webhook touch agent

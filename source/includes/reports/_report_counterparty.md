@@ -33,7 +33,7 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 | **counterparty.companyType** | Enum | `=` `!=` | Counterparty type |
 | **counterparty.description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
 | **counterparty.email** | String(255) | `=` `!=` `~` `~=` `=~` | Email address |
-| **counterparty.inn** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty type |
+| **counterparty.inn** | String(255) | `=` `!=` `~` `~=` `=~` | Counterparty Tax Identification Number |
 | **counterparty.phone** | String(255) | `=` `!=` `~` `~=` `=~` | Phone number |
 | **id** | UUID | `=` `!=` | Counterparty ID |
 

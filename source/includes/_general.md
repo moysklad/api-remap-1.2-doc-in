@@ -41,18 +41,11 @@ When developing a client application, consider the following points:
    + New resources can be added.
 
 
-### Restrictions
+### Response content compression
 
-The Kladana JSON API has the following restrictions: 
+The API server uses response content compression, so when accessing API endpoints, you need to specify the response content compression encoding in the Accept-Encoding HTTP request header. In rare cases, the server might not apply compression. When compression is used, the API server will indicate this in the Content-Encoding header with the encoding used.
 
-- Under 45 requests per 3 seconds for an account.
-- Under 5 parallel requests from a user.
-- Under 20 parallel requests for an account. 
-- Under 8 Kb in the request header (URL, User-Agent, Authorization, etc). 
-- Under 20 MB of data in a request sent to the server. 
-- Under 4 asynchronous tasks queued for an account. 
-- Under 1000 elements of objects (items, materials, products) in one array for a request. If the number of elements exceeds the number allowed, an error with status 413 occurs. If the number of items exceeds the limit, use the resources described separately for each entity.
-
+The API server supports only gzip encoding. Requests without this header, or requests with this header but with a different compression encoding, will not be processed. The server will respond with a 415 status code and no response body.
 
 ### HTTP Response Compression
 
@@ -198,6 +191,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **410** | API version no longer supported |
 | **412** | A required query string parameter or JSON structure field was not specified |
 | **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
+| **415** | The format of the request content in headers or body is not supported |
 | **429** | Request limit was exceeded |
 | **500** | An unexpected error occurred while processing the request |
 | **502** | Service temporarily unavailable |
@@ -236,7 +230,7 @@ List of entities with additional fields:
 + [Product](dictionaries/#entities-product)
 + [Service](dictionaries/#entities-service) (located in the Product metadata)
 + [Bundle](dictionaries/#entities-bundle) (located in the Product metadata)
-+ [Series](dictionaries/#entities-series)
++ [Batch](dictionaries/#entities-batch)
 + All transactions:
   - [Sales Returns](documents/#transactions-sales-return)
   - [Purchase Returns](documents/#transactions-purchase-returns)
@@ -256,11 +250,13 @@ List of entities with additional fields:
   - [Supplier Invoice](documents/#transactions-supplier-invoice)
   - [Internal Order](documents/#transactions-internal-order)
   - [Production Order](documents/#transactions-production-order)
+  - [Process Tracking](documents/#transactions-process-tracking)
+
 
 You can view all the additional fields that have been created using a request to get entity metadata.
 The response contains a description of the additional fields in the form of an **attributes** collection if the specified entity works with additional fields.
 
-#### Description attributes of additional fields
+#### Description of additional fields attributes 
 
 | Title | Type | Description |
 | ----- | -----| ----------- |
@@ -278,9 +274,11 @@ Additional fields of a particular entity is an internal collection of **attribut
 
 | Title | Type | Description |
 | --------- |-------- | ------------------ |
-| **id** | UUID | ID of the corresponding additional fields |
-| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields |
-| **name** | String(255) | Name of additional fields |
+| **id** | UUID | ID of the corresponding additional field |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to the additional field metadata |
+ **file**  | Object  | Description of the file and content. The field is available only for the additional field of the File type |
+| **name** | String(255) | Name of the additional fields |
+| **type**  | Enum  | Type of the additional field |
 | **value** | Depends on type, see below | The value specified in the additional field |
 
 Possible values of the type of additional fields (field **type**) and their corresponding type values in JSON, as well as
@@ -289,7 +287,7 @@ Possible values of the type of additional fields (field **type**) and their corr
 | Attribute type | The value of the type field in JSON | JSON value field type |
 | -------------------- | ---------------------- | --------------------- |
 | Date | time | string |
-| Directory | {entityType} | object** |
+| Directory | {entityType} | object |
 | Link | link | string |
 | String | string | string |
 | Text | text | string |
@@ -300,7 +298,9 @@ Possible values of the type of additional fields (field **type**) and their corr
 
 Additional fields of the File and Checkbox types cannot be required (the **required** field cannot be `true`).
 
-When passing a `null` value in the **value** field, the value of the corresponding additional fields is reset.
+## Resetting the Value in an Additional Field
+
+When passing the value `null` in the **value** field, the corresponding additional field is reset, except for additional fields of the File type. To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
 
 #### Additional fields of the 'list' type
 
@@ -347,7 +347,7 @@ In the update request, in the **attributes** collection, you must specify the ob
 A collection of fields can only work in the context of a single entity. Additional fields and their values
 can be passed in the **attributes** collection in the request body for both creating and updating an entity.
 As an indication, for additional fields you need to use the **meta** field.
-In the passed array of objects, you can specify not all the extras. fields - only the specified ones will be initialized/updated.
+In the passed array of objects, you can specify not all the extras. The specified fields will be initialized or updated.
 
 #### Additional fields of file type
 
@@ -358,13 +358,57 @@ To load the value for additional fields of the file type, you need to specify an
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
 | **content** | String | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
-An example of specifying a value for additional file type fields are in the [product creation section](dictionaries/#entities-product-create-product) 
+To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
+
+> Example of assigning a value to an additional field of the File type
+```shell
+curl -X PUT 
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -d '{
+    "attributes": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "file": {
+            "filename": "filename",
+            "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
+          }
+        }
+    ]
+}'
+```
+
+> Example of resetting the value of an additional field of the File type
+```shell
+curl -X PUT 
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -d '{
+    "attributes": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "file": null
+        }
+    ]
+}'
+```
 
 ### Additional entity fields
-Request for additional entity fields.
-The list of available entity types is listed [here](#kladana-json-api-general-info-additional-fields).
 
-The structure of the object additional fields are described in detail in the section [Working with additional fields](#kladana-json-api-general-info-additional-fields).
+Request for additional entity fields.
+The available entity types can be found in the following [list](#kladana-json-api-general-info-additional-fields).
+
+Learn more about additional fields in the following section: [Working with additional fields](#kladana-json-api-general-info-additional-fields).
 
 **Parameters**
 
@@ -1169,13 +1213,13 @@ The following fields are set and output to the JSON API with minute precision, n
 + **lastDemandDate**
 + additional field with type **Date**
 
-### Sorting objects
+### Sorting of objects
 
 You can use the url parameter `order` to sort the list of objects.
 The value of this parameter is an **urlencoded** string with sorting conditions listed with `;`. (All examples below are unurlencoded for better readability)
 Each sort condition is a combination of a field name, a comma (optional if sort direction is specified), a sort direction (optional; can take the values `asc` and `desc`. The default value is `asc`).
 
-Sorting is supported for the following field types: numeric, string, datetime, boolean, and uuid.
+Sorting is supported for the following field types: numeric, string, datetime, boolean, and uuid. [Learm more](workbook/#workbook-sorting)
 
 Examples of queries with sorting:
 
@@ -1292,7 +1336,7 @@ Examples of requests for filtering:
 
 With filter, you can filter fields of type ID.
 
-+ `filter=<field_name>=<ID>`
++ `filter=<field_name>=&lt;ID>`
 
 ID example:
 
@@ -1389,7 +1433,19 @@ used URI filter parameter **search**
     - `https://api.kladana.com/api/remap/1.2/entity/move?search=ул.Вавилова`
     - `https://api.kladana.com/api/remap/1.2/entity/counterparty?search=петров`
 
+### Deleting to the Recycle Bin
 
+The Recycle Bin allows you to avoid the risk of accidentally deleting important documents. Deleting to the Recycle Bin is only available if the employee has the appropriate rights, as well as the company's settings for using the Recycle Bin.
+
+> Example of deleting a Receiving to the Recycle Bin
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/move/b8fe9f6b-f48f-11ed-ac1a-000d0000003a/trash"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+``` 
+
+> Response 200 (application/json) Successful request to delete the Receiving to the Recycle Bin
 
 ### Filter operator "similarity"
 
@@ -1425,12 +1481,14 @@ where you would like to see related objects.
 As a result of a request with this parameter, in the response you will receive an object with expanded nested objects instead of links.
 For example, in documents containing the **agent** field, instead of referring to
 counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#entities-counterparty) will be displayed.
-Maximum nesting level **expand** : 3.
-Expand is allowed only on a sample size of 100 or less. If a larger limit is specified, but expand is specified, then this parameter will be ignored.
 
-You can also use **expand** on the results of create and update operations.
+#### The following rules apply to expand:
 
-+ Below are examples of using **expand** on [Sales Returns](documents/#transactions-sales-return). The examples show only the **meta** and **demand** fields.
+* Expand is allowed only for sample sizes of 100 or fewer. For example: `https://api.kladana.com/api/remap/1.2/entity/customerorder?expand=positions&limit=100`. If a larger limit is specified along with expand, the expand parameter will be ignored.
+* The maximum nesting level for **expand** is 3.
+* **expand** can also be applied to the results of creation and update operations.
+
+Below are examples of using **expand** on [Sales Returns](documents/#dokumenty-sales-return). The examples only show the **meta** and **demand** fields.
 
 ### Return without expand
 
@@ -1443,7 +1501,8 @@ curl -X GET
   -H "Accept-Encoding: gzip"
 ```
 
-> Sales Return object in its normal view, with a link to the shipment
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the Sales Return without **expand**.
 
 ```json
 {
@@ -1557,11 +1616,11 @@ curl -X GET
 }
 ```
 
-### Return from expand shipment
+### Return of Shipment with expand 
 
 We pass the parameter **expand**=demand.
 
-> Sample return request with expand shipment
+> Example of the Return request of Shipment with **expand** 
 
 ```shell
 curl -X GET
@@ -1570,7 +1629,8 @@ curl -X GET
   -H "Accept-Encoding: gzip"
 ```
 
-> In response, the return of the buyer will come, which, instead of a reference to the shipment for which the return is made, will have an attached object with all the fields of this shipment.
+>Response 200 (application/json)
+Successful request. Result is a JSON representation of the Sales Return with an expanded object of the Shipment.
 
 ```json
 {
@@ -1824,6 +1884,258 @@ curl -X GET
   "payedSum": 0.0
 }
 ```
+
+## Shipment Returns with expand 
+
+Pass the parameter **expand**=demand and limit=100.
+
+> Example of a return request of shipping with expand 
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the Sales Return with an expanded object of the Shipment.
+
+```json
+{
+  "context": {
+    "employee": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand",
+    "type": "salesreturn",
+    "mediaType": "application/json",
+    "size": 1,
+    "limit": 100,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013?expand=demand",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
+        "type": "salesreturn",
+        "mediaType": "application/json",
+        "uuidHref": "https://api.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
+      },
+      "id": "c6f47cc4-e1dd-11ee-ac1b-000e00000013",
+      "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/09a8ad82-c42e-11ee-ac1b-000e0000004e",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+        }
+      },
+      "shared": false,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/0815b439-c42e-11ee-ac1b-000d00000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2024-03-14 11:35:13.630",
+      "name": "00001",
+      "externalCode": "G9bgN5HggK9J00qB4P5eY2",
+      "moment": "2024-03-14 11:35:00.000",
+      "applicable": true,
+      "rate": {
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+          }
+        }
+      },
+      "sum": 0.0,
+      "store": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/store/0a152f4e-c42e-11ee-ac1b-000e00000098",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+          "type": "store",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
+        }
+      },
+      "agent": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+          "type": "organization",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+        }
+      },
+      "organization": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+          "type": "organization",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+        }
+      },
+      "created": "2024-03-14 11:35:13.700",
+      "printed": false,
+      "published": false,
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "positions": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013/positions",
+          "type": "salesreturnposition",
+          "mediaType": "application/json",
+          "size": 3,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "vatEnabled": true,
+      "vatIncluded": true,
+      "vatSum": 0.0,
+      "demand": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/demand/762474c4-e1dd-11ee-ac1b-000e00000001",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+          "type": "demand",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.kladana.com/app/#demand/edit?id=762474c4-e1dd-11ee-ac1b-000e00000001"
+        },
+        "id": "762474c4-e1dd-11ee-ac1b-000e00000001",
+        "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
+        "owner": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/employee/09a8ad82-c42e-11ee-ac1b-000e0000004e",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+            "type": "employee",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+          }
+        },
+        "shared": false,
+        "group": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/group/0815b439-c42e-11ee-ac1b-000d00000002",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+            "type": "group",
+            "mediaType": "application/json"
+          }
+        },
+        "updated": "2024-03-14 11:35:13.887",
+        "name": "00001",
+        "externalCode": "H9ZOh5TfhN06gKjCaqoHI1",
+        "moment": "2024-03-14 11:32:00.000",
+        "applicable": true,
+        "rate": {
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            }
+          }
+        },
+        "sum": 0.0,
+        "store": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/store/0a152f4e-c42e-11ee-ac1b-000e00000098",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+            "type": "store",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
+          }
+        },
+        "agent": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+            "type": "organization",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+          }
+        },
+        "organization": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+            "type": "organization",
+            "mediaType": "application/json",
+            "uuidHref": "https://api.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+          }
+        },
+        "created": "2024-03-14 11:32:58.117",
+        "printed": false,
+        "published": false,
+        "files": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/762474c4-e1dd-11ee-ac1b-000e00000001/files",
+            "type": "files",
+            "mediaType": "application/json",
+            "size": 0,
+            "limit": 1000,
+            "offset": 0
+          }
+        },
+        "positions": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/762474c4-e1dd-11ee-ac1b-000e00000001/positions",
+            "type": "demandposition",
+            "mediaType": "application/json",
+            "size": 3,
+            "limit": 1000,
+            "offset": 0
+          }
+        },
+        "vatEnabled": true,
+        "vatIncluded": true,
+        "vatSum": 0.0,
+        "payedSum": 0.0,
+        "returns": [
+          {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
+              "type": "salesreturn",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
+            }
+          }
+        ]
+      },
+      "payedSum": 0.0
+    }
+  ]
+}
+```
+
 
 ### Expand with depth 2
 
@@ -2175,7 +2487,7 @@ curl -X GET
 
 ### Create a shipment with expand
 
-> Expand the **agent** field of the shipment being created.
+> Example of a request to create a shipment with the **agent** field expanded
 
 ```shell
 curl -X POST
@@ -2209,7 +2521,8 @@ curl -X POST
         }'
 ```
 
-> In response, the created shipment will come with the deployed object of the counterparty (**agent**).
+> Response 200 (application/json)
+Successful request. The result is JSON representation of the created Shipment with the expanded counterparty object (**agent**).
 
 ```json
 {
@@ -2377,8 +2690,7 @@ curl -X POST
 
 ### Edit shipment with expand
 
-> Now let's update this shipment and expand its **agent** and **organization** fields.
-The response will be a modified shipment with expanded counterparty object (**agent**) and expanded legal entity object (**organization**).
+> Example of a shipment update request with the **agent** and **organization** objects expanded
 
 ```shell
 curl -X PUT
@@ -2392,6 +2704,8 @@ curl -X PUT
 ```
 
 > Response 200 (application/json)
+Successful request. Result is JSON representation of the updated Shipment with expanded counterparty and legal entity objects.
+
 
 ```json
 {
@@ -2700,43 +3014,46 @@ These types have the following fields:
 |----------------------------| ---------- |-------------------|
 | **accountAdjustment**      | DICTIONARY | Adjustment of account balances |
 | **bonusTransaction**       | OPERATION | Bonus points |
-| **cashIn**                 | OPERATION | Receipt order |
-| **cashOut**                | OPERATION | Disbursement order |
+| **cashIn**                 | OPERATION | Incoming Cash Payment |
+| **cashOut**                | OPERATION | Outgoing Cash Payment |
 | **cashboxAdjustment**      | DICTIONARY | Adjustment of cash balances |
 | **company**                | DICTIONARY | Counterparties |
 | **contract**               | DICTIONARY | Contracts |
 | **counterpartyAdjustment** | DICTIONARY | Adjustment of counterparty or employee balances |
 | **country**                | BASE | Countries |
 | **currency**               | BASE | Currencies |
-| **customEntity**           | BASE | Elements of user directories |
-| **customerOrder**          | OPERATION | Order to buyers |
+| **customEntity**           | BASE | Elements of user lists|
+| **customerOrder**          | OPERATION | Sales Order|
 | **demand**                 | OPERATION | Shipment |
 | **employees**              | BASE | Employees |
 | **enter**                  | OPERATION | Posting |
 | **factoryIn**              | OPERATION | Invoices received |
 | **facture**                | OPERATION | Invoices issued |
-| **good**                   | DICTIONARY | Goods and Services |
+| **good**                   | DICTIONARY | Products and Services |
 | **internalOrder**          | OPERATION | Internal orders |
 | **inventory**              | DICTIONARY | Inventory |
 | **invoiceIn**              | OPERATION | Supplier invoice |
-| **invoiceOut**             | OPERATION | Account for buyers |
+| **invoiceOut**             | OPERATION | Sales invoices |
 | **loss**                   | OPERATION | Write-off |
-| **move**                   | OPERATION | Moving |
-| **myCompany**              | BASE | Jur. Faces |
+| **move**                   | OPERATION | Transfer |
+| **myCompany**              | BASE | Legal entities |
 | **paymentIn**              | OPERATION | Incoming payment |
 | **paymentOut**             | OPERATION | Outgoing payment |
+| **prepayment**             | OPERATION | Prepayments |
+| **prepaymentReturn**       | OPERATION | Prepayment Returns   |
+| **priceList**              | OPERATION | Price list |
+| **processing**             | BASE  | Production Operations |
 | **processingOrder**        | OPERATION | Production order |
-| **processingPlan**         | BASE| Those. Maps |
-| **processingStage**        | BASE | Stages of production |
-| **processingProcess**      | BASE | Those. processes |
+| **processingPlan**         | BASE| Bills of Materials |
+| **processingStage**        | BASE | Production operations |
 | **project**                | BASE | Projects |
-| **purchaseOrder**          | OPERATION | Order to suppliers |
-| **purchaseReturn**         | OPERATION | Return to supplier |
+| **purchaseOrder**          | OPERATION | Purchase Orders |
+| **purchaseReturn**         | OPERATION | Purchase Returns |
 | **retailDemand**           | OPERATION | Sales |
-| **retailSalesReturn**            | OPERATION | Sales Return |
+| **retailSalesReturn**            | OPERATION | Sales Returns |
 | **supply**                 | OPERATION | Receivings |
 | **task**                   | [Special](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions-permissions-for-tasks) | Tasks |
-| **uom*                     | BASE | Units of measure |
+| **uom**                     | BASE | Units of measure |
 | **warehouse**              | BASE | Warehouses |
 | **webhook**                | DICTIONARY | Webhooks |
 

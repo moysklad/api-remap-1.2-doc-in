@@ -1,5 +1,6 @@
 ## Employee
 ### Employees
+
 Using the JSON API, you can request lists of Employees and information on individual Employees. The entity code for an Employee in the JSON API is the **employee** keyword. 
 Learn more about [Employees](https://kladana.zendesk.com/hc/en-us/articles/7583130803857-Manage-user-access-).
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
@@ -12,12 +13,11 @@ The search among employee objects for matching the search string will be carried
 
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-| ------- |----------------------------------------------------|---------- | --------- |
+| Title | Type  | Filtration | Description |
+| ------- | ----- | --------- | --------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Code |
 | **created** | DateTime                                           | | Employee Creation Time<br>`+Required for response` `+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Employee |
 | **email** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Email |
@@ -35,16 +35,24 @@ The search among employee objects for matching the search string will be carried
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **phone** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee phone |
 | **position** | String(255)                                        | | Employee position |
+| **salary** | Object | | Employee salary  |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shortFio** | String(255)                                        | | Short Name<br>`+Read Only` |
 | **id** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
 
-The **owner**, **group** and **archived** fields can only be modified by an administrator. The **email** field can be changed by the administrator and the employee himself.
+The **salary**, **owner**, **group** and **archived** fields can only be modified by an administrator. The **email** field can be changed by the administrator and the employee himself.
 
 #### Nested entity attributes
 
-##### Employee photo: structure and loading.
+##### Salary
+
+| Name | Type | Description |
+| -------- | ----- | ---------- |
+| **value** | Float | Salary amount |
+
+##### Employee photo: structure and loading
+
 The structure of the **image** field that you will receive when requesting an employee with a photo:
 
 | Title | Type                                               | Description |
@@ -58,8 +66,8 @@ The structure of the **image** field that you will receive when requesting an em
 | **updated** | DateTime                                           | Last modified time<br>`+Required when replying` |
 
 #### Loading
-To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-employee-change-employee) employee (PUT) and in the request body
-specify the **image** field with the following attributes:
+
+To upload a photo of an employee, you need to create a request for [update](../dictionaries/#entities-employee-change-employee) employee (PUT) and in the request body specify the **image** field with the following attributes:
 
 | Title | Description |
 | ------- | -------- |
@@ -189,6 +197,7 @@ Successful request. The result is a JSON representation of the list of Employees
 ```
 
 ### Bulk update of Employees
+
 [Bulk update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Employees.
 In the body of the request, you need to pass an array containing the JSON representation of the Employees you want to update.
 Updated Employees must contain the identifier in the form of metadata.
@@ -209,16 +218,16 @@ Updated Employees must contain the identifier in the form of metadata.
                     "type": "employee",
                     "mediaType": "application/json"
                 },
-                "firstName": "Peter",
-                "middleName": "Ivanovich",
-                "lastName": "Moyskladkin",
+                "firstName": "John",
+                "middleName": "John",
+                "lastName": "Johnson",
                 "inn": "222490425273",
                 "position": "Director"
             },
             {
-                "firstName": "Ivan",
-                "middleName": "Petrovich",
-                "lastName": "Moyskladkin"
+                "firstName": "John",
+                "middleName": "John",
+                "lastName": "Johnson"
             }
         ]'
 ```
@@ -255,17 +264,17 @@ Successful request. The result is a JSON array of representations of the updated
        }
      },
      "updated": "2018-10-17 14:51:30",
-     "name": "Moyskladkin P.I.",
+     "name": "J. J. Johnson",
      "externalCode": "wNxghfHlg5n2rJGO9Lpud0",
      "archived": false,
      "created": "2018-10-17 13:25:14",
      "uid": "admin@company",
      "email": "company@mail.ru",
-     "firstName": "Peter",
-     "middleName": "Ivanovich",
-     "lastName": "Moyskladkin",
-     "fullName": "Pyotr Ivanovich Moiskkin",
-     "shortFio": "Moyskladkin P.I.",
+     "firstName": "John",
+     "middleName": "John",
+     "lastName": "Johnson",
+     "fullName": "John John Johnson",
+     "shortFio": "J. J. Johnson",
      "inn": "222490425273",
      "position": "Director"
    },
@@ -296,15 +305,15 @@ Successful request. The result is a JSON array of representations of the updated
        }
      },
      "updated": "2018-10-17 14:51:30",
-     "name": "Moyskladkin I.P.",
+     "name": "J. J. Johnson",
      "externalCode": "0freFxtniG9a1MNZ7ADin2",
      "archived": false,
      "created": "2018-10-17 14:51:30",
-     "firstName": "Ivan",
-     "middleName": "Petrovich",
-     "lastName": "Moyskladkin",
-     "fullName": "Ivan Petrovich Moyskladkin",
-     "shortFio": "Moyskladkin I.P."
+     "firstName": "John",
+     "middleName": "John",
+     "lastName": "Johnson",
+     "fullName": "John John Johnson",
+     "shortFio": "J. J. Johnson"
    }
 ]
 ```
@@ -551,9 +560,9 @@ Request to create an employee. Mandatory fields to create:
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
-             "firstName": "Peter",
-             "middleName": "Ivanovich",
-             "lastName": "Moyskladkin",
+             "firstName": "John",
+             "middleName": "John",
+             "lastName": "Johnson",
              "inn": "222490425273",
              "position": "Director",
              "phone": "+7(999)888-7766",
@@ -602,17 +611,17 @@ Successful request. The result is a JSON representation of the created Employee.
      }
    },
    "updated": "2018-10-11 17:48:37",
-   "name": "Moyskladkin P.I.",
+   "name": "J. J. Johnson",
    "description": "Description",
    "externalCode": "tJfzU8g2hVgXFOiFGTMIe3",
    "archived": false,
    "created": "2018-10-11 17:48:37",
    "phone": "+7(999)888-7766",
-   "firstName": "Peter",
-   "middleName": "Ivanovich",
-   "lastName": "Moyskladkin",
-   "fullName": "Pyotr Ivanovich Moiskkin",
-   "shortFio": "Moyskladkin P.I.",
+   "firstName": "John",
+   "middleName": "John",
+   "lastName": "Johnson",
+   "fullName": "John John Johnson",
+   "shortFio": "J. J. Johnson",
    "attributes": [
      {
        "meta": {
@@ -649,9 +658,9 @@ Request to update an existing Employee. The **lastName** field must be specified
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
-             "firstName": "Peter",
-             "middleName": "Ivanovich",
-             "lastName": "Moyskladkin",
+             "firstName": "John",
+             "middleName": "John",
+             "lastName": "Johnson",
              "inn": "222490425273",
              "position": "Director",
              "phone": "+7(999)888-7766",
@@ -683,18 +692,18 @@ Successful request. The result is a JSON representation of the updated Employee.
    "id": "7944ef04-f831-11e5-7a69-971500188b19",
    "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
    "updated": "2016-03-28 19:45:46",
-   "name": "Moyskladkin P.I.",
+   "name": "J. J. Johnson",
    "description": "Description",
    "externalCode": "4A039QXHgbZdAHdXbcUI71",
    "archived": false,
    "phone": "+7(999)888-7766",
    "uid": "admin@reqwy1",
    "email": "asdad@sfasf.erq",
-   "firstName": "Peter",
-   "middleName": "Ivanovich",
-   "lastName": "Moyskladkin",
-   "fullName": "Pyotr Ivanovich Moiskkin",
-   "shortFio": "Moyskladkin P.I.",
+   "firstName": "John",
+   "middleName": "John",
+   "lastName": "Johnson",
+   "fullName": "John John Johnson",
+   "shortFio": "J. J. Johnson",
      "retailStore": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/retailstore/851f8576-f504-11e5-8a84-bae50000016c",
@@ -753,9 +762,7 @@ employee with `System Administrator` rights.
 #### Nested entity attributes
 ##### Role
 
-There are four types of roles: `System Administrator`, `User Role` and `Individualrole`. Use
-`Individual role` (with non-default permissions) and `User role` is possible only on `Professional` tariffs
-or `Corporate`. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
+There are five types of roles: `System Administrator`, `Cashier`, `Production Employee`, `Custom Role` and `Individual Role`. The `Production Employee` role is only available when the `Production Management` option is enabled. Use `Individual role` (with non-default permissions) and `User role` is only available in `Professional` and `Corporate` subscription plans. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
 If not all permissions are specified in the `permissions` field, then those not transferred will be turned off.
 Default values are set if the user, without specifying individual permissions, sets an individual role for an employee,
 for which no individual permissions were previously set.
@@ -844,7 +851,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **bonustransaction** | OPERATION | All ALL | Bonus points |
 | **cashIn** | OPERATION | All ALL | Receipt order |
 | **cashOut** | OPERATION | All ALL | Disbursement order |
-| **cashboxAdjustment** | DICTIONARY | All ALL | Adjustment of cash balances |
+| **cashboxAdjustment** | DICTIONARY | All ALL | Balance Adjustment |
 | **company** | DICTIONARY | All ALL | Counterparties |
 | **contract** | DICTIONARY | All ALL | Contracts |
 | **counterpartyAdjustment** | DICTIONARY | All ALL | Adjustment of counterparty or employee balances |
@@ -874,11 +881,12 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **myCompany** | base | view: ALL, create: NO, edit: NO, delete: NO | Jur. Faces |
 | **paymentIn** | OPERATION | All ALL | Incoming payment |
 | **paymentOut** | OPERATION | All ALL | Outgoing payment |
-| **processing** | base | All ALL | Those. operations |
 | **processingOrder** | OPERATION | All ALL | Production order |
-| **processingPlan** | base | All ALL | Those. Maps |
+| **processingPlan** | base | All ALL | Bills of Materials |
 | **processingStage** | base | All ALL | Stages of production |
-| **processingProcess** | base | All ALL | Those. processes |
+| **processingProcess** | base | All ALL | Routing |
+| **productionTask**   | OPERATION | All ALL  | Production Orders              |
+| **productionStageCompletion** | DICTIONARY  | All ALL  | Process Tracking |
 | **project** | base | All ALL | Projects |
 | **purchaseOrder** | OPERATION | All ALL | Order to suppliers |
 | **purchaseReturn** | OPERATION | All ALL | Return to supplier |
@@ -1627,5 +1635,56 @@ Successful request. The result is a JSON representation of the individual role i
      "type": "individualrole",
      "mediaType": "application/json"
    }
+}
+```
+### Request for the cashier role
+
+> Example of a request for the cashier role.
+
+```shell
+  curl -X GET
+    "https://api.kladana.com/api/remap/1.2/entity/role/cashier"
+    "https://api.kladana.com/api/remap/1.2/entity/role/cashier"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is JSON representation of cashier role information.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/cashier",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/cashier",
+    "type": "systemrole",
+    "mediaType": "application/json"
+  }
+}
+```
+
+### Request for obtaining the production employee role
+
+The role is available only if the `Production Management` option is enabled.
+
+> Example of a request for obtaining the role of production employee.
+
+```shell
+  curl -X GET
+    "https://api.kladana.com/api/remap/1.2/entity/role/worker"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is JSON representation of information about the production employee role.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/role/worker",
+    "type": "systemrole",
+    "mediaType": "application/json"
+  }
 }
 ```

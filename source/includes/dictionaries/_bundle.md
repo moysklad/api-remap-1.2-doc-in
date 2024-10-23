@@ -51,22 +51,27 @@ Using the JSON API, you can create and update information about Bundles, request
 
 The values of the trackingType field.
 
-| Value| Description |
-| ---------- | ------------ |
+Value | Description |
+| --------------------- | ------------------------------------- |
+| **BEER_ALCOHOL** | Beer and low-alcohol beverages |
 | **ELECTRONICS** | Cameras and flash lamps |
-| **LP_CLOTHES** | Type of marking "Clothes" |
-| **LP_LINENS** | Type of marking "Bed linen" |
-| **MILC** | Dairy products |
-| **NCP** | Products containing nicotine |
-| **NOT_TRACKED** | Unmarked |
+| **FOOD_SUPPLEMENT** | Biologically active food supplements |
+| **LP_CLOTHES** | Label type "Clothing" |
+| **LP_LINENS** | Label type "Bed linen" |
+| **MEDICAL_DEVICES** | Medical devices and wheelchairs |
+| **MILK** | Dairy products |
+| **NCP** | Nicotine-containing products |
+| **NOT_TRACKED** | No label |
 | **OTP** | Alternative tobacco products |
-| **PERFUMERY** | Perfume and toilet water |
-| **SHOES** | Type of marking "Shoes" |
-| **TIRES** | Tires and tires |
-| **TOBACCO** | Type of marking "Tobacco" |
+| **PERFUMERY** | Perfumes and eau de toilette |
+| **SANITIZER** | Antiseptics |
+| **SHOES** | Label type "Shoes" |
+| **SOFT_DRINKS** | Soft drinks |
+| **TIRES** | Tires |
+| **TOBACCO** | Label type "Tobacco" |
 | **WATER** | Packaged water |
 
-##### Sign of the subject of calculation
+##### Indicator of the calculation item
 
 Values of the paymentItemType field.
 
@@ -138,7 +143,7 @@ Bundle Components is a list of products/services/product variants that are part 
 | Title | Type | Description |
 | ------------- | --------------- |----------------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series that the component represents<br>`+Required for response` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batch that the component represents<br>`+Required for response` `+Expand` |
 | **id** | UUID | Component ID<br>`+Required for response` `+Read-only` |
 | **quantity** | Int | Quantity of goods/services of this type in the <br>component`+Required when replying` `+Read-only` |
 
@@ -1943,3 +1948,29 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Bundle component.
+
+### Bulk deletion of Bundle components
+
+The request body must contain an array containing JSON metadata of the Bundle components that need to be deleted.
+
+> Request for bulk deletion of Bundle components.
+
+```shell
+curl -X POST
+"https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e0000022/components/delete"
+-H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
+-H "Content-Type: application/json"
+-d '[
+{
+"meta": {
+"href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/31c3e4a8-7323-11ee-c0a8-e00e00000027", "type": "bundlecomponent", "mediaType": "application/json" } }, { "meta": { "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/23afc075-7323-11ee-c0a8-e00e0000001c",
+"type": "bundlecomponent",
+"mediaType": "application/json"
+}
+}
+]'
+```
+
+> Response 200 (application/json)
+Successful removal of Bundle components.

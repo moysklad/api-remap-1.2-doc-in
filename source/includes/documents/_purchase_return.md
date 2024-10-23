@@ -26,7 +26,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
@@ -57,12 +57,12 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | Title | Type | Descriptions|
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/product variant, which is an item<br>`+Required when answering` `+Expand` |
-| **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when answering` `+Expand` |
+| **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | Float | The price of the products/services in paise<br>`+Required when answering` |
-| **quantity** | Int | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
+| **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
@@ -2692,7 +2692,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
 Request to create a new item in Purchase Returns.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/product variant that the item represents.
++ **assortment** - Link to the product, service, batch or product variant that the item represents.
 You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items).
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2913,10 +2913,10 @@ Successful request. The result is a JSON representation of the updated Purchase 
 
 | Parameter | Description |
 | ----------| --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Returns id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Returns item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Return ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Return item ID. |
  
-> Request to delete a single item Returned to the supplier with the specified id.
+> Request to delete a single item returned to the supplier with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -2926,4 +2926,41 @@ curl -X DELETE
 ```
 
 > Response200 (application/json)
-Successful deletion of the Purchase Returns item.
+Successful deletion of the Purchase Return item.
+
+### Bulk deletion of positions
+
+**Parameters**
+
+| Parameter | Description |
+| ----------- | ------------ |
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Purchase Return ID. |
+
+> Request to bulk deletion of Purchase Return items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "purchasereturnposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "purchasereturnposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of Purchase Return items.

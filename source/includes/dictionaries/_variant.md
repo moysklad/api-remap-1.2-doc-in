@@ -30,6 +30,7 @@ Examples:
 | **buyprice** | Object                                             | | Purchase price |
 | **characteristics** | Array(Object)                                      | | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when answering` `+Required when creating` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product variant Code |
+| **description**        | String(4096)	                                             | `=` `!=` `~` `~=` `=~`      | Product variant Description |
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
 | **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
@@ -56,8 +57,8 @@ Examples:
 ##### Barcodes:
 When creating a barcode, you need to describe an object with a field that is a lowercase barcode representation format with the string value of the barcode itself. The names of the fields of a separate object representing a barcode:
 
-| Title       | Description                                                                                            |
-|-------------|--------------------------------------------------------------------------------------------------------|
+| Title    | Description   |
+| --------- | ------- |
 | **ean13**   | barcode in EAN13 format if you want to generate an EAN13 barcode                                       |
 | **ean8**    | barcode in EAN8 format if you want to generate an EAN8 barcode                                         |
 | **code128** | barcode in Code128 format, if you want to create a barcode in formsate Code128                         |
@@ -108,7 +109,7 @@ Structures of individual collection objects:
 | **required** | Boolean | Flag indicating whether the feature is required<br>`+Required for response` |
 | **type** | String(255) | Feature value type<br>`+Required for response` |
 
-##### Image: structure and loading.
+##### Image: structure and loading 
 When requesting a Product variant with images, a json representation of this Product variant containing the **images** field will be displayed. This field is
 an array of elements. **images** field elements have fields:
 

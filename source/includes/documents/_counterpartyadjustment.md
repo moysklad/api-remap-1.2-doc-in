@@ -7,29 +7,29 @@ The entity code for Balance Adjustment as part of the JSON API is the **counterp
 ### Balance adjustments
 #### Entity attributes
 
-| Title | | Filtration | Description                                                                                                                                   |
-| ------- | ---- | ---- |-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Title | | Filtration | Description  |
+| ------- | ---------- | ---- | ----------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                          |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or Employee metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                            |
 | **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering`                                                                                                      |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                                   |
 | **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                                       |
-| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion Counterparty balance adjustments<br>`+Read-only`                                                                      |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Counterparty balance adjustments                                                                                                      |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code Counterparty balance adjustment<br>`+Required when replying`                                                                    |
+| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion of balance adjustments<br>`+Read-only`                                                                      |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment to a balance adjustments                                                                                                      |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of balance adjustment<br>`+Required when replying`                                                                    |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand`                                                                                  |
 | **id** | UUID | `=` `!=` | Balance Adjustment ID<br>`+Required when replying` `+Read only`                                                                               |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Counterparty balance adjustments<br>`+Required when replying`                                                                        |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Balance Adjustment Metadata<br>`+Required when replying`                                                                        |
 | **moment** | DateTime| `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                                    |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name Counterparty balance adjustments<br>`+Required when replying`                                                                            |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Balance Adjustment Name<br>`+Required when replying`                                                                            |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                        |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                       |
 | **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only`                                                                           |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only`                                                                           |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                          |
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in paise<br>`+Required when replying` `+Read only`                                                              |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last update Counterparty balance adjustments<br>`+Required when replying` `+Read-only`                                              |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of Balance Adjustment last update<br>`+Required when replying` `+Read-only`                                              |
 
 ### Get a list of Balance Adjustments
 Request for all Balance Adjustments on a given account.
@@ -236,10 +236,10 @@ Successful request. The result is a JSON representation of a list of Balance Adj
 Request to create a new Balance Adjustment.
 Mandatory fields to create:
 
-| Parameter | Description                                                                                                   |
-| ------- |---------------------------------------------------------------------------------------------------------------|
-| **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata)                |
-| **agent** | Link to the counterparty or employee in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| Parameter | Description  |
+| --------- | ------------ |
+| **organization** | Link to your legal entity in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **agent** | Link to the counterparty or employee in the [Metadata](../#kladana-json-api-general-info-metadata) format|
 
 > An example of creating a new Balance Adjustment.
 
@@ -551,7 +551,7 @@ Successful request. The result is a JSON array of representations of created and
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Balance adjustment ID. |
 
 > Request to delete Account adjustments of the counterparty with the specified ID.
 
@@ -664,9 +664,9 @@ Successful request. The result is a JSON representation of the additional balanc
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Balance adjustment ID. |
 
-> Request to receive a separate Balance Adjustment with the specified id.
+.
 
 ```shell
 curl -X GET
@@ -749,7 +749,7 @@ Successful request. The result is a JSON representation of Balance Adjustments.
 
 ### Change balance adjustment
 
-Request to update the balance adjustment of the counterparty with the specified id.
+Request to update the balance adjustment of the counterparty with the specified ID.
 In the body of the request, you can specify only those fields that need to be changed in the Adjustment of the balance of the counterparty, except for those that
 are marked `Read-only` in the description of [Attributes of Balance Adjustment](../documents/#transactions-balance-adjustment).
 
@@ -757,7 +757,7 @@ are marked `Read-only` in the description of [Attributes of Balance Adjustment](
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Balance adjustments. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Balance adjustment ID. |
 
 > An example of a request to update a single Balance Adjustment.
 

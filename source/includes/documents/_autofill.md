@@ -66,7 +66,7 @@ Items in the template are a list of products, services, product variants, and bu
 + **discount** - Discount or markup percentage.
 + **vat** - tax applied to the current item.
 + **vatEnabled** - whether tax is enabled for the current item. With this flag, you can set tax = 0 or tax = "no taxes" for a item. (vat = 0, vatEnabled = false) -> vat = "excluding tax", (vat = 0, vatEnabled = true) -> vat = 0%.
-+ **assortment** - Link to the product/service/series/product variant/bundle that the item represents, in the [Metadata](../#kladana-json-api-general-info-metadata) format.
++ **assortment** - Link to the product/service/batches/product variant/bundle that the item represents, in the [Metadata](../#kladana-json-api-general-info-metadata) format.
 + **discountedPrice** - The price of the product/service, including discounts and taxes, in paise.
 + **sum** - The total amount including the discount for the specified quantity of goods in the item in paise. Calculated when passing the **quantity** field.
 

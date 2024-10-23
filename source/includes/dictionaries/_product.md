@@ -69,25 +69,31 @@ by updating the **productFolder** attribute.
 ##### Type of labeled products
 The values of the trackingType field.
 
-| Values| Description |
-| ---------| ------- |
+| Value | Description |
+| -------- | ---------- |
+| **BEER_ALCOHOL** | Beer and low-alcohol beverages |
 | **ELECTRONICS** | Cameras and flash lamps |
-| **LP_CLOTHES** | Type of marking "Clothes" |
-| **LP_LINENS** | Type of marking "Bed linen" |
-| **MILC** | Dairy products |
-| **NCP** | Products containing nicotine |
-| **NOT_TRACKED** | Unmarked |
+| **FOOD_SUPPLEMENT** | Biologically active food supplements |
+| **LP_CLOTHES** | Label type "Clothing" |
+| **LP_LINENS** | Label type "Bed linen" |
+| **MEDICAL_DEVICES** | Medical devices and wheelchairs |
+| **MILK** | Dairy products |
+| **NCP** | Nicotine-containing products |
+| **NOT_TRACKED** | No label |
 | **OTP** | Alternative tobacco products |
-| **PERFUMERY** | Perfume and toilet water |
-| **SHOES** | Type of marking "Shoes" |
+| **PERFUMERY** | Perfumes and eau de toilette |
+| **SANITIZER** | Antiseptics |
+| **SHOES** | Label type "Shoes" |
+| **SOFT_DRINKS** | Soft drinks |
 | **TIRES** | Tires and tires |
-| **TOBACCO** | Type of marking "Tobacco" |
+| **TOBACCO** | Label type "Tobacco" |
 | **WATER** | Packaged water |
 
 ##### Sign of the subject of calculation
+
 Values of the paymentItemType field.
 
-| Values| Description |
+| Values | Description |
 | ------------------------------ | --------------------- |
 | **GOOD** | Product |
 | **EXCISABLE_GOOD** | Excisable products |
@@ -108,7 +114,8 @@ The values of the taxSystem field.
 | **UNIFIED_AGRICULTURAL_TAX** | ESHN |
 
 ##### Classification codes for types of products and services of medical personal protective equipment
-ppeType field values.
+
+Values of the ppeType field.
 
 | Values| Description |
 | ------| ------- |
@@ -181,14 +188,14 @@ For product packaging, you cannot specify a reference to a unit of measure that 
 When updating packaging barcodes as part of a product update, the transferred collection of packaging barcodes completely replaces the existing one
 collection.
 
-To update the list of product packages, it is necessary to transfer a new collection of packages as part of the product update. New collection of product packaging
-  will completely replace the old collection.
+To update the list of product packages, it is necessary to transfer a new collection of packages as part of the product update. New collection of product packaging will completely replace the old collection.
 
 ##### Product Metadata
+
 Product Metadata contains information about additional fields.
 
-View all addons created in the main interface. Products fields,
-as well as all types of prices, you can use the request to obtain the metadata of the Products.
+You can view all additional Product fields created in the main interface using a request to obtain Product metadata.
+
 The response is an object, with the following structure:
 
 | Title | Type          | Description |
@@ -202,8 +209,8 @@ Structures of objects of individual collections:
 ##### Barcodes:
 When creating a barcode, you need to describe an object with a field that is a lowercase barcode representation format with the string value of the barcode itself. The names of the fields of a separate object representing a barcode:
 
-| Title       | Description                                                                                            |
-|-------------|--------------------------------------------------------------------------------------------------------|
+| Title       | Description  |
+| ----------- | ------------ |
 | **ean13**   | barcode in EAN13 format if you want to generate an EAN13 barcode                                       |
 | **ean8**    | barcode in EAN8 format if you want to generate an EAN8 barcode                                         |
 | **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format                         |
@@ -234,7 +241,7 @@ About working with Product fields can be read [here](../#kladana-json-api-genera
 | **strength** | Float   | Fortress |
 | **volume** | Float   | Container volume |
 
-This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, **trackingType** traits.
+This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, **trackingType** features unless it is marked as BEER_ALCOHOL or NOT_TRACKED.
 
 ##### Supplier of the products:
 

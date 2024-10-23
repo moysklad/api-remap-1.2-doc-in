@@ -28,7 +28,7 @@ Using the JSON API, you can create and update payment information, request lists
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Incoming payment name<br>`+Required when replying`                                                                            |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand`                                                                                    |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                       |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Purpose of payment<br>`+Required when replying`                                                                               |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                           |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                 |

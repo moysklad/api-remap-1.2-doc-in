@@ -12,7 +12,7 @@ The availability of the Stock report content is based on the user access rights.
 Learn more about [Stock report](https://kladana.zendesk.com/hc/en-us/articles/360012272317-Stock-report).
 
 ### Extended Stock report
-An extended Stock report is a detailed report that collects data on all products with all the necessary information about the product (barcode, prices, image, etc.). Use the report to get detailed information about products or synchronize with Kladana periodically, for instance, once a day. However, this is a rather long and heavy request, it is not recommended to use it often.
+An extended Stock report is a detailed report that collects data on all products with all the necessary information about the product (prices, image, etc.). Use the report to get detailed information about products or synchronize with Kladana periodically, for instance, once a day. However, this is a rather long and heavy request, it is not recommended to use it often.
 
 #### Report object attributes
 
@@ -26,7 +26,7 @@ An extended Stock report is a detailed report that collects data on all products
 | **inTransit** | Float | Waiting<br>`+Required for response` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series for which the rest is issued<br>`+Required when answering` |
 | **name** | String(255) | Name<br>`+Required when answering` |
-| **price** | Float | Cost price |
+| **price** | Float | Cost price in paise|
 | **quantity** | Float | Available<br>`+Required when replying` |
 | **reserve** | Float | Reserve<br>`+Required when replying` |
 | **salePrice** | Float | Sale price |
@@ -64,7 +64,7 @@ The report results can be filtered using the filter parameter.
 | **withSubFolders** | Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **quantityMode** | Enum | `=` | option to filter by value is available. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-extended-balance-report-attributes-available-for-filtering-available-values-for-quantitymode) |
 | **reserveOnly** | Boolean | `=` | parameter for filtering by reserve value. If you pass true, I will get into the selectiont only goods with a reserve. |
-| **search** | String(255) | `=` `!~` | special text search option. The search is carried out by the occurrence of a substring in the names of products, product variants, series. |
+| **search** | String(255) | `=` `!~` | special text search option. The search is carried out by the occurrence of a substring in the names of products, product variants, batches. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
 | **stockDaysFrom** | Int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in stock greater than or equal to the specified one. This filter parameter can be combined with the `stockDaysTo` parameter. |
 | **stockDaysTo** | Int | `=` | parameter for filtering by the number of days in stock. You need to send an integer. The selection will include products with the number of days in the warehouse less than or equal to the specified one. This filtering option can be combined with the `stockDaysFrom` option. |
@@ -180,9 +180,9 @@ By default, the selection is sorted by product group and product name.
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 | **groupBy** | `string` (optional) The type to group the output by. By default, the groupBy parameter is set to variant. If you want to see objects of type product, you must set the appropriate parameter value. <ul><li>groupBy=product - lists products only</li><li>groupBy=variant - lists products and product variants</li></ul> |
-| **includeRelated** | `boolean` (optional) Output of stock by product product variants and series. This parameter allows you to include detalisation by product variants and series for goods in the selection. A prerequisite for applying the parameter is the **mandatory** filtering by products or product variants, or a combination of them. If the value `includeRelated=true` is selected, all stock for products, product variants and series specified in the filtering parameters will be included.|
+| **includeRelated** | `boolean` (optional) Output of stock by product product variants and batches. This parameter allows you to include detalisation by product variants and batches for goods in the selection. A prerequisite for applying the parameter is the **mandatory** filtering by products or product variants, or a combination of them. If the value `includeRelated=true` is selected, all stock for products, product variants and batches specified in the filtering parameters will be included.|
 
-Examples of using the `includeRelated` parameter: <br> `filter=variant!=<URL>&includeRelated=true` displays the rest of products, product variants, series, except for the specific product variant specified in the URL. <br>`filter=product=<URL>&includeRelated=true` displays the remnants of a specific product specified in the URL, its product variant and series.
+Examples of using the `includeRelated` parameter: <br> `filter=variant!=<URL>&includeRelated=true` displays the rest of products, product variants, batches, except for the specific product variant specified in the URL. <br>`filter=product=<URL>&includeRelated=true` displays the remnants of a specific product specified in the URL, its product variant and batch.
  
 > Request for an Advanced Stock Report.
 
@@ -658,22 +658,22 @@ Successful request. The result is a JSON representation of the report.
 ```
 ### Brief Stock Report
 
-Brief Stock Report is a report that shows only the item ID and stock balance at the time of the request. Use the report if you need to monitor the balance of a large number of goods and request data every 5-15 minutes.
+Brief Stock Report is a report that shows only the product item ID, stock balance, 'Committed' and 'In Transit' items at the time of the request. Use the report if you need to monitor the balance of a large number of goods and request data every 5-15 minutes.
  
 Differences from the Advanced balance report:
 
 - Only the administrator can request the Brief Stock Report.
 - You can get a report with a large amount of data much faster.
 - All data is transmitted in one response, without the need for paging.
-- The number of warehouses is indicated excluding nested warehouses.
+- The number of products in stock is indicated excluding nested warehouses.
 - When splitting by warehouses, the line without a warehouse contains reserves that are not tied to a warehouse.
-- Only one type of stock is returned, specified in the `stockType` parameter.
+- Only one data type is returned, it is specified in the `stockType` parameter.
 - No sorting, data is displayed in random order.
 
 ### Get the Brief Stock Report
 To get the report, use the `/report/stock/all/current` and `/report/stock/bystore/current` endpoints.
 
-Endpoints are designed to update the stock for a large number of products frequently and quickly.
+Endpoints are designed to update the stock, the 'Committed' items, and the 'In Transit' items for a large number of products frequently and quickly.
 
 #### include parameter
 By default, only results with a non-zero remainder value are displayed. To display zero stock, add the `include=zeroLines` parameter.
@@ -695,26 +695,28 @@ Restrictions and recommendations imposed on the parameter:
 - Slight overlapping of query intervals will help to avoid missing update of stock at interval boundaries. Example: querying stock every 30 minutes in the past 35 minutes.
 - It is recommended to perform a full synchronization of stock without the `changedSince` parameter once a day and more often, depending on the frequency of change of stock.
 
-Important: if a product or warehouse was deleted (not archived) during the requested interval, then the remainder equal to 0 will be displayed. It should be borne in mind that it will no longer be possible to request this product or warehouse by id.
+Important: if a product or warehouse was deleted or archived during the requested interval, then the remainder equal to 0 will be displayed. It should be borne in mind that it will no longer be possible to request this product or warehouse by id.
 
 #### stockType parameter
-The `stockType` parameter selects the type of stock to be calculated.
+The `stockType` parameter selects the type of stock, 'Committed' and 'In Transit' items to be calculated.
 At the moment it is possible to get only one type of stock.
 The default value is `stock`
 
 | Value | Description |
-| -------| ------------- |
+| ------- | ------------- |
 | **stock** | Physical stock in warehouses, excluding reserve and waiting |
 | **freeStock** | stock in warehouses less reserve |
 | **quantity** | Available. Considers reserve and expectations |
+| **reserve** | 'Committed' items|
+| **inTransit** | 'In Transit' items |
 
 #### Available filters for the Current Stock report
 You can limit the report to a few products or warehouses.
 The entity ID is specified, not the url.
 
 | Value | Type | Filtration | Description |
-| --------|----- |--------- | --------- |
-| **assortmentId** | UUID | `=` | Display only the specified products, product variants and series in the report |
+| -------- | ----- | --------- | --------- |
+| **assortmentId** | UUID | `=` | Display only the specified products, product variants and batches in the report |
 | **storeId** | UUID | `=` | Display only specified warehouses in the report |
 
 Multiple values can be specified separated by commas or multiple parameters:
@@ -794,7 +796,7 @@ curl -X GET
 
 > Response 200(application/json)
 Successful request. The result is a JSON representation of the report.
-The string with "storeId":null corresponds to a reserve for a Sales Order without specifying a warehouse.
+The string with "storeId":null corresponds to a part of 'Committed' products for a Sales Order without specifying a warehouse.
 
 ```json
 [
@@ -802,6 +804,50 @@ The string with "storeId":null corresponds to a reserve for a Sales Order withou
    {"assortmentId":"12345678-5838-aaeb-0a80-003a003ef439","storeId":"12345678-b123-aaee-0a80-012b0001bb12","freeStock":7},
    {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":null, "freeStock":-5},
    {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":"12345678-b123-aaee-0a80-012b0001bb10","freeStock":46}
+]
+```
+
+> Request to obtain current reserves by warehouses with the type 'reserve' type.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=reserve"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result - JSON representation of the report.
+The string with "storeId":null corresponds to a reservation for a Sales Order without specifying a warehouse.
+
+```json
+[
+  {"assortmentId":"12345678-5838-aaeb-0a80-003a003ef439","storeId":"12345678-b123-aaee-0a80-012b0001bb10","reserve":3},
+  {"assortmentId":"12345678-5838-aaeb-0a80-003a003ef439","storeId":"12345678-b123-aaee-0a80-012b0001bb12","reserve":4},
+  {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":null, "reserve":5},
+  {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":"12345678-b123-aaee-0a80-012b0001bb10","reserve":40}
+]
+```
+
+> Request to get current waiting lists for warehouses of the 'inTransit' type.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=inTransit"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the report.
+The row with "storeId":null matches the expectation for a Sales Order without a warehouse specified.
+
+```json
+[
+  {"assortmentId":"12345678-5838-aaeb-0a80-003a003ef439","storeId":"12345678-b123-aaee-0a80-012b0001bb10","inTransit":7},
+  {"assortmentId":"12345678-5838-aaeb-0a80-003a003ef439","storeId":"12345678-b123-aaee-0a80-012b0001bb12","inTransit":10},
+  {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":null, "inTransit":12},
+  {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":"12345678-b123-aaee-0a80-012b0001bb10","inTransit":25}
 ]
 ```
 
@@ -824,12 +870,11 @@ Successful request. The result is a JSON representation of the report.
 ]
 ```
 
-
 ### The Warehouse Stock report 
 
 The report displays a list of products and their quantities at each of your warehouses. The report provides current inventory information, offering a clear overview of the availability of items in stock.
 
-#### Report object attributes:
+#### Report object attributes
 
 | Title | Type | Description |
 | -------| ------------- |--------- |
@@ -857,8 +902,8 @@ The report results can be filtered using the filter parameter. You cannot specif
 | -------- | -----| -------- | ------------ |
 | **moment** | DateTime | `=` | point in time at which you want to withdraw the stock balance. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
 | **product** | Object | `=` `!=` | a link to the product you want to filter by. |
-| **productFolder** | Object | `=` `!=` | a link to the product group by which you want to filter. |
-| **search** | String(255) | `=` | special text search option. The search is carried out by the occurrence of a substring in the names of products, product variants, series. |
+| **productFolder** | Object | `=` | a link to the product group by which you want to filter. |
+| **search** | String(255) | `=` | special text search option. The search is carried out by the occurrence of a substring in the names of products, product variants, batches. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
 | **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is nonEmpty. [Available values](../reports/#reports-balance-report-stock-balances-attributes-available-for-filtering-available-values-for-stockmode) |
 | **store** | Object | `=` `!=` | a link to the warehouse for which you want to generate a report. |
@@ -866,6 +911,8 @@ The report results can be filtered using the filter parameter. You cannot specif
 | **variant** | Object | `=` `!=` | link to the product variant by which you want to filter. |
 
 ##### Available values for stockMode
+
+Default value is **nonEmpty**.
 
 | Value | Description |
 | -------| ------------- |

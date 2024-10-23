@@ -24,7 +24,7 @@ The search among currency objects to match the search string will be carried out
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
 | **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [Learn more](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
 | **multiplicity** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief naming of the Currency<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief name of the currency <br>`+Required when replying` `+Required when creating` |
 | **rate** | Double                                             | | Exchange rate<br>`+Required when answering` |
 | **rateUpdateType** | String(255)                                        | | How to update the exchange rate. **auto** or **manual**<br>`+Required when replying` `+Read Only` |
 | **system** | Boolean                                            | | Is the currency based on the system reference currency<br>`+Read Only` |
