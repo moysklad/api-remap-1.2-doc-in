@@ -68,6 +68,7 @@ Filtering examples:
 - `filter=retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030`
 - `filter=agentTag=favorites`
 - `filter=withoutturnover=true`
+- `filter=archived=true`
 - `filter=type=supply`
 - `filter=supplier=https://api.kladana.com/api/remap/1.2/entity/counterparty/656c4032-8667-11e6-8a84-bae5000033aa`
 

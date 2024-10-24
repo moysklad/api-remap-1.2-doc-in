@@ -25,4 +25,6 @@ If your API or webhooks are disabled:
 - Contact Kladana technical support to restore API access.
 - Reactivate webhooks yourself (no technical support contact required).
 
+JSON API has price restrictions. The user has access to the functionality in accordance with the current subscription plan.
+
 These rules may be updated or changed without prior notice. Please refer to this documentation for the latest information.

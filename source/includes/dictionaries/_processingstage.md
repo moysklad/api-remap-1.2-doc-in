@@ -4,8 +4,8 @@ Using the JSON API, you can query and update lists of Production Operations and 
 ### Production Operations
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-| ------- | ---------------------------------------------------- | --------- | ----------- |
+| Title | Type    | Filtration | Description |
+| ------- | ----- | ---------- | ----------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 **allPerformers**   | Boolean |  | Availability indicator for assignment to any employee stage<br>`+Required when answering` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when answering` |
