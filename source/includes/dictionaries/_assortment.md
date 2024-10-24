@@ -4,7 +4,7 @@
 
 ### Assortment
 
-+test 1 + test 2 + test 5
+test 1
 
 The 'Assortment' entity is the list of all products, variants, services, and bundles with the fields: `stock`, `reserve`, `inTransit`, `quantity`. The fields show the number of items reserved, awaiting, available, in stock, and in transit. The fields are not available for bundles and services. The data in the fields can be calculated depending on the date and stock using the `stockMoment` and `stockStore` filtering options.
 
