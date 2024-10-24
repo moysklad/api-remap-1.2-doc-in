@@ -11,6 +11,7 @@ The 'Assortment' entity is the list of all products, variants, services, and bun
 #### Attributes available for filtering
 
 The query results can be filtered using the 'filter' parameter.
+brlink
 
 | Title | Description |
 | ---------|-------|
