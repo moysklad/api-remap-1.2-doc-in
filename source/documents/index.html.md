@@ -9,31 +9,32 @@ toc_footers:
   - <a href='https://github.com/moysklad/java-remap-1.2-doc/issues'>Report an issue</a>
 
 includes:
-  - documents/common_info
   - documents/autofill
-  - documents/counterpartyadjustment
-  - documents/rate
   - documents/cashin
-  - documents/payment_in
+  - documents/cashout
+  - documents/common_info
+  - documents/counterpartyadjustment
+  - documents/customerOrder
+  - documents/demand
+  - documents/enter
   - documents/internalOrder
   - documents/inventory
-  - documents/cashout
+  - documents/invoice_in
+  - documents/invoice_out
+  - documents/loss
+  - documents/move
+  - documents/payment_in
   - documents/payment_out
   - documents/print
   - documents/processingorder
+  - documents/productionStage
   - documents/publication
-  - documents/purchaseOrder
   - documents/purchase_return
+  - documents/purchaseOrder
+  - documents/rate
   - documents/recalc_calculated_quantity
-  - documents/supply
-  - documents/invoice_out
-  - documents/customerOrder
   - documents/sales_return
-  - documents/demand
-  - documents/enter
-  - documents/invoice_in
-  - documents/move
-  - documents/loss
+  - documents/supply
   
 search: true
 ---  

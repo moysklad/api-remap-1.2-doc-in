@@ -1,14 +1,14 @@
-## Working with Files in Documents, Nomenclature and Accounts
+## Working with Files in Transactions, Products, Servicies, Bundles, Tasks and Counterparties
 
-For an extended description and addition of entities with information, in Kladana it is possible to work with
-[Files](../dictionaries/#entities-files) to
-[Documents](../documents/#transactions),
-Nomenclature ([Products](../dictionaries/#entities-product),
-[Kits](../dictionaries/#entities-bundle),
+For an extended description and addition of entities with information, in Kladana you can use
+[Files](../dictionaries/#entities-files) in
+[Transactions](../documents/#transactions),
+[Products](../dictionaries/#entities-product),
+[Bundles](../dictionaries/#entities-bundle),
 [Services](../dictionaries/#entities-service),
-[Modifications](../dictionaries/#entities-product-variant)),
+[Product variants](../dictionaries/#entities-product-variant),
 [Tasks](../dictionaries/#entities-task) and
-[Contractors](../dictionaries/#entities-counterparty).
+[Counterparties](../dictionaries/#entities-counterparty).
 Files can be attached to entities and requested at any convenient time.
 Information on files is displayed along with json representation of the entity to which the given file belongs. For getting
 file, you must use the link from the json description of the file representation. You can learn more about Files and working with them
@@ -22,7 +22,7 @@ For example, you need to create a product and attach the instruction. It can be 
 
 In [Kladana](https://api.kladana.com/), you can add, delete or edit the list of product files in Product cards.
  
-To add a file via the JSON API, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
+To add a file via the JSON API, you need to set the `filename` and `content` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
 
 > Request to create a product with two attached files
 
