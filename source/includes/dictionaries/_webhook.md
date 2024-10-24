@@ -7,7 +7,7 @@ Using API version 1.2, you can view, modify, delete webhooks created only using 
 
 The set of features also depends on your tariff. The free plan does not send webhooks, you cannot create a new webhook or modify an existing one.
 
-Webhook management is available to **account administrator only**.
+Webhooks can be managed by the **account administrator** and applications with special access rights.
 
 ### Webhook example
 
