@@ -156,6 +156,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_4000">4000</a> | Specified point of sale is not active | To perform the operation, you must activate the point of sale. |
 | <a name="error_4001">4001</a> | Error saving the object: the allowed limit of active points of sale for your tariff has been exceeded | The number of active points of sale, taking into account the saved ones, exceeds the tariff limit. |
 | <a name="error_4002">4002</a> | Error saving point of sale: for type 'minionToMasterType' = CHOSEN, list 'masterRetailStores' must contain at least one point of sale | If the link (the `minionToMasterType` field) between the cloud cash desk and the cash register that fiscalizes checks is `CHOSEN`, then at least one point of sale must be present in the `masterRetailStores` list. |
+| <a name="error_4003">4003</a> | Error saving the point of sale: cannot specify both parent and child product groups at the same time. | Check (the `productFolders` field) must not contain both parent and child product groups at the same time. |
 
 ### Error codes for Agent Reports
 
