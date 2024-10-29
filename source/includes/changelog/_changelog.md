@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-## 24-10-2024
+## 29-10-2024
 ### Added
 - Error [71000](../#kladana-json-api-errors-error-codes-for-series)
 

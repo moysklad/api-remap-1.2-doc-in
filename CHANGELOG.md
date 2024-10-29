@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 24-10-2024
+## 29-10-2024
 ### Added
 - Error [71000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-series)
 
