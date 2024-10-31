@@ -7,21 +7,22 @@ To access the report via the API, you need the right to view the *Profit and Los
 #### Profitability by goods
 #### Report object attributes
 
-| Title              | Type | Description |
-|--------------------| -----|---------|
+| Title              | Type | Description                                                                                                                                                                         |
+|--------------------| -----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service)<br>`+Required when answering` |
-| **margin**         | Float | Profitability<br>`+Required when answering` |
-| **profit**         | Float | Profit<br>`+Required when answering` |
-| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum**      | Float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | Float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
-| **sellSum**        | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                                                 |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                                                   |
+| **profit**         | Float | Profit<br>`+Required when answering`                                                                                                                                                |
+| **returnCost**     | Float | Cost of returns<br>`+Required when replying`                                                                                                                                        |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                                                        |
+| **returnPrice**    | Float | Price returns<br>`+Required when replying`                                                                                                                                          |
+| **returnQuantity** | Int | Number of returns<br>`+Required when replying`                                                                                                                                      |
+| **returnSum**      | Float | Refund amount<br>`+Required when replying`                                                                                                                                          |
+| **sellCost**       | Float | Cost price<br>`+Required when answering`                                                                                                                                            |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                                                  |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering`                                                                                                                                 |
+| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying`                                                                                                                                          |
+| **sellSum**        | Float | Sales amount<br>`+Required when answering`                                                                                                                                          |
 
 #### Assortment object structure
 
@@ -157,7 +158,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 1868400300,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -190,7 +192,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 476500000000,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -224,7 +227,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 1500000,
        "returnCostSum": 900000,
        "profit": 1400000,
-       "margin": 0.6666666666666666
+       "margin": 0.6666666666666666,
+       "salesMargin": 0.4
      }
    ]
 }
@@ -233,21 +237,22 @@ Successful request. The result is a JSON representation of the report.
 #### Profitability by modifications
 #### Report object attributes:
 
-| Title              | Type | Description |
-|--------------------|---------|----- |
+| Title              | Type | Description                                                                                                                                                                                                                                               |
+|--------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-product-variant), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
-| **margin**         | Float | Profitability<br>`+Required when answering` |
-| **profit**         | Float | Profit<br>`+Required when answering` |
-| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`|
-| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum**      | Float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | Float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
-| **sellSum**        | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                                                                                                                       |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                                                                                                                         |
+| **profit**         | Float | Profit<br>`+Required when answering`                                                                                                                                                                                                                      |
+| **returnCost**     | Float | Cost of returns<br>`+Required when replying`                                                                                                                                                                                                              |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                                                                                                                              |
+| **returnPrice**    | Float | Price returns<br>`+Required when replying`                                                                                                                                                                                                                |
+| **returnQuantity** | Int | Number of returns<br>`+Required when replying`                                                                                                                                                                                                            |
+| **returnSum**      | Float | Refund amount<br>`+Required when replying`                                                                                                                                                                                                                |
+| **sellCost**       | Float | Cost price<br>`+Required when answering`                                                                                                                                                                                                                  |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                                                                                                                        |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering`                                                                                                                                                                                                       |
+| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying`                                                                                                                                                                                                                |
+| **sellSum**        | Float | Sales amount<br>`+Required when answering`                                                                                                                                                                                                                |
 
 #### Assortment object structure
 
@@ -382,7 +387,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 1868400300,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -415,7 +421,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 476500000000,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -449,7 +456,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 1500000,
        "returnCostSum": 900000,
        "profit": 1400000,
-       "margin": 0.6666666666666666
+       "margin": 0.6666666666666666,
+       "salesMargin": 0.4
      }
    ]
 }
@@ -458,19 +466,20 @@ Successful request. The result is a JSON representation of the report.
 #### Profitability by employee
 #### Report object attributes
 
-| Title | Type | Description |
-| -----|---------|------ |
+| Title | Type | Description                                                                                                                               |
+| -----|---------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-employee)<br>`+Required when answering` |
-| **margin** | Float | Profitability<br>`+Required when answering` |
-| **profit** | Float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum** | Float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                       |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                         |
+| **profit** | Float | Profit<br>`+Required when answering`                                                                                                      |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                       |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                              |
+| **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                            |
+| **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                                |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                       |
+| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                             |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                        |
+| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                                |
 
 #### Employee object structure
 
@@ -587,7 +596,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 313495109156366700,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      }
    ]
 }
@@ -596,19 +606,20 @@ Successful request. The result is a JSON representation of the report.
 #### Profitability by customers
 #### Report object attributes:
 
-| Title | Type | Description |
-| ------- | ----- | ------ |
+| Title | Type | Description                                                                                                                              |
+| ------- | ----- |------------------------------------------------------------------------------------------------------------------------------------------|
 | **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-counterparty)<br>`+Required when answering` |
-| **margin** | Float | Profitability<br>`+Required when answering`|
-| **profit** | Float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum** | Float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                      |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                        |
+| **profit** | Float | Profit<br>`+Required when answering`                                                                                                     |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                      |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                             |
+| **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                           |
+| **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                               |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                      |
+| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                            |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                       |
+| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                               |
 
 #### Structure of the counterparty object
 
@@ -726,7 +737,8 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 310390615323104640,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      }
    ]
 }
@@ -735,19 +747,20 @@ Successful request. The result is a JSON representation of the report.
 #### Profitability by sales channel
 #### Report object attributes
 
-| Title | Type | Description |
-| ---------| ---- |----------|
+| Title | Type | Description                                                                                                                                          |
+| ---------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-sales-channel)<br>`+Required when replying` |
-| **margin** | Float | Profitability<br>`+Required when answering` |
-| **profit** | Float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum** | Float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                  |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                    |
+| **profit** | Float | Profit<br>`+Required when answering`                                                                                                                 |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                                  |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                         |
+| **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                                       |
+| **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                                           |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                                  |
+| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                                        |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                   |
+| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                                           |
 
 #### SalesChannel object structure
 
@@ -864,7 +877,8 @@ Successful request. The result is a JSON representation of the report.
      "returnSum" : 0.0,
      "returnCostSum" : 0.0,
      "profit" : 252500.0,
-     "margin" : 0.0
+     "margin" : 0.0,
+     "salesMargin": 1.0
    } ]
 }
 ```
