@@ -7,7 +7,7 @@
 Для этого
 - установите любой RSS reader (например, [RSS Feed Reader](https://chrome.google.com/webstore/detail/rss-feed-reader/pnjaodmkngahhkoihejjehlcdlnohgmp) для chromium или [FeedBro](https://addons.mozilla.org/en-US/firefox/addon/feedbroreader) для Firefox)
 - добавьте https://github.com/moysklad/api-remap-1.2-doc-in/commits/master.atom
-- при любом изменении документации придёт нотификация и можно посмотреть, что именно изменилось.
+- при любом изменении документации придёт нотификация и можно посмотреть, что именно изменилось
 
 Запуск локальной версии документации
 ------------
