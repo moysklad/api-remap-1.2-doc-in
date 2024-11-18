@@ -6,21 +6,25 @@ See Kladana API 1.2 changelog on [github](https://github1.com/moysklad/api-remap
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 22-07-2024
-#### Added
-- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
 
-### 24-06-2024
-#### Added
-- Error [17023](../#kladana-json-api-errors-error-codes-for-documents)
+
+
 
 ### 06-03-2024
 #### Added
 - Endpoint [Serial numbers](../dictionaries/#entities-serial-number)
 
+### 22-07-2024
+#### Added
+- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
+
 ### 31-01-2024
 #### Added
 - Field `state` added in [Task](../dictionaries/#entities-task) - [Task type](../dictionaries/#entities-task-task-type) entity
+
+### 24-06-2024
+#### Added
+- Error [17023](../#kladana-json-api-errors-error-codes-for-documents)
 
 ### 11-01-2024
 #### Created
