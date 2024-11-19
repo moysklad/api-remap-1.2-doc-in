@@ -596,3 +596,9 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_67004">67004</a> | Zone '{parameter}' is not a warehouse zone '{parameter}' | You cannot change the zone of another warehouse for a given warehouse |
 | <a name="error_67005">67005</a> | Bin '{parameter}' is not a storage bin '{parameter}' | For a given warehouse, you cannot change the cell of another warehouse |
 
+
+### Error codes for Series
+
+| Error code                      | Message                                            | Description                                       |
+|---------------------------------|----------------------------------------------------|---------------------------------------------------|
+| <a name="error_71000">71000</a> | Series saving error: assortment cannot be a series | Check the assortment of the series and try again. |

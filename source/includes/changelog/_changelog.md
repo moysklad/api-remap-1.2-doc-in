@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github1.com/moysklad/api-remap
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 29-10-2024
+#### Added
+- Error [71000](../#kladana-json-api-errors-error-codes-for-series)
+
 ### 22-07-2024
 #### Added
 - The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
