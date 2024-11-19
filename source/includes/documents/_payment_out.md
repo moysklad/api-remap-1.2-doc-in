@@ -52,7 +52,7 @@ Allowed types of linked operations:
 + Sales Return (salesreturn)
 + Receiving (supply)
 + Supplier invoice (invoicein)
-+ Order to the supplier (purchaseorder)    
++ Order to the supplier (purchaseorder)
 
 Learn more about Outgoing payment fields [here](../#kladana-json-api-general-info-additional-fields).
 
