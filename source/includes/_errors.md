@@ -1,4 +1,4 @@
-## Errors__dfdfdf
+## Errors
 
 This section lists the JSON API error codes and their descriptions.
 

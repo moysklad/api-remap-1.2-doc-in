@@ -1,4 +1,4 @@
-# Entities_dfdfdfdf
+# Entities
 
 ## Assortment
 
