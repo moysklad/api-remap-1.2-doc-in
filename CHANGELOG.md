@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 29-10-2024
+### 19-11-2024
 #### Added
 - Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
 
