@@ -68,21 +68,13 @@ The fourth search condition for the fields of all contact persons of the counter
 
 ##### Detail fields
 
-| Title                 | Type         | Filtration | Description |
-|-----------------------|--------------| ------ | ---- |
-| **certificateDate**   | DateTime     | | Date of certificate |
-| **certificateNumber** | String(255)  | | Certificate number |
-| **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | TIN |
-| **kpp**               | String(255)  | `=` `!=` `~` `~=` `=~` | Checkpoint |
-| **legalAddress**      | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
-| **legalAddressFull**  | Object       | | Legal address of the Counterparty with details on individual fields|
-| **legalFirstName**    | String(255)  | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**     | String(255)  | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | String(255)  | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**        | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty of the type `[Legal entity]`. Ignored for Counterparties of type `[Individual entrepreneur, Individual]`, if one of the values for full name is passed and is generated automatically based on the received full name of the Counterparty |
-| **ogrn**              | String(255)  | | OGRN |
-| **ogrnip**            | String(255)  | | OGRNIP |
-| **okpo**              | String(255)  | | OKPO |
+| Title                       | Type         | Filtration | Description                                                                                           |
+|-----------------------------|--------------| ------ |-------------------------------------------------------------------------------------------------------|
+| **mod\_\_requisites\_\_in** | Object       | | Requisites for the Counterparty of the type `[Legal entity. India]` with details on individual fields |
+| **legalAddress**            | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                     |
+| **legalAddressFull**        | Object       | | Legal address of the Counterparty with details on individual fields                                   |
+| **legalTitle**              | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                        |
+
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
@@ -108,6 +100,11 @@ When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
+
+##### Requisites of Counterparties
+| Title   | Type | Description |
+|---------| ------- |-------------|
+| **pan** | String(255) | PAN         |
 
 ##### Accounts of Counterparties
 
@@ -157,51 +154,20 @@ To delete an address, you need to pass an empty string `""` to the string field 
 Depending on the counterparty type **companyType**, its object will display different sets of details.
 Counterparty types and corresponding values that can be passed in this field:
 
-| CompanyType field value | Counterparty type |
-| --------| ---------- |
-| **legal** | Legal entity |
-| **entrepreneur** | Individual entrepreneur |
-| **individual** | Individual |
+| CompanyType field value | Counterparty type   |
+|-------------------------|---------------------|
+| **legalIN**             | Legal entity. India |
 
-If the counterparty type is `Legal entity`, the following fields of details will be displayed:
 
-| Title            | Description |
-|------------------| ------------------------------- |
-| **inn**          | TIN |
-| **kpp**          | Checkpoint |
-| **legalAddress** | Legal address of the Counterparty |
-| **legalTitle**   | Full name of the Counterparty |
-| **ogrn**         | OGRN |
-| **okpo**         | OKPO |
-| **tags**         | Groups (array) |
+If the counterparty type is `Legal entity. India`, the following fields of details will be displayed:
 
-If the counterparty type is `Individual Entrepreneur`, the following fields of details will be displayed:
+| Title                             | Description                       |
+|-----------------------------------|-----------------------------------|
+| **mod\_\_requisites\_\_in.pan**   | PAN                               |
+| **legalAddress**                  | Legal address of the Counterparty |
+| **legalTitle**                    | Full name of the Counterparty     |
+| **tags**                          | Groups (array)                    |
 
-| Title                 | Description |
-|-----------------------| -------- |
-| **certificateDate**   | Date of certificate |
-| **certificateNumber** | Certificate number |
-| **inn**               | TIN |
-| **legalAddress**      | Legal address of the Counterparty |
-| **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for counterparties of type `[Legal entity]` |
-| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**        | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
-| **ogrnip**            | OGRNIP |
-| **okpo**              | OKPO |
-
-If the counterparty type is `Individual`, the following fields of details will be displayed:
-
-| Title                | Description |
-|----------------------| ------- |
-| **inn**              | TIN |
-| **legalAddress**     | Legal address of the Counterparty |
-| **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**   | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**    | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**  | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**       | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
 
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -273,7 +239,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"aZBfWOKzj-lcq7c7IWZON3",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legal",
+       "companyType":"legalIN",
        "legalTitle":"Limited Liability Company \"Supplier\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
       "legalAddressFull": {  
@@ -327,8 +293,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "addInfo":"addinfo",
          "comment":"some words about address"
       },
-      "inn":"7736570901",
-      "kpp":"773601001",
+      "mod__requisites__in":{
+        "pan": "7736570901"
+      },
       "accounts":{  
         "meta":{  
           "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053/accounts",
@@ -422,7 +389,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "name":"OOO \"Buyer\"",
        "externalCode":"DTItQRbDhyl472ZqC5OWw2",
        "archived": false,
-       "companyType":"legal",
+       "companyType":"legalIN",
        "legalTitle":"Limited Liability Company \"Buyer\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
       "legalAddressFull":{  
@@ -476,8 +443,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "addInfo":"addinfo",
          "comment":"some words about address"
        },
-       "inn":"7736570902",
-       "kpp":"773601002",
+       "mod__requisites__in":{
+         "pan": "7736570902"
+       },
        "accounts":{
          "meta":{
            "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/accounts",
@@ -544,7 +512,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"lBvYwLWMiBsct7sVRrFnJ2",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legal",
+       "companyType":"legalIN",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "legalAddressFull":{
          "postalCode":"125009",
@@ -663,7 +631,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"rRlzrdZmjql9r9dveXPE43",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legal",
+       "companyType":"legalIN",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "legalAddressFull":{
          "postalCode":"125009",
@@ -811,10 +779,9 @@ curl -X POST
     "actualAddress": "Moscow, Academician Mil street, 15/21",
     "legalTitle": "Limited Liability Company \"Rainbow\"",
     "legalAddress": "Moscow, Aviastroiteley street 93/12",
-    "inn": "125152124152",
-    "kpp": "12155521",
-    "ogrn": "1251512",
-    "okpo": "201355",
+    "mod__requisites__in":{
+      "pan": "125152124152"
+    },
     "tags": [
         "Builders",
         "Rainbow",
@@ -870,7 +837,7 @@ curl -X POST
   "name":"Company LLC",
   "externalCode":"o7732zkki541HDkZZD1Yt3",
   "archived": false,
-  "companyType":"legal",
+  "companyType":"legalIN",
   "accounts":{  
     "meta":{  
       "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -880,6 +847,9 @@ curl -X POST
       "limit":1000,
       "offset":0
     }
+  },
+  "mod__requisites__in":{
+    "pan": "125152124152"
   },
   "tags":[  
 
@@ -968,7 +938,7 @@ curl -X POST
   "externalCode":"o7732zkki541HDkZZD1Yt3",
   "archived": false,
   "created":"2007-02-07 17:16:41",
-  "companyType":"legal",
+  "companyType":"legalIN",
   "accounts":{  
     "meta":{  
       "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -1010,127 +980,6 @@ curl -X POST
 }
 ```
 
-> Example 3
-
-```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/counterparty"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
-  -d '{
-    "name": "Ivanov LLC",
-    "code": "someCode",
-    "externalCode": "extCode",
-    "companyType": "entrepreneur",
-    "legalLastName": "Ivanov",
-    "legalFirstName": "Ivan",
-    "legalMiddleName": "Ivanovich",
-    "actualAddress": "Moscow, Academician Mil street, 15/21",
-    "legalAddress": "Moscow, Aviastroiteley street 93/12",
-    "inn": "87654321",
-    "kpp": "15312532",
-    "ogrn": "12345",
-    "okpo": "12345",
-    "ogrnip": "58632598y21jk"
-}'
-```
-> Response 200. Successful request. The result is a JSON representation of the created Counterparty.
-
-```json
-{
-  "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000",
-    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-    "type": "counterparty",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.com/app/#company/edit?id=45fd2f10-b0ae-11ea-0a80-163500000000"
-  },
-  "id": "45fd2f10-b0ae-11ea-0a80-163500000000",
-  "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-  "owner": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "version": 0,
-  "updated": "2020-06-17 18:21:53",
-   "name": "IP Ivanov",
-   "code": "someCode",
-   "externalCode": "extCode",
-   "archived": false,
-   "created": "2020-06-17 18:21:53",
-   "companyType": "entrepreneur",
-   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
-   "legalAddress": "Moscow, Aviastroiteley street 93/12",
-   "legalAddressFull": {
-     "addInfo": "Moscow, Aviastroiteley street 93/12"
-   },
-   "actualAddress": "Moscow, Academician Mil street, 15/21",
-   "actualAddressFull": {
-     "addInfo": "Moscow, Academician Mil street 15/21"
-   },
-   "inn": "87654321",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "legalLastName": "Ivanov",
-   "legalFirstName": "Ivan",
-   "legalMiddleName": "Ivanovich",
-  "accounts": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "tags": [],
-  "contactpersons": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/contactpersons",
-      "type": "contactperson",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "notes": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/notes",
-      "type": "note",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "state": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/03935900-b0ae-11ea-0a80-1d9c0000008c",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-      "type": "state",
-      "mediaType": "application/json"
-    }
-  },
-  "salesAmount": 0.0
-}
-```
 > Example with additional fields
 
 ```shell
@@ -1198,10 +1047,9 @@ curl -X POST
               "addInfo": "addinfo",
               "comment": "some words about address"
           },
-          "inn": "1251521244152",
-          "kpp": "121555212",
-          "ogrn": "1251552",
-          "okpo": "201323",
+          "mod__requisites__in":{
+            "pan": "1251521244152"
+          },
           "tags": [
               "Vegetables",
               "Food",
@@ -1338,10 +1186,9 @@ curl -X POST
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn":"1251521244152",
-   "kpp":"121555212",
-   "ogrn":"1251552",
-   "okpo":"201323",
+   "mod__requisites__in":{
+     "pan": "1251521244152"
+   },
    "email":"ovosh@delivery.ru",
    "phone":"+7 495 662 12 23",
    "fax":"1052034",
@@ -1447,10 +1294,9 @@ curl -X POST
             "actualAddress": "Moscow, Academician Mil street, 15/21",
             "legalTitle": "Limited Liability Company \"Rainbow\"",
             "legalAddress": "Moscow, Aviastroiteley street 93/12",
-            "inn": "125152124152",
-            "kpp": "12155521",
-            "ogrn": "1251512",
-            "okpo": "201355",
+            "mod__requisites__in":{
+              "pan": "125152124152"
+            },
             "tags": [
                 "Builders",
                 "Rainbow",
@@ -1488,10 +1334,9 @@ curl -X POST
             "actualAddress": "Moscow, Stroiteley st. 331",
             "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
             "legalAddress": "Moscow, Chernorabochego street 93/12",
-            "inn": "1251581244152",
-            "kpp": "121557212",
-            "ogrn": "1253552",
-            "okpo": "201313",
+            "mod__requisites__in":{
+              "pan": "1251581244152"
+            },
             "tags": [
                 "Builders",
                 "Repair",
@@ -1537,7 +1382,7 @@ curl -X POST
      "name":"OOO Rainbow",
      "externalCode":"o7732zkki541HDkZZD1Yt3",
      "archived": false,
-     "companyType":"legal",
+     "companyType":"legalIN",
      "accounts":{
        "meta":{
          "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -1622,10 +1467,9 @@ curl -X POST
      "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
      "legalAddress": "Moscow, Chernorabochego street 93/12",
      "actualAddress": "Moscow, Stroiteley st. 331",
-     "inn":"1251581244152",
-     "kpp":"121557212",
-     "ogrn":"1253552",
-     "okpo":"201313",
+     "mod__requisites__in":{
+       "pan": "1251581244152"
+     },
      "email": "raduga@retail.ru",
      "phone":"+7 495 162 32 23",
      "fax":"1052054",
@@ -1902,7 +1746,7 @@ curl -X GET
    "externalCode":"o7732zkki541HDkZZD1Yt3",
    "archived": false,
    "created":"2007-02-07 17:16:41",
-   "companyType":"legal",
+   "companyType":"legalIN",
    "accounts":{
      "meta":{
        "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -2019,111 +1863,6 @@ curl -X GET
 }
 ```
 
-> Example 2
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json). Successful request. The result is a JSON representation of the Counterparty of the Individual Entrepreneur type with the specified id.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-     "type": "counterparty",
-     "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.com/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
-   },
-   "id": "7944ef04-f831-11e5-7a69-971500188b19",
-   "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-   "owner": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-       "type": "employee",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-     }
-   },
-   "shared": false,
-   "group": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-       "type": "group",
-       "mediaType": "application/json"
-     }
-   },
-   "version": 0,
-   "updated": "2020-06-17 18:21:53",
-   "name": "IP Ivanov",
-   "code": "someCode",
-   "externalCode": "extCode",
-   "archived": false,
-   "created": "2020-06-17 18:21:53",
-   "companyType": "entrepreneur",
-   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
-   "legalAddress": "Moscow, Aviastroiteley street 93/12",
-   "legalAddressFull": {
-     "addInfo": "Moscow, Aviastroiteley street 93/12"
-   },
-   "actualAddress": "Moscow, Academician Mil street, 15/21",
-   "actualAddressFull": {
-     "addInfo": "Moscow, Academician Mil street 15/21"
-   },
-   "inn": "87654321",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "legalLastName": "Ivanov",
-   "legalFirstName": "Ivan",
-   "legalMiddleName": "Ivanovich",
-   "accounts": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts",
-       "type": "account",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "tags": [],
-   "contactpersons": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons",
-       "type": "contactperson",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "notes": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/notes",
-       "type": "note",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "state": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/03935900-b0ae-11ea-0a80-1d9c0000008c",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-       "type": "state",
-       "mediaType": "application/json"
-     }
-   },
-   "salesAmount": 0.0
-}
-```
 
 ### Change Account
 #### Description
@@ -2210,10 +1949,9 @@ curl -X PUT
                 "addInfo": "addinfo",
                 "comment": "some words about address"
             },
-            "inn": "1251581244152",
-            "kpp": "121557212",
-            "ogrn": "1253552",
-            "okpo": "201313",
+            "mod__requisites__in":{
+              "pan": "1251581244152"
+            },
             "tags": [
                 "Builders",
                 "Repair",
@@ -2313,10 +2051,9 @@ curl -X PUT
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn":"1251581244152",
-   "kpp":"121557212",
-   "ogrn":"1253552",
-   "okpo":"201313",
+   "mod__requisites__in":{
+     "pan": "1251581244152"
+   },
    "email": "raduga@retail.ru",
    "phone":"+7 495 162 32 23",
    "fax":"1052054",
@@ -2377,10 +2114,9 @@ curl -X PUT
             "phone": "+7 495 162 12 23",
             "fax": "1052014",
             "legalTitle": "Limited Liability Company \"Vegetable Express\"",
-            "inn": "1251581244152",
-            "kpp": "121557212",
-            "ogrn": "1253552",
-            "okpo": "201313",
+            "mod__requisites__in":{
+              "pan": "1251581244152"
+            },
             "tags": [
                 "Vegetables",
                 "Food",
@@ -2537,10 +2273,9 @@ curl -X PUT
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn":"1251581244152",
-   "kpp":"121557212",
-   "ogrn":"1253552",
-   "okpo":"201313",
+   "mod__requisites__in":{
+     "pan": "1251581244152"
+   },
    "email": "ovoshi@delivery.ru",
    "phone":"+7 495 162 12 23",
    "fax":"1052014",
