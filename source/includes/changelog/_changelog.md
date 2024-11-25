@@ -6,6 +6,14 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 21-11-2024
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+#### Added
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
 ### 19-11-2024
 #### Added
 - Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
