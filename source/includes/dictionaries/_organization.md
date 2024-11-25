@@ -51,6 +51,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **email**             | String(255)   | `=` `!=` `~` `~=` `=~` | Email address                                                                                                                                  |
 | **fax**               | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number                                                                                                                                     |
 | **mod\_\_requisites\_\_in** | Object       | | Requisites for legal entity of the type `[Legal entity. India]` with details on individual fields |
+| **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | PAN for legal entity of the type `[Legal entity]`                                                                                              |
 | **fsrarId**           | String(255)   | | Identifier in FSRAR                                                                                                                            |
 | **isEgaisEnable**     | Boolean       | | Is EGAIS enabled for this legal entity                                                                                                         |
 | **legalAddress**      | String(255)   | `=` `!=` `~` `~=` `=~` | Legal address Legal entity                                                                                                                     |
@@ -87,6 +88,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | Title   | Type | Description |
 |---------| ------- |-------------|
 | **pan** | String(255) | PAN         |
+Only for legal entity with type `Legal entity. India`.
 
 ##### Signatures and seal
 
@@ -118,9 +120,20 @@ To delete an address, you need to pass an empty string `""` to the string field 
 Depending on the legal entity type **companyType**, its object will display different sets of details.
 Legal entity types and corresponding values that can be passed to the value of this field:
 
-| CompanyType field value | Legal entity type   |
-|-------------------------|---------------------|
-| **legalIN**             | Legal entity. India |
+| CompanyType field value | Region               | Legal entity type   |
+|-----------------------|----------------------|---------------------|
+| **legal**             | International, India | Legal entity        |
+| **legalIN**           | India                | Legal entity. India |
+
+<br>
+
+If the legal entity type is `Legal entity`, the following fields of details will be displayed:
+
+| title            | description                     |
+|------------------|---------------------------------|
+| **legalTitle**   | Full name of the legal entity   |
+| **legalAddress** | Legal address of a legal entity |
+| **inn**          | PAN                             |
 
 <br>
 
@@ -750,15 +763,14 @@ Updated legal entities must contain the identifier in the form of metadata.
                 "description": "legal entity making small profits",
                 "code": "666",
                 "externalCode": "666AAAA666",
+                "companyType": "legal",
                 "archived": false,
                 "trackingContractNumber": "12345678",
                 "trackingContractDate": "2007-02-07 00:00:00",
                 "legalTitle": "Great Light Prom LLC",
                 "legalAddress": "Moscow, Lenin street, 42/685",
                 "actualAddress": "Perm Stalin street 75",
-                "mod__requisites__in":{
-                  "pan": "87654321"
-                },
+                "inn": "87654321",
                 "email": "svetprom@mail.svet",
                 "phone": "22222222",
                 "fax": "bello123",
@@ -780,6 +792,7 @@ Updated legal entities must contain the identifier in the form of metadata.
                 "description": "legal entity making small profits",
                 "code": "666",
                 "externalCode": "666AAAA666",
+                "companyType": "legalIN",
                 "archived": false,
                 "trackingContractNumber": "12345678",
                 "trackingContractDate": "2007-02-07 00:00:00",
@@ -835,15 +848,14 @@ Successful request. The result is a JSON array of representations of created and
      "description": "legal entity making small profits",
      "code": "666",
      "externalCode": "666AAAA666",
+     "companyType": "legal",
      "archived": false,
      "trackingContractNumber": "12345678",
      "trackingContractDate": "2007-02-07 00:00:00",
      "legalTitle": "Great Light Prom LLC",
      "legalAddress": "Moscow, Lenin street, 42/685",
      "actualAddress": "Perm Stalin street 75",
-     "mod__requisites__in":{
-       "pan": "87654321"
-     },
+     "inn": "87654321",
      "email": "svetprom@mail.svet",
      "phone": "22222222",
      "fax": "bello123",
@@ -894,6 +906,7 @@ Successful request. The result is a JSON array of representations of created and
      "description": "New legal entity",
      "code": "666",
      "externalCode": "sfwafn22-124124sa",
+     "companyType": "legalIN",
      "archived": false,
      "created": "2007-02-07 17:16:41",
      "trackingContractNumber": "12345678",
@@ -1122,6 +1135,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
+   "companyType": "legal",
    "archived": false,
    "created": "2007-02-07 17:16:41",
    "trackingContractNumber": "12345678",
@@ -1179,9 +1193,7 @@ Successful request. The result is a JSON representation of the legal entity with
      "addInfo": "addinfo",
      "comment": "some words about address"
    },
-   "mod__requisites__in":{
-     "pan": "87654321"
-   },
+   "inn": "87654321",
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -1314,15 +1326,14 @@ Request to update the legal entity with the specified ID.
            "description": "legal entity making small profits",
            "code": "666",
            "externalCode": "666AAAA666",
+           "companyType": "legal",
            "archived": false,
            "trackingContractNumber": "12345678",
            "trackingContractDate": "2007-02-07 00:00:00",
            "legalTitle": "Great Light Prom LLC",
            "legalAddress": "Moscow, Lenin street, 42/685",
            "actualAddress": "g PermSt. Stanislav d 75",
-           "mod__requisites__in":{
-             "pan": "87654321"
-           },
+           "inn": "87654321",
            "email": "svetprom@mail.svet",
            "phone": "22222222",
            "fax": "bello123",
@@ -1370,15 +1381,14 @@ Successful request. The result is JSON of the updated legal entity.
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
+   "companyType": "legal",
    "archived": false,
    "trackingContractNumber": "12345678",
    "trackingContractDate": "2007-02-07 00:00:00",
    "legalTitle": "Great Light Prom LLC",
    "legalAddress": "Moscow, Lenin street, 42/685",
    "actualAddress": "Perm Stalin street 75",
-   "mod__requisites__in":{
-     "pan": "87654321"
-   },
+   "inn": "87654321",
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -1413,6 +1423,7 @@ Successful request. The result is JSON of the updated legal entity.
             "description": "legal entity making small profits",
             "code": "666",
             "externalCode": "666AAAA666",
+            "companyType": "legalIN",
             "archived": false,
             "trackingContractNumber": "12345678",
             "trackingContractDate": "2007-02-07 00:00:00",
@@ -1524,6 +1535,7 @@ Successful request. The result is JSON of the updated legal entity.
    "description": "New legal entity",
    "code": "666",
    "externalCode": "sfwafn22-124124sa",
+   "companyType": "legalIN",
    "archived": false,
    "trackingContractNumber": "12345678",
    "trackingContractDate": "2007-02-07 00:00:00",

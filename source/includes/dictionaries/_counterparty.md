@@ -68,12 +68,13 @@ The fourth search condition for the fields of all contact persons of the counter
 
 ##### Detail fields
 
-| Title                       | Type         | Filtration | Description                                                                                           |
-|-----------------------------|--------------| ------ |-------------------------------------------------------------------------------------------------------|
+| Title                       | Type         | Filtration | Description                                                                                         |
+|-----------------------------|--------------| ------ |-----------------------------------------------------------------------------------------------------|
 | **mod\_\_requisites\_\_in** | Object       | | Requisites for the Counterparty of the type `[Legal entity. India]` with details on individual fields |
-| **legalAddress**            | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                     |
-| **legalAddressFull**        | Object       | | Legal address of the Counterparty with details on individual fields                                   |
-| **legalTitle**              | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                        |
+| **inn**                     | String(255)  | `=` `!=` `~` `~=` `=~` | PAN for the Counterparty of the type `[Legal entity]` |
+| **legalAddress**            | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                   |
+| **legalAddressFull**        | Object       | | Legal address of the Counterparty with details on individual fields                                 |
+| **legalTitle**              | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                      |
 
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
@@ -105,6 +106,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | Title   | Type | Description |
 |---------| ------- |-------------|
 | **pan** | String(255) | PAN         |
+Only for counterparty with type `Legal entity. India`.
 
 ##### Accounts of Counterparties
 
@@ -154,10 +156,19 @@ To delete an address, you need to pass an empty string `""` to the string field 
 Depending on the counterparty type **companyType**, its object will display different sets of details.
 Counterparty types and corresponding values that can be passed in this field:
 
-| CompanyType field value | Counterparty type   |
-|-------------------------|---------------------|
-| **legalIN**             | Legal entity. India |
+| CompanyType field value | Region               | Counterparty type   |
+|-----------------------|----------------------|---------------------|
+| **legal**             | International, India | Legal entity        |
+| **legalIN**           | India                | Legal entity. India |
 
+If the counterparty type is `Legal entity`, the following fields of details will be displayed:
+
+| Title            | Description                       |
+|------------------|-----------------------------------|
+| **inn**          | PAN                               |
+| **legalAddress** | Legal address of the Counterparty |
+| **legalTitle**   | Full name of the Counterparty     |
+| **tags**         | Groups (array)                    |
 
 If the counterparty type is `Legal entity. India`, the following fields of details will be displayed:
 
@@ -389,7 +400,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "name":"OOO \"Buyer\"",
        "externalCode":"DTItQRbDhyl472ZqC5OWw2",
        "archived": false,
-       "companyType":"legalIN",
+       "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Buyer\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
       "legalAddressFull":{  
@@ -443,9 +454,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "addInfo":"addinfo",
          "comment":"some words about address"
        },
-       "mod__requisites__in":{
-         "pan": "7736570902"
-       },
+       "inn": "7736570902",
        "accounts":{
          "meta":{
            "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/accounts",
@@ -631,7 +640,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"rRlzrdZmjql9r9dveXPE43",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legalIN",
+       "companyType":"legal",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "legalAddressFull":{
          "postalCode":"125009",
@@ -992,6 +1001,7 @@ curl -X POST
           "name": "Vegetable Express LLC",
           "description": "Vegetable Delivery Network",
           "code": "ovoshexpressCode",
+          "companyType": "legal",
           "externalCode": "extVagetable",
           "email": "ovosh@delivery.ru",
           "phone": "+7 495 662 12 23",
@@ -1047,9 +1057,7 @@ curl -X POST
               "addInfo": "addinfo",
               "comment": "some words about address"
           },
-          "mod__requisites__in":{
-            "pan": "1251521244152"
-          },
+          "inn": "1251521244152"
           "tags": [
               "Vegetables",
               "Food",
@@ -1131,6 +1139,7 @@ curl -X POST
    "description":"Vegetable Delivery Network",
    "code":"ovoshexpressCode",
    "externalCode":"extVagetable",
+   "companyType": "legal",
    "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
@@ -1186,9 +1195,7 @@ curl -X POST
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "mod__requisites__in":{
-     "pan": "1251521244152"
-   },
+   "inn": "1251521244152",
    "email":"ovosh@delivery.ru",
    "phone":"+7 495 662 12 23",
    "fax":"1052034",
@@ -1288,6 +1295,7 @@ curl -X POST
             "description": "Building materials chain Raduga EXPO",
             "code": "rainbowCode",
             "externalCode": "extRainbw",
+            "companyType": "legalIN",
             "email": "raduga@stroi.ru",
             "phone": "+7 495 331 22 33",
             "fax": "1257752",
@@ -1328,15 +1336,14 @@ curl -X POST
             "description": "Network of building materials markets Raduga EXPO",
             "code": "rainbow",
             "externalCode": "extRainbow",
+            "companyType": "legal",
             "email": "raduga@retail.ru",
             "phone": "+7 495 162 32 23",
             "fax": "1052054",
             "actualAddress": "Moscow, Stroiteley st. 331",
             "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
             "legalAddress": "Moscow, Chernorabochego street 93/12",
-            "mod__requisites__in":{
-              "pan": "1251581244152"
-            },
+            "inn": "1251581244152",
             "tags": [
                 "Builders",
                 "Repair",
@@ -1462,14 +1469,13 @@ curl -X POST
      "description":"Network of building materials markets Raduga EXPO",
      "code":"rainbow",
      "externalCode":"extRainbow",
+     "companyType": "legal",
      "archived": false,
      "created":"2007-02-07 17:16:41",
      "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
      "legalAddress": "Moscow, Chernorabochego street 93/12",
      "actualAddress": "Moscow, Stroiteley st. 331",
-     "mod__requisites__in":{
-       "pan": "1251581244152"
-     },
+     "inn": "1251581244152",
      "email": "raduga@retail.ru",
      "phone":"+7 495 162 32 23",
      "fax":"1052054",
