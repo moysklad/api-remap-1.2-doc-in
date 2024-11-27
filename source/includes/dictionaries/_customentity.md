@@ -133,7 +133,7 @@ Request to get Custom list metadata. The result is a JSON object including:
 | **attributes**   | Array(Object)                                      | Collection of additional fields for a Custom list.<br>`+Required when replying` `+Expand` |
 | **id**           | UUID                                               | Custom list ID<br>`+Required when replying` `+Read Only`                                  |
 | **name**         | String(255)                                        | Custom list name<br>`+Required when replying`                                             |
-| **createShared** | Boolean                                            | Create new elements in the custom list with the label "General"                           |
+| **createShared** | Boolean                                            | Create new elements in the custom list with the label "Shared Access"                     |
 
 The structure of a separate object representing an additional field is described in detail in
 the [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
