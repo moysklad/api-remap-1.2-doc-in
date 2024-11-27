@@ -2,6 +2,13 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 27-11-2024
+#### Added
+- Renamed "User Directory" to "[Custom list](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-list)" to align with the web interface.
+- Added metadata output for additional fields in Custom list metadata.
+- Added an `ID` field to the metadata of a Custom list.
+- Added output of additional fields in Custom list elements.
+
 ### 19-11-2024
 #### Added
 - Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)

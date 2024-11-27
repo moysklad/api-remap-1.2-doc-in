@@ -257,29 +257,31 @@ Successful request. The result is a JSON representation of company settings meta
 
 ```json
 {
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/context/companysettings",
-     "mediaType": "application/json"
-   },
-   "customEntities": [
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
-         "type": "customermetadata",
-         "mediaType": "application/json"
-       },
-       "name": "Partners",
-       "createShared": true
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
-         "type": "customermetadata",
-         "mediaType": "application/json"
-       },
-       "name": "Advertising Agencies",
-       "createShared": true
-     }
-   ]
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/context/companysettings",
+    "mediaType": "application/json"
+  },
+  "customEntities": [
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/eaacabaf-2655-11e6-8a84-bae500000045",
+        "type": "customermetadata",
+        "mediaType": "application/json"
+      },
+      "id": "eaacabaf-2655-11e6-8a84-bae500000045",
+      "name": "Partners",
+      "createShared": true
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
+        "type": "customermetadata",
+        "mediaType": "application/json"
+      },
+      "id": "f3aff189-2655-11e6-8a84-bae500000046",
+      "name": "Advertising Agencies",
+      "createShared": true
+    }
+  ]
 }
 ```

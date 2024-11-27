@@ -6,6 +6,13 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 27-11-2024
+#### Added
+- Renamed "User Directory" to "[Custom list](../dictionaries/#entities-custom-list)" to align with the web interface.
+- Added metadata output for additional fields in Custom list metadata.
+- Added an `ID` field to the metadata of a Custom list.
+- Added output of additional fields in Custom list elements.
+
 ### 19-11-2024
 #### Added
 - Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
