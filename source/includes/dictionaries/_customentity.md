@@ -20,7 +20,7 @@ This identifier is available in the metadata request for the entity, located in 
 
 To get all Custom lists, you can send a request for
 the [company settings](../dictionaries/#entities-company-settings-get-company-settings-metadata) metadata. In the
-resulting entity, the `customEntities` field contains a list of entities for all existing Custom lists. Each item in
+resulting entity, the `customEntities` field contains a list of entities for all existing Custom lists. Each entity in
 this list includes an `id` field, which specifies the identifier for each list.
 
 ### Create Custom list
