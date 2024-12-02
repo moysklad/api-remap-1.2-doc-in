@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 27-11-2024
+### 02-12-2024
 #### Added
 - Renamed "User Directory" to "[Custom list](../dictionaries/#entities-custom-list)" to align with the web interface.
 - Added metadata output for additional fields in Custom list metadata.

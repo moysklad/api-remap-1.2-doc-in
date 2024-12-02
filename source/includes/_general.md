@@ -228,7 +228,7 @@ List of entities with additional fields:
 
 + [Contract](dictionaries/#entities-contract)
 + [Counterparty](dictionaries/#entities-counterparty)
-+ [Custom list](dictionaries/#entities-custom-list)
++ [Custom list](dictionaries/#entities-custom-list) (each has its own)
 + [Legal entity](dictionaries/#entities-entity)
 + [Project](dictionaries/#entities-project)
 + [Warehouse](dictionaries/#entities-warehouse)
