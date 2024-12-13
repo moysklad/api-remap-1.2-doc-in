@@ -24,6 +24,7 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
+
 > Response 200 (application/json): Successful request. The result is a JSON object containing the token.
 
 ```json
@@ -298,7 +299,7 @@ Possible values of the type of additional fields (field **type**) and their corr
 
 Additional fields of the File and Checkbox types cannot be required (the **required** field cannot be `true`).
 
-## Resetting the Value in an Additional Field
+#### Resetting the Value in an Additional Field
 
 When passing the value `null` in the **value** field, the corresponding additional field is reset, except for additional fields of the File type. To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
 
@@ -361,6 +362,7 @@ To load the value for additional fields of the file type, you need to specify an
 To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
 
 > Example of assigning a value to an additional field of the File type
+
 ```shell
 curl -X PUT 
   "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
@@ -384,6 +386,7 @@ curl -X PUT
 ```
 
 > Example of resetting the value of an additional field of the File type
+
 ```shell
 curl -X PUT 
   "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
@@ -618,7 +621,8 @@ Successful request. The result is a JSON representation of the created additiona
     "show": true
   }
 ]
-```
+``` 
+
 > An example of creating a new additional fields of Shipments and updates of the existing one request.
 
 ```shell
@@ -721,6 +725,7 @@ Successful request. The result is a JSON representation of the generated addon. 
   "show": true
 }
 ```
+
 #### Remove additional fields
 The action is only available to a user with administrative rights.<br>
 Request to remove multiple additional shipping fields.
@@ -831,6 +836,7 @@ Successful request. The result is a JSON representation of the additional shippi
    "description": "Updated field-string"
 }
 ```
+
 #### Delete additional field
 The action is only available to a user with administrative rights.<br>
 Request for deletion shipment fields with the specified id.
@@ -1016,6 +1022,7 @@ Successful request. The result is a JSON representation of the shipment with upd
   }
 }
 ```
+
 ### Working with transaction items
 
 The Kladana API allows you to operate with the following transactions: 
@@ -1336,7 +1343,7 @@ Examples of requests for filtering:
 
 With filter, you can filter fields of type ID.
 
-+ `filter=<field_name>=&lt;ID>`
++ `filter=<field_name>=<ID>`
 
 ID example:
 
@@ -1438,6 +1445,7 @@ used URI filter parameter **search**
 The Recycle Bin allows you to avoid the risk of accidentally deleting important documents. Deleting to the Recycle Bin is only available if the employee has the appropriate rights, as well as the company's settings for using the Recycle Bin.
 
 > Example of deleting a Receiving to the Recycle Bin
+
 ```shell
 curl -X POST
   "https://api.kladana.com/api/remap/1.2/entity/move/b8fe9f6b-f48f-11ed-ac1a-000d0000003a/trash"
@@ -1488,7 +1496,7 @@ counterparty, an object with all fields of the "Accountant" entity described [he
 * The maximum nesting level for **expand** is 3.
 * **expand** can also be applied to the results of creation and update operations.
 
-Below are examples of using **expand** on [Sales Returns](documents/#dokumenty-sales-return). The examples only show the **meta** and **demand** fields.
+Below are examples of using **expand** on [Sales Returns](documents/#transactions-sales-return). The examples only show the **meta** and **demand** fields.
 
 ### Return without expand
 
@@ -1890,6 +1898,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
 Pass the parameter **expand**=demand and limit=100.
 
 > Example of a return request of shipping with expand 
+
 ```shell
 curl -X GET
   "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand"

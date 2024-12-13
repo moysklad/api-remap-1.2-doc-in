@@ -32,7 +32,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 22-07-2024
 #### Added
-- Ability to specify multiple warehouses in the [Stock Movement Report](../reports/#otchety-otchet-oboroty)
+- The ability to specify multiple warehouses in the [Stock Movement Report](../reports/#reports-stock-movement-report)
 
 ### 16-07-2024
 #### Added
@@ -42,7 +42,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - New [Report based on transaction nomenclature](../reports/#otchety-otchet-po-dokumentam-nomenklatury)
 
-### 1-07-2024
+### 01-07-2024
 #### Changed
 - Added viewProductCostAndProfit permission to the list of [employee request context] permissions (../#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika)
 
@@ -50,14 +50,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-general-info-restrictions).
 - Condition for automatically disabling a webhook in [Limitations](../#kladana-json-api-general-info-restrictions).
-
-### 24-06-2024
-#### Added
-- Error [17023](../#kladana-json-api-errors-error-codes-for-documents)
-
-### 22-07-2024
-#### Added
-- The ability to specify multiple warehouses in the [Stock Movement Report](../reports/#reports-stock-movement-report)
 
 ### 24-06-2024
 #### Added

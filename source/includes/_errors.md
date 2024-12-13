@@ -497,7 +497,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_37001">37001</a> | Error: You cannot edit or delete a task created by another employee | A user who is not an administrator can only modify or delete tasks that he himself created, or change the readiness status of a task for which he is assigned responsibility. |
 | <a name="error_38000">38000</a> | Requires administrator rights to work with audit | Viewing changes is available only to users with administrative rights. |
 
-# Error codes for Metrics 
+### Error codes for Metrics 
 
 | Error Code | Message | Description |
 | ---------- | ------- | ----------- |
