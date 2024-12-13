@@ -1,5 +1,4 @@
 ## Region
-
 ### Regions
 Using the JSON API, you can request the list of regions of India and information on individual regions.
 The entity code for Regions in the JSON API is the **region** keyword.

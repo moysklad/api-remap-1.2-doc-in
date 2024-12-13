@@ -1,4 +1,5 @@
 ## Currency
+### Currency
 
 Using the JSON API, you can request lists of currencies and information on individual currencies, as well as create new and update information on existing currencies. The entity code for currencies in the JSON API is the **currency** keyword.Learn more about [Currencies](https://kladana.zendesk.com/hc/en-us/articles/6492493269405-Currencies).
 
@@ -8,7 +9,7 @@ The search among currency objects to match the search string will be carried out
 
 + by the short name of the Currency **name**
 
-##### Entity Attributes
+#### Entity Attributes
 
 | Title | Type                                               | Filtration | Description |
 | ---------- |----------------------------------------------------| -------- | ----------- |

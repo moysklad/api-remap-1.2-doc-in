@@ -8,7 +8,7 @@ within Custom lists and retrieve details about their additional fields.
 To work with Custom lists, you need the identifier for each list.
 This identifier is available in the metadata request for the entity, located in the _\<id\>_ field.
 
-#### Custom list attributes
+#### Entity attributes
 
 | Title    | Type                                               | Description                                                             |
 |----------|:---------------------------------------------------|:------------------------------------------------------------------------|
