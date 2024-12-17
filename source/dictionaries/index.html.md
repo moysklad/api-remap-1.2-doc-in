@@ -26,6 +26,7 @@ includes:
   - dictionaries/group
   - dictionaries/discount
   - dictionaries/employee
+  - dictionaries/eventfeed
   - dictionaries/organization
   - dictionaries/expenseitem
   - dictionaries/files
@@ -54,6 +55,6 @@ includes:
   - dictionaries/store
   - dictionaries/webhook
   - dictionaries/webhookstock
-  
+
 search: true
 ---  

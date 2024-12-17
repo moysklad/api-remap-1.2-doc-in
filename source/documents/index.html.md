@@ -9,6 +9,7 @@ toc_footers:
   - <a href='https://github.com/moysklad/java-remap-1.2-doc/issues'>Report an issue</a>
 
 includes:
+
   - documents/common_info
   - documents/autofill
   - documents/counterpartyadjustment
@@ -21,6 +22,7 @@ includes:
   - documents/payment_out
   - documents/print
   - documents/processingorder
+  - documents/productionStage
   - documents/publication
   - documents/purchaseOrder
   - documents/purchase_return
@@ -34,6 +36,6 @@ includes:
   - documents/invoice_in
   - documents/move
   - documents/loss
-  
+
 search: true
 ---  

@@ -1,8 +1,8 @@
-## Sales channel
-### Sales channels
+## Sales Channel
+### Sales Channels
 You can use the JSON API to create and update Sales Channel information, query lists of Sales Channels, and query individual Sales Channels. The entity code for the Sales Channel in the JSON API is the **saleschannel** keyword.
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the sales channel for matching the search string will be carried out using the following fields:
 
@@ -23,10 +23,10 @@ The search among the objects of the sales channel for matching the search string
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **type** | Enum                                               | `=` `!=` | Sales Channel Type [Details here](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering` `+Required when creating` |
+| **type** | Enum                                               | `=` `!=` | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering` `+Required when creating` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
-#### Sales channel type
+#### Sales Channel Type
 An enumeration of values representing the Sales Channel type:
 
 | Title | Description |
@@ -57,14 +57,14 @@ An enumeration of values representing the Sales Channel type:
 
 
 ### Get Sales Channels
-Request to get a list of all sales channels on this account.
+Request to get a list of all Sales Channels on this account.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------ | ------ |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing sales channels. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing Sales Channels. |
 
 **Parameters**
 
@@ -83,7 +83,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of sales channels.
+Successful request. The result is a JSON representation of a list of Sales Channels.
 
 ```json
 {
@@ -177,9 +177,9 @@ Successful request. The result is a JSON representation of a list of sales chann
 
 ### Create Sales Channel
 Request to create a new sales channel. Required fields in the request body
-to create a sales channel are **name** and **type**.
+to create a Sales Channel are **name** and **type**.
 
-> An example of a request to create a new sales channel.
+> An example of a request to create a new Sales Channel.
 
 ```shell
    curl -X POST
@@ -195,7 +195,7 @@ to create a sales channel are **name** and **type**.
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the created sales channel.
+Successful request. The result is a JSON representation of the created Sales Channel.
 
 ```json
 {
@@ -237,7 +237,7 @@ Successful request. The result is a JSON representation of the created sales cha
 
 
 ### Bulk creation and update of Sales Channels
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Sales channels.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Sales Channels.
 In the body of the request, you need to pass an array containing the JSON representation of the Sales Channels that you want to create or update.
 Updated Sales Channels must contain the identifier in the form of metadata. For Sales Channels created when connecting an online store, you cannot update the type. If you change the name of such sales channels, the name of the associated online store will change.
 
@@ -411,16 +411,16 @@ curl -X POST
 ]
 ```
 
-### Sales channel
+### Sales Channel
 
 **Parameters**
 
 | Parameter | Description |
 | ------ | ------ |
-| **id** | `string` (required) *Example: d94605a8-2033-11ec-9621-0242ac130002* Sales channel id. |
+| **id** | `string` (required) *Example: d94605a8-2033-11ec-9621-0242ac130002* Sales Channel id. |
 
 ### Get Sales Channel
-> Request to get a separate sales channel with the specified id.
+> Request to get a separate Sales Channel with the specified id.
 
 ```shell
 curl -X GET
@@ -430,7 +430,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the sales channel.
+Successful request. The result is a JSON representation of the Sales Channel.
 
 ```json
 {
@@ -476,9 +476,9 @@ Request to change the Sales Channel object. For Sales Channels that were created
 
 | Parameter | Description |
 | ------ | ------ |
-| **id** | `string` (required) *Example: b2dc42f0-203e-11ec-9621-0242ac130002* Sales channel id. |
+| **id** | `string` (required) *Example: b2dc42f0-203e-11ec-9621-0242ac130002* Sales Channel id. |
 
-> Sample request to update an existing sales channel.
+> Sample request to update an existing Sales Channel.
 
 ```shell
    curl -X PUT
@@ -492,7 +492,7 @@ Request to change the Sales Channel object. For Sales Channels that were created
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the updated sales channel.
+Successful request. The result is a JSON representation of the updated Sales Channel.
 
 ```json
 {

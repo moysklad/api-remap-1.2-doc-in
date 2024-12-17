@@ -39,6 +39,7 @@ In the JSON API, it is possible to request lists of built-in and custom print te
 curl
      -X GET
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata/embeddedtemplate/"
 ```
@@ -87,6 +88,7 @@ curl
 curl
      -X GET
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata/customtemplate/"
 ```
@@ -145,6 +147,7 @@ Create a publication for a Sales order
 curl
      -X POST
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Content-Type: application/json"
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication"
@@ -191,6 +194,7 @@ You can also request a list of all publications of a transaction.
 curl
      -X GET
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication"
 ```
@@ -247,6 +251,7 @@ Through the JSON API, you can delete a publication:
 curl
      -X DELETE
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Content-Type: application/json"
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/customerorder/53e988fd-c7c9-11e8-9dd2-f3a3000000cd/publication/aec51463-bbd2-11e6-8a84-bae500000003"
