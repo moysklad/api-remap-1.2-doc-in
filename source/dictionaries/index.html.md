@@ -10,13 +10,14 @@ toc_footers:
 
 includes:
   - dictionaries/assortment
+  - dictionaries/processingplan
+  - dictionaries/processingplanfolder
   - dictionaries/bonus_operation
   - dictionaries/bonus_program
   - dictionaries/bundle
   - dictionaries/characteristic
   - dictionaries/companysettings
   - dictionaries/companysubscription
-  - dictionaries/consignment
   - dictionaries/contract
   - dictionaries/counterparty
   - dictionaries/country
@@ -26,38 +27,34 @@ includes:
   - dictionaries/discount
   - dictionaries/employee
   - dictionaries/eventfeed
+  - dictionaries/organization
   - dictionaries/expenseitem
   - dictionaries/files
-  - dictionaries/group 
   - dictionaries/images
-  - dictionaries/labels
-  - dictionaries/named_filter
-  - dictionaries/organization
+  - dictionaries/tracking_code
   - dictionaries/pricetypes
-  - dictionaries/processingplan
-  - dictionaries/processingplanfolder
-  - dictionaries/processingprocess
+  - dictionaries/labels
+  - dictionaries/template
   - dictionaries/processingstage
   - dictionaries/product
   - dictionaries/productFolder
+  - dictionaries/variant
   - dictionaries/project
   - dictionaries/region
+  - dictionaries/processingprocess
   - dictionaries/saleschannel
+  - dictionaries/named_filter
+  - dictionaries/thing
+  - dictionaries/consignment
   - dictionaries/service
+  - dictionaries/task
   - dictionaries/states
   - dictionaries/uom
   - dictionaries/custom_role
   - dictionaries/usersettings
   - dictionaries/store
-  - dictionaries/task
-  - dictionaries/template
-  - dictionaries/thing
-  - dictionaries/tracking_code
-  - dictionaries/uom
-  - dictionaries/usersettings
-  - dictionaries/variant
   - dictionaries/webhook
   - dictionaries/webhookstock
-  
+
 search: true
 ---  
