@@ -24,19 +24,19 @@ Using the JSON API, you can create and update information about Incoming Cash Pa
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                     |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of Incoming Cash Payment<br>`+Required when replying`                                                     |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                         |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                        |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br> `+Expand`                                                        |
 | **paymentPurpose** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering`                                                                           |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                            |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                  |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                            |
-| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                            |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying`                                                                           |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Incoming Cash Payment Status Metadata<br>`+Expand`                                                             |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming Cash Payment in the specified currency<br>`+Required when replying`                     |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change                                               |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of last update of the Incoming Cash Payment<br>`+Required when replying` `+Read Only`                     |
-| **vatSum** | Float                                              | | VAT amount<br>`+Required when answering`                                                                       |
+| **vatSum** | Float    | | VAT amount<br>`+Required when answering`                                                                       |
 
 #### Links to other transactions
 
@@ -61,8 +61,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Incoming Cash Payments. |
 
 **Parameters**
@@ -930,7 +930,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
 
 > Request for information on a separate additional field.
 
@@ -942,7 +942,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a separate additional fields.
+Successful request. The result is a JSON representation of a separate additional field.
 
 ```json
 {

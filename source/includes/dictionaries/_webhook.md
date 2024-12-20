@@ -7,7 +7,7 @@ Using API version 1.2, you can view, modify, delete webhooks created only using 
 
 The set of features also depends on your tariff. The free plan does not send webhooks, you cannot create a new webhook or modify an existing one.
 
-Webhook management is available to **account administrator only**.
+Webhooks can be managed by the **account administrator** and applications with special access rights.
 
 ### Webhook example
 
@@ -78,8 +78,19 @@ You can understand that the event notification was resent by the request paramet
 
 Using API version 1.2, you can view, modify, delete webhooks created only using API version 1.2.
 
-#### Temporary disable header via API
-Through the JSON API or POS API, when making requests, you can disable webhook notifications in the context of a given request. To do this, you need to specify the `X-Lognex-WebHook-Disable` header with an arbitrary value.
+#### Temporary disable header X-Lognex-WebHook-DisableByPrefix via API
+
+Through the JSON API, you can selectively disable some webhook notifications within the context of a specific request by using the `X-Lognex-WebHook-Disable` header. The header allows you to specify a set of URL prefixes. If the webhook URL contains one of the provided prefixes, that webhook will not be triggered as a result of the request.
+
+The prefix must include the full protocol and domain name. Headers such as `X-Lognex-WebHook-DisableByPrefix: https://` or `X-Lognex-WebHook-DisableByPrefix: https://some_url` will be rejected with an error. The headers like `X-Lognex-WebHook-DisableByPrefix: https://some_url.com` or `X-Lognex-WebHook-DisableByPrefix: https://some_url.com/some_path` are considered valid.
+
+To specify multiple prefixes, you must include multiple `X-Lognex-WebHook-DisableByPrefix` headers in the request. Listing multiple URL prefixes in a single header separated by commas is not supported.
+
+#### Temporary disable header X-Lognex-WebHook-Disable via API
+
+This feature will be deprecated in the future.
+
+Through the JSON API or POS API, you can disable all webhook notifications within the context of a specific request by including the `X-Lognex-WebHook-Disable` header with any value.
 
 Disabling webhook notifications should only be done when absolutely necessary, as this may affect integrations or disable critical notifications.
 

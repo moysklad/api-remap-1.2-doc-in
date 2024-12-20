@@ -1,6 +1,6 @@
 ### List of entities
 
-List of entities for which it is possible to create additional. fields, you can look in [documentation](../#kladana-json-api-general-info-additional-fields)
+List of entities for which it is possible to create additional. fields, you can look in [documentation](../#kladana-json-api-general-info-additional-fields).
 
 ### Working with additional fields in the JSON API
 
@@ -17,6 +17,7 @@ An example of getting additional product fields:
 curl
      -X GET
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes"
 ```
@@ -84,6 +85,7 @@ The additional field "Keyboard highlight" is optional (**required=false**) and i
 curl
      -X POST
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H 'Accept: application/json'
      -H 'Content-Type: application/json'
      "https://api.kladana.com/api/remap/1.2/entity/product"
@@ -150,6 +152,7 @@ When updating a product, we can both update the existing values of additional fi
 curl
      -X PUT
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H 'Accept: application/json'
      -H 'Content-Type: application/json'
      "https://api.kladana.com/api/remap/1.2/entity/product/630c578a-cb05-11e8-9109-f8fc0037889a"
@@ -172,17 +175,18 @@ curl
              }
            ]
         }'
-        ```
+```
+
 In the example, we updated the value of the `Battery life` field, set when creating the product, and also set the value of the `Keyboard backlight` field - we left it empty when creating the product.
 
 Also for optional fields it is possible to reset the field value. To do this, you must pass the value **null** in the **value** field.
 
 If in the body of the request to update/create an entity in an array of additional fields:
 
-+ No id of any additional fields specified - additional fields will not be updated.
-+ The id of additional fields are indicated, which in this entity has not yet been assigned a value - the corresponding additional fields will be assigned the transferred values.
++ No ID of any additional fields specified - additional fields will not be updated.
++ The ID of additional fields are indicated, which in this entity has not yet been assigned a value - the corresponding additional fields will be assigned the transferred values.
 + The ids of additional fields are specified, which have already been assigned a value in this entity - the corresponding additional fields will be assigned new values.
-+ A non-existent id is specified, which is not in the entity's metadata, an error occurs.
++ A non-existent ID is specified, which is not in the entity's metadata, an error occurs.
 
 ### Possible types of additional fields
 
@@ -190,29 +194,29 @@ You can find the possible types of additional fields in [documentation](../#klad
 
 ### Additional field of type File
 
-To load the value of an additional field of the file type, you need to specify an object of the following structure in the **value** field:
+To load the value of an additional field of the file type, you need to specify an object of the following structure in the **file** field:
 
 + filename - Filename `Required`
 + content - Base64 encoded bytes of the file `Required`
 
-An example of creating a product with an additional field of the File type is shown below. An incomplete value of the contents of the file is given.
+To reset the value in an additional field, you must pass the **file** field and the **null** value.
+Below are examples of updating a product with an additional field of the File type with assigning and resetting a value.
 
-> Request
+> Example of assigning a value to an additional field of the **file** type
 
 ```shell
-curl
-     -X POST
-     -u login:password
-     -H 'Accept: application/json'
-     -H 'Content-Type: application/json'
-     "https://api.kladana.com/api/remap/1.2/entity/product"
-     -d '{
-             "name": "Notebook",
+curl -X PUT 
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -d '{
              "attributes": [
                  {
-                   "id": "839ca663-75f7-11e8-9107-5048001126a3",
-                   "name": "Specification",
-                   "type": "file",
+                   "meta": {
+                     "href": "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
+                     "type": "attributemetadata",
+                     "mediaType": "application/json"
+                    },
                    "file": {
                      "filename": "filename",
                      "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
@@ -221,6 +225,28 @@ curl
              ]
         }'
 ```
+
+> Example of resetting the value of an additional field of the **file** type
+
+```shell
+curl -X PUT 
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -d '{
+    "attributes": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "file": null
+        }
+    ]
+}'
+```
+
 
 ### Additional field of the List type
 
@@ -236,6 +262,7 @@ built-in list Project and user list Region:
 curl
      -X GET
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H "Lognex-Pretty-Print-JSON: true"
      "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata"
 ```
@@ -364,6 +391,7 @@ Let's create a counterparty with these additional fields:
 curl
      -X POST
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H 'Accept: application/json'
      -H 'Content-Type: application/json'
      "https://api.kladana.com/api/remap/1.2/entity/counterparty"
@@ -534,6 +562,7 @@ The JSON API allows you to filter by value up toadditional field. Using the exam
 curl
      -X GET
      -u login:password
+     -H "Accept-Encoding: gzip" 
      -H 'Accept: application/json'
      -H 'Content-Type: application/json'
      "https://api.kladana.com/api/remap/1.2/entity/product?filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/630c578a-cb05-11e8-9109-f8fc0037889a%3E%3D5"

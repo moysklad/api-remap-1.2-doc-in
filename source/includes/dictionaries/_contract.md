@@ -5,7 +5,7 @@ Using the JSON API, you can create and update information about Contracts, reque
 
 Learn more about [Contracts](https://kladana.zendesk.com/hc/en-us/articles/6507262448797-Contracts).
 
-The entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+The entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among contract objects for matching the search string will be carried out using the following fields:
 
@@ -49,10 +49,10 @@ Table of fields, their values and their values in JSON representation:
 
 | Field name | Possible Values | Corresponding value in JSON | Default value |
 | ------- | ---------- | ---- | ------- |
-| **contractType** | Commission contract | commission | Purchase and sale Contract |
-| Purchase and sale Contract | Sales |
-| **rewardType** | Percentage of the sale amount | PercentOfSales | Do not count |
-| Do not count | None |
+| **contractType** | Commission contract | Commission | Purchase and Sale Agreement |
+|  | Purchase and Sale Agreement | Sales |   |
+| **rewardType** | Percentage of sales amount | PercentOfSales | Do not count |
+|  | Do not count | None |   |
 
 About working with fields of the Contracts can be read [here](../#kladana-json-api-general-info-additional-fields).
 
@@ -63,8 +63,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ---------- | ---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing contracts. |
 
 **Parameters**
@@ -349,7 +349,7 @@ Mandatory fields for creating a Contract:
 
 | Title | Type | Description |
 | ------- | ---------- | ---- |
-| **name** | String(255) | Contract number<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255) | Contract number<br>`+Required when replying`  |
 | **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of your legal entity<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 
