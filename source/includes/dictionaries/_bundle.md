@@ -1894,8 +1894,7 @@ Request to change an individual Bundle component with the specified id.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c
-"
+     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1961,15 +1960,15 @@ curl -X POST
 -H "Authorization: Basic <Credentials>"
 -H "Accept-Encoding: gzip"
 -H "Content-Type: application/json"
--d '[
-{
-"meta": {
-"href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/31c3e4a8-7323-11ee-c0a8-e00e00000027", "type": "bundlecomponent", "mediaType": "application/json" } }, { "meta": { "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/23afc075-7323-11ee-c0a8-e00e0000001c",
-"type": "bundlecomponent",
-"mediaType": "application/json"
-}
-}
-]'
+  -d '[
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/31c3e4a8-7323-11ee-c0a8-e00e00000027", "type": "bundlecomponent", "mediaType": "application/json" } }, { "meta": { "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/23afc075-7323-11ee-c0a8-e00e0000001c",
+        "type": "bundlecomponent",
+        "mediaType": "application/json"
+      }
+    }
+  ]'
 ```
 
 > Response 200 (application/json)

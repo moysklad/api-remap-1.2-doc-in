@@ -542,8 +542,7 @@ Mandatory fields to create:
                  "mediaType": "application/json"
                }
              }
-           }
-'
+           }'
 ```
 
 > Response 200(application/json)
