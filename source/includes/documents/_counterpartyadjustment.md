@@ -666,7 +666,7 @@ Successful request. The result is a JSON representation of the additional balanc
 | ------- | -------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Balance adjustment ID. |
 
-.
+> Request to receive a separate Balance Adjustments with the specified ID. 
 
 ```shell
 curl -X GET

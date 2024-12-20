@@ -1647,7 +1647,7 @@ will be added to the existing ones.
 | ------- | --------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
 
-> An example of creating items in a write-off.
+> An example of creating items in a Write-off.
 
 ```shell
    curl -X POST

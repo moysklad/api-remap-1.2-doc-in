@@ -1153,7 +1153,7 @@ curl -X POST
   -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d ' {
-        "name": "Петров",
+        "name": "Johnson",
         "companyType": "individual",
         "legalLastName": "Johnson",
         "legalFirstName": "John",
