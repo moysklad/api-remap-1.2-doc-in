@@ -17,9 +17,9 @@ JSON API 1.2 changes will be added here soon
 - Added an `ID` field to the metadata of a Custom list.
 - Added output of additional fields in Custom list elements.
 
-## 19-11-2024
-### Added
-- Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
+### 19-11-2024
+#### Added
+- Field `salesMargin` added in [Profit Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profit-report)
 
 ## 29-10-2024
 ### Added
