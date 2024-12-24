@@ -663,7 +663,7 @@ curl -X DELETE
 > Response 200(application/json)
 Successful deletion of a Routing item 
 
-# Routing Item Bulk Deletion
+### Routing Item Bulk Deletion
 
 The request body must contain an array containing JSON metadata of the Routing Items that need to be deleted.
 
