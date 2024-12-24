@@ -42,6 +42,7 @@ includes:
   - dictionaries/project
   - dictionaries/region
   - dictionaries/processingprocess
+  - dictionaries/productionStageCompletion
   - dictionaries/saleschannel
   - dictionaries/named_filter
   - dictionaries/thing

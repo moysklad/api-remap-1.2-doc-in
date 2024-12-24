@@ -24,7 +24,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 19-11-2024
 #### Added
-- Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
+- Field `salesMargin` added in [Profit Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profit-report)
 
 ### 29-10-2024
 #### Added
