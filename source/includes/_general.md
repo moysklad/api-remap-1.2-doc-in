@@ -1624,7 +1624,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
 }
 ```
 
-### Return of Shipment with expand 
+### Shipment Return with expand 
 
 We pass the parameter **expand**=demand.
 
@@ -1893,7 +1893,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
 }
 ```
 
-## Shipment Returns with expand 
+### Shipment Returns with expand 
 
 Pass the parameter **expand**=demand and limit=100.
 
@@ -2494,7 +2494,7 @@ curl -X GET
 }
 ```
 
-### Create a shipment with expand
+### Create Shipment with expand
 
 > Example of a request to create a shipment with the **agent** field expanded
 
@@ -2697,7 +2697,7 @@ Successful request. The result is JSON representation of the created Shipment wi
 }
 ```
 
-### Edit shipment with expand
+### Edit Shipment with expand
 
 > Example of a shipment update request with the **agent** and **organization** objects expanded
 
