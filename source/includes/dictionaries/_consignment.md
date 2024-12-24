@@ -1,5 +1,5 @@
-## Batches
-### Batches
+## Batch
+### Batch
 
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
