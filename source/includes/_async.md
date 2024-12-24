@@ -5,7 +5,7 @@ without resorting to paging if real-time work is not critical.
 
 Asynchronous exchange is not supported for all requests. List of requests that can be executed asynchronously:
 
-+ [Report Balance](reports/#reports-balance-report)
++ [Stock Report](reports/#reports-stock-report)
 + [Report Profitability](reports/#reports-profitability-report)
 + [Report Money](reports/#reports-money-report)
 + [Sales and Orders Report](reports/#reports-sales-and-orders-indicators)
