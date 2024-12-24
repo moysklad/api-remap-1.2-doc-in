@@ -1,7 +1,7 @@
 ## Expense item
 ### Expense items
 Using the JSON API, you can request lists of Expense Items and information on individual Expense Items. The entity code for Expense Items in the JSON API is the **expenseitem** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the Items of expenditure for matching the search string will be carried out in the following fields:
 
@@ -15,7 +15,7 @@ The search among the objects of the Items of expenditure for matching the search
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Items of expenditure |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Items of expenditure |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Expense item<br>`+Required when replying` |
-| **id** | UUID                                               | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Expense item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Expense Item Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Item of expenses<br>`+Required when replying` `+Required when creating` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
@@ -302,9 +302,9 @@ Successful request. The result is a JSON array of representations of the created
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
 
-> Request to delete an Expense Item with the specified id.
+> Request to delete an Expense Item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -412,7 +412,7 @@ Request to change an existing expense item.
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the expense item. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Expense item ID. |
  
 > An example of a request to update an expense item.
 

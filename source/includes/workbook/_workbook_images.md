@@ -5,7 +5,7 @@ Sometimes you need to add or change multiple images for a product. This can be d
 - update the list of images as part of a product update;
 - use endpoints to work with images.
  
-To add an image, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing image, you can specify it in `meta`.
+To add an image, you need to set the `filename` and `content` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing image, you can specify it in `meta`.
  
 For example, you need to create a Product with multiple images. It can be done in the following way:
  

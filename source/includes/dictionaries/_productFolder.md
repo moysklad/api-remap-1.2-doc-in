@@ -1,7 +1,7 @@
 ## Product group
 ### Product groups
 Using the JSON API, you can create and update information about Product Groups, request lists of Product Groups, and information on individual Product Groups. The entity code for a Product Group in the JSON API is the **productfolder** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of product groups to match the search string will be carried out using the following fields:
 
@@ -26,7 +26,7 @@ The search among the objects of product groups to match the search string will b
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-product-group-tax-system-code) |
+| **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-group-tax-system-code) |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | Int                                                | | VAT % |
@@ -51,8 +51,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ------------ |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing product groups. |
 
 **Parameters**
@@ -430,20 +430,22 @@ curl -X POST
    -H "Content-Type: application/json"
    -d'[
           {
-              "meta": {
-                  "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
-                  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
-                  "type": "productfolder",
-                  "mediaType": "application/json"
+             "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b1",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
+                "type": "productfolder",
+                "mediaType": "application/json"
               }
+            }
           },
           {
               "meta": {
-                  "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
-                  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
-                  "type": "productfolder",
-                  "mediaType": "application/json"
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/7944ef04-f831-11e5-7a69-971500188b2",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
+                "type": "productfolder",
+                "mediaType": "application/json"
               }
+            }
           }
       ]'
 ```
@@ -508,7 +510,7 @@ Successful request. The result is a JSON representation of the additional Produc
 
 | Parameter | Description |
 | ------- | ------------ |
-| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* id fields. |
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* Field ID. |
 
 #### Separate additional field
  

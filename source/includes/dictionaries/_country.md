@@ -1,7 +1,8 @@
 ## Country
 ### Countries
+
 Using the JSON API, you can create and update information about Countries, request lists of Countries and information on individual Countries. The entity code for Country in the JSON API is the **country** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among country objects for matching the search string will be carried out using the following fields:
 
@@ -9,9 +10,10 @@ The search among country objects for matching the search string will be carried 
 + by country description **description**
 
 #### Entity attributes
+
 | Title | Type                                               | Filtration | Description |
 | -------|----------------------------------------------------| -------- |----- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Read Only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br> `+Required when replying` `+Read-only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Country Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Countries |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Country Code<br>`+Required when replying` |
@@ -24,13 +26,14 @@ The search among country objects for matching the search string will be carried 
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 ### Get Countries
+
 Request to get a list of all Countries for this account.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------| ------ | -------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Countries](../dictionaries/#entities-country). |
 
 **Parameters**
@@ -432,7 +435,7 @@ curl -X POST
 
 | Parameter | Description |
 |------ | -------- |
-| **id** | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - Country id |
+| **id** | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - Country ID |
 
 ### Get Country
 
