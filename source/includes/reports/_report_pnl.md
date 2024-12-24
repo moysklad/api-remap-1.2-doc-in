@@ -1,10 +1,10 @@
-## Profit and Loss Report 
+## Profit Report 
 
-Using the JSON API, you can request the Profit and Loss report for all products, services, product variants, employees, counterparties, and sales channels.
+Using the JSON API, you can request the Profit report for all products, services, product variants, employees, counterparties, and sales channels.
 To access the report via the API, you need the access rights to view the Profit report.
 
 
-#### Profit and Loss by products
+#### Profit Report by Products
 #### Report object attributes
 
 | Title              | Type | Description                                                                                                                                                                         |
@@ -77,9 +77,9 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit and Loss Report for a Product
+### Get Profit Report for a Product
 
-Profit and Loss report for products includes: products, bundles, services. The product takes into account the profitability of its variants, but without specifying the variants themselves.
+Profit report for products includes: products, bundles, services. The product takes into account the profitability of its variants, but without specifying the variants themselves.
 
 **Parameters**
 
@@ -93,7 +93,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a Profit and Loss Rport by Products.
+> Request for a Profit Report by Products.
 
 ```shell
 curl -X GET
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit and Loss Reports for product variants
+#### Profit Reports for product variants
 #### Report object attributes:
 
 | Title              | Type | Description                                                                                                                                                                                                                                               |
@@ -306,9 +306,9 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit and Loss Report by product variants
+### Get Profit Report by product variants
 
-The Profit and Loss report includes: products, bundles, services and product variants. The variants are displayed unlike the parent product.
+The Profit report includes: products, bundles, services and product variants. The variants are displayed unlike the parent product.
 
 **Parameters**
 
@@ -322,7 +322,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for the Profit and Loss report by product variants.
+> Request for the Profit Report by product variants.
 
 ```shell
 curl -X GET
@@ -463,7 +463,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit and Loss Report by employee
+#### Profit Report by employee
 #### Report object attributes
 
 | Title | Type | Description                                                                                                                               |
@@ -530,7 +530,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit and Loss Report by Employee
+### Get Profit Report by Employee
 
 **Parameters**
 
@@ -544,7 +544,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for the Profit and Loss Report by Employee.
+> Request for the Profit Report by Employee.
 
 ```shell
 curl -X GET
@@ -603,7 +603,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit and Loss Report by counterparty
+#### Profit Report by counterparty
 #### Report object attributes:
 
 | Title | Type | Description                                                                                                                              |
@@ -670,7 +670,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit and Loss Report by Counterparty
+### Get Profit Report by Counterparty
 
 **Parameters**
 
@@ -684,7 +684,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for the Profit and Loss Report by counterparty.
+> Request for the Profit Report by counterparty.
 
 ```shell
 curl -X GET
@@ -744,7 +744,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit and Loss Report by sales channel
+#### Profit Report by sales channel
 #### Report object attributes
 
 | Title | Type | Description                                                                                                                                          |
@@ -809,7 +809,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit and Loss Report by Sales Channels
+### Get Profit Report by Sales Channels
 
 **Parameters**
 
@@ -823,7 +823,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for the Profit and Loss Report by Sales Channel report.
+> Request for the Profit Report by Sales Channel report.
 
 ```shell
 curl -X GET
