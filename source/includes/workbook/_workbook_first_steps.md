@@ -4,7 +4,7 @@
 
 JSON API is available to users on all tarif plans, but not all functionality is available on free plans.
 
-Learn more about the [limitations](../#kladana-json-api-general-info-restrictions).
+Learn more about the [limitations](../#kladana-json-api-limitations).
 
 ### Optimizing the number of requests to the JSON API
 

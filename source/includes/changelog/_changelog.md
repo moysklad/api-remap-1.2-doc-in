@@ -48,8 +48,8 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 26-06-2024
 #### Added
-- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-general-info-restrictions).
-- Condition for automatically disabling a webhook in [Limitations](../#kladana-json-api-general-info-restrictions).
+- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations).
+- Condition for automatically disabling a webhook in [Limitations](../#kladana-json-api-limitations).
 
 ### 24-06-2024
 #### Added
