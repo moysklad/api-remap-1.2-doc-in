@@ -1014,7 +1014,7 @@ Successful request. The result is a JSON representation of the updated Bill of M
 ```
 ### Operations of a Bill of Materials
 
-This is a separate resource for managing the operations of a Bill of Materials. Use it to manage the productions operations of a large Bill of Materials, the number of operations in which exceeds the limit on the number of items stored with this document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-general-info-working-with-transaction-items-using-special-resources). 
+This is a separate resource for managing the operations of a Bill of Materials. Use it to manage the productions operations of a large Bill of Materials, the number of operations in which exceeds the limit on the number of items stored with this document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-limitations). 
 
 Arbitrary creation and deletion of productions operations in Bills of Materials is not supported. Each production operation of a Bill of Materials strictly corresponds to the operations in the items of the linked Routing.
 
@@ -1174,7 +1174,7 @@ Successful request. The result is a JSON representation of the updated Productio
 
 ### Materials in a Bill of Materials 
 
-Separate resource for managing raw materials of a Bill of Materials allows you to manage materials of a large Bill of Materials which number of materials exceeds the limit on the number of materials stored with the document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-general-info-working-with-transaction-items-using-special-resources).
+Separate resource for managing raw materials of a Bill of Materials allows you to manage materials of a large Bill of Materials which number of materials exceeds the limit on the number of materials stored with the document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-limitations).
 
 ### Get Materials in a Bill of Materials  
 Request to get the list of all raw materials in a Bill of Materials.
@@ -1634,7 +1634,7 @@ curl -X POST
 Successfully removed materials from Bill of Materials.
 
 ### Products of Bill of Materials 
-Separate resource for managing raw materials of a Bill of Materials allows you to manage materials of a large Bill of Materials which number of materials exceeds the limit on the number of materials stored with the document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-general-info-working-with-transaction-items-using-special-resources).
+Separate resource for managing raw materials of a Bill of Materials allows you to manage materials of a large Bill of Materials which number of materials exceeds the limit on the number of materials stored with the document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-limitations).
 
 ### Get Bill of Materials Products
 Request to get a list of all products in a Bill of Materials.

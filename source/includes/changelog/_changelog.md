@@ -36,11 +36,11 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 16-07-2024
 #### Added
-- Added description of getting a link to [image](../dictionaries/#suschnosti-izobrazhenie-poluchit-ssylku-na-izobrazhenie-towara-ili-komplekta-ili-modifikacii)
+- Added description of getting a link to [image](../dictionaries/#entities-image-get-a-link-to-the-image-of-product-product-variant-bundle)
 
 ### 12-07-2024
 #### Added
-- New [Report based on transaction nomenclature](../reports/#otchety-otchet-po-dokumentam-nomenklatury)
+- New [Report based on transaction nomenclature](../reports/#oreports-report-on-product-range-documents)
 
 ### 01-07-2024
 #### Changed

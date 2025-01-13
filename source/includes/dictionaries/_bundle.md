@@ -31,7 +31,7 @@ Using the JSON API, you can create and update information about Bundles, request
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked goods. "true" - the feature is enabled. |
 | **pathName** | String | `=` `!=` `~` `~=` `=~` | The name of the group the Bundle belongs to<br>`+Required when replying` `+Read-only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-sign-of-the-subject-of-calculation) |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-indicator-of-the-calculation-item) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Group metadata of Bundles<br>`+Expand` |
 | **salePrice** | Array(Object) | | Sale prices |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
