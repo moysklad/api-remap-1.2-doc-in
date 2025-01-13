@@ -41,7 +41,7 @@ We make a request for the rest with the `async=true` parameter. The **limit** an
 
 The **Location** response header contains a link to get the result of the asynchronous task, and the **Content-Location** header contains a link to get the status of the asynchronous task execution.
 
-While tasks are in progress, creating new asynchronous tasks will be [limited by current limits](../#kladana-json-api-general-info-restrictions) per queue
+While tasks are in progress, creating new asynchronous tasks will be [limited by current limits](../#kladana-json-api-limitations) per queue
 asynchronous tasks and when you repeat the request, you will get error 61002:
 
 `Error creating an asynchronous task: the limit on the number of concurrently executing asynchronous operations has been exceeded.`

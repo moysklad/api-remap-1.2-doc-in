@@ -16,7 +16,7 @@ Asynchronous exchange is not supported for all requests. List of requests that c
 
 After executing a query in asynchronous mode, the result is available within 1 hour.
 
-There are [limits](#kladana-json-api-general-info-restrictions) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
+There are [limits](#kladana-json-api-limitations) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
 
 At the moment, in the process of asynchronous query execution, duplicates of item collection may occur,
 if new elements are added in parallel with the preparation of the result.
