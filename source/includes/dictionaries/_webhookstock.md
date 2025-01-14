@@ -1,13 +1,13 @@
-## Product stock webhook
+## Webhook for Stock Update
 
-Webhooks allow you to receive notifications about changes in the product stock. Notifications are sent to the user every 1-5 minutes if there has been a change in stock. To receive notifications, create a webhook for stock changes and turn it on. The keyword for webhooks to change stock within the JSON API is **webhookstock**.
+Webhooks allow you to receive notifications about product stock updates. Notifications are sent to the user every 1-5 minutes if there has been a change in stock. To receive notifications, create a webhook for stock updates and turn it on. The keyword for webhooks to update stock within the JSON API is **webhookstock**.
 
 The set of features also depends on your tariff:
 
-- With paid plans, you can: receive, create, update, disable and delete webhooks for changing stock.
+- With paid plans, you can: receive, create, update, disable and delete webhooks for stock updates.
 - The free plan does not send webhooks, you cannot create a new webhook or modify an existing webhook.
 
-### Description of the webhook for changing stock
+### Description of the webhook for stock update
 
 > An example of how the data will be transmitted: POST https://example.com/webhook_path?requestId=640569eb-522d-427a-b07e-fa757c5d4217
 
@@ -27,7 +27,7 @@ The set of features also depends on your tariff:
 | **accountId** | UUID | Account ID<br>`+Required when replying` |
 | **stockType** | Enum | The type of residues whose change causes the webhook to change residues. Possible values: `[stock]`<br>`+Required when replying` |
 | **reportType** | Enum | The Stock report type to which the webhook for changing stock is attached. Possible values: `[all, bystore]`<br>`+Required when replying` |
-| **reportUrl** | String(255) | URL for receiving data on [changed products, bundles, services, product variants for the specified period](../reports/#reports-balance-report-summary-of-balances)<br>`+Required when replying` |
+| **reportUrl** | String(255) | URL for receiving data on [changed products, bundles, services, product variants for the specified period](../reports/#reports-stock-report-brief-stock-report)<br>`+Required when replying` |
 
 The request parameter **requestId** is the notification identifier.
 
