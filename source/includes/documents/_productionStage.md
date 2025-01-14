@@ -16,10 +16,10 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | **id** | UUID | | Production Operation ID<br>`+Required in response` `+Read-only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata<br>`+Required in response` `+Read-only` |
 | **labourUnitCost** | Double | | Labor costs per production item<br> |
-| **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#dokumenty-proizwodstwennoe-zadanie-materialy-proizwodstwennogo-atapa)<br>`+Required in response` |
+| **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required in response` |
 | **materialStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the raw material warehouse<br>`+Read-only` |
 | **orderingPosition** | Int | | Production Operation Index in a Production Order item<br>`+Required in response` `+Read-only` |
-| **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#suschnosti-jetap-proizwodstwa)<br>`+Expand` `+Required when answering` `+Read-only` |
+| **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operation)<br>`+Expand` `+Required when answering` `+Read-only` |
 | **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when answering` `+Read-only` |
 | **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
 | **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |
@@ -147,8 +147,7 @@ Successful request. Result is a JSON representation of the Production Operations
 ### Change Production Operation
 
 Request to update a Production Operation with the specified ID.
-The request body can only contain fields that need to be changed in the Production Operation, except for those
-marked `Read Only` in the [Production Operation attributes](#dokumenty-proizwodstwennoe-zadanie-proizwodstwennye-atapy) description.
+The request body can only contain fields that need to be changed in the Production Operation, except for those marked `Read Only` in the [Production Operation attributes](#transactions-production-order-production-operations) description.
 
 **Parameters**
 
