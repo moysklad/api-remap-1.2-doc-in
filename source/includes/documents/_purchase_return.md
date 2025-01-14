@@ -63,7 +63,7 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | Float | The price of the products/services in paise<br>`+Required when answering` |
 | **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |

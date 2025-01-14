@@ -63,8 +63,8 @@ Transfer Items is a list of products, product variants or batches. The Transfer 
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Price of products/services in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | Float                                               | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider ` |
-| **sourceSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The location in the warehouse from which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
-| **targetSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The cell in the warehouse to which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **sourceSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The location in the warehouse from which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
+| **targetSlot** | [Meta](../#kladana-json-api-general-info-metadata) | The cell in the warehouse to which the transfer is made. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of products in the item will be equal to the number of serial numbers passed in the attribute value.`+Change-handler` |
 
 The value of this attribute is ignored if the item item is not in serial accounting.
