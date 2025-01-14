@@ -40,7 +40,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 12-07-2024
 #### Added
-- New [Report based on transaction nomenclature](../reports/#oreports-report-on-product-range-documents)
+- New [Report on product range documents](../reports/#reports-report-on-product-range-documents)
 
 ### 01-07-2024
 #### Changed

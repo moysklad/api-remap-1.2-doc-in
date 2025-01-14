@@ -20,10 +20,10 @@ The search among currency objects to match the search string will be carried out
 | **id** | UUID                                               | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
 | **indirect** | Boolean                                            | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
 | **isoCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **majorUnit** | Object                                             | | Forms of units of the whole part of the Currency. [Learn more](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
+| **majorUnit** | Object                                             | | Forms of units of the whole part of the Currency. [Learn more](../dictionaries/#entities-currency-currency-entity-attributes-forms-of-units)<br>`+Required when answering` |
 | **margin** | Double                                             | | Mark-up for automatic course update<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
-| **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [Learn more](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
+| **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [Learn more](../dictionaries/#entities-currency-currency-entity-attributes-forms-of-units)<br>`+Required when answering` |
 | **multiplicity** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief name of the currency <br>`+Required when replying` `+Required when creating` |
 | **rate** | Double                                             | | Exchange rate<br>`+Required when answering` |

@@ -67,7 +67,7 @@ Stock Adjustment items is a list of products and product variants. Stock Adjustm
 | **price** | Float                                              | Product/service price in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **quantity** | Float                                                | The number of gproducts/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
 | **reason** | String(255)                                        | Reason of stock adjustment of the item|
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Object(String)                                     | Serial numbers. The value of the attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
 
 You can work with items using [special resources for managing Stock Adjustment items](../documents/#transactions-stock-adjustment),

@@ -52,7 +52,7 @@ Result: JSON object, including the fields:
 | ---- | ---- | ----------  |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issue Metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata on the employee who performed the request. |
-| **rows** | Array(Object) | Array of JSON objects representing [Events](../dictionaries/#suschnosti-lenta-sobytij). |
+| **rows** | Array(Object) | Array of JSON objects representing [Events](../dictionaries/#entities-event-feed). |
 
 **Parameters**
 

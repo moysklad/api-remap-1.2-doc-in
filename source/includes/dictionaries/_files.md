@@ -14,8 +14,7 @@ and the new Files will be added to the Files list.
 If files contains an empty array of elements in the update request, then all Files from the Operation, Item, Task or Account will be deleted, because
 the server will assume that the user wants to update the list of Operation Files, Items, Tasks, or Accounts.
 
-The limit of files saved with an object is 10. If you need to upload more files for one object, you need to use the method described
-in the section [Working with Files of Operations, Products, Services, Tasks and Counterparties using special resources](../dictionaries/#entities-files-working-with-operation-nomenclature-task-or-account-files-using-special-resources).
+The limit of files saved with an object is 10. If you need to upload more files for one object, you need to use the method described in the section [Working with Files of Operations, Products, Services, Tasks and Counterparties using special resources](../dictionaries/#entities-files-working-with-files-of-operations-products-services-tasks-and-counterparties-using-special-resources).
 
 
 ### Working with Files of Operations, Products, Services, Tasks and Counterparties using special resources

@@ -29,8 +29,8 @@ The search among warehouse objects for matching the search string will be carrie
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Warehouse Group<br>`+Required when replying` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
-| **zones** | MetaArray                                          | | warehouse zones. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
-| **slots** | MetaArray                                          | | Warehouse bins. [Learn more](../dictionaries/#entities-warehouse-storage-bins)<br>`+Read-only` `+Expand` |
+| **zones** | MetaArray                                          | |  Warehouse locations. [Learn more](../dictionaries/#entities-warehouse-warehouse-locations)<br>`+Read-only` `+Expand` |
+| **slots** | MetaArray                                          | | Warehouse bins. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Read-only` `+Expand` |
 
 #### Attributes of entity Address
 
@@ -1452,29 +1452,29 @@ Successful request. The result is a JSON representation of the updated Warehouse
 }
 ```
 
-### Warehouse Zones
-Warehouse zones are accessed if you have the right to see the corresponding warehouse.
+### Warehouse Locations
+Warehouse locations are accessed if you have the right to see the corresponding warehouse.
 
 #### Entity attributes
 
 | Title | Type                                               | Filtration | Description |
 |----- |----------------------------------------------------| -------- | ----------- |
 | **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
-| **externalCode** | String(255)                                        || External Zone Code<br>`+Required when replying` |
-| **id** | UUID                                               | | Zone ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Zone Metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | | Zone Name<br>`+Required for response` `+Required for creation` |
-| **updated** | DateTime                                           | | Time when the Zone was last updated<br>`+Required when replying` `+Read Only` |
+| **externalCode** | String(255)                                        || External Warehouse Location Code<br>`+Required when replying` |
+| **id** | UUID                                               | | Warehouse Location ID<br>`+Required for response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Location Metadata<br>`+Required when replying` |
+| **name** | String(255)                                        | | Warehouse Location Name<br>`+Required for response` `+Required for creation` |
+| **updated** | DateTime                                           | | Time when the Warehouse Location was last updated<br>`+Required when replying` `+Read Only` |
 
-### Get warehouse zones
-Get a list of all Zones.
+### Get Warehouse Locations
+Get a list of all Warehouse Location.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | --------------- |-------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the Zones. |
+| **rows** | Array(Object) | An array of JSON objects representing the Warehouse Location. |
 
 **Parameters**
 
@@ -1483,7 +1483,7 @@ Result: JSON object including fields:
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Get Zones
+> Get Warehouse Locations
 
 ```shell
 curl -X GET
@@ -1493,7 +1493,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of Warehouse Zones.
+Successful request. The result is a JSON representation of a list of Warehouse Locations.
 
 ```json
 {
@@ -1544,15 +1544,15 @@ Successful request. The result is a JSON representation of a list of Warehouse Z
 }
 ```
 
-### Create a warehouse zone
+### Create Warehouse Location
 #### Description
 
-The warehouse zone is created based on the passed JSON object,
-which contains a representation of the new Warehouse Area.
-The result is a JSON representation of the created Warehouse Zone. To create a new Warehouse Zone,
-it is necessary and sufficient to specify a non-empty `name` field in the passed object. Within the same warehouse, the names of the Zones must be unique.
+The Warehouse Location is created based on the passed JSON object,
+which contains a representation of the new Warehouse Location.
+The result is a JSON representation of the created Warehouse Location. To create a new Warehouse Location,
+it is necessary and sufficient to specify a non-empty `name` field in the passed object. Within the same warehouse, the names of the location must be unique.
 
-> Request to create a Warehouse Zone
+> Request to create Warehouse Location
 
 ```shell
 curl -X POST
@@ -1566,7 +1566,7 @@ curl -X POST
 ```
 
 > Response 200(application/json)
-Successful request. Result - JSON representation of the created Warehouse Zone.
+Successful request. Result - JSON representation of the created Warehouse Location.
 
 ```json
 [
@@ -1585,11 +1585,11 @@ Successful request. Result - JSON representation of the created Warehouse Zone.
 ]
 ```
 
-### Bulk creation and update of warehouse zones
+### Bulk creation and update of Warehouse Location
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse zones.
-In the body of the request, you need to pass an array containing JSON representations of the Warehouse Zones that you want to create or update.
-Updated Warehouse Zones must contain the identifier in the form of metadata.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse Locations.
+In the body of the request, you need to pass an array containing JSON representations of the Warehouse Locations that you want to create or update.
+Updated Warehouse Locations must contain the identifier in the form of metadata.
 
 > Request to create and update multiple Warehouse Zones
 
@@ -1616,7 +1616,7 @@ Updated Warehouse Zones must contain the identifier in the form of metadata.
    ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON array of representations of the created and updated Warehouse Zones.
+Successful request. The result is a JSON array of representations of the created and updated Warehouse Locations.
 
 ```json
 [
@@ -1647,18 +1647,18 @@ Successful request. The result is a JSON array of representations of the created
 ]
 ```
 
-### Delete warehouse zone
+### Delete Warehouse Location
 
-When deleting the zone to which the bins are attached, the bins are unlinked from this zone.
+When deleting the Warehouse Location to which the bins are attached, the bins are unlinked from this location.
 
 **Parameters**
 
 | Parameter | Description |
 | ------- |----------|
 | **store_id** | `string` (required) *Example: 7a6a11b6-12c5-11e6-9464-e4de00000006* Warehouse ID. |
-| **zone_id** | `string` (required) *Example: 7d479c5f-75f9-11ed-ac1a-000d00000003* Warehouse zone ID. |
+| **zone_id** | `string` (required) *Example: 7d479c5f-75f9-11ed-ac1a-000d00000003* Warehouse Location ID. |
 
-> Request to delete Warehouse Zone with specified ID.
+> Request to delete Warehouse Location with specified ID.
 
 ```shell
 curl -X DELETE
@@ -1668,14 +1668,14 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful deletion of the Warehouse Zone.
+Successful deletion of the Warehouse Location.
 
-### Bulk deletion of warehouse zones
+### Bulk deletion of Warehouse Locations
 
-In the body of the request, you need to pass an array containing the JSON metadata of the Warehouse Zones that you want to delete.
+In the body of the request, you need to pass an array containing the JSON metadata of the Warehouse Locations that you want to delete.
 
 
-> Request for bulk deletion of Warehouse Zones.
+> Request for bulk deletion of Warehouse Locations.
 
 ```shell
 curl -X POST
@@ -1701,7 +1701,7 @@ curl -X POST
        ]'
 ```
 
-> Successful request. The result is JSON information about deleting Warehouse Zones.
+> Successful request. The result is JSON information about deleting Warehouse Locations.
 
 ```json
 [
@@ -1714,15 +1714,15 @@ curl -X POST
 ]
 ```
 
-### Get warehouse area
+### Get Warehouse Location
 
 **Parameters**
 
 | Parameter | Description |
 | ------- |----------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* Zone ID. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* Warehouse Location ID. |
 
-> Request for a separate Warehouse Zone with the specified ID.
+> Request for a separate Warehouse Location with the specified ID.
 
 ```shell
 curl -XGET
@@ -1732,7 +1732,7 @@ curl -XGET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the Warehouse Zone with the specified ID.
+Successful request. The result is a JSON representation of the Warehouse Location with the specified ID.
 
 ```json
 {
@@ -1749,18 +1749,18 @@ Successful request. The result is a JSON representation of the Warehouse Zone wi
 }
 ```
 
-### Change storage area
+### Change Warehouse Location
 
-In the body of the request, you need to pass a JSON representation of the Warehouse Zone that you want to update.
+In the body of the request, you need to pass a JSON representation of the Warehouse Location that you want to update.
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | ------------- |
 | **store_id** | `string` (required) *Example: 7a6a11b6-12c5-11e6-9464-e4de00000006* Warehouse ID. |
-| **zone_id** | `string` (required) *Example: 7d479c5f-75f9-11ed-ac1a-000d00000003* Warehouse zone ID. |
+| **zone_id** | `string` (required) *Example: 7d479c5f-75f9-11ed-ac1a-000d00000003* Warehouse Location ID. |
 
-> Request to update Warehouse area
+> Request to update Warehouse Location
 
 ```shell
 curl -X PUT
@@ -1774,7 +1774,7 @@ curl -X PUT
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the updated Warehouse Area.
+Successful request. The result is a JSON representation of the updated Warehouse Location.
 
 ```json
 [
@@ -1793,7 +1793,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 ]
 ```
 
-### Storage bins
+### Warehouse Bins
 Access to the bins of the warehouse is carried out if you have the right to see the corresponding warehouse.
 
 #### Entity attributes
@@ -1807,9 +1807,9 @@ Access to the bins of the warehouse is carried out if you have the right to see 
 | **name** | String(255)                                        | | Bin Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | DateTime                                           | | Bin Last Update<br>`+Required when replying` `+Read Only` |
 | **barcode**   | String(255)  |  | Bin barcode  |
-| **zone** | Meta                                               | | Bin zone. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **zone** | Meta                                               | | Bin location. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
 
-### Get storage bins
+### Get Warehouse Bins
 Get a list of all Warehouse Bins.
 Result: JSON object including fields:
 
@@ -1826,7 +1826,7 @@ Result: JSON object including fields:
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Get Storage Bins
+> Get Warehouse Bins
 
 ```shell
 curl -X GET
@@ -1894,15 +1894,15 @@ Successful request. The result is a JSON representation of a list of Warehouse B
 }
 ```
 
-### Create storage location
+### Create Warehouse Location
 #### Description
 
 The warehouse bin is created based on the passed JSON object,
-which contains a representation of the new Storage Bin.
-The result is a JSON representation of the created Storage Bin. To create a new Storage Bin,
+which contains a representation of the new Warehouse Bin.
+The result is a JSON representation of the created Warehouse Bin. To create a new Warehouse Bin,
 it is necessary and sufficient to specify a non-empty `name` field in the passed object. Within the same warehouse, the names of the bins must be unique.
 
-> Request to create a Storage Bin
+> Request to create a Warehouse Bin
 
 ```shell
 curl -X POST
@@ -1935,7 +1935,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 ]
 ```
 
-> Request to create a storage bin with a zone
+> Request to create a Warehouse bin with a location
 
 ```shell
 curl -X POST
@@ -1982,13 +1982,13 @@ Successful request. The result is a JSON representation of the created Warehouse
 ]
 ```
 
-### Bulk creation and update of storage bins
+### Bulk creation and update of Warehouse Bins
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Storage bins.
-In the body of the request, you need to pass an array containing a JSON representation of the Storage Bins that you want to create or update.
-Updated Storage Bins must contain the identifier in the form of metadata.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse bins.
+In the body of the request, you need to pass an array containing a JSON representation of the Warehouse Bins that you want to create or update.
+Updated Warehouse Bins must contain the identifier in the form of metadata.
 
-> Request to create and update multiple Storage Bins
+> Request to create and update multiple Warehouse Bins
 
 ```shell
    curl -X POST
@@ -2013,7 +2013,7 @@ Updated Storage Bins must contain the identifier in the form of metadata.
    ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON array of representations of the created and updated Storage Bins.
+Successful request. The result is a JSON array of representations of the created and updated Warehouse Bins.
 
 ```json
 [
@@ -2044,7 +2044,7 @@ Successful request. The result is a JSON array of representations of the created
 ]
 ```
 
-### Delete storage location
+### Delete Warehouse Location
 
 **Parameters**
 
@@ -2063,13 +2063,13 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful deletion of the Storage Bin.
+Successful deletion of the Warehouse Bin.
 
-### Bulk deletion of storage bins
+### Bulk deletion of Warehouse Bins
 
-In the body of the request, you need to pass an array containing the JSON metadata of the Storage Bins that you want to delete.
+In the body of the request, you need to pass an array containing the JSON metadata of the Warehouse Bins that you want to delete.
 
-> Request for bulk deletion of storage bins.
+> Request for bulk deletion of Warehouse Bins.
 
 ```shell
 curl -X POST
@@ -2095,7 +2095,7 @@ curl -X POST
        ]'
 ```
 
-> Successful request. The result is JSON information about the deletion of storage bins.
+> Successful request. The result is JSON information about the deletion of Warehouse bins.
 
 ```json
 [
@@ -2108,7 +2108,7 @@ curl -X POST
 ]
 ```
 
-### Get storage location
+### Get Warehouse Location
 **Parameters**
 
 | Parameter | Description |
@@ -2125,7 +2125,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the Storage Bin with the specified ID.
+Successful request. The result is a JSON representation of the Warehouse Bin with the specified ID.
 
 ```json
 {
@@ -2142,9 +2142,9 @@ Successful request. The result is a JSON representation of the Storage Bin with 
 }
 ```
 
-### Change storage location
+### Change Warehouse Location
 
-In the body of the request, you need to pass a JSON representation of the Storage Bin that you want to update.
+In the body of the request, you need to pass a JSON representation of the Warehouse Bin that you want to update.
 
 **Parameters**
 
@@ -2186,7 +2186,7 @@ Successful request. The result is a JSON representation of the updated Warehouse
 ]
 ```
 
-> Request to update a Warehouse bin with a zone
+> Request to update a Warehouse bin with a location
 
 ```shell
 curl -X PUT
