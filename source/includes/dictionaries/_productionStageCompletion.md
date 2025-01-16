@@ -1,84 +1,91 @@
-## Process Tracking
+## Operation Report
 
-Средствами JSON API можно создавать, обновлять и удалять сведения о Выполнениях этапов производства,
-запрашивать списки Выполнений этапов производства и сведения по отдельным Выполнениям этапов производства.
-Если производство не начато по Производственному заданию, то попытки создать Выполненный этап на это Производственное задание будут завершаться ошибкой.
+The Operation Report provides detailed information about the completed Production Operation from a Production Order. It includes the cost of raw materials actually used, the cost of finished goods (both ready for use and in progress), operational costs, and other relevant details.
 
-### Process Tracking
-#### Атрибуты сущности
+Using the JSON API, you can perform the following actions on Operation Reports: 
 
-| Название                | Тип                                                       | Фильтрация                 | Описание                                                                                                                                                                                          |
-|-------------------------|:----------------------------------------------------------|:---------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**           | UUID                                                      |                            | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                              |
-| **created**             | DateTime                                                  |                            | Дата создания<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                  |
-| **externalCode**        | String(255)                                               |                            | Внешний код Выполнения этапа производства<br>`+Обязательное при ответе`                                                                                                                           |
-| **group**               | [Meta](../#kladana-json-api-general-info-metadata) |                            | Отдел сотрудника<br>`+Обязательное при ответе` `+Expand`                                                                                                                                          |
-| **id**                  | UUID                                                      |                            | ID Выполнения этапа производства<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                               |
-| **labourUnitCost**      | Double                                                    |                            | Оплата труда за единицу объема производства<br>`+Обязательное при ответе`                                                                                                                         |
-| **standardHourUnit**    | Double                                                    |                            | Нормо-часы единицы объема производства<br>`+Обязательное при ответе`                                                                                                                              |
-| **materials**           | MetaArray                                                 |                            | Метаданные Материалов выполнения этапа производства. [Learn more](#dokumenty-vypolnenie-atapa-proizwodstwa-materialy-wypolneniq-atapa-proizwodstwa)<br>`+Expand`                               |
-| **meta**                | [Meta](../#kladana-json-api-general-info-metadata) |                            | Метаданные Выполнения этапа производства<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                       |
-| **moment**              | DateTime                                                  | `=` `!=` `<` `>` `<=` `>=` | Дата документа<br>`+Обязательное при ответе`                                                                                                                                                      |
-| **name**                | String(255)                                               |                            | Наименование Выполнения этапа производства<br>`+Обязательное при ответе`                                                                                                                          |
-| **owner**               | [Meta](../#kladana-json-api-general-info-metadata) |                            | Владелец (Сотрудник)<br>`+Expand`                                                                                                                                                                 |
-| **performer**           | [Meta](../#kladana-json-api-general-info-metadata) |                            | Исполнитель (Сотрудник)<br>`+Expand`                                                                                                                                                              |
-| **processingUnitCost**  | Double                                                    |                            | Затраты на единицу объема производства<br>`+Обязательное при ответе`                                                                                                                              |
-| **productionStage**     | [Meta](../#kladana-json-api-general-info-metadata) |                            | [Production operation](#transactions-production-order-production-operations)<br>`+Expand` `+После создания изменить нельзя`                                                                |
-| **productionVolume**    | Double                                                    |                            | Объем производства<br>`+Обязательное при ответе`                                                                                                                                                  |
-| **products**            | MetaArray                                                 |                            | Метаданные Продуктов выполнения этапа производства. Есть только у последнего этапа. [Подробнее тут](#dokumenty-vypolnenie-atapa-proizwodstwa-produkty-wypolneniq-atapa-proizwodstwa)<br>`+Expand` |
-| **shared**              | Boolean                                                   |                            | Общий доступ<br>`+Обязательное при ответе`                                                                                                                                                        |
-| **updated**             | DateTime                                                  |                            | Момент последнего обновления Выполнения этапа производства<br>`+Обязательное при ответе` `+Только для чтения`                                                                                     |
+* Create, update, and delete Operation Reports.
+* Retrieve lists of Operation Reports.
+* Access details of a specific Operation Report.
 
-Для сущности действуют ограничения на expand: для поля **productionStage.productionRow** недоступен expand вложенных полей.
+If production has not started for a Production Order, attempts to create an Operation Report for this Production Order will result in an error.
 
-### Получить список Выполнений этапов производства 
-Запрос Выполнений этапов производства на аккаунте.
 
-При получении списка Выполнений этапов можно передать фильтр на конкретное производственное задание:  
+### Operation Report
+#### Entity attributes
+
+| Title | Type  | Filtration | Description |
+| ----- | ----- | ---------- | ----------- |
+| **accountId** | UUID  | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **created** | DateTime | | Date created<br>`+Required when responding` `+Read-only` |
+| **externalCode** | String(255) | | Operation Report External Code <br>`+Required when responding` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when responding` `+Expand` |
+| **id** | UUID | | Operation Report ID<br>`+Required when responding` `+Read-only` |
+| **labourUnitCost** | Double | | Labor cost per unit of production<br>`+Required when responding` |
+| **standardHourUnit** | Double | | Standard Hours of a production unit<br>`+Required when responding` |
+| **materials** | MetaArray | | Metadata of Operation Report Raw materials [Learn more](#dokumenty-vypolnenie-atapa-proizwodstwa-materialy-wypolneniq-atapa-proizwodstwa)<br>`+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Operation Report Metadata <br>`+Required in response` `+Read-only` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required in response` |
+| **name** | String(255) | | Operation Report Title<br>`+Required in response` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | | Owner (Employee)<br>`+Expand` |
+| **performer** | [Meta](../#kladana-json-api-general-info-metadata) | | Performer (Employee)<br>`+Expand` |
+| **processingUnitCost** | Double | | Cost per unit of production volume<br>`+Required in response` |
+| **productionStage** | [Meta](../#kladana-json-api-general-info-metadata) | | [Production operation](#transactions-production-order-production-operations)<br>`+Expand` `+Cannot be changed after creation` |
+| **productionVolume** | Double | | Production Volume<br>`+Required when answering` |
+| **products** | MetaArray | | Metadata of Products of Operation Report. Only available for last operation. [Learn more](#dokumenty-vypolnenie-atapa-proizwodstwa-produkty-wypolneniq-atapa-proizwodstwa)<br>`+Expand` |
+| **shared** | Boolean | | Public access<br>`+Required when answering` |
+| **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when answering` `+Read-only` |
+
+The entity has restrictions on expand: expand of nested fields is not available for the **productionStage.productionRow** field.
+
+### Get a list of Operation Reports
+A request for Operation Reports on an account.
+
+When getting a list of Operation Reports, you can pass a filter for a specific Production Order:
 `filter=productionTask=https://api.moysklad.ru/api/remap/1.2/entity/productionTask/&lt;id>`.
 
-Результат: Объект JSON, включающий в себя поля:
+Result: JSON object, including the following fields:
 
-| Название    | Тип                                                       | Описание                                                      |
+| Name | Type | Description |
 | ----------- | :-------------------------------------------------------- |:--------------------------------------------------------------|
-| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Метаданные о выдаче,                                          |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Метаданные о сотруднике, выполнившем запрос.                  |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Выполнения этапов. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who performed the request. |
+| **rows** | Array(Object) | Array of JSON objects representing the Operation Report. |
 
-**Параметры**
+**Parameters**
 
-| Параметр                       | Описание                                                                                                                               |
-| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **limit**                      | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000`. |
-| **offset**                     | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей.                                                 |
-| **search**                     | `string` (optional) *Example: 0001* Фильтр документов по указанной поисковой строке.                                                   |
+| Parameter | Description |
+| ------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities. |
+| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string. |
 
-> Получить список Выполнений этапов производства
+> Get a list of Operation Reports
 
 ```shell
 curl -X GET
-  "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion"
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Выполнений этапов производства.
+Successful request. The result is a JSON representation of a list of Operation Reports.
 
 ```json
 {
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
     "size": 5,
@@ -88,28 +95,28 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
       },
       "id": "01ff6808-95de-11ee-0a81-072300000136",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
       "owner": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -121,24 +128,24 @@ curl -X GET
       "created": "2023-12-08 18:25:24.386",
       "performer": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/50f4a244-9a95-11ee-0a83-05c8000005af",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/50f4a244-9a95-11ee-0a83-05c8000005af",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=50f4a244-9a95-11ee-0a83-05c8000005af"
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=50f4a244-9a95-11ee-0a83-05c8000005af"
         }
       },
       "productionStage": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/d15ec2e9-95dd-11ee-0a81-07230000011c",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/d15ec2e9-95dd-11ee-0a81-07230000011c",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
           "type": "productionstage",
           "mediaType": "application/json"
         }
       },
       "materials": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
           "type": "productionstagecompletionmaterial",
           "mediaType": "application/json",
           "size": 1,
@@ -148,7 +155,7 @@ curl -X GET
       },
       "products": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
           "type": "productionstagecompletionresult",
           "mediaType": "application/json",
           "size": 1,
@@ -163,28 +170,28 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
+        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
       },
       "id": "19b3bb62-9807-11ee-0a81-07230000030e",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
       "owner": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -196,15 +203,15 @@ curl -X GET
       "created": "2023-12-11 12:24:35.847",
       "productionStage": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/1812ddaf-9807-11ee-0a81-072300000306",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/1812ddaf-9807-11ee-0a81-072300000306",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
           "type": "productionstage",
           "mediaType": "application/json"
         }
       },
       "materials": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/materials",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/materials",
           "type": "productionstagecompletionmaterial",
           "mediaType": "application/json",
           "size": 1,
@@ -214,7 +221,7 @@ curl -X GET
       },
       "products": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/products",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/products",
           "type": "productionstagecompletionresult",
           "mediaType": "application/json",
           "size": 1,
@@ -229,28 +236,28 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/4c65602d-97f5-11ee-0a81-0723000001e1",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/4c65602d-97f5-11ee-0a81-0723000001e1",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=4c65602d-97f5-11ee-0a81-0723000001e1"
+        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=4c65602d-97f5-11ee-0a81-0723000001e1"
       },
       "id": "4c65602d-97f5-11ee-0a81-0723000001e1",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
       "owner": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -262,15 +269,15 @@ curl -X GET
       "created": "2023-12-11 10:17:09.956",
       "productionStage": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3dc137d1-97f5-11ee-0a81-0723000001dc",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3dc137d1-97f5-11ee-0a81-0723000001dc",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
           "type": "productionstage",
           "mediaType": "application/json"
         }
       },
       "materials": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/4c65602d-97f5-11ee-0a81-0723000001e1/materials",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/4c65602d-97f5-11ee-0a81-0723000001e1/materials",
           "type": "productionstagecompletionmaterial",
           "mediaType": "application/json",
           "size": 18,
@@ -280,7 +287,7 @@ curl -X GET
       },
       "products": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/4c65602d-97f5-11ee-0a81-0723000001e1/products",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/4c65602d-97f5-11ee-0a81-0723000001e1/products",
           "type": "productionstagecompletionresult",
           "mediaType": "application/json",
           "size": 1,
@@ -295,28 +302,28 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/68c6559a-980b-11ee-0a81-072300000358",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/68c6559a-980b-11ee-0a81-072300000358",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=68c6559a-980b-11ee-0a81-072300000358"
+        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=68c6559a-980b-11ee-0a81-072300000358"
       },
       "id": "68c6559a-980b-11ee-0a81-072300000358",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
       "owner": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -328,15 +335,15 @@ curl -X GET
       "created": "2023-12-11 12:55:26.496",
       "productionStage": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/36bcdb7a-980b-11ee-0a81-07230000034c",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/36bcdb7a-980b-11ee-0a81-07230000034c",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
           "type": "productionstage",
           "mediaType": "application/json"
         }
       },
       "materials": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/68c6559a-980b-11ee-0a81-072300000358/materials",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/68c6559a-980b-11ee-0a81-072300000358/materials",
           "type": "productionstagecompletionmaterial",
           "mediaType": "application/json",
           "size": 1,
@@ -346,7 +353,7 @@ curl -X GET
       },
       "products": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/68c6559a-980b-11ee-0a81-072300000358/products",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/68c6559a-980b-11ee-0a81-072300000358/products",
           "type": "productionstagecompletionresult",
           "mediaType": "application/json",
           "size": 1,
@@ -361,28 +368,28 @@ curl -X GET
     },
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/6d87056d-9809-11ee-0a83-0717000000a2",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/6d87056d-9809-11ee-0a83-0717000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=6d87056d-9809-11ee-0a83-0717000000a2"
+        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=6d87056d-9809-11ee-0a83-0717000000a2"
       },
       "id": "6d87056d-9809-11ee-0a83-0717000000a2",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
       "owner": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
       "group": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
           "type": "group",
           "mediaType": "application/json"
         }
@@ -394,15 +401,15 @@ curl -X GET
       "created": "2023-12-11 12:41:15.372",
       "productionStage": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/e0e2370f-9808-11ee-0a81-072300000327",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/e0e2370f-9808-11ee-0a81-072300000327",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
           "type": "productionstage",
           "mediaType": "application/json"
         }
       },
       "materials": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/6d87056d-9809-11ee-0a83-0717000000a2/materials",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/6d87056d-9809-11ee-0a83-0717000000a2/materials",
           "type": "productionstagecompletionmaterial",
           "mediaType": "application/json",
           "size": 2,
@@ -412,7 +419,7 @@ curl -X GET
       },
       "products": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/6d87056d-9809-11ee-0a83-0717000000a2/products",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/6d87056d-9809-11ee-0a83-0717000000a2/products",
           "type": "productionstagecompletionresult",
           "mediaType": "application/json",
           "size": 1,
@@ -429,29 +436,32 @@ curl -X GET
 }
 ```
 
-### Создать Выполнение этапа производства
-Запрос на создание нового Выполнения этапа производства. 
-Условие создания Выполненного этапа - наличие начала производства у Производственного задания для которого создается Выполненный этап. Подробнее можно прочитать [тут](../#dokumenty-proizwodstwennoe-zadanie).
-При создании происходит автоматическое изменение даты старта производства, если дата старта производства позже даты выполнения этапа.
-Обязательные для создания поля:
+### Create Operation Report
+Request to create a new Operation Report.
 
-+ **productionStage** - Ссылка на Производственный этап in [Metadata](../#kladana-json-api-general-info-metadata) format
-+ **productionVolume** - Объем производства 
+The condition for creating an Operation Report is the start of production for the Production Task for which the Operation Report is being created. [Learn more](../#transactions-production-order).
 
-Создание Выполнение этапа с серийными номерами на текущий момент не поддерживается.
+When creating, the production start date is automatically changed if the production start date is later than the date of the Operation Report.
 
-> Пример создания нового Выполнения этапа производства с телом запроса, содержащим только необходимые поля.
+Required fields to create:
+
++ **productionStage** - Link to Production operation in [Metadata](../#kladana-json-api-general-info-metadata) format
++ **productionVolume** - Production volume
+
+Creating an Operation Report with serial numbers is currently not supported.
+
+> Example of creating a new Operation Report with a request body containing only the required fields.
 
 ```shell
   curl -X POST
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "productionStage": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
                 "type": "productionstage",
                 "mediaType": "application/json"
               }
@@ -462,33 +472,33 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Выполнения этапа производства.
+Successful request. The result is a JSON representation of the generated Operation Report.
 
 ```json
 {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
-    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
   },
   "id": "01ff6808-95de-11ee-0a81-072300000136",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
   "owner": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -500,15 +510,15 @@ curl -X GET
   "created": "2023-12-08 18:25:24.386",
   "productionStage": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
       "type": "productionstage",
       "mediaType": "application/json"
     }
   },
   "materials": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
       "type": "productionstagecompletionmaterial",
       "mediaType": "application/json",
       "size": 1,
@@ -518,7 +528,7 @@ curl -X GET
   },
   "products": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
       "type": "productionstagecompletionresult",
       "mediaType": "application/json",
       "size": 1,
@@ -533,11 +543,11 @@ curl -X GET
 }
 ```
 
-> Пример создания нового Выполнения этапа производства с более насыщенным телом запроса.
+> An example of creating a new Operation Report with a richer request body.
 
 ```shell
   curl -X POST
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -545,8 +555,8 @@ curl -X GET
             "name": "000034",
             "owner": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json"
               }
@@ -554,16 +564,16 @@ curl -X GET
             "shared": false,
             "group": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
                 "type": "group",
                 "mediaType": "application/json"
               }
             },
             "performer": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json",
                 "uuidHref": "https://online-api-4.testms-test.lognex.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
@@ -571,8 +581,8 @@ curl -X GET
             },      
             "productionStage": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
                 "type": "productionstage",
                 "mediaType": "application/json"
               }
@@ -585,33 +595,33 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление созданного Выполнения этапа производства.
+Successful request. The result is a JSON representation of the generated Operation Report.
 
 ```json
 {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
-    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
   },
   "id": "01ff6808-95de-11ee-0a81-072300000136",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
   "owner": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -623,8 +633,8 @@ curl -X GET
   "created": "2023-12-08 18:25:24.386",
   "performer": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
       "uuidHref": "https://online-api-4.testms-test.lognex.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
@@ -632,15 +642,15 @@ curl -X GET
   },
   "productionStage": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
       "type": "productionstage",
       "mediaType": "application/json"
     }
   },
   "materials": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
       "type": "productionstagecompletionmaterial",
       "mediaType": "application/json",
       "size": 1,
@@ -650,7 +660,7 @@ curl -X GET
   },
   "products": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
       "type": "productionstagecompletionresult",
       "mediaType": "application/json",
       "size": 1,
@@ -665,16 +675,14 @@ curl -X GET
 }
 ```
 
-### Массовое создание и обновление Выполнений этапов производства
-[Массовое создание и обновление](../#mojsklad-json-api-obschie-swedeniq-sozdanie-i-obnowlenie-neskol-kih-ob-ektow) Выполнений этапов производства.
-В теле запроса нужно передать массив, содержащий JSON представления Выполнений этапов производства, которые вы хотите создать или обновить.
-Обновляемые Выполненных этапов производства должны содержать идентификатор в виде метаданных.
+### Bulk creation and update of Operation Report
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Operation Report. In the request body, you need to pass an array containing JSON representations of Operation Report that need to be created or updated. The Operation Reports to be updated must contain an identifier as metadata.
 
-> Пример создания и обновления нескольких Выполнений этапов производства
+> Example of creating and updating several Operation Reports
 
 ```shell
   curl -X POST
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -683,8 +691,8 @@ curl -X GET
                 "name": "000033",
                 "owner": {
                   "meta": {
-                    "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
-                    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                     "type": "employee",
                     "mediaType": "application/json"
                   }
@@ -692,16 +700,16 @@ curl -X GET
                 "shared": false,
                 "group": {
                   "meta": {
-                    "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
-                    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
                     "type": "group",
                     "mediaType": "application/json"
                   }
                 },
                 "productionStage": {
                   "meta": {
-                    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
-                    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
                     "type": "productionstage",
                     "mediaType": "application/json"
                   }
@@ -711,11 +719,11 @@ curl -X GET
             },
             {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
                 "type": "productionstagecompletion",
                 "mediaType": "application/json",
-                "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+                "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
               },
               "name": "000034",
               "productionVolume": 5
@@ -724,34 +732,34 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - массив JSON представлений созданных и обновленных Выполнений этапов производства.
+Successful request. The result is a JSON array of views of the created and updated Operation Reports.
 
 ```json
 [
   {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
       "type": "productionstagecompletion",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+      "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
     },
     "id": "01ff6808-95de-11ee-0a81-072300000136",
     "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
     "owner": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
       }
     },
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -763,15 +771,15 @@ curl -X GET
     "created": "2023-12-08 18:25:24.386",
     "productionStage": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/3130f7df-660f-11ee-c0a8-100c00000139",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
         "type": "productionstage",
         "mediaType": "application/json"
       }
     },
     "materials": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
         "type": "productionstagecompletionmaterial",
         "mediaType": "application/json",
         "size": 1,
@@ -781,7 +789,7 @@ curl -X GET
     },
     "products": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
         "type": "productionstagecompletionresult",
         "mediaType": "application/json",
         "size": 1,
@@ -796,28 +804,28 @@ curl -X GET
   },
   {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
       "type": "productionstagecompletion",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
+      "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
     },
     "id": "19b3bb62-9807-11ee-0a81-07230000030e",
     "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
     "owner": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
       }
     },
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
@@ -829,15 +837,15 @@ curl -X GET
     "created": "2023-12-11 12:24:35.847",
     "productionStage": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/1812ddaf-9807-11ee-0a81-072300000306",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/1812ddaf-9807-11ee-0a81-072300000306",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
         "type": "productionstage",
         "mediaType": "application/json"
       }
     },
     "materials": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/materials",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/materials",
         "type": "productionstagecompletionmaterial",
         "mediaType": "application/json",
         "size": 1,
@@ -847,7 +855,7 @@ curl -X GET
     },
     "products": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/products",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/19b3bb62-9807-11ee-0a81-07230000030e/products",
         "type": "productionstagecompletionresult",
         "mediaType": "application/json",
         "size": 1,
@@ -863,54 +871,51 @@ curl -X GET
 ]
 ```
 
-### Удалить Выполнение этапа производства
+### Delete Operation Report
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                             |
-| :------- |:-----------------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства |
+| Parameter | Description |
+| :------- |:----------------------------------------------------------------------------------------------------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID |
 
-> Запрос на удаление Выполнения этапа производства с указанным id.
+> Request to delete Operation Report with the specified ID.
 
 ```shell
 curl -X DELETE
-  "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
-Успешное удаление Выполнения этапа производства.
+Successfully removed Operation Report.
 
-### Массовое удаление Выполнений этапов производства
+### Bulk delete of Operation Reports
 
-В теле запроса нужно передать массив, содержащий JSON метаданных Выполнений этапов производства, которые вы хотите удалить.
+The request body must contain an array with the JSON metadata of the Operation Reports to be deleted. Deletion is performed in the specified order, so the execution of the last Production Operation must be placed before the executions of any dependent operations.
 
-Удаление происходит в указанном порядке. Поэтому выполнения последнего этапа должно располагаться до выполнений этапов, от которых оно зависит.
-
-
-> Запрос на массовое удаление Выполнений этапов производства.
+> Request for bulk deletion of Operation Reports.
 
 ```shell
 curl -X POST
-  "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/delete"
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/delete"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
   -H "Content-Type: application/json"
   -d '[
         {
             "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
                 "type": "productionstagecompletion",
                 "mediaType": "application/json",
               }
         },
         {
             "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000147",
-                "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000147",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
                 "type": "productionstagecompletion",
                 "mediaType": "application/json",
               }
@@ -918,64 +923,64 @@ curl -X POST
       ]'
 ```        
 
-> Успешный запрос. Результат - JSON информация об удалении Выполнений этапов производства.
+> Successful request. The result is JSON information about the removal of Operation Reports.
 
 ```json
 [
   {
-    "info":"Сущность 'productionstagecompletion' с UUID: 01ff6808-95de-11ee-0a81-072300000136 успешно удалена"
+    "info":"Entity 'productionstagecompletion' with UUID: 01ff6808-95de-11ee-0a81-072300000136 successfully deleted"
   },
   {
-    "info":"Сущность 'productionstagecompletion' с UUID: 01ff6808-95de-11ee-0a81-072300000147 успешно удалена"
+    "info":"Entity 'productionstagecompletion' with UUID: 01ff6808-95de-11ee-0a81-072300000147 successfully deleted"
   }
 ]
 ```
 
-### Получить Выполнение этапа производства
+### Get Operation Report
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                              |
-| :------- |:------------------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства. |
+| Parameter | Description |
+| :------- |:--------------------------------------------------------------------------------------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Reports ID. |
 
-> Запрос на получение отдельного Выполнения этапа производства с указанным id.
+> Request to get a single Operation Report with the specified ID.
 
 ```shell
 curl -X GET
-  "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление Выполнения этапа производства.
+Successful request. The result is a JSON representation of the Operation Report.
 
 ```json
 {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19",
-    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
   },
   "id": "7944ef04-f831-11e5-7a69-971500188b19",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
   "owner": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -987,15 +992,15 @@ curl -X GET
   "created": "2023-12-08 18:25:24.386",
   "productionStage": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/d15ec2e9-95dd-11ee-0a81-07230000011c",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/d15ec2e9-95dd-11ee-0a81-07230000011c",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
       "type": "productionstage",
       "mediaType": "application/json"
     }
   },
   "materials": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
       "type": "productionstagecompletionmaterial",
       "mediaType": "application/json",
       "size": 1,
@@ -1005,7 +1010,7 @@ curl -X GET
   },
   "products": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
       "type": "productionstagecompletionresult",
       "mediaType": "application/json",
       "size": 1,
@@ -1020,23 +1025,23 @@ curl -X GET
 }
 ```
 
-### Изменить Выполнение этапа производства
-Запрос на обновление Выполнения этапа производства с указанным id.
-При обновлении происходит автоматическое изменение даты старта производства, если дата старта производства позже даты выполнения этапа.
-В теле запроса необходимо указать те поля, которые необходимо изменить у Выполнения этапа производства, кроме тех,
-что помечены `Только для чтения` в описании атрибутов Выполнения этапа производства.
+### Change Operation Report
+Request to update the Operation Report with the specified ID.
+When updating, the production start date is automatically changed if the production start date is later than the operation execution date.
+In the request body, you must specify the fields that need to be changed in the Operation Report, except for those
+marked `Read-only` in the description of the Operation Report attributes.
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                              |
+| Parameter | Description |
 | :------- |:------------------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID. |
 
-> Пример запроса на обновление отдельного Выполнения этапа производства.
+> Example of a request to update a separate Operation Report.
 
 ```shell
   curl -X PUT
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -1047,33 +1052,33 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Выполнения этапа производства.
+Successful request. The result is a JSON representation of the updated Operation Report.
 
 ```json
 {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19",
-    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/metadata",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://online.moysklad.ru/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
   },
   "id": "01ff6808-95de-11ee-0a81-072300000136",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
   "owner": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a7354b1a-95dd-11ee-0a81-07230000004d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
   "group": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/group/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a67ef296-95dd-11ee-0a83-071a00000003",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
       "type": "group",
       "mediaType": "application/json"
     }
@@ -1085,15 +1090,15 @@ curl -X GET
   "created": "2023-12-08 18:25:24.386",
   "productionStage": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/d15ec2e9-95dd-11ee-0a81-07230000011c",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/productionstage/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstage/d15ec2e9-95dd-11ee-0a81-07230000011c",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstage/metadata",
       "type": "productionstage",
       "mediaType": "application/json"
     }
   },
   "materials": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/materials",
       "type": "productionstagecompletionmaterial",
       "mediaType": "application/json",
       "size": 1,
@@ -1103,7 +1108,7 @@ curl -X GET
   },
   "products": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/01ff6808-95de-11ee-0a81-072300000136/products",
       "type": "productionstagecompletionresult",
       "mediaType": "application/json",
       "size": 1,
@@ -1118,78 +1123,78 @@ curl -X GET
 }
 ```
 
-#### Материалы Выполнения этапа производства
-Материалы Выполнения этапа производства - это товары, модификации и серии, затраченные при выполнении этапа производства.
+#### Operation Report Raw Materials
+Raw Materials of Operation Report are the products, product variants and batches consumed during the execution of the Production operation.
 
-Объект материала Выполнения этапа производства содержит следующие поля:
+The material object of Operation Report contains the following fields:
 
-| Название             | Тип                                                      | Описание                                                                                                                                                                                                                                                      |
-| -------------------- |:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**        | UUID                                                     | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                                          |
-| **assortment**       | [Meta](../#kladana-json-api-general-info-metadata)| Метаданные товара/модификации/серии, которую представляет собой позиция<br>`+Обязательное при ответе` `+Expand`                                                                                                                                               |
-| **consumedQuantity** | Float                                                    | Количество товаров/модификаций данного вида в позиции. Если позиция - товар, у которого включен учет по серийным номерам, то значение в этом поле всегда будет равно количеству серийных номеров для данной позиции в документе<br>`+Обязательное при ответе` |
-| **id**               | UUID                                                     | ID позиции<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                                                 |
-| **things**           | Array(String)                                            | Серийные номера. Значение данного атрибута игнорируется, если товар позиции не находится на серийном учете. В ином случае количество товаров в позиции будет равно количеству серийных номеров, переданных в значении атрибута                                |
+| Name | Type | Description |
+| -------------------- |:----------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID | Account ID<br>`+Required if response` `+Read-only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of a product/product variant/batches that the item represents<br>`+Required if response` `+Expand` |
+| **consumedQuantity** | Float | The number of products/product variants of this type in item. If the position is a product that has accounting by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this position in the document<br>`+Required when responding` |
+| **id** | UUID | Item ID<br>`+Required when responding` `+Read-only` |
+| **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the product of the position is not accounted for by serial numbers. Otherwise, the number of products in the position will be equal to the number of serial numbers passed in the attribute value |
 
-#### Продукты Выполнения этапа производства
-Продукты Выполнения этапа производства - это товары, модификации и серии, созданные при выполнении этапа производства.
+#### Products of Operation Report
+Products of Operation Report are products, product variants, and batches created during the execution of the Production operation.
 
-Объект продукта Выполнения этапа производства содержит следующие поля:
+The product object of Operation Report contains the following fields:
 
-| Название             | Тип                                                      | Описание                                                                                                                                                                                                                                                      |
-| -------------------- |:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**        | UUID                                                     | ID учетной записи<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                                          |
-| **assortment**       | [Meta](../#kladana-json-api-general-info-metadata)| Метаданные товара/модификации/серии, которую представляет собой позиция<br>`+Обязательное при ответе` `+Expand`                                                                                                                                               |
-| **id**               | UUID                                                     | ID позиции<br>`+Обязательное при ответе` `+Только для чтения`                                                                                                                                                                                                 |
-| **producedQuantity** | Float                                                    | Количество товаров/модификаций данного вида в позиции. Если позиция - товар, у которого включен учет по серийным номерам, то значение в этом поле всегда будет равно количеству серийных номеров для данной позиции в документе<br>`+Обязательное при ответе` |
-| **things**           | Array(String)                                            | Серийные номера. Значение данного атрибута игнорируется, если товар позиции не находится на серийном учете. В ином случае количество товаров в позиции будет равно количеству серийных номеров, переданных в значении атрибута                                |
+| Name | Type | Description |
+| -------------------- |:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID | Account ID<br>`+Required if response is `+Read-only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the product/product variant/batches that the item represents<br>`+Required if response is `+Expand` |
+| **id** | UUID | Item ID<br>`+Required if response is `+Read-only` |
+| **producedQuantity** | Float | Quantity of products/product variants of this type in the item. If the item is a product that has serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document<br>`+Required when answering` |
+| **things** | Array(String) | Serial numbers. The value of this attribute it is ignored if the item is not accounted for by serial numbers. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value |
 
-### Материалы выполнения этапа производства
-Отдельный ресурс для управления Материалами выполнения этапа производства.
+### Operation Report Raw Materials
+A separate resource for managing Raw Materials of a Production operation.
 
-### Получить Материалы выполнения этапа производства
-Запрос на получение списка всех Материалов выполнения этапа производства.
+### Get Operation Report Raw Materials
+A request to get a list of all Operation Report Raw Materials.
 
-| Название    | Тип                                                       | Описание                                                                           |
+| Name | Type | Description |
 | ----------- | :-------------------------------------------------------- |:-----------------------------------------------------------------------------------|
-| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Метаданные о выдаче                                                                |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Метаданные о сотруднике, выполнившем запрос                                        |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Материалы выполнения этапа производства |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who performed the request |
+| **rows** | Array(Object) | JSON array of objects representing Operation Report Raw Materials |
 
-**Параметры**
+**Parameters**
 
-| Параметр   | Описание                                                                                                                              |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства                                  |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000` |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей                                                 |
+| Parameter | Description |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000` |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities |
 
-> Запрос на получение списка всех Материалов данного Выполнения этапа производства
+> Request to get a list of all Raw Materials of a Operation Report
 
 ```shell
 curl -X GET
-  "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка продуктов Выполнения этапа производства.
+Successful request. The result is a JSON representation of the list of products of Operation Report.
 
 ```json
 {
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/",
     "type": "productionstagecompletionmaterial",
     "mediaType": "application/json",
     "size": 1,
@@ -1199,7 +1204,7 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
         "type": "productionstagecompletionmaterial",
         "mediaType": "application/json"
       },
@@ -1208,11 +1213,11 @@ curl -X GET
       "consumedQuantity": 5.0,
       "assortment": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+          "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
         }
       }
     }
@@ -1220,27 +1225,27 @@ curl -X GET
 }
 ```
 
-### Добавить Материал выполнения этапа производства
-Запрос на добавление Материала к выполненному этапу производства.
-Для товаров с серийным учётом, поле `consumedQuantity` автоматически изменяется на количество переданных в поле `things` серийных номеров.
+### Add Raw Material of Operation Report
+Request to add Raw Material to the Operation Report.
+For products with serial numbers, the `consumedQuantity` field is automatically changed to the quantity of serial numbers passed in the `things` field.
 
-Для успешного создания необходимо в теле запроса указать следующие поля:
+For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Ссылка на товар/модификацию/серию, которую представляет собой материал.
-+ **consumedQuantity** - количество товара (игнорируется, если передано поле `things`)
-+ **things** - серийные номера (только для товаров с серийным учетом)
++ **assortment** - Link to the product/product variant/batches that the material represents.
++ **consumedQuantity** - quantity of the product (ignored if the `things` field is passed)
++ **things** - serial numbers (only for products with serial numbers)
 
-**Параметры**
+**Parameters**
 
-| Параметр | Описание                                                                                             |
-| :------- |:-----------------------------------------------------------------------------------------------------|
-| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства |
+| Parameter | Description |
+| :------- |:----------------------------------------------------------------------------------------------------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID |
 
-> Пример запроса на добавление Материала Выполнения этапа производства.
+> Example of request to add Raw Material of Operation Report.
 
 ```shell
   curl -X POST
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -1248,19 +1253,19 @@ curl -X GET
             "consumedQuantity": 2,
             "assortment": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
               }
             }
           }
       '  
 ```
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление добавленного материала
+Successful request. The result is a JSON representation of the added material.
 
 ```json
     {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionmaterial",
     "mediaType": "application/json"
   },
@@ -1269,28 +1274,28 @@ curl -X GET
   "consumedQuantity": 2.0,
   "assortment": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   }
 }
 ```
 
-> Пример запроса на добавление материала Выполнения этапа производства с учётом серийных номеров.
+> Example of a request to add Raw Material of Operation Report taking into account serial numbers.
 
 ```shell
   curl -X POST
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
       -d '{
             "assortment": {
               "meta": {
-                "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
               }
             },
             "things": ["F564X056", "F564X057"]
@@ -1298,12 +1303,12 @@ curl -X GET
       '  
 ```
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление добавленного материала
+Successful request. The result is a JSON representation of the added material.
 
 ```json
     {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionmaterial",
     "mediaType": "application/json"
   },
@@ -1312,33 +1317,33 @@ curl -X GET
   "consumedQuantity": 2.0,
   "assortment": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     },
     "things": ["F564X056", "F564X057"]
   }
 }
 ```
 
-### Изменить Материал выполнения этапа производства
-Запрос на обновление отдельного Материала выполнения этапа производства.
-Для товаров с серийным учётом, поле `consumedQuantity` автоматически изменяется на количество переданных в поле `things` серийных номеров.
+### Change Raw Material of Operation Report
+Request to update a single Raw Material of Operation Report.
+For items with serial numbers, the `consumedQuantity` field is automatically updated to the quantity of serial numbers passed in the `things` field.
 
-**Параметры**
+**Parameters**
 
-| Параметр       | Описание                                                                                                       |
-| :------------- |:---------------------------------------------------------------------------------------------------------------|
-| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства           |
-| **materialID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* id Материала выполнения этапа производства |
+| Parameter | Description |
+| :------------- |:----------------------------------------------------------------------------------------------------------------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **materialID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* ID of the Operation Report Raw Material |
 
-> Пример запроса на обновление количества отдельного Материала выполнения этапа производства.
+> Example of a request to update the quantity of a single Raw Material of an Operation Report.
 
 ```shell
   curl -X PUT
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -1349,12 +1354,12 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного материала.
+Successful request. The result is a JSON representation of the updated material.
 
 ```json
     {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionmaterial",
     "mediaType": "application/json"
   },
@@ -1363,21 +1368,21 @@ curl -X GET
   "consumedQuantity": 3.0,
   "assortment": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   }
 }
 ```
 
-> Пример запроса на обновление серийных номеров отдельного Материала выполнения этапа производства.
+> Example of a request to update serial numbers of a single Raw Material of an Operation Report.
 
 ```shell
   curl -X PUT
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -1388,12 +1393,12 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного продукта.
+Successful request. The result is a JSON representation of the updated product.
 
 ```json
 {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionresult",
     "mediaType": "application/json"
   },
@@ -1402,63 +1407,63 @@ curl -X GET
   "consumedQuantity": 2,
   "assortment": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/materials/9656117b-b717-11ec-0с80-0bba0006dcde",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/materials/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/materials/9656117b-b717-11ec-0c80-0bba0006dcde",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/materials/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   },
   "things": ["F564X056", "F564X057"]
 }
 ```
 
-### Продукты выполнения этапа производства
-Отдельный ресурс для управления Продуктами выполнения этапа производства.
+### Operation Report Products
+A separate resource for managing Operation Report Products.
 
-### Получить Продукты выполнения этапа производства
-Запрос на получение списка всех Продуктов выполнения этапа производства.
+### Get Operation Report Products
+A request to get a list of all Operation Report Products.
 
-| Название    | Тип                                                       | Описание                                                                          |
+| Name | Type | Description |
 | ----------- | :-------------------------------------------------------- |:----------------------------------------------------------------------------------|
-| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Метаданные о выдаче                                                               |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Метаданные о сотруднике, выполнившем запрос                                       |
-| **rows**    | Array(Object)                                             | Массив JSON объектов, представляющих собой Продукты выполнения этапа производства |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who performed the request |
+| **rows** | Array(Object) | Array of JSON objects representing Operation Report Products |
 
-**Параметры**
+**Parameters**
 
-| Параметр   | Описание                                                                                                                              |
+| Parameter | Description |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства                                  |
-| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Максимальное количество сущностей для извлечения.`Допустимые значения 1 - 1000` |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Отступ в выдаваемом списке сущностей                                                 |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Possible values ​​are 1 - 1000` |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities |
 
-> Запрос на получение списка всех Продуктов данного выполнения этапа производства
+> Request to get a list of all Products of this Operation Report
 
 ```shell
 curl -X GET
-  "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/"
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка Продуктов выполнения этапа производства.
+Successful request. The result is a JSON representation of the list of Products of Operation Report.
 
 ```json
 {
   "context": {
     "employee": {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/context/employee",
-        "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/employee/metadata",
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json"
       }
     }
   },
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/",
     "type": "productionstagecompletionresult",
     "mediaType": "application/json",
     "size": 1,
@@ -1468,7 +1473,7 @@ curl -X GET
   "rows": [
     {
       "meta": {
-        "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
         "type": "productionstagecompletionresult",
         "mediaType": "application/json"
       },
@@ -1477,11 +1482,11 @@ curl -X GET
       "producedQuantity": 0.7,
       "assortment": {
         "meta": {
-          "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-          "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+          "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
         }
       }
     }
@@ -1489,23 +1494,23 @@ curl -X GET
 }
 ```
 
-### Изменить Продукт выполнения этапа производства
-Запрос на обновление отдельного Продукта выполнения этапа производства.
-Изменять товар / модификацию нельзя, но можно изменить серию товара.
-Для товаров с серийным учётом, поле `producedQuantity` автоматически изменяется на количество переданных в поле `things` серийных номеров.
+### Change Product of Operation Report
+Request to update a single Product of Operation Report.
+You cannot change a product/product variant, but you can change the product batch.
+For products with by serial numbers, the `producedQuantity` field is automatically changed to the quantity of serial numbers passed in the `things` field.
 
-**Параметры**
+**Parameters**
 
-| Параметр      | Описание                                                                                                      |
-| :------------ |:--------------------------------------------------------------------------------------------------------------|
-| **id**        | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id Выполнения этапа производства          |
-| **productID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* id Продукта выполнения этапа производства |
+| Parameter | Description |
+| :------------ |:---------------------------------------------------------------------------------------------------------------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **productID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* iID of a product of Operation Report |
 
-> Пример запроса на обновление количества отдельного Продукта выполнения этапа производства.
+> Example of a request to update the quantity of a single Product of Operation Report.
 
 ```shell
   curl -X PUT
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -1516,12 +1521,12 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Продукта выполнения этапа производства.
+Successful request. Result is a JSON representation of the updated Product of Operation Report.
 
 ```json
     {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionresult",
     "mediaType": "application/json"
   },
@@ -1530,21 +1535,21 @@ curl -X GET
   "producedQuantity": 2.7,
   "assortment": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   }
 }
 ```
 
-> Пример запроса на обновление серийных номеров отдельного Продукта выполнения этапа производства.
+> An example of a request to update serial numbers of a specific Operation Report Product.
 
 ```shell
   curl -X PUT
-    "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c"
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
     -H "Content-Type: application/json"
@@ -1555,12 +1560,12 @@ curl -X GET
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление обновленного Продукта выполнения этапа производства.
+Successful request. The result is a JSON representation of the updated Product of Operation Report.
 
 ```json
 {
   "meta": {
-    "href": "https://api.moysklad.ru/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionresult",
     "mediaType": "application/json"
   },
@@ -1569,11 +1574,11 @@ curl -X GET
   "producedQuantity": 2,
   "assortment": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/product/9656117b-b717-11ec-0с80-0bba0006dcde",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/9656117b-b717-11ec-0c80-0bba0006dcde",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   },
   "things": ["F564X056", "F564X057"]
