@@ -886,7 +886,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **processingStage** | base | All ALL | Stages of production |
 | **processingProcess** | base | All ALL | Routing |
 | **productionTask**   | OPERATION | All ALL  | Production Orders              |
-| **productionStageCompletion** | DICTIONARY  | All ALL  | Process Tracking |
+| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report|
 | **project** | base | All ALL | Projects |
 | **purchaseOrder** | OPERATION | All ALL | Order to suppliers |
 | **purchaseReturn** | OPERATION | All ALL | Return to supplier |

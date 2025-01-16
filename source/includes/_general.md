@@ -251,7 +251,7 @@ List of entities with additional fields:
   - [Supplier Invoice](documents/#transactions-supplier-invoice)
   - [Internal Order](documents/#transactions-internal-order)
   - [Production Order](documents/#transactions-production-order)
-  - [Process Tracking](documents/#transactions-process-tracking)
+  - [Operation Report](documents/#transactions-operatio-report)
 
 
 You can view all the additional fields that have been created using a request to get entity metadata.
