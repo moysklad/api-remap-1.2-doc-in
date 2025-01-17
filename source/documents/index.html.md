@@ -23,6 +23,7 @@ includes:
   - documents/print
   - documents/processingorder
   - documents/productionStage
+  - documents/productionStageCompletion
   - documents/publication
   - documents/purchaseOrder
   - documents/purchase_return
