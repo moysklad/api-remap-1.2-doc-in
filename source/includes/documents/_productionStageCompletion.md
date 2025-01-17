@@ -23,7 +23,7 @@ If production has not started for a Production Order, attempts to create an Oper
 | **id** | UUID | | Operation Report ID<br>`+Required when responding` `+Read-only` |
 | **labourUnitCost** | Double | | Labor cost per unit of production<br>`+Required when responding` |
 | **standardHourUnit** | Double | | Standard Hours of a production unit<br>`+Required when responding` |
-| **materials** | MetaArray | | Metadata of Operation Report Raw materials [Learn more](#dokumenty-vypolnenie-atapa-proizwodstwa-materialy-wypolneniq-atapa-proizwodstwa)<br>`+Expand` |
+| **materials** | MetaArray | | Metadata of Operation Report Raw materials [Learn more](#transactions-production-order-raw-materials-of-operation-report)<br>`+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Operation Report Metadata <br>`+Required in response` `+Read-only` |
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required in response` |
 | **name** | String(255) | | Operation Report Title<br>`+Required in response` |
@@ -32,7 +32,7 @@ If production has not started for a Production Order, attempts to create an Oper
 | **processingUnitCost** | Double | | Cost per unit of production volume<br>`+Required in response` |
 | **productionStage** | [Meta](../#kladana-json-api-general-info-metadata) | | [Production operation](#transactions-production-order-production-operations)<br>`+Expand` `+Cannot be changed after creation` |
 | **productionVolume** | Double | | Production Volume<br>`+Required when answering` |
-| **products** | MetaArray | | Metadata of Products of Operation Report. Only available for last operation. [Learn more](#dokumenty-vypolnenie-atapa-proizwodstwa-produkty-wypolneniq-atapa-proizwodstwa)<br>`+Expand` |
+| **products** | MetaArray | | Metadata of Products of Operation Report. Only available for last operation. [Learn more](#transactions-production-order-products-of-operation-report)<br>`+Expand` |
 | **shared** | Boolean | | Public access<br>`+Required when answering` |
 | **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when answering` `+Read-only` |
 
