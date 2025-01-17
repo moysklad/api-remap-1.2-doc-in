@@ -1,6 +1,6 @@
 ## Entity
 Using the JSON API, you can create and update information about legal entities, request lists of legal entities and information on individual legal entities. With the help of a special resource, you can manage the accounts of a separate legal entity. The entity code for a legal entity in the JSON API is the **organization** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 Search among objects of legal entities to match the search string will be carried out in the following fields:
 
@@ -17,12 +17,12 @@ Search among objects of legal entities to match the search string will be carrie
 |----------------------------|----------------------------------------------------| -------- | ------- |
 | **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
-| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address) |
+| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address) |
 | **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
 | **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
 | **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code |
-| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
+| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
 | **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
 | **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
 | **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
@@ -45,11 +45,11 @@ Search among objects of legal entities to match the search string will be carrie
 | **attributes**        | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional fields of a legal entity |
 | **certificatedate**   | DateTime      | | Date of certificate |
 | **certificateNumber** | String(255)   | | Certificate number |
-| **ChiefAccountSign**  | Object        | | Signature of the chief accountant. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **ChiefAccountSign**  | Object        | | Signature of the chief accountant. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **ChiefAccountant**   | String(255)   | | Chief accountant |
 | **director**          | String(255)   || Head |
 | **directorPosition**  | String(255)   | | Head position |
-| **directorSign**      | Object        | | Leader's signature. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **directorSign**      | Object        | | Leader's signature. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **email**             | String(255)   | `=` `!=` `~` `~=` `=~` | Email address |
 | **fax**               | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number |
 | **fsrarId**           | String(255)   | | Identifier in FSRAR |
@@ -67,7 +67,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **okpo**              | String(255)   | | OKPO |
 | **payerVat**          | Boolean       | | Is this legal entity a VAT payer |
 | **phone**             | String(255)   | `=` `!=` `~` `~=` `=~` | City phone number |
-| **stamp**             | Object        | | Seal. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **stamp**             | Object        | | Seal. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **utmUrl**            | String(255)   | | UTM IP address |
 
 #### Nested entity attributes
@@ -86,7 +86,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
-When transferring entities with an address to MySklad, use either a string address or a structured one.
+When transferring entities with an address to Kladana, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
@@ -153,9 +153,9 @@ If the legal entity type is `Individual Entrepreneur`, the following fields of d
 | **inn**               | TIN |
 | **legalAddress**      | Legal address of a legal entity |
 | **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalFirstName**    | Name for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
+| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
+| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of the `[Legal entity]` type |
 | **legalTitle**        | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
 | **ogrnip**            | OGRNIP |
 | **okpo**              | OKPO |
@@ -167,9 +167,9 @@ If the legal entity type is `Individual`, the following fields of details will b
 | Title               | Description|
 |---------------------|----------|
 | **legalTitle**      | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
-| **legalLastName**   | Surnamefor a Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalFirstName**  | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
+| **legalLastName**   | Surnamefor a Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
+| **legalFirstName**  | Name for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of the `[Legal entity]` type |
+| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Counterparties of type `[Legal entity]` |
 | **legalAddress**    | Legal address of a legal entity |
 | **inn**             | TIN |
 
@@ -181,8 +181,8 @@ Request to get a list of legal entities on this account.
 
 | Title | Type | Description|
 | ---------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing a legal entity. |
 
 **Parameters**
@@ -1867,7 +1867,7 @@ Fields that were not specified in the request JSON are not changed.
                 "id": "d9560d0e-6703-11e7-9464-e4de00000052",
                 "isDefault": false,
                 "accountNumber": "1234567876543",
-                "bankName": "JSC Sberbank",
+                "bankName": "Bank",
                 "bankLocation": "Moscow",
                 "correspondentAccount": "123141242451",
                 "bic": "21412hhhh4"
@@ -1875,7 +1875,7 @@ Fields that were not specified in the request JSON are not changed.
             {
                 "isDefault": false,
                 "accountNumber": "1234567876543",
-                "bankName": "JSC BANK",
+                "bankName": "Bank",
                 "bankLocation": "Moscow",
                 "correspondentAccount": "123141242451",
                 "bic": "21412555554"
@@ -1899,7 +1899,7 @@ Successful request.
      "updated": "2017-07-12 16:13:08",
      "isDefault": true,
      "accountNumber": "1234567876543",
-     "bankName": "JSC Sberbank",
+     "bankName": "Bank",
      "bankLocation": "Moscow",
      "correspondentAccount": "123141242451",
      "bic": "21412hhhh4"
@@ -1915,7 +1915,7 @@ Successful request.
      "updated": "2017-10-25 13:31:00",
      "isDefault": false,
      "accountNumber": "1234567876543",
-     "bankName": "JSC BANK",
+     "bankName": "Bank",
      "bankLocation": "Moscow",
      "correspondentAccount": "123141242451",
      "bic": "21412555554"

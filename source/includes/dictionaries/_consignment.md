@@ -1,52 +1,53 @@
-## Series
-### Series
+## Batch
+### Batch
 
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
-The search among the objects of the Series for matching the search string will be carried out using the following fields:
+The search among the objects of the batches for matching the search string will be carried out using the following fields:
 
-+ by Series name **name**
-+ according to the description Series **description**
++ by batch name **name**
++ according to the batch description **description**
 
 #### Entity attributes
 
 | Title | Type | Filtration | Description |
 | ------| ------ | ------ | ------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or modification metadata<br>`+Required when responding` `+Required when creating` |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Series barcodes |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Series Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Series Description |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Series Code<br>`+Required when replying` |
-| **id** | UUID | `=` `!=` | Series ID<br>`+Required for response` `+Read only` |
-| **images** | [Meta](../#kladana-json-api-general-info-metadata) | | Image of the product to which this series belongs |
-| **label** | String(255) | | Series Label<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Series Metadata<br>`+Required when replying`|
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Series. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
+| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or product variant metadata<br>`+Required when responding` `+Required when creating` |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Batches barcodes |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Batches Code |
+| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Batches Description |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Batches Code<br>`+Required when replying` |
+| **id** | UUID | `=` `!=` | Batch ID<br>`+Required for response` `+Read only` |
+| **images** | [Meta](../#kladana-json-api-general-info-metadata) | | Image of the product to which this batch belongs |
+| **label** | String(255) | | Batch Label<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Batches Metadata<br>`+Required when replying`|
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Nested entity attributes
-##### Series Metadata
+##### Batch Metadata
 
-You can view all the characteristics of the Series created in the main interface using the request for obtaining the metadata of the Series.
+You can view all the characteristics of the batches created in the main interface using the request for obtaining the metadata of the batches.
+
 The response is an object, with the following structure:
 
 | Title | Type | Description |
 | ------ | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Series Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Batches Metadata<br>`+Required when replying` |
 | **attributes** | Array(Object) | Collection of additional fields |
 
-### Get a list of Series
+### Get a list of Batches
 
-Request to get a list of all custom Series on this account.
-<u>Series will not be displayed by default.</u>
-The result of a successful request is a JSON representation of a list of Series with the following fields:
+Request to get a list of all custom batches on this account.
+<u>Batches will not be displayed by default.</u>
+The result of a successful request is a JSON representation of a list of batches with the following fields:
 
 | Title | Type | Description |
 | ------ | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the series. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the batches. |
 
 **Parameters**
 
@@ -55,7 +56,7 @@ The result of a successful request is a JSON representation of a list of Series 
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Get List of Series
+> Get List of Batches
 
 ```shell
 curl -X GET
@@ -65,7 +66,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of custom Series.
+Successful request. The result is a JSON representation of a list of custom batches.
 
 ```json
 {
@@ -137,12 +138,11 @@ Successful request. The result is a JSON representation of a list of custom Seri
 }
 ```
 
-### Create Series
+### Create Batches
 
-Request to create a new series. To successfully create a series, the fields must be passed
-**label** and **assortment**.
+Request to create a new batch. To successfully create a batch, the fields must be passed **label** and **assortment**.
 
-> An example of creating a new series.
+> An example of creating a new batch.
 
 ```shell
    curl -X POST
@@ -175,7 +175,7 @@ Request to create a new series. To successfully create a series, the fields must
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the created series.
+Successful request. The result is a JSON representation of the created batches.
 
 ```json
 {
@@ -214,15 +214,15 @@ Successful request. The result is a JSON representation of the created series.
 ```
 
 
-### Delete series
+### Delete Batches
 
 **Parameters**
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Series id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Batch ID. |
 
-> Request to delete Series with specified id.
+> Request to delete Batches with specified ID.
 
 ```shell
 curl -X DELETE
@@ -232,14 +232,14 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful deletion of the Series.
+Successful deletion of the Batches.
 
-### Series bulk delete
+### Batches bulk delete
 
-In the body of the request, you need to pass an array containing the JSON metadata of the Series you want to delete.
+In the body of the request, you need to pass an array containing the JSON metadata of the batches you want to delete.
 
 
-> Request for bulk deletion of Series.
+> Request for bulk deletion of batches.
 
 ```shell
 curl -X POST
@@ -267,7 +267,7 @@ curl -X POST
       ]'
 ```
 
-> Successful request. The result is JSON information about the deletion of the Series.
+> Successful request. The result is JSON information about the deletion of the batches.
 
 ```json
 [
@@ -280,13 +280,14 @@ curl -X POST
 ]
 ```
 
-### Series bulk creating and update
+### Batches bulk creating and update
 
-[Series bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
-In the body of the request, you need to pass an array containing the JSON representation of the Series you want to create or update.
-Updated Series must contain the identifier in the form of metadata.
+[Batches bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+In the body of the request, you need to pass an array containing the JSON representation of the batches you want to create or update.
 
-> Example of creating and updating multiple Series
+Updated batches must contain the identifier in the form of metadata.
+
+> Example of creating and updating multiple batches
 
 ```shell
    curl -X POST
@@ -325,7 +326,7 @@ Updated Series must contain the identifier in the form of metadata.
                },
                "code": "ke21k421c1o42n4signment12",
                "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",
-               "description": "It is better to track product series with this name",
+               "description": "It is better to track product batches with this name",
                "label": "Strange Goods",
                "barcodes": [
                  {
@@ -351,7 +352,7 @@ Updated Series must contain the identifier in the form of metadata.
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON array of representations of the created and updated Series.
+Successful request. The result is a JSON array of representations of the created and updated batches.
 
 ```json
 [
@@ -399,7 +400,7 @@ Successful request. The result is a JSON array of representations of the created
      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
      "updated": "2016-07-26 12:05:25",
      "name": "fatsfatsfvf (obkhets) / Strange goods",
-     "description": "It's better to track product series with this name",
+     "description": "It's better to track product batches with this name",
      "code": "ke21k421c1o42n4signment12",
      "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",
      "label": "Strange Goods",
@@ -426,10 +427,10 @@ Successful request. The result is a JSON array of representations of the created
 ]
 ```
 
-### Series Metadata
-#### Series Metadata
+### Batch Metadata
+#### Batch Metadata
 
-Request for Series metadata. The result is a JSON object including:
+Request for batch metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | ------ | ------- |---------- |
@@ -438,7 +439,7 @@ Request for Series metadata. The result is a JSON object including:
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
-> Get series metadata
+> Get batch metadata
 
 ```shell
 curl -X GET
@@ -448,7 +449,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the series metadata.
+Successful request. The result is a JSON representation of the batches metadata.
 
 ```json
 {
@@ -521,18 +522,18 @@ Successful request. The result is a JSON representation of a separate additional
 ```
 
 
-### Series
+### Batches
 
 
 **Parameters**
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Series id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Batch ID |
 
-### Get series
+### Get Batches
  
-> Request to get a Series with the specified id.
+> Request to get a batch with the specified ID.
 
 ```shell
 curl -X GET
@@ -542,7 +543,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the custom Series.
+Successful request. The result is a JSON representation of the custom batches.
 
 ```json
 {
@@ -591,17 +592,17 @@ Successful request. The result is a JSON representation of the custom Series.
 }
 ```
 
-### Change series
+### Change Batches
  
   **Parameters**
  
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Series id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Batch ID. |
 
-Series update request. You can only update fields that are not marked `Read Only`
+Batches update request. You can only update fields that are not marked `Read Only`
 
-> An example of a series update request.
+> An example of a batch update request.
 
 ```shell
    curl -X PUT
@@ -611,7 +612,7 @@ Series update request. You can only update fields that are not marked `Read Only
        -d '{
              "code": "ke21k421c1o42n4signment12",
              "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",
-             "description": "It is better to track product series with this name",
+             "description": "It is better to track product batch with this name",
              "label": "Strange Goods",
              "barcodes": [
                {
@@ -636,7 +637,7 @@ Series update request. You can only update fields that are not marked `Read Only
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the updated series.
+Successful request. The result is a JSON representation of the updated batches.
 
 ```json
 {
@@ -650,7 +651,7 @@ Successful request. The result is a JSON representation of the updated series.
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
    "updated": "2016-07-26 12:05:25",
    "name": "fatsfatsfvf (obkhets) / Strange goods",
-   "description": "It's better to track product series with this name",
+   "description": "It's better to track product batches with this name",
    "code": "ke21k421c1o42n4signment12",
    "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",
    "label": "Strange Goods",

@@ -15,7 +15,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 19-11-2024
 #### Added
-- Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
+- Field `salesMargin` added in [Profit Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profit-report)
 
 ### 29-10-2024
 #### Added
@@ -23,7 +23,24 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 22-07-2024
 #### Added
-- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
+- The ability to specify multiple warehouses in the [Stock Movement Report](../reports/#reports-stock-movement-report)
+
+### 16-07-2024
+#### Added
+- Added description of getting a link to [image](../dictionaries/#entities-image-get-a-link-to-the-image-of-product-product-variant-bundle)
+
+### 12-07-2024
+#### Added
+- New [Report on product range documents](../reports/#reports-report-on-product-range-documents)
+
+### 01-07-2024
+#### Changed
+- Added viewProductCostAndProfit permission to the list of [employee request context] permissions (../#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika)
+
+### 26-06-2024
+#### Added
+- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations).
+- Condition for automatically disabling a webhook in [Limitations](../#kladana-json-api-limitations).
 
 ### 24-06-2024
 #### Added

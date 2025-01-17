@@ -5,8 +5,8 @@ Using the JSON API, you can create and update information about Receivings, quer
 ### Receivings
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-|-------|----| -------- |--------|
+| Title    | Type   | Filtration | Description |
+| -------- | ------ | ---------- | ----------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
@@ -28,31 +28,31 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of Receiving<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider`|
-| **overhead** | Object | | Overheads. [More details here](../documents/#transactions-receiving-receivings-overhead). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **overhead** | Object | | Overhead expenses. [Learn more](../documents/#transactions-receiving-receivings-overhead-expenses). If no Receiving Items are set, then Write-offs cannot be set<br>`+Update-provider` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float | | Amount of incoming payments on Receiving<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray | | Receiving item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Receiving Status Metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler`|
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Receiving amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler`|
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Receiving last updated time<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatIncluded** | Boolean | | Is VAT included in the price<br>`+Change-handler` `+Update-provider` |
 | **vatSum** | Float | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
-#### Overhead
-Description of overhead fields
+#### Overhead expenses
+Description of overhead expenses fields
 
 | Title | Type | Description |
 | ---------------- | --- | ------ |
-| **sum** | Int | Amount in rupees<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead allocation `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider`|
+| **sum** | Int | Amount in paise<br>`+Required when replying` `+Update-provider` |
+| **distribution** | Enum | Overhead expenses allocation `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider`|
 
 #### Links to other documents
 
@@ -64,23 +64,23 @@ Description of overhead fields
 | **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Receiving Items
-Receiving Items is a list of goods/services/modifications/series.
+Receiving Items is a list of goods/services/product variants/batches.
 The Receiving item object contains the following fields:
 
-| Title | Type                                               | Description |
-| -------- |----------------------------------------------------|-------- |
+| Title    | Type    | Description |
+| -------- | ------- |------------ |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batch/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **quantity** | Float                                                | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
-| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [More details here](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
-| **overhead** | Int                                                | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
+| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [Learn more](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required in response` `+Read Only` |
 | **vat** | Boolean                                            | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
@@ -137,8 +137,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | -------- | --------|---------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Receivings. |
 
 **Parameters**
@@ -1808,7 +1808,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -1902,7 +1902,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -2025,7 +2025,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/supply/f106723d-3f66-11e6-8a84-bae500000037/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -2078,7 +2078,7 @@ Successful request. The result is a JSON representation of the prefilled Receivi
 
 | Parameter | Description |
 | -------- | --------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2503,8 +2503,8 @@ Request for a list of all items in the Receiving.
 
 | Title | Type | Description |
 | -------- | --------|-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Receiving items. |
 
 **Parameters**
@@ -2801,12 +2801,62 @@ Successful request. The result is a JSON representation of a list of individual 
 }
 ```
 
-### Create a Receiving Item
+### Receiving Item
+ 
+### Get Item
+
+**Parameters**
+
+| Parameter | Description |
+| -------- | --------|
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Receiving ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Receiving item ID. |
+ 
+> Request to get a separate Receiving item with the specified ID.
+
+```shell
+curl -X GET
+   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+   -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a single Receiving item.
+
+```json
+{
+   "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+     "type": "supplyposition",
+     "mediaType": "application/json"
+   },
+   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "quantity": 1241,
+   "price": 0.0,
+   "discount": 0,
+   "vat": 0,
+   "vatEnabled": false,
+   "assortment": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+     }
+   },
+   "overhead": 0
+}
+```
+
+### Create Item
 
 Request to create a new item in Receiving.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the products, services, batches, product variants that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-receivings-receiving-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -3170,56 +3220,6 @@ Successful request. The result is a JSON representation of the created posea sep
 ]
 ```
 
-### Delivery Item
- 
-### Get Item
-
-**Parameters**
-
-| Parameter | Description |
-| -------- | --------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Receiving id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Receiving item id. |
- 
-> Request to get a separate Receiving item with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a single Receiving item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "type": "supplyposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   "quantity": 1241,
-   "price": 0.0,
-   "discount": 0,
-   "vat": 0,
-   "vatEnabled": false,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/328b0454-2e62-11e6-8a84-bae500000118",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
-     }
-   },
-   "overhead": 0
-}
-```
-
 ### Change Item
 
 Request to update an individual Receiving item. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
@@ -3295,10 +3295,10 @@ Successful request. The result is a JSON representation of the updated Receiving
 
 | Parameter | Description |
 | -------- | --------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Receiving id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Receiving item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Receiving ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Receiving item ID. |
  
-> Request to delete a separate Receiving item with the specified id.
+> Request to delete a separate Receiving item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -3309,3 +3309,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Receiving item.
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| -------- | --------|
+| **id**   | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Receiving ID. |
+
+> Request for bulk deletion of Receiving items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/supply/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/supply/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "supplyposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/supply/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "supplyposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of Receiving items. 
