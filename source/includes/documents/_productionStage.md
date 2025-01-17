@@ -19,7 +19,7 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required in response` |
 | **materialStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the raw material warehouse<br>`+Read-only` |
 | **orderingPosition** | Int | | Production Operation Index in a Production Order item<br>`+Required in response` `+Read-only` |
-| **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operation)<br>`+Expand` `+Required when answering` `+Read-only` |
+| **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operations)<br>`+Expand` `+Required when answering` `+Read-only` |
 | **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when answering` `+Read-only` |
 | **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
 | **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |

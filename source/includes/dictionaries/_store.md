@@ -1807,7 +1807,7 @@ Access to the bins of the warehouse is carried out if you have the right to see 
 | **name** | String(255)                                        | | Bin Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | DateTime                                           | | Bin Last Update<br>`+Required when replying` `+Read Only` |
 | **barcode**   | String(255)  |  | Bin barcode  |
-| **zone** | Meta                                               | | Bin location. [Learn more](../dictionaries/#entities-warehouse-warehouse-areas)<br>`+Read-only` `+Expand` |
+| **zone** | Meta                                               | | Bin location. [Learn more](../dictionaries/#entities-warehouse-warehouse-locations)<br>`+Read-only` `+Expand` |
 
 ### Get Warehouse Bins
 Get a list of all Warehouse Bins.
