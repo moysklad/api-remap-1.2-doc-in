@@ -2516,7 +2516,6 @@ Successful request. The result is a JSON representation of a list of individual 
 }
 ```
 
-### Create a Sales Order Item
 ### Sales Order Item
 A separate Sales Order item with the specified item ID.
 
@@ -2544,7 +2543,7 @@ Successful request. Result is JSON representation of an individual Sales Order i
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
     "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/customerorder/metadata",
     "type": "customerorderposition",
     "mediaType": "application/json"
@@ -2558,7 +2557,7 @@ Successful request. Result is JSON representation of an individual Sales Order i
   "vatEnabled": true,
   "assortment": {
     "meta": {
-      "href": "https://app.kladana.com/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
       "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
@@ -2847,7 +2846,7 @@ successful request. The result is a JSON representation of the updated item in t
 }
 ```
 
-### Delete item
+### Delete Item
 
 **Parameters**
 

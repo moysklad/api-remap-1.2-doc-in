@@ -31,10 +31,10 @@ If production has not started for a Production Order, attempts to create an Oper
 | **performer** | [Meta](../#kladana-json-api-general-info-metadata) | | Performer (Employee)<br>`+Expand` |
 | **processingUnitCost** | Double | | Cost per unit of production volume<br>`+Required in response` |
 | **productionStage** | [Meta](../#kladana-json-api-general-info-metadata) | | [Production operation](#transactions-production-order-production-operations)<br>`+Expand` `+Cannot be changed after creation` |
-| **productionVolume** | Double | | Production Volume<br>`+Required when answering` |
+| **productionVolume** | Double | | Production Volume<br>`+Required when replying` |
 | **products** | MetaArray | | Metadata of Products of Operation Report. Only available for last operation. [Learn more](#transactions-operation-report-change-operation-report-products-of-operation-report)<br>`+Expand` |
-| **shared** | Boolean | | Public access<br>`+Required when answering` |
-| **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when answering` `+Read-only` |
+| **shared** | Boolean | | Public access<br>`+Required when replying` |
+| **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when replying` `+Read-only` |
 
 The entity has restrictions on expand: expand of nested fields is not available for the **productionStage.productionRow** field.
 
@@ -42,7 +42,7 @@ The entity has restrictions on expand: expand of nested fields is not available 
 A request for Operation Reports on an account.
 
 When getting a list of Operation Reports, you can pass a filter for a specific Production Order:
-`filter=productionTask=https://api.moysklad.ru/api/remap/1.2/entity/productionTask/&lt;id>`.
+`filter=productionTask=https://api.kladana.com/api/remap/1.2/entity/productionTask/&lt;id>`.
 
 Result: JSON object, including the following fields:
 
@@ -99,7 +99,7 @@ Successful request. The result is a JSON representation of a list of Operation R
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+        "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
       },
       "id": "01ff6808-95de-11ee-0a81-072300000136",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -109,7 +109,7 @@ Successful request. The result is a JSON representation of a list of Operation R
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
@@ -132,7 +132,7 @@ Successful request. The result is a JSON representation of a list of Operation R
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=50f4a244-9a95-11ee-0a83-05c8000005af"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=50f4a244-9a95-11ee-0a83-05c8000005af"
         }
       },
       "productionStage": {
@@ -174,7 +174,7 @@ Successful request. The result is a JSON representation of a list of Operation R
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
+        "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
       },
       "id": "19b3bb62-9807-11ee-0a81-07230000030e",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -184,7 +184,7 @@ Successful request. The result is a JSON representation of a list of Operation R
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
@@ -240,7 +240,7 @@ Successful request. The result is a JSON representation of a list of Operation R
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=4c65602d-97f5-11ee-0a81-0723000001e1"
+        "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=4c65602d-97f5-11ee-0a81-0723000001e1"
       },
       "id": "4c65602d-97f5-11ee-0a81-0723000001e1",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -250,7 +250,7 @@ Successful request. The result is a JSON representation of a list of Operation R
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
@@ -306,7 +306,7 @@ Successful request. The result is a JSON representation of a list of Operation R
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=68c6559a-980b-11ee-0a81-072300000358"
+        "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=68c6559a-980b-11ee-0a81-072300000358"
       },
       "id": "68c6559a-980b-11ee-0a81-072300000358",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -316,7 +316,7 @@ Successful request. The result is a JSON representation of a list of Operation R
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
@@ -372,7 +372,7 @@ Successful request. The result is a JSON representation of a list of Operation R
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
         "type": "productionstagecompletion",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=6d87056d-9809-11ee-0a83-0717000000a2"
+        "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=6d87056d-9809-11ee-0a83-0717000000a2"
       },
       "id": "6d87056d-9809-11ee-0a83-0717000000a2",
       "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -382,7 +382,7 @@ Successful request. The result is a JSON representation of a list of Operation R
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
         }
       },
       "shared": false,
@@ -481,7 +481,7 @@ Successful request. The result is a JSON representation of the generated Operati
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+    "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
   },
   "id": "01ff6808-95de-11ee-0a81-072300000136",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -491,7 +491,7 @@ Successful request. The result is a JSON representation of the generated Operati
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
@@ -576,7 +576,7 @@ Successful request. The result is a JSON representation of the generated Operati
                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json",
-                "uuidHref": "https://online-api-4.testms-test.lognex.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+                "": "https://online-api-4.testms-test.lognex.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
               }
             },      
             "productionStage": {
@@ -604,7 +604,7 @@ Successful request. The result is a JSON representation of the generated Operati
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+    "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
   },
   "id": "01ff6808-95de-11ee-0a81-072300000136",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -614,7 +614,7 @@ Successful request. The result is a JSON representation of the generated Operati
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
@@ -637,7 +637,7 @@ Successful request. The result is a JSON representation of the generated Operati
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online-api-4.testms-test.lognex.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "productionStage": {
@@ -723,7 +723,7 @@ Successful request. The result is a JSON representation of the generated Operati
                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
                 "type": "productionstagecompletion",
                 "mediaType": "application/json",
-                "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+                "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
               },
               "name": "000034",
               "productionVolume": 5
@@ -742,7 +742,7 @@ Successful request. The result is a JSON array of views of the created and updat
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
       "type": "productionstagecompletion",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
+      "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=01ff6808-95de-11ee-0a81-072300000136"
     },
     "id": "01ff6808-95de-11ee-0a81-072300000136",
     "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -752,7 +752,7 @@ Successful request. The result is a JSON array of views of the created and updat
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
       }
     },
     "shared": false,
@@ -808,7 +808,7 @@ Successful request. The result is a JSON array of views of the created and updat
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
       "type": "productionstagecompletion",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
+      "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=19b3bb62-9807-11ee-0a81-07230000030e"
     },
     "id": "19b3bb62-9807-11ee-0a81-07230000030e",
     "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -818,7 +818,7 @@ Successful request. The result is a JSON array of views of the created and updat
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
       }
     },
     "shared": false,
@@ -963,7 +963,7 @@ Successful request. The result is a JSON representation of the Operation Report.
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+    "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
   },
   "id": "7944ef04-f831-11e5-7a69-971500188b19",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -973,7 +973,7 @@ Successful request. The result is a JSON representation of the Operation Report.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
@@ -1061,7 +1061,7 @@ Successful request. The result is a JSON representation of the updated Operation
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/metadata",
     "type": "productionstagecompletion",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
+    "uuidHref": "https://app.kladana.com/app/#productionstagecompletion/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
   },
   "id": "01ff6808-95de-11ee-0a81-072300000136",
   "accountId": "a67c68a3-95dd-11ee-0a83-071a00000002",
@@ -1071,7 +1071,7 @@ Successful request. The result is a JSON representation of the updated Operation
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
     }
   },
   "shared": false,
@@ -1146,7 +1146,7 @@ The product object of Operation Report contains the following fields:
 | **accountId** | UUID | Account ID<br>`+Required if response is `+Read-only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the product/product variant/batches that the item represents<br>`+Required if response is `+Expand` |
 | **id** | UUID | Item ID<br>`+Required if response is `+Read-only` |
-| **producedQuantity** | Float | Quantity of products/product variants of this type in the item. If the item is a product that has serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document<br>`+Required when answering` |
+| **producedQuantity** | Float | Quantity of products/product variants of this type in the item. If the item is a product that has serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document<br>`+Required when replying` |
 | **things** | Array(String) | Serial numbers. The value of this attribute it is ignored if the item is not accounted for by serial numbers. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value |
 
 ### Operation Report Raw Materials
@@ -1165,7 +1165,7 @@ A request to get a list of all Operation Report Raw Materials.
 
 | Parameter | Description |
 | :--------- | :-------------------------------------------------------------------------------------------------------------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000` |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities |
 
@@ -1217,7 +1217,7 @@ Successful request. The result is a JSON representation of the list of products 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
         }
       }
     }
@@ -1278,7 +1278,7 @@ Successful request. The result is a JSON representation of the added material.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   }
 }
@@ -1321,7 +1321,7 @@ Successful request. The result is a JSON representation of the added material.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     },
     "things": ["F564X056", "F564X057"]
   }
@@ -1336,7 +1336,7 @@ For items with serial numbers, the `consumedQuantity` field is automatically upd
 
 | Parameter | Description |
 | :------------- |:----------------------------------------------------------------------------------------------------------------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID |
 | **materialID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* ID of the Operation Report Raw Material |
 
 > Example of a request to update the quantity of a single Raw Material of an Operation Report.
@@ -1357,7 +1357,7 @@ For items with serial numbers, the `consumedQuantity` field is automatically upd
 Successful request. The result is a JSON representation of the updated material.
 
 ```json
-    {
+{
   "meta": {
     "href": "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "productionstagecompletionmaterial",
@@ -1372,7 +1372,7 @@ Successful request. The result is a JSON representation of the updated material.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   }
 }
@@ -1411,7 +1411,7 @@ Successful request. The result is a JSON representation of the updated product.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/materials/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   },
   "things": ["F564X056", "F564X057"]
@@ -1434,7 +1434,7 @@ A request to get a list of all Operation Report Products.
 
 | Parameter | Description |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Possible values ​​are 1 - 1000` |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities |
 
@@ -1486,7 +1486,7 @@ Successful request. The result is a JSON representation of the list of Products 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
         }
       }
     }
@@ -1503,8 +1503,8 @@ For products with by serial numbers, the `producedQuantity` field is automatical
 
 | Parameter | Description |
 | :------------ |:---------------------------------------------------------------------------------------------------------------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID
-| **productID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* iID of a product of Operation Report |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Operation Report ID |
+| **productID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* ID of a Product in Operation Report |
 
 > Example of a request to update the quantity of a single Product of Operation Report.
 
@@ -1539,7 +1539,7 @@ Successful request. Result is a JSON representation of the updated Product of Op
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   }
 }
@@ -1578,7 +1578,7 @@ Successful request. The result is a JSON representation of the updated Product o
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=96568199-b716-11ec-0a80-0bba0006dcdc"
     }
   },
   "things": ["F564X056", "F564X057"]

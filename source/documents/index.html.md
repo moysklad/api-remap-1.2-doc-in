@@ -9,7 +9,6 @@ toc_footers:
   - <a href='https://github.com/moysklad/java-remap-1.2-doc/issues'>Report an issue</a>
 
 includes:
-
   - documents/common_info
   - documents/autofill
   - documents/counterpartyadjustment

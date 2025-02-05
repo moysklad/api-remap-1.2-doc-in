@@ -28,7 +28,7 @@ Search among service objects for matching the search string will be carried out 
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
-| **minprice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
+| **minPrice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |

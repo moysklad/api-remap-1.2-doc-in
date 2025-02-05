@@ -63,7 +63,7 @@ Result: JSON object, including the fields:
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities. |
 
-> Get Events list for Sales Order
+> Get a list of Events for Sales Order
 
 ```shell
 curl -X GET
@@ -112,7 +112,7 @@ Successful request. Result is JSON representation of Events list.
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
         }
       }
     },
@@ -132,16 +132,64 @@ Successful request. Result is JSON representation of Events list.
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
         }
       }
     }
   ]
 }
 ```
+
+### Get Event
+
+Request to get one transaction Event for this account.
+
+**Parameters**
+
+| Parameter | Description |
+|---------- | ----------- |
+| **document_type** | `string` (required) *Example: customerorderr* transaction type for which the Event is requested. |
+| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
+| **id** | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID. |
+
+> Get Sales Order Event
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is JSON representation of the Event.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000",
+    "type": "eventnote",
+    "mediaType": "application/json"
+  },
+  "id": "844a0ef9-19ac-11ef-ac12-000b00000000",
+  "accountId": "85284e22-f1b3-11ee-ac12-000f00000001",
+  "created": "2024-05-24 12:03:40.849",
+  "description": "{{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}, hello",
+  "author": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/861d34a9-f1b3-11ee-ac12-00110000004e",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+    }
+  }
+}
+```
+
 ### Add Event
 
-Request to add one  transaction Event for the account.
+Request to add one transaction Event for the account.
 
 **Parameters**
 
@@ -183,59 +231,11 @@ curl -X POST
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
       }
     }
   }
 ]
-```
-
-
-### Get Event
-
-Request to get one transaction Event for this account.
-
-**Parameters**
-
-| Parameter | Description |
-|---------- | ----------- |
-| **document_type** | `string` (required) *Example: customerorderr* transaction type for which the Event is requested. |
-| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
-| **id** | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID. |
-
-> Get Sales Order Event
-
-```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/ e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-```
-
-> Response 200 (application/json)
-Successful request. Result is JSON representation of the Event.
-
-```json
-{
-  "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000",
-    "type": "eventnote",
-    "mediaType": "application/json"
-  },
-  "id": "844a0ef9-19ac-11ef-ac12-000b00000000",
-  "accountId": "85284e22-f1b3-11ee-ac12-000f00000001",
-  "created": "2024-05-24 12:03:40.849",
-  "description": "{{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}, hello",
-  "author": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/861d34a9-f1b3-11ee-ac12-00110000004e",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
-    }
-  }
-}
 ```
 
 ### Update Event
@@ -283,7 +283,7 @@ curl -X PUT
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
     }
   }
 }

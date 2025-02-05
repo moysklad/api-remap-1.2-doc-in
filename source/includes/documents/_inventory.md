@@ -1275,7 +1275,7 @@ Successful request. Result is a JSON representation of a single Inventory Count 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
     }
   },
   "correctionAmount": -60,

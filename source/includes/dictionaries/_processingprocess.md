@@ -43,7 +43,7 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----- | ---- | ----------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadataю |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Routings |
 

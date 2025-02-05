@@ -10,7 +10,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or employee metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty or employee account metadata<br>`+Expand`  |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                               |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment code                                                                                                                     |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand`                                                                                                            |
@@ -39,7 +39,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing payment in the specified currency<br>`+Required when replying`                                                     |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change                                                                          |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Outgoing payment<br>`+Required when replying` `+Read only`                                               |
-| **vatSum** | Float | | VAT amount<br>`+Required when answering`                                                                                                  |
+| **vatSum** | Float | | VAT amount<br>`+Required when replying`                                                                                                  |
 
 #### Links to other transactions
 

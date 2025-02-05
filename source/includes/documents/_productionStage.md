@@ -13,21 +13,21 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | Name | Type | Filtering | Description |
 | ---------- | ------- | ---------- | --------- |
 | **accountId** | UUID | | Account ID<br>`+Required in response` `+Read-only` |
+| **availableQuantity** | Double | | Quantity available for execution<br>`+Read-only` |
+| **blockedQuantity** | Double | | Quantity that cannot be executed at the moment. For example, the previous Production Operation has not yet been executed<br>`+Read-only` |
+| **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |
 | **id** | UUID | | Production Operation ID<br>`+Required in response` `+Read-only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata<br>`+Required in response` `+Read-only` |
 | **labourUnitCost** | Double | | Labor costs per production item<br> |
 | **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required in response` |
 | **materialStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the raw material warehouse<br>`+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata<br>`+Required in response` `+Read-only` |
 | **orderingPosition** | Int | | Production Operation Index in a Production Order item<br>`+Required in response` `+Read-only` |
-| **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operations)<br>`+Expand` `+Required when answering` `+Read-only` |
-| **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when answering` `+Read-only` |
-| **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
-| **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |
-| **availableQuantity** | Double | | Quantity available for execution<br>`+Read-only` |
-| **blockedQuantity** | Double | | Quantity that cannot be executed at the moment. For example, the previous Production Operation has not yet been executed<br>`+Read-only` |
-| **skippedQuantity** | Double | | Quantity that will not be executed. For example, due to a production stop<br>`+Read-only` |
 | **processingUnitCost** | Double | | Cost per unit of production volume<br> |
+| **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when replying` `+Read-only` |
+| **skippedQuantity** | Double | | Quantity that will not be executed. For example, due to a production stop<br>`+Read-only` |
+| **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operations)<br>`+Expand` `+Required when replying` `+Read-only` |
 | **standardHourUnit** | Double | | Standard hours of a unit of production volume |
+| **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
 
 The entity has expand restrictions: expand of nested fields is not available for the **productionRow** field.
 
@@ -42,7 +42,7 @@ A material object for a Production Operation contains the following fields:
 | **accountId** | UUID | Account ID<br>`+Required if response` `+Read-only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of a product/service/product variant/batch that is represented by an item<br>`+Required if response` `+Expand` |
 | **id** | UUID | Item ID <br>`+Required if response` `+Read-only` |
-| **planQuantity** | Float | Quantity of products/product variants of this type in an item<br>`+Required when answering` |
+| **planQuantity** | Float | Quantity of products/product variants of this type in an item<br>`+Required when replying` |
 
 ### Get the list of Production Operations for a Production Order
 
@@ -109,7 +109,7 @@ Successful request. Result is a JSON representation of the Production Operations
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
           "type": "processingstage",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#processingstage/edit?id=4b3ada86-99d4-11ee-0a83-0a2e0000070e"
+          "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=4b3ada86-99d4-11ee-0a83-0a2e0000070e"
         }
       },
       "productionRow": {
@@ -117,7 +117,7 @@ Successful request. Result is a JSON representation of the Production Operations
           "href": "https://api.kladana.com/api/remap/1.2/entity/productiontask/1906fa20-99d6-11ee-0a83-0a2e00000767/productionrows/19070a2e-99d6-11ee-0a83-0a2e0000076a",
           "type": "productionrow",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#productionrow/edit?id=19070a2e-99d6-11ee-0a83-0a2e0000076a"
+          "uuidHref": "https://app.kladana.com/app/#productionrow/edit?id=19070a2e-99d6-11ee-0a83-0a2e0000076a"
         }
       },
       "materials": {
@@ -188,7 +188,7 @@ Successful request. Result is a JSON representation of the updated Production Op
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingstage/metadata",
       "type": "processingstage",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#processingstage/edit?id=4b3ada86-99d4-11ee-0a83-0a2e0000070e"
+      "uuidHref": "https://app.kladana.com/app/#processingstage/edit?id=4b3ada86-99d4-11ee-0a83-0a2e0000070e"
     }
   },
   "productionRow": {
@@ -196,7 +196,7 @@ Successful request. Result is a JSON representation of the updated Production Op
       "href": "https://api.kladana.com/api/remap/1.2/entity/productiontask/1906fa20-99d6-11ee-0a83-0a2e00000767/productionrows/19070a2e-99d6-11ee-0a83-0a2e0000076a",
       "type": "productionrow",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#productionrow/edit?id=19070a2e-99d6-11ee-0a83-0a2e0000076a"
+      "uuidHref": "https://app.kladana.com/app/#productionrow/edit?id=19070a2e-99d6-11ee-0a83-0a2e0000076a"
     }
   },
   "materials": {
@@ -245,7 +245,7 @@ A request to get Production Operation raw materials. The result is a JSON object
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials
+  "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -289,7 +289,7 @@ Successful request. Result is a JSON representation of the list of raw materials
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#good/edit?id=db82468b-99d5-11ee-0a83-0a2e0000072b"
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=db82468b-99d5-11ee-0a83-0a2e0000072b"
         }
       }
     }
@@ -328,7 +328,7 @@ To create it successfully, the following fields must be specified in the request
                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
                 "type": "product",
                 "mediaType": "application/json",
-                "uuidHref": "https://api.kladana.com/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+                "uuidHref": "https://app.kladana.com/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
               }
             }
           }
@@ -354,7 +354,7 @@ Successful request. Result - JSON representation of added raw material to a Prod
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=57c98e8c-99d8-11ee-0a83-0a2e00000771"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=57c98e8c-99d8-11ee-0a83-0a2e00000771"
       }
     }
   }
@@ -387,7 +387,7 @@ Request to update a single raw material of a Production Operation.
                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
                 "type": "product",
                 "mediaType": "application/json",
-                "uuidHref": "https://api.kladana.com/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
+                "uuidHref": "https://app.kladana.com/app/#good/edit?id=466222d6-c1c8-11ea-c0a8-f00c00000018"
               }
             }
           }
@@ -413,7 +413,7 @@ Successful request. Result - JSON representation of updated material.
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=57c98e8c-99d8-11ee-0a83-0a2e00000358"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=57c98e8c-99d8-11ee-0a83-0a2e00000358"
       }
     }
   }

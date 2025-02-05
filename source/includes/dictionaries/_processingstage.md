@@ -111,15 +111,15 @@ Successful request. The result is a JSON representation of the list of Productio
        "name": "Main Production Operation",
        "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
        "archived": false,
-      "allPerformers": false,
-      "performers": [
+       "allPerformers": false,
+       "performers": [
         {
           "meta": {
-            "href": "http://localhost/api/remap/1.2/entity/employee/83db6e80-761b-4e3d-aee8-641299ed0898",
-            "metadataHref": "http://localhost/api/remap/1.2/entity/employee/metadata",
+            "href": "http://api.kladana.com/api/remap/1.2/entity/employee/83db6e80-761b-4e3d-aee8-641299ed0898",
+            "metadataHref": "http://api.kladana.com/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#employee/edit?id=83db6e80-761b-4e3d-aee8-641299ed0898"
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=83db6e80-761b-4e3d-aee8-641299ed0898"
           }
         }
       ]
@@ -452,11 +452,11 @@ Request to update an existing Production Operation.
               "performers": [
                {
                  "meta": {
-                   "href": "http://localhost/api/remap/1.2/entity/employee/83db6e80-761b-4e3d-aee8-641299ed0898",
-                   "metadataHref": "http://localhost/api/remap/1.2/entity/employee/metadata",
+                   "href": "http://api.kladana.com/api/remap/1.2/entity/employee/83db6e80-761b-4e3d-aee8-641299ed0898",
+                   "metadataHref": "http://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                    "type": "employee",
                    "mediaType": "application/json",
-                   "uuidHref": "https://api.kladana.com/app/#employee/edit?id=83db6e80-761b-4e3d-aee8-641299ed0898"
+                   "uuidHref": "https://app.kladana.com/app/#employee/edit?id=83db6e80-761b-4e3d-aee8-641299ed0898"
                  }
                }
              ]
@@ -502,11 +502,11 @@ Successful request. The result is a JSON representation of the Production Operat
   "performers": [
     {
       "meta": {
-        "href": "http://localhost/api/remap/1.2/entity/employee/83db6e80-761b-4e3d-aee8-641299ed0898",
-        "metadataHref": "http://localhost/api/remap/1.2/entity/employee/metadata",
+        "href": "http://api.kladana.com/api/remap/1.2/entity/employee/83db6e80-761b-4e3d-aee8-641299ed0898",
+        "metadataHref": "http://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=83db6e80-761b-4e3d-aee8-641299ed0898"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=83db6e80-761b-4e3d-aee8-641299ed0898"
       }
     }
   ]

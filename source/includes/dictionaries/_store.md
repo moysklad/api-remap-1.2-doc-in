@@ -995,8 +995,6 @@ Successful request. The result is a JSON representation of the additional Wareho
 
 ### Separate additional field
 
-
- 
   **Parameters**
  
 | Parameter | Description |
@@ -1030,7 +1028,7 @@ Successful request. The result is a JSON representation of a separate additional
 
 ```
 
-### Stock
+### Warehouse
 
 ### Get Warehouse
 
@@ -1585,13 +1583,13 @@ Successful request. Result - JSON representation of the created Warehouse Locati
 ]
 ```
 
-### Bulk creation and update of Warehouse Location
+### Bulk creation and update of Warehouse Locations
 
 [Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse Locations.
 In the body of the request, you need to pass an array containing JSON representations of the Warehouse Locations that you want to create or update.
 Updated Warehouse Locations must contain the identifier in the form of metadata.
 
-> Request to create and update multiple Warehouse Zones
+> Request to create and update multiple Warehouse Locations
 
 ```shell
    curl -X POST
@@ -1894,12 +1892,10 @@ Successful request. The result is a JSON representation of a list of Warehouse B
 }
 ```
 
-### Create Warehouse Location
+### Create Warehouse Bin
 #### Description
 
-The warehouse bin is created based on the passed JSON object,
-which contains a representation of the new Warehouse Bin.
-The result is a JSON representation of the created Warehouse Bin. To create a new Warehouse Bin,
+The warehouse bin is created based on the passed JSON object, which contains a representation of the new Warehouse Bin. The result is a JSON representation of the created Warehouse Bin. To create a new Warehouse Bin,
 it is necessary and sufficient to specify a non-empty `name` field in the passed object. Within the same warehouse, the names of the bins must be unique.
 
 > Request to create a Warehouse Bin
@@ -2044,7 +2040,7 @@ Successful request. The result is a JSON array of representations of the created
 ]
 ```
 
-### Delete Warehouse Location
+### Delete Warehouse Bin
 
 **Parameters**
 
@@ -2108,7 +2104,7 @@ curl -X POST
 ]
 ```
 
-### Get Warehouse Location
+### Get Warehouse Bin
 **Parameters**
 
 | Parameter | Description |
@@ -2142,7 +2138,7 @@ Successful request. The result is a JSON representation of the Warehouse Bin wit
 }
 ```
 
-### Change Warehouse Location
+### Change Warehouse Bin
 
 In the body of the request, you need to pass a JSON representation of the Warehouse Bin that you want to update.
 

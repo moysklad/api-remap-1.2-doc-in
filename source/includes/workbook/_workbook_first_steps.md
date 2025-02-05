@@ -49,7 +49,7 @@ To get started, you need the following:
 
 ### First request
 
-For JSON API requests, the login and password of the Kladana account (Basic Auth) or [token for Authentication in json api](../#mojsklad-json-api-obschie-swedeniq-autentifikaciq) are used.
+For JSON API requests, the login and password of the Kladana account (Basic Auth) or [token for Authentication in json api](../#kladana-json-api-obschie-swedeniq-autentifikaciq) are used.
 
 To create the first product, you only need its name.
 
@@ -94,7 +94,7 @@ curl -X POST
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -104,7 +104,7 @@ curl -X POST
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -140,7 +140,7 @@ curl -X POST
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -153,7 +153,7 @@ curl -X POST
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -176,7 +176,7 @@ curl -X POST
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -234,7 +234,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
       },
       "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
       "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -244,7 +244,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
         }
       },
       "shared": true,
@@ -280,7 +280,7 @@ curl -X GET
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
           }
         }
       },
@@ -293,7 +293,7 @@ curl -X GET
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json",
-              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
             }
           },
           "priceType": {
@@ -316,7 +316,7 @@ curl -X GET
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
           }
         }
       },
@@ -350,7 +350,7 @@ At the beginning of each response there is a meta field representing metadata. I
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
     }
 }
 ```
@@ -487,7 +487,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
       },
       "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
       "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -497,7 +497,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
         }
       },
       "shared": true,
@@ -533,7 +533,7 @@ curl -X GET
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
           }
         }
       },
@@ -546,7 +546,7 @@ curl -X GET
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json",
-              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
             }
           },
           "priceType": {
@@ -569,7 +569,7 @@ curl -X GET
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
           }
         }
       },
@@ -611,7 +611,7 @@ curl -X POST
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -621,7 +621,7 @@ curl -X POST
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -657,7 +657,7 @@ curl -X POST
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -670,7 +670,7 @@ curl -X POST
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -693,7 +693,7 @@ curl -X POST
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -733,7 +733,7 @@ curl -X GET
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -743,7 +743,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -779,7 +779,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -792,7 +792,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -815,7 +815,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -856,7 +856,7 @@ curl -X PUT
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -866,7 +866,7 @@ curl -X PUT
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -902,7 +902,7 @@ curl -X PUT
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -915,7 +915,7 @@ curl -X PUT
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -938,7 +938,7 @@ curl -X PUT
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1041,7 +1041,7 @@ curl -X PUT
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -1051,7 +1051,7 @@ curl -X PUT
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -1087,7 +1087,7 @@ curl -X PUT
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1100,7 +1100,7 @@ curl -X PUT
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -1123,7 +1123,7 @@ curl -X PUT
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1201,7 +1201,7 @@ curl -X GET
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -1211,7 +1211,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -1247,7 +1247,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1260,7 +1260,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -1283,7 +1283,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1355,7 +1355,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
       },
       "stock": 1.0,
       "inTransit": 0.0,
@@ -1402,7 +1402,7 @@ curl -X GET
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=6b3fd459-b0ac-11ea-ac14-000a00000000"
   },
   "id": "6b44332f-b0ac-11ea-ac14-000a00000002",
   "accountId": "17e26927-b0ac-11ea-ac14-000d00000001",
@@ -1412,7 +1412,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=19113b38-b0ac-11ea-ac14-000c00000034"
     }
   },
   "shared": true,
@@ -1448,7 +1448,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1461,7 +1461,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
         }
       },
       "priceType": {
@@ -1484,7 +1484,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=199e466a-b0ac-11ea-ac14-000c00000077"
       }
     }
   },
@@ -1606,7 +1606,7 @@ curl -X GET
   -u login:password
   -H "Accept-Encoding: gzip" 
   -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/country?search=Рос"
+  "https://api.kladana.com/api/remap/1.2/entity/country?search=Ind"
 ```
 
 > Response:
@@ -1624,7 +1624,7 @@ curl -X GET
     }
   },
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/country?search=%D0%A0%D0%BE%D1%81",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/country?search=Ind",
     "type": "country",
     "mediaType": "application/json",
     "size": 1,
@@ -1638,7 +1638,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
         "type": "country",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#country/edit?id=9df7c2c3-7782-4c5c-a8ed-1102af611608"
+        "uuidHref": "https://app.kladana.com/app/#country/edit?id=9df7c2c3-7782-4c5c-a8ed-1102af611608"
       },
       "id": "9df7c2c3-7782-4c5c-a8ed-1102af611608",
       "updated": "2012-11-02 12:04:14.054",
@@ -1696,7 +1696,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
         "type": "country",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#country/edit?id=00999522-23d6-40e6-870e-ec7f7bd8d354"
+        "uuidHref": "https://app.kladana.com/app/#country/edit?id=00999522-23d6-40e6-870e-ec7f7bd8d354"
       },
       "id": "00999522-23d6-40e6-870e-ec7f7bd8d354",
       "updated": "2012-11-02 12:04:15.831",
@@ -1710,7 +1710,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
         "type": "country",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#country/edit?id=886b465f-5bb0-4c6a-9b63-9abaf5157a26"
+        "uuidHref": "https://app.kladana.com/app/#country/edit?id=886b465f-5bb0-4c6a-9b63-9abaf5157a26"
       },
       "id": "886b465f-5bb0-4c6a-9b63-9abaf5157a26",
       "updated": "2012-11-02 12:04:15.826",
@@ -1725,7 +1725,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/country/metadata",
         "type": "country",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#country/edit?id=9756f8c8-84d3-46d1-9439-b4e950cff419"
+        "uuidHref": "https://app.kladana.com/app/#country/edit?id=9756f8c8-84d3-46d1-9439-b4e950cff419"
       },
       "id": "9756f8c8-84d3-46d1-9439-b4e950cff419",
       "updated": "2012-11-02 12:04:12.241",
@@ -1776,7 +1776,7 @@ Successful request. Result is a JSON representation of the Product with a simple
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
   },
   "id": "0884d27a-b0e3-11ea-ac12-000b00000002",
   "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
@@ -1786,7 +1786,7 @@ Successful request. Result is a JSON representation of the Product with a simple
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
     },
     "id": "d8ed648c-b0e2-11ea-ac12-000d00000034",
     "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
@@ -1796,7 +1796,7 @@ Successful request. Result is a JSON representation of the Product with a simple
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
       }
     },
     "shared": true,
@@ -1862,7 +1862,7 @@ Successful request. Result is a JSON representation of the Product with a simple
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
       }
     }
   },
@@ -1875,7 +1875,7 @@ Successful request. Result is a JSON representation of the Product with a simple
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
         }
       },
       "priceType": {
@@ -1898,7 +1898,7 @@ Successful request. Result is a JSON representation of the Product with a simple
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
       }
     }
   },
@@ -1938,7 +1938,7 @@ Successful request. Result - JSON representation of the updated Product with the
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
     "type": "product",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
+    "uuidHref": "https://app.kladana.com/app/#good/edit?id=088303a8-b0e3-11ea-ac12-000b00000000"
   },
   "id": "0884d27a-b0e3-11ea-ac12-000b00000002",
   "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
@@ -1948,7 +1948,7 @@ Successful request. Result - JSON representation of the updated Product with the
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
     },
     "id": "d8ed648c-b0e2-11ea-ac12-000d00000034",
     "accountId": "d865ef6f-b0e2-11ea-ac12-000c00000001",
@@ -1958,7 +1958,7 @@ Successful request. Result - JSON representation of the updated Product with the
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=d8ed648c-b0e2-11ea-ac12-000d00000034"
       }
     },
     "shared": true,
@@ -2024,7 +2024,7 @@ Successful request. Result - JSON representation of the updated Product with the
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
       }
     }
   },
@@ -2037,7 +2037,7 @@ Successful request. Result - JSON representation of the updated Product with the
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
         }
       },
       "priceType": {
@@ -2060,7 +2060,7 @@ Successful request. Result - JSON representation of the updated Product with the
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.comapi.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
+        "uuidHref": "https://app.kladana.comapi.kladana.com/app/#currency/edit?id=d92fb826-b0e2-11ea-ac12-000d00000077"
       }
     }
   },
@@ -2120,7 +2120,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=2d5756c9-c42e-11ee-ac1b-000e0000010a"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=2d5756c9-c42e-11ee-ac1b-000e0000010a"
       },
       "id": "2d593ccc-c42e-11ee-ac1b-000e0000010c",
       "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -2130,7 +2130,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
         },
         "id": "09a8ad82-c42e-11ee-ac1b-000e0000004e",
         "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -2140,7 +2140,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
           }
         },
         "shared": true,
@@ -2218,7 +2218,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },
@@ -2231,7 +2231,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json",
-              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
             }
           },
           "priceType": {
@@ -2254,7 +2254,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },
@@ -2287,7 +2287,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=372e1b39-c42e-11ee-ac1b-000e00000111"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=372e1b39-c42e-11ee-ac1b-000e00000111"
       },
       "id": "372e30d3-c42e-11ee-ac1b-000e00000113",
       "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -2297,7 +2297,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
         },
         "id": "09a8ad82-c42e-11ee-ac1b-000e0000004e",
         "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -2307,7 +2307,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
           }
         },
         "shared": true,
@@ -2385,7 +2385,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },
@@ -2398,7 +2398,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json",
-              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
             }
           },
           "priceType": {
@@ -2421,7 +2421,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },
@@ -2454,7 +2454,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://api.kladana.com/app/#good/edit?id=6c4f2dcc-e14d-11ee-ac1b-000f00000233"
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=6c4f2dcc-e14d-11ee-ac1b-000f00000233"
       },
       "id": "6c4f3e66-e14d-11ee-ac1b-000f00000235",
       "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -2464,7 +2464,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
         },
         "id": "09a8ad82-c42e-11ee-ac1b-000e0000004e",
         "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -2474,7 +2474,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
           }
         },
         "shared": true,
@@ -2552,7 +2552,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },
@@ -2565,7 +2565,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json",
-              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
             }
           },
           "priceType": {
@@ -2588,7 +2588,7 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },

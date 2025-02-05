@@ -10,7 +10,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
@@ -42,7 +42,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | The amount of the Purchase Order in the specified currency<br>`+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Purchase Order<br>`+Required when replying` `+Read only` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
+| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean | | Is VAT included in the price |
 | **vatSum** | Float | | VAT amount<br>`+Read only` |
 | **waitSum** | Float | | Amount of goods in transit<br> |
@@ -64,11 +64,11 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` |
 | **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float | The price of the product/service in paise<br>`+Required when answering` |
+| **price** | Float | The price of the product/service in paise<br>`+Required when replying` |
 | **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **shipped** | Float | Accepted<br>`+Required when replying` |
 | **inTransit** | Float | Waiting<br>`+Required for response` |

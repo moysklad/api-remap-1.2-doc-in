@@ -1786,7 +1786,7 @@ Successful request. The result is a JSON representation of the prefilled supplie
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/invoicein/af6f9b4c-2e64-11e6-8a84-bae500000149/documents",
+       "href": "https://api.kladana.co/api/remap/1.2/entity/invoicein/af6f9b4c-2e64-11e6-8a84-bae500000149/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -2770,7 +2770,7 @@ Successful request. Result is a JSON representation of a single Supplier Invoice
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.com/api/remap/1.2/entity/invoicein/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
     "type": "invoiceposition",
     "mediaType": "application/json"
   },
@@ -2783,8 +2783,8 @@ Successful request. Result is a JSON representation of a single Supplier Invoice
   "vatEnabled": false,
   "assortment": {
     "meta": {
-      "href": "https://app.kladana.com/api/remap/1.2/entity/product/00f1f397-3303-11e6-8a84-bae500000380",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/00f1f397-3303-11e6-8a84-bae500000380",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"

@@ -24,14 +24,14 @@ An extended Stock report is a detailed report that collects data on all products
 | **folder** | Object | Group of Products/Product variants/Series. [Learn more](../reports/#reports-stock-report-extended-stock-report-group)<br>`+Required when replying` |
 | **images** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series Image|
 | **inTransit** | Float | Waiting<br>`+Required for response` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series for which the rest is issued<br>`+Required when answering` |
-| **name** | String(255) | Name<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series for which the rest is issued<br>`+Required when replying` |
+| **name** | String(255) | Name<br>`+Required when replying` |
 | **price** | Float | Cost price in paise|
 | **quantity** | Float | Available<br>`+Required when replying` |
 | **reserve** | Float | Reserve<br>`+Required when replying` |
 | **salePrice** | Float | Sale price |
-| **stock** | Float | Remaining<br>`+Required when answering` |
-| **stockDays** | Int | Number of days in stock<br>`+Mandatorylnoe when answering` |
+| **stock** | Float | Remaining<br>`+Required when replying` |
+| **stockDays** | Int | Number of days in stock<br>`+Mandatorylnoe when replying` |
 | **uom** | Object | Unit of measurement. [Learn more](../reports/#reports-stock-report-extended-stock-report-unit)<br>`+Required when replying` |
 
 #### Nested entity attributes
@@ -40,7 +40,7 @@ An extended Stock report is a detailed report that collects data on all products
 | Title | Type | Description |
 | ------- | ----------- |-------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Unit metadata<br>`+Required when replying` |
-| **name** | String(255) | Name of the unit of measurement<br>`+Required when answering` |
+| **name** | String(255) | Name of the unit of measurement<br>`+Required when replying` |
 
 #### Group
 
@@ -878,7 +878,7 @@ The report displays a list of products and their quantities at each of your ware
 
 | Title | Type | Description |
 | -------| ------------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the items in stock<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the items in stock<br>`+Required when replying` |
 | **stockByStore** | Object | The stock at the warehouse. [Learn more](../reports/#reports-stock-report-the-warehouse-stock-report-stock-balance)<br>`+Required when replying` |
 
 #### Stock balance
@@ -887,7 +887,7 @@ The `stockByStore` field is returned from objects with the following attributes:
 | Title | Type | Description |
 | -------| ------------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata for the stock displaying <br>`+Required when replying` |
-| **stock** | Float | Stock<br>`+Required when answering` |
+| **stock** | Float | Stock<br>`+Required when replying` |
 | **inTransit** | Float | Waiting<br>`+Required for response` |
 | **reserve** | Float | Reserve<br>`+Required when replying` |
 | **name** | String(255) | Warehouse name<br>`+Required when replying` |

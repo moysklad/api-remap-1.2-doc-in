@@ -393,6 +393,7 @@ You can also use shift in the list of items:
 curl -X GET 
  "https://api.kladana.com/api/remap/1.2/entity/customerorder/51bb185a-b0e7-11ea-ac12-000d0000012a/positions?offset=1"
  -u login:password 
+ -H "Accept-Encoding: gzip" 
  -H "Lognex-Pretty-Print-JSON: true"
 ```
 

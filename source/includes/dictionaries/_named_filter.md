@@ -195,7 +195,7 @@ The filtering result is a list of entities that match the conditions saved in th
 To apply filtering, you need to pass a link to the required saved filter in the special query parameter `namedfilter`.
 
 An example URL with a saved filter applied:
-`https://api.kladana.com/api/remap/1.2/entity/product?namedfilter=https://api.kladana.com/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb -ac12-000d00000019`
+`https://api.kladana.com/api/remap/1.2/entity/product?namedfilter=https://api.kladana.com/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019`
 
 <br>
 

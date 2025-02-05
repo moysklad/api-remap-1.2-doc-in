@@ -231,7 +231,7 @@ Successful request. The result is a JSON representation of the execution status 
   "request": "https://api.kladana.com/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06&interval=hour&async=true",
   "errors": [
       {
-          "error": "Ошибка: не указан обязательный параметр для запроса показателей: momentTo.",
+          "error": "Error: A required parameter for the metrics request was not specified: momentTo.",
           "code": 39000
       }
   ]

@@ -57,7 +57,7 @@ Transfer Items is a list of products, product variants or batches. The Transfer 
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------|----------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch or product variant which is an item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant which is an item<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` |
 | **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Transfer items are not set, no overhead expenses can be set<br>`+Required in response` `+Read-Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
@@ -1126,7 +1126,7 @@ Successful request. Result is a JSON representation of the prefilled Transfer.
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
             "type": "product",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+            "uuidHref": "https://app.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
           }
         },
         "overhead": 0
@@ -1140,7 +1140,7 @@ Successful request. Result is a JSON representation of the prefilled Transfer.
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
             "type": "product",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+            "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
           }
         },
         "overhead": 0
@@ -1154,7 +1154,7 @@ Successful request. Result is a JSON representation of the prefilled Transfer.
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
             "type": "product",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+            "uuidHref": "https://app.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
           }
         },
         "overhead": 0
@@ -1168,7 +1168,7 @@ Successful request. Result is a JSON representation of the prefilled Transfer.
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
             "type": "product",
             "mediaType": "application/json",
-            "uuidHref": "https://api.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
+            "uuidHref": "https://app.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
           }
         },
         "overhead": 0
@@ -2026,7 +2026,7 @@ Successful request. Result is a JSON representation of a single Transfer item.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
     }
   },
   "overhead": 0
@@ -2038,7 +2038,7 @@ Successful request. Result is a JSON representation of a single Transfer item.
 Request to create a new item in the Transfer.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product, service, batch, or product variant that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-transfer-transfer-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

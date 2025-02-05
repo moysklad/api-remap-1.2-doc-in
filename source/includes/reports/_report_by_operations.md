@@ -96,7 +96,7 @@ Successful request. Result - JSON representation of the report.
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json",
-                    "uuidHref": "https://api.kladana.com/app/#good/edit?id=bb175fd6-32e1-11ef-ac16-001100000001"
+                    "uuidHref": "https://app.kladana.com/app/#good/edit?id=bb175fd6-32e1-11ef-ac16-001100000001"
                 }
             },
             "operation": {
@@ -105,7 +105,7 @@ Successful request. Result - JSON representation of the report.
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/supply/metadata",
                     "type": "supply",
                     "mediaType": "application/json",
-                    "uuidHref": "https://api.kladana.com/app/#supply/edit?id=ff473101-3871-11ef-ac16-001100000039"
+                    "uuidHref": "https://app.kladana.com/app/#supply/edit?id=ff473101-3871-11ef-ac16-001100000039"
                 }
             },
             "moment": "2024-07-02 15:52:00.000",
@@ -115,7 +115,7 @@ Successful request. Result - JSON representation of the report.
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json",
-                    "uuidHref": "https://api.kladana.com/app/#warehouse/edit?id=eca7b8c0-32e0-11ef-ac16-0011000000cb"
+                    "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=eca7b8c0-32e0-11ef-ac16-0011000000cb"
                 }
             },
             "stock": 1.0,
@@ -134,10 +134,10 @@ The report is generated for a specific item and contains information about trans
 
 | Name | Type | Description |
 | ---------- | ----- | -------- |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product, Product variant, or Batch metadata<br>`+Required when answering` |
-| **moment** | DateTime | Document date<br>`+Required when answering` |
-| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when answering` |
-| **reserve** | Float | 'Commited' products<br>`+Required when answering` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product, Product variant, or Batch metadata<br>`+Required when replying` |
+| **moment** | DateTime | Document date<br>`+Required when replying` |
+| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when replying` |
+| **reserve** | Float | 'Commited' products<br>`+Required when replying` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata |
 
 #### Attributes available for filtering
@@ -203,7 +203,7 @@ Successful request. Result - JSON representation of the report.
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
                     "type": "product",
                     "mediaType": "application/json",
-                    "uuidHref": "https://api.kladana.com/app/#good/edit?id=bb175fd6-32e1-11ef-ac16-001100000001"
+                    "uuidHref": "https://app.kladana.com/app/#good/edit?id=bb175fd6-32e1-11ef-ac16-001100000001"
                 }
             },
             "operation": {
@@ -212,7 +212,7 @@ Successful request. Result - JSON representation of the report.
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
                     "type": "customerorder",
                     "mediaType": "application/json",
-                    "uuidHref": "https://api.kladana.com/app/#customerorder/edit?id=59826b4c-3879-11ef-ac16-000f00000032"
+                    "uuidHref": "https://app.kladana.com/app/#customerorder/edit?id=59826b4c-3879-11ef-ac16-000f00000032"
                 }
             },
             "moment": "2024-07-02 16:45:00.000",
@@ -222,7 +222,7 @@ Successful request. Result - JSON representation of the report.
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
                     "type": "store",
                     "mediaType": "application/json",
-                    "uuidHref": "https://api.kladana.com/app/#warehouse/edit?id=eca7b8c0-32e0-11ef-ac16-0011000000cb"
+                    "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=eca7b8c0-32e0-11ef-ac16-0011000000cb"
                 }
             },
             "reserve": 5.0
@@ -306,7 +306,7 @@ Successful request. Result - JSON representation of the report.
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
           "type": "product",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#good/edit?id=bb175fd6-32e1-11ef-ac16-001100000001"
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=bb175fd6-32e1-11ef-ac16-001100000001"
         }
       },
       "operation": {
@@ -315,7 +315,7 @@ Successful request. Result - JSON representation of the report.
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/metadata",
           "type": "purchaseorder",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#purchaseorder/edit?id=dba8c216-401c-11ef-ac16-00110000002b"
+          "uuidHref": "https://app.kladana.com/app/#purchaseorder/edit?id=dba8c216-401c-11ef-ac16-00110000002b"
         }
       },
       "moment": "2024-07-12 10:03:00.000",
@@ -325,7 +325,7 @@ Successful request. Result - JSON representation of the report.
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
           "type": "store",
           "mediaType": "application/json",
-          "uuidHref": "https://api.kladana.com/app/#warehouse/edit?id=eca7b8c0-32e0-11ef-ac16-0011000000cb"
+          "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=eca7b8c0-32e0-11ef-ac16-0011000000cb"
         }
       },
       "inTransit": 5.0

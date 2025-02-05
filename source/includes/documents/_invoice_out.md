@@ -2600,7 +2600,7 @@ Sales Invoice line item with the specified item ID.
 
 ```shell
 curl -X GET
-  "https://app.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -2611,8 +2611,8 @@ Successful request. Result is a JSON representation of a single Sales Invoice it
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-    "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/invoiceout/metadata",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata",
     "type": "invoiceposition",
     "mediaType": "application/json"
   },
@@ -2625,8 +2625,8 @@ Successful request. Result is a JSON representation of a single Sales Invoice it
   "vatEnabled": false,
   "assortment": {
     "meta": {
-      "href": "https://app.kladana.com/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
-      "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/variant/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
       "type": "variant",
       "mediaType": "application/json",
       "uuidHref": "https://app.kladana.com/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"

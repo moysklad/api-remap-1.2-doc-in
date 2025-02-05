@@ -250,7 +250,7 @@ Successful request. The result is a JSON representation of the generated Currenc
      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
+     "uuidHref": "http://app.kladana.com/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
    "id": "03f1855b-43d7-11ec-ac13-000400000050",
    "system": true,
@@ -305,7 +305,7 @@ Successful request. The result is a JSON representation of the generated Currenc
      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
+     "uuidHref": "http://app.kladana.com/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
    "id": "03f1855b-43d7-11ec-ac13-000400000050",
    "system": true,

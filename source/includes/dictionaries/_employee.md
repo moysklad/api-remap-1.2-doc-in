@@ -762,7 +762,7 @@ employee with `System Administrator` rights.
 #### Nested entity attributes
 ##### Role
 
-There are five types of roles: `System Administrator`, `Cashier`, `Production Employee`, `Custom Role` and `Individual Role`. The `Production Employee` role is only available when the `Production Management` option is enabled. Use `Individual role` (with non-default permissions) and `User role` is only available in `Professional` and `Corporate` subscription plans. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
+There are five types of roles: `System Administrator`, `Production Employee`, `Custom Role` and `Individual Role`. The `Production Employee` role is only available when the `Production Management` option is enabled. Use `Individual role` (with non-default permissions) and `User role` is only available in `Professional` and `Corporate` subscription plans. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
 If not all permissions are specified in the `permissions` field, then those not transferred will be turned off.
 Default values are set if the user, without specifying individual permissions, sets an individual role for an employee,
 for which no individual permissions were previously set.
@@ -1644,7 +1644,6 @@ Successful request. The result is a JSON representation of the individual role i
 ```shell
   curl -X GET
     "https://api.kladana.com/api/remap/1.2/entity/role/cashier"
-    "https://api.kladana.com/api/remap/1.2/entity/role/cashier"
     -H "Authorization: Basic <Credentials>"
     -H "Accept-Encoding: gzip"
 ```
@@ -1655,7 +1654,6 @@ Successful request. Result is JSON representation of cashier role information.
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/role/cashier",
     "href": "https://api.kladana.com/api/remap/1.2/entity/role/cashier",
     "type": "systemrole",
     "mediaType": "application/json"

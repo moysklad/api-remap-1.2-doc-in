@@ -8,18 +8,18 @@ Access to the report via the API requires the right to view indicators `viewDash
 
 | Title | Type | Description |
 | ---------- | ------------ | ------ |
-| **credit** | Float | Income<br>`+Required when answering` |
-| **debit** | Float | Cost<br>`+Required when answering` |
-| **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when answering` |
+| **credit** | Float | Income<br>`+Required when replying` |
+| **debit** | Float | Cost<br>`+Required when replying` |
+| **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when replying` |
 
 #### Indicators (series)
 
 | Title | Type | Description |
 | ----------- |  ------------ | ------ |
 | **date** | DateTime | Date<br>`+Required when replying` |
-| **credit** | Float | Income for the period<br>`+Required when answering` |
-| **debit** | Float | Expense for the period<br>`+Required when answering` |
-| **balance** | Float | Balance (income-expense)<br>`+Required when answering` |
+| **credit** | Float | Income for the period<br>`+Required when replying` |
+| **debit** | Float | Expense for the period<br>`+Required when replying` |
+| **balance** | Float | Balance (income-expense)<br>`+Required when replying` |
 
 #### Parameters available for filtering
 
@@ -172,9 +172,9 @@ Successful request. The result is a JSON representation of the report.
 #### Unit
 | Title | Type | Description |
 | ------------ | ------ |----- |
-| **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **organization** | Object | Organization. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **balance** | Float | Current balance<br>`+Required when answering` |
+| **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
+| **organization** | Object | Organization. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
+| **balance** | Float | Current balance<br>`+Required when replying` |
 
 #### Organization account
 
@@ -188,7 +188,7 @@ Successful request. The result is a JSON representation of the report.
 | Title | Type | Description |
 | ------------ | ------ |---- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Organization metadata<br>`+Required when replying` |
-| **name** | String(255) | Organization name<br>`+Required when answering` |
+| **name** | String(255) | Organization name<br>`+Required when replying` |
 
 > Request for receipt of cash balances on cash desks and accounts
 

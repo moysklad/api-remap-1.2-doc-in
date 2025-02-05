@@ -14,7 +14,7 @@ Using the JSON API, you can create and update information about Bills of Materia
 | **costDistributionType** | Enum | | Cost of distribution type. Possible values: `BY_PRICE`, `BY_PRODUCTION`<br>`+Required if answered` `+Read-only` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when answering` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-**stages** | MetaArray | | Collection of metadata of the Bill of Materials' operations <br>`+Required when answering` `+Expand` |
+|**stages** | MetaArray | | Collection of metadata of the Bill of Materials' operations <br>`+Required when answering` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
 | **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when answering` |
@@ -1012,13 +1012,13 @@ Successful request. The result is a JSON representation of the updated Bill of M
   }
 }
 ```
-### Operations of a Bill of Materials
+### Operations of Bill of Materials
 
 This is a separate resource for managing the operations of a Bill of Materials. Use it to manage the productions operations of a large Bill of Materials, the number of operations in which exceeds the limit on the number of items stored with this document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-limitations). 
 
 Arbitrary creation and deletion of productions operations in Bills of Materials is not supported. Each production operation of a Bill of Materials strictly corresponds to the operations in the items of the linked Routing.
 
-### Get Operations of a Bill of Materials
+### Get Operations of Bill of Materials
 Request to obtain a list of all Operations of a Bill of Materials.
 
 | Name | Type | Description |
@@ -1081,7 +1081,7 @@ Successful request. Result is JSON representation of the list of production oper
 }
 ```
 
-### Get a separate Production Operation of a Bill of Materials
+### Get Production Operation of Bill of Materials
 
 **Parameters**
 
@@ -1124,7 +1124,7 @@ Successful request. Result is a JSON representation of a single production opera
 }
 ```
 
-### Update a single Production Operation of a Bill of Materials
+### Update Production Operation of Bill of Materials
 There are no required fields in the request body to update a Production Operation of a Bill of Materials. Specify only the fields you want to update.
 
 **Parameters**
@@ -1172,11 +1172,11 @@ Successful request. The result is a JSON representation of the updated Productio
 }
 ```
 
-### Materials in a Bill of Materials 
+### Materials in Bill of Materials 
 
 Separate resource for managing raw materials of a Bill of Materials allows you to manage materials of a large Bill of Materials which number of materials exceeds the limit on the number of materials stored with the document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-limitations).
 
-### Get Materials in a Bill of Materials  
+### Get Materials in Bill of Materials  
 Request to get the list of all raw materials in a Bill of Materials.
 
 | Name | Type | Description |
@@ -1263,9 +1263,9 @@ Successful request. The result is a JSON representation of the list of raw mater
 }
 ```
 
-### Bill of Materials
+### Material of Bill of Materials
 
-### Get Materials
+### Get Material
 
 **Parameters**
 
@@ -1579,7 +1579,7 @@ Successful request. Result is a JSON representation of the updated Bill of Mater
 ]
 ```
 
-### Delete material
+### Delete Material
 
 **Parameters**
 

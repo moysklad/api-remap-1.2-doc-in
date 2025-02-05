@@ -8,19 +8,19 @@ Using the JSON API, you can request the "Account metrics" report for all or for 
 
 | Title | Type                                               | Filtration | Description |
 | ----- |----------------------------------------------------| ------ | ------ |
-| **averageReceipt** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when answering` |
-| **balance** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when answering` |
-| **bonusbalance** | Float                                              | | Points<br>`+Required when answering` |
-| **counterparty** | object                                             | | Counterparty. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **demandsCount** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when answering` |
-| **demandssum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when answering` |
-| **discountSum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when answering` |
+| **averageReceipt** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Average bill<br>`+Required when replying` |
+| **balance** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Balance<br>`+Required when replying` |
+| **bonusbalance** | Float                                              | | Points<br>`+Required when replying` |
+| **counterparty** | object                                             | | Counterparty. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
+| **demandsCount** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Number of sales<br>`+Required when replying` |
+| **demandssum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Sales amount<br>`+Required when replying` |
+| **discountSum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Discount amount<br>`+Required when replying` |
 | **firstDemandDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date of first sale<br>`+Required when replying` |
 | **lastDemandDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date of last sale<br>`+Required when replying` |
 | **lastEventDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last event date<br>`+Required when replying` |
 | **lastEventText** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Last event text<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Report for this counterparty<br>`+Required when replying` |
-| **profit** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when answering` |
+| **profit** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Profit<br>`+Required when replying` |
 | **returnsCount** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Number of returns<br>`+Required when replying` |
 | **returnsSum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Refund amount<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last change of the counterparty<br>`+Required when replying` |

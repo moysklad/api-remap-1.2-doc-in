@@ -79,7 +79,7 @@ Let's first create products with different names that can start with Latin, Cyri
 curl -X POST
 https://api.kladana.com/api/remap/1.2/entity/product
   -H 'Authorization: Bearer <Access-Token>'
-  -H "Accept-Encoding: gzip"
+  -H 'Accept-Encoding: gzip'
   -H 'Cache-Control: no-cache' 
   -H 'Content-Type: application/json' 
   -d '[
@@ -146,7 +146,7 @@ To get a collection of products sorted by name, you must specify the `name` fiel
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=name'
 -H 'Authorization: Bearer <Access-Token>'
--H "Accept-Encoding: gzip"
+-H 'Accept-Encoding: gzip'
 -H 'Cache-Control: no-cache'
 ```
 The response will contain the following ascending order:
@@ -154,14 +154,14 @@ The response will contain the following ascending order:
 | name |
 | ---- |
 | 12345 |
-| pencil |
+| Pencil |
 | Pencil 123 |
 | Pencil Blue |
 | Pencil Red |
-| Pencil |
+| !!! Pencil |
 | Pencil 123 |
-| Yellow pencil |
-| Green pencil |
+| Pencil yellow |
+| Pencil green |
 | !!! This is a pencil |
 
 Change the sort direction
@@ -172,15 +172,15 @@ Change the sort direction
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=name,desc'
 -H 'Authorization: Bearer <Access-Token>'
--H "Accept-Encoding: gzip"
+-H 'Accept-Encoding: gzip'
 -H 'Cache-Control: no-cache'
 ```
 
 |name|
 |-----|
 | !!! This is a pencil |
-| Green pencil |
-| Yellow pencil |
+| Pencil green |
+| Pencil yellow |
 | Pencil 123 |
 | !!! Pencil |
 | Pencil Red |
@@ -197,7 +197,7 @@ Let's try to sort products simultaneously in descending order of the `weighed` l
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;name'
 -H 'Authorization: Bearer <Access-Token>'
--H "Accept-Encoding: gzip"
+-H 'Accept-Encoding: gzip'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
@@ -206,13 +206,13 @@ curl -X GET
 | -------- | ---- |
 | true | 12345 |
 | true | Pencil Blue |
-| true | Pencil Yellow |
+| true | Pencil yellow |
 | false | Pencil |
 | false | Pencil 123 |
 | false | Pencil Red |
 | false | !!! Pencil |
 | false | Pencil 123 |
-| false | Pencil Green |
+| false | Pencil green |
 | false | !!! This is a pencil |
 
 Let's add sorting by the `weight` numeric field.
@@ -223,17 +223,17 @@ Let's add sorting by the `weight` numeric field.
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name'
 -H 'Authorization: Bearer <Access-Token>'
--H "Accept-Encoding: gzip"
+-H 'Accept-Encoding: gzip'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
 
 | weighted | weight | name |
 | -------- | ------ | ---- |
-|true|0.12| Pencil Yellow |
+|true|0.12| Pencil yellow |
 |true|0.11| Pencil Blue |
 |true|0.1| 12345 |
-|false|0.4| Pencil Green |
+|false|0.4| Pencil green |
 |false|0.32| Pencil 123 |
 |false|0.2| Pencil Red |
 |false|0.1| !!! Pencil |
@@ -249,7 +249,7 @@ In addition to text, numeric and boolean fields, sorting by fields of uuid and d
 curl -X GET
 'https://api.kladana.com/api/remap/1.2/entity/product?order=syncId'
 -H 'Authorization: Bearer <Access-Token>'
--H "Accept-Encoding: gzip"
+-H 'Accept-Encoding: gzip'
 -H 'Cache-Control: no-cache'
 -H 'Content-Type: application/json'
 ```
@@ -262,9 +262,9 @@ curl -X GET
 | 3d7c97cf-cf77-4f7e-b200-d264125578ab | !!! This is a pencil |
 | 4b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil 123 |
 | 5b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil |
-| 7b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil Yellow |
+| 7b7c97cf-cf77-4f7e-b200-d264125578ab | Pencil yellow |
 | 8b7c97cf-cf77-4f7e-b200-d264125578ab | 12345 |
-| 8c7c97cf-cf77-4f7e-b200-d264125578ab | Pencil Green |
+| 8c7c97cf-cf77-4f7e-b200-d264125578ab | Pencil green |
 | null | Pencil Blue |
 
 The product `Pencil Blue` does not have a field value, so when sorting in ascending order, it is displayed at the end. Similar behavior for other fields with the value `null`.

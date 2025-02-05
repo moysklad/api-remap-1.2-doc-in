@@ -63,7 +63,7 @@ Successful request. The result is a JSON representation of the list of Serial nu
   "rows":[
     {
       "meta": {
-        "href": "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
         "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
         "type": "thing",
         "mediaType": "application/json"
@@ -75,7 +75,7 @@ Successful request. The result is a JSON representation of the list of Serial nu
     },
     {
       "meta": {
-        "href": "https://app.kladana.com/api/remap/1.2/entity/thing/55609d5e-9f2d-11ee-8c90-0242ac120002",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/thing/55609d5e-9f2d-11ee-8c90-0242ac120002",
         "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
         "type": "thing",
         "mediaType": "application/json"
@@ -112,7 +112,7 @@ Successful request. The result is a JSON representation of the Serial number wit
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002",
     "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/thing/metadata",
     "type": "thing",
     "mediaType": "application/json"

@@ -61,13 +61,13 @@ The Sales Return element object contains the following fields:
 | Title | Type                                               | Description |
 | ------|----------------------------------------------------|---------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` |
 | **cost** | Int                                                | Cost price. It is displayed only for Unreferenced Return (Return with no reason) |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country Metadata<br>`+Expand` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br>`+Change-handler` |
-| **price** | Float                                              |Price of products/services in paise<br>`+Required when answering` `+Change-handler` |
+| **price** | Float                                              |Price of products/services in paise<br>`+Required when replying` `+Change-handler` |
 | **quantity** | Float                                               | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |

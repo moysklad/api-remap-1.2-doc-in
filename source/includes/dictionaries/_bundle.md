@@ -742,7 +742,7 @@ Successful request. The result is a JSON representation of the generated Bundle.
        "downloadHref": "https://miniature-prod.app.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
      },
      "tiny": {
-       "href": "https://app.kladana.com/app/download/bd14f0b6-95ee-11e6-8a84-bae500000000.png",
+       "href": "https://api.kladana.com/app/download/bd14f0b6-95ee-11e6-8a84-bae500000000.png",
        "mediaType": "image/png"
      }
    },
@@ -1963,13 +1963,20 @@ curl -X POST
   -d '[
     {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/31c3e4a8-7323-11ee-c0a8-e00e00000027", "type": "bundlecomponent", "mediaType": "application/json" } }, { "meta": { "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/23afc075-7323-11ee-c0a8-e00e0000001c",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/31c3e4a8-7323-11ee-c0a8-e00e00000027", 
+        "type": "bundlecomponent", 
+        "mediaType": "application/json" 
+      }
+    }, 
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/23afc075-7323-11ee-c0a8-e00e0000001c",
         "type": "bundlecomponent",
         "mediaType": "application/json"
       }
     }
   ]'
 ```
-
+ 
 > Response 200 (application/json)
 Successful removal of Bundle components.

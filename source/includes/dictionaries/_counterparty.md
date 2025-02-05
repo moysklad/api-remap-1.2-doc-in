@@ -186,8 +186,8 @@ About working with Counterparty fields can be read [here](../#kladana-json-api-g
 
 Counterparty Gender is used only for Counterparty type `[Individual]`. It is ignored for Counterparties type `[Individual Entrepreneur, Legal Entity]`.
 
-| `sex` Field Value   | Counterparty Gender |
-| ------------------- | ---------------- |
+| Field Value   | Counterparty Gender |
+| ------------- | ------------------- |
 | **MALE** | Male |
 | **FEMALE** | Female |
 
@@ -404,14 +404,14 @@ Successful request. The result is a JSON representation of the list of Counterpa
           "mediaType":"application/json"
         }
       },
-     "updated":"2016-08-23 15:21:09",
+      "updated":"2016-08-23 15:21:09",
        "name":"OOO \"Buyer\"",
        "externalCode":"DTItQRbDhyl472ZqC5OWw2",
        "archived": false,
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Buyer\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
-      "legalAddressFull":{  
+       "legalAddressFull":{  
         "postalCode":"125009",
         "country":{  
           "meta":{  
@@ -1145,7 +1145,7 @@ curl -X POST
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
     "type": "counterparty",
     "mediaType": "application/json",
-    "uuidHref": "https://api.kladana.com/app/#company/edit?id=23f049f3-3ad1-11ee-ac13-000c00000000"
+    "uuidHref": "https://app.kladana.com/app/#company/edit?id=23f049f3-3ad1-11ee-ac13-000c00000000"
   },
   "id": "23f049f3-3ad1-11ee-ac13-000c00000000",
   "accountId": "00081cde-3ad1-11ee-ac13-000d00000001",
@@ -1155,7 +1155,7 @@ curl -X POST
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://api.kladana.com/app/#employee/edit?id=00f97251-3ad1-11ee-ac13-000e0000004c"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=00f97251-3ad1-11ee-ac13-000e0000004c"
     }
   },
   "shared": false,
@@ -2684,48 +2684,6 @@ curl -X GET
 }
 ```
 
-#### Create Counterparty Account
-
-Create a Counterparty account with the specified ID.
-
-**Parameters**
-
-| Parameter | Description |
-| --------- | ------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
-
-> Example of a request to create a Counterparty account.
-
-```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
-    -d '{
-          "accountNumber": "86686868768768757656876876"
-        }'  
-```
-
-> Response 200 (application/json). Successful creation.
-
-```json
-[
-  {
-    "meta": {
-      "href": "http://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
-      "type": "account",
-      "mediaType": "application/json"
-    },
-    "id": "7944ef04-f831-11e5-7a69-971500188b18",
-    "accountId": "4615c8f6-0e7b-11e2-06e0-3c4a92f3a0a7",
-    "updated": "2024-01-22 17:57:54.558",
-    "isDefault": false,
-    "accountNumber": "86686868768768757656876876"
-  }
-]
-```
-
 ### Counterparty Account
 
 **Parameters**
@@ -2765,6 +2723,48 @@ curl -X GET
    "bankName": "VTB",
    "bic": "7654352"
 }
+```
+
+### Create Counterparty Account
+
+Create a Counterparty account with the specified ID.
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
+
+> Example of a request to create a Counterparty account.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+    -d '{
+          "accountNumber": "86686868768768757656876876"
+        }'  
+```
+
+> Response 200 (application/json). Successful creation.
+
+```json
+[
+  {
+    "meta": {
+      "href": "http://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
+      "type": "account",
+      "mediaType": "application/json"
+    },
+    "id": "7944ef04-f831-11e5-7a69-971500188b18",
+    "accountId": "4615c8f6-0e7b-11e2-06e0-3c4a92f3a0a7",
+    "updated": "2024-01-22 17:57:54.558",
+    "isDefault": false,
+    "accountNumber": "86686868768768757656876876"
+  }
+]
 ```
 
 ### Change Counterparty account
@@ -2818,7 +2818,6 @@ Update the Counterparty account with the specified ID. Fields that were not spec
   "bic": "1005002good"
 }
 ```
-
 
 ### Counterparty Contact persons
 

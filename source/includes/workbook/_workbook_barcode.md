@@ -20,25 +20,25 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
-             "name": "good",
-             "barcodes": [
-               {
-                 "ean8": "20000000"
-               },
-               {
-                 "ean13": "2000000000000"
-               },
-               {
-                 "code128": "code128 barcode"
-               },
-               {
-                 "gtin": "00000000000130"
-                },
+            "name": "good",
+            "barcodes": [
+              {
+                "ean8": "20000000"
+              },
+              {
+                "ean13": "2000000000000"
+              },
+              {
+                "code128": "code128 barcode"
+              },
+              {
+                "gtin": "00000000000130"
+              },
               {
                 "upc": "400000000015"
-               }
-             ]
-           }'
+              }
+            ]
+          }'
    ```
 > Response 200(application/json)
   Successful request. The result is a JSON representation of the created Product with barcodes.
@@ -87,7 +87,7 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       }
     },
     "minPrice": {
-      "value": 500.0,
+      "value": 500,
       "currency": {
         "meta": {
           "href": "https://api.kladana.com/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
@@ -99,7 +99,7 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
     },
     "salePrices": [
       {
-        "value": 0.0,
+        "value": 0,
         "priceType": {
           "meta": {
             "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -113,7 +113,7 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       }
     ],
     "buyPrice": {
-      "value": 0.0
+      "value": 0
     },
     "weight": 0,
     "volume": 0,
@@ -130,44 +130,44 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       {
         "gtin": "00000000000130"
       },
-     {
-       "upc": "400000000015"
+      {
+        "upc": "400000000015"
       }
     ],
     "variantsCount": 0,
     "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
-  ```
+```
 
 > Update barcodes for products
 
-  ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
-       -d '{
-             "barcodes": [
-               {
-                 "ean8": "20000001"
-               },
-               {
-                 "ean13": "2000000000001"
-               },
-               {
-                 "code128": "code128 barcode 1"
-               },
-               {
-                 "gtin": "00000000000131"
-               },
+```shell
+  curl -X PUT
+    "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "barcodes": [
+              {
+                "ean8": "20000001"
+              },
+              {
+                "ean13": "2000000000001"
+              },
+              {
+                "code128": "code128 barcode 1"
+              },
+              {
+                "gtin": "00000000000131"
+              },
               {
                 "upc": "400000000015"
-               }
-             ]
-           }'
-   ```
+              }
+            ]
+          }'
+```
 
 > Response 200(application/json)
   Successful request. The result is a JSON representation of the updated Product with barcodes.
@@ -216,7 +216,7 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       }
     },
     "minPrice": {
-      "value": 500.0,
+      "value": 500,
       "currency": {
         "meta": {
           "href": "https://api.kladana.com/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
@@ -228,7 +228,7 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
     },
     "salePrices": [
       {
-        "value": 0.0,
+        "value": 0,
         "priceType": {
           "meta": {
             "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -242,7 +242,7 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       }
     ],
     "buyPrice": {
-      "value": 0.0
+      "value": 0
     },
     "weight": 0,
     "volume": 0,
@@ -259,13 +259,13 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
       {
         "gtin": "00000000000131"
       },
-     {
-       "upc": "400000000016"
+      {
+        "upc": "400000000016"
       }
     ],
     "variantsCount": 0,
     "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
-  ```
+```
   If barcodes are no longer needed for identification, update the items by specifying an empty list of barcodes.

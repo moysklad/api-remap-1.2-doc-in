@@ -44,15 +44,15 @@ Using the JSON API, you can create and update information about Write-offs, requ
 
 #### Write-off Items
 
-Write-off items is a list of products, product variants or batches. The Write-off item object contains the following fields:
+Write-off items is a list of products/product variants/batches. The Write-off item object contains the following fields:
 
 | Title | Type                                               | Description|
 | ------------|----------------------------------------------------| --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when replying` `+Change-handler` |
 | **quantity** |  Float    | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **reason** | String(255)                                        | Reason for decommissioning this item |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
@@ -1609,7 +1609,7 @@ Successful request. The result is a JSON representation of a single Write-off it
 ```json
 {
   "meta": {
-    "href": "https://app.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
     "type": "lossposition",
     "mediaType": "application/json"
   },
@@ -1619,7 +1619,7 @@ Successful request. The result is a JSON representation of a single Write-off it
   "price": 20000.0,
   "assortment": {
     "meta": {
-      "href": "https://app.kladana.com/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
       "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/product/metadata",
       "type": "product",
       "mediaType": "application/json",
@@ -1634,7 +1634,7 @@ Successful request. The result is a JSON representation of a single Write-off it
 Request to create a new item in the Write-off.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product, service, batches or product variant that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Write-off item](../documents/#transactions-write-off-write-off-write-off-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.

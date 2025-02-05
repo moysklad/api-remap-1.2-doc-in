@@ -10,7 +10,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
@@ -37,9 +37,9 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Purchase Returns total amount in paise<br>`+Required when replying` `+Read Only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
+| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean | | Is VAT included in the price |
-| **vatSum** | Float | | VAT amount<br>`+Required when answering` |
+| **vatSum** | Float | | VAT amount<br>`+Required when replying` |
 
 #### Links to other documents
 
@@ -57,11 +57,11 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | Title | Type | Descriptions|
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` |
 | **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float | The price of the products/services in paise<br>`+Required when answering` |
+| **price** | Float | The price of the products/services in paise<br>`+Required when replying` |
 | **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |

@@ -74,8 +74,8 @@ Description of overhead expenses fields.
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------| -------- |
 | **cargoName** | String(255)                                        | Name of cargo <br/> `+Change-handler` |
-| **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (contractor or legal entity)<br>`+Expand` `+Change-handler` |
-| **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (contractor or legal entity) <br/> `+Change-handler` |
+| **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (counterparty or legal entity)<br>`+Expand` `+Change-handler` |
+| **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (counterparty or legal entity) <br/> `+Change-handler` |
 | **goodPackQuantity** | Int                                                | Total seats <br/> `+Change-handler` |
 | **shippingInstructions** | String(255)                                        | Shipper instructions <br/> `+Change-handler` |
 | **stateContractId** | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
@@ -2142,7 +2142,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/documents",
+       "href": "https://api.kladana.co/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
