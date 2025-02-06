@@ -25,7 +25,7 @@ It often happens that many duplicate requests are received in a short period of 
 One of the main problems in integration can be the use of multiple requests in workflows, when the necessary data can be obtained with one request. For example:
 
 * updating an object in parts, not as a whole;
-* ignoring [expand](../#workbook-expand), [async](../#workbook-asynk) and [webhook](../#workbook-webhooks) where necessary:
+* ignoring [expand](../#workbook-expand), [async](../#workbook-dealing-with-asynchronous-exchange) and [webhook](../#workbook-webhooks) where necessary:
 * **expand** helps to reduce the number of requests if you need to get nested entities;
 * **async** allows you to get a list of all objects without having to iterate through them using pagination;
 * **webhook** allows you to accurately update the state of an entity and update data less frequently.
@@ -49,7 +49,7 @@ To get started, you need the following:
 
 ### First request
 
-For JSON API requests, the login and password of the Kladana account (Basic Auth) or [token for Authentication in json api](../#kladana-json-api-obschie-swedeniq-autentifikaciq) are used.
+For JSON API requests, the login and password of the Kladana account (Basic Auth) or [token for Authentication in json api](../#kladana-json-api-general-info-authentication) are used.
 
 To create the first product, you only need its name.
 
@@ -437,7 +437,7 @@ curl -X POST
 
 Errors are returned as an `errors` array containing `error` objects, each of which describes a single error.
 
-Learm nore about the structure and types of errors [in the documentation](../#kladana-erros).
+Learm nore about the structure and types of errors [in the documentation](../#kladana-json-api-errors).
 
 ### HTTP methods: GET, POST, PUT, DELETE
 
@@ -2619,4 +2619,4 @@ Successful request. Result - JSON representation of Products with 'owner' and 'g
 }
 ```
 
-[More examples](../#mojsklad-json-api-obschie-swedeniq-zamena-ssylok-ob-ektami-s-pomosch-u-expand) and information about replacing links with objects using **expand**.
+[More examples](../#kladana-json-api-general-info-replacing-links-with-objects-using-expand) and information about replacing links with objects using **expand**.
