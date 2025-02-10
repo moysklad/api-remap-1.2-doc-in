@@ -355,7 +355,7 @@ curl -X GET
   ```
 
 Consider another option for workingwith files in Products.
-For instance, you need to update the list of product files. In Kladana, it can be performed in two ways: as described earlier, or using the JSON API.
+For instance, you need to update and add the list of product files. In Kladana, it can be performed in two ways: as described earlier, or using the JSON API.
 
 > Request to update the list of files for the Product
 
@@ -366,18 +366,16 @@ For instance, you need to update the list of product files. In Kladana, it can b
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
-             {
-               "filename": "new_instruction.txt",
-               "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-             },
-             "meta": {
-                 "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
-                 "type": "files",
-                 "mediaType": "application/json",
-                 "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
-             }
-           ]'
-   ```
+            {
+              "filename": "new_instruction_step_1.txt",
+              "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+            },
+            {
+              "filename": "new_instruction_step_2.txt",
+              "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+            }                  
+          ]'  
+  ```
 
 > Response is an updated list of Product files
 
@@ -391,8 +389,8 @@ For instance, you need to update the list of product files. In Kladana, it can b
        "mediaType": "application/json",
        "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
      },
-     "title": "new_instruction",
-     "filename": "new_instruction.txt",
+     "title": "new_instruction_step_1",
+     "filename": "new_instruction_step_1.txt",
      "size": 14052,
      "updated": "2019-01-24 16:55:24.567",
      "createdBy": {
@@ -407,15 +405,36 @@ For instance, you need to update the list of product files. In Kladana, it can b
    },
    {
      "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb5",
+       "type": "files",
+       "mediaType": "application/json",
+       "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb5"
+     },
+     "title": "new_instruction_step_2",
+     "filename": "new_instruction_step_2.txt",
+     "size": 14052,
+     "updated": "2019-01-24 16:55:24.567",
+     "createdBy": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
+       }
+     }
+   },
+   {
+     "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb7",
          "type": "files",
          "mediaType": "application/json",
-         "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+         "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb7"
      },
      "title": "description",
      "filename": "description.png",
      "size": 14052,
-     "updated": "2019-01-24 16:55:24.567",
+     "updated": "2019-01-24 16:11:22.411",
      "miniature": {
          "href": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
          "type": "files",

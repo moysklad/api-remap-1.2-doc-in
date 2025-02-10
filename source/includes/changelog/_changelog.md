@@ -6,13 +6,21 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 21-11-2024
+### 10-02-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 #### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+
+### 02-12-2024
+#### Added
+- Renamed "User Directory" to "[Custom list](../dictionaries/#entities-custom-list)" to align with the web interface.
+- Added metadata output for additional fields in Custom list metadata.
+- Added an `ID` field to the metadata of a Custom list.
+- Added output of additional fields in Custom list elements.
 
 ### 19-11-2024
 #### Added

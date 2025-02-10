@@ -22,6 +22,7 @@ includes:
   - dictionaries/counterparty
   - dictionaries/country
   - dictionaries/currency
+  - dictionaries/customentity
   - dictionaries/group
   - dictionaries/discount
   - dictionaries/employee
@@ -48,7 +49,6 @@ includes:
   - dictionaries/task
   - dictionaries/states
   - dictionaries/uom
-  - dictionaries/customentity
   - dictionaries/custom_role
   - dictionaries/usersettings
   - dictionaries/store

@@ -228,6 +228,7 @@ List of entities with additional fields:
 
 + [Contract](dictionaries/#entities-contract)
 + [Counterparty](dictionaries/#entities-counterparty)
++ [Custom list](dictionaries/#entities-custom-list) (each has its own)
 + [Legal entity](dictionaries/#entities-entity)
 + [Project](dictionaries/#entities-project)
 + [Warehouse](dictionaries/#entities-warehouse)
@@ -318,7 +319,7 @@ selected when creating an additional field.
 | [Product] | product |
 | User directory_name | customentity |
 
-If as a type of additional field is selected [Entities](dictionaries/#entities-user-directory), then as part of the object of this
+If as a type of additional field is selected [Entities](dictionaries/#entities-custom-list), then as part of the object of this
 additional field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
 The full set of attributes fields will look like this:
 
@@ -644,7 +645,7 @@ curl -X POST
   -H 'Content-Type: application/json' \
   -d '{
         "customEntityMeta": {
-          "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/0347beb0-a785-11e9-ac12-000800000003",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/0347beb0-a785-11e9-ac12-000800000003/metadata",
           "type": "customentitymetadata",
           "mediaType": "application/json"
         },
@@ -665,7 +666,7 @@ Successful request. The result is a JSON representation of the generated addon. 
     "mediaType": "application/json"
   },
   "customEntityMeta": {
-    "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/0347beb0-a785-11e9-ac12-000800000003",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/0347beb0-a785-11e9-ac12-000800000003/metadata",
     "type": "customentitymetadata",
     "mediaType": "application/json"
   },
