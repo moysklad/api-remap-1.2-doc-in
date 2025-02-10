@@ -10,15 +10,15 @@ JSON API 1.2 changes will be added here soon
 - Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
 
-### 02-12-2024
-#### Added
+## 02-12-2024
+### Added
 - Renamed "User Directory" to "[Custom list](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-list)" to align with the web interface.
 - Added metadata output for additional fields in Custom list metadata.
 - Added an `ID` field to the metadata of a Custom list.
 - Added output of additional fields in Custom list elements.
 
-### 19-11-2024
-#### Added
+## 19-11-2024
+### Added
 - Field `salesMargin` added in [Profitability report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profitability-report)
 
 ## 29-10-2024
