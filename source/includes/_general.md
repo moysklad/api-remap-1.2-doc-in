@@ -810,20 +810,20 @@ Request to update collection fields of a particular entity.
 
 ```shell
 curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/demand/7bc578d8-6501-11e8-9464-e4de00000001"
+  "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
         "attributes": [
-          {
-            "meta": {
-              "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/986314b4-6500-11e8-9464-e4de00000048",
-              "type": "attributemetadata",
-              "mediaType": "application/json"
-            },
-            "value": "new string"
-          }
+            {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
+                    "type": "attributemetadata",
+                    "mediaType": "application/json"
+                },
+                "value": "new string"
+            }
         ]
       }'
 ```
@@ -833,21 +833,121 @@ Successful request. The result is a JSON representation of the shipment with upd
 
 ```json
 {
-...
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+    "type": "demand",
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+  },
+  "id": "a6c50571-e705-11ef-ac12-000e0000001d",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2025-02-09 19:49:07.867",
+  "name": "00001",
+  "externalCode": "Uz0EvPg2jRgvtDL5o44ct0",
+  "moment": "2025-02-09 19:47:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
   "attributes": [
     {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/986314b4-6500-11e8-9464-e4de00000048",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
-      "id": "986314b4-6500-11e8-9464-e4de00000048",
-      "name": "String field",
+      "id": "86a3c86d-e705-11ef-ac12-000e00000007",
+      "name": "New attribute",
       "type": "string",
       "value": "new string"
     }
-  ]
-...
+  ],
+  "created": "2025-02-09 19:48:13.055",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/positions",
+      "type": "demandposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
+  "payedSum": 0.0,
+  "shipmentAddress": "г.Москва, ул.Строителей, д.11",
+  "shipmentAddressFull": {
+    "addInfo": "г.Москва, ул.Строителей, д.11"
+  }
 }
 ```
 ### Working with transaction items
@@ -1320,7 +1420,7 @@ You can also use **expand** on the results of create and update operations.
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089"
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -1330,20 +1430,112 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043",
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
-    "mediaType": "application/json"
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
-  ...
-  "demand": {
+  "id": "685a0eb9-e707-11ef-ac12-000e00000043",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
-      "type": "demand",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
       "mediaType": "application/json"
     }
-  }
+  },
+  "updated": "2025-02-09 20:00:47.301",
+  "name": "00002",
+  "externalCode": "EMY-acmYh9LKG6GbGLvkY0",
+  "moment": "2025-02-09 20:00:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
+  "created": "2025-02-09 20:00:47.329",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/positions",
+      "type": "salesreturnposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
+  "demand": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+      "type": "demand",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+    }
+  },
+  "payedSum": 0.0
 }
 ```
 
@@ -1355,7 +1547,7 @@ We pass the parameter **expand**=demand.
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand"
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -1365,63 +1557,253 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand",
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
-    "mediaType": "application/json"
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
-  ...
+  "id": "685a0eb9-e707-11ef-ac12-000e00000043",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2025-02-09 20:00:47.301",
+  "name": "00002",
+  "externalCode": "EMY-acmYh9LKG6GbGLvkY0",
+  "moment": "2025-02-09 20:00:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
+  "created": "2025-02-09 20:00:47.329",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/positions",
+      "type": "salesreturnposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
   "demand": {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d",
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
-      "mediaType": "application/json"
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     },
-    "id": "f99544d7-4a98-11e6-8a84-bae50000007f",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+    "id": "a6c50571-e705-11ef-ac12-000e0000001d",
+    "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
     "owner": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
-        "mediaType": "application/json"
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
       }
     },
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
     },
-    ...
+    "updated": "2025-02-09 20:00:47.396",
+    "name": "00001",
+    "externalCode": "Uz0EvPg2jRgvtDL5o44ct0",
+    "moment": "2025-02-09 19:47:00.000",
+    "applicable": true,
+    "rate": {
+      "currency": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+          "type": "currency",
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        }
+      }
+    },
+    "sum": 111100.0,
+    "store": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+        "type": "store",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      }
+    },
+    "agent": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+        "type": "counterparty",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+      }
+    },
+    "organization": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+        "type": "organization",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      }
+    },
+    "attributes": [
+      {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        },
+        "id": "86a3c86d-e705-11ef-ac12-000e00000007",
+        "name": "New attribute",
+        "type": "string",
+        "value": "new string"
+      }
+    ],
+    "created": "2025-02-09 19:48:13.055",
+    "printed": false,
+    "published": false,
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    },
     "positions": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f/positions",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/positions",
         "type": "demandposition",
         "mediaType": "application/json",
-        "size": 2,
+        "size": 1,
         "limit": 1000,
         "offset": 0
       }
     },
     "vatEnabled": true,
     "vatIncluded": true,
-    "payedSum": 0,
+    "vatSum": 0.0,
+    "payedSum": 0.0,
     "returns": [
       {
         "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043",
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
           "type": "salesreturn",
-          "mediaType": "application/json"
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
         }
       }
-    ]
-  }
+    ],
+    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
+    "shipmentAddressFull": {
+      "postalCode":"125009",
+      "country": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+          "type":"country",
+          "mediaType":"application/json"
+        }
+      },
+      "region": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
+          "type":"region",
+          "mediaType":"application/json"
+        }
+      },
+      "city":"New Delhi",
+      "street":"Akbar Road",
+      "house":"1",
+      "apartment":"111",
+      "addInfo":"addinfo",
+      "comment":"some words about address"
+    }
+  },
+  "payedSum": 0.0
 }
 ```
 
@@ -1438,7 +1820,7 @@ parameter **expand** equal to two.
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand.agent"
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand.agent"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -1448,64 +1830,328 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand.agent",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand.agent",
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
-    "mediaType": "application/json"
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
-  ...
+  "id": "685a0eb9-e707-11ef-ac12-000e00000043",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2025-02-09 20:00:47.301",
+  "name": "00002",
+  "externalCode": "EMY-acmYh9LKG6GbGLvkY0",
+  "moment": "2025-02-09 20:00:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
+  "created": "2025-02-09 20:00:47.329",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/positions",
+      "type": "salesreturnposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
   "demand": {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f?expand=agent",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d?expand=agent",
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
-      "mediaType": "application/json"
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     },
-    ...
+    "id": "a6c50571-e705-11ef-ac12-000e0000001d",
+    "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+    "owner": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+      }
+    },
+    "shared": false,
+    "group": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+        "type": "group",
+        "mediaType": "application/json"
+      }
+    },
+    "updated": "2025-02-09 20:00:47.396",
+    "name": "00001",
+    "externalCode": "Uz0EvPg2jRgvtDL5o44ct0",
+    "moment": "2025-02-09 19:47:00.000",
+    "applicable": true,
+    "rate": {
+      "currency": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+          "type": "currency",
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        }
+      }
+    },
+    "sum": 111100.0,
+    "store": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+        "type": "store",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      }
+    },
     "agent": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
-        "mediaType": "application/json"
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
       },
-      ...
-      "name": "Agent1",
-      "code": "УТ0003074",
-      "externalCode": "kAgs4Xbhiz2Sp5oP2OCaB2",
+      "id": "a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+        }
+      },
+      "shared": false,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2025-01-21 11:49:37.985",
+      "name": "LLC \"Supplier\"",
+      "externalCode": "nv4UeR5dhAStZ4X-5-ojn2",
       "archived": false,
-      "legalTitle": "Agent1 Limited Liability Company",
-      "legalAddress": "107023, Moscow, Barabanny lane, house number 42, building 2",
-      "inn": "7719864242",
-      "kpp": "771901001",
-      ...
+      "created": "2020-06-18 00:38:14.083",
+      "companyType": "legal",
+      "legalTitle": "Limited Liability Company \"Supplier\"",
+      "legalAddress": "Moscow, Stroiteley st., 12",
+      "legalAddressFull": {
+        "addInfo": "Moscow, Stroiteley st., 12"
+      },
+      "inn": "7736570901",
+      "kpp": "773601001",
+      "accounts": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/accounts",
+          "type": "account",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "tags": [],
+      "contactpersons": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/contactpersons",
+          "type": "contactperson",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "notes": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/notes",
+          "type": "note",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "salesAmount": 0.0,
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      }
     },
-    ...
+    "organization": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+        "type": "organization",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      }
+    },
+    "attributes": [
+      {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        },
+        "id": "86a3c86d-e705-11ef-ac12-000e00000007",
+        "name": "New attribute",
+        "type": "string",
+        "value": "new string"
+      }
+    ],
+    "created": "2025-02-09 19:48:13.055",
+    "printed": false,
+    "published": false,
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    },
     "positions": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f/positions",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/positions",
         "type": "demandposition",
         "mediaType": "application/json",
-        "size": 2,
+        "size": 1,
         "limit": 1000,
         "offset": 0
       }
     },
     "vatEnabled": true,
     "vatIncluded": true,
-    "payedSum": 0,
+    "vatSum": 0.0,
+    "payedSum": 0.0,
     "returns": [
       {
         "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043",
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
           "type": "salesreturn",
-          "mediaType": "application/json"
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
         }
       }
-    ]
-  }
-  ...
+    ],
+    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
+    "shipmentAddressFull": {
+      "postalCode":"125009",
+      "country": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+          "type":"country",
+          "mediaType":"application/json"
+        }
+      },
+      "region": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
+          "type":"region",
+          "mediaType":"application/json"
+        }
+      },
+      "city":"New Delhi",
+      "street":"Akbar Road",
+      "house":"1",
+      "apartment":"111",
+      "addInfo":"addinfo",
+      "comment":"some words about address"
+    }
+  },
+  "payedSum": 0.0
 }
 ```
 
