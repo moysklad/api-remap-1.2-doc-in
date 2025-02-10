@@ -944,9 +944,31 @@ Successful request. The result is a JSON representation of the shipment with upd
   "vatIncluded": true,
   "vatSum": 0.0,
   "payedSum": 0.0,
-  "shipmentAddress": "г.Москва, ул.Строителей, д.11",
+  "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
   "shipmentAddressFull": {
-    "addInfo": "г.Москва, ул.Строителей, д.11"
+    "postalCode":"125009",
+    "country": {
+      "meta": {
+        "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+        "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+        "type":"country",
+        "mediaType":"application/json"
+      }
+    },
+    "region": {
+      "meta": {
+        "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+        "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
+        "type":"region",
+        "mediaType":"application/json"
+      }
+    },
+    "city":"New Delhi",
+    "street":"Akbar Road",
+    "house":"1",
+    "apartment":"111",
+    "addInfo":"addinfo",
+    "comment":"some words about address"
   }
 }
 ```
