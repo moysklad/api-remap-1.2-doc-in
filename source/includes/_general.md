@@ -2708,8 +2708,8 @@ curl -X PUT
   -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
-          "name": "3738"
-        }`
+        "name": "3738"
+      }'
 ```
 
 > Response 200 (application/json)
