@@ -1546,7 +1546,7 @@ curl -X GET
     "limit": 1000,
     "offset": 0
   },
-  "rows": [...]
+  "rows": []
 }
 ```
 
@@ -1584,7 +1584,7 @@ curl -X GET
     "nextHref": "https://api.kladana.com/api/remap/1.2/entity/country?offset=50&limit=25",
     "previousHref": "https://api.kladana.com/api/remap/1.2/entity/country?offset=0&limit=25"
   },
-  "rows": [...]
+  "rows": []
 }
 ```
 
@@ -1718,7 +1718,6 @@ curl -X GET
       "code": "388",
       "externalCode": "388"
     },
-    ...
     {
       "meta": {
         "href": "https://api.kladana.com/api/remap/1.2/entity/country/9756f8c8-84d3-46d1-9439-b4e950cff419",
