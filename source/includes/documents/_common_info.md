@@ -180,29 +180,30 @@ The result is a move with the internalOrder field filled in.
        "offset": 0
      },
      "positions": {
-   },
-   "sourceStore": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
-       "type": "store",
-       "mediaType": "application/json"
-     }
-   },
-   "targetStore": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
-       "type": "store",
-       "mediaType": "application/json"
-     }
-   },
-   "internalOrder": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/internalorder/metadata",
-       "type": "internalorder",
-       "mediaType": "application/json"
+     },
+     "sourceStore": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     "targetStore": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     "internalOrder": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/internalorder/metadata",
+         "type": "internalorder",
+         "mediaType": "application/json"
+       }
      }
    }
 }

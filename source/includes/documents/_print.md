@@ -78,7 +78,7 @@ for Sales Invoice:
 
 > Response 202 Headers
 
-```json
+```
 
    Location: link to print status
    Content-Type: application/json
@@ -87,7 +87,7 @@ for Sales Invoice:
 
 > Response 303 headers
 
-```json
+```
 
    Location: file link
    Content-Type: application/json
@@ -140,7 +140,7 @@ for Sales Invoice:
 
 > Response 202 Headers
 
-```json
+```
 
   Location: link to print status
   Content-Type: application/json
@@ -149,7 +149,7 @@ for Sales Invoice:
 
 > Response 303 headers
 
-```json
+```
 
   Location: file link
   Content-Type: application/json
