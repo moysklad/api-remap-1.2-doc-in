@@ -17,7 +17,7 @@ Using the JSON API, you can query and update lists of Production Operations and 
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | 
 Production Operation Metadata<br>`+Required when Response` `+Read Only` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required for response` `+Required for creation` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **performers** | MetaArray | | Metadata of possible performers<br>`+Required when answering` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |

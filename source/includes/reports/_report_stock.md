@@ -21,15 +21,15 @@ An extended Stock report is a detailed report that collects data on all products
 | **article** | String(255) | Article |
 | **code** | String(255) | Code<br>`+Required when replying` |
 | **externalCode** | String(255) | External code of the entity for which the stock is displayed<br>`+Required when replying` |
-| **folder** | Object | Group of Products/Product variants/Series. [Learn more](../reports/#reports-stock-report-extended-stock-report-group)<br>`+Required when replying` |
+| **folder** | Object | Group of Products/Product variants/Series. [Learn more](../reports/#reports-stock-report-extended-stock-report-group) |
 | **images** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series Image|
 | **inTransit** | Float | Waiting<br>`+Required for response` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series for which the rest is issued<br>`+Required when replying` |
 | **name** | String(255) | Name<br>`+Required when replying` |
-| **price** | Float | Cost price in paise|
+| **price** | Float | Cost price in paise<br>`+Required when replying`|
 | **quantity** | Float | Available<br>`+Required when replying` |
 | **reserve** | Float | Reserve<br>`+Required when replying` |
-| **salePrice** | Float | Sale price |
+| **salePrice** | Float | Sale price<br>`+Required when replying` |
 | **stock** | Float | Remaining<br>`+Required when replying` |
 | **stockDays** | Int | Number of days in stock<br>`+Mandatorylnoe when replying` |
 | **uom** | Object | Unit of measurement. [Learn more](../reports/#reports-stock-report-extended-stock-report-unit)<br>`+Required when replying` |

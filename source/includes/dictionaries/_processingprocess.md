@@ -16,7 +16,7 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 | **id** | UUID                                               | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required in response` `+Read-only` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |

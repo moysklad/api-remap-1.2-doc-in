@@ -19,7 +19,7 @@ Using the JSON API, you can create and update information about Bills of Materia
 | **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when answering` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **parent** | [Meta](../#kladana-json-api-general-info-metadata) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
 | **pathName** | String                                             | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
 | **processingProcess** | [Meta](../#kladana-json-api-general-info-metadata) | | Bill of Materials Metadata<br>`+Required in response` `+Expand` |
