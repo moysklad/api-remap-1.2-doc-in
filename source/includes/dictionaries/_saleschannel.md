@@ -19,12 +19,12 @@ The search among the objects of the sales channel for matching the search string
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel External Code<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Sales Channel ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Channel Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Channel Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **type** | Enum                                               | `=` `!=` | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering` `+Required when creating` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **type** | Enum                                               | `=` `!=` | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 #### Sales Channel Type
 An enumeration of values representing the Sales Channel type:

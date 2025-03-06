@@ -11,10 +11,10 @@ You can get information about company settings and product price types.
 | **checkShippingStock** | Boolean | Prohibit shipment of missing items. If the prohibition is set (true value), users will not be able to ship out-of-stock items from the warehouse.<br>`+Required when replying` |
 | **companyAddress** | String(255) | Company email address |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Standard currency metadata<br>`+Required when replying` |
-| **discountStrategy** | Enum | Joint application of discounts. [Learn more](../dictionaries/#entities-company-settings-combined-application-of-discounts)<br>`+Required when answering` `+Required when creating` |
-| **globalOperationNumbering** | Boolean | Use consecutive numbering of documents. If true, continuous numbering will be set for the entire history, otherwise the numbering of documents will start anew every calendar year.<br>`+Required when answering` |
+| **discountStrategy** | Enum | Joint application of discounts. [Learn more](../dictionaries/#entities-company-settings-combined-application-of-discounts)<br>`+Required when replying` `+Required when creating` |
+| **globalOperationNumbering** | Boolean | Use consecutive numbering of documents. If true, continuous numbering will be set for the entire history, otherwise the numbering of documents will start anew every calendar year.<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Company Settings Metadata<br>`+Required when replying` |
-| **priceTypes** | Array(Object) | Collection of all existing price types. [Learn more](../dictionaries/#entities-company-settings-price-type)<br>`+Required when answering` |
+| **priceTypes** | Array(Object) | Collection of all existing price types. [Learn more](../dictionaries/#entities-company-settings-price-type)<br>`+Required when replying` |
 | **useCompanyAddress** | Boolean | Use the company address for emails. If enabled, emails will be sent from the address specified in companyAddress, otherwise emails will be sent from the user's address.<br>`+Reply Required` |
 | **useRecycleBin** | Boolean | Use cart. If enabled, all documents will be placed in the trash when they are deleted. It will also be possible to recover erroneously deleted documents.<br>`+Required when replying` |
 | **accountCountry** | String(255) | Passed for information about which country configuration is active on the user's account. Possible values: RU, BY, KZ.<br>`+Required when replying` `+Read only` |
@@ -26,7 +26,7 @@ The structure of a separate object representing the price type:
 |----------|-------|------------|
 | **externalCode** | String(255) | Price Type External Code<br>`+Required when replying` |
 | **id** | UUID | Price Type ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Price Type Metadata<br>`+Required when replying` `+Read Only` |
 | **name** | String(255) | Price Type Name<br>`+Required when replying` `+Required when creating` |
 
 #### Combined application of discounts
@@ -43,7 +43,7 @@ Each user directory contains the fields:
 
 | Title | Type | Description |
 |----------|-------|------------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when responding` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
 | **entityMeta** | URL | Link to the list of entities in this user reference |
 | **name** | String(255) | Directory name |
 

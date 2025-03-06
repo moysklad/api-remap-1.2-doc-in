@@ -12,8 +12,8 @@ The entity code for Regions in the JSON API is the **region** keyword.
 | **id** | UUID                                               | `=` `!=` | Region ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Region metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Region Name<br>`+Required when replying` `+Required when creating` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **version** | Int                                                | | Entity version<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
+| **version** | Int                                                | | Entity version<br>`+Required when replying` `+Read-only` |
 
 
 #### Attributes available for sorting
