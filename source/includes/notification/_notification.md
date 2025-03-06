@@ -7,9 +7,9 @@
 | --------------- |----------------------------------------------------| --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **created** | DateTime                                           | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
-| **description** | String(4096)                                       | Notification description<br>`+Required for response` `+Read only` |
+| **description** | String(4096)                                       | Notification description<br>`+Required when replying` `+Read only` |
 | **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata. Contains the specific notification type<br>`+Required in response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata. Contains the specific notification type<br>`+Required when replying` |
 | **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` |
 | **title** | String(255)                                        | Brief notification text<br>`+Required when replying` `+Read only` |
 
@@ -166,8 +166,8 @@ The format of the changed field contains the old and new values:
 
 | Title | Type | Description |
 | --------------- | ------ | --------- |
-| **oldValue** | String(255) | Attribute value before deletion<br>`+Required for response` `+Read only` |
-| **newValue** | String(255) | Attribute value after update<br>`+Required for response` `+Read-only` |
+| **oldValue** | String(255) | Attribute value before deletion<br>`+Required when replying` `+Read only` |
+| **newValue** | String(255) | Attribute value after update<br>`+Required when replying` `+Read-only` |
 
 The format of oldValue and newValue is the same as the format of the field whose change is displayed. One of the fields may be left blank.
 
@@ -261,7 +261,7 @@ NotificationExportCompleted - export completion
 | **message** | String(255)                                        | Export completion message |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **taskState** | Object                                             | Completion status. Can be `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when responding` `+Required when creating` |
+| **taskState** | Object                                             | Completion status. Can be `completed`, `interrupted`, `interrupted_by_user`, `interrupted_by_timeout`, `interrupted_by_system`<br>`+Required when replying` `+Required when creating` |
 | **taskType** | Object                                             | [Export type](/#notifications-notification-types-field-formats-possible-export-type-values)<br>`+Required when replying` `+Required when creating` |
 | **title**| String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
@@ -1816,11 +1816,11 @@ NotificationScript - notification from a script
 | --------------- | ------ | --------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **created** | DateTime | Date and time when the Notification was generated<br>`+Required when replying` `+Read only` |
-| **description** | String(255) | Notification description<br>`+Required for response` `+Read only` |
-| **entity** | Object | Script object reference<br>`+Required for response` `+Read-only` |
-| **eventType** | Event | Script event type<br>`+Required for response` `+Read-only` |
+| **description** | String(255) | Notification description<br>`+Required when replying` `+Read only` |
+| **entity** | Object | Script object reference<br>`+Required when replying` `+Read-only` |
+| **eventType** | Event | Script event type<br>`+Required when replying` `+Read-only` |
 | **id** | UUID | Notification ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Read-only` |
 | **read** | Boolean | Indicates whether the Notification has been read<br>`+Required when replying` `+Read Only` |
 | **title** | String(255) | Brief notification text<br>`+Required when replying` `+Read only` |
 
@@ -1837,9 +1837,9 @@ The object that the script fired on.
 
 | Title | Type | Description |
 | --------------- | ------ | --------- |
-| **id** | UUID | Object ID<br>`+Required for response` `+Read-only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required for response` `+Read-only` |
-| **name** | String(255) | Object name<br>`+Required for response``+Read Only` |
+| **id** | UUID | Object ID<br>`+Required when replying` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Read-only` |
+| **name** | String(255) | Object name<br>`+Required when replying``+Read Only` |
 
 Valid values for **meta.type**:
 
@@ -2011,8 +2011,8 @@ NewMentionInEven - notification about a new mention in the event feed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when responding` `+Read-only` |
-| **id** | UUID | Notification ID<br>`+Required when responding` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Read-only` |
+| **id** | UUID | Notification ID<br>`+Required when replying` `+Read-only` |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
 | **created** | DateTime | Date and time the Notification was generated<br>`+Required when replying` `+Read-only` |
 | **read** | Boolean | Whether the Notification was read<br>`+Required when replying` `+Read-only` |
@@ -2026,9 +2026,9 @@ The object in whose feed the event with the mention was added.
 
 | Name | Type | Description |
 | -------- | -------- | ----------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when responding` `+Read-only` |
-| **id** | UUID | Object ID<br>`+Required when responding` `+Read-only` |
-| **name** | String(255) | Object name<br>`+Required when responding` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Read-only` |
+| **id** | UUID | Object ID<br>`+Required when replying` `+Read-only` |
+| **name** | String(255) | Object name<br>`+Required when replying` `+Read-only` |
 
 Valid values ​​for **meta.type**:
 
