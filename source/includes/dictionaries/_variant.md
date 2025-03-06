@@ -28,21 +28,21 @@ Examples:
 | **archived** | Boolean                                            | `=` `!=` | Whether the product was added to the archive<br>`+Required when answering` |
 | **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-barcodes) |
 | **buyprice** | Object                                             | | Purchase price |
-| **characteristics** | Array(Object)                                      | | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when answering` `+Required when creating` |
+| **characteristics** | Array(Object)                                      | | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when replying` `+Required when creating` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product variant Code |
-| **description**        | String(4096)	                                             |      | Product variant Description |
-| **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
+| **description**        | String(4096)	                                             | `=` `!=` `~` `~=` `=~`      | Product variant Description |
+| **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when replying` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
-| **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |
-| **images** | MetaArray                                          | | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when answering` `+Expand` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when answering` |
+| **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required when replying` `+Read only` |
+| **images** | MetaArray                                          | | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
 | **minPrice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when answering` |
 | **packs** | Array(Object)                                      | | Product variant packages [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-packaging-product-variants) |
 | **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-product) to which the Product variant is attached<br>`+Required when answering` `+Expand` `+Required when creating` |
 | **salePrice** | Array(Object)                                      | | Sale prices. [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-sales-prices) |
 | **things** | Array(String)                                      | | Serial Numbers<br>`+Read Only` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 #### Attributes available for sorting
 
@@ -84,10 +84,10 @@ Characteristics Product variants are an internal collection of **characteristics
 
 | Title | Type | Description |
 | ------ | --------- |-------- |
-| **id** | UUID | ID of the corresponding feature<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Characteristic metadata<br>`+Required for response` |
-| **name** | String(255) | Characteristic name<br>`+Required when answering` |
-| **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
+| **id** | UUID | ID of the corresponding feature<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Characteristic metadata<br>`+Required when replying` |
+| **name** | String(255) | Characteristic name<br>`+Required when replying` |
+| **value** | String(255) | Feature value<br>`+Required when replying` `+Required when creating` |
 
 View all characteristics of Product variants created in the main interface,
 as well as all types of prices, you can use the request to obtain the metadata of Product variants.
@@ -95,19 +95,19 @@ The response is an object, with the following structure:
 
 | Title | Type | Description |
 | ------ | --------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when answering` |
-| **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when replying` |
+| **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when replying` |
 
 Structures of individual collection objects:
 
 ###### Characteristics of Product variant
 | Title | Type | Description |
 | ------ | --------- |-------- |
-| **id** | UUID | ID of the corresponding feature<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Characteristic metadata<br>`+Required for response` |
-| **name** | String(255) | Characteristic name<br>`+Required when answering` |
-| **required** | Boolean | Flag indicating whether the feature is required<br>`+Required for response` |
-| **type** | String(255) | Feature value type<br>`+Required for response` |
+| **id** | UUID | ID of the corresponding feature<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Characteristic metadata<br>`+Required when replying` |
+| **name** | String(255) | Characteristic name<br>`+Required when replying` |
+| **required** | Boolean | Flag indicating whether the feature is required<br>`+Required when replying` |
+| **type** | String(255) | Feature value type<br>`+Required when replying` |
 
 ##### Image: structure and loading 
 When requesting a Product variant with images, a json representation of this Product variant containing the **images** field will be displayed. This field is
@@ -143,24 +143,24 @@ If the Product variant does not have separate sales prices, the corresponding sa
 
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------|----- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
-| **priceType** | Object                                             | Price type<br>`+Required when answering` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
+| **priceType** | Object                                             | Price type<br>`+Required when replying` |
 
 ##### Minimum price
 
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------|------ |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Packaging Product variants
 
 | Title | Type | Description |
 | ------ | --------- |------- |
-| **barcodes** | Array(Object) | An array of barcodes for the packaging of the Product variant. This array can contain only one barcode<br>`+Required when answering` |
-| **id** | UUID | Package ID of Product variant<br>`+Required for response` `+Read-only`|
-| **parentpack** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the parent package (product package) for which the barcode is overridden<br>`+Required for response` `+Expand` |
+| **barcodes** | Array(Object) | An array of barcodes for the packaging of the Product variant. This array can contain only one barcode<br>`+Required when replying` |
+| **id** | UUID | Package ID of Product variant<br>`+Required when replying` `+Read-only`|
+| **parentpack** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the parent package (product package) for which the barcode is overridden<br>`+Required when replying` `+Expand` |
 
 ### Get a list of Product variants 
 Request for a list of all Product variants on the account.
@@ -348,7 +348,7 @@ The **characteristics** field is specified as an array of objects with the follo
 | ------ | --------- |-------- |
 | **id** | UUID | ID characteristics |
 | **name** | String(255) | Characteristic name |
-| **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
+| **value** | String(255) | Feature value<br>`+Required when replying` `+Required when creating` |
 
 If the **id** field is not specified for any object of the characteristic, the corresponding object is searched for
 characteristics by field **name**. If neither **id** nor **name** are specified, then an error will occur.
@@ -1099,8 +1099,8 @@ Request to get metadata of Product variants. The result is a JSON object includi
 
 | Title | Type | Description |
 | ------ | --------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when answering` |
-| **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when replying` |
+| **characteristics** | Array(Object) | Collection of all created characteristics of Product variants<br>`+Required when replying` |
 
 > Get Product variant metadata
 
@@ -1312,7 +1312,7 @@ an array of objects with the following structure:
 | ------ | --------- |------- |
 | **id** | UUID | ID characteristics |
 | **name** | String(255) | Characteristic name |
-| **value** | String(255) | Feature value<br>`+Required for response` `+Required for creation` |
+| **value** | String(255) | Feature value<br>`+Required when replying` `+Required when creating` |
 
 If the **id** field is not specified for any object of the characteristic, the corresponding object is searched for
 characteristics by field **name**. If not a decreeis neither **id** nor **name**, an error will occur.

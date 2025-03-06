@@ -21,7 +21,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment external code<br>`+Required when replying`                                                                               |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`            |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand`                                                                              |
-| **id** | UUID | `=` `!=` | Outgoing payment ID<br>`+Required for response` `+Read-only`                                                                              |
+| **id** | UUID | `=` `!=` | Outgoing payment ID<br>`+Required when replying` `+Read-only`                                                                              |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Outgoing payment metadata<br>`+Required when replying`                                                                                    |
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                                |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment name<br>`+Required when replying`                                                                                        |
@@ -29,7 +29,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand`                                                                                                |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Purpose of payment<br>`+Required when replying`                                                                                           |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                                       |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only`                                                                       |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                             |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                                       |
 | **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`                           |

@@ -18,15 +18,15 @@ Using the JSON API, you can create and update information about Production Order
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Production Order Code<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID| `=` `!=` | Production Order ID<br>`+Required when responding` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when responding` `+Read Only` |
+| **id** | UUID| `=` `!=` | Production Order ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Order Metadata<br>`+Required when replying` `+Read Only` |
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Production Order Name<br>`+Required when replying` `+Required when creating` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray | | Metadata of Production Order items<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **processingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of Bill of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |

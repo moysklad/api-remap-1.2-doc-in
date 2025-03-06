@@ -9,7 +9,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | ------- | ------- | ----|-------------------------------------------------------------------------------------------------------------------------------|
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                          |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering`                                                                                      |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying`                                                                                      |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                   |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment Code                                                                                                    |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand`                                                                                                |
@@ -27,8 +27,8 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Outgoing Order<br>`+Required when replying`                                                                       |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br> `+Expand`                                                                       |
-| **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering`                                                                                          |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                           |
+| **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when replying`                                                                                          |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only`                                                           |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                 |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                           |
 | **rate** | object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`               |
@@ -38,7 +38,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change                                                              |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only`                                    |
-| **vatSum** | Float | | VAT amount<br>`+Required when answering`                                                                                      |
+| **vatSum** | Float | | VAT amount<br>`+Required when replying`                                                                                      |
 
 
 #### Links to other documents
