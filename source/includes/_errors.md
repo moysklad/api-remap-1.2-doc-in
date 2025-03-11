@@ -290,7 +290,6 @@ This section lists the JSON API error codes and their descriptions.
 | Error code | Message | Description |
 | ------------| ----------| ---------|
 | <a name="error_18000">18000</a> | Sale saving error: amount 'cashSum', 'noCashSum', 'qrSum', 'prepaymentCashSum', 'prepaymentNoCashSum' and 'prepaymentQrSum' does not match the document amount | The sum of the fields cashSum, noCashSum, qrSum, prepaymentCashSum and prepaymentNoCashSum, prepaymentQrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all items in the document. |
-| <a name="error_18002">18002</a> | Document saving error: Shipment under a commission agreement cannot contain a set as part of items | You cannot add a bundle to a shipment if it has a contract of the "Commission" type specified for it." |
 | <a name="error_18005">18005</a> | If the 'qrSum' field is filled in, the 'cashSum', 'noCashSum', 'prepaymentCashSum' and 'prepaymentNoCashSum' fields must be empty | Mixed payment with QR code and card or QR code and cash is not allowed. |
 | <a name="error_18006">18006</a> | If the 'prepaymentQrSum' field is filled in, the 'cashSum', 'noCashSum', 'prepaymentCashSum' and 'prepaymentNoCashSum' fields must be empty | In case of prepayment by QR code, payment is possible only by QR code. |
 
@@ -437,10 +436,10 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Contracts
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_32001">32001</a> | Error saving agreement: it is not possible to change the type of agreement to commission. Under this contract, there is a shipment, which includes a set of items | Check that there are no shipments of bundles under this contract and try again. |
-| <a name="error_32002">32002</a> | Error saving agreement: it is not possible to change the type of agreement to commission. The contract used in documents with bundle components cannot be a commission contract | Check that there are no documents with bundle components under this agreement and try again. |
+| Error code                      | Message                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                               |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <a name="error_32001">32001</a> | Error saving contract: cannot change the type of contract to commission. For this contract there is a transaction in which the item contains bundles and which does not allow trading of bundles with Commission Agency Contract | You cannot change the type of contract to commission if there are bundles in the transaction positions under this contract. Transactions that do not support the sale of bundles with Commission Agency Contract: Sales Invoice, Sale, Refund, Prepayment, Prepayment Refund, price list. |
+| <a name="error_32002">32002</a> | Error saving contract: cannot change the type of contract to commission. Contract used in transactions with bundle components cannot be commission                                                                               | Check that there are no transactions with the bundle components under this contract and try again.                                                                                                                                                                                        |
 
 ### Error codes for Printed forms
 
