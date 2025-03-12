@@ -15,10 +15,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
   - Consignee Statement Received
 
 #### Changed
-- Description of `32001` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-contracts)
+- Description of `32001` [error code](../#kladana-json-api-errors-error-codes-for-contracts)
 
 #### Removed
-- `18002` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-sales-and-shipments)
+- `18002` [error code](../#kladana-json-api-errors-error-codes-for-sales-and-shipments)
 
 ### 10-02-2025
 #### Changed
