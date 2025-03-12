@@ -159,7 +159,7 @@ Counterparty types and corresponding values that can be passed in this field:
 
 | CompanyType field value | Region               | Counterparty type   |
 |-----------------------|----------------------|---------------------|
-| **legal**             | International, India | Legal entity        |
+| **legal**             | International        | Legal entity        |
 | **legalIN**           | India                | Legal entity. India |
 
 If the counterparty type is `Legal entity`, the following fields of details will be displayed:

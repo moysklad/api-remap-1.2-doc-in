@@ -6,6 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 05-03-2025
+#### Changed
+- Set `legalIN` as the only available value for `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties-counterparty-type)
+- Set `legalIN` as the only available value for `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity-legal-entity-type)
+
 ### 10-02-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
