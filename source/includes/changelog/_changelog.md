@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 10-02-2025
 #### Changed
-- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Counterparty](../dddictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 #### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
