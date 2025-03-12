@@ -5,6 +5,7 @@ JSON API 1.2 changes will be added here soon
 ## 05-03-2025
 ### Changed
 - Set `legalIN` as the only available value for `companyType` for India in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties-counterparty-type)
+- Set `legalIN` as the only available value for `companyType` for India in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity-legal-entity-type)
 
 ## 10-02-2025
 ### Changed

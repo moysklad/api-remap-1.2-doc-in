@@ -122,7 +122,7 @@ Legal entity types and corresponding values that can be passed to the value of t
 
 | CompanyType field value | Region               | Legal entity type   |
 |-----------------------|----------------------|---------------------|
-| **legal**             | International, India | Legal entity        |
+| **legal**             | International        | Legal entity        |
 | **legalIN**           | India                | Legal entity. India |
 
 <br>
