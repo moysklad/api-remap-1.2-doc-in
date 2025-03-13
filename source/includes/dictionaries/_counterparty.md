@@ -104,7 +104,7 @@ When passing only a string, it will be reflected both in the string field and in
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
 
-##### Requisites of Counterparties 
+##### Requisites of Counterparties
 | Title   | Type | Description |
 |---------| ------- |-------------|
 | **pan** | String(255) | PAN         |
