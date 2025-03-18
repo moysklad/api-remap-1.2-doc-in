@@ -518,23 +518,23 @@ Filtering can be done by the fields described below.
   String type parameter. The value must be the type of action by which
    audit entities should be filtered. List of possible parameter values:
 
-| The value of the source parameter | Description                                |
-| ------------------------------ |--------------------------------------------|
-| **registration** | Account registration                       |
-| **clearrecyclebin** | Automatic emptying of the basket           |
-| **combine** | Association                                |
-| **bulkcreate** | Bulk create                                |
-| **connectors** | Synchronization with MI                    |
-| **copy** | Copy                                       |
-| **emailsend** | Sending a message                          |
-| **export** | Export                                     |
-| **import** | Import                                     |
+| The value of the source parameter | Description |
+| ------------------------------ |----------------|
+| **registration** | Account registration |
+| **clearrecyclebin** | Automatic emptying of the basket |
+| **combine** | Association |
+| **bulkcreate** | Bulk create |
+| **connectors** | Synchronization with MI |
+| **copy** | Copy |
+| **emailsend** | Sending a message |
+| **export** | Export |
+| **import** | Import |
 | **jsonapi** | JSON API (remap-1.0, remap-1.1, remap-1.2) |
-| **loginlogout** | Login to Kladana/Logout from Kladana       |
-| **phone-1.0** | Phone API                                  |
-| **posapi** | POS API                                    |
-| **restapi** | REST API                                   |
-| **scriptor** | Working with scripts                       |
+| **loginlogout** | Login to Kladana/Logout from Kladana |
+| **phone-1.0** | Phone API |
+| **posapi** | POS API |
+| **restapi** | REST API |
+| **scriptor** | Working with scripts |
 
 + **uid**-
    String type parameter. The value must be the username of the employee who
