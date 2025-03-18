@@ -519,7 +519,7 @@ Filtering can be done by the fields described below.
    audit entities should be filtered. List of possible parameter values:
 
 | The value of the source parameter | Description |
-| ------------------------------ |----------------|
+| ------------------------------ | ---------------|
 | **registration** | Account registration |
 | **clearrecyclebin** | Automatic emptying of the basket |
 | **combine** | Association |
