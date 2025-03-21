@@ -53,6 +53,7 @@ Possible values for the `source` parameter are listed below:
 | **registration** | Account registration |
 | **clearrecyclebin** | Automatic emptying of the basket |
 | **combine** | Association |
+| **bulkcreate** | Bulk create |
 | **connectors** | Synchronization with MI |
 | **copy** | Copy |
 | **emailsend** | Sending a message |
