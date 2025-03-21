@@ -17,7 +17,7 @@ You can get information about company settings and product price types.
 | **priceTypes** | Array(Object) | Collection of all existing price types. [Learn more](../dictionaries/#entities-company-settings-price-type)<br>`+Required when answering` |
 | **useCompanyAddress** | Boolean | Use the company address for emails. If enabled, emails will be sent from the address specified in companyAddress, otherwise emails will be sent from the user's address.<br>`+Reply Required` |
 | **useRecycleBin** | Boolean | Use cart. If enabled, all documents will be placed in the trash when they are deleted. It will also be possible to recover erroneously deleted documents.<br>`+Required when replying` |
-| **accountCountry** | String(255) | Passed for information about which country configuration is active on the user's account. Possible values: RU, BY, KZ.<br>`+Required when replying` `+Read only` |
+| **accountCountry** | String(255) | Passed for information about which country configuration is active on the user's account. Possible values: IN, INTERNATIONAL.<br>`+Required when replying` `+Read only` |
 
 #### Price type
 The structure of a separate object representing the price type:
