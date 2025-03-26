@@ -9,7 +9,7 @@ You can see the list of requests for which the ability to work in asynchronous m
 
 Let's consider the advantage of working with the JSON API in asynchronous mode with some example.
 Suppose you need to obtain information on the balance of the entire range in order to replenish the reserves in stores.
-With a large number of items and warehouses, it was previously necessary to request a [stock balance report](../reports/#reports-balance-report-get-stock-balances)
+With a large number of items and warehouses, it was previously necessary to request the [Stock report](../reports/#reports-stock-report)
 several times, specifying the **offset** parameter to get reports on all items. Since the construction of large reports takes
 some time, up to 5 minutes, collecting all the information can take a long time.
 In addition, each individual request forces you to keep the connection open while waiting for the result.
@@ -41,7 +41,7 @@ We make a request for the rest with the `async=true` parameter. The **limit** an
 
 The **Location** response header contains a link to get the result of the asynchronous task, and the **Content-Location** header contains a link to get the status of the asynchronous task execution.
 
-While tasks are in progress, creating new asynchronous tasks will be [limited by current limits](../#kladana-json-api-general-info-restrictions) per queue
+While tasks are in progress, creating new asynchronous tasks will be [limited by current limits](../#kladana-json-api-limitations) per queue
 asynchronous tasks and when you repeat the request, you will get error 61002:
 
 `Error creating an asynchronous task: the limit on the number of concurrently executing asynchronous operations has been exceeded.`
@@ -268,7 +268,6 @@ Location: https://123.selcdn.ru/batch-prod/batch/002b9772-8583-11eb-ac12-000c000
          }
        ]
      },
-     ...
      {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
@@ -395,4 +394,4 @@ curl -X POST
 }
 ```
 
-This completes the configuration of the notification about the completion of the asynchronous execution. Now you will receive webhooks, to the specified address, each time the asynchronous task completes. This way you don't need to ask the state of the asynchronous task until the webhook arrives.
+This completes the setup of the notification about the completion of the asynchronous task. Now you will receive webhooks, to the specified address, every time the asynchronous task is completed. This way you will not need to query the status of the asynchronous task until the webhook arrives.

@@ -1,27 +1,28 @@
-## Profitability Report 
+## Profit Report 
 
-Using the JSON API, you can request a "Profitability" report for all products, services, modifications, employees, customers, and sales channels.
-To access the report via the API, you need the right to view the *Profit and Loss* report.
+Using the JSON API, you can request the Profit report for all products, services, product variants, employees, counterparties, and sales channels.
+To access the report via the API, you need the access rights to view the Profit report.
 
 
-#### Profitability by goods
+#### Profit Report by Products
 #### Report object attributes
 
-| Title              | Type | Description |
-|--------------------| -----|---------|
+| Title              | Type | Description                                                                                                                                                                         |
+|--------------------| -----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service)<br>`+Required when answering` |
-| **margin**         | Float | Profitability<br>`+Required when answering` |
-| **profit**         | Float | Profit<br>`+Required when answering` |
-| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum**      | Float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | Float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
-| **sellSum**        | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                                                 |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                                                   |
+| **profit**         | Float | Profit<br>`+Required when answering`                                                                                                                                                |
+| **returnCost**     | Float | Cost of returns<br>`+Required when replying`                                                                                                                                        |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                                                        |
+| **returnPrice**    | Float | Price returns<br>`+Required when replying`                                                                                                                                          |
+| **returnQuantity** | Int | Number of returns<br>`+Required when replying`                                                                                                                                      |
+| **returnSum**      | Float | Refund amount<br>`+Required when replying`                                                                                                                                          |
+| **sellCost**       | Float | Cost price<br>`+Required when answering`                                                                                                                                            |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                                                  |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering`                                                                                                                                 |
+| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying`                                                                                                                                          |
+| **sellSum**        | Float | Sales amount<br>`+Required when answering`                                                                                                                                          |
 
 #### Assortment object structure
 
@@ -42,7 +43,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description|
 |------------| -----|---------|------------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variantn or batches by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -76,9 +77,9 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Product Profitability
+### Get Profit Report for a Product
 
-Profitability report for goods includes: goods, kits, services. The product takes into account the profitability of its modifications, but without specifying the modifications themselves.
+Profit report for products includes: products, bundles, services. The product takes into account the profitability of its variants, but without specifying the variants themselves.
 
 **Parameters**
 
@@ -92,7 +93,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a "Profitability by Products" report.
+> Request for a Profit Report by Products.
 
 ```shell
 curl -X GET
@@ -146,18 +147,19 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 8643,
+       "sellQuantity": 8643.0,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0,
-       "sellSum": 1868400300,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 1868400300.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 1868400300,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -179,18 +181,19 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 4765,
+       "sellQuantity": 4765.0,
        "sellPrice": 100000000.0,
-       "sellCost": 0,
-       "sellSum": 476500000000,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 476500000000.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 476500000000,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -213,51 +216,53 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10,
+       "sellQuantity": 10.0,
        "sellPrice": 500000.0,
-       "sellCost": 300000,
-       "sellSum": 5000000,
-       "sellCostSum": 3000000,
-       "returnQuantity": 3,
+       "sellCost": 300000.0,
+       "sellSum": 5000000.0,
+       "sellCostSum": 3000000.0,
+       "returnQuantity": 3.0,
        "returnPrice": 500000.0,
        "returnCost": 300000,
        "returnSum": 1500000,
        "returnCostSum": 900000,
        "profit": 1400000,
-       "margin": 0.6666666666666666
+       "margin": 0.6666666666666666,
+       "salesMargin": 0.4
      }
    ]
 }
 ```
 
-#### Profitability by modifications
+#### Profit Reports for product variants
 #### Report object attributes:
 
-| Title              | Type | Description |
-|--------------------|---------|----- |
+| Title              | Type | Description                                                                                                                                                                                                                                               |
+|--------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-product-variant), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
-| **margin**         | Float | Profitability<br>`+Required when answering` |
-| **profit**         | Float | Profit<br>`+Required when answering` |
-| **returnCost**     | Float | Cost of returns<br>`+Required when replying` |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`|
-| **returnPrice**    | Float | Price returns<br>`+Required when replying` |
-| **returnQuantity** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum**      | Float | Refund amount<br>`+Required when replying` |
-| **sellCost**       | Float | Cost price<br>`+Required when answering` |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering` |
-| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying` |
-| **sellSum**        | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                                                                                                                       |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                                                                                                                         |
+| **profit**         | Float | Profit<br>`+Required when answering`                                                                                                                                                                                                                      |
+| **returnCost**     | Float | Cost of returns<br>`+Required when replying`                                                                                                                                                                                                              |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                                                                                                                              |
+| **returnPrice**    | Float | Price returns<br>`+Required when replying`                                                                                                                                                                                                                |
+| **returnQuantity** | Int | Number of returns<br>`+Required when replying`                                                                                                                                                                                                            |
+| **returnSum**      | Float | Refund amount<br>`+Required when replying`                                                                                                                                                                                                                |
+| **sellCost**       | Float | Cost price<br>`+Required when answering`                                                                                                                                                                                                                  |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                                                                                                                        |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering`                                                                                                                                                                                                       |
+| **sellQuantity**   | Int | Quantity sold<br>`+Required when replying`                                                                                                                                                                                                                |
+| **sellSum**        | Float | Sales amount<br>`+Required when answering`                                                                                                                                                                                                                |
 
 #### Assortment object structure
 
 | Title | Type | Description |
 | -----|---------|-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Modification, Service, or Bundle Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product variant, Service, or Bundle Metadata<br>`+Required when responding` |
 | **name** | String(255) | Entity name<br>`+Required when replying` |
 | **code** | String(255) | Entity code<br>`+Required for response` |
-| **article** | String(255) | Article of Modification or Kit<br>`+Required when answering` |
-| **images** | Object | Image Modifications<br>`+Required when answering` |
+| **article** | String(255) | Article of Product variant or Bundle<br>`+Required when answering` |
+| **images** | Object | Product variant Image<br>`+Required when answering` |
 
 #### Attributes available for filtering
 
@@ -267,7 +272,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| ------|--------|-------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to the product, service, bundle, product variant or batch which you want to use for filtration. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child are displayedthe lower subgroups of the filtered group / product groups. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -301,9 +306,9 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profit by modifications
+### Get Profit Report by product variants
 
-The product profitability report includes: products, kits, services and modifications (the modification itself is displayed, not the parent product).
+The Profit report includes: products, bundles, services and product variants. The variants are displayed unlike the parent product.
 
 **Parameters**
 
@@ -317,7 +322,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for the report "Profitability by modifications".
+> Request for the Profit Report by product variants.
 
 ```shell
 curl -X GET
@@ -371,18 +376,19 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 8643,
+       "sellQuantity": 8643.0,
        "sellPrice": 216174.97396737244,
-       "sellCost": 0,
-       "sellSum": 1868400300,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 1868400300.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 1868400300,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -404,18 +410,19 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 4765,
+       "sellQuantity": 4765.0,
        "sellPrice": 100000000.0,
-       "sellCost": 0,
-       "sellSum": 476500000000,
-       "sellCostSum": 0,
-       "returnQuantity": 0,
+       "sellCost": 0.0,
+       "sellSum": 476500000000.0,
+       "sellCostSum": 0.0,
+       "returnQuantity": 0.0,
        "returnPrice": 0.0,
        "returnCost": 0,
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 476500000000,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      },
      {
        "assortment": {
@@ -438,39 +445,41 @@ Successful request. The result is a JSON representation of the report.
            "name": "pcs"
          }
        },
-       "sellQuantity": 10,
+       "sellQuantity": 10.0,
        "sellPrice": 500000.0,
-       "sellCost": 300000,
-       "sellSum": 5000000,
-       "sellCostSum": 3000000,
-       "returnQuantity": 3,
+       "sellCost": 300000.0,
+       "sellSum": 5000000.0,
+       "sellCostSum": 3000000.0,
+       "returnQuantity": 3.0,
        "returnPrice": 500000.0,
        "returnCost": 300000,
        "returnSum": 1500000,
        "returnCostSum": 900000,
        "profit": 1400000,
-       "margin": 0.6666666666666666
+       "margin": 0.6666666666666666,
+       "salesMargin": 0.4
      }
    ]
 }
 ```
 
-#### Profitability by employee
+#### Profit Report by employee
 #### Report object attributes
 
-| Title | Type | Description |
-| -----|---------|------ |
+| Title | Type | Description                                                                                                                               |
+| -----|---------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-employee)<br>`+Required when answering` |
-| **margin** | Float | Profitability<br>`+Required when answering` |
-| **profit** | Float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum** | Float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                       |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                         |
+| **profit** | Float | Profit<br>`+Required when answering`                                                                                                      |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                       |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                              |
+| **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                            |
+| **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                                |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                       |
+| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                             |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                        |
+| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                                |
 
 #### Employee object structure
 
@@ -487,7 +496,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |-------| -----|----------|------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -521,7 +530,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profitability by Employee
+### Get Profit Report by Employee
 
 **Parameters**
 
@@ -535,7 +544,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a Profitability by Employee report.
+> Request for the Profit Report by Employee.
 
 ```shell
 curl -X GET
@@ -587,33 +596,35 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 313495109156366700,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      }
    ]
 }
 ```
 
-#### Profitability by customers
+#### Profit Report by counterparty
 #### Report object attributes:
 
-| Title | Type | Description |
-| ------- | ----- | ------ |
+| Title | Type | Description                                                                                                                              |
+| ------- | ----- |------------------------------------------------------------------------------------------------------------------------------------------|
 | **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-counterparty)<br>`+Required when answering` |
-| **margin** | Float | Profitability<br>`+Required when answering`|
-| **profit** | Float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum** | Float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                      |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                        |
+| **profit** | Float | Profit<br>`+Required when answering`                                                                                                     |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                      |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                             |
+| **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                           |
+| **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                               |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                      |
+| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                            |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                       |
+| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                               |
 
 #### Structure of the counterparty object
 
 | Title | Type | Description |
-| ---------| ---- |------- |
+| --------- | ----- | ------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Buyer Metadata<br>`+Required when replying` |
 | **name** | String(255) | Name of the Buyer<br>`+Required when replying` |
 
@@ -625,7 +636,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------| ------|--------| ---- |
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -659,7 +670,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;retailStore=https://api.kladana.com/api/remap/1.2/entity/retailstore/9ca74859-85c7-11e9-ac12-000d00000030;salesChannel=https: //api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profitability by Customers
+### Get Profit Report by Counterparty
 
 **Parameters**
 
@@ -673,7 +684,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a "Profitability by Buyers" report.
+> Request for the Profit Report by counterparty.
 
 ```shell
 curl -X GET
@@ -726,28 +737,30 @@ Successful request. The result is a JSON representation of the report.
        "returnSum": 0,
        "returnCostSum": 0,
        "profit": 310390615323104640,
-       "margin": 0
+       "margin": 0,
+       "salesMargin": 1.0
      }
    ]
 }
 ```
 
-#### Profitability by sales channel
+#### Profit Report by sales channel
 #### Report object attributes
 
-| Title | Type | Description |
-| ---------| ---- |----------|
+| Title | Type | Description                                                                                                                                          |
+| ---------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-sales-channel)<br>`+Required when replying` |
-| **margin** | Float | Profitability<br>`+Required when answering` |
-| **profit** | Float | Profit<br>`+Required when answering` |
-| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying` |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering` |
-| **returnCount** | Int | Number of returns<br>`+Required when replying` |
-| **returnSum** | Float | Refund amount<br>`+Required when replying` |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering` |
-| **salesCount** | Int | Number of sales<br>`+Required when answering` |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering` |
-| **sellSum** | Float | Sales amount<br>`+Required when answering` |
+| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                  |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                    |
+| **profit** | Float | Profit<br>`+Required when answering`                                                                                                                 |
+| **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                                  |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                         |
+| **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                                       |
+| **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                                           |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                                  |
+| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                                        |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                   |
+| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                                           |
 
 #### SalesChannel object structure
 
@@ -755,7 +768,7 @@ Successful request. The result is a JSON representation of the report.
 | ---------| ---- |---------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when responding` |
 | **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
-| **type** | Enum | Sales Channel Type [Details here](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
+| **type** | Enum | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
 
 #### Attributes available for filtering
 
@@ -765,7 +778,7 @@ You cannot specify empty values.
 
 | Title | Type | Filtration | Description |
 |--------------------|-----------|-----------|---------|
-| **product** | Object | `=` `!=` | a link to a product, service, kit, modification or series by which you want to filter. You can pass multiple values. |
+| **product** | Object | `=` `!=` | a link to a product, service, bundle, product variant or batch by which you want to filter. You can pass multiple values. |
 | **productFolder** | Object | `=` `!=` | parameter for filtering by several product groups. The value of the parameter is a link to a product group that should be included in the selection or excluded from it. You can pass multiple values. |
 | **withSubFolders**| Boolean | `=` | option to consider nested subgroups. Works only if there is a filter by `productFolder`. By default `true`, products from child subgroups of the filtered group / groups of products are displayed. When passing `false`, only products from the filtered group / groups are displayed, without taking into account subgroups. |
 | **agentTag** | String(255) | `=` | string with the name of the group of counterparties by which you want to filter. |
@@ -777,7 +790,6 @@ You cannot specify empty values.
 | **salesChannel** | Object | `=` | a link to the sales channel by which you want to filter. You can reuse a filter when filtering across multiple sales channels is required. |
 
 Simultaneous filtering by **product** and **productFolder** is not supported.
-
 
 Filtering examples:
 
@@ -797,7 +809,7 @@ Filtering examples:
 - `filter=salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/ea012b09-4df3-439b-acf7-7d0464fbf603`
 - `filter=product=https://api.kladana.com/api/remap/1.2/entity/product/656c4032-8552-11e6-8a84-bae500000044;counterparty=https://api.kladana.com/api/remap/1.2/entity/counterparty/f8f729a5-a784-11e9-ac12-000800000000;organization=https://api.kladana.com/api/remap/1.2/entity/organization/0347beb0-a785-11e9-ac12-000800000003; store=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321;project=https://api.kladana.com/api/remap/1.2/ entity/project/7a5f0ed5-8552-11e6-8a84-bae500000046;salesChannel=https://api.kladana.com/api/remap/1.2/entity/saleschannel/65cc7e08-ea79-4ad7-9cde-3cc053f1c1b9`
 
-### Get Profitability by Sales Channels
+### Get Profit Report by Sales Channels
 
 **Parameters**
 
@@ -811,7 +823,7 @@ If the **momentFrom** and **momentTo** parameters are missing, reports for the l
 If the **momentFrom** parameter is absent and the **momentTo** parameter is specified, reports from the beginning of the current year up to **momentTo** are displayed.
 If the **momentTo** parameter is absent and the **momentFrom** parameter is specified, reports from **momentFrom** up to the current day are displayed.
 
-> Request for a Profitability by Sales Channel report.
+> Request for the Profit Report by Sales Channel report.
 
 ```shell
 curl -X GET
@@ -864,7 +876,8 @@ Successful request. The result is a JSON representation of the report.
      "returnSum" : 0.0,
      "returnCostSum" : 0.0,
      "profit" : 252500.0,
-     "margin" : 0.0
+     "margin" : 0.0,
+     "salesMargin": 1.0
    } ]
 }
 ```

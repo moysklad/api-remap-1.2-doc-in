@@ -19,22 +19,23 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **expenseItem** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating`                                          |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying`                                                              |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand`                                                                  |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand`  |
+| **noClosingDocs**   | Boolean |  | A sign of the possibility of linking closing documents and disabling mutual settlements with the counterparty for this payment<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only`                                                                |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying`                                                                       |
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                    |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of the Outgoing Order<br>`+Required when replying`                                                                       |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                       |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br> `+Expand`                                                                       |
 | **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when answering`                                                                                          |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                           |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                 |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                           |
-| **rate** | object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`               |
+| **rate** | object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`               |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                                           |
 | **shared** | Boolean | `=` `!=`| Sharing<br>`+Required when replying`                                                                                          |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Expenditure note status metadata<br>`+Expand`                                                                                 |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying`                             |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change                                                              |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only`                                    |
 | **vatSum** | Float | | VAT amount<br>`+Required when answering`                                                                                      |
@@ -43,8 +44,9 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 #### Links to other documents
 
 | Title | Description |
-| --------- |------ |
-| **operations** | An array of links to related operations in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| --------- | ------ |
+| **factureIn** | Lint to the related Incoming Cash Payment in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **operations** | An array of links to related operations in the [Metadata](../#kladana-json-api-general-info-metadata) format |
 
 Allowed types of linked operations:
 
@@ -63,8 +65,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | ----- | ------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Outgoing Cash Payments. |
 
 **Parameters**

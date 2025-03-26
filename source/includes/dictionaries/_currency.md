@@ -1,14 +1,15 @@
 ## Currency
+### Currency
 
 Using the JSON API, you can request lists of currencies and information on individual currencies, as well as create new and update information on existing currencies. The entity code for currencies in the JSON API is the **currency** keyword.Learn more about [Currencies](https://kladana.zendesk.com/hc/en-us/articles/6492493269405-Currencies).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among currency objects to match the search string will be carried out using the following fields:
 
 + by the short name of the Currency **name**
 
-##### Entity Attributes
+#### Entity Attributes
 
 | Title | Type                                               | Filtration | Description |
 | ---------- |----------------------------------------------------| -------- | ----------- |
@@ -19,12 +20,12 @@ The search among currency objects to match the search string will be carried out
 | **id** | UUID                                               | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
 | **indirect** | Boolean                                            | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
 | **isoCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **majorUnit** | Object                                             | | Forms of units of the whole part of the Currency. [More details here](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
+| **majorUnit** | Object                                             | | Forms of units of the whole part of the Currency. [Learn more](../dictionaries/#entities-currency-currency-entity-attributes-forms-of-units)<br>`+Required when answering` |
 | **margin** | Double                                             | | Mark-up for automatic course update<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
-| **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [More details here](../dictionaries/#entities-currency-forms-of-units)<br>`+Required when answering` |
+| **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [Learn more](../dictionaries/#entities-currency-currency-entity-attributes-forms-of-units)<br>`+Required when answering` |
 | **multiplicity** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief naming of the Currency<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief name of the currency <br>`+Required when replying` `+Required when creating` |
 | **rate** | Double                                             | | Exchange rate<br>`+Required when answering` |
 | **rateUpdateType** | String(255)                                        | | How to update the exchange rate. **auto** or **manual**<br>`+Required when replying` `+Read Only` |
 | **system** | Boolean                                            | | Is the currency based on the system reference currency<br>`+Read Only` |
@@ -220,9 +221,9 @@ Successful request. The result is a JSON representation of the generated Currenc
 
 ### Create system currency
 
-A system currency is a currency for which MySklad already has all the parameters and the ability to automatically update the rate.
-To add a system currency, you must specify **system**=**true** and one of the **code** or **isoCode** parameters.
-Additionally, you can specify **rateUpdateType** and **margin**
+A system currency is a currency for which Kladana already has all the parameters and the ability to automatically update the rate.
+To add a system currency, you should specify **system**=**true** and one of the **code** or **isoCode** parameters.
+Additionally, you can specify **rateUpdateType** and **margin**.
 
 > Request to create a system currency with automatic updating of the rate by ISO code.
 
@@ -249,7 +250,7 @@ Successful request. The result is a JSON representation of the generated Currenc
      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
+     "uuidHref": "http://app.kladana.com/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
    "id": "03f1855b-43d7-11ec-ac13-000400000050",
    "system": true,
@@ -304,7 +305,7 @@ Successful request. The result is a JSON representation of the generated Currenc
      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
      "type": "currency",
      "mediaType": "application/json",
-     "uuidHref": "http://localhost/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
+     "uuidHref": "http://app.kladana.com/app/#currency/edit?id=03f1855b-43d7-11ec-ac13-000400000050"
    },
    "id": "03f1855b-43d7-11ec-ac13-000400000050",
    "system": true,
@@ -436,7 +437,7 @@ Request to delete the Currency with the specified id. The accounting currency ca
 
 | Parameter | Description |
 | -------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - currency id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Currency ID |
 
 > Request to delete a Currency
 
@@ -503,7 +504,7 @@ curl -X POST
 
 | Parameter | Description |
 | -------- | ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - currency id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Currency ID |
 
 > Get Currency
 
@@ -564,7 +565,7 @@ for currencies based on the system currency directory. You can't change the exch
 
 | Parameter | Description|
 | -------- | -------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - currency id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Currency ID |
 
 > Change Currency
 

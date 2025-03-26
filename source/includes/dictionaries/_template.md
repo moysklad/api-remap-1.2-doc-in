@@ -143,10 +143,10 @@ Successful request. The result is a JSON representation of a list of basic templ
 
 | Parameter | Description |
 | ------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of a single template. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Single template ID. |
 | **type** | `string` (required) *Example: demand* the type of the entity for which the basic templates are requested. |
  
-> Request to get information about a separate basic printable template for the specified entity type by its id.
+> Request to get information about a separate basic printable template for the specified entity type by its ID.
 
 ```shell
 curl -X GET
@@ -184,7 +184,7 @@ Successful request. The result is a JSON representation of the default template 
 | **type** | String(255) | Template type (mxtemplate - new template type for price tags and labels)<br>`+Required when replying` |
 
 ### List of basic price tags and labels
-> Request for information on basic printable templates for products, modifications, services and kits.
+> Request for information on basic printable templates for products, product variants, services and bundles.
 
 ```shell
 curl -X GET
@@ -194,7 +194,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of basic templates for products, modifications, services and kits.
+Successful request. The result is a JSON representation of a list of basic templates for products, product variants, services and bundles.
 
 ```json
 {
@@ -253,7 +253,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 | ------- | ---------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of a single template. |
  
-> Request for information about a separate basic printable template for goods, modifications, services and kits by its id.
+> Request for information about a separate basic printable template for products, product variants, services and bundles by the id.
 
 ```shell
 curl -X GET
@@ -263,7 +263,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a basic template for products, modifications, services and kits.
+Successful request. The result is a JSON representation of a basic template for products, product variants, services and bundles.
 
 ```json
 {
@@ -355,7 +355,7 @@ Successful request. The result is a JSON representation of a list of basic templ
 
 | Parameter | Description |
 | ------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of a single template. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Single template ID. |
 | **type** | `string` (required) *Example: customerorder* the type of the entity for which the basic template is requested. |
  
 > Request to get information about a separate custom printable template for the specified entity type by its id.
@@ -396,7 +396,7 @@ Successful request. The result is a JSON representation of the custom template f
 | **type** | String(255) | Template type (mxtemplate - new template type for price tags and labels)<br>`+Required when replying` |
 
 ### List of custom price tags and labels
-> Request for information about custom printable templates for products, modifications, services and kits.
+> Request for information about custom printable templates for products, product variants, services and product variants.
 
 ```shell
 curl -X GET
@@ -406,7 +406,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a list of custom templates for products, modifications, services and kits.
+Successful request. The result is a JSON representation of a list of custom templates for products, product variants, services and bundles.
 
 ```json
 {
@@ -463,9 +463,9 @@ Successful request. The result is a JSON representation of a list of custom temp
 
 | Parameter | Description |
 | ------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of a single template. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Single template ID. |
 
-> Request for information about a separate custom printable template for goods, modifications, services and kits by its id.
+> Request for information about a separate custom printable template for products, product variants, services and bundles by id.
 
 ```shell
 curl -X GET
@@ -475,7 +475,7 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of a custom template for products, modifications, services and kits.
+Successful request. The result is a JSON representation of a custom template for products, product variants, services and bundles.
 
 ```json
 {

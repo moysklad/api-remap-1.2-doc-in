@@ -24,6 +24,7 @@ curl -X POST
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
+
 > Response 200 (application/json): Successful request. The result is a JSON object containing the token.
 
 ```json
@@ -41,18 +42,11 @@ When developing a client application, consider the following points:
    + New resources can be added.
 
 
-### Restrictions
+### Response content compression
 
-The Kladana JSON API has the following restrictions: 
+The API server uses response content compression, so when accessing API endpoints, you need to specify the response content compression encoding in the Accept-Encoding HTTP request header. In rare cases, the server might not apply compression. When compression is used, the API server will indicate this in the Content-Encoding header with the encoding used.
 
-- Under 45 requests per 3 seconds for an account.
-- Under 5 parallel requests from a user.
-- Under 20 parallel requests for an account. 
-- Under 8 Kb in the request header (URL, User-Agent, Authorization, etc). 
-- Under 20 MB of data in a request sent to the server. 
-- Under 4 asynchronous tasks queued for an account. 
-- Under 1000 elements of objects (items, materials, products) in one array for a request. If the number of elements exceeds the number allowed, an error with status 413 occurs. If the number of items exceeds the limit, use the resources described separately for each entity.
-
+The API server supports only gzip encoding. Requests without this header, or requests with this header but with a different compression encoding, will not be processed. The server will respond with a 415 status code and no response body.
 
 ### HTTP Response Compression
 
@@ -198,6 +192,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **410** | API version no longer supported |
 | **412** | A required query string parameter or JSON structure field was not specified |
 | **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
+| **415** | The format of the request content in headers or body is not supported |
 | **429** | Request limit was exceeded |
 | **500** | An unexpected error occurred while processing the request |
 | **502** | Service temporarily unavailable |
@@ -228,6 +223,7 @@ List of entities with additional fields:
 
 + [Contract](dictionaries/#entities-contract)
 + [Counterparty](dictionaries/#entities-counterparty)
++ [Custom list](dictionaries/#entities-custom-list) (each has its own)
 + [Legal entity](dictionaries/#entities-entity)
 + [Project](dictionaries/#entities-project)
 + [Warehouse](dictionaries/#entities-warehouse)
@@ -235,7 +231,7 @@ List of entities with additional fields:
 + [Product](dictionaries/#entities-product)
 + [Service](dictionaries/#entities-service) (located in the Product metadata)
 + [Bundle](dictionaries/#entities-bundle) (located in the Product metadata)
-+ [Series](dictionaries/#entities-series)
++ [Batch](dictionaries/#entities-batch)
 + All transactions:
   - [Sales Returns](documents/#transactions-sales-return)
   - [Purchase Returns](documents/#transactions-purchase-returns)
@@ -255,11 +251,13 @@ List of entities with additional fields:
   - [Supplier Invoice](documents/#transactions-supplier-invoice)
   - [Internal Order](documents/#transactions-internal-order)
   - [Production Order](documents/#transactions-production-order)
+  - [Operation Report](documents/#transactions-operation-report)
+
 
 You can view all the additional fields that have been created using a request to get entity metadata.
 The response contains a description of the additional fields in the form of an **attributes** collection if the specified entity works with additional fields.
 
-#### Description attributes of additional fields
+#### Description of additional fields attributes 
 
 | Title | Type | Description |
 | ----- | -----| ----------- |
@@ -277,9 +275,11 @@ Additional fields of a particular entity is an internal collection of **attribut
 
 | Title | Type | Description |
 | --------- |-------- | ------------------ |
-| **id** | UUID | ID of the corresponding additional fields |
-| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields |
-| **name** | String(255) | Name of additional fields |
+| **id** | UUID | ID of the corresponding additional field |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to the additional field metadata |
+| **file**  | Object  | Description of the file and content. The field is available only for the additional field of the File type |
+| **name** | String(255) | Name of the additional fields |
+| **type**  | Enum  | Type of the additional field |
 | **value** | Depends on type, see below | The value specified in the additional field |
 
 Possible values of the type of additional fields (field **type**) and their corresponding type values in JSON, as well as
@@ -288,7 +288,7 @@ Possible values of the type of additional fields (field **type**) and their corr
 | Attribute type | The value of the type field in JSON | JSON value field type |
 | -------------------- | ---------------------- | --------------------- |
 | Date | time | string |
-| Directory | {entityType} | object** |
+| Directory | {entityType} | object |
 | Link | link | string |
 | String | string | string |
 | Text | text | string |
@@ -299,7 +299,9 @@ Possible values of the type of additional fields (field **type**) and their corr
 
 Additional fields of the File and Checkbox types cannot be required (the **required** field cannot be `true`).
 
-When passing a `null` value in the **value** field, the value of the corresponding additional fields is reset.
+#### Resetting the Value in an Additional Field
+
+When passing the value `null` in the **value** field, the corresponding additional field is reset, except for additional fields of the File type. To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
 
 #### Additional fields of the 'list' type
 
@@ -318,7 +320,7 @@ selected when creating an additional field.
 | [Product] | product |
 | User directory_name | customentity |
 
-If as a type of additional field is selected [Entities](dictionaries/#entities-user-directory), then as part of the object of this
+If as a type of additional field is selected [Entities](dictionaries/#entities-custom-list), then as part of the object of this
 additional field, a new attribute **customEntityMeta** will appear, which is a link to the metadata of this list.
 The full set of attributes fields will look like this:
 
@@ -346,7 +348,7 @@ In the update request, in the **attributes** collection, you must specify the ob
 A collection of fields can only work in the context of a single entity. Additional fields and their values
 can be passed in the **attributes** collection in the request body for both creating and updating an entity.
 As an indication, for additional fields you need to use the **meta** field.
-In the passed array of objects, you can specify not all the extras. fields - only the specified ones will be initialized/updated.
+In the passed array of objects, you can specify not all the extras. The specified fields will be initialized or updated.
 
 #### Additional fields of file type
 
@@ -357,13 +359,59 @@ To load the value for additional fields of the file type, you need to specify an
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
 | **content** | String | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
 
-An example of specifying a value for additional file type fields are in the [product creation section](dictionaries/#entities-product-create-product) 
+To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
+
+> Example of assigning a value to an additional field of the File type
+
+```shell
+curl -X PUT 
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -d '{
+    "attributes": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "file": {
+            "filename": "filename",
+            "content": "5cYwMpOmNk5kSVr4YgZGKtXJb/7KpHVLDUawyZrD5Nf0WDhB7mS1I77VcAMqYQ8DkP/1wDLhb0X6b2JO4pdpKA=="
+          }
+        }
+    ]
+}'
+```
+
+> Example of resetting the value of an additional field of the File type
+
+```shell
+curl -X PUT 
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -d '{
+    "attributes": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "file": null
+        }
+    ]
+}'
+```
 
 ### Additional entity fields
-Request for additional entity fields.
-The list of available entity types is listed [here](#kladana-json-api-general-info-additional-fields).
 
-The structure of the object additional fields are described in detail in the section [Working with additional fields](#kladana-json-api-general-info-additional-fields).
+Request for additional entity fields.
+The available entity types can be found in the following [list](#kladana-json-api-general-info-additional-fields).
+
+Learn more about additional fields in the following section: [Working with additional fields](#kladana-json-api-general-info-additional-fields).
 
 **Parameters**
 
@@ -379,7 +427,7 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------| ------|------------- |
-| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Issuance metadata |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **rows** | Array(Object) | An array of JSON objects representing the additional fields. |
 
 > Get additional shipping fields
@@ -573,7 +621,8 @@ Successful request. The result is a JSON representation of the created additiona
     "show": true
   }
 ]
-```
+``` 
+
 > An example of creating a new additional fields of Shipments and updates of the existing one request.
 
 ```shell
@@ -644,7 +693,7 @@ curl -X POST
   -H 'Content-Type: application/json' \
   -d '{
         "customEntityMeta": {
-          "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/0347beb0-a785-11e9-ac12-000800000003",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/0347beb0-a785-11e9-ac12-000800000003/metadata",
           "type": "customentitymetadata",
           "mediaType": "application/json"
         },
@@ -665,7 +714,7 @@ Successful request. The result is a JSON representation of the generated addon. 
     "mediaType": "application/json"
   },
   "customEntityMeta": {
-    "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/0347beb0-a785-11e9-ac12-000800000003",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/0347beb0-a785-11e9-ac12-000800000003/metadata",
     "type": "customentitymetadata",
     "mediaType": "application/json"
   },
@@ -676,6 +725,7 @@ Successful request. The result is a JSON representation of the generated addon. 
   "show": true
 }
 ```
+
 #### Remove additional fields
 The action is only available to a user with administrative rights.<br>
 Request to remove multiple additional shipping fields.
@@ -786,6 +836,7 @@ Successful request. The result is a JSON representation of the additional shippi
    "description": "Updated field-string"
 }
 ```
+
 #### Delete additional field
 The action is only available to a user with administrative rights.<br>
 Request for deletion shipment fields with the specified id.
@@ -809,20 +860,20 @@ Request to update collection fields of a particular entity.
 
 ```shell
 curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/demand/7bc578d8-6501-11e8-9464-e4de00000001"
+  "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
         "attributes": [
-          {
-            "meta": {
-              "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/986314b4-6500-11e8-9464-e4de00000048",
-              "type": "attributemetadata",
-              "mediaType": "application/json"
-            },
-            "value": "new string"
-          }
+            {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
+                    "type": "attributemetadata",
+                    "mediaType": "application/json"
+                },
+                "value": "new string"
+            }
         ]
       }'
 ```
@@ -832,36 +883,159 @@ Successful request. The result is a JSON representation of the shipment with upd
 
 ```json
 {
-...
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+    "type": "demand",
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+  },
+  "id": "a6c50571-e705-11ef-ac12-000e0000001d",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2025-02-09 19:49:07.867",
+  "name": "00001",
+  "externalCode": "Uz0EvPg2jRgvtDL5o44ct0",
+  "moment": "2025-02-09 19:47:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
   "attributes": [
     {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/986314b4-6500-11e8-9464-e4de00000048",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
         "type": "attributemetadata",
         "mediaType": "application/json"
       },
-      "id": "986314b4-6500-11e8-9464-e4de00000048",
-      "name": "String field",
+      "id": "86a3c86d-e705-11ef-ac12-000e00000007",
+      "name": "New attribute",
       "type": "string",
       "value": "new string"
     }
-  ]
-...
+  ],
+  "created": "2025-02-09 19:48:13.055",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/positions",
+      "type": "demandposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
+  "payedSum": 0.0,
+  "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
+  "shipmentAddressFull": {
+    "postalCode":"125009",
+    "country": {
+      "meta": {
+        "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+        "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+        "type":"country",
+        "mediaType":"application/json"
+      }
+    },
+    "region": {
+      "meta": {
+        "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+        "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
+        "type":"region",
+        "mediaType":"application/json"
+      }
+    },
+    "city":"New Delhi",
+    "street":"Akbar Road",
+    "house":"1",
+    "apartment":"111",
+    "addInfo":"addinfo",
+    "comment":"some words about address"
+  }
 }
 ```
+
 ### Working with transaction items
 
 The Kladana API allows you to operate with the following transactions: 
 
 - [Shipment](documents/#transactions-shipment), 
-- [Sales order](documents/#transactions-sales-order), 
-- [Sales invoice](documents/#transactions-sales-invoice), 
+- [Sales Order](documents/#transactions-sales-order), 
+- [Sales Invoice](documents/#transactions-sales-invoice), 
 - [Stock Adjustment](documents/#transactions-stock-adjustment),
-- [Internal order](documents/#transactions-internal-order), 
-- [Inventory](documents/#transactions-inventory-count), 
+- [Internal Order](documents/#transactions-internal-order), 
+- [Inventory Count](documents/#transactions-inventory-count), 
 - [Write-off](documents/#transactions-write-off), 
 - [Transfer](documents/#transactions-transfer), 
-- [Production order](documents/#transactions-production-order), 
+- [Production Order](documents/#transactions-production-order), 
 - [Purchase Return](documents/#transactions-purchase-returns), 
 - [Purchase Order](documents/#transactions-purchase-order), 
 - [Sales Return](documents/#transactions-sales-return), 
@@ -870,17 +1044,13 @@ The Kladana API allows you to operate with the following transactions:
 
 The transactions contain items that can be worked with both as part of a separate transaction, and with the help of special resources for managing transaction items.
 
-###### Working with items within a separate document
+###### Working with items within a transaction 
 
-When working with items within a separate document, they can be passed as the **positions** field, which is an array of document items, as part of the object used
-in a request to modify or create a document. In this case, the array of items is perceived as a set of all items of the document
-and completely replaces (in the case of an update request) all already existing items in the document. In the case of an update request, all items that previously existed in the document are
-but were not passed in the body of the update request will be deleted, all existing items whose id matches the id of the transmitted items in the request body will be updated,
-and new items that were not previously among the existing items of the document will be added to the list of items.
+When working with items within a transaction, you can include them in the **positions** field, which is an array of transaction items. This array is used in a request to modify or create a transaction. In this case, the array of items is treated as the complete set of all transaction items and will completely replace all existing items (in the case of an update request). For update requests, any items that previously existed in the transaction but were not included in the request body will be deleted, all existing items whose IDs match those in the request body will be updated, and new items that were not previously part of the transaction will be added.
 
-###### Working with document items using special resources
+###### Working with transaction items using special resources
 
-The JSON API provides special resources for managing document items. These resources are usually available at the following URI and you can use them to remove items from the document by making a request with the DELETE method to the URL of the corresponding resource with the item id:
+The JSON API provides special resources for managing transaction items. These resources are usually available at the following URI and you can use them to remove items from the transaction by making a request with the DELETE method to the URL of the corresponding resource with the item ID:
 
 + `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
 
@@ -894,13 +1064,13 @@ curl -X DELETE
 ```
 
 
-When working with special resources, you can request a list of all document items, create new items, and update existing ones. When creating new items using these resources, you can bypass the limit of 1000 items per document. Also, using this resource, you can manage the bulk update of items. To change information on line items, you must use the document line item management resources that are available by URI:
+When working with special resources, you can request a list of all transaction items, create new items, and update existing ones. When creating new items using these resources, you can bypass the limit of 1000 items per transaction. Also, using this resource, you can manage the bulk update of items. To change information on line items, you must use the transaction line item management resources that are available by URI:
 
-+ `/{document entity code, as part of the JSON API}/{id of a single document}/positions/{id of a single position}`
++ `/{transaction entity code, as part of the JSON API}/{ID of a single transaction}/positions/{ID of a single position}`
 
-Both ways of working with items are also described in the documentation for each of the documents.
+Both ways of working with items are also described for each transaction.
 
-It is also possible to bulk delete document items using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of items to be deleted, specifying the meta field for each of the items.
+It is also possible to bulk delete transaction items using the POST method to the URL of the corresponding resource. In the body of the request, you must specify an array of items to be deleted, specifying the meta field for each of the items.
 
 > An example URL for a request to bulk delete items using POST:
 
@@ -939,7 +1109,7 @@ curl -X POST
 ]
 ```
 
-### Balances and cost in document items
+### Balances and cost in transaction items
 
 > Representation of balances and cost as part of an item
 
@@ -955,7 +1125,7 @@ curl -X POST
 }
 ```
 
-When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example,
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example:
 
 + `/customerorder/{document id}?fields=stock&expand=positions`
 
@@ -1010,12 +1180,12 @@ Within the JSON API, you can remove a value from a field of type object (if this
 the main interface may contain an empty value). For example: the Contract field (**contract**) in any of the documents. This can be done by passing
 request to update the entity in the given null field. For example: `{ "contract": null }`.
 Removing the currency from documents (`{rate: null}`) is equivalent to changing the currency of the document to the default currency. As a result, all
-prices and amounts will be recalculated. Overhead costs will also be recalculated if they have not been explicitly stated.
+prices and amounts will be recalculated. Overhead expenses will also be recalculated if they have not been explicitly stated.
 
 Exceptions:
 
 + Structured address
-   [Contractor](dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address),
+   [Counterparty](dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address),
    [Legal entity](dictionaries/#entities-entity-legal-entity-attributes-of-entity-address),
    Points of sale,
    [Warehouse](dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address),
@@ -1050,13 +1220,13 @@ The following fields are set and output to the JSON API with minute precision, n
 + **lastDemandDate**
 + additional field with type **Date**
 
-### Sorting objects
+### Sorting of objects
 
 You can use the url parameter `order` to sort the list of objects.
 The value of this parameter is an **urlencoded** string with sorting conditions listed with `;`. (All examples below are unurlencoded for better readability)
 Each sort condition is a combination of a field name, a comma (optional if sort direction is specified), a sort direction (optional; can take the values `asc` and `desc`. The default value is `asc`).
 
-Sorting is supported for the following field types: numeric, string, datetime, boolean, and uuid.
+Sorting is supported for the following field types: numeric, string, datetime, boolean, and uuid. [Learm more](workbook/#workbook-sorting)
 
 Examples of queries with sorting:
 
@@ -1230,7 +1400,7 @@ An example request using the state.name filter:
 `https://api.kladana.com/api/remap/1.2/entity/customerOrder?filter=state.name=Новый;state.name=Принят`
 
 The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of items with the specified assortment entities.
-assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Service, Modification, Bundle, Product group.
+assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Product variant, Service, Bundle, Product group.
 The selection will include those documents that contain the specified entities in the number of items, or, in the case of specifying Product Groups, one of the entities from the specified Product Groups.
 
 An example query using the assortment filter:
@@ -1270,7 +1440,20 @@ used URI filter parameter **search**
     - `https://api.kladana.com/api/remap/1.2/entity/move?search=ул.Вавилова`
     - `https://api.kladana.com/api/remap/1.2/entity/counterparty?search=петров`
 
+### Deleting to the Recycle Bin
 
+The Recycle Bin allows you to avoid the risk of accidentally deleting important documents. Deleting to the Recycle Bin is only available if the employee has the appropriate rights, as well as the company's settings for using the Recycle Bin.
+
+> Example of deleting a Receiving to the Recycle Bin
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/move/b8fe9f6b-f48f-11ed-ac1a-000d0000003a/trash"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+``` 
+
+> Response 200 (application/json) Successful request to delete the Receiving to the Recycle Bin
 
 ### Filter operator "similarity"
 
@@ -1306,12 +1489,14 @@ where you would like to see related objects.
 As a result of a request with this parameter, in the response you will receive an object with expanded nested objects instead of links.
 For example, in documents containing the **agent** field, instead of referring to
 counterparty, an object with all fields of the "Accountant" entity described [here](dictionaries/#entities-counterparty) will be displayed.
-Maximum nesting level **expand** : 3.
-Expand is allowed only on a sample size of 100 or less. If a larger limit is specified, but expand is specified, then this parameter will be ignored.
 
-You can also use **expand** on the results of create and update operations.
+#### The following rules apply to expand:
 
-+ Below are examples of using **expand** on [Sales Returns](documents/#transactions-sales-return). The examples show only the **meta** and **demand** fields.
+* Expand is allowed only for sample sizes of 100 or fewer. For example: `https://api.kladana.com/api/remap/1.2/entity/customerorder?expand=positions&limit=100`. If a larger limit is specified along with expand, the expand parameter will be ignored.
+* The maximum nesting level for **expand** is 3.
+* **expand** can also be applied to the results of creation and update operations.
+
+Below are examples of using **expand** on [Sales Returns](documents/#transactions-sales-return). The examples only show the **meta** and **demand** fields.
 
 ### Return without expand
 
@@ -1319,110 +1504,647 @@ You can also use **expand** on the results of create and update operations.
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089"
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
-> Sales Return object in its normal view, with a link to the shipment
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the Sales Return without **expand**.
 
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043",
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
-    "mediaType": "application/json"
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
-  ...
-  "demand": {
+  "id": "685a0eb9-e707-11ef-ac12-000e00000043",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
-      "type": "demand",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
       "mediaType": "application/json"
     }
-  }
+  },
+  "updated": "2025-02-09 20:00:47.301",
+  "name": "00002",
+  "externalCode": "EMY-acmYh9LKG6GbGLvkY0",
+  "moment": "2025-02-09 20:00:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
+  "created": "2025-02-09 20:00:47.329",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/positions",
+      "type": "salesreturnposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
+  "demand": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+      "type": "demand",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+    }
+  },
+  "payedSum": 0.0
 }
 ```
 
-### Return from expand shipment
+### Shipment Return with expand 
 
 We pass the parameter **expand**=demand.
 
-> Sample return request with expand shipment
+> Example of the Return request of Shipment with **expand** 
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand"
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
 
-> In response, the return of the buyer will come, which, instead of a reference to the shipment for which the return is made, will have an attached object with all the fields of this shipment.
+>Response 200 (application/json)
+Successful request. Result is a JSON representation of the Sales Return with an expanded object of the Shipment.
 
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand",
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
-    "mediaType": "application/json"
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
-  ...
+  "id": "685a0eb9-e707-11ef-ac12-000e00000043",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2025-02-09 20:00:47.301",
+  "name": "00002",
+  "externalCode": "EMY-acmYh9LKG6GbGLvkY0",
+  "moment": "2025-02-09 20:00:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
+  "created": "2025-02-09 20:00:47.329",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/positions",
+      "type": "salesreturnposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
   "demand": {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d",
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
-      "mediaType": "application/json"
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     },
-    "id": "f99544d7-4a98-11e6-8a84-bae50000007f",
-    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+    "id": "a6c50571-e705-11ef-ac12-000e0000001d",
+    "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
     "owner": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
-        "mediaType": "application/json"
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
       }
     },
     "shared": false,
     "group": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
         "type": "group",
         "mediaType": "application/json"
       }
     },
-    ...
+    "updated": "2025-02-09 20:00:47.396",
+    "name": "00001",
+    "externalCode": "Uz0EvPg2jRgvtDL5o44ct0",
+    "moment": "2025-02-09 19:47:00.000",
+    "applicable": true,
+    "rate": {
+      "currency": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+          "type": "currency",
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        }
+      }
+    },
+    "sum": 111100.0,
+    "store": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+        "type": "store",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      }
+    },
+    "agent": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+        "type": "counterparty",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+      }
+    },
+    "organization": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+        "type": "organization",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      }
+    },
+    "attributes": [
+      {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        },
+        "id": "86a3c86d-e705-11ef-ac12-000e00000007",
+        "name": "New attribute",
+        "type": "string",
+        "value": "new string"
+      }
+    ],
+    "created": "2025-02-09 19:48:13.055",
+    "printed": false,
+    "published": false,
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    },
     "positions": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f/positions",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/positions",
         "type": "demandposition",
         "mediaType": "application/json",
-        "size": 2,
+        "size": 1,
         "limit": 1000,
         "offset": 0
       }
     },
     "vatEnabled": true,
     "vatIncluded": true,
-    "payedSum": 0,
+    "vatSum": 0.0,
+    "payedSum": 0.0,
     "returns": [
       {
         "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043",
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
           "type": "salesreturn",
-          "mediaType": "application/json"
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
         }
       }
-    ]
-  }
+    ],
+    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
+    "shipmentAddressFull": {
+      "postalCode":"125009",
+      "country": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+          "type":"country",
+          "mediaType":"application/json"
+        }
+      },
+      "region": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
+          "type":"region",
+          "mediaType":"application/json"
+        }
+      },
+      "city":"New Delhi",
+      "street":"Akbar Road",
+      "house":"1",
+      "apartment":"111",
+      "addInfo":"addinfo",
+      "comment":"some words about address"
+    }
+  },
+  "payedSum": 0.0
 }
 ```
+
+### Shipment Returns with expand 
+
+Pass the parameter **expand**=demand and limit=100.
+
+> Example of a return request of shipping with expand 
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the Sales Return with an expanded object of the Shipment.
+
+```json
+{
+  "context": {
+    "employee": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand",
+    "type": "salesreturn",
+    "mediaType": "application/json",
+    "size": 1,
+    "limit": 100,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013?expand=demand",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
+        "type": "salesreturn",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
+      },
+      "id": "c6f47cc4-e1dd-11ee-ac1b-000e00000013",
+      "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/09a8ad82-c42e-11ee-ac1b-000e0000004e",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+        }
+      },
+      "shared": false,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/0815b439-c42e-11ee-ac1b-000d00000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2024-03-14 11:35:13.630",
+      "name": "00001",
+      "externalCode": "G9bgN5HggK9J00qB4P5eY2",
+      "moment": "2024-03-14 11:35:00.000",
+      "applicable": true,
+      "rate": {
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+          }
+        }
+      },
+      "sum": 0.0,
+      "store": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/store/0a152f4e-c42e-11ee-ac1b-000e00000098",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+          "type": "store",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
+        }
+      },
+      "agent": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+          "type": "organization",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+        }
+      },
+      "organization": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+          "type": "organization",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+        }
+      },
+      "created": "2024-03-14 11:35:13.700",
+      "printed": false,
+      "published": false,
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "positions": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013/positions",
+          "type": "salesreturnposition",
+          "mediaType": "application/json",
+          "size": 3,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "vatEnabled": true,
+      "vatIncluded": true,
+      "vatSum": 0.0,
+      "demand": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/demand/762474c4-e1dd-11ee-ac1b-000e00000001",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+          "type": "demand",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#demand/edit?id=762474c4-e1dd-11ee-ac1b-000e00000001"
+        },
+        "id": "762474c4-e1dd-11ee-ac1b-000e00000001",
+        "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
+        "owner": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/employee/09a8ad82-c42e-11ee-ac1b-000e0000004e",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+            "type": "employee",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+          }
+        },
+        "shared": false,
+        "group": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/group/0815b439-c42e-11ee-ac1b-000d00000002",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+            "type": "group",
+            "mediaType": "application/json"
+          }
+        },
+        "updated": "2024-03-14 11:35:13.887",
+        "name": "00001",
+        "externalCode": "H9ZOh5TfhN06gKjCaqoHI1",
+        "moment": "2024-03-14 11:32:00.000",
+        "applicable": true,
+        "rate": {
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0a1b4b87-c42e-11ee-ac1b-000e0000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            }
+          }
+        },
+        "sum": 0.0,
+        "store": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/store/0a152f4e-c42e-11ee-ac1b-000e00000098",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+            "type": "store",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
+          }
+        },
+        "agent": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+            "type": "organization",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+          }
+        },
+        "organization": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/0a0583b3-c42e-11ee-ac1b-000e00000095",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+            "type": "organization",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+          }
+        },
+        "created": "2024-03-14 11:32:58.117",
+        "printed": false,
+        "published": false,
+        "files": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/762474c4-e1dd-11ee-ac1b-000e00000001/files",
+            "type": "files",
+            "mediaType": "application/json",
+            "size": 0,
+            "limit": 1000,
+            "offset": 0
+          }
+        },
+        "positions": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/762474c4-e1dd-11ee-ac1b-000e00000001/positions",
+            "type": "demandposition",
+            "mediaType": "application/json",
+            "size": 3,
+            "limit": 1000,
+            "offset": 0
+          }
+        },
+        "vatEnabled": true,
+        "vatIncluded": true,
+        "vatSum": 0.0,
+        "payedSum": 0.0,
+        "returns": [
+          {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/c6f47cc4-e1dd-11ee-ac1b-000e00000013",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
+              "type": "salesreturn",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
+            }
+          }
+        ]
+      },
+      "payedSum": 0.0
+    }
+  ]
+}
+```
+
 
 ### Expand with depth 2
 
@@ -1437,7 +2159,7 @@ parameter **expand** equal to two.
 
 ```shell
 curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand.agent"
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand.agent"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
 ```
@@ -1447,70 +2169,334 @@ curl -X GET
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089?expand=demand.agent",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand.agent",
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
-    "mediaType": "application/json"
+    "mediaType": "application/json",
+    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
-  ...
+  "id": "685a0eb9-e707-11ef-ac12-000e00000043",
+  "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2025-02-09 20:00:47.301",
+  "name": "00002",
+  "externalCode": "EMY-acmYh9LKG6GbGLvkY0",
+  "moment": "2025-02-09 20:00:00.000",
+  "applicable": true,
+  "rate": {
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+      }
+    }
+  },
+  "sum": 111100.0,
+  "store": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+      "type": "store",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+    }
+  },
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "counterparty",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+    }
+  },
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+    }
+  },
+  "created": "2025-02-09 20:00:47.329",
+  "printed": false,
+  "published": false,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043/positions",
+      "type": "salesreturnposition",
+      "mediaType": "application/json",
+      "size": 1,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "vatEnabled": true,
+  "vatIncluded": true,
+  "vatSum": 0.0,
   "demand": {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f?expand=agent",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d?expand=agent",
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
-      "mediaType": "application/json"
+      "mediaType": "application/json",
+      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     },
-    ...
+    "id": "a6c50571-e705-11ef-ac12-000e0000001d",
+    "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+    "owner": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+      }
+    },
+    "shared": false,
+    "group": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+        "type": "group",
+        "mediaType": "application/json"
+      }
+    },
+    "updated": "2025-02-09 20:00:47.396",
+    "name": "00001",
+    "externalCode": "Uz0EvPg2jRgvtDL5o44ct0",
+    "moment": "2025-02-09 19:47:00.000",
+    "applicable": true,
+    "rate": {
+      "currency": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/currency/a56cd0da-d7d4-11ef-ac12-000f000000a2",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+          "type": "currency",
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        }
+      }
+    },
+    "sum": 111100.0,
+    "store": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/store/a56684d8-d7d4-11ef-ac12-000f0000009d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+        "type": "store",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      }
+    },
     "agent": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/147c1f1b-32ca-11e6-8a84-bae500000004",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0",
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
-        "mediaType": "application/json"
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
       },
-      ...
-      "name": "Agent1",
-      "code": "УТ0003074",
-      "externalCode": "kAgs4Xbhiz2Sp5oP2OCaB2",
+      "id": "a56832b7-d7d4-11ef-ac12-000f000000a0",
+      "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/a50d2d81-d7d4-11ef-ac12-000f00000051",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+        }
+      },
+      "shared": false,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/a3832874-d7d4-11ef-ac12-001000000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2025-01-21 11:49:37.985",
+      "name": "LLC \"Supplier\"",
+      "externalCode": "nv4UeR5dhAStZ4X-5-ojn2",
       "archived": false,
-      "legalTitle": "Agent1 Limited Liability Company",
-      "legalAddress": "107023, Moscow, Barabanny lane, house number 42, building 2",
-      "inn": "7719864242",
-      "kpp": "771901001",
-      ...
+      "created": "2020-06-18 00:38:14.083",
+      "companyType": "legal",
+      "legalTitle": "Limited Liability Company \"Supplier\"",
+      "legalAddress": "Moscow, Stroiteley st., 12",
+      "legalAddressFull": {
+        "addInfo": "Moscow, Stroiteley st., 12"
+      },
+      "inn": "7736570901",
+      "kpp": "773601001",
+      "accounts": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/accounts",
+          "type": "account",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "tags": [],
+      "contactpersons": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/contactpersons",
+          "type": "contactperson",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "notes": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/notes",
+          "type": "note",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "salesAmount": 0.0,
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/a56832b7-d7d4-11ef-ac12-000f000000a0/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      }
     },
-    ...
+    "organization": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/a2a04526-e705-11ef-ac12-000e00000018",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+        "type": "organization",
+        "mediaType": "application/json",
+        "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      }
+    },
+    "attributes": [
+      {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/86a3c86d-e705-11ef-ac12-000e00000007",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        },
+        "id": "86a3c86d-e705-11ef-ac12-000e00000007",
+        "name": "New attribute",
+        "type": "string",
+        "value": "new string"
+      }
+    ],
+    "created": "2025-02-09 19:48:13.055",
+    "printed": false,
+    "published": false,
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    },
     "positions": {
       "meta": {
-        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/f99544d7-4a98-11e6-8a84-bae50000007f/positions",
+        "href": "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d/positions",
         "type": "demandposition",
         "mediaType": "application/json",
-        "size": 2,
+        "size": 1,
         "limit": 1000,
         "offset": 0
       }
     },
     "vatEnabled": true,
     "vatIncluded": true,
-    "payedSum": 0,
+    "vatSum": 0.0,
+    "payedSum": 0.0,
     "returns": [
       {
         "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/166909e6-4a99-11e6-8a84-bae500000089",
+          "href": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043",
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
           "type": "salesreturn",
-          "mediaType": "application/json"
+          "mediaType": "application/json",
+          "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
         }
       }
-    ]
-  }
-  ...
+    ],
+    "shipmentAddress":"110008, India, Delhi, New Delhi, Karol Bagh, Akbar Road, 1, 123 , addInfo",
+    "shipmentAddressFull": {
+      "postalCode":"125009",
+      "country": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+          "type":"country",
+          "mediaType":"application/json"
+        }
+      },
+      "region": {
+        "meta": {
+          "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
+          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
+          "type":"region",
+          "mediaType":"application/json"
+        }
+      },
+      "city":"New Delhi",
+      "street":"Akbar Road",
+      "house":"1",
+      "apartment":"111",
+      "addInfo":"addinfo",
+      "comment":"some words about address"
+    }
+  },
+  "payedSum": 0.0
 }
 ```
 
-### Create a shipment with expand
+### Create Shipment with expand
 
-> Expand the **agent** field of the shipment being created.
+> Example of a request to create a shipment with the **agent** field expanded
 
 ```shell
 curl -X POST
@@ -1544,7 +2530,8 @@ curl -X POST
         }'
 ```
 
-> In response, the created shipment will come with the deployed object of the counterparty (**agent**).
+> Response 200 (application/json)
+Successful request. The result is JSON representation of the created Shipment with the expanded counterparty object (**agent**).
 
 ```json
 {
@@ -1710,10 +2697,9 @@ curl -X POST
 }
 ```
 
-### Edit shipment with expand
+### Edit Shipment with expand
 
-> Now let's update this shipment and expand its **agent** and **organization** fields.
-The response will be a modified shipment with expanded counterparty object (**agent**) and expanded legal entity object (**organization**).
+> Example of a shipment update request with the **agent** and **organization** objects expanded
 
 ```shell
 curl -X PUT
@@ -1722,11 +2708,13 @@ curl -X PUT
   -H "Accept-Encoding: gzip"
   -H 'Content-Type: application/json' \
   -d '{
-          "name": "3738"
-        }`
+        "name": "3738"
+      }'
 ```
 
 > Response 200 (application/json)
+Successful request. Result is JSON representation of the updated Shipment with expanded counterparty and legal entity objects.
+
 
 ```json
 {
@@ -1954,14 +2942,14 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **fullName**     | String(255) | First name Middle name Last name<br>`+Read only` |
 | **group**        | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
 | **id**           | UUID | Employee ID<br>`+Required when replying` `+Read Only` |
-| **image**        | Object | Photo of an employee. [More here](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
+| **image**        | Object | Photo of an employee. [Learn more](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
 | **inn**          | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
 | **lastName**     | String(255) | Last name<br>`+Required when replying` `+Read only` |
 | **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
 | **middleName**   | String(255) | Middle name<br>`+Read only` |
 | **name**         | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
 | **owner**        | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
-| **permissions**  | Object | Enumeration of employee's permissions. [More details here](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
+| **permissions**  | Object | Enumeration of employee's permissions. [Learn more](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
 | **phone**        | String(255) | Employee phone<br>`+Read-only` |
 | **position**     | String(255) | Job Title<br>`+Read Only` |
 | **shared**       | Boolean | Sharing<br>`+Required when replying` `+Read Only` |
@@ -2035,43 +3023,46 @@ These types have the following fields:
 |----------------------------| ---------- |-------------------|
 | **accountAdjustment**      | DICTIONARY | Adjustment of account balances |
 | **bonusTransaction**       | OPERATION | Bonus points |
-| **cashIn**                 | OPERATION | Receipt order |
-| **cashOut**                | OPERATION | Disbursement order |
+| **cashIn**                 | OPERATION | Incoming Cash Payment |
+| **cashOut**                | OPERATION | Outgoing Cash Payment |
 | **cashboxAdjustment**      | DICTIONARY | Adjustment of cash balances |
-| **company**                | DICTIONARY | Contractors |
+| **company**                | DICTIONARY | Counterparties |
 | **contract**               | DICTIONARY | Contracts |
 | **counterpartyAdjustment** | DICTIONARY | Adjustment of counterparty or employee balances |
 | **country**                | BASE | Countries |
 | **currency**               | BASE | Currencies |
-| **customEntity**           | BASE | Elements of user directories |
-| **customerOrder**          | OPERATION | Order to buyers |
+| **customEntity**           | BASE | Elements of user lists|
+| **customerOrder**          | OPERATION | Sales Order|
 | **demand**                 | OPERATION | Shipment |
 | **employees**              | BASE | Employees |
 | **enter**                  | OPERATION | Posting |
 | **factoryIn**              | OPERATION | Invoices received |
 | **facture**                | OPERATION | Invoices issued |
-| **good**                   | DICTIONARY | Goods and Services |
+| **good**                   | DICTIONARY | Products and Services |
 | **internalOrder**          | OPERATION | Internal orders |
 | **inventory**              | DICTIONARY | Inventory |
 | **invoiceIn**              | OPERATION | Supplier invoice |
-| **invoiceOut**             | OPERATION | Account for buyers |
+| **invoiceOut**             | OPERATION | Sales invoices |
 | **loss**                   | OPERATION | Write-off |
-| **move**                   | OPERATION | Moving |
-| **myCompany**              | BASE | Jur. Faces |
+| **move**                   | OPERATION | Transfer |
+| **myCompany**              | BASE | Legal entities |
 | **paymentIn**              | OPERATION | Incoming payment |
 | **paymentOut**             | OPERATION | Outgoing payment |
+| **prepayment**             | OPERATION | Prepayments |
+| **prepaymentReturn**       | OPERATION | Prepayment Returns   |
+| **priceList**              | OPERATION | Price list |
+| **processing**             | BASE  | Production Operations |
 | **processingOrder**        | OPERATION | Production order |
-| **processingPlan**         | BASE| Those. Maps |
-| **processingStage**        | BASE | Stages of production |
-| **processingProcess**      | BASE | Those. processes |
+| **processingPlan**         | BASE| Bills of Materials |
+| **processingStage**        | BASE | Production operations |
 | **project**                | BASE | Projects |
-| **purchaseOrder**          | OPERATION | Order to suppliers |
-| **purchaseReturn**         | OPERATION | Return to supplier |
+| **purchaseOrder**          | OPERATION | Purchase Orders |
+| **purchaseReturn**         | OPERATION | Purchase Returns |
 | **retailDemand**           | OPERATION | Sales |
-| **retailSalesReturn**            | OPERATION | Sales Return |
+| **retailSalesReturn**            | OPERATION | Sales Returns |
 | **supply**                 | OPERATION | Receivings |
 | **task**                   | [Special](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions-permissions-for-tasks) | Tasks |
-| **uom*                     | BASE | Units of measure |
+| **uom**                     | BASE | Units of measure |
 | **warehouse**              | BASE | Warehouses |
 | **webhook**                | DICTIONARY | Webhooks |
 
@@ -2528,7 +3519,7 @@ Successful request. The result is a JSON representation of information about the
 ```
 
 ### Server applications
-To access the API, a token issued to the Vendor during the installation of the Server Application by the user of MySklad can be used.
+To access the API, a token issued to the Vendor during the installation of the Server Application by the user of Kladana can be used.
 
 #### Get application context
 Returns the parameters of the application within which the request is made (similar to the context of the Employee).
@@ -2552,19 +3543,19 @@ curl -X GET
     "type": "application",
     "mediaType": "application/json"
   },
-  "appUid": "test.moysklad@reqwy1",
+  "appUid": "test.kladana@reqwy1",
   "id": "b58a6312-f958-11e9-ac12-000a00000020"
 }
 ```
 
 #### Getting the entity of the installed application
-Returns the parameters of the installed application by the id of the application installed on the account.
+Returns the parameters of the installed application by the ID of the application installed on the account.
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: b58a6312-f958-11e9-ac12-000a00000020* id of the application installed on the account |
+| **id** | `string` (required) *Example: b58a6312-f958-11e9-ac12-000a00000020* ID of the application installed on the account |
 
 > Sample request to get the entity of an installed application
 
@@ -2585,7 +3576,7 @@ curl -X GET
     "type": "application",
     "mediaType": "application/json"
   },
-  "appUid": "test.moysklad@reqwy1",
+  "appUid": "test.kladana@reqwy1",
   "id": "b58a6312-f958-11e9-ac12-000a00000020"
 }
 ```
@@ -2597,7 +3588,7 @@ Application uid must be specified in the form:
 `<Application-Alias>.<Vendor-Alias>@<Account-Name>`
 
 An example of a request to receive a list of incoming payments:
-`https://api.kladana.com/api/remap/1.2/entity/paymentin?filter=updatedBy=test.moysklad@reqwy1` 
+`https://api.kladana.com/api/remap/1.2/entity/paymentin?filter=updatedBy=test.kladana@reqwy1` 
 
 #### Filtering audit records using the filter=uid parameter
 To filter the audit by application, specify the _uid_ of the application that modified the entities.
@@ -2606,7 +3597,7 @@ Application uid must be specified in the form:
 `<Application-Alias>.<Vendor-Alias>@<Account-Name>`
 
 An example of a request to get a list of records:
-`https://api.kladana.com/api/remap/1.2/audit?filter=uid=test.moysklad@reqwy1` 
+`https://api.kladana.com/api/remap/1.2/audit?filter=uid=test.kladana@reqwy1` 
 
 #### Filtering audit entries with the filter=application parameter
 To filter the audit by application, specify the _href_ of the application that modified the entities.

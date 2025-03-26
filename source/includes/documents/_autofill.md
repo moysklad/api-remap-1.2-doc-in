@@ -26,7 +26,7 @@ Discount autocomplete is not available in the following transactions:
 
 Pricing is not available in [Inventory Count](../documents/#transactions-inventory-count).
 
-Cost price autocomplete is only available for Returns without Reason in [Sales Return](../documents/#transactions-sales-return). 
+Cost price autocomplete is only available for Unreferenced Return (Return with no reason) in [Sales Return](../documents/#transactions-sales-return). 
 
 ### Autocomplete template
 
@@ -62,13 +62,13 @@ the value of the `organization` field is used.
 Items in the template are a list of products, services, product variants, and bundles. The item object contains the following fields:
 
 + **quantity** - Quantity of goods/services of this type in the item. If the item is a product that has accounting by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.
-+ **price** - The price of the product/service in rupees.
++ **price** - The price of the product/service in paise.
 + **discount** - Discount or markup percentage.
 + **vat** - tax applied to the current item.
 + **vatEnabled** - whether tax is enabled for the current item. With this flag, you can set tax = 0 or tax = "no taxes" for a item. (vat = 0, vatEnabled = false) -> vat = "excluding tax", (vat = 0, vatEnabled = true) -> vat = 0%.
-+ **assortment** - Link to the product/service/series/modification/kit that the item represents, in the [Metadata](../#kladana-json-api-general-info-metadata) format.
-+ **discountedPrice** - The price of the product/service, including discounts and taxes, in rupees.
-+ **sum** - The total amount including the discount for the specified quantity of goods in the item in rupees. Calculated when passing the **quantity** field.
++ **assortment** - Link to the product/service/batches/product variant/bundle that the item represents, in the [Metadata](../#kladana-json-api-general-info-metadata) format.
++ **discountedPrice** - The price of the product/service, including discounts and taxes, in paise.
++ **sum** - The total amount including the discount for the specified quantity of goods in the item in paise. Calculated when passing the **quantity** field.
 
 ### Autocomplete request
 

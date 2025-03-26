@@ -4,17 +4,17 @@
 
 ### Assortment
 
-The 'Assortment' entity is the list of all products, variants, services, and bundles with the fields: `stock`, `reserve`, `inTransit`, `quantity`. The fields show the number of items reserved, awaiting, available, in stock, and in transit. The fields are not available for bundles and services. The data in the fields can be calculated depending on the date and stock using the `stockMoment` and `stockStore` filtering options.
+The 'assortment' entity is the list of all products, services, bundles, batches, and product variants with the fields: `stock`, `reserve`, `inTransit`, `quantity`. The fields show the number of items reserved, awaiting, available, in stock, and in transit. The fields are not available for bundles and services. The data in the fields can be calculated depending on the date and stock using the `stockMoment` and `stockStore` filtering options.
 
 #### Attributes available for filtering
 
 The query results can be filtered using the 'filter' parameter.
 
 | Title | Description |
-| ---------|-------|
+| --------- | ------- |
 | **alcoholic.type** | parameter for filtering by the code of the type of alcoholic product. You can use the `=` and `!=` operators. The value of the parameter is an integer. You can pass an empty value, then the selection will include products with a filled or empty value of the product type code. |
 | **archived** | parameter for filtering on the basis of archived goods. Possible values: true, false. To display both regular and archived products, you need to pass two values at once, true and false. By default, only regular products are included in the search results. |
-| **article** | parameter for filtering by article numbers of goods and kits. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **article** | parameter for filtering by article numbers of products and bundles. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **barcode** | parameter for filtering by entity barcodes. A valid operator is `=`. You can pass multiple values. You can specify an empty value. |
 | **code** | parameter for filtering by entity codes. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **description** | parameter for filtering by entity descriptions. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
@@ -27,17 +27,18 @@ The query results can be filtered using the 'filter' parameter.
 | **pathname** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that shouldbe included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
 | **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-quantitymode) |
-| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[More info here](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
+| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[Learn more](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
 | **shared** | parameter for filtering based on shared access. Possible values: true, false. |
 | **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-stockmode) |
-| **stockMoment** | point in time at which you want to withdraw the balances. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
+| **stockMoment** | point in time when you want to withdraw the stock. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
 | **stockStore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
-| **type** | parameter for filtering by entity type (product, service, bundle, variant). Used with the `=` operator. You can pass multiple values. |
+| **type** | parameter for filtering by entity type (product, service, bundle, product variant). It is used with the `=` operator. You can pass multiple values. To filter by consignment type, you need to use grouping (groupBy=consignment). |
 | **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
 | **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
 | **weighed** | parameter for filtering by weight item. Possible values: true, false. |
-| **add. field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of add-on. fields. [More details here](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
+| **withSubFolders** | parameter for considering nested subgroups. It works only if a non-empty filter by `productFolder` is applied. By default, it is set to `true`, and products from the child subgroups of the filtered groups are displayed. If `false` is passed, only products from the filtered groups are displayed, without considering subgroups.|
+| **additional field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of additional field. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
 
 Filtering by additional fields is also available. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) details about filtering by additional fields.
 
@@ -47,11 +48,11 @@ The default value is all.
 | Meaning | Description |
 | --------|---------|
 | **all** | Any value of the remainder |
-| **positiveOnly** | Positive balance |
-| **negativeOnly** | Negative balance |
-| **empty** | Zero balance |
+| **positiveOnly** | Positive stock |
+| **negativeOnly** | Negative stock |
+| **empty** | Zero stock |
 | **nonEmpty** | Non-zero remainder |
-| **underMinimum** | Balance below minimum balance |
+| **underMinimum** | The stock is below the minimum |
 
 ##### Available values for quantityMode
 The default value is all.
@@ -69,14 +70,14 @@ The default value is all.
 For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.
 
     + by the name of the Assortment item **name**
-    + by modification name **name**
+    + by product variant name **name**
     + by code **code**
-    + by modification code **code**
+    + by product variant code **code**
     + by article **article**
     + by barcode **barcode**
-    + by modification barcode **barcode**
+    + by product variant barcode **barcode**
     + by barcode of product packages **barcode**
-    + by the barcode of packages of modifications **barcode**
+    + by the barcode of product variant packages **barcode**
  
 
 When using filters **alcoholic.type**, **weighed** and filters **stockMode**, **quantityMode** with values other than all, services and bundles are not included in the search results.
@@ -120,12 +121,12 @@ Filtering examples:
 | -------------------- | --------------- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **groupBy** | `string` (optional) Grouping parameter. Takes one of the following values: `product` - only products will be displayed, `variant` - products and modifications will be displayed (similar to the absence of a parameter)|
+| **groupBy** | `string` (optional) Grouping parameter. Takes one of the following values: `product` - only products will be displayed, `variant` - products and product variants will be displayed (similar to the absence of a parameter)|
 
 
 #### Directory settings
 
-Goods directory entities are goods, services, kits and groups of goods.
+Goods directory entities are goods, services, bundles and groups of goods.
 The directory settings allow the user to change the code uniqueness checking, setting a unique code when creating entities, setting a unique EAN13 barcode, using barcode prefixes for bulk goods, and configuring the sharing of these entities.
 
 #### Entity attributes
@@ -133,8 +134,8 @@ The directory settings allow the user to change the code uniqueness checking, se
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [More details here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
-| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [More here](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
+| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when replying` |
+| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when replying` |
 | **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
 
 #### Nested entity attributes
@@ -149,13 +150,13 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 | Title | Type | Description |
 | ----------- | ------ | -------- |
-| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, kits, modifications and services<br>`+Required when replying` |
+| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, bundles, product variants and services<br>`+Required when replying` |
 | **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when replying` |
 | **weightBarcodePrefix** | Int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
 
 ### Get Assortment
 
-> Request to receive all goods, services, kits, modifications and series in the form of a list.
+> Request to receive all products, services, bundles, product variants and batches in the form of a list.
 
 ```shell
 curl -X GET
@@ -164,7 +165,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, modifications and series.
+> Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, product variants and batches.
   
 ```json
 {
@@ -768,6 +769,610 @@ curl -X GET
   ]
 }
 ```
+
+### Receiving Assortment with Batches
+
+> Request to receive the list of all products, services, bundles, product variants and batches.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/assortment?groupBy=consignment"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json). Successful request. Result is JSON representation of the list of all products, services, bundles, product variants and batches.
+
+```json
+{
+  "context": {
+    "employee": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/assortment?groupBy=consignment",
+    "type": "assortment",
+    "mediaType": "application/json",
+    "size": 6,
+    "limit": 1000,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+        "type": "product",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
+      },
+      "id": "ba3c6d6d-3d33-11ef-ac15-0010000000ef",
+      "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/2004c794-3d33-11ef-ac15-00100000004e",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=2004c794-3d33-11ef-ac15-00100000004e"
+        }
+      },
+      "shared": true,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/1e85f779-3d33-11ef-ac15-000f00000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2024-07-08 17:11:27.942",
+      "name": "product",
+      "description": "product",
+      "code": "00001",
+      "externalCode": "yO85GgFpgK5DFsmjJKdQ82",
+      "archived": false,
+      "pathName": "",
+      "useParentVat": true,
+      "uom": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+          "type": "uom",
+          "mediaType": "application/json"
+        }
+      },
+      "images": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "minPrice": {
+        "value": 0.0,
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+          }
+        }
+      },
+      "salePrices": [
+        {
+          "value": 0.0,
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+            }
+          },
+          "priceType": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/20cc4a52-3d33-11ef-ac15-00100000009e",
+              "type": "pricetype",
+              "mediaType": "application/json"
+            },
+            "id": "20cc4a52-3d33-11ef-ac15-00100000009e",
+            "name": "sale price",
+            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+          }
+        }
+      ],
+      "buyPrice": {
+        "value": 0.0,
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+          }
+        }
+      },
+      "barcodes": [
+        {
+          "ean13": "2000000000015"
+        }
+      ],
+      "paymentItemType": "GOOD",
+      "discountProhibited": false,
+      "weight": 0.0,
+      "volume": 0.0,
+      "variantsCount": 2,
+      "isSerialTrackable": false,
+      "trackingType": "NOT_TRACKED",
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "stock": 0.0,
+      "reserve": 0.0,
+      "inTransit": 0.0,
+      "quantity": 0.0
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/consignment/95b97e84-3d34-11ef-ac15-000d00000000",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/consignment/metadata",
+        "type": "consignment",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#consignment/edit?id=95b97e84-3d34-11ef-ac15-000d00000000"
+      },
+      "id": "95b97e84-3d34-11ef-ac15-000d00000000",
+      "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
+      "updated": "2024-07-08 17:15:52.881",
+      "name": "product / consignment",
+      "code": "1012",
+      "externalCode": "g9BOLNRZglk9NMOHxcrVV0",
+      "label": "consignment",
+      "barcodes": [
+        {
+          "ean13": "2000000000077"
+        }
+      ],
+      "images": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
+        }
+      },
+      "stock": 0.0,
+      "reserve": 0.0,
+      "inTransit": 0.0,
+      "quantity": 0.0
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/variant/f7954456-3d33-11ef-ac15-00100000011e",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+        "type": "variant",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#feature/edit?id=f7953353-3d33-11ef-ac15-00100000011c"
+      },
+      "id": "f7954456-3d33-11ef-ac15-00100000011e",
+      "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
+      "updated": "2024-07-08 17:11:27.799",
+      "name": "product (var A)",
+      "code": "00002",
+      "externalCode": "wc0O05KgiXC-4gxxp02DN0",
+      "archived": false,
+      "characteristics": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/f78c41a6-3d33-11ef-ac15-00100000011b",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "id": "f78c41a6-3d33-11ef-ac15-00100000011b",
+          "name": "product variant",
+          "value": "var A"
+        }
+      ],
+      "images": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/f7954456-3d33-11ef-ac15-00100000011e/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "salePrices": [
+        {
+          "value": 0.0,
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+            }
+          },
+          "priceType": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/20cc4a52-3d33-11ef-ac15-00100000009e",
+              "type": "pricetype",
+              "mediaType": "application/json"
+            },
+            "id": "20cc4a52-3d33-11ef-ac15-00100000009e",
+            "name": "sale price",
+            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+          }
+        }
+      ],
+      "barcodes": [
+        {
+          "ean13": "2000000000046"
+        }
+      ],
+      "discountProhibited": false,
+      "product": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
+        }
+      },
+      "stock": 0.0,
+      "reserve": 0.0,
+      "inTransit": 0.0,
+      "quantity": 0.0
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/variant/f79dd660-3d33-11ef-ac15-001000000123",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+        "type": "variant",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#feature/edit?id=f79db7c3-3d33-11ef-ac15-001000000121"
+      },
+      "id": "f79dd660-3d33-11ef-ac15-001000000123",
+      "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
+      "updated": "2024-07-08 17:11:27.870",
+      "name": "product (var B)",
+      "code": "00003",
+      "externalCode": "3PFqcaJagqpvSiIgKLaCq1",
+      "archived": false,
+      "characteristics": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/f78c41a6-3d33-11ef-ac15-00100000011b",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "id": "f78c41a6-3d33-11ef-ac15-00100000011b",
+          "name": "product variant",
+          "value": "var B"
+        }
+      ],
+      "images": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/f79dd660-3d33-11ef-ac15-001000000123/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "salePrices": [
+        {
+          "value": 0.0,
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+            }
+          },
+          "priceType": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/20cc4a52-3d33-11ef-ac15-00100000009e",
+              "type": "pricetype",
+              "mediaType": "application/json"
+            },
+            "id": "20cc4a52-3d33-11ef-ac15-00100000009e",
+            "name": "sale price",
+            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+          }
+        }
+      ],
+      "barcodes": [
+        {
+          "ean13": "2000000000053"
+        }
+      ],
+      "discountProhibited": false,
+      "product": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/ba3c6d6d-3d33-11ef-ac15-0010000000ef",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
+        }
+      },
+      "stock": 0.0,
+      "reserve": 0.0,
+      "inTransit": 0.0,
+      "quantity": 0.0
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/service/c57dcc60-3d33-11ef-ac15-0010000000fc",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+        "type": "service",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=c57db591-3d33-11ef-ac15-0010000000fa"
+      },
+      "id": "c57dcc60-3d33-11ef-ac15-0010000000fc",
+      "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/2004c794-3d33-11ef-ac15-00100000004e",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=2004c794-3d33-11ef-ac15-00100000004e"
+        }
+      },
+      "shared": true,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/1e85f779-3d33-11ef-ac15-000f00000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2024-07-08 17:10:03.751",
+      "name": "service",
+      "description": "service",
+      "code": "00002",
+      "externalCode": "60tB0R4Ui9PfsXhauKUP40",
+      "archived": false,
+      "pathName": "",
+      "useParentVat": true,
+      "uom": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+          "type": "uom",
+          "mediaType": "application/json"
+        }
+      },
+      "minPrice": {
+        "value": 0.0,
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+          }
+        }
+      },
+      "salePrices": [
+        {
+          "value": 0.0,
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+            }
+          },
+          "priceType": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/20cc4a52-3d33-11ef-ac15-00100000009e",
+              "type": "pricetype",
+              "mediaType": "application/json"
+            },
+            "id": "20cc4a52-3d33-11ef-ac15-00100000009e",
+            "name": "sale price",
+            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+          }
+        }
+      ],
+      "buyPrice": {
+        "value": 0.0,
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+          }
+        }
+      },
+      "barcodes": [
+        {
+          "ean13": "2000000000022"
+        }
+      ],
+      "paymentItemType": "SERVICE",
+      "discountProhibited": false,
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/service/c57dcc60-3d33-11ef-ac15-0010000000fc/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/da607138-3d33-11ef-ac15-00100000010d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+        "type": "bundle",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#good/edit?id=da60604b-3d33-11ef-ac15-00100000010b"
+      },
+      "id": "da607138-3d33-11ef-ac15-00100000010d",
+      "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
+      "owner": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/2004c794-3d33-11ef-ac15-00100000004e",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=2004c794-3d33-11ef-ac15-00100000004e"
+        }
+      },
+      "shared": true,
+      "group": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/group/1e85f779-3d33-11ef-ac15-000f00000002",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "updated": "2024-07-08 17:10:38.791",
+      "name": "bundle",
+      "code": "00003",
+      "externalCode": "pOjHkQ6mgLmQ9aI0dayiY0",
+      "archived": false,
+      "pathName": "",
+      "useParentVat": true,
+      "uom": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/uom/19f1edc0-fc42-4001-94cb-c9ec9c62ec10",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+          "type": "uom",
+          "mediaType": "application/json"
+        }
+      },
+      "images": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/da607138-3d33-11ef-ac15-00100000010d/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "minPrice": {
+        "value": 0.0,
+        "currency": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+            "type": "currency",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+          }
+        }
+      },
+      "salePrices": [
+        {
+          "value": 0.0,
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/2084dec0-3d33-11ef-ac15-00100000009d",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=2084dec0-3d33-11ef-ac15-00100000009d"
+            }
+          },
+          "priceType": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/20cc4a52-3d33-11ef-ac15-00100000009e",
+              "type": "pricetype",
+              "mediaType": "application/json"
+            },
+            "id": "20cc4a52-3d33-11ef-ac15-00100000009e",
+            "name": "sale price",
+            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+          }
+        }
+      ],
+      "barcodes": [
+        {
+          "ean13": "2000000000039"
+        }
+      ],
+      "paymentItemType": "GOOD",
+      "discountProhibited": false,
+      "weight": 0.0,
+      "volume": 0.0,
+      "trackingType": "NOT_TRACKED",
+      "components": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/da607138-3d33-11ef-ac15-00100000010d/components",
+          "type": "bundlecomponent",
+          "mediaType": "application/json",
+          "size": 2,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "files": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/da607138-3d33-11ef-ac15-00100000010d/files",
+          "type": "files",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      }
+    }
+  ]
+}
+```
+
 
 ### Bulk deletion of items in the Assortment
 

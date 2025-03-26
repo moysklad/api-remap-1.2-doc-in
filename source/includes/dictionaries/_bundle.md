@@ -25,20 +25,20 @@ Using the JSON API, you can create and update information about Bundles, request
 | **id** | UUID | `=` `!=` | Bundle ID<br>`+Required for response` `+Read only` |
 | **images** | MetaArray | | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 10)<br>`+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bundle Metadata<br>`+Required when replying` |
-| **minprice** | Object | | Minimum price. [More here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
+| **minprice** | Object | | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Name<br>`+Required when responding` `+Required when creating` |
-| **overhead** | Object | | Additional expenses. [More here](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-additional-expenses) |
+| **overhead** | Object | | Additional expenses. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-additional-expenses) |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked goods. "true" - the feature is enabled. |
 | **pathName** | String | `=` `!=` `~` `~=` `=~` | The name of the group the Bundle belongs to<br>`+Required when replying` `+Read-only` |
-| **paymentItemType** | Enum | | Sign of the subject of calculation. [More here](../dictionaries/#entities-bundle-bundles-entity-attributes-sign-of-the-subject-of-calculation) |
+| **paymentItemType** | Enum | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-indicator-of-the-calculation-item) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Group metadata of Bundles<br>`+Expand` |
 | **salePrice** | Array(Object) | | Sale prices |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem** | Enum | | Tax system code. [More here](../dictionaries/#entities-bundle-bundles-entity-attributes-tax-system-code) |
+| **taxSystem** | Enum | | Tax system code. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-tax-system-code) |
 | **tnved** | String(255) | | TN VED code |
-| **trackingType** | Enum | | Type of labeled product. [More here](../dictionaries/#entities-bundle-bundles-entity-attributes-type-of-labeled-products) |
+| **trackingType** | Enum | | Type of labeled product. [](../dictionaries/#entities-bundle-bundles-entity-attributes-type-of-labeled-products) |
 | **uom* | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
@@ -51,22 +51,27 @@ Using the JSON API, you can create and update information about Bundles, request
 
 The values of the trackingType field.
 
-| Value| Description |
-| ---------- | ------------ |
+Value | Description |
+| --------------------- | ------------------------------------- |
+| **BEER_ALCOHOL** | Beer and low-alcohol beverages |
 | **ELECTRONICS** | Cameras and flash lamps |
-| **LP_CLOTHES** | Type of marking "Clothes" |
-| **LP_LINENS** | Type of marking "Bed linen" |
-| **MILC** | Dairy products |
-| **NCP** | Products containing nicotine |
-| **NOT_TRACKED** | Unmarked |
+| **FOOD_SUPPLEMENT** | Biologically active food supplements |
+| **LP_CLOTHES** | Label type "Clothing" |
+| **LP_LINENS** | Label type "Bed linen" |
+| **MEDICAL_DEVICES** | Medical devices and wheelchairs |
+| **MILK** | Dairy products |
+| **NCP** | Nicotine-containing products |
+| **NOT_TRACKED** | No label |
 | **OTP** | Alternative tobacco products |
-| **PERFUMERY** | Perfume and toilet water |
-| **SHOES** | Type of marking "Shoes" |
-| **TIRES** | Tires and tires |
-| **TOBACCO** | Type of marking "Tobacco" |
+| **PERFUMERY** | Perfumes and eau de toilette |
+| **SANITIZER** | Antiseptics |
+| **SHOES** | Label type "Shoes" |
+| **SOFT_DRINKS** | Soft drinks |
+| **TIRES** | Tires |
+| **TOBACCO** | Label type "Tobacco" |
 | **WATER** | Packaged water |
 
-##### Sign of the subject of calculation
+##### Indicator of the calculation item
 
 Values of the paymentItemType field.
 
@@ -109,10 +114,6 @@ The restrictions associated with using Bundles as items:
    - Inventory
    - Bills of Materials
    - Internal orders
-+ Bundle cannot be a shipment item under a commission agreement:
-   - you cannot add a Bundle to a shipment under a commission agreement
-   - it is impossible to establish a commission agreement in shipment with Bundles
-   - you cannot change the contract to a commission if it has shipments from Bundles
 
 
 #### Nested entity attributes
@@ -133,12 +134,12 @@ The structure of the minPrice object.
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 #### Bundle Components
-Bundle Components is a list of goods/services/modifications that are part of a Bundle. Bundle can have from 1 to 50 components. Object of a Bundle component contains the following fields:
+Bundle Components is a list of products/services/product variants that are part of a Bundle. Bundle can have from 1 to 50 components. Object of a Bundle component contains the following fields:
 
 | Title | Type | Description |
 | ------------- | --------------- |----------------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series that the component represents<br>`+Required for response` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batch that the component represents<br>`+Required for response` `+Expand` |
 | **id** | UUID | Component ID<br>`+Required for response` `+Read-only` |
 | **quantity** | Int | Quantity of goods/services of this type in the <br>component`+Required when replying` `+Read-only` |
 
@@ -212,8 +213,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | ------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Bundles. |
 
 **Parameters**
@@ -737,7 +738,7 @@ Successful request. The result is a JSON representation of the generated Bundle.
        "downloadHref": "https://miniature-prod.app.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
      },
      "tiny": {
-       "href": "https://app.kladana.com/app/download/bd14f0b6-95ee-11e6-8a84-bae500000000.png",
+       "href": "https://api.kladana.com/app/download/bd14f0b6-95ee-11e6-8a84-bae500000000.png",
        "mediaType": "image/png"
      }
    },
@@ -1691,8 +1692,8 @@ Request to get a list of all components of this Bundle.
 
 | Title | Type | Description |
 | ------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Bundle. |
 
 **Parameters**
@@ -1889,8 +1890,7 @@ Request to change an individual Bundle component with the specified id.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c
-"
+     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1943,3 +1943,36 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Bundle component.
+
+### Bulk deletion of Bundle components
+
+The request body must contain an array containing JSON metadata of the Bundle components that need to be deleted.
+
+> Request for bulk deletion of Bundle components.
+
+```shell
+curl -X POST
+"https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e0000022/components/delete"
+-H "Authorization: Basic <Credentials>"
+-H "Accept-Encoding: gzip"
+-H "Content-Type: application/json"
+  -d '[
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/31c3e4a8-7323-11ee-c0a8-e00e00000027", 
+        "type": "bundlecomponent", 
+        "mediaType": "application/json" 
+      }
+    }, 
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e00000022/components/23afc075-7323-11ee-c0a8-e00e0000001c",
+        "type": "bundlecomponent",
+        "mediaType": "application/json"
+      }
+    }
+  ]'
+```
+ 
+> Response 200 (application/json)
+Successful removal of Bundle components.

@@ -1,11 +1,11 @@
 ## Image
 ### Images
-Using the JSON API, you can create and update information on Images for Products, Bundles and Modifications, request lists of Images,
+Using the JSON API, you can create and update information on Images for Products, Bundles and Product Variants, request lists of Images,
 as well as information on individual Images.
 
-Products, Bundles and Modifications may contain multiple identical Images. Images are considered the same if when adding Images
+Products, Bundles and Product Variants may contain multiple identical Images. Images are considered the same if when adding Images
 they had the same `filename` and `content`. Identical Images have the same `id` parameter value.
-A Product, Bundle or Modification can have no more than 10 Images.
+A Product, Bundle or Product Variant can have no more than 10 Images.
 
 #### Entity attributes
 
@@ -19,14 +19,14 @@ A Product, Bundle or Modification can have no more than 10 Images.
 | **title** | String(255)                                        | Image Title<br>`+Required when replying` |
 | **updated** | DateTime                                           | File upload time to server<br>`+Required when replying` |
 
-### Get a list of Product Images, Bundle and Modifications
-Request to receive all Images of a Product, Bundle or Modification for this account.
+### Get a list of Product, Product Variant and Bundle Images
+Request to receive all images of a product, product variant or bundle for this account.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Images](../dictionaries/#entities-image). |
 
 
@@ -34,7 +34,7 @@ Result: JSON object including fields:
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Images. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
@@ -88,7 +88,7 @@ Successful request. The result is an array of all Product Images.
                  "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
              },
              "tiny": {
-                 "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+                 "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
                  "type": "image",
                  "mediaType": "image/png"
              }
@@ -111,7 +111,7 @@ Successful request. The result is an array of all Product Images.
                  "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
              },
              "tiny": {
-                 "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+                 "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
                  "type": "image",
                  "mediaType": "image/png"
              }
@@ -120,15 +120,35 @@ Successful request. The result is an array of all Product Images.
 }
 ```
 
-### Add Image to Product, Bundle or Modification
-Add a new Image to a Product, Bundle or Modification.
+### Get a link to the Image of Product, Product Variant, Bundle
+
+You can get a link to download the image by contacting the address specified in the `downloadHref` field at the image meta.
+
+> Get a link to the Product Image
+
+```shell
+curl -X GET
+  "https://app.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+> Response 302 (application/json)
+Successful request. Result is empty JSON.
+
+```json
+```
+
+The link to download the image is in the `location` header. You can get the image from the link without authorization.
+The link is active for 5 minutes.
+
+
+### Add Image to Product, Product Variant, Bundle
+Add a new image to a product, product variant, or bundle.
 
 #### Description
 The Image is loaded and added to the Images based on the passed JSON object,
 which contains a representation of the new Image.
-The result is a JSON representation of the updated list of Images. To create and add a new Image to a Product, Bundle or Modification,
-it is necessary and sufficient to indicate in the url request the `id` of the entity to which the Image is added, and specify non-empty fields
-`filename` and `content` in the passed object.
+The result is a JSON representation of the updated list of Images. To create and add a new Image to a Product, Product Variant, Bundle it is necessary and sufficient to indicate in the url request the `id` of the entity to which the Image is added, and specify non-empty fields `filename` and `content` in the passed object.
 
 In the `content` field, you need to specify an image encoded in Base64, in the `filename` field - the file name with the extension.
 
@@ -137,7 +157,7 @@ In the `content` field, you need to specify an image encoded in Base64, in the `
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Images. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
 
 > Example of adding an Image to a Product
   
@@ -176,7 +196,7 @@ Successful request. The result is an array of all Product Images.
            "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+           "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -199,7 +219,7 @@ Successful request. The result is an array of all Product Images.
            "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+           "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -207,17 +227,17 @@ Successful request. The result is an array of all Product Images.
 ]
 ```
 
-### Changing the list of Images for a Product, Bundle or Modification
+### Changing the list of Images for a Product, Product Variant, Bundle
 
-In the body of the request, you need to pass an array containing the JSON representation of the Images that you want to set for the Product, Bundle or Modification.
-If it is necessary to leave some Images for the Product, Bundle or Modification, then the request body must contain their identifiers in the form of metadata.
+In the body of the request, you need to pass an array containing the JSON representation of the Images that you want to set for the Product, Product Variant, or Bundle.
+If it is necessary to leave some Images for the Product, Product Variant, or Bundle, then the request body must contain their identifiers in the form of metadata.
 
 
 **Parameters**
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Images. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
 
 > An example of changing the list of Images for a Product
 
@@ -266,7 +286,7 @@ Successful request. The result is a modified array of all Product Images.
            "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+           "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -289,7 +309,7 @@ Successful request. The result is a modified array of all Product Images.
            "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+           "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
            "type": "image",
            "mediaType": "image/png"
        }
@@ -299,15 +319,15 @@ Successful request. The result is a modified array of all Product Images.
 
 ### Delete Image
 
-When deleting an image, the first image found with the given identifier is deleted from the Product, Bundle or Modification.
+When deleting an image, the first image found with the given identifier is deleted from the Product, Product Variant or Bundle.
 
 
 **Parameters**
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Images. |
-| **idImage** | `string` (required) *Example: 19f1edc0-fc42-4001-94cb-c9ec9c62ec10* id of images. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
+| **idImage** | `string` (required) *Example: 19f1edc0-fc42-4001-94cb-c9ec9c62ec10* Image ID. |
 
 > Request to remove the Image from the Product.
 
@@ -322,14 +342,14 @@ Successful deletion of the Image.
 
 ### Delete group of Images
 
-When deleting several images for a Product, Kit or Modification, the first images found by `id` specified in the request body are deleted.
+When deleting several images for a Product, Product Variant, or Bundle, the first images found by `id` specified in the request body are deleted.
 
 
 **Parameters**
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Images. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
 
 > Multiple Image Deletion Request
 

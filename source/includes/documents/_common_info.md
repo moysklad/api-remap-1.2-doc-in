@@ -10,26 +10,26 @@ In the body of the PUT request for this resource, you need to pass the metadata 
 The metadata must be "wrapped" in an object whose name is the keyword for the base transaction in the JSON API.
 For each of these resources, there are examples of requests and responses.
 
+*Template by application token.** There are differences in the templates received during authorization from the user or authorization from the application token. The template received during authorization from the application will not have the `owner`, `group`, `store`, `organization` field. There will also be differences between the templates based on transactions received during authorization from the user or application.
+
 At the moment, you can get templates for the following transactions based on others:
 
 | Transaction | The basis on which it can be created |
 | --------- | --------- |
-| Invoice to the buyer (invoiceout) | Sales Order (customerorder) |
+| Sales Invoice (invoiceout) | Sales Order (customerorder), <br>Shipment (demand)  |
 | Sales Return (salesreturn) | Shipment (demand), <br>Retail sale (retaildemand) |
-| Return to supplier (purchasereturn) | receiving(supply) |
-| Incoming payment (paymentin) | Sales Order (salesreturn), <br>Return to supplier (purchasereturn), <br>Shipping (demand), <br>Invoice to buyer (invoiceout)|
-| Production order (processingorder) | Those. map (processingplan) |
-| Order to the supplier (purchaseorder) | Internal order (internalorder) |
-| Outgoing payment (paymentout) | Sales Return(salesreturn), <br>Receiving (supply), <br>Vendor Invoice (invoicein), <br>Order to Supplier (purchaseorder) |
+| Purchase Return (purchasereturn) | Receiving (supply) |
+| Incoming payment (paymentin) | Sales Order (salesreturn), <br>Purchase Return (purchasereturn), <br>Shipment (demand), <br>Sales Invoice (invoiceout)|
+| Production Order (processingorder) | Bill of Materials (processingplan) |
+| Purchase Order (purchaseorder) | Internal order (internalorder), <br>Sales Order (customerorder) |
+| Outgoing payment (paymentout) | Sales Return(salesreturn), <br>Receiving (supply), <br>Supplyer Invoice (invoicein), <br>Order to Supplier (purchaseorder) |
 | Stock Adjustment (enter) | Inventory Count(inventory) |
 | Shipment (demand) | Sales Order (customerorder) |
-| Move (move) | Internal order (internalorder) |
-| Credit order (cashin) | Sales Order (salesreturn), <br>Return to supplier (purchasereturn), <br>Shipping (demand), <br>Invoice to buyer (invoiceout)|
-| Cashout |Sales Return (salesreturn), <br>Receiving (supply), <br>Supplier Invoice (invoicein), <br>Order to Supplier (purchaseorder)|
-| Retail sale (retaildemand) | Retail shift, Sales Order |
+| Transfer (move) | Internal order (internalorder) |
+| Incoming Cash Payment (cashin) | Sales Order (customerorder), <br>Purchase Return (purchasereturn), <br>Shipment(demand), <br>Sales Invoice (invoiceout)|
+| Outgoing Cash Payment (cashout) | Sales Return (salesreturn), <br>Receiving (supply), <br>Supplier Invoice (invoicein), <br>Purchase Order (purchaseorder) |
 | Write-off (loss) | Sales Return (salesreturn),<br>Inventory Count(inventory) |
-| Supplier invoice (invoicein) | Order to the supplier (purchaseorder) |
-| Those. operation (processing) | Production order (processingorder), Bills of Materials (processingplan) |
+| Supplier Invoice (invoicein) | Purchase Order (purchaseorder) |
 
 As a resultA PUT request to /entity/entityName/new will NOT create a new transaction. The returned pre-filled object is just a "blank" with some fields filled in (the fields are filled in according to the same logic as as in a similar situation in the main interface), which facilitates the creation of a transaction. It is not stored in the system. This the object can then be passed in the body of the request to create the corresponding transaction, and then the transaction will already be created and associated with the base transaction.
 
@@ -70,7 +70,7 @@ to the cart is available only if the employee has the appropriate rights, and co
 
 ### Example of deleting Putaway to Trash
 
-> Request to delete the Acceptance with the specified id in the trash.
+> Request to delete the Acceptance with the specified ID in the trash.
 
 ```shell
    curl -X POST
@@ -180,29 +180,30 @@ The result is a move with the internalOrder field filled in.
        "offset": 0
      },
      "positions": {
-   },
-   "sourceStore": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
-       "type": "store",
-       "mediaType": "application/json"
-     }
-   },
-   "targetStore": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
-       "type": "store",
-       "mediaType": "application/json"
-     }
-   },
-   "internalOrder": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/internalorder/metadata",
-       "type": "internalorder",
-       "mediaType": "application/json"
+     },
+     "sourceStore": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/b942743c-9128-11e6-8a84-bae500000053",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     "targetStore": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/store/85a8e439-b0d8-11e6-8a84-bae500000070",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
+         "type": "store",
+         "mediaType": "application/json"
+       }
+     },
+     "internalOrder": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/internalorder/31d58bde-b2fd-11e6-8a84-bae500000068",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/internalorder/metadata",
+         "type": "internalorder",
+         "mediaType": "application/json"
+       }
      }
    }
 }

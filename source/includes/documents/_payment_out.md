@@ -5,12 +5,12 @@ Using the JSON API, you can create and update information about an Outgoing paym
 
 #### Entity attributes
 
-| Title | Type | Filtration | Description                                                                                                                               |
-| ---------- | ---------- | ------- |-------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                      |
-| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or employee metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
-| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty or employee account metadata<br>`+Expand`                                                                                    |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering`                                                                                                  |
+| Title | Type | Filtration | Description |
+| ---------- | ---------- | ------- | -------- |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or employee metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty or employee account metadata<br>`+Expand`  |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                               |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment code                                                                                                                     |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand`                                                                                                            |
@@ -27,25 +27,26 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Outgoing payment name<br>`+Required when replying`                                                                                        |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                    |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand`                                                                                                |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                   |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paymentPurpose** | String(255) | `=` `!=` `~` `~=` `=~` | Purpose of payment<br>`+Required when replying`                                                                                           |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only`                                                                       |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                             |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                                       |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`                           |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`                           |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                                                       |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                      |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Outgoing payment status metadata<br>`+Expand`                                                                                             |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Incoming payment in the specified currency<br>`+Required when replying`                                                     |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing payment in the specified currency<br>`+Required when replying`                                                     |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change                                                                          |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Outgoing payment<br>`+Required when replying` `+Read only`                                               |
-| **vatSum** | Float | | VAT amount<br>`+Required when answering`                                                                                                  |
+| **vatSum** | Float | | VAT amount<br>`+Required when replying`                                                                                                  |
 
 #### Links to other transactions
 
 | Title | Description |
 | ---------| --------- |
-| **operations** | An array of links to related operations in the format [Metadata](../#kladana-json-api-general-info-metadata). |
+| **factureIn** | Link to the related Incoming Payment in the [Metadata](../#kladana-json-api-general-info-metadata) format. |
+| **operations** | Array of links to related operations in the [Metadata](../#kladana-json-api-general-info-metadata) format. |
 
 Allowed types of linked operations:
 
@@ -64,8 +65,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------- | ---------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Outgoing payments. |
 
 **Parameters**
@@ -422,8 +423,8 @@ Mandatory fields to create:
 | Parameter | Description |
 | ---------- | ---------- |
 | **organization** | Link to your legal entity in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **agent** | Link to the counterparty in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **expenseItem** | Expense item in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **agent** | Link to the counterparty, employee or legal entity in the [Metadata](../#kladana-json-api-general-info-metadata) format. |
+| **expenseItem** | Expense item in the [Metadata](../#kladana-json-api-general-info-metadata) format. |
 
 > An example of creating a new Outgoing payment with a request body containing only the required fields.
 
@@ -928,7 +929,7 @@ Successful request. The result is a JSON representation of the additional Outgoi
 
 | Parameter | Description |
 | ---------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Fields ID |
  
 > Request for information on a separate additional field.
 
@@ -950,7 +951,7 @@ Successful request. The result is a JSON representation of a separate additional
      "mediaType": "application/json"
    },
    "customEntityMeta": {
-     "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/a27aa372-5311-11e6-8a84-bae500000001",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/a27aa372-5311-11e6-8a84-bae500000001/metadata",
      "type": "customentitymetadata",
      "mediaType": "application/json"
    },

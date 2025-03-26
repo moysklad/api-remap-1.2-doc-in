@@ -1,6 +1,6 @@
 ## Unit of measure
 ### Units of measure
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among objects of units of measurement for matching the search string will be carried out in the following fields:
 
@@ -11,7 +11,7 @@ The search among objects of units of measurement for matching the search string 
 
 | Title | Type                                               | Filtration | Description |
 | ------- |----------------------------------------------------|------ | -------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Read Only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Units |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Units |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
@@ -29,8 +29,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------- | -------- |----- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Units of Measure. |
 
 **Parameters**
@@ -341,7 +341,7 @@ You can only delete units of measure created through the main interface or throu
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id The unit of measure. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Unit of measure ID. |
 
 > Delete Unit
 
@@ -407,7 +407,7 @@ curl -X POST
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id The unit of measure. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Unit of measure ID. |
  
 > Request to get a unit of measure with the specified id.
 
@@ -447,7 +447,7 @@ You can only change units of measure created through the main interface or throu
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id The unit of measure. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Unit of measure ID. |
 
 > Example of a request to update a new unit of measure.
 

@@ -1868,7 +1868,7 @@
    * @typedef {Object} lunr.Index~Result
    * @property {string} ref - The reference of the document this result represents.
    * @property {number} score - A number between 0 and 1 representing how similar this document is to the query.
-   * @property {lunr.MatchData} matchData - Contains metadata about this match including which term(s) caused the match.
+   * @property {lunr.MatchData} matchData - Contains metadata of this match including which term(s) caused the match.
    */
   
   /**
@@ -2527,7 +2527,7 @@
           this.invertedIndex[term][fieldName][docRef] = Object.create(null)
         }
   
-        // store all whitelisted metadata about this token in the
+        // store all whitelisted metadata of this token in the
         // inverted index
         for (var l = 0; l < this.metadataWhitelist.length; l++) {
           var metadataKey = this.metadataWhitelist[l],
@@ -2687,7 +2687,7 @@
     fn.apply(this, args)
   }
   /**
-   * Contains and collects metadata about a matching document.
+   * Contains and collects metadata of a matching document.
    * A single instance of lunr.MatchData is returned as part of every
    * lunr.Index~Result.
    *

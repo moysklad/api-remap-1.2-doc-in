@@ -171,6 +171,7 @@ For example, using the value of the `href` field, we will request employee data.
 curl -X GET
    https://api.kladana.com/api/remap/1.2/entity/employee/ab306d83-d100-11e8-ac12-000800000042
    -H 'Authorization: Bearer <Access-Token>'
+   -H "Accept-Encoding: gzip"
    -H 'Cache-Control: no-cache'
 ```
 
@@ -253,6 +254,7 @@ Execute a request to create a bundle, specifying the product in the components.
 curl -X POST
    'https://api.kladana.com/api/remap/1.2/entity/bundle?expand=components'
    -H 'Authorization: Bearer <Access-Token>'
+   -H "Accept-Encoding: gzip"
    -H 'Cache-Control: no-cache'
    -H 'Content-Type: application/json'
    -d '{
@@ -390,6 +392,7 @@ Let's change the product by specifying a unit of measure for it. Provided that t
 curl -X PUT
    https://api.kladana.com/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021
    -H 'Authorization: Bearer <Access-Token>'
+   -H "Accept-Encoding: gzip"
    -H 'Cache-Control: no-cache'
    -H 'Content-Type: application/json'
    -d '{
@@ -533,6 +536,7 @@ For example, when requesting webhooks:
 curl -X GET
    https://api.kladana.com/api/remap/1.2/entity/webhook
    -H 'Authorization: Bearer <Access-Token>'
+   -H "Accept-Encoding: gzip"
    -H 'Cache-Control: no-cache'
 ```
 
@@ -593,6 +597,7 @@ Add new webhooks and request them, but with a limit of 1
 curl -X GET
    'https://api.kladana.com/api/remap/1.2/entity/webhook?limit=1'
    -H 'Authorization: Bearer <Access-Token>'
+   -H "Accept-Encoding: gzip"
    -H 'Cache-Control: no-cache'
    ```
   
@@ -647,6 +652,7 @@ By applying the limit, a `nextHref` pagination link to the next page of the coll
 curl -X GET
    'https://api.kladana.com/api/remap/1.2/entity/webhook?limit=1&offset=1'
    -H 'Authorization: Bearer <Access-Token>'
+   -H "Accept-Encoding: gzip"
    -H 'Cache-Control: no-cache'
 ```
 

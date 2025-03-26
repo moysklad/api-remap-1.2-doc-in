@@ -2,9 +2,46 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 11-09-2024
+## 26-03-2025
 ### Added
 - Field `currency` added in [Legal entity accounts](https://dev.moysklad.ru/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+
+## 10-03-2025
+### Added
+- Bundles are supported in the following transactions containing the Commission Agency Contract:
+  - Shipment
+  - Sales Order
+  - Sales Return
+  - Consignee Statement Received
+
+### Changed
+- Description of `32001` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-contracts)
+
+### Removed
+- `18002` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-sales-and-shipments)
+
+## 10-02-2025
+### Changed
+- Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+### Added
+- Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+
+## 02-12-2024
+### Added
+- Renamed "User Directory" to "[Custom list](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-list)" to align with the web interface.
+- Added metadata output for additional fields in Custom list metadata.
+- Added an `ID` field to the metadata of a Custom list.
+- Added output of additional fields in Custom list elements.
+
+## 19-11-2024
+### Added
+- Field `salesMargin` added in [Profit Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profit-report)
+
+## 29-10-2024
+### Added
+- Error [71000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-series)
 
 ## 22-07-2024
 ### Added

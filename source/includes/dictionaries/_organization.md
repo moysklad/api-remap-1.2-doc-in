@@ -1,6 +1,6 @@
 ## Entity
 Using the JSON API, you can create and update information about legal entities, request lists of legal entities and information on individual legal entities. With the help of a special resource, you can manage the accounts of a separate legal entity. The entity code for a legal entity in the JSON API is the **organization** keyword.
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 Search among objects of legal entities to match the search string will be carried out in the following fields:
 
@@ -13,62 +13,54 @@ Search among objects of legal entities to match the search string will be carrie
 
 ### Legal entity
 
-| Title                      | Type                                               | Filtration | Description |
-|----------------------------|----------------------------------------------------| -------- | ------- |
-| **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity |
-| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address) |
-| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying` |
-| **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
-| **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand` |
-| **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code |
-| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
-| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` |
-| **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa |
-| **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying` |
-| **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand` |
-| **id**                     | UUID                                               | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only` |
-| **meta**                   | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when replying` |
-| **name**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating` |
-| **owner**                  | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **shared**                 | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **syncId**                 | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
-| **trackingContractDate**   | DateTime                                           | | Date of agreement with CRPT |
-| **trackingContractNumber** | String(255)                                        | | Contract number with CRPT |
-| **updated**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when replying` `+Read-only` |
+| Title                      | Type                                               | Filtration | Description                                                                                                                                                                                                                              |
+|----------------------------|----------------------------------------------------| -------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                     |
+| **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity                                                                                                                                                                                                       |
+| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address)                                                                        |
+| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying`                                                                                                                                                              |
+| **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only`                                                                                                                                                                                 |
+| **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand`                                                                                                                                                                                        |
+| **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code                                                                                                                                                                                                                        |
+| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the legal entity may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
+| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying`                                                                                                                                                                                               |
+| **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa                                                                                                                                                                                                                      |
+| **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying`                                                                                                                                                                             |
+| **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand`                                                                                                                                                                             |
+| **id**                     | UUID                                               | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only`                                                                                                                                                                                |
+| **meta**                   | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when replying`                                                                                                                                                                                       |
+| **name**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                 |
+| **owner**                  | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand`                                                                                                                                                                                                            |
+| **shared**                 | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                                                                                                                     |
+| **syncId**                 | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling`                                                                                                                                                                                 |
+| **trackingContractDate**   | DateTime                                           | | Date of agreement with CRPT                                                                                                                                                                                                              |
+| **trackingContractNumber** | String(255)                                        | | Contract number with CRPT                                                                                                                                                                                                                |
+| **updated**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when replying` `+Read-only`                                                                                                                                                  |
 
 #### Detail fields
 
-| Title                 | Type          | Filtration | Description |
-|-----------------------|---------------| -------- | ------- |
-| **accounts**          | Array(Object) | | Legal entity accounts metadata<br>`+Required when replying` `+Expand` |
-| **attributes**        | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional fields of a legal entity |
-| **certificatedate**   | DateTime      | | Date of certificate |
-| **certificateNumber** | String(255)   | | Certificate number |
-| **ChiefAccountSign**  | Object        | | Signature of the chief accountant. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
-| **ChiefAccountant**   | String(255)   | | Chief accountant |
-| **director**          | String(255)   || Head |
-| **directorPosition**  | String(255)   | | Head position |
-| **directorSign**      | Object        | | Leader's signature. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
-| **email**             | String(255)   | `=` `!=` `~` `~=` `=~` | Email address |
-| **fax**               | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number |
-| **fsrarId**           | String(255)   | | Identifier in FSRAR |
-| **inn**               | String(255)   | `=` `!=` `~` `~=` `=~` | TIN |
-| **isEgaisEnable**     | Boolean       | | Is EGAIS enabled for this legal entity |
-| **kpp**               | String(255)   | `=` `!=` `~` `~=` `=~` | Checkpoint |
-| **legalAddress**      | String(255)   | `=` `!=` `~` `~=` `=~` | Legal address Legal entity |
-| **legalAddressFull**  | Object        | | Legal address of a legal entity with details on individual fields |
-| **legalFirstName**    | String(255)   | | Name for a Legal entity of type `[Individual entrepreneur, Individual]`. Ignored for legal entities of type `[Legal entity]` |
-| **legalLastName**     | String(255)   | | Surname for a Legal entity of type `[Individual entrepreneur, Individual]`. Ignored for legal entities of type `[Legal entity]` |
-| **legalMiddleName**   | String(255)   | | Middle name for a legal entity of the type `[Individual Entrepreneur, Individual]`. Ignored for legal entities of type `[Legal entity]` |
-| **legalTitle**        | String(4096)  | `=` `!=` `~` `~=` `=~` | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
-| **ogrn**              | String(255)   || OGRN |
-| **ogrnip**            | String(255)   | | OGRNIP |
-| **okpo**              | String(255)   | | OKPO |
-| **payerVat**          | Boolean       | | Is this legal entity a VAT payer |
-| **phone**             | String(255)   | `=` `!=` `~` `~=` `=~` | City phone number |
-| **stamp**             | Object        | | Seal. [More here](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
-| **utmUrl**            | String(255)   | | UTM IP address |
+| Title                 | Type          | Filtration | Description                                                                                                                                    |
+|-----------------------|---------------| -------- |------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accounts**          | Array(Object) | | Legal entity accounts metadata<br>`+Required when replying` `+Expand`                                                                          |
+| **attributes**        | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional fields of a legal entity                                                                                       |
+| **ChiefAccountSign**  | Object        | | Signature of the chief accountant. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
+| **ChiefAccountant**   | String(255)   | | Chief accountant                                                                                                                               |
+| **director**          | String(255)   || Head                                                                                                                                           |
+| **directorPosition**  | String(255)   | | Head position                                                                                                                                  |
+| **directorSign**      | Object        | | Leader's signature. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal)                |
+| **email**             | String(255)   | `=` `!=` `~` `~=` `=~` | Email address                                                                                                                                  |
+| **fax**               | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number                                                                                                                                     |
+| **mod\_\_requisites\_\_in** | Object       | | Requisites for legal entity of the type `[Legal entity. India]` with details on individual fields |
+| **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | PAN for legal entity of the type `[Legal entity]`                                                                                              |
+| **fsrarId**           | String(255)   | | Identifier in FSRAR                                                                                                                            |
+| **isEgaisEnable**     | Boolean       | | Is EGAIS enabled for this legal entity                                                                                                         |
+| **legalAddress**      | String(255)   | `=` `!=` `~` `~=` `=~` | Legal address Legal entity                                                                                                                     |
+| **legalAddressFull**  | Object        | | Legal address of a legal entity with details on individual fields                                                                              |
+| **legalTitle**        | String(4096)  | `=` `!=` `~` `~=` `=~` | Full name                                                                                                                                      |
+| **payerVat**          | Boolean       | | Is this legal entity a VAT payer                                                                                                               |
+| **phone**             | String(255)   | `=` `!=` `~` `~=` `=~` | City phone number                                                                                                                              |
+| **stamp**             | Object        | | Seal. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal)                              |
+| **utmUrl**            | String(255)   | | UTM IP address                                                                                                                                 |
 
 #### Nested entity attributes
 #### Attributes of entity Address
@@ -86,11 +78,17 @@ Search among objects of legal entities to match the search string will be carrie
 | **street** | String(255) | Street |
 
 The address string is a concatenation of the structured address fields in the following order: postalCode -> country -> region -> city -> street -> house -> apartment -> addInfo, using a comma as a separator.
-When transferring entities with an address to MySklad, use either a string address or a structured one.
+When transferring entities with an address to Kladana, use either a string address or a structured one.
 When passing both addresses, the string will be ignored.
 When passing only a string, it will be reflected both in the string field and in the addInfo of the structured address.
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
+
+##### Requisites of Legal entity
+| Title   | Type | Description |
+|---------| ------- |-------------|
+| **pan** | String(255) | PAN         |
+Only for legal entity with type `Legal entity. India`.
 
 ##### Signatures and seal
 
@@ -123,56 +121,32 @@ To delete an address, you need to pass an empty string `""` to the string field 
 Depending on the legal entity type **companyType**, its object will display different sets of details.
 Legal entity types and corresponding values that can be passed to the value of this field:
 
-| CompanyType field value | Counterparty type |
-| ------------------------------ | ------------------------------ |
-| **legal** | Legal entity |
-| **entrepreneur** | Individual entrepreneur |
-| **individual** | Individual |
+| CompanyType field value | Region               | Legal entity type   |
+|-----------------------|----------------------|---------------------|
+| **legal**             | International, India | Legal entity        |
+| **legalIN**           | India                | Legal entity. India |
 
 <br>
 
 If the legal entity type is `Legal entity`, the following fields of details will be displayed:
 
-| title            | description |
-|------------------|----------|
-| **legalTitle**   | Full name of the legal entity |
+| title            | description                     |
+|------------------|---------------------------------|
+| **legalTitle**   | Full name of the legal entity   |
 | **legalAddress** | Legal address of a legal entity |
-| **inn**          | TIN |
-| **kpp**          | Checkpoint |
-| **ogrn**         | OGRN |
-| **okpo**         | OKPO |
+| **inn**          | PAN                             |
 
 <br>
 
+If the legal entity type is `Legal entity. India`, the following fields of details will be displayed:
 
-If the legal entity type is `Individual Entrepreneur`, the following fields of details will be displayed:
-
-| Title                 | Description|
-|-----------------------|----------|
-| **certificatedate**   | Date of certificate |
-| **certificateNumber** | Certificate number |
-| **inn**               | TIN |
-| **legalAddress**      | Legal address of a legal entity |
-| **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**        | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
-| **ogrnip**            | OGRNIP |
-| **okpo**              | OKPO |
+| title                           | description                     |
+|---------------------------------|---------------------------------|
+| **legalTitle**                  | Full name of the legal entity   |
+| **legalAddress**                | Legal address of a legal entity |
+| **mod\_\_requisites\_\_in.pan** | PAN                             |
 
 <br>
-
-If the legal entity type is `Individual`, the following fields of details will be displayed:
-
-| Title               | Description|
-|---------------------|----------|
-| **legalTitle**      | Full name. Ignored if one of the values for the full name is passed. Formed automatically on the basis of received full name of the legal entity |
-| **legalLastName**   | Surnamefor a Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalFirstName**  | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName** | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalAddress**    | Legal address of a legal entity |
-| **inn**             | TIN |
 
 About working with fields of legal entities can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -182,8 +156,8 @@ Request to get a list of legal entities on this account.
 
 | Title | Type | Description|
 | ---------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing a legal entity. |
 
 **Parameters**
@@ -312,10 +286,9 @@ Successful request. Result: JSON object including fields:
          "addInfo": "addinfo",
          "comment": "some words about address"
        },
-       "inn": "8274424278",
-       "kpp": "123456789",
-       "ogrn": "121410924",
-       "okpo": "1241252156",
+       "mod__requisites__in":{
+         "pan": "8274424278"
+       },
        "email": "asdad@sfasf.erq",
        "phone": "fawofyho21f1",
        "fax": "feisafhn0e12f31",
@@ -422,10 +395,9 @@ which contains a representation of the new legal entity.
                 "addInfo": "addinfo",
                 "comment": "some words about address"
             },
-            "inn": "87654321",
-            "kpp": "15312532",
-            "ogrn": "12345",
-            "okpo": "12345",
+            "mod__requisites__in":{
+              "pan": "87654321"
+            },
             "email": "svetprom@mail.svet",
             "phone": "22222222",
             "fax": "bello123",
@@ -542,10 +514,9 @@ Successful request. The result is a JSON representation of the created legal ent
      "addInfo": "addinfo",
      "comment": "some words about address"
    },
-   "inn": "87654321",
-   "kpp": "15312532",
-   "ogrn": "12345",
-   "okpo": "12345",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -615,99 +586,6 @@ Successful request. The result is a JSON representation of the created legal ent
 }
 ```
 
-> An example of a request to create a legal entity with legal details for the type Individual Entrepreneur.
-
-```sheic <Credentials>"
-     -H "Content-Type: application/json"
-       -d '{
-             "name": "IP Ivanov",
-             "code": "someCode",
-             "externalCode": "extCode",
-             "companyType": "entrepreneur",
-             "legalLastName": "Ivanov",
-             "legalFirstName": "Ivan",
-             "legalMiddleName": "Ivanovich",
-             "actualAddress": "Moscow, Academician Mil street, 15/21",
-             "legalAddress": "Moscow, Aviastroiteley street 93/12",
-             "inn": "87654321",
-             "kpp": "15312532",
-             "ogrn": "12345",
-             "okpo": "12345",
-             "ogrnip": "58632598y21jk"
-           }'
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the created legal entity.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
-     "type": "organization",
-     "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=713e2125-b147-11ea-0a80-163500000006"
-   },
-   "id": "713e2125-b147-11ea-0a80-163500000006",
-   "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-   "owner": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-       "type": "employee",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-     }
-   },
-   "shared": true,
-   "group": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-       "type": "group",
-       "mediaType": "application/json"
-     }
-   },
-   "version": 0,
-   "updated": "2020-06-18 12:38:18",
-   "name": "IP Ivanov",
-   "code": "someCode",
-   "externalCode": "extCode",
-   "archived": false,
-   "created": "2020-06-18 12:38:18",
-   "companyType": "entrepreneur",
-   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
-   "legalAddress": "Moscow, Aviastroiteley street 93/12",
-   "legalAddressFull": {
-     "addInfo": "Moscow, Aviastroiteley street 93/12"
-   },
-   "actualAddress": "Moscow, Academician Mil street, 15/21",
-   "actualAddressFull": {
-     "addInfo": "Moscow, Academician Mil street 15/21"
-   },
-   "inn": "87654321",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "legalLastName": "Ivanov",
-   "legalFirstName": "Ivan",
-   "legalMiddleName": "Ivanovich",
-   "accounts": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/organization/713e2125-b147-11ea-0a80-163500000006/accounts",
-       "type": "account",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "isEgaisEnable": false,
-   "payerVat": true,
-   "trackingContractDate": null
-}
-```
-
 > An example of creating a new legal entity with additional fields in the request body.
 
 ```shell
@@ -724,10 +602,9 @@ Successful request. The result is a JSON representation of the created legal ent
             "trackingContractNumber": "12345678",
             "trackingContractDate": "2007-02-07 00:00:00",
             "legalTitle": "Great Light Prom LLC",
-            "inn": "87654321",
-            "kpp": "15312532",
-            "ogrn": "12345",
-            "okpo": "12345",
+            "mod__requisites__in":{
+              "pan": "87654321"
+            },
             "email": "svetprom@mail.svet",
             "phone": "22222222",
             "fax": "bello123",
@@ -836,10 +713,9 @@ Successful request. The result is a JSON representation of the created legal ent
      "addInfo": "addinfo",
      "comment": "some words about address"
    },
-   "inn": "87654321",
-   "kpp": "15312532",
-   "ogrn": "12345",
-   "okpo": "12345",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetpromgazkamaz@mail.svet",
    "phone": "22222222",
    "fax": "belwo123",
@@ -888,6 +764,7 @@ Updated legal entities must contain the identifier in the form of metadata.
                 "description": "legal entity making small profits",
                 "code": "666",
                 "externalCode": "666AAAA666",
+                "companyType": "legal",
                 "archived": false,
                 "trackingContractNumber": "12345678",
                 "trackingContractDate": "2007-02-07 00:00:00",
@@ -895,9 +772,6 @@ Updated legal entities must contain the identifier in the form of metadata.
                 "legalAddress": "Moscow, Lenin street, 42/685",
                 "actualAddress": "Perm Stalin street 75",
                 "inn": "87654321",
-                "kpp": "15312532",
-                "ogrn": "12345",
-                "okpo": "12345",
                 "email": "svetprom@mail.svet",
                 "phone": "22222222",
                 "fax": "bello123",
@@ -919,16 +793,16 @@ Updated legal entities must contain the identifier in the form of metadata.
                 "description": "legal entity making small profits",
                 "code": "666",
                 "externalCode": "666AAAA666",
+                "companyType": "legalIN",
                 "archived": false,
                 "trackingContractNumber": "12345678",
                 "trackingContractDate": "2007-02-07 00:00:00",
                 "legalTitle": "Great Light Prom LLC",
                 "legalAddress": "Moscow, Lenin street, 42/685",
                 "actualAddress": "Ufa, Mayakovskogo str. 65",
-                "inn": "87654321",
-                "kpp": "15312532",
-                "ogrn": "12345",
-                "okpo": "12345",
+                "mod__requisites__in":{
+                  "pan": "87654321"
+                },
                 "email": "svetprom@mail.svet",
                 "phone": "22222222",
                 "fax": "bello123",
@@ -975,6 +849,7 @@ Successful request. The result is a JSON array of representations of created and
      "description": "legal entity making small profits",
      "code": "666",
      "externalCode": "666AAAA666",
+     "companyType": "legal",
      "archived": false,
      "trackingContractNumber": "12345678",
      "trackingContractDate": "2007-02-07 00:00:00",
@@ -982,9 +857,6 @@ Successful request. The result is a JSON array of representations of created and
      "legalAddress": "Moscow, Lenin street, 42/685",
      "actualAddress": "Perm Stalin street 75",
      "inn": "87654321",
-     "kpp": "15312532",
-     "ogrn": "12345",
-     "okpo": "12345",
      "email": "svetprom@mail.svet",
      "phone": "22222222",
      "fax": "bello123",
@@ -1035,6 +907,7 @@ Successful request. The result is a JSON array of representations of created and
      "description": "New legal entity",
      "code": "666",
      "externalCode": "sfwafn22-124124sa",
+     "companyType": "legalIN",
      "archived": false,
      "created": "2007-02-07 17:16:41",
      "trackingContractNumber": "12345678",
@@ -1042,10 +915,9 @@ Successful request. The result is a JSON array of representations of created and
      "legalTitle": "LLC Great Community KAMAZ PROM",
      "legalAddress": "Moscow, Lenin street, 42/685",
      "actualAddress": "Ufa, Mayakovskogo str. 65",
-     "inn": "87654321",
-     "kpp": "15312532",
-     "ogrn": "12345",
-     "okpo": "12345",
+     "mod__requisites__in":{
+       "pan": "87654321"
+     },
      "email": "svetpromgazkamaz@mail.svet",
      "phone": "22222222",
      "fax": "belwo123",
@@ -1224,7 +1096,7 @@ Request for obtaining a legal entity with the specified ID.
 
 ```shell
 curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1264,6 +1136,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
+   "companyType": "legal",
    "archived": false,
    "created": "2007-02-07 17:16:41",
    "trackingContractNumber": "12345678",
@@ -1322,12 +1195,6 @@ Successful request. The result is a JSON representation of the legal entity with
      "comment": "some words about address"
    },
    "inn": "87654321",
-   "kpp": "15312532",
-   "ogrn": "12345",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "certificateNumber": "klghvew983412",
-   "certificateDate": "2016-04-30 00:00:00",
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -1409,7 +1276,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "externalCode": "extCode",
    "archived": false,
    "created": "2020-06-18 12:38:18",
-   "companyType": "entrepreneur",
+   "companyType": "legalIN",
    "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
    "legalAddress": "Moscow, Aviastroiteley street 93/12",
    "legalAddressFull": {
@@ -1419,12 +1286,9 @@ Successful request. The result is a JSON representation of the legal entity with
    "actualAddressFull": {
      "addInfo": "Moscow, Academician Mil street 15/21"
    },
-   "inn": "87654321",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "legalLastName": "Ivanov",
-   "legalFirstName": "Ivan",
-   "legalMiddleName": "Ivanovich",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "accounts": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts",
@@ -1463,6 +1327,7 @@ Request to update the legal entity with the specified ID.
            "description": "legal entity making small profits",
            "code": "666",
            "externalCode": "666AAAA666",
+           "companyType": "legal",
            "archived": false,
            "trackingContractNumber": "12345678",
            "trackingContractDate": "2007-02-07 00:00:00",
@@ -1470,9 +1335,6 @@ Request to update the legal entity with the specified ID.
            "legalAddress": "Moscow, Lenin street, 42/685",
            "actualAddress": "g PermSt. Stanislav d 75",
            "inn": "87654321",
-           "kpp": "15312532",
-           "ogrn": "12345",
-           "okpo": "12345",
            "email": "svetprom@mail.svet",
            "phone": "22222222",
            "fax": "bello123",
@@ -1520,6 +1382,7 @@ Successful request. The result is JSON of the updated legal entity.
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
+   "companyType": "legal",
    "archived": false,
    "trackingContractNumber": "12345678",
    "trackingContractDate": "2007-02-07 00:00:00",
@@ -1527,9 +1390,6 @@ Successful request. The result is JSON of the updated legal entity.
    "legalAddress": "Moscow, Lenin street, 42/685",
    "actualAddress": "Perm Stalin street 75",
    "inn": "87654321",
-   "kpp": "15312532",
-   "ogrn": "12345",
-   "okpo": "12345",
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -1564,6 +1424,7 @@ Successful request. The result is JSON of the updated legal entity.
             "description": "legal entity making small profits",
             "code": "666",
             "externalCode": "666AAAA666",
+            "companyType": "legalIN",
             "archived": false,
             "trackingContractNumber": "12345678",
             "trackingContractDate": "2007-02-07 00:00:00",
@@ -1618,10 +1479,9 @@ Successful request. The result is JSON of the updated legal entity.
                 "addInfo": "addinfo",
                 "comment": "some words about address"
             },
-            "inn": "87654321",
-            "kpp": "15312532",
-            "ogrn": "12345",
-            "okpo": "12345",
+            "mod__requisites__in":{
+              "pan": "87654321"
+            },
             "email": "svetprom@mail.svet",
             "phone": "22222222",
             "fax": "bello123",
@@ -1676,6 +1536,7 @@ Successful request. The result is JSON of the updated legal entity.
    "description": "New legal entity",
    "code": "666",
    "externalCode": "sfwafn22-124124sa",
+   "companyType": "legalIN",
    "archived": false,
    "trackingContractNumber": "12345678",
    "trackingContractDate": "2007-02-07 00:00:00",
@@ -1733,10 +1594,9 @@ Successful request. The result is JSON of the updated legal entity.
      "addInfo": "addinfo",
      "comment": "some words about address"
    },
-   "inn": "87654321",
-   "kpp": "15312532",
-   "ogrn": "12345",
-   "okpo": "12345",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetpromgazkamaz@mail.svet",
    "phone": "22222222",
    "fax": "belwo123",
@@ -1877,7 +1737,7 @@ Fields that were not specified in the request JSON are not changed.
                 "id": "d9560d0e-6703-11e7-9464-e4de00000052",
                 "isDefault": false,
                 "accountNumber": "1234567876543",
-                "bankName": "JSC Sberbank",
+                "bankName": "Bank",
                 "bankLocation": "Moscow",
                 "correspondentAccount": "123141242451",
                 "bic": "21412hhhh4"
@@ -1885,7 +1745,7 @@ Fields that were not specified in the request JSON are not changed.
             {
                 "isDefault": false,
                 "accountNumber": "1234567876543",
-                "bankName": "JSC BANK",
+                "bankName": "Bank",
                 "bankLocation": "Moscow",
                 "correspondentAccount": "123141242451",
                 "bic": "21412555554"
@@ -1909,7 +1769,7 @@ Successful request.
      "updated": "2017-07-12 16:13:08",
      "isDefault": true,
      "accountNumber": "1234567876543",
-     "bankName": "JSC Sberbank",
+     "bankName": "Bank",
      "bankLocation": "Moscow",
      "correspondentAccount": "123141242451",
      "bic": "21412hhhh4"
@@ -1925,7 +1785,7 @@ Successful request.
      "updated": "2017-10-25 13:31:00",
      "isDefault": false,
      "accountNumber": "1234567876543",
-     "bankName": "JSC BANK",
+     "bankName": "Bank",
      "bankLocation": "Moscow",
      "correspondentAccount": "123141242451",
      "bic": "21412555554"

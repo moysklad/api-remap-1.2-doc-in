@@ -6,8 +6,8 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 ### Routings
 #### Entity attributes
 
-| Title | Type                                               | Filtration| Description | 
-|------------|----------------------------------------------------|-------|---------------|
+| Title | Type  | Filtration| Description | 
+| ----- | ----- | --------- | ----------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment Routing |
@@ -16,7 +16,7 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 | **id** | UUID                                               | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required in response` `+Read-only` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
@@ -28,11 +28,13 @@ Routing items is a list of stages that are included in Routing. Routing can have
 The Routing item object contains the following fields:
 
 | Title | Type | Description |
-|------------|-----------|-------|
+| ----- | ---- | ----------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
 | **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **nextPositions**   | MetaArray | Metadata for the following Routing items  |
+
 
 ### Get the list of Routings
 
@@ -40,15 +42,15 @@ Query all Routings on a given account.
 Result: JSON object including fields:
 
 | Title | Type | Description |
-|------------|-----------|-------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request |
+| ----- | ---- | ----------- |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Routings |
 
 **Parameters**
 
-| Parameter |Description |
-| ------------| --------------- |
+| Parameter | Description |
+| --------- | --------------- |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
@@ -137,7 +139,7 @@ Successful request. The result is a JSON representation of the Routings list.
 **Parameters**
 
 | Parameter | Description |
-| ------- |------------|
+| ------- | ------------ |
 | **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* Routing ID. |
 
 > Request to get a separate Routing with the specified ID.
@@ -281,12 +283,14 @@ Successful request. The result is a JSON representation of the generated Routing
 ```
 
 ### Change Routing
-In the body of the request, specify the fields that need to be changed for Routing
+In the body of the request, specify the fields that need to be changed for Routing. 
+
+Important: there is a difference in behavior between the UI and API when replacing one Production Operation with another. In the web interface, if you change the Production Operation via the selector, the old item will be deleted, and a new item will be created with the selected Production Operation. However, replacing a Production Operation through the API by passing the item's metadata does not recreate the item; it simply modifies it.
 
 **Parameters**
 
 | Parameter | Description |
-| ------- |-----------|
+| ------- | ----------- |
 | **id** | `string` (required) *Example: 117cae13-a612-11ed-ac12-000900000022* Routing ID. |
 
 > Request to update Routing with the replacement of the stage of the existing item and the creation of a new item.
@@ -385,7 +389,7 @@ Successful request. The result is a JSON representation of the updated Routing.
 **Parameters**
 
 | Parameter | Description |
-| ------- |----------|
+| ------- | ---------- |
 | **id** | `string` (required) *Example: d2308bcc-8fd9-11ed-ac12-000b000000c1* Routing ID. |
 
 > Request to remove the Routing with the specified ID.
@@ -407,7 +411,7 @@ a large number of items can be read on the example of working with document item
 
 #### Routing item attributes
 | Title | Type | Description |
-|----------|--------|----------|
+| ---------- | -------- | ---------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
@@ -417,15 +421,15 @@ a large number of items can be read on the example of working with document item
 Request to get a list of all items of this Routing.
 
 | Title | Type | Description |
-|----------|--------|----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| ---------- | -------- | ---------- |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Routing items. |
 
 **Parameters**
 
 | Parameter | Description |
-|----------|--------|
+| ----------|--------|
 | **id** | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* Routing ID.|
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Allowed values are 1 - 1000`.|
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
@@ -485,12 +489,12 @@ Successful request. The result is a JSON representation of a list of individual 
 }
 ```
 
-### Get Routing line item
+### Get Routing Item
 
 **Parameters**
 
 | Parameter | Description|
-|----------|--------|
+| --------- | -------- |
 | **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
 | **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing item ID.|
 
@@ -532,7 +536,7 @@ Successful request. The result is a JSON representation of a single Routing item
 **Parameters**
 
 | Parameter | Description |
-|----------|--------|
+| --------- | ----------- |
 | **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
 
 > Request to create Routing items
@@ -583,12 +587,14 @@ Successful request. The result is a JSON representation of the generated Routing
 ]
 ```
 
-### Change Routing item
+### Change Routing Item
+
+Important: there is a difference in behavior between the UI and API when replacing one Production Operation with another. In the web interface, if you change the Production Operation via the selector, the old item will be deleted, and a new item will be created with the selected Production Operation. However, replacing a Production Operation through the API by passing the item's metadata does not recreate the item; it simply modifies it.
 
 **Parameters**
 
 | Parameter | Description |
-|----------|--------|
+| --------- | ----------- |
 | **id** | `string` (required) *Example: 1d4adde5-a6bb-11ed-ac12-00090000003f* Routing ID. |
 | **positionID** | `string` (required) *Example: 23a62e19-a6bb-11ed-ac12-000900000043* Routing item ID.|
 
@@ -636,12 +642,12 @@ Successful request. The result is a JSON representation of the updated Routing i
 }
 ```
 
-### Delete Routing item
+### Delete Routing Item
 
 **Parameters**
 
 | Parameter | Description |
-|----------|--------|
+| --------- | ----------- |
 | **id** | `string` (required) *Example: d5069703-988e-11ed-ac19-000400000029* Routing ID. |
 | **positionID** | `string` (required) *Example: d5069da5-988e-11ed-ac19-00040000002a* Routing item ID.|
 
@@ -655,9 +661,43 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful deletion of line item Routing
+Successful deletion of a Routing item 
 
-### Routings bulk creation and update
+### Routing Item Bulk Deletion
+
+The request body must contain an array containing JSON metadata of the Routing Items that need to be deleted.
+
+> Request for bulk deletion of Routing Items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/processingprocess/5fe17cd6-72fd-11ee-c0a8-e00e00000017/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+    -d '[
+          {
+              "meta": {
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/5fe17cd6-72fd-11ee-c0a8-e00e00000017/positions/5fe18652-72fd-11ee-c0a8-e00e00000018",
+                  "type": "processingprocessposition",
+                  "mediaType": "application/json"
+              }
+          },
+          {
+              "meta": {
+                  "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/5fe17cd6-72fd-11ee-c0a8-e00e00000017/positions/f6affb12-72fc-11ee-c0a8-e00e00000011",
+                  "type": "processingprocessposition",
+                  "mediaType": "application/json"
+              }
+          }
+       ]'
+```
+
+> Response 200 (application/json)
+Successful bulk deletion of Routing Items.
+
+
+### Routing Bulk Creation and Update
 With [bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Routings, an array must be passed in the request body,
 containing the JSON representation of the Routings you want to create or update. The identifier for updated Routings is [Meta](../#kladana-json-api-general-info-metadata).
 
@@ -792,8 +832,7 @@ Successful request. The result is a JSON array of representations of the generat
    }
 ]
 ```
-
-### Routings bulk deletion
+### Routing Bulk Deletion
 
 In the body of the request, you need to pass an array containing JSON of the Routings metadata that you want to remove.
 

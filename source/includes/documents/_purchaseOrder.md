@@ -10,7 +10,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
@@ -28,21 +28,21 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Order Name<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float | | Amount of incoming payments for the Order<br>`+Read Only` |
 | **positions** | MetaArray | | Metadata of Purchase Order items<br>`+Required for response` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required``+Read-Only`` |
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shippedSum** | Float | | Amount shipped<br>`+Read only` |
+| **shippedSum** | Float | | Amount accepted<br>`+Read only` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Order status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` |
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | The amount of the Purchase Order in the specified currency<br>`+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Purchase Order<br>`+Required when replying` `+Read only` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
+| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean | | Is VAT included in the price |
 | **vatSum** | Float | | VAT amount<br>`+Read only` |
 | **waitSum** | Float | | Amount of goods in transit<br> |
@@ -64,14 +64,14 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
-| **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` |
+| **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **shipped** | Int | Accepted<br>`+Required when replying` |
-| **inTransit** | Int | Waiting<br>`+Required for response` |
+| **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float | The price of the product/service in paise<br>`+Required when replying` |
+| **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
+| **shipped** | Float | Accepted<br>`+Required when replying` |
+| **inTransit** | Float | Waiting<br>`+Required for response` |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this item flag, you canset VAT = 0 or VAT = "without VAT". (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 
@@ -94,8 +94,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ------------ | ---------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Purchase Orders. |
 
 **Parameters**
@@ -1577,7 +1577,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------------ | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2419,8 +2419,8 @@ Request for a list of all items of the Purchase Order.
 
 | Title | Type | Description |
 | ------- | -------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the items in the Purchase Order. |
 
 **Parameters**
@@ -2593,12 +2593,64 @@ Successful request. The result is a JSON representation of a list of items of an
 }
 ```
 
+### Purchase Order Items
+
+Purchase Order item with the specified item ID.
+
+**Parameters**
+
+| Parameter | Description |
+| ------- | -------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Order ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Order item ID. |
+
+### Get Purchase Order Items
+
+> Request to receive a separate item of the Purchase Order with the specified ID.
+
+```shell
+curl -X GET
+   "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+   -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a single item of the Purchase Order.
+
+```json
+{
+   "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+     "type": "purchaseorderposition",
+     "mediaType": "application/json"
+   },
+   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "quantity": 1,
+   "price": 1000.0,
+   "discount": 0,
+   "vat": 0,
+   "vatEnabled": false,
+   "assortment": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/7b37adef-3303-11e6-8a84-bae50000bbf7",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+     }
+   },
+   "shipped": 0,
+   "inTransit": 1
+}
+```
 ### Create Purchase Order Item
 
 Request to create a new item in the Purchase Order.
 For successful creation, the following fields must be specified in the request body:
 
-+**assortment** - Link to the product/service/series/modification that the item represents.
++**assortment** - Link to the product, service, batch, or product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2807,59 +2859,6 @@ Successful request. The result is a JSON representation of the list of created i
 ]
 ```
 
-### Purchase Order Items
-
-Line item of the Order with the specified item id.
-
-**Parameters**
-
-| Parameter | Description |
-| ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Order id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Order item id. |
-
-### Get Purchase Order items
-
-> Request to receive a separate item of the Order with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a single item of the Purchase Order.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "type": "purchaseorderposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   "quantity": 1,
-   "price": 1000.0,
-   "discount": 0,
-   "vat": 0,
-   "vatEnabled": false,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/7b37adef-3303-11e6-8a84-bae50000bbf7",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
-     }
-   },
-   "shipped": 0,
-   "inTransit": 1
-}
-```
-
 ### Change Purchase Order Items
 
 Request to update a line item of the Order. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
@@ -2928,16 +2927,16 @@ Successful request. The result is a JSON representation of the updated Purchase 
 }
 ```
 
-### Delete Purchase Order itams
+### Delete Purchase Order Items
 
 **Parameters**
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Order id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Order item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Order ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Order item ID. |
  
-> Request to delete an individual Order item with the specified id.
+> Request to delete an individual Order item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -2948,3 +2947,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Order item.
+
+### Bulk Deletion of Items
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **id**    | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Purchase Order ID.|
+
+> Request for bulk deletion of Purchase Order items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "purchaseorderposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "purchaseorderposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Purchase Order items were successfully deleted. 

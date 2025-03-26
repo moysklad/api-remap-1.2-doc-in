@@ -23,7 +23,7 @@ The transactions of the following types can be published: Sales Order, Sales Inv
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* id of the entity to get Publications from. |
+| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* ID of the entity to get Publications from. |
 | **type** | `string` (required) *Example: demand* the type of the entity to get the Publications from. |
 
 > Request for a list of Publications for the specified transaction.
@@ -89,7 +89,7 @@ Request to publish a transaction. The transaction publication is based on the pa
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* id of the entity to get Publications from. |
+| **id** | `string` (required) *Example: a86708d2-f8d3-4e67-8f04-6101158da808* ID of the entity to get Publications from. |
 | **type** | `string` (required) *Example: demand* the type of the entity to get the Publications from. |
 
 > Example (application/json)

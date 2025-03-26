@@ -21,6 +21,8 @@ includes:
   - documents/payment_out
   - documents/print
   - documents/processingorder
+  - documents/productionStage
+  - documents/productionStageCompletion
   - documents/publication
   - documents/purchaseOrder
   - documents/purchase_return
@@ -34,6 +36,6 @@ includes:
   - documents/invoice_in
   - documents/move
   - documents/loss
-  
+
 search: true
 ---  

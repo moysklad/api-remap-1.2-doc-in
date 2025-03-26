@@ -10,7 +10,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
@@ -26,20 +26,20 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
-| **rate** | Object | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount Purchase Returns in rupees<br>`+Required when replying` `+Read Only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Purchase Returns total amount in paise<br>`+Required when replying` `+Read Only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when answering` |
+| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean | | Is VAT included in the price |
-| **vatSum** | Float | | VAT amount<br>`+Required when answering` |
+| **vatSum** | Float | | VAT amount<br>`+Required when replying` |
 
 #### Links to other documents
 
@@ -57,13 +57,13 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | Title | Type | Descriptions|
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is an item<br>`+Required when answering` `+Expand` |
-| **discount** | Int | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` |
+| **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float | The price of the products/services in paise<br>`+Required when replying` |
+| **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the  item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------| --------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Returns to Suppliers. |
 
 **Parameters**
@@ -1682,9 +1682,9 @@ Successful request. The result is a JSON array of representations of the generat
 
 | Parameter | Description |
 | ----------| --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Returns id |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Returns ID|
  
-> Request to remove the Return to the supplier with the specified id.
+> Request to remove the Return to the supplier with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -1849,7 +1849,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ----------| --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -2476,8 +2476,8 @@ Request for a list of all items of the Purchase Return.
 
 | Title | Type | Description |
 | ----------| ----- | ---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Purchase Return items. |
 
 **Parameters**
@@ -2692,7 +2692,7 @@ Successful request. The result is a JSON representation of a list of Purchase Re
 Request to create a new item in Purchase Returns.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product, service, batch or product variant that the item represents.
 You can also specify a field named **service**, **variant** according to the indicated item. You can read more about this field in the description of the [Purchase Return item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items).
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2913,10 +2913,10 @@ Successful request. The result is a JSON representation of the updated Purchase 
 
 | Parameter | Description |
 | ----------| --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Returns id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Returns item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Purchase Return ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Purchase Return item ID. |
  
-> Request to delete a single item Returned to the supplier with the specified id.
+> Request to delete a single item returned to the supplier with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -2926,4 +2926,41 @@ curl -X DELETE
 ```
 
 > Response200 (application/json)
-Successful deletion of the Purchase Returns item.
+Successful deletion of the Purchase Return item.
+
+### Bulk deletion of positions
+
+**Parameters**
+
+| Parameter | Description |
+| ----------- | ------------ |
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Purchase Return ID. |
+
+> Request to bulk deletion of Purchase Return items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "purchasereturnposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "purchasereturnposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of Purchase Return items.

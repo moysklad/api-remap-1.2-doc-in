@@ -6,35 +6,35 @@ As part of the JSON API, you can request daily, monthly, and weekly metrics. Acc
 
 | Title | Type | Description |
 | ------ | ----- | ---------- |
-| **sales** | Object | A nested object that represents sales information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **orders** | Object | A nested object representing information about orders for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
-| **money** | Object | A nested object representing money information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when answering` |
+| **sales** | Object | A nested object that represents sales information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
+| **orders** | Object | A nested object representing information about orders for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
+| **money** | Object | A nested object representing money information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
   
 #### Sales for the period
 
 | Title | Type | Description |
 | ----- |------| -----------|
-| **count** | Int  | Number of sales<br>`+Required when answering` |
-| **amount** | Int  | Profit<br>`+Required when answering` |
-| **movementAmount** | Int  | Delta compared to the previous same period<br>`+Required when answering` |
+| **count** | Int  | Number of sales<br>`+Required when replying` |
+| **amount** | Int  | Profit<br>`+Required when replying` |
+| **movementAmount** | Int  | Delta compared to the previous same period<br>`+Required when replying` |
 
 #### Orders for the period
 
 | Title | Type | Description |
 | ------------------ |------| --------- |
-| **count** | Int  | Number of sales<br>`+Required when answering` |
-| **amount** | Int  | Profit<br>`+Required when answering` |
-| **movementAmount** | Int  | Delta compared to the previous same period<br>`+Required when answering` |
+| **count** | Int  | Number of sales<br>`+Required when replying` |
+| **amount** | Int  | Profit<br>`+Required when replying` |
+| **movementAmount** | Int  | Delta compared to the previous same period<br>`+Required when replying` |
 
 #### Money for the period
 
 | Title | Type  | Description |
 | ----------------- |-------| --------- |
-| **income** | Int   | Income for the period<br>`+Required when answering` |
-| **outcome** | Float | Expenses for the period<br>`+Required when answering` |
-| **balance** | Float | Current balance<br>`+Required when answering` |
-| **todayMovement** | Float | Delta for today<br>`+Required when answering` |
-| **movement** | Float | Delta for the period<br>`+Required when answering` |
+| **income** | Int   | Income for the period<br>`+Required when replying` |
+| **outcome** | Float | Expenses for the period<br>`+Required when replying` |
+| **balance** | Float | Current balance<br>`+Required when replying` |
+| **todayMovement** | Float | Delta for today<br>`+Required when replying` |
+| **movement** | Float | Delta for the period<br>`+Required when replying` |
 
 ### Get daily metrics
 > Request for daily metrics.

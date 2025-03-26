@@ -6,15 +6,15 @@ Using the JSON API, you can request sales and orders indicators - the number and
 
 | Title | Type | Description |
 | ---------- | ----------- | -------- |
-| **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when answering` |
+| **series** | Array(Object) | An array of indicators. More details in the table below<br>`+Required when replying` |
 
 #### Indicators (series)
 
 | Title | Type     | Description |
 | ------------ |----------| -------------- |
 | **date** | DateTime | Date<br>`+Required when replying` |
-| **quantity** | Int      | Quantity<br>`+Required when answering` |
-| **sum** | Float    | Amount<br>`+Required when answering` |
+| **quantity** | Int      | Quantity<br>`+Required when replying` |
+| **sum** | Float    | Amount<br>`+Required when replying` |
 
 **Parameters**
 

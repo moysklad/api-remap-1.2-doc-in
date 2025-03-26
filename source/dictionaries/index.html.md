@@ -22,9 +22,11 @@ includes:
   - dictionaries/counterparty
   - dictionaries/country
   - dictionaries/currency
+  - dictionaries/customentity
   - dictionaries/group
   - dictionaries/discount
   - dictionaries/employee
+  - dictionaries/eventfeed
   - dictionaries/organization
   - dictionaries/expenseitem
   - dictionaries/files
@@ -48,12 +50,11 @@ includes:
   - dictionaries/task
   - dictionaries/states
   - dictionaries/uom
-  - dictionaries/customentity
   - dictionaries/custom_role
   - dictionaries/usersettings
   - dictionaries/store
   - dictionaries/webhook
   - dictionaries/webhookstock
-  
+
 search: true
 ---  

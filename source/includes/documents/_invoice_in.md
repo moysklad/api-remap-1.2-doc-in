@@ -1,12 +1,12 @@
 ## Supplier Invoice
 ### Supplier Invoices
 
-Using the JSON API, you can create and update Supplier Invoice information, query lists of Accounts, and query individual Supplier Invoices. Account items can be managed both as part of a separate Account, and separately with the help of special resources for managing Supplier Invoice items. The entity code for the Supplier Invoice as part of the JSON API is the **invoicein** keyword. You can read more about Supplier Invoices and working with them in the main interface in our support service at [this link](https://kladana.zendesk.com/hc/en-us/articles/360017534277-Create-Supplier-Invoices).
+Using the JSON API, you can create and update Supplier Invoice information, query lists of Accounts, and query individual Supplier Invoices. Account items can be managed both as part of a separate Account, and separately with the help of special resources for managing Supplier Invoice items. The entity code for the Supplier Invoice as part of the JSON API is the **invoicein** keyword. [Learn more ](https://kladana.zendesk.com/hc/en-us/articles/360017534277-Create-Supplier-Invoices) about Supplier Invoices and how to work with them in Kladana. 
 
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-| ------ |----------------------------------------------------| -------- | ------- |
+| Title | Type     | Filtration | Description |
+| ------ | --------- | -------- | ------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Account metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
@@ -28,18 +28,18 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Supplier Invoice Name<br>`+Required when replying` `+Change-handler` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float                                              | | Amount of incoming payments on Supplier's Account<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **paymentPlannedMoment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
 | **positions** | MetaArray                                          | | Supplier Invoice item metadata<br>`+Required for response` `+Expand` `+Change-handler` |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | Float                                              | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Account status metadata<br>`+Expand` `+Change-handler` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` `+Change-handler` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the Supplier Invoice was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -57,18 +57,18 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 
 #### Supplier Invoice Items
 
-Invoice Items is a list of goods/services/modifications/series.
+Invoice Items is a list of goods/services/product variants/batches.
 The Account item object contains the following fields:
 
-| Title | Type                                               | Description |
-| ----------- |----------------------------------------------------|--------- |
-| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| Title | Type  | Description |
+| ------- | ----------- | --------- |
+| **accountId** | UUID   | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
-| **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **id** | UUID   | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **pack** | Object   | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when answering` `+Change-handler` |
+| **quantity** | Float                                             | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | --------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Accounts. |
 
 **Parameters**
@@ -1428,7 +1428,7 @@ Request for metadata of Supplier Invoices. The result is a JSON object including
 | **meta** | Link to Supplier Invoice Metadata |
 | **attributes** | Array of objects additional Supplier Invoice fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of statuses of Supplier Invoices |
-| **createShared** | create new Supplier Invoices labeled "General" |
+| **createShared** | Create new Supplier Invoices labeled "General" |
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
@@ -1474,7 +1474,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -1786,7 +1786,7 @@ Successful request. The result is a JSON representation of the prefilled supplie
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/invoicein/af6f9b4c-2e64-11e6-8a84-bae500000149/documents",
+       "href": "https://api.kladana.co/api/remap/1.2/entity/invoicein/af6f9b4c-2e64-11e6-8a84-bae500000149/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -2601,9 +2601,9 @@ Request to get a list of all items of this Supplier Invoice.
 
 | Title | Type | Description |
 | ------- | --------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing Supplier Invoice items. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Supplier Invoice items. |
 
 **Parameters**
 
@@ -2742,12 +2742,63 @@ Successful request. The result is a JSON representation of a list of items in a 
 }
 ```
 
-### Add item to Supplier Invoice
+### Supplier Invoice Item
+
+Single Supplier Invoice item with the specified item ID.
+
+**Parameters**
+
+| Parameter | Description |
+| -------- | ------------- |
+| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Supplier Invoice ID.         |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Supplier Invoice Item ID. |
+
+### Get Item
+
+> Request to get a single Supplier Invoice item with the specified ID.
+
+```shell
+curl -X GET
+  "https://app.kladana.com/api/remap/1.2/entity/invoicein/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of a single Supplier Invoice item.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "type": "invoiceposition",
+    "mediaType": "application/json"
+  },
+  "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+  "quantity": 1,
+  "price": 0.0,
+  "discount": 0,
+  "vat": 0,
+  "vatEnabled": false,
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/00f1f397-3303-11e6-8a84-bae500000380",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type": "product",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
+    }
+  }
+}
+```
+
+### Create Item
 
 Request to create a new item in the Supplier Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-supplier-invoices-supplier-invoice-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2812,57 +2863,7 @@ Successful request. The result is a JSON representation of the item created for 
 ]
 ```
 
-### Supplier Invoice Item
-
-Supplier Invoice line item with the specified item id.
-
-**Parameters**
-
-| Parameter | Description |
-| ------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Supplier invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Supplier Invoice item id. |
-
-### Get Account Item
-> Request to receive a separate item of the Account with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoicein/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the Supplier Invoice line item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "type": "invoiceposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   "quantity": 1,
-   "price": 0.0,
-   "discount": 0,
-   "vat": 0,
-   "vatEnabled": false,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/00f1f397-3303-11e6-8a84-bae500000380",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3bb1af6c-2842-11e9-ac12-000c00000061"
-     }
-   }
-}
-```
-
-### Change account item
+### Change Item
 
 Request to update a line item in an Invoice. There is no way to update the item
 aboutrequired fields in the body of the request. Only the ones you want to update.
@@ -2872,9 +2873,9 @@ aboutrequired fields in the body of the request. Only the ones you want to updat
 | Parameter | Description |
 | ----------- | --------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Supplier invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Supplier Invoice item id. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Supplier Invoice item ID. |
  
-> An example of a request to update a line item in a Supplier Invoice.
+> An example of a request to update a Supplier Invoice item.
 
 ```shell
    curl -X PUT
@@ -2933,10 +2934,10 @@ Successful request. The result is a JSON representation of the updated Supplier 
 
 | Parameter | Description |
 |--------- | ---------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Supplier invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Supplier Invoice item id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Supplier invoice ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Supplier Invoice item ID. |
 
-> Request to delete a separate item of the Account with the specified id.
+> Request to delete a separate Supplier Invoice item with the specified ID.
 
 ```shell
 curl -X DELETE
@@ -2946,4 +2947,42 @@ curl -X DELETE
 ```
 
 > Response 200(application/json)
-Successful deletion of an Account item.
+Successful deletion of a Supplier Invoice item.
+
+### Bulk deletion of Items
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Supplier Invoice ID. |
+
+> Request for bulk deletion of Supplier Invoice items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/invoicein/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "invoiceposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/invoicein/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "invoiceposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Supplier Invoice items were successfully deleted.
+

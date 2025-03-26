@@ -28,13 +28,13 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Order Name<br>`+Required for response``+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float                                              | | Amount of incoming payments for the Sales Order<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **positions** | MetaArray                                          | | Sales Order item metadata<br>`+Required for response` `+Expand``+Change-handler` `+Update-provider` |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **published** | Boolean                                            | `=` `!=` | Is the transaction published or not<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **rate** | Object   | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **reservedSum** | Float                                              | | Amount of reserved products<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
@@ -45,7 +45,7 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. Cannot be edited |
-| **taxSystem** | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
+| **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date and time of the Sales Order last update<br>`+Required when replying` `+Read-only``+Change-handler` |
  
 ##### Tax system code 
@@ -71,17 +71,17 @@ The values of the `taxSystem` field.
 
 Sales Order items are arranged as a list of objects (products, services, variants, bundles). The objects contain the following fields:
 
-| Name | Type                                               | Description |
-| ----- |----------------------------------------------------|-------------|
+| Name | Type    | Description |
+| ----- | -------- | --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of an item (product/service/bundle/variant) <br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **discount** | Int                                                | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` `+Update-provider` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
-| **price** | Float                                              | Price of a product/service in rupees<br>`+Required when replying``+Change-handler` `+Update-provider` |
-| **quantity** | Int                                                | The number of product/service items of a certain type. If the item is a product that has tracking by serial numbers enabled, the value in this field is always equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider `|
-| **reserve** | Int                                                | The item reserve<br>`+Change-handler` `+Update-provider` |
-| **shipped** | Int                                                | Shipped<br>`+Required on response``+Change-handler` |
+| **price** | Float                                              | Price of a product/service in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **quantity** | Float                                               | The number of product/service items of a certain type. If the item is a product that has tracking by serial numbers enabled, the value in this field is always equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider `|
+| **reserve** | Float                                                | The item reserve<br>`+Change-handler` `+Update-provider` |
+| **shipped** | Float                                               | Shipped<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **taxSystem** | Enum                                               | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code) |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item, or not. If it is on, you can set VAT = 0, or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying``+Change-handler` ` +Update-provider`|
@@ -122,9 +122,9 @@ Result: JSON object with the following fields:
 
 | Name | Type | Description |
 | -----|----- | ----------- |
-| **meta** | Meta | Issuance metadata|
-| **context** | Meta | Metadata about the employee who made the request |
-| **rows** | Array(Object) | JSON object array representing Sales Orders|
+| **meta** | Meta | Issuance metadata.|
+| **context** | Meta | Metadata of the employee who made the request. |
+| **rows** | Array(Object) | JSON object array representing Sales Orders.|
 
 **Parameters**
 
@@ -1558,7 +1558,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ------- | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
 
 #### Separate additional field
 > Request for information on a separate additional field.
@@ -2367,9 +2367,9 @@ Request to receive a list of all items of this Sales Order.
 
 | Title | Type | Description |
 | ----------- | ------- | ------------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | issuance metadata,|
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing items in the Sales Order. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | issuance metadata.|
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Sales Order items. |
 
 **Parameters**
 
@@ -2516,11 +2516,63 @@ Successful request. The result is a JSON representation of a list of individual 
 }
 ```
 
-### Create a Sales Order Item
+### Sales Order Item
+A separate Sales Order item with the specified item ID.
+
+### Get an Item
+
+**Parameters**
+
+| Parameter     | Description   |
+| ------------- | ------------- |
+| **id**         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Order ID.         |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Order Item ID. |
+
+> Request to receive a separate Sales Order item with the specified ID.
+
+```shell
+curl -X GET
+  "https://app.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is JSON representation of an individual Sales Order item.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/customerorder/metadata",
+    "type": "customerorderposition",
+    "mediaType": "application/json"
+  },
+  "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+  "quantity": 1,
+  "price": 123050.0,
+  "discount": 0,
+  "vat": 18,
+  "vatEnabled": true,
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
+      "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type": "product",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
+    }
+  },
+  "reserve": 1
+}
+```
+
+### Create an Item
 Request to create a new item in the Sales Order.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification/set that the item represents.
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
 
 You can also specify a field named **product**, **service**, **variant**, **bundle** as per
 what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
@@ -2728,59 +2780,7 @@ Successful request. The result is a JSON representation of the list of created i
 ]
 ```
 
-### Order item
-Line item of the Order with the specified item id.
-
-### Get order item
-
-**Parameters**
-
-| Parameter | Description |
-| ------------ | ----------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Order id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Order item id. |
- 
-> Request to receive a separate item of the Order with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a single item of the Sales Order.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
-     "type": "customerorderposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-   "quantity": 1,
-   "price": 123050.0,
-   "discount": 0,
-   "vat": 18,
-   "vatEnabled": true,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/66ccbc9f-f7d2-11e5-8a84-bae500000076",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=392c045c-2842-11e9-ac12-000a00000002"
-     }
-   },
-   "reserve": 1
-}
-```
-
-### Change order item
+### Change Sales Order Item
 
 Request to update a line item of the Order. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
 
@@ -2846,7 +2846,7 @@ successful request. The result is a JSON representation of the updated item in t
 }
 ```
 
-### Delete item
+### Delete Item
 
 **Parameters**
 
@@ -2866,3 +2866,41 @@ curl -X DELETE
 
 > Response 200(application/json)
 The item of the Sales Order was successfully deleted.
+
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **id**   | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Sales Order ID.|
+
+> Request for bulk deletion of Sales Order items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "customerorderposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "customerorderposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+The items of the Sales Order was successfully deleted.

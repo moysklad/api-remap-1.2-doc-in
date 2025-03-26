@@ -3,7 +3,7 @@
 
 Using the JSON API, you can create and update information about Counterparties, request lists of Counterparties and information on individual Counterparties. Accounts of the Counterparty and its contact persons can be managed both as part of a separate Counterparty, and separately - using special resources for managing accounts and contact persons of the Counterparty. The entity code for the Counterparty in the JSON API is the keyword **counterparty**. Learn more about [Counterparties](https://kladana.zendesk.com/hc/en-us/articles/6507246022045-Create-counterparty).
 
-This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
+The entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of the Counterparty is carried out according to several conditions. If the values of the counterparty fields satisfy at least one of the conditions, then the counterparty will be found.
 
@@ -33,56 +33,49 @@ The fourth search condition for the fields of all contact persons of the counter
 | Title                  | Type                                               | Filtration | Description |
 |------------------------|----------------------------------------------------| -------- | -------- |
 | **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [More details here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
+| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
 | **actualAddress**      | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
+| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
 | **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
 | **attributes**         | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
 | **bonusPoints**        | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
-| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor Code |
-| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [More details here](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
-| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
+| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty Code |
+| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
+| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
 | **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
 | **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
 | **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
 | **discounts**          | Array(Object)                                      || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
 | **email**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | Email address |
-| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Contractor's external code<br>`+Required when replying` |
+| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty external code<br>`+Required when replying` |
 | **fax**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Fax number |
 | **files**              | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id**                 | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
 | **meta**               | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
 | **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
-| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [More here](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
+| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
 | **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [More here](../dictionaries/#entities-price-type-price-types) |
+| **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [Learn more](../dictionaries/#entities-price-type-price-types) |
 | **salesAmount**        | Int                                                | | Amount of sales<br>`+Required when replying` `+Read only` |
 | **shared**             | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
 | **syncId**             | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
 | **tags**               | Array(String)                                      | `=` `!=` | Account groups |
-| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Counterparty<br>`+Required when replying` `+Read-only` |
 
 ##### Detail fields
 
-| Title                 | Type         | Filtration | Description |
-|-----------------------|--------------| ------ | ---- |
-| **certificateDate**   | DateTime     | | Date of certificate |
-| **certificateNumber** | String(255)  | | Certificate number |
-| **inn**               | String(255)  | `=` `!=` `~` `~=` `=~` | TIN |
-| **kpp**               | String(255)  | `=` `!=` `~` `~=` `=~` | Checkpoint |
-| **legalAddress**      | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty |
-| **legalAddressFull**  | Object       | | Legal address of the Counterparty with details on individual fields|
-| **legalFirstName**    | String(255)  | | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**     | String(255)  | | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | String(255)  | | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**        | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty of the type `[Legal entity]`. Ignored for Counterparties of type `[Individual entrepreneur, Individual]`, if one of the values for full name is passed and is generated automatically based on the received full name of the Counterparty |
-| **ogrn**              | String(255)  | | OGRN |
-| **ogrnip**            | String(255)  | | OGRNIP |
-| **okpo**              | String(255)  | | OKPO |
+| Title                       | Type         | Filtration | Description                                                                                         |
+|-----------------------------|--------------| ------ |-----------------------------------------------------------------------------------------------------|
+| **mod\_\_requisites\_\_in** | Object       | | Requisites for the Counterparty of the type `[Legal entity. India]` with details on individual fields |
+| **inn**                     | String(255)  | `=` `!=` `~` `~=` `=~` | PAN for the Counterparty of the type `[Legal entity]` |
+| **legalAddress**            | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                   |
+| **legalAddressFull**        | Object       | | Legal address of the Counterparty with details on individual fields                                 |
+| **legalTitle**              | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                      |
+
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
 or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
@@ -90,6 +83,7 @@ You can see the format for displaying discounts in the [Discounts](../dictionari
 
 #### Nested entity attributes
 #### Attributes of entity Address
+
 | Title | Type | Description |
 | -------| ------- | ----- |
 | **addInfo** | String(255) | Other |
@@ -109,6 +103,12 @@ When passing only a string, it will be reflected both in the string field and in
 [`null` value](../#kladana-json-api-general-info-null-support) is not supported for address. Passing `null` to this attribute will not remove it.
 To delete an address, you need to pass an empty string `""` to the string field `actualAddress`.
 
+##### Requisites of Counterparties
+| Title   | Type | Description |
+|---------| ------- |-------------|
+| **pan** | String(255) | PAN         |
+Only for counterparty with type `Legal entity. India`.
+
 ##### Accounts of Counterparties
 
 | Title | Type                                               | Description |
@@ -122,7 +122,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of the Counterparty<br>`+Required when answering` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when replying` |
-| **updated** | DateTime                                           | The moment of the last update of the Contractor<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime                                           | The moment of the last update of the Counterparty<br>`+Required when replying` `+Read-only` |
 
 ##### Contact persons of Counterparties
 
@@ -149,7 +149,7 @@ To delete an address, you need to pass an empty string `""` to the string field 
 | **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
 | **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
-| **description** | String(4096)                                       | Contractor incident text<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                       | Counterparty incident text<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID                                               | incident ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required for response` |
 
@@ -157,54 +157,39 @@ To delete an address, you need to pass an empty string `""` to the string field 
 Depending on the counterparty type **companyType**, its object will display different sets of details.
 Counterparty types and corresponding values that can be passed in this field:
 
-| CompanyType field value | Counterparty type |
-| --------| ---------- |
-| **legal** | Legal entity |
-| **entrepreneur** | Individual entrepreneur |
-| **individual** | Individual |
+| CompanyType field value | Region               | Counterparty type   |
+|-----------------------|----------------------|---------------------|
+| **legal**             | International, India | Legal entity        |
+| **legalIN**           | India                | Legal entity. India |
 
 If the counterparty type is `Legal entity`, the following fields of details will be displayed:
 
-| Title            | Description |
-|------------------| ------------------------------- |
-| **inn**          | TIN |
-| **kpp**          | Checkpoint |
+| Title            | Description                       |
+|------------------|-----------------------------------|
+| **inn**          | PAN                               |
 | **legalAddress** | Legal address of the Counterparty |
-| **legalTitle**   | Full name of the Counterparty |
-| **ogrn**         | OGRN |
-| **okpo**         | OKPO |
-| **tags**         | Groups (array) |
+| **legalTitle**   | Full name of the Counterparty     |
+| **tags**         | Groups (array)                    |
 
-If the counterparty type is `Individual Entrepreneur`, the following fields of details will be displayed:
+If the counterparty type is `Legal entity. India`, the following fields of details will be displayed:
 
-| Title                 | Description |
-|-----------------------| -------- |
-| **certificateDate**   | Date of certificate |
-| **certificateNumber** | Certificate number |
-| **inn**               | TIN |
-| **legalAddress**      | Legal address of the Counterparty |
-| **legalAddressFull**  | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**    | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for counterparties of type `[Legal entity]` |
-| **legalLastName**     | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**   | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**        | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
-| **ogrnip**            | OGRNIP |
-| **okpo**              | OKPO |
-
-If the counterparty type is `Individual`, the following fields of details will be displayed:
-
-| Title                | Description |
-|----------------------| ------- |
-| **inn**              | TIN |
-| **legalAddress**     | Legal address of the Counterparty |
-| **legalAddressFull** | Legal address of the Counterparty with details on individual fields |
-| **legalFirstName**   | Name for the Contractor of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalLastName**    | Surname for the Counterparty of type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalMiddleName**  | Middle name for the Counterparty of the type `[Individual entrepreneur, Individual]`. Ignored for Contractors of type `[Legal entity]` |
-| **legalTitle**       | Full name of the Counterparty. Ignored if one of the values for the full name is passed. Formed automatically on the basis of the received full name of the Counterparty |
+| Title                             | Description                       |
+|-----------------------------------|-----------------------------------|
+| **mod\_\_requisites\_\_in.pan**   | PAN                               |
+| **legalAddress**                  | Legal address of the Counterparty |
+| **legalTitle**                    | Full name of the Counterparty     |
+| **tags**                          | Groups (array)                    |
 
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
+#### Counterparty Gender
+
+Counterparty Gender is used only for Counterparty type `[Individual]`. It is ignored for Counterparties type `[Individual Entrepreneur, Legal Entity]`.
+
+| Field Value   | Counterparty Gender |
+| ------------- | ------------------- |
+| **MALE** | Male |
+| **FEMALE** | Female |
 
 ### Get a list of Counterparties
 
@@ -273,7 +258,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"aZBfWOKzj-lcq7c7IWZON3",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legal",
+       "companyType":"legalIN",
        "legalTitle":"Limited Liability Company \"Supplier\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
       "legalAddressFull": {  
@@ -327,8 +312,9 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "addInfo":"addinfo",
          "comment":"some words about address"
       },
-      "inn":"7736570901",
-      "kpp":"773601001",
+      "mod__requisites__in":{
+        "pan": "7736570901"
+      },
       "accounts":{  
         "meta":{  
           "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8b923-692c-11e6-8a84-bae500000053/accounts",
@@ -418,14 +404,14 @@ Successful request. The result is a JSON representation of the list of Counterpa
           "mediaType":"application/json"
         }
       },
-     "updated":"2016-08-23 15:21:09",
+      "updated":"2016-08-23 15:21:09",
        "name":"OOO \"Buyer\"",
        "externalCode":"DTItQRbDhyl472ZqC5OWw2",
        "archived": false,
        "companyType":"legal",
        "legalTitle":"Limited Liability Company \"Buyer\"",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
-      "legalAddressFull":{  
+       "legalAddressFull":{  
         "postalCode":"125009",
         "country":{  
           "meta":{  
@@ -476,8 +462,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "addInfo":"addinfo",
          "comment":"some words about address"
        },
-       "inn":"7736570902",
-       "kpp":"773601002",
+       "inn": "7736570902",
        "accounts":{
          "meta":{
            "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/accounts",
@@ -544,7 +529,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"lBvYwLWMiBsct7sVRrFnJ2",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legal",
+       "companyType":"legalIN",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "legalAddressFull":{
          "postalCode":"125009",
@@ -762,13 +747,13 @@ Successful request. The result is a JSON representation of the list of Counterpa
 }
 ```
 
-Get a list of all Contractors.
+Get a list of all Counterparties.
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | -----| ----- | ------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing counterparties. |
 
 **Parameters**
@@ -790,7 +775,7 @@ Mandatory fields to create:
 ##### Description
 
 The counterparty is created based on the passed JSON object,
-which contains the representation of the new Contractor.
+which contains the representation of the new Counterparty.
 
 > Example 1
 
@@ -811,10 +796,9 @@ curl -X POST
     "actualAddress": "Moscow, Academician Mil street, 15/21",
     "legalTitle": "Limited Liability Company \"Rainbow\"",
     "legalAddress": "Moscow, Aviastroiteley street 93/12",
-    "inn": "125152124152",
-    "kpp": "12155521",
-    "ogrn": "1251512",
-    "okpo": "201355",
+    "mod__requisites__in":{
+      "pan": "125152124152"
+    },
     "tags": [
         "Builders",
         "Rainbow",
@@ -870,7 +854,7 @@ curl -X POST
   "name":"Company LLC",
   "externalCode":"o7732zkki541HDkZZD1Yt3",
   "archived": false,
-  "companyType":"legal",
+  "companyType":"legalIN",
   "accounts":{  
     "meta":{  
       "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -880,6 +864,9 @@ curl -X POST
       "limit":1000,
       "offset":0
     }
+  },
+  "mod__requisites__in":{
+    "pan": "125152124152"
   },
   "tags":[  
 
@@ -968,7 +955,7 @@ curl -X POST
   "externalCode":"o7732zkki541HDkZZD1Yt3",
   "archived": false,
   "created":"2007-02-07 17:16:41",
-  "companyType":"legal",
+  "companyType":"legalIN",
   "accounts":{  
     "meta":{  
       "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -1131,6 +1118,120 @@ curl -X POST
   "salesAmount": 0.0
 }
 ```
+
+> Example 4
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty"
+  -H "Authorization: Basic <Credentials>"
+  -H "Content-Type: application/json"
+  -d ' {
+        "name": "Johnson",
+        "companyType": "individual",
+        "legalLastName": "Johnson",
+        "legalFirstName": "John",
+        "legalMiddleName": "John",
+        "sex": "MALE",
+        "birthDate": "1953-11-01 00:00:00.000"
+        }'
+```
+> Response 200. Successful request. Result is JSON representation of the created Counterparty.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+    "type": "counterparty",
+    "mediaType": "application/json",
+    "uuidHref": "https://app.kladana.com/app/#company/edit?id=23f049f3-3ad1-11ee-ac13-000c00000000"
+  },
+  "id": "23f049f3-3ad1-11ee-ac13-000c00000000",
+  "accountId": "00081cde-3ad1-11ee-ac13-000d00000001",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/00f97251-3ad1-11ee-ac13-000e0000004c",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=00f97251-3ad1-11ee-ac13-000e0000004c"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/0009beb8-3ad1-11ee-ac13-000d00000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2023-08-14 21:34:00.817",
+  "name": "Johnson",
+  "externalCode": "mm62KDCZjOpCCNqvW3DtK1",
+  "archived": false,
+  "created": "2023-08-14 21:34:00.817",
+  "companyType": "individual",
+  "legalTitle": "John John Johnson",
+  "legalLastName": "Johnson",
+  "legalFirstName": "John",
+  "legalMiddleName": "John",
+  "birthDate": "1953-11-01 00:00:00.000",
+  "sex": "MALE",
+  "accounts": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/accounts",
+      "type": "account",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "tags": [],
+  "contactpersons": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/contactpersons",
+      "type": "contactperson",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "notes": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/notes",
+      "type": "note",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  },
+  "state": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/02b158a9-3ad1-11ee-ac13-000e000000b5",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "state",
+      "mediaType": "application/json"
+    }
+  },
+  "salesAmount": 0.0,
+  "files": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/files",
+      "type": "files",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  }
+}
+```
+
 > Example with additional fields
 
 ```shell
@@ -1143,6 +1244,7 @@ curl -X POST
           "name": "Vegetable Express LLC",
           "description": "Vegetable Delivery Network",
           "code": "ovoshexpressCode",
+          "companyType": "legal",
           "externalCode": "extVagetable",
           "email": "ovosh@delivery.ru",
           "phone": "+7 495 662 12 23",
@@ -1198,10 +1300,7 @@ curl -X POST
               "addInfo": "addinfo",
               "comment": "some words about address"
           },
-          "inn": "1251521244152",
-          "kpp": "121555212",
-          "ogrn": "1251552",
-          "okpo": "201323",
+          "inn": "1251521244152"
           "tags": [
               "Vegetables",
               "Food",
@@ -1283,6 +1382,7 @@ curl -X POST
    "description":"Vegetable Delivery Network",
    "code":"ovoshexpressCode",
    "externalCode":"extVagetable",
+   "companyType": "legal",
    "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
@@ -1338,10 +1438,7 @@ curl -X POST
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn":"1251521244152",
-   "kpp":"121555212",
-   "ogrn":"1251552",
-   "okpo":"201323",
+   "inn": "1251521244152",
    "email":"ovosh@delivery.ru",
    "phone":"+7 495 662 12 23",
    "fax":"1052034",
@@ -1441,16 +1538,16 @@ curl -X POST
             "description": "Building materials chain Raduga EXPO",
             "code": "rainbowCode",
             "externalCode": "extRainbw",
+            "companyType": "legalIN",
             "email": "raduga@stroi.ru",
             "phone": "+7 495 331 22 33",
             "fax": "1257752",
             "actualAddress": "Moscow, Academician Mil street, 15/21",
             "legalTitle": "Limited Liability Company \"Rainbow\"",
             "legalAddress": "Moscow, Aviastroiteley street 93/12",
-            "inn": "125152124152",
-            "kpp": "12155521",
-            "ogrn": "1251512",
-            "okpo": "201355",
+            "mod__requisites__in":{
+              "pan": "125152124152"
+            },
             "tags": [
                 "Builders",
                 "Rainbow",
@@ -1482,6 +1579,7 @@ curl -X POST
             "description": "Network of building materials markets Raduga EXPO",
             "code": "rainbow",
             "externalCode": "extRainbow",
+            "companyType": "legal",
             "email": "raduga@retail.ru",
             "phone": "+7 495 162 32 23",
             "fax": "1052054",
@@ -1489,9 +1587,6 @@ curl -X POST
             "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
             "legalAddress": "Moscow, Chernorabochego street 93/12",
             "inn": "1251581244152",
-            "kpp": "121557212",
-            "ogrn": "1253552",
-            "okpo": "201313",
             "tags": [
                 "Builders",
                 "Repair",
@@ -1537,7 +1632,7 @@ curl -X POST
      "name":"OOO Rainbow",
      "externalCode":"o7732zkki541HDkZZD1Yt3",
      "archived": false,
-     "companyType":"legal",
+     "companyType":"legalIN",
      "accounts":{
        "meta":{
          "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -1617,15 +1712,13 @@ curl -X POST
      "description":"Network of building materials markets Raduga EXPO",
      "code":"rainbow",
      "externalCode":"extRainbow",
+     "companyType": "legal",
      "archived": false,
      "created":"2007-02-07 17:16:41",
      "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
      "legalAddress": "Moscow, Chernorabochego street 93/12",
      "actualAddress": "Moscow, Stroiteley st. 331",
-     "inn":"1251581244152",
-     "kpp":"121557212",
-     "ogrn":"1253552",
-     "okpo":"201313",
+     "inn": "1251581244152",
      "email": "raduga@retail.ru",
      "phone":"+7 495 162 32 23",
      "fax":"1052054",
@@ -1670,7 +1763,7 @@ curl -X POST
 ]
 ```
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Contractors.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Counterparties.
 In the body of the request, you need to pass an array containing the JSON representation of the Accounts that you want to create or update.
 Updated Counterparties must contain the identifier in the form of metadata.
 
@@ -1680,7 +1773,7 @@ Updated Counterparties must contain the identifier in the form of metadata.
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b1*. id of the Contractor |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b1*. Counterparty ID |
 
 > Request to delete the Counterparty with the specified id.
 
@@ -1821,7 +1914,7 @@ The structure of a separate object representing the additional the field is desc
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* - id fields. |
+| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* - Fields ID. |
 
 > Request for information on a separate additional field.
 
@@ -1868,7 +1961,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). The result is a JSON representation of the Contractor with the specified id.
+> Response 200(application/json). The result is a JSON representation of the Counterparty with the specified id.
 
 ```json
 {
@@ -1902,7 +1995,7 @@ curl -X GET
    "externalCode":"o7732zkki541HDkZZD1Yt3",
    "archived": false,
    "created":"2007-02-07 17:16:41",
-   "companyType":"legal",
+   "companyType":"legalIN",
    "accounts":{
      "meta":{
        "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/b80ea81b-7058-11e6-8a84-bae500000000/accounts",
@@ -2019,117 +2112,12 @@ curl -X GET
 }
 ```
 
-> Example 2
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json). Successful request. The result is a JSON representation of the Counterparty of the Individual Entrepreneur type with the specified id.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-     "type": "counterparty",
-     "mediaType": "application/json",
-     "uuidHref": "https://app.kladana.com/app/#company/edit?id=7944ef04-f831-11e5-7a69-971500188b19"
-   },
-   "id": "7944ef04-f831-11e5-7a69-971500188b19",
-   "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-   "owner": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-       "type": "employee",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-     }
-   },
-   "shared": false,
-   "group": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-       "type": "group",
-       "mediaType": "application/json"
-     }
-   },
-   "version": 0,
-   "updated": "2020-06-17 18:21:53",
-   "name": "IP Ivanov",
-   "code": "someCode",
-   "externalCode": "extCode",
-   "archived": false,
-   "created": "2020-06-17 18:21:53",
-   "companyType": "entrepreneur",
-   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
-   "legalAddress": "Moscow, Aviastroiteley street 93/12",
-   "legalAddressFull": {
-     "addInfo": "Moscow, Aviastroiteley street 93/12"
-   },
-   "actualAddress": "Moscow, Academician Mil street, 15/21",
-   "actualAddressFull": {
-     "addInfo": "Moscow, Academician Mil street 15/21"
-   },
-   "inn": "87654321",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "legalLastName": "Ivanov",
-   "legalFirstName": "Ivan",
-   "legalMiddleName": "Ivanovich",
-   "accounts": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts",
-       "type": "account",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "tags": [],
-   "contactpersons": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/contactpersons",
-       "type": "contactperson",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "notes": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/notes",
-       "type": "note",
-       "mediaType": "application/json",
-       "size": 0,
-       "limit": 100,
-       "offset": 0
-     }
-   },
-   "state": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/03935900-b0ae-11ea-0a80-1d9c0000008c",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-       "type": "state",
-       "mediaType": "application/json"
-     }
-   },
-   "salesAmount": 0.0
-}
-```
 
 ### Change Account
 #### Description
 
 
-The view of the Account with the specified id is updated.
+The view of the Account with the specified ID is updated.
 In the request body, you can specify only those fields that need to be changed for the Counterparty, except for those that
 are marked `Read only` in the description of [Account attributes](../dictionaries/#entities-counterparty).
 Fields that were not specified in the request JSON are not changed.
@@ -2141,7 +2129,7 @@ elements previously present in it.
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 
 > Example
 
@@ -2210,10 +2198,9 @@ curl -X PUT
                 "addInfo": "addinfo",
                 "comment": "some words about address"
             },
-            "inn": "1251581244152",
-            "kpp": "121557212",
-            "ogrn": "1253552",
-            "okpo": "201313",
+            "mod__requisites__in":{
+              "pan": "1251581244152"
+            },
             "tags": [
                 "Builders",
                 "Repair",
@@ -2224,7 +2211,7 @@ curl -X PUT
         }'
 ```
 
-> Response 200 (application/json) Successful update. The result is a JSON representation of the updated Contractor.
+> Response 200 (application/json) Successful update. The result is a JSON representation of the updated Counterparty.
 
 ```json
 {
@@ -2313,10 +2300,9 @@ curl -X PUT
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn":"1251581244152",
-   "kpp":"121557212",
-   "ogrn":"1253552",
-   "okpo":"201313",
+   "mod__requisites__in":{
+     "pan": "1251581244152"
+   },
    "email": "raduga@retail.ru",
    "phone":"+7 495 162 32 23",
    "fax":"1052054",
@@ -2377,10 +2363,9 @@ curl -X PUT
             "phone": "+7 495 162 12 23",
             "fax": "1052014",
             "legalTitle": "Limited Liability Company \"Vegetable Express\"",
-            "inn": "1251581244152",
-            "kpp": "121557212",
-            "ogrn": "1253552",
-            "okpo": "201313",
+            "mod__requisites__in":{
+              "pan": "1251581244152"
+            },
             "tags": [
                 "Vegetables",
                 "Food",
@@ -2449,7 +2434,7 @@ curl -X PUT
         }'
 ```
 
-> Response 200(application/json). Successful update. The result is a JSON representation of the updated Contractor.
+> Response 200(application/json). Successful update. The result is a JSON representation of the updated Counterparty.
 
 ```json
 {
@@ -2537,10 +2522,9 @@ curl -X PUT
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn":"1251581244152",
-   "kpp":"121557212",
-   "ogrn":"1253552",
-   "okpo":"201313",
+   "mod__requisites__in":{
+     "pan": "1251581244152"
+   },
    "email": "ovoshi@delivery.ru",
    "phone":"+7 495 162 12 23",
    "fax":"1052014",
@@ -2619,16 +2603,16 @@ curl -X PUT
 }
 ```
 
-#### Accounts of the Counterparty
-### Get Counterparty invoices
+### Counterparty Accounts
+### Get Counterparty Accounts
 
-List of accounts of the Counterparty with the specified id.
+List of accounts of the Counterparty with the specified ID.
 
 **Parameters**
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* - The maximum number of entities to retrieve. `Allowed values are 1 - 1000` |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* - Indent in the output list of entities. |
 
@@ -2641,7 +2625,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). Returns an array of JSON representations of accounts of the Contractor.
+> Response 200(application/json). Returns an array of JSON representations of accounts of the Counterparty.
 
 ```json
 {
@@ -2700,18 +2684,18 @@ curl -X GET
 }
 ```
 
-#### Counterparty's account
+### Counterparty Account
 
 **Parameters**
 
 | Parameter | Description |
-| ----- | ------ |
-| **accountId** | `string` (required) (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account id. |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Account id . |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| --------- | ----------- |
+| **accountId** | `string` (required) (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* - Account ID. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
+| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Possible values ​​are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities. |
 
-### Get Counterparty's account
+### Get Counterparty Account
 
 > Get an account Counterparty
 
@@ -2741,13 +2725,107 @@ curl -X GET
 }
 ```
 
-### Contact persons of the Counterparty
+### Create Counterparty Account
+
+Create a Counterparty account with the specified ID.
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ------------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
+
+> Example of a request to create a Counterparty account.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+    -d '{
+          "accountNumber": "86686868768768757656876876"
+        }'  
+```
+
+> Response 200 (application/json). Successful creation.
+
+```json
+[
+  {
+    "meta": {
+      "href": "http://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
+      "type": "account",
+      "mediaType": "application/json"
+    },
+    "id": "7944ef04-f831-11e5-7a69-971500188b18",
+    "accountId": "4615c8f6-0e7b-11e2-06e0-3c4a92f3a0a7",
+    "updated": "2024-01-22 17:57:54.558",
+    "isDefault": false,
+    "accountNumber": "86686868768768757656876876"
+  }
+]
+```
+
+### Change Counterparty account
+
+**Parameters**
+
+| Parameter | Description |
+|---------- | ----------- |
+| **accountId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* - Account ID. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
+
+#### Description
+
+Update the Counterparty account with the specified ID. Fields that were not specified in the JSON request are not changed.
+
+> Example of a request to update a Counterparty account.
+
+  ```shell
+  curl -X PUT
+    "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "accountNumber": "86686868768768757656876876",
+            "isDefault": false,
+            "bankLocation": "Moscow",
+            "bankName": "Bank",
+            "bic": "1005002good",
+            "correspondentAccount": "good200"
+        }'  
+  ```
+
+> Response 200 (application/json). Successful update.
+
+```json
+{
+  "meta": {
+    "href": "http://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
+    "type": "account",
+    "mediaType": "application/json"
+  },
+  "id": "7944ef04-f831-11e5-7a69-971500188b18",
+  "accountId": "4615c8f6-0e7b-11e2-06e0-3c4a92f3a0a7",
+  "updated": "2024-01-22 17:57:54.558",
+  "isDefault": false,
+  "accountNumber": "86686868768768757656876876",
+  "bankName": "Bank",
+  "bankLocation": "Moscow",
+  "correspondentAccount": "good200",
+  "bic": "1005002good"
+}
+```
+
+### Counterparty Contact persons
 
 **Parameters**
 
 | Parameter | Description |
 | ----- | ------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty ID. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
@@ -2762,7 +2840,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json). Returns an array of JSON representations of the Contractor's contact persons.
+> Response 200(application/json). Returns an array of JSON representations of the contact persons of the Counterparty.
 
 ```json
 {
@@ -2925,7 +3003,7 @@ curl -X POST
 
 | Parameter | Description |
 | ----- | ------ |
-| **contactpersonId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - id of the contact person. |
+| **contactpersonId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - ID of the contact person. |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
@@ -2980,6 +3058,7 @@ curl -X GET
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
 
 #### Description
+
 Update the contact person of the Counterparty with the specified id.
 All fields specified in the request JSON object are updated, except for
 marked `Read only` in the description of [attributes of the Counterparty's contact persons](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties).
@@ -3244,7 +3323,7 @@ curl -X GET
 
 Update the incident of the Account with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read-only` in the description of [Contractor's incident attributes](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents).
+marked `Read-only` in the description of ['s incident attributes](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents).
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**

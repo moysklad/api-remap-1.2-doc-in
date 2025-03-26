@@ -7,10 +7,9 @@ product packaging. The following barcode types are supported:
 - ean8
 - code128
 - gtn
+- upc
 
-Barcodes provide a convenient way to identify and work with nomenclature.
-Suppose you need to sell a product and for the convenience of finding it in the system, a barcode scanner was purchased. After the purchase
-  the scanner is faced with the task of adding barcodes to the nomenclature. Let's see how this can be done on the example of a product.
+A barcode is a convenient means of identifying a product, bundle, service, or product variant. For example, if you need to sell a product, you can make it easier to add and search for the item in the system by acquiring a barcode scanner. After purchasing the scanner, you need to add barcodes to the data of your existing products and services. Let's look at how to do this using a product as an example.
  
 > Create an item with a barcode
 
@@ -21,22 +20,25 @@ Suppose you need to sell a product and for the convenience of finding it in the 
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
-             "name": "good",
-             "barcodes": [
-               {
-                 "ean8": "20000000"
-               },
-               {
-                 "ean13": "2000000000000"
-               },
-               {
-                 "code128": "code128 barcode"
-               },
-               {
-                 "gtin": "00000000000130"
-               }
-             ]
-           }'
+            "name": "good",
+            "barcodes": [
+              {
+                "ean8": "20000000"
+              },
+              {
+                "ean13": "2000000000000"
+              },
+              {
+                "code128": "code128 barcode"
+              },
+              {
+                "gtin": "00000000000130"
+              },
+              {
+                "upc": "400000000015"
+              }
+            ]
+          }'
    ```
 > Response 200(application/json)
   Successful request. The result is a JSON representation of the created Product with barcodes.
@@ -85,7 +87,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       }
     },
     "minPrice": {
-      "value": 500.0,
+      "value": 500,
       "currency": {
         "meta": {
           "href": "https://api.kladana.com/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
@@ -97,7 +99,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     },
     "salePrices": [
       {
-        "value": 0.0,
+        "value": 0,
         "priceType": {
           "meta": {
             "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -111,7 +113,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       }
     ],
     "buyPrice": {
-      "value": 0.0
+      "value": 0
     },
     "weight": 0,
     "volume": 0,
@@ -127,39 +129,45 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       },
       {
         "gtin": "00000000000130"
+      },
+      {
+        "upc": "400000000015"
       }
     ],
     "variantsCount": 0,
     "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
-  ```
+```
 
 > Update barcodes for products
 
-  ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
-       -d '{
-             "barcodes": [
-               {
-                 "ean8": "20000001"
-               },
-               {
-                 "ean13": "2000000000001"
-               },
-               {
-                 "code128": "code128 barcode 1"
-               },
-               {
-                 "gtin": "00000000000131"
-               }
-             ]
-           }'
-   ```
+```shell
+  curl -X PUT
+    "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "barcodes": [
+              {
+                "ean8": "20000001"
+              },
+              {
+                "ean13": "2000000000001"
+              },
+              {
+                "code128": "code128 barcode 1"
+              },
+              {
+                "gtin": "00000000000131"
+              },
+              {
+                "upc": "400000000015"
+              }
+            ]
+          }'
+```
 
 > Response 200(application/json)
   Successful request. The result is a JSON representation of the updated Product with barcodes.
@@ -208,7 +216,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       }
     },
     "minPrice": {
-      "value": 500.0,
+      "value": 500,
       "currency": {
         "meta": {
           "href": "https://api.kladana.com/api/remap/1.2/entity/currency/10772c12-36e7-11e7-8a7f-40d000000097",
@@ -220,7 +228,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
     },
     "salePrices": [
       {
-        "value": 0.0,
+        "value": 0,
         "priceType": {
           "meta": {
             "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/672559f1-cbf3-11e1-9eb9-889ffa6f49fd",
@@ -234,7 +242,7 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       }
     ],
     "buyPrice": {
-      "value": 0.0
+      "value": 0
     },
     "weight": 0,
     "volume": 0,
@@ -250,12 +258,14 @@ Suppose you need to sell a product and for the convenience of finding it in the 
       },
       {
         "gtin": "00000000000131"
+      },
+      {
+        "upc": "400000000016"
       }
     ],
     "variantsCount": 0,
     "isSerialTrackable": false,
     "trackingType": "NOT_TRACKED"
   }
-  ```
-  In case barcodes no longer need to be used for the item, it is enough to update the item by specifying an empty list
-   barcodes.
+```
+  If barcodes are no longer needed for identification, update the items by specifying an empty list of barcodes.

@@ -15,11 +15,11 @@ Shipment supports external widget change notification protocol **change-handler*
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **applicable** | Boolean                                            | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object)                                      | [Operators add. fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object)                                      | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when Shipment was last deleted<br>`+Read Only` |
+| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of the Shipment last deletion<br>`+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Shipment Comment <br/> `+Change-handler` `+Update-provider`|
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Shipment Code<br>`+Required in response` `+Change-handler` |
 | **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata. Maximum number of files - 100.<br>`+Required when replying` `+Expand` |
@@ -27,24 +27,24 @@ Shipment supports external widget change notification protocol **change-handler*
 | **id** | UUID                                               | `=` `!=` | Shipment ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Shipment Metadata<br>`+Required in response` `+Change-handler` |
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Shipment date<br>`+Required for response` `+Change-handler` `+Update-provider` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of Shipment<br>`+Required for response` `+Change-handler` `+Update-provider` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment Name<br>`+Required for response` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **overhead** | Object                                             | | Overheads. [More details here](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
-| **paidSum** | Float                                              || Amount of incoming payments for Shipment<br>`+Required when replying` `+Read only` |
+| **overhead** | Object                                             | | Overhead expenses. [Learn more](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
+| **paidSum** | Float                                              || Amount of incoming payments for the Shipment<br>`+Required when replying` `+Read only` |
 | **positions** | MetaArray                                          | | Shipment item metadata<br>`+Required in response` `+Expand` `+Change-handler` `+Update-provider` |
-| **printed** | Boolean                                            | `=` `!=` | Is the Shipment document printed<br>`+Required when responding` `+Read Only` |
+| **printed** | Boolean                                            | `=` `!=` | Is the Shipment printed or not<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **published** | Boolean                                            | `=` `!=` | Is the Shipment document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **published** | Boolean                                            | `=` `!=` | Is the Shipment published or not<br>`+Required when replying` `+Read Only` |
+| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shipmentAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipping address Shipping <br/> `+Change-handler` |
-| **shipmentAddressFull** | Object                                             | | Delivery address of Shipments with details for individual fields. [More details here](../documents/#transactions-shipment-shipments-entity-attributes-delivery-address)<br> `+Change-handler` |
+| **shipmentAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment delivery address<br/> `+Change-handler` |
+| **shipmentAddressFull** | Object                                             | | Delivery address of Shipments with details for individual fields. [Learn more](../documents/#transactions-shipment-shipments-entity-attributes-delivery-address)<br> `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Shipment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Shipment last updated time<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
@@ -53,12 +53,12 @@ Shipment supports external widget change notification protocol **change-handler*
 
 #### Overhead Expenses
 
-Description of overhead fields.
+Description of overhead expenses fields.
 
 | Title | Type | Description |
 | ------- |------| -------- |
-| **sum** | Int  | Amount in rupees<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
+| **sum** | Int  | Amount in paise<br>`+Required when replying` `+Update-provider` |
+| **distribution** | Enum | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
 #### Links to other transactions
 
@@ -74,8 +74,8 @@ Description of overhead fields.
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------| -------- |
 | **cargoName** | String(255)                                        | Name of cargo <br/> `+Change-handler` |
-| **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (contractor or legal entity)<br>`+Expand` `+Change-handler` |
-| **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (contractor or legal entity) <br/> `+Change-handler` |
+| **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (counterparty or legal entity)<br>`+Expand` `+Change-handler` |
+| **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (counterparty or legal entity) <br/> `+Change-handler` |
 | **goodPackQuantity** | Int                                                | Total seats <br/> `+Change-handler` |
 | **shippingInstructions** | String(255)                                        | Shipper instructions <br/> `+Change-handler` |
 | **stateContractId** | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
@@ -91,18 +91,18 @@ The Shipment item object contains the following fields:
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------| ------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/series/modification/bundle, which is the item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batches/product variant/bundle, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **cost** | Int                                                | Cost price (only for services) |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [More info here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
-| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
+| **quantity** | Float                                                | The number of goods/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. `+Change-handler` |
-| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [More details here](../documents/#transactions-shipment-shipments-codes-for-marking-of-goods-and-transport-packages) |
-| **trackingCodes_1162** | Array(Object)                                      | Codes for marking goods in tag format 1162. [More details here](../documents/#transactions-shipment-shipments-codes-for-marking-goods-and-transport-packages-in-tag-format-1162) |
-| **overhead** | Int                                                | Overheads. [More here](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
+| **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [Learn more](../documents/#transactions-shipment-shipments-codes-for-marking-of-goods-and-transport-packages) |
+| **trackingCodes_1162** | Array(Object)                                      | Codes for marking goods in tag format 1162. [Learn more](../documents/#transactions-shipment-shipments-codes-for-marking-goods-and-transport-packages-in-tag-format-1162) |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Shipment Items are set, then Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
@@ -113,7 +113,7 @@ Also, when working as part of a separate Shipment, you can send requests to upda
 with an array of Shipment items included in the request body. It is important to remember that the collection of items will be perceived as "all Shipment items" and will completely replace the existing collection when updating the object - superfluous
 items will be deleted, new ones added, existing ones changed.
 
-About working with Shipments fields can be read [here](../#kladana-json-api-general-info-additional-fields).
+[Learn more](../#kladana-json-api-general-info-additional-fields) about working with Shipment fields.
 
 #### Codes for marking of goods and transport packages
 
@@ -196,8 +196,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Shipments. |
 
 **Parameters**
@@ -542,8 +542,7 @@ Mandatory fields to create:
                  "mediaType": "application/json"
                }
              }
-           }
-'
+           }'
 ```
 
 > Response 200(application/json)
@@ -1147,10 +1146,13 @@ Successful request. The result is a JSON representation of the generated Shipmen
                         "id": "1bf22e62-8b47-11e8-56c0-000800000006"
                     },
                     "reserve": 30,
-                    "overhead": 20,
                     "cost": 47
                 }
-            ]
+            ],
+            "overhead": {
+              "sum": 60,
+              "distribution": "price"
+            }
         }'
 ```
 
@@ -1265,10 +1267,9 @@ Successful request. The result is a JSON representation of the generated Shipmen
 
 ### Bulk creating and update of Shipments
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Shipments.
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Shipments.
 
-In the body of the request, you need to pass an array containing the JSON representation of the Shipments you want to create or update.
-Updated Shipments must contain the identifier in the form of metadata.
+In the request body, pass an array containing the JSON representation of the Shipments you want to create or update. Updated Shipments must contain the identifier in the form of metadata.
 
 > Example of creating and updating multiple Shipments
 
@@ -1642,7 +1643,7 @@ curl -X POST
        ]'
 ```
 
-> Successful request. The result is JSON information about deleting Shipments.
+> Successful request. The result is JSON information about deleting of Shipments.
 
 ```json
 [
@@ -1655,18 +1656,18 @@ curl -X POST
 ]
 ```
 
-### Shipments Metadata
+### Shipment Metadata
 
-Request to get Shipments metadata. The result is a JSON object including:
+Request to get Shipment metadata. The result is a JSON object including:
 
 | Parameter | Description |
 | ---------- | --------- |
-| **meta** | Link to Metadata of Shipments |
+| **meta** | Link to Metadata of Shipment |
 | **attributes** | Array of objects additional Shipments fields in [Metadata](../#kladana-json-api-general-info-metadata) format |
 | **states** | Array of Shipments statuses |
 | **createShared** | create new Shipments labeled "General" |
 
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
+The structure of a separate object representing the additional field is described in detail in the following section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Shipment Metadata
 
@@ -2141,7 +2142,7 @@ Successful request. The result is a JSON representation of the prefilled shipmen
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/documents",
+       "href": "https://api.kladana.co/api/remap/1.2/entity/demand/06406b97-9138-11e6-8a84-bae500000000/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -3155,8 +3156,8 @@ Request to get a list of all items of this Shipment.
 
 | Title | Type | Description |
 | ------- | ------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Shipment items. |
 
 **Parameters**
@@ -3492,16 +3493,63 @@ Successful request. The result is a JSON representation of the item list of a si
 }
 ```
 
+### Shipment Items
+### Get item
+
+**Parameters**
+
+| Parameter | Description |
+| ------------ | ------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Shipment ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Shipment item ID. |
+ 
+> Request to receive a separate Shipment item with the specified ID.
+
+```shell
+curl -X GET
+   "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+   -H "Authorization: Basic <Credentials>"
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the Shipment item.
+
+```json
+{
+   "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
+     "type": "demandposition",
+     "mediaType": "application/json"
+   },
+   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+   "quantity": 20,
+   "sum": 200,
+   "discount": 0,
+   "vat": 21,
+   "vatEnabled": true,
+   "assortment": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+       "type": "product",
+       "mediaType": "application/json",
+       "uuidHref": "https://app.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+     }
+   }
+}
+```
 ### Create Shipment Item
 
 Request to create a new item in the Shipment.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification/set that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Shipment item](../documents/#transactions-shipment-shipments-shipment-items)
-+ **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
-You can create one or more Shipment items at the same time. All items created by this request
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
+You can also specify a field named **service** or **variant**, depending on what the indicated item is. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
++ **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
+You can create one or more Shipment items at the same time. All items created by the request
 will be added to the existing ones.
 
 **Parameters**
@@ -3876,55 +3924,6 @@ Successful request. The result is a JSON representation of the single Shipment i
 ]
 ```
 
-### Shipment Items
- 
-### Get item
-
-**Parameters**
-
-| Parameter | Description |
-| ------------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Shipment id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Shipment item id. |
- 
-> Request to receive a separate Shipment item with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the Shipment line item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
-     "type": "demandposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-   "quantity": 20,
-   "sum": 200,
-   "discount": 0,
-   "vat": 21,
-   "vatEnabled": true,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-     }
-   }
-}
-```
 
 ### Change item
 
@@ -4013,3 +4012,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of the Shipment item.
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description|
+| ------- | ------- |
+| **id**  | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Shipment ID.|
+
+> Request for bulk deletion of Shipment items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/demand/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "demandposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/demand/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "demandposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Shipment items were successfully deleted. 

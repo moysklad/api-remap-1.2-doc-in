@@ -3,7 +3,7 @@
 Using the JSON API, you can create and update information about Products, request lists of Products and information on individual Products.
   The entity code for a Product in the JSON API is the **product** keyword. Learn more about [Products](https://kladana.zendesk.com/hc/en-us/articles/4435291832465-Overview-of-Products-and-Services).
 
-This entity can be contextually searched using the special `search` parameter. More details can be found at [link](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among the objects of products to match the search string will be carried out in the following fields:
 
@@ -16,12 +16,12 @@ The search among the objects of products to match the search string will be carr
 | Title                   | Type                                               | Filtration | Description |
 |-------------------------|----------------------------------------------------| ----- | ------ |
 | **accountId**           | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
-| **drunk**               | Object                                             | | An object containing the fields of alcoholic products. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-an-object-containing-the-fields-of-alcoholic-products) |
+| **drunk**               | Object                                             | | An object containing the fields of alcoholic products. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-an-object-containing-the-fields-of-alcoholic-products) |
 | **archived**            | Boolean                                            | `=` `!=` | Has the Product been added to the archive<br>`+Required when replying` |
 | **article**             | String(255)                                        | `=` `!=` `~` `~=` `=~` | Article |
 | **attributes**          | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **barcodes**            | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Kit barcodes. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-barcodes) |
-| **buyPrice**            | Object                                             | | Purchase price. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-purchase-price) |
+| **barcodes**            | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Bundle barcodes. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-barcodes) |
+| **buyPrice**            | Object                                             | | Purchase price. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-purchase-price) |
 | **code**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product Code |
 | **country**             | [Meta](../#kladana-json-api-general-info-metadata) || Country Metadata<br>`+Expand` |
 | **description**         | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Product Description |
@@ -35,28 +35,28 @@ The search among the objects of products to match the search string will be carr
 | **images**              | MetaArray                                          | | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 10)<br>`+Expand` |
 | **isSerialTrackable**   | Boolean                                            | `=` `!=` | Accounting for serial numbers. This mark is not compatible with the features **weighed**, **alcoholic**, **ppeType**, **trackingType**, **onTap**. |
 | **meta**                | [Meta](../#kladana-json-api-general-info-metadata) | | Product Metadata<br>`+Required when replying` |
-| **minPrice**            | Object                                             | | Minimum price. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price) |
+| **minPrice**            | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price) |
 | **minimumBalance**      | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Minimum balance |
 | **name**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Item Name<br>`+Required when replying` `+Required when creating` |
 | **owner**               | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **packs**               | Array(Object)                                      | | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **packs**               | Array(Object)                                      | | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **partialDisposal**     | Boolean                                            | | Management of the state of partial disposal of marked products. "true" - the feature is enabled. |
 | **pathName**            | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Product belongs to<br>`+Required when replying` `+Read only` |
-| **paymentItemType**     | Enum                                               | | Sign of the subject of calculation. [More here](../dictionaries/#entities-product-products-entity-attributes-sign-of-the-subject-of-calculation) |
-| **ppeType**             | Enum                                               | | Nomenclature classification type code for medical personal protective equipment (EAN-13). [More here](../dictionaries/#entities-product-products-entity-attributes-code-for-the-type-of-nomenclature-classification-of-medical-personal-protective-equipment) |
+| **paymentItemType**     | Enum                                               | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-product-products-entity-attributes-sign-of-the-subject-of-calculation) |
+| **ppeType**             | Enum                                               | | Classification type code for medical personal protective equipment (EAN-13). [Learn more](../dictionaries/#entities-product-products-entity-attributes-classification-codes-for-types-of-products-and-services-of-medical-personal-protective-equipment) |
 | **productFolder**       | [Meta](../#kladana-json-api-general-info-metadata) | | Product group metadata<br>`+Expand` |
-| **salePrice**           | Array(Object)                                      | | Sale prices. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-sales-prices) |
+| **salePrice**           | Array(Object)                                      | | Sale prices. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-sales-prices) |
 | **shared**              | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **supplier**            | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Supplier counterparty metadata<br>`+Expand` |
 | **syncId**              | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
-| **taxSystem**           | Enum                                               | | Tax system code. [More here](../dictionaries/#entities-product-products-entity-attributes-tax-system-code) |
+| **taxSystem**           | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code) |
 | **things**              | Array(String)                                      | | Serial numbers |
 | **tnved**               | String(255)                                        | | TN VED code |
-| **trackingType**        | Enum                                               | | Type of labeled product. [More here](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products) |
+| **trackingType**        | Enum                                               | | Type of labeled product. [Learn more](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products) |
 | **uom*                  | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat**        | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
-| **variantsCount**       | Int                                                | | Number of modifications for this product<br>`+Required when replying` `+Read only` |
+| **variantsCount**       | Int                                                | | Number of variants for this product<br>`+Required when replying` `+Read only` |
 | **vat**                 | Int                                                | | VAT % |
 | **vatEnabled**          | Boolean                                            | | Is VAT included on the item. Using this flag, you can set VAT = 0 or VAT = "without VAT" for the product. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
 | **volume**              | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Volume |
@@ -69,25 +69,31 @@ by updating the **productFolder** attribute.
 ##### Type of labeled products
 The values of the trackingType field.
 
-| Values| Description |
-| ---------| ------- |
+| Value | Description |
+| -------- | ---------- |
+| **BEER_ALCOHOL** | Beer and low-alcohol beverages |
 | **ELECTRONICS** | Cameras and flash lamps |
-| **LP_CLOTHES** | Type of marking "Clothes" |
-| **LP_LINENS** | Type of marking "Bed linen" |
-| **MILC** | Dairy products |
-| **NCP** | Products containing nicotine |
-| **NOT_TRACKED** | Unmarked |
+| **FOOD_SUPPLEMENT** | Biologically active food supplements |
+| **LP_CLOTHES** | Label type "Clothing" |
+| **LP_LINENS** | Label type "Bed linen" |
+| **MEDICAL_DEVICES** | Medical devices and wheelchairs |
+| **MILK** | Dairy products |
+| **NCP** | Nicotine-containing products |
+| **NOT_TRACKED** | No label |
 | **OTP** | Alternative tobacco products |
-| **PERFUMERY** | Perfume and toilet water |
-| **SHOES** | Type of marking "Shoes" |
+| **PERFUMERY** | Perfumes and eau de toilette |
+| **SANITIZER** | Antiseptics |
+| **SHOES** | Label type "Shoes" |
+| **SOFT_DRINKS** | Soft drinks |
 | **TIRES** | Tires and tires |
-| **TOBACCO** | Type of marking "Tobacco" |
+| **TOBACCO** | Label type "Tobacco" |
 | **WATER** | Packaged water |
 
 ##### Sign of the subject of calculation
+
 Values of the paymentItemType field.
 
-| Values| Description |
+| Values | Description |
 | ------------------------------ | --------------------- |
 | **GOOD** | Product |
 | **EXCISABLE_GOOD** | Excisable products |
@@ -107,8 +113,9 @@ The values of the taxSystem field.
 | **TAX_SYSTEM_SAME_AS_GROUP** | Same as group |
 | **UNIFIED_AGRICULTURAL_TAX** | ESHN |
 
-##### Code for the type of nomenclature classification of medical personal protective equipment
-ppeType field values.
+##### Classification codes for types of products and services of medical personal protective equipment
+
+Values of the ppeType field.
 
 | Values| Description |
 | ------| ------- |
@@ -181,14 +188,14 @@ For product packaging, you cannot specify a reference to a unit of measure that 
 When updating packaging barcodes as part of a product update, the transferred collection of packaging barcodes completely replaces the existing one
 collection.
 
-To update the list of product packages, it is necessary to transfer a new collection of packages as part of the product update. New collection of product packaging
-  will completely replace the old collection.
+To update the list of product packages, it is necessary to transfer a new collection of packages as part of the product update. New collection of product packaging will completely replace the old collection.
 
 ##### Product Metadata
+
 Product Metadata contains information about additional fields.
 
-View all addons created in the main interface. Products fields,
-as well as all types of prices, you can use the request to obtain the metadata of the Products.
+You can view all additional Product fields created in the main interface using a request to obtain Product metadata.
+
 The response is an object, with the following structure:
 
 | Title | Type          | Description |
@@ -202,8 +209,8 @@ Structures of objects of individual collections:
 ##### Barcodes:
 When creating a barcode, you need to describe an object with a field that is a lowercase barcode representation format with the string value of the barcode itself. The names of the fields of a separate object representing a barcode:
 
-| Title       | Description                                                                                            |
-|-------------|--------------------------------------------------------------------------------------------------------|
+| Title       | Description  |
+| ----------- | ------------ |
 | **ean13**   | barcode in EAN13 format if you want to generate an EAN13 barcode                                       |
 | **ean8**    | barcode in EAN8 format if you want to generate an EAN8 barcode                                         |
 | **code128** | barcode in Code128 format, if you want to generate a barcode in Code128 format                         |
@@ -234,7 +241,7 @@ About working with Product fields can be read [here](../#kladana-json-api-genera
 | **strength** | Float   | Fortress |
 | **volume** | Float   | Container volume |
 
-This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, **trackingType** traits.
+This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, **trackingType** features unless it is marked as BEER_ALCOHOL or NOT_TRACKED.
 
 ##### Supplier of the products:
 
@@ -242,7 +249,7 @@ This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, 
 | ---------| ------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the vendor group.<br>`+Required when replying` |
 
-Supplier type - Contractor. You can see the description of the Counterparty entity [here](../dictionaries/#entities-counterparty)
+Supplier type - Counterparty. You can see the description of the Counterparty entity [here](../dictionaries/#entities-counterparty)
 
 ##### Sales prices
 
@@ -331,8 +338,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------| ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Products. |
 
 **Parameters**
@@ -1943,7 +1950,7 @@ Request for obtaining metadata of Products, Bundles and Services. The result is 
 | ---------| ------- |
 | **meta** | Metadata |
 | **attributes** | Array metadata fields of Products |
-| **createShared** | create new kits labeled "General" |
+| **createShared** | Create new bundles with the "General" lable|
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
@@ -1985,7 +1992,7 @@ Successful request. The result is a JSON representation of the additional Produc
 
 | Parameter | Description |
 | ---------| ------- |
-| **id** | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - id Extra. fields |
+| **id** | `7944ef04-f831-11e5-7a69-971500188b19` (required, string) - Extra fields ID |
 
 #### Separate additional field
 > Request for information on a separate additional field.
@@ -2008,7 +2015,7 @@ Successful request. The result is a JSON representation of a separate additional
      "mediaType": "application/json"
    },
    "customEntityMeta": {
-     "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/a27aa372-5311-11e6-8a84-bae500000001",
+     "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/a27aa372-5311-11e6-8a84-bae500000001/metadata",
      "type": "customentitymetadata",
      "mediaType": "application/json"
    },
@@ -2020,7 +2027,7 @@ Successful request. The result is a JSON representation of a separate additional
 ```
 
 ### Product
-A product that is accessed by its id value.
+A product that is accessed by its ID value.
 
 ### Get Item
 

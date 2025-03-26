@@ -14,17 +14,16 @@ and the new Files will be added to the Files list.
 If files contains an empty array of elements in the update request, then all Files from the Operation, Item, Task or Account will be deleted, because
 the server will assume that the user wants to update the list of Operation Files, Items, Tasks, or Accounts.
 
-The limit of Files saved with an object is 10, if you need to upload more Files for one object, you need to use the method described
-in the section [Working with Files of an Operation, Nomenclature, Task or Counterparty using special resources](../dictionaries/#entities-files-working-with-operation-nomenclature-task-or-account-files-using-special-resources).
+The limit of files saved with an object is 10. If you need to upload more files for one object, you need to use the method described in the section [Working with Files of Operations, Products, Services, Tasks and Counterparties using special resources](../dictionaries/#entities-files-working-with-files-of-operations-products-services-tasks-and-counterparties-using-special-resources).
 
 
-### Working with Operation, Nomenclature, Task or Account Files using special resources
-Using the JSON API, you can create and update information on Files for all types of operations, nomenclature and counterparties, request lists of Files,
-as well as information on individual Files.
+### Working with Files of Operations, Products, Services, Tasks and Counterparties using special resources
 
-Operations, nomenclature and counterparties may contain many identical Files. Files are considered the same if when adding Files
-they had the same `filename` and `content`. Identical Files have the same `id` parameter value.
-An object can have no more than 100 Files.
+Using the JSON API, you can create and update information on files for all types of operations, products, product variants, services, bundles, and counterparties, request lists of files, as well as information on individual files.
+
+Operations, products, product variants, services, bundles, and counterparties may contain many identical files. Files are considered the same if when adding files
+they had the same `filename` and `content`. Identical files have the same `id` parameter value.
+An object can have no more than 100 files.
 
 #### Entity attributes
 
@@ -39,21 +38,23 @@ An object can have no more than 100 Files.
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata (field is passed only for Image files) |
 | **title** | String(255)                                        | File Name<br>`+Required when replying` |
 
-### Get a list of Operation Files, Nomenclature, Task or Account
-Request to receive all Operation, Item, Task or Account Files for this account.
+### Get a list of Operation Files, Products, Servicies, Taska and Accountd
+
+Request to retrieve all operations, products, product variants, services, items, tasks, or files associated with the account.
+
 Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------| -----| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing [Files](../dictionaries/#entities-files). |
 
 **Parameters**
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Files. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Files. |
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 | **type** | `string` (required) *Example: product* the type of the entity for which Files are requested. |
@@ -118,7 +119,7 @@ Successful request. The result is a JSON representation of a list of files.
                  "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
              },
              "tiny": {
-                 "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+                 "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
                  "type": "files",
                  "mediaType": "image/png"
              }
@@ -166,7 +167,7 @@ A maximum of 10 Files can be added in one request.
 
 | Parameter | Description |
 | ---------| ---------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id with Files. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Files. |
 
 > Example of adding Files to a Product
   
@@ -220,7 +221,7 @@ Successful request. The result is an array of all Product Files.
            "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
        },
        "tiny": {
-           "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+           "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
            "type": "files",
            "mediaType": "image/png"
        }
@@ -257,8 +258,8 @@ When a File is deleted, the first File found with the given ID is deleted from t
 
 | Parameter | Description |
 | -------- |----------|
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id of the Item with the File. |
-| **idFile** | `string` (required) *Example: 19f1edc0-fc42-4001-94cb-c9ec9c62ec10* File id. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* File item ID. |
+| **idFile** | `string` (required) *Example: 19f1edc0-fc42-4001-94cb-c9ec9c62ec10* File ID. |
 
 > Request to delete a File from a Product.
 

@@ -26,19 +26,19 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Invoice name<br>`+Required when replying` `+Change-handler` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity Sales Invoice metadata<br>`+Expand` `+Change-handler` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float                                              | | Amount of incoming payments on the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **paymentPlannedMoment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
 | **positions** | MetaArray                                          | | Sales Invoice Metadata<br>`+Required for response` `+Expand` `+Change-handler` |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             || Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **rate** | Object                                             || Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shippedSum** | Float                                              | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Invoice status metadata<br>`+Expand` `+Change-handler` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse metadata<br>`+Expand` `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` `+Change-handler` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -61,12 +61,12 @@ Invoice Items is a list of products, product variants, bundles, and services. Th
 | Title | Type                                               | Description |
 | ---------- |----------------------------------------------------|-------- |
 | **accountId** | UUID                                               | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
 | **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
+| **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
+| **quantity** |  Float    | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |
 
@@ -92,8 +92,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ---------- | --------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Sales Invoices. |
 
 **Parameters**
@@ -1570,7 +1570,7 @@ Successful request. The result is a JSON representation of the additional fields
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Fields ID |
  
 #### Separate additional field
  
@@ -1847,7 +1847,7 @@ Successful request. The result is a JSON representation of the prefilled Sales i
    },
    "documents": {
      "meta": {
-       "href": "https://online.moysklad.ru/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/documents",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/726e5b8c-0886-11e6-9464-e4de0000002a/documents",
        "mediaType": "application/json",
        "size": 0,
        "limit": 100,
@@ -2509,9 +2509,9 @@ Request for a list of all items of the Sales Invoice.
 
 | Title | Type | Description |
 | ---------- | --------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the items in the Sales Invoice. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Sales Invoice items. |
 
 **Parameters**
 
@@ -2583,12 +2583,64 @@ Successful request. The result is a JSON representation of the list of items of 
 }
 ```
 
-### Add Item to Sales Invoice
+### Sales Invoice Item
+
+Sales Invoice line item with the specified item ID.
+
+### Get Item
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | --------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice ID. |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Invoice item ID. |
+
+> Request to get the Sales Invoice line item with the specified ID.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of a single Sales Invoice item.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata",
+    "type": "invoiceposition",
+    "mediaType": "application/json"
+  },
+  "id": "34f6344f-015e-11e6-9464-e4de0000006c",
+  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+  "quantity": 12,
+  "price": 999.0,
+  "discount": 1,
+  "vat": 0,
+  "vatEnabled": false,
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+      "type": "variant",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
+    }
+  }
+}
+```
+
+### Create Item
 
 Request to create a new item in the Sales Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
 what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -2655,59 +2707,7 @@ Successful request. The result is a JSON representation of the created item of a
 ]
 ```
 
-### Sales Invoice Item
-
-Request an item of Sales Invoice with the specified item id.
-  
-### Get Sales Invoice Item
-
-**Parameters**
-
-| Parameter | Description |
-| ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
- 
-> Request to receive a separate item of the Sales Invoice with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the line item of the Sales Invoice.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c",
-     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata",
-     "type": "invoiceposition",
-     "mediaType": "application/json"
-   },
-   "id": "34f6344f-015e-11e6-9464-e4de0000006c",
-   "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
-   "quantity": 12,
-   "price": 999.0,
-   "discount": 1,
-   "vat": 0,
-   "vatEnabled": false,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-       "type": "variant",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#feature/edit?id=e64d0a86-2a99-11e9-ac12-000c00000041"
-     }
-   }
-}
-```
-        
-### Change Sales Invoice Item
+### Change Item
 
 Request to update a line item in an Invoice. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
 
@@ -2715,8 +2715,8 @@ Request to update a line item in an Invoice. There is no way to update the item 
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Invoice item ID |
  
 > An example of a request to update a line item in a Sales Invoice.
 
@@ -2770,8 +2770,8 @@ Successful request. The result is a JSON representation of the updated Sales Inv
 
 | Parameter | Description |
 | ---------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice id. |
-| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* item id of the Sales Invoice. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Sales Invoice ID |
+| **positionID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Sales Invoice item ID |
  
 > Request to delete a separate item of the Sales Invoice with the specified id.
 
@@ -2784,3 +2784,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of an Sales Invoice item.
+
+### Bulk deletion of Items
+
+**Parameters**
+
+| Parameter | Description |
+| ------------ | ------------ |
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Sales Invoice ID. |
+
+> Request to bulk delete Sales Invoice items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "invoiceposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/invoiceout/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "invoiceposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Sales Invoice items  were successfully deleted.

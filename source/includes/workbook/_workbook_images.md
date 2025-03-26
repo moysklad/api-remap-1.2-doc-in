@@ -5,7 +5,7 @@ Sometimes you need to add or change multiple images for a product. This can be d
 - update the list of images as part of a product update;
 - use endpoints to work with images.
  
-To add an image, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing image, you can specify it in `meta`.
+To add an image, you need to set the `filename` and `content` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing image, you can specify it in `meta`.
  
 For example, you need to create a Product with multiple images. It can be done in the following way:
  
@@ -197,7 +197,7 @@ curl -X GET
             "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
           },
           "tiny": {
-            "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+            "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
             "type": "image",
             "mediaType": "image/png"
           }
@@ -220,7 +220,7 @@ curl -X GET
             "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
           },
           "tiny": {
-            "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+            "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
             "type": "image",
             "mediaType": "image/png"
           }
@@ -318,7 +318,7 @@ To do this, you can use the endpoint for working with product images.
       "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
     },
     "tiny": {
-      "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+      "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
       "type": "image",
       "mediaType": "image/png"
     }
@@ -341,7 +341,7 @@ To do this, you can use the endpoint for working with product images.
       "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
     },
     "tiny": {
-      "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
+      "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/c960c879-8128-4511-addf-b933f37dc0d4/t.png",
       "type": "image",
       "mediaType": "image/png"
     }

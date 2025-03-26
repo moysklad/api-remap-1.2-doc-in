@@ -9,12 +9,12 @@ Using the JSON API, you can create and update information about Bonus Operations
 |-----------------------|----------- |-------------| ------------- |
 | **accountId**         | UUID |`=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **applicable**        | Boolean |`=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable**        | Boolean |`=` `!=` | Check mark<br>`+Required when replying` |
 | **bonusProgram**      | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Bonus program metadata<br>`+Expand` |
 | **bonusValue**        | Int |`=` `!=` `<` `>` `<=` `>=` | Number of bonus points |
 | **categoryType**      | Enum | | Bonus operation category. Possible values: `REGULAR`, `WELCOME`<br>`+Read Only` |
 | **code**              | String(255) |`=` `!=` `~` `~=` `=~` | Bonus Transaction Code |
-| **created**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when answering` |
+| **created**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when replying` |
 | **executionDate**     | DateTime | | Date of the bonus operation. |
 | **externalCode**      | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when replying` |
 | **group**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
@@ -28,7 +28,7 @@ Using the JSON API, you can create and update information about Bonus Operations
 | **shared**            | Boolean |`=` `!=` | Sharing<br>`+Required when replying` |
 | **transactionStatus** | Enum | | Status of the bonus operation. Possible values: `WAIT_PROCESSING`, `COMPLETED`, `CANCELED`<br>`+Read Only` |
 | **transactionType**   | Enum | | Type of bonus operation. Possible values: `EARNING`, `SPENDING`<br>`+Required when replying` `+Required when creating` |
-| **updated**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Bonus operation<br>`+Required when answering` |
+| **updated**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Bonus operation<br>`+Required when replying` |
 | **updatedBy**         | UID |`=` `!=` | The author of the last update of the bonus operation in the format `uid` (`admin@admin`) (The attribute is used only for filtering) |
 
 ##### The "executionDate" attribute
@@ -45,8 +45,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | ------------- | -------------------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Bonus Operations. |
 
 **Parameters**
@@ -276,7 +276,7 @@ Mandatory fields to create:
 | Title               | Type | Description |
 |---------------------| --------------------- | --------------------- |
 | **agent**           | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **bonusProgram**   | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when answering` `+Expand` `+Required when creating` |
+| **bonusProgram**   | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **transactionType** | Enum | Type of bonus operation<br>`+Required when replying` `+Required when creating` |
 
 > An example of a request to create a new bonus operation.
@@ -668,7 +668,7 @@ Successful removal of the Bonus operation.
 
 ### Bulk deletion of Bonus Operations
 
-In the body of the request, you need to pass an array containing the JSON metadata of the Bonus Operations that you want to remove.
+In the body of the request, pass an array containing the JSON metadata of the Bonus Operations that you want to remove.
 
 
 > Request for bulk deletion of Bonus Transactions.
@@ -699,7 +699,7 @@ curl -X POST
       ]'
 ```        
 
-> Successful request. Result - JSON information about deleting Bonus transactions.
+> Successful request. The result is JSON information about deleting Bonus transactions.
 
 ```json
 [

@@ -16,6 +16,7 @@ includes:
   - reports/report_counterparty
   - reports/report_sales_orders
   - reports/report_turnover
+  - reports/report_by_operations
   - reports/report_stock_by_operation
   
 search: true

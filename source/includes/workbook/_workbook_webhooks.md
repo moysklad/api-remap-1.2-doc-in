@@ -1,4 +1,3 @@
-# Workbook
 ## Webhooks
 
 The webhook mechanism in Kladana is a powerful and easy-to-use tool for tracking changes in your account. Use webhooks to control the interaction of Kladana and your system in real time, so that you can get rid of periodic change requests.
@@ -204,6 +203,8 @@ There are a number of important things to keep in mind when working with webhook
 * webhooks are only available on a paid plan
 * working with webhooks is available only to the account administrator
 * work with webhooks is possible only through JSON API
+
+The conditions for automatic disabling of webhooks are described in [Limitations](../#kladana-json-api-limitations).
 
 #### Sending webhooks to the client application
 

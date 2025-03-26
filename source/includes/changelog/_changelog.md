@@ -6,14 +6,68 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-
-### 11-09-2024
+### 26-03-2025
 #### Added
 - Field `currency` added in [Legal entity accounts](../dictionaries/#entities-entity-legal-entity)
 
+### 10-03-2025
+#### Added
+- Bundles are supported in the following transactions containing the Commission Agency Contract:
+  - Shipment
+  - Sales Order
+  - Sales Return
+  - Consignee Statement Received
+
+#### Changed
+- Description of `32001` [error code](../#kladana-json-api-errors-error-codes-for-contracts)
+
+#### Removed
+- `18002` [error code](../#kladana-json-api-errors-error-codes-for-sales-and-shipments)
+
+### 10-02-2025
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+#### Added
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+
+### 02-12-2024
+#### Added
+- Renamed "User Directory" to "[Custom list](../dictionaries/#entities-custom-list)" to align with the web interface.
+- Added metadata output for additional fields in Custom list metadata.
+- Added an `ID` field to the metadata of a Custom list.
+- Added output of additional fields in Custom list elements.
+
+### 19-11-2024
+#### Added
+- Field `salesMargin` added in [Profit Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-profit-report)
+
+### 29-10-2024
+#### Added
+- Error [71000](../#kladana-json-api-errors-error-codes-for-series)
+
 ### 22-07-2024
 #### Added
-- The ability to specify multiple warehouses in the [turnover report](../reports/#reports-stock-movement-report)
+- The ability to specify multiple warehouses in the [Stock Movement Report](../reports/#reports-stock-movement-report)
+
+### 16-07-2024
+#### Added
+- Added description of getting a link to [image](../dictionaries/#entities-image-get-a-link-to-the-image-of-product-product-variant-bundle)
+
+### 12-07-2024
+#### Added
+- New [Report on product range documents](../reports/#reports-report-on-product-range-documents)
+
+### 01-07-2024
+#### Changed
+- Added viewProductCostAndProfit permission to the list of [employee request context] permissions (../#mojsklad-json-api-obschie-swedeniq-kontext-zaprosa-sotrudnika)
+
+### 26-06-2024
+#### Added
+- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations).
+- Condition for automatically disabling a webhook in [Limitations](../#kladana-json-api-limitations).
 
 ### 24-06-2024
 #### Added

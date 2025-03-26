@@ -5,8 +5,8 @@ without resorting to paging if real-time work is not critical.
 
 Asynchronous exchange is not supported for all requests. List of requests that can be executed asynchronously:
 
-+ [Report Balance](reports/#reports-balance-report)
-+ [Report Profitability](reports/#reports-profitability-report)
++ [Stock Report](reports/#reports-stock-report)
++ [Profit Report](reports/#reports-profit-report)
 + [Report Money](reports/#reports-money-report)
 + [Sales and Orders Report](reports/#reports-sales-and-orders-indicators)
 + [Report Counterparties indicators](reports/#reports-report-indicators-of-counterparties) (except [selected indicators](reports/#reports-report-indicators-of-counterparties-selected-indicators-of-counterparties))
@@ -16,7 +16,7 @@ Asynchronous exchange is not supported for all requests. List of requests that c
 
 After executing a query in asynchronous mode, the result is available within 1 hour.
 
-There are [limits](#kladana-json-api-general-info-restrictions) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
+There are [limits](#kladana-json-api-limitations) on the number of tasks in the queue and the number of simultaneously executing asynchronous tasks.
 
 At the moment, in the process of asynchronous query execution, duplicates of item collection may occur,
 if new elements are added in parallel with the preparation of the result.
@@ -71,10 +71,10 @@ An asynchronous task contains information about the creator of the task, its cur
 | **errors** | Object | json api error if **state** field is set to `API_ERROR`<br>`+Read Only` |
 | **id** | UUID | Asynchronous Task ID<br>`+Required for response` `+Read Only` |
 | **meta** | [Meta](#kladana-json-api-general-info-metadata) | Asynchronous Task Metadata<br>`+Required for response` |
-| **owner** | [Meta](#kladana-json-api-general-info-metadata) | The user or application that created the Asynchronous Task<br>`+Required on Response` `+Read Only` |
+| **owner** | [Meta](#kladana-json-api-general-info-metadata) | The user or application that created the Asynchronous Task<br>`+Read Only` |
 | **request** | String | The URL of the request that created the Asynchronous Task<br>`+Required for response` `+Read Only` |
 | **resultUrl** | String | Link to the task result. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
-| **state** | Enum | The execution status of the Asynchronous Task. [More details here](#kladana-json-api-asynchronous-exchange-asynchronous-task-entity-attributes-asynchronous-task-execution-status)<br>`+Required when replying` `+Read only` |
+| **state** | Enum | The execution status of the Asynchronous Task. [Learn more](#kladana-json-api-asynchronous-exchange-asynchronous-task-entity-attributes-asynchronous-task-execution-status)<br>`+Required when replying` `+Read only` |
 
 ##### Asynchronous task execution status
 
@@ -231,7 +231,7 @@ Successful request. The result is a JSON representation of the execution status 
   "request": "https://api.kladana.com/api/remap/1.2/report/sales/plotseries?momentFrom=2018-09-06&interval=hour&async=true",
   "errors": [
       {
-          "error": "Ошибка: не указан обязательный параметр для запроса показателей: momentTo.",
+          "error": "Error: A required parameter for the metrics request was not specified: momentTo.",
           "code": 39000
       }
   ]

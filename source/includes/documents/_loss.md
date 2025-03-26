@@ -5,8 +5,8 @@ Using the JSON API, you can create and update information about Write-offs, requ
 ### Write-off
 #### Entity attributes
 
-| Title | Type                                               | Filtration| Description |
-| --------- |----------------------------------------------------| --------- | --------- |
+| Title | Type    | Filtration| Description |
+| --------- | ----------- | --------- | --------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **applicable** | Boolean                                            | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` |
@@ -22,16 +22,16 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | string(255)                                        | `=` `!=` `~` `~=` `=~` | Write-off Name<br>`+Required when replying` `+Change-handler` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Write-off item metadata<br>`+Required for response` `+Expand` `+Change-handler` |
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             | | Currency. [More details here](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in rupees<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`| Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
@@ -40,35 +40,27 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | Title | Description |
 | ------- | -------- |
 | **salesReturn** | Link to the related of Sales Return in [Metadata](../#kladana-json-api-general-info-metadata) format|
+| **inventory**   | Link to the Inventory Count related to the Write-off in [Metadata](../#kladana-json-api-general-info-metadata) format |
 
 #### Write-off Items
-Write-off items is a list of goods/modifications/series.
-The Write-off item object contains the following fields:
+
+Write-off items is a list of products/product variants/batches. The Write-off item object contains the following fields:
 
 | Title | Type                                               | Description|
 | ------------|----------------------------------------------------| --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **pack** | Object                                             | Product packaging. [Read more here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in rupees<br>`+Required when answering` `+Change-handler` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` `+Change-handler` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
+| **price** | Float                                              | Price of products/services in paise<br>`+Required when replying` `+Change-handler` |
+| **quantity** |  Float    | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **reason** | String(255)                                        | Reason for decommissioning this item |
-| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Cell in the warehouse. [More here](../dictionaries/#entities-warehouse-storage-bins)<br>`+Expand` |
+| **slot** | [Meta](../#kladana-json-api-general-info-metadata) | Bin in the warehouse. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Expand` |
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value.<br>`+Change-handler` |
 
-You can work with items using [special resources for managing Write-off items](../documents/#transactions-write-off-write-off-write-off-items),
-and also as part of a separate Write-off. When working as part of a separate Write-off,
-you can send requests to create a separate Write-off included in the request body
-an array of write-off items. If the number of items exceeds the maximum allowed, then for
-further replenishment of items, you will need to work with a special resource "Write-off items".
+You can manage Write-off items using [special resources](../documents/#transactions-write-off-write-off-write-off-items) or within individual Write-offs. When working within a specific Write-off, you can send requests to create a Write-off with an array of items included in the request. If the number of items exceeds the maximum limit, you will need to use the 'Write-off Items' resource to add more items. You can also update the list of items within a Write-off by sending a request with an array of items. Note that the collection of items will replace the existing list, meaning extra items will be removed, new ones added, and existing ones updated.
 
-Also, when working as part of a separate Write-off, you can send requests to update the list of items
-with an array of Write-Off items included in the request body. It is important to remember that the collection of items will
-be perceived as "All Write-off items" and will completely replace the existing collection when updating the object. Superfluous
-items will be deleted, new ones added, existing ones changed.
-
-About working with Write-off fields can be read [here](../#kladana-json-api-general-info-additional-fields)
+[Learn more](../#kladana-json-api-general-info-additional-fields) about working with additional fields for Write-offs.
 
 
 ### Get Write-offs
@@ -78,8 +70,8 @@ Result: JSON object including fields:
 
 |Title | Type | Description |
 | ------- | -------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing the Write-offs. |
 
 **Parameters**
@@ -846,7 +838,7 @@ Successful request. The result is a JSON representation of the Write-offs metada
 
 | Parameter | Description |
 | ------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -1475,17 +1467,17 @@ Successful request. The result is a JSON representation of the updated Write-off
 
 ### Write-off Items
 
-A separate resource for managing Write-Off items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. Learn more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
+A separate resource for managing Write-Off items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. [Learn more](../#kladana-json-api-general-info-working-with-transaction-items) about document line limits and how to work with large documents. 
 
 ### Get Write-off items
 
-Request to receive a list of all items of this Write-off.
+Request to receive a list of all items of the Write-off.
 
 | Title | Type | Description |
 | ------- | --------- |------ |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the items of the Debit. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Write-off items. |
 
 **Parameters**
 
@@ -1495,7 +1487,7 @@ Request to receive a list of all items of this Write-off.
 | **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
-> Get Write-Off Items
+> Get Write-off Items
 
 ```shell
 curl -X GET
@@ -1592,14 +1584,59 @@ Successful request. The result is a JSON representation of the list of items of 
 }
 ```
 
-### Create a Write-off item
+### Write-off Item
+### Get Item
+
+**Parameters**
+
+| Parameter | Description |
+| ----------- | ----------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off ID. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Write-off item ID. |
+
+> Request to get a single Write-off item with the specified ID.
+
+```shell
+curl -X GET
+  "https://app.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of a single Write-off item.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+    "type": "lossposition",
+    "mediaType": "application/json"
+  },
+  "id": "7944ef04-f831-11e5-7a69-971500188b20",
+  "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+  "quantity": 2,
+  "price": 20000.0,
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
+      "metadataHref": "https://app.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type": "product",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
+    }
+  }
+}
+```
+
+### Create Item
 
 Request to create a new item in the Write-off.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/series/modification that the item represents.
++ **assortment** - Link to the product/service/batch/product variant that the item represents.
 You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Debit item](../documents/#transactions-write-off-write-off-write-off-items)
+what the indicated item is. You can read more about this field in the description of the [Write-off item](../documents/#transactions-write-off-write-off-write-off-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more write-off items at the same time. All items created by this request
 will be added to the existing ones.
@@ -1610,7 +1647,7 @@ will be added to the existing ones.
 | ------- | --------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
 
-> An example of creating items in a write-off.
+> An example of creating items in a Write-off.
 
 ```shell
    curl -X POST
@@ -1708,53 +1745,7 @@ Successful request. The result is a JSON representation of the created item of a
 ]
 ```
 
-### Write-off Item
- 
-### Get Write-off Item
-
-**Parameters**
-
-| Parameter | Description |
-| ------- | --------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Write-off id. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item id. |
- 
-> Request to receive a separate Write-off item with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a separate Write-off item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "lossposition",
-     "mediaType": "application/json"
-   },
-   "id": "7944ef04-f831-11e5-7a69-971500188b20",
-   "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
-   "quantity": 2,
-   "price": 20000.0,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/20485cfd-2e62-11e6-8a84-bae500000112",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002"
-     }
-   }
-}
-```
-
-### Change item
+### Change Item
 
 Request to update a separate line item of the Write-off. There is no way to update the item required fields in the body of the request. Only the ones you want to update.
 
@@ -1827,3 +1818,42 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of a Write-off item.
+
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| ----------- | ------------|
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Write-off ID. |
+
+> Request for bulk deletion of Write-off Items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/remap/1.2/entity/loss/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/loss/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "lossposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/loss/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "lossposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Write-off items were successfully deleted.
+

@@ -21,31 +21,38 @@ Using the JSON API, you can create and update Inventory Count information, query
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of returned Inventory Count<br>`+Required for response` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray | | Inventory Count Items Metadata<br>`+Required for response` `+Expand` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Inventory Count Status Metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in rupees<br>`+Required when replying` `+Read only` |
+| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Inventory Count Total in paise<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last update time of Inventory Count<br>`+Required when replying` `+Read Only` |
+
+#### Links to other transactions
+
+| Title | Description |
+| ----- | ----------- |
+| **enters** | Link to Inventory Count related receipt in [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **losses** | Link to Inventory Count related Write-off in [Metadata](../#kladana-json-api-general-info-metadata) format |
 
 #### Inventory Count Items
 Inventory Count Items is the liast of products and product variants. Inventory Count item object contains the following fields:
 
-| Title | Type                                               | Description |
-| ----------- |----------------------------------------------------|--------- |
-| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/series/modification, which is a item<br>`+Required when answering` `+Expand` |
-| **calculatedQuantity** | Float                                              | estimated balance<br>`+Required when answering` |
-| **correctionAmount** | Float                                              | difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
-| **correctionSum** | Float                                              | excess/shortage<br>`+Required when replying` `+Read only` |
+| Title | Type    | Description |
+| ----- | ------- | ----------- |
+| **accountId** | UUID   | Account ID<br>`+Required when replying` `+Read Only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when answering` `+Expand` |
+| **calculatedQuantity** | Float                                              | Estimated balance<br>`+Required when answering` |
+| **correctionAmount** | Float                                              | Difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
+| **correctionSum** | Float                                              | Excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
-| **pack** | Object                                             | Product packaging. [More here](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float                                              | The price of the product/service in rupees<br>`+Required when answering` |
-| **quantity** | Int                                                | The number of goods/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document.<br>`+Required when replying` |
+| **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
+| **quantity** | Float                                                | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 
 You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-inventory-count-inventory-count-items),
 and also as part of a separate Inventory Count. When working as part of a separate Inventory Count,
@@ -66,8 +73,8 @@ Result: JSON object including fields:
 
 | Title | Type | Description |
 | ----------- | -------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing Inventory Counts. |
 
 **Parameters**
@@ -679,7 +686,7 @@ Successful request. The result is a JSON representation of the Inventory Count m
 
 | Parameter | Description |
 | ----------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* id fields. |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Field ID. |
  
 > Request for information on a separate additional field.
 
@@ -1129,15 +1136,15 @@ Successful request. The result is a JSON representation of the updated Inventory
 
 A separate resource for managing Inventory Count items. With it, you can manage the items of a larger document that has more lines than the limit on the number of lines saved with the document. This limit is 1000. You can read more about limits on the number of document lines and working with large documents [here](../#kladana-json-api-general-info-working-with-transaction-items).
 
-### Get Inventory Count Items
+### Get Items
 
 A request to get a list of all items in a given Inventory Count.
 
 | Title | Type | Description |
 | ----------- | -------- |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata, |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing Inventory Count items. |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
+| **rows** | Array(Object) | An array of JSON objects representing the Inventory Count items. |
 
 **Parameters**
 
@@ -1153,6 +1160,7 @@ A request to get a list of all items in a given Inventory Count.
 curl -X GET
    "https://api.kladana.com/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions"
    -H "Authorization: Basic < Credentials>"
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -1228,13 +1236,60 @@ Successful request. The result is a JSON representation of a list of items in a 
    ]
 }
 ```
+### Inventory Count Item
+### Get Item
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ----------- |
+| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Inventory ID. |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item ID. |
+
+> Request to get a single Inventory Count item with the specified ID.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of a single Inventory Count item.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
+    "type": "inventoryposition",
+    "mediaType": "application/json"
+  },
+  "id": "7944ef04-f831-11e5-7a69-971500188b20",
+  "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
+  "quantity": 140,
+  "price": 5000.0,
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type": "product",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
+    }
+  },
+  "correctionAmount": -60,
+  "calculatedQuantity": 200,
+  "correctionSum": -300000
+}
+```
 
 ### Create Inventory Count Item
 
 Request to create a new item in Inventory Count.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/series/modification that the item represents.
++ **assortment** - Link to the product/batch/product variant that the item represents.
 You can also specify a field named **variant** according to
 what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-inventory-count-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
@@ -1305,55 +1360,6 @@ Successful request. The result is a JSON representation of the created item of a
      "correctionSum": -120000
    }
 ]
-```
-
-### Inventory Count Item
-
-### Get Item
-
-**Parameters**
-
-| Parameter | Description |
-| ----------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Inventory Count id. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b20* Item id. |
- 
-> Request for a separate Inventory Count item with the specified id.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a single Inventory Count item.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/inventory/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20",
-     "type": "inventoryposition",
-     "mediaType": "application/json"
-   },
-   "id": "7944ef04-f831-11e5-7a69-971500188b20",
-   "accountId": "c3cc7e30-99bb-11e6-8a84-bc5200000001",
-   "quantity": 140,
-   "price": 5000.0,
-   "assortment": {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/product/b6be720e-ad63-11e6-8a84-bc520000008f",
-       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-       "type": "product",
-       "mediaType": "application/json",
-       "uuidHref": "https://app.kladana.com/app/#good/edit?id=3b1e1f15-2842-11e9-ac12-000c0000002f"
-     }
-   },
-   "correctionAmount": -60,
-   "calculatedQuantity": 200,
-   "correctionSum": -300000
-}
 ```
 
 ### Change Item
@@ -1445,3 +1451,40 @@ curl -X DELETE
 
 > Response 200(application/json)
 Successful deletion of Inventory Count item.
+
+### Bulk deletion of items
+
+**Parameters**
+
+| Parameter | Description |
+| --------- | ------------ |
+| **id** | `string` (required) *Example: 3e1c03bb-684f-11ee-ac12-000c000000b0* Inventory Count ID. |
+
+> Request for bulk deletion of Inventory Count items.
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/inventory/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/inventory/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "inventoryposition",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/inventory/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "inventoryposition",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successfully deleted of Inventory Count items.

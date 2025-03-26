@@ -1,14 +1,14 @@
-## Working with Files in Documents, Nomenclature and Accounts
+## Working with Files in Transactions, Products, Servicies, Bundles, Tasks and Counterparties
 
-For an extended description and addition of entities with information, in Kladana it is possible to work with
-[Files](../dictionaries/#entities-files) to
-[Documents](../documents/#transactions),
-Nomenclature ([Products](../dictionaries/#entities-product),
-[Kits](../dictionaries/#entities-bundle),
+For an extended description and addition of entities with information, in Kladana you can use
+[Files](../dictionaries/#entities-files) in
+[Transactions](../documents/#transactions),
+[Products](../dictionaries/#entities-product),
+[Bundles](../dictionaries/#entities-bundle),
 [Services](../dictionaries/#entities-service),
-[Modifications](../dictionaries/#entities-product-variant)),
+[Product variants](../dictionaries/#entities-product-variant),
 [Tasks](../dictionaries/#entities-task) and
-[Contractors](../dictionaries/#entities-counterparty).
+[Counterparties](../dictionaries/#entities-counterparty).
 Files can be attached to entities and requested at any convenient time.
 Information on files is displayed along with json representation of the entity to which the given file belongs. For getting
 file, you must use the link from the json description of the file representation. You can learn more about Files and working with them
@@ -22,7 +22,7 @@ For example, you need to create a product and attach the instruction. It can be 
 
 In [Kladana](https://api.kladana.com/), you can add, delete or edit the list of product files in Product cards.
  
-To add a file via the JSON API, you need to set the `filename` and `context` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
+To add a file via the JSON API, you need to set the `filename` and `content` fields corresponding to the name and content of the file, encoded in Base64, respectively. If you need to add or duplicate an existing file, you can specify it in `meta`.
 
 > Request to create a product with two attached files
 
@@ -323,7 +323,7 @@ curl -X GET
                      "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
                  },
                  "tiny": {
-                     "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+                     "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
                      "type": "files",
                      "mediaType": "image/png"
                  }
@@ -355,7 +355,7 @@ curl -X GET
   ```
 
 Consider another option for workingwith files in Products.
-For instance, you need to update the list of product files. In Kladana, it can be performed in two ways: as described earlier, or using the JSON API.
+For instance, you need to update and add the list of product files. In Kladana, it can be performed in two ways: as described earlier, or using the JSON API.
 
 > Request to update the list of files for the Product
 
@@ -366,18 +366,16 @@ For instance, you need to update the list of product files. In Kladana, it can b
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d'[
-             {
-               "filename": "new_instruction.txt",
-               "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-             },
-             "meta": {
-                 "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
-                 "type": "files",
-                 "mediaType": "application/json",
-                 "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
-             }
-           ]'
-   ```
+            {
+              "filename": "new_instruction_step_1.txt",
+              "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+            },
+            {
+              "filename": "new_instruction_step_2.txt",
+              "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+            }                  
+          ]'  
+  ```
 
 > Response is an updated list of Product files
 
@@ -391,8 +389,8 @@ For instance, you need to update the list of product files. In Kladana, it can b
        "mediaType": "application/json",
        "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
      },
-     "title": "new_instruction",
-     "filename": "new_instruction.txt",
+     "title": "new_instruction_step_1",
+     "filename": "new_instruction_step_1.txt",
      "size": 14052,
      "updated": "2019-01-24 16:55:24.567",
      "createdBy": {
@@ -407,15 +405,36 @@ For instance, you need to update the list of product files. In Kladana, it can b
    },
    {
      "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb6",
+       "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb5",
+       "type": "files",
+       "mediaType": "application/json",
+       "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb5"
+     },
+     "title": "new_instruction_step_2",
+     "filename": "new_instruction_step_2.txt",
+     "size": 14052,
+     "updated": "2019-01-24 16:55:24.567",
+     "createdBy": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/69f5683e-a49b-11ea-ac15-000e000000cf",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=69f5683e-a49b-11ea-ac15-000e000000cf"
+       }
+     }
+   },
+   {
+     "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004/files/f2728180-6afd-4d37-8a13-f3b48069bbb7",
          "type": "files",
          "mediaType": "application/json",
-         "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
+         "downloadHref": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb7"
      },
      "title": "description",
      "filename": "description.png",
      "size": 14052,
-     "updated": "2019-01-24 16:55:24.567",
+     "updated": "2019-01-24 16:11:22.411",
      "miniature": {
          "href": "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6?miniature=true",
          "type": "files",
@@ -423,7 +442,7 @@ For instance, you need to update the list of product files. In Kladana, it can b
          "downloadHref": "https://miniature-prod.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
      },
      "tiny": {
-         "href": "https://app.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
+         "href": "https://api.kladana.com/static/tinyimage/f2aab4d2-1fd3-11e9-ac12-000800000001/tinyimage/ebb10350-0272-45db-9d33-ca5a01fd5543/t.png",
          "type": "files",
          "mediaType": "image/png"
      }
