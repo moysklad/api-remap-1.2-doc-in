@@ -2,10 +2,6 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 26-03-2025
-### Added
-- Field `currency` added in [Legal entity accounts](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
-
 ## 10-03-2025
 ### Added
 - Bundles are supported in the following transactions containing the Commission Agency Contract:
