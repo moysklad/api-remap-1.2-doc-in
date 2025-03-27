@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 21-03-2025
 #### Changed
-- Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
 
 ### 10-03-2025
 #### Added
