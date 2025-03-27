@@ -129,7 +129,7 @@ Successful request. The result is a JSON representation of Company Settings.
     "useRecycleBin": true,
     "useCompanyAddress": true,
     "companyAddress": "MyCompany@kladana.com",
-    "accountCountry": "RU"
+    "accountCountry": "IN"
 }
 ```
 
@@ -238,7 +238,7 @@ Successful request. The result is a JSON representation of Company Settings.
     "useRecycleBin": true,
     "useCompanyAddress": true,
     "companyAddress": "MyCompany@kladana.com",
-    "accountCountry": "RU"
+    "accountCountry": "IN"
 }
 ```
 
