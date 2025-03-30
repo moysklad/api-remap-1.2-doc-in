@@ -17,17 +17,17 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required in response` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required in response` |
+| **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required when replying` |
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
 | **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |

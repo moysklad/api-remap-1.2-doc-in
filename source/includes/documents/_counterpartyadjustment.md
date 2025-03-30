@@ -11,7 +11,7 @@ The entity code for Balance Adjustment as part of the JSON API is the **counterp
 | ------- | ---------- | ---- | ----------- |
 | **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                          |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty or Employee metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                            |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when answering`                                                                                                      |
+| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying`                                                                                                      |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                                   |
 | **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                                       |
 | **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Moment of last deletion of balance adjustments<br>`+Read-only`                                                                      |
@@ -25,7 +25,7 @@ The entity code for Balance Adjustment as part of the JSON API is the **counterp
 | **name** | String(255) | `=` `!=` `~` `~=` `=~` | Balance Adjustment Name<br>`+Required when replying`                                                                            |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                        |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand`                                                                                       |
-| **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only`                                                                           |
+| **printed** | Boolean | | Is the document printed<br>`+Required when replying` `+Read Only`                                                                           |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only`                                                                           |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                          |
 | **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Amount of Balance Adjustment in paise<br>`+Required when replying` `+Read only`                                                              |
