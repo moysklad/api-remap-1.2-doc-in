@@ -6,6 +6,20 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 10-03-2025
+#### Added
+- Bundles are supported in the following transactions containing the Commission Agency Contract:
+  - Shipment
+  - Sales Order
+  - Sales Return
+  - Consignee Statement Received
+
+#### Changed
+- Description of `32001` [error code](../#kladana-json-api-errors-error-codes-for-contracts)
+
+#### Removed
+- `18002` [error code](../#kladana-json-api-errors-error-codes-for-sales-and-shipments)
+
 ### 05-03-2025
 #### Changed
 - Set `legalIN` as the only available value for `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties-counterparty-type)

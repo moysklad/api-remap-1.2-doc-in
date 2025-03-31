@@ -114,10 +114,6 @@ The restrictions associated with using Bundles as items:
    - Inventory
    - Bills of Materials
    - Internal orders
-+ Bundle cannot be a shipment item under a commission agreement:
-   - you cannot add a Bundle to a shipment under a commission agreement
-   - it is impossible to establish a commission agreement in shipment with Bundles
-   - you cannot change the contract to a commission if it has shipments from Bundles
 
 
 #### Nested entity attributes
