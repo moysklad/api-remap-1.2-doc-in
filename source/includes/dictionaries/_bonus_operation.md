@@ -18,7 +18,7 @@ Using the JSON API, you can create and update information about Bonus Operations
 | **executionDate**     | DateTime | | Date of the bonus operation. |
 | **externalCode**      | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when replying` |
 | **group**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id**                | UUID |`=` `!=` | Bonus transaction ID<br>`+Required for response` `+Read-only` |
+| **id**                | UUID |`=` `!=` | Bonus transaction ID<br>`+Required when replying` `+Read-only` |
 | **meta**              | [Meta](../#kladana-json-api-general-info-metadata) | | Bonus operation metadata<br>`+Required when replying` |
 | **moment**            | DateTime |`=` `!=` `<` `>` `<=` `>=` | Time of the bonus operation |
 | **name**              | String(255) |`=` `!=` `~` `~=` `=~` | Name of the Bonus transaction |

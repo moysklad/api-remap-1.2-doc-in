@@ -8,7 +8,7 @@ Using the JSON API, you can request lists of Serial numbers and information on i
 | **accountId**   | UUID                                               | `=` `!=`               | Account ID<br>`+Read Only`                                                |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Serial numbers                                                |
 | **id**          | UUID                                               | `=` `!=`               | Serial number ID<br>`+Required when replying` `+Read Only`                |
-| **meta**        | [Meta](../#kladana-json-api-general-info-metadata) |                        | Serial number Metadata<br>`+Required when answering`                      |
+| **meta**        | [Meta](../#kladana-json-api-general-info-metadata) |                        | Serial number Metadata<br>`+Required when replying`                      |
 | **name**        | String(255)                                        | `=` `!=` `~` `~=` `=~` | Serial number Name<br>`+Required when replying` `+Required when creating` |
 
 ### Get Serial numbers

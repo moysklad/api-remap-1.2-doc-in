@@ -30,8 +30,8 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float | | Amount of incoming payments for the Order<br>`+Read Only` |
-| **positions** | MetaArray | | Metadata of Purchase Order items<br>`+Required for response` `+Expand` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray | | Metadata of Purchase Order items<br>`+Required when replying` `+Expand` |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required``+Read-Only`` |
 | **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
@@ -71,7 +71,7 @@ Purchase Order Items is a list of products, services, and product variants.The P
 | **price** | Float | The price of the product/service in paise<br>`+Required when replying` |
 | **quantity** | Float | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **shipped** | Float | Accepted<br>`+Required when replying` |
-| **inTransit** | Float | Waiting<br>`+Required for response` |
+| **inTransit** | Float | Waiting<br>`+Required when replying` |
 | **vat** | Int | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean | Whether VAT is included for the item. With this item flag, you canset VAT = 0 or VAT = "without VAT". (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
 

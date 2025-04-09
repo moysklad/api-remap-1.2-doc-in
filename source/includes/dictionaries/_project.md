@@ -23,7 +23,7 @@ The search among the project objects for matching the search string will be carr
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | MetadataOwner's (Employee)<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 About working with Project fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
