@@ -19,6 +19,8 @@ Kladana automatically disables:
 - API access for a user if they make more than 500 identical requests per minute that result in an error within the last hour.
 - Webhooks if the service receiving them has responded with error codes or been unavailable for more than seven out of the last ten days, and has not successfully processed any webhooks in the last ten days.
 
+Notifications about the disabling of webhooks or API access will send to the email address of the employee designated as the account owner.
+
 If your API or webhooks are disabled:
 
 - Resolve the issue.

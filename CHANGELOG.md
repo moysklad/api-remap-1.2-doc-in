@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 09-04-2025
+### Changed
+- Description for automatically disabling JSON API for a user in [Limitations](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-limitations)
+
 ## 10-03-2025
 ### Added
 - Bundles are supported in the following transactions containing the Commission Agency Contract:
