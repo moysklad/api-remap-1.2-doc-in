@@ -2,13 +2,27 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 12-03-2025
+## 15-04-2025
 ### Changed
 - Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
 ### Added
 - Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+
+## 10-03-2025
+### Added
+- Bundles are supported in the following transactions containing the Commission Agency Contract:
+  - Shipment
+  - Sales Order
+  - Sales Return
+  - Consignee Statement Received
+
+### Changed
+- Description of `32001` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-contracts)
+
+### Removed
+- `18002` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-sales-and-shipments)
 
 ## 05-03-2025
 ### Changed
