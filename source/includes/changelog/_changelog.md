@@ -14,6 +14,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
+### 10-04-2025
+#### Changed
+- Description for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations)
+
 ### 10-03-2025
 #### Added
 - Bundles are supported in the following transactions containing the Commission Agency Contract:
