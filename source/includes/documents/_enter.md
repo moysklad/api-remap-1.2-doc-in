@@ -1491,8 +1491,7 @@ Successful request. The result is a JSON representation of a single Stock Adjust
 
 Request to create a new item in the Stock Adjustment. For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batch/product variant that the item represents.
-You can also specify a field named **service** or **variant** depending on what the indicated item is. Learn more about this field in the description of [Stock Adjustment items](../documents/#transactions-stock-adjustment-stock-adjustment-stock-adjustment-items).
++ **assortment** - Link to the product/service/batch/product variant that the item represents. Learn more about this field in the description of [Stock Adjustment items](../documents/#transactions-stock-adjustment-stock-adjustment-stock-adjustment-items).
 + **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
 You can create both one and some Stock Adjustment items at the same time. All items created by this request will be added to the existing ones.
 
