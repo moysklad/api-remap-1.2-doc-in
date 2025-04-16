@@ -2038,9 +2038,7 @@ Successful request. Result is a JSON representation of a single Transfer item.
 Request to create a new item in the Transfer.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batch/product variant that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-transfer-transfer-items).
++ **assortment** - Link to the product/service/batch/product variant that the item represents. You can read more about this field in the description of the [Transfer item](../documents/#transactions-transfer-transfer-transfer-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Transfer items at the same time. All items created by this request
 will be added to the existing ones.
