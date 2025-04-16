@@ -2572,10 +2572,7 @@ Successful request. Result is JSON representation of an individual Sales Order i
 Request to create a new item in the Sales Order.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
-
-You can also specify a field named **product**, **service**, **variant**, **bundle** as per
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
