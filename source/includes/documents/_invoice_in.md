@@ -2798,9 +2798,7 @@ Successful request. Result is a JSON representation of a single Supplier Invoice
 Request to create a new item in the Supplier Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batch/product variant that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-supplier-invoices-supplier-invoice-items).
++ **assortment** - Link to the product/service/batch/product variant that the item represents. More information about this field can be found in the description of [Supplier Invoice item](../documents/#transactions-supplier-invoice-supplier-invoices-supplier-invoice-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
 **Parameters**
