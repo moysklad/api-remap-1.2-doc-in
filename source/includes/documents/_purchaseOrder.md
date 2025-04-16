@@ -2650,9 +2650,7 @@ Successful request. The result is a JSON representation of a single item of the 
 Request to create a new item in the Purchase Order.
 For successful creation, the following fields must be specified in the request body:
 
-+**assortment** - Link to the product, service, batch, or product variant that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items)
++**assortment** - Link to the product, service, batch, or product variant that the item represents. You can read more about this field in the description of the [Order item](../documents/#transactions-purchase-order-purchase-orders-purchase-order-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 
 **Parameters**
