@@ -2640,9 +2640,7 @@ Successful request. Result is a JSON representation of a single Sales Invoice it
 Request to create a new item in the Sales Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batch/product variant that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
++ **assortment** - Link to the product/service/batch/product variant that the item represents. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 Just like when working with [Sales Order Items](../documents/#transactions-sales-order-sales-orders-sales-orders-items), you can create one or more items in one request.
 
