@@ -3546,8 +3546,7 @@ Successful request. The result is a JSON representation of the Shipment item.
 Request to create a new item in the Shipment.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
-You can also specify a field named **service** or **variant**, depending on what the indicated item is. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
 + **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
 You can create one or more Shipment items at the same time. All items created by the request
 will be added to the existing ones.
