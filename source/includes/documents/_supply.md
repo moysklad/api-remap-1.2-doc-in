@@ -2856,9 +2856,7 @@ Successful request. The result is a JSON representation of a single Receiving it
 Request to create a new item in Receiving.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the products, services, batches, product variants that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-receivings-receiving-items)
++ **assortment** - Link to the products, services, batches, product variants that the item represents. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-receivings-receiving-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Receiving items at the same time. All items created by this request
 will be added to the existing ones.
