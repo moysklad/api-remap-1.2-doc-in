@@ -58,7 +58,7 @@ Stock Adjustment items is a list of products and product variants. Stock Adjustm
 
 | Title | Type                                               | Description |
 |---------|----------------------------------------------------|--------|
-| **accountId** | UUID                                               | Account ID<br>`+Confirmation required `+Read Only` `+Change-handler` |
+| **accountId** | UUID                                               | Account ID<br>`+Confirmation required` `+Read Only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batches/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
