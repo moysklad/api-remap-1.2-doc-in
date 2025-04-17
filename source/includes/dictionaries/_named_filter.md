@@ -17,7 +17,7 @@ Each entity type will have its own set of filtering options.
 | Title | Type                                               | Description|
 | ---------|----------------------------------------------------| ----------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
-| **id** | UUID                                               | Filter ID<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | Filter ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Filter metadata<br>`+Required when replying` |
 | **name** | String                                             | Filter name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read-only` `+Expand` |

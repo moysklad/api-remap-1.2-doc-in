@@ -25,7 +25,7 @@ The search among the objects of products to match the search string will be carr
 | **code**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product Code |
 | **country**             | [Meta](../#kladana-json-api-general-info-metadata) || Country Metadata<br>`+Expand` |
 | **description**         | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Product Description |
-| **discountProhibited**  | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
+| **discountProhibited**  | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when replying` |
 | **effectiveVat**        | Int                                                | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean                                            | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode**        | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product Code<br>`+Required when replying` |
@@ -54,8 +54,8 @@ The search among the objects of products to match the search string will be carr
 | **tnved**               | String(255)                                        | | TN VED code |
 | **trackingType**        | Enum                                               | | Type of labeled product. [Learn more](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products) |
 | **uom*                  | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
-| **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **useParentVat**        | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
+| **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
+| **useParentVat**        | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when replying` |
 | **variantsCount**       | Int                                                | | Number of variants for this product<br>`+Required when replying` `+Read only` |
 | **vat**                 | Int                                                | | VAT % |
 | **vatEnabled**          | Boolean                                            | | Is VAT included on the item. Using this flag, you can set VAT = 0 or VAT = "without VAT" for the product. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
@@ -176,7 +176,7 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 | ---------|----------------------------------------------------|--------- |
 | **barcodes** | Array(Object)                                      | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
 | **id** | UUID                                               | Product Package ID<br>`+Required when replying` `+Read Only` |
-| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when answering` `+Required when creating` |
+| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when replying` `+Required when creating` |
 | **uom* | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand` |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
@@ -201,7 +201,7 @@ The response is an object, with the following structure:
 | Title | Type          | Description |
 | ---------|---------------|--------- |
 | **meta** | Meta          | Metadata<br>`+Required when replying` |
-| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required` |
+| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` |
 | **createShared** | Boolean       | Create new Products tagged "General"<br>`+Required when replying` |
 
 Structures of objects of individual collections:
@@ -255,7 +255,7 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|-------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 | **priceType** | Object                                             | Price type<br>`+Required when replying` |
 
@@ -264,14 +264,14 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|----------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|---------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Image: structure and loading.

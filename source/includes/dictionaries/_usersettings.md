@@ -14,7 +14,7 @@ Using the JSON API, you can get and edit user settings.
 | **defaultProject** | [Meta](../#kladana-json-api-general-info-metadata) | Project metadata to be used by default in documents<br>`+Required when replying` |
 | **defaultPurchaseCounterparty** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Supplier, which will be used by default in the documents of the "Purchasing" section<br>`+Required when replying` |
 | **defaultscreen** | Enum                                               | [The page that opens when the user logs in](./#entities-user-settings-start-screen)<br>`+Required when replying` |
-| **fieldsPerRow** | Int                                                | The number of columns in which additional fields will be placed in documents<br>`+Required when answering` |
+| **fieldsPerRow** | Int                                                | The number of columns in which additional fields will be placed in documents<br>`+Required when replying` |
 | **locale** | Enum                                               | System language. Valid values are "ru_RU" and "en_US"<br>`+Required when replying` |
 | **mailFooter** | Boolean                                            | Substituted in the signature in letters sent from MS<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Settings metadata<br>`+Required when replying` |

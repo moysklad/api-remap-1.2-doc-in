@@ -16,9 +16,9 @@ The search among objects of units of measurement for matching the search string 
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Units |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department Employee<br>`+Expand` `+For custom units. measurements` |
-| **id** | UUID                                               | `=` `!=` | ID Units<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | `=` `!=` | ID Units<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Units<br>`+Required when replying` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when answering` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom units. measurements` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` `+For custom units. measurements` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when replying` `+Read-only` |

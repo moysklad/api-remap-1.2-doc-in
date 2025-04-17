@@ -39,10 +39,10 @@ The search among contract objects for matching the search string will be carried
 | **rewardType** | Enum | | Reward Type. Possible values: `Percentage of the sale amount`, `Do not calculate` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract status metadata<br>`+Expand` |
-| **sum** | Int | | Amount of the Contract<br>`+Required when answering` |
-| **printed** | Boolean | | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **sum** | Int | | Amount of the Contract<br>`+Required when replying` |
+| **printed** | Boolean | | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **published** | Boolean | | Is the document published<br>`+Required when replying` `+Read Only` |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=`| When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=`| When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 
 Table of fields, their values and their values in JSON representation:

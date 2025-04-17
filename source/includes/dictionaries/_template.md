@@ -10,7 +10,7 @@ Using the JSON API, you can request lists of printable templates for entities. H
 | **id** | UUID | Template ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Basic Template<br>`+Required when replying` |
 | **name** | String(255) | Template name<br>`+Required when replying` |
-| **type** | String(255) | Template type (entity - document)<br>`+Required for response` |
+| **type** | String(255) | Template type (entity - document)<br>`+Required when replying` |
 
 ### List of basic print templates
 
@@ -288,7 +288,7 @@ Successful request. The result is a JSON representation of a basic template for 
 | **id** | UUID | Template ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom template metadata<br>`+Required when replying` |
 | **name** | String(255) | Template name<br>`+Required when replying` |
-| **type** | String(255) | Template type (entity - document)<br>`+Required for response` |
+| **type** | String(255) | Template type (entity - document)<br>`+Required when replying` |
 
 ### List of custom print templates
  

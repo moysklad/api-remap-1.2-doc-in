@@ -8,7 +8,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | Title | Type                                               | Filtration | Description |
 | ------ |----------------------------------------------------| ------- | ------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **applicable** | Boolean                                            | `=` `!=` | Check mark<br>`+Required when answering` |
+| **applicable** | Boolean                                            | `=` `!=` | Check mark<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Internal order code |
 | **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
@@ -19,14 +19,14 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximummaximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Internal Order ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Internal Order Metadata<br>`+Required when Response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Internal Order Metadata<br>`+Required when replying` `+Read Only` |
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
 | **moves** | Array(Object)                                      | | A collection of metadata for related transfer orders<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Internal Order Name<br>`+Required when replying` `+Required when creating` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **positions** | MetaArray                                          | | Metadata of Internal Order Items<br>`+Required on Response` `+Read Only` `+Expand` |
-| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray                                          | | Metadata of Internal Order Items<br>`+Required when replying` `+Read Only` `+Expand` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **purchaseOrders** | Array(Object)                                      | | A collection of metadata for related orders to a supplier<br>`+Required when replying` |
@@ -37,7 +37,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Internal Order total amount in paise<br>`+Required when replying` `+Read only` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for editing<br>`+Read-only` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Internal Order was last updated<br>`+Required when replying` `+Read Only` |
-| **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when answering` |
+| **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean                                            | | Is VAT included in the price |
 | **vatSum** | Float    | | VAT amount<br>`+Required when replying` `+Read only` |
 
@@ -48,10 +48,10 @@ Items of the Internal order is a list of products, services, and product variant
 | Title | Type   | Description |
 | ------- | ------------- | ---------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`|
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when answering` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` |
 | **quantity** | Float                                                 | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` |
