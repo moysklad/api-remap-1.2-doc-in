@@ -93,7 +93,7 @@ The Shipment item object contains the following fields:
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batches/product variant/bundle, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **cost** | Int                                                | Cost price (only for services) |
-| **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **discount** | Float                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
 | **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
