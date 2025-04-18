@@ -10,8 +10,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
@@ -19,8 +17,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
@@ -51,8 +47,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
