@@ -22,7 +22,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | Title | Type          | Description |
 | -------- |---------------| ---------- |
 | **productfolders** | Array(Object) | Array of metadata of Groups of goods to which the discount is applied, if it is not applied to all goods |
-| **discount** | Int           | Discount percentage if fixed percentage is selected |
+| **discount** | Float           | Discount percentage if fixed percentage is selected |
 | **specialprice** | Object        | Specialist. price (if a price type is selected). [Learn more](../dictionaries/#entities-discounts-special-price) |
 
 #### Special Price
@@ -44,7 +44,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | Title | Type | Description |
 | -------- |------| ---------- |
 | **amount** | Int  | Amount of savings in paise<br>`+Required when answering` |
-| **discount** | Int  | Discount percentage corresponding to this amount |
+| **discount** | Float  | Discount percentage corresponding to this amount |
 
 
 ### Get all discounts
