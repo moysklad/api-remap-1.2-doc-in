@@ -37,7 +37,7 @@ The search among the objects of products to match the search string will be carr
 | **meta**                | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Product Metadata<br>`+Required when replying`                                                                                                                                                                                                            |
 | **minPrice**            | Object                                             |                                                                                                                                                       | Minimum price. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price)                                                                                                                                           |
 | **minimumBalance**      | Int                                                | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Minimum stock<br>`+Deprecated`                                                                                                                                                                                                                           |
-| **minimumStock**        | Object                                             |                                                                                                                                                       | Minimum stock. [Learn more here](../dictionaries/#suschnosti-towar-towary-atributy-wlozhennyh-suschnostej-nesnizhaemyj-ostatok)<br>`+Available upon request`                                                   |
+| **minimumStock**        | Object                                             |                                                                                                                                                       | Minimum stock. [Learn more here](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-stock)<br>`+Available upon request`                                                   |
 | **name**                | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Item Name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                         |
 | **owner**               | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Owner (Employee) metadata<br>`+Expand`                                                                                                                                                                                                                   |
 | **packs**               | Array(Object)                                      |                                                                                                                                                       | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)                                                                                                                                   |
@@ -278,58 +278,58 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 ##### Minimum Stock
 
 Minimum stock is the minimum quantity of goods that must always be on hand at the warehouse. 
-The 'minimumStock' field is available when using the additional parameter 'fields=minimumStock' or when passing the field in a create or update entity request. 
+The `minimumStock` field is available when using the additional parameter `fields=minimumStock` or when passing the field in a create or update entity request. 
 Example:
-+`.../product/{product_id}?fields=minimumStock`
++ `.../product/{product_id}?fields=minimumStock`
 
-##### Minimum Stock Type
+##### Minimum Stock type
 Values for the type field.
 
-| Value               | Description                                 |
+| Value                  | Description                                 |
 |------------------------|:--------------------------------------------|
 | **ALL_WAREHOUSE_SUM**  | Total across all warehouses                 |
 | **ALL_WAREHOUSE_SAME** | The same across all warehouses `+Read Only` |
-| **WAREHOUSE_VARIED**   | Set for each warehouse                    |
+| **WAREHOUSE_VARIED**   | Set for each warehouse                      |
 
 
-Examples can be found in the sections on [retrieving](../dictionaries/#suschnosti-towar-poluchit-spisok-towarow), [creating](../dictionaries/#suschnosti-towar-sozdat-towar)
-or [updating](../dictionaries/#suschnosti-towar-izmenit-towar) products.
+Examples can be found in the sections on [retrieving](../dictionaries/#entities-product-get-a-list-of-products), [creating](../dictionaries/#entities-product-create-product)
+or [updating](../dictionaries/#entities-product-change-product) products.
 
-###### Minimum Stock Attributes with the ALL_WAREHOUSE_SUM Type
+###### Minimum Stock Attributes with the ALL_WAREHOUSE_SUM type
 
-| Name     | Type    | Description                                                |
-|--------------|:-------|:--------------------------------------------------------|
-| **type**     | String | Type of Minimum Stock                      |
+| Name         | Type   | Description                                        |
+|--------------|:-------|:---------------------------------------------------|
+| **type**     | String | Type of Minimum Stock                              |
 | **quantity** | Double | Total Minimum Stock quantity across all warehouses |
 
 
-###### Minimum Stock Attributes with the ALL_WAREHOUSE_SAME Type
+###### Minimum Stock Attributes with the ALL_WAREHOUSE_SAME type
 
-| Name     | Type    | Description                                                                              |
-|--------------|:-------|:--------------------------------------------------------------------------------------|
-| **type**     | String | Type of Minimum Stock<br> `+Read Only`                                                |
+| Name         | Type   | Description                                                            |
+|--------------|:-------|:-----------------------------------------------------------------------|
+| **type**     | String | Type of Minimum Stock<br> `+Read Only`                                 |
 | **quantity** | Double | Minimum Stock quantity is the same for every warehouse<br>`+Read Only` |
 
 
-###### Minimum Stock Attributes with the WAREHOUSE_VARIED Type
+###### Minimum Stock Attributes with the WAREHOUSE_VARIED type
 
-| Name          | Type       | Description                                                    |
-|-------------------|:----------|:------------------------------------------------------------|
-| **type**          | String    | Type of Minimum Stock                          |
+| Name              | Type      | Description                                   |
+|-------------------|:----------|:----------------------------------------------|
+| **type**          | String    | Type of Minimum Stock                         |
 | **storebalances** | MetaArray | Minimum Stock quantity set for each warehouse |
 
 
 Object structure in the **storeBalances** collection:
 
-| Name     | Type                                                       | Description                                                                                                        |
-|--------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
-| **meta**     | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata for Minimum Stock                                                                                         |
-| **store**    | [Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye) | Metadata for the warehouse where the Minimum Stock is set                                                          |
-| **quantity** | Double                                                    | Minimum Stock quantity for the warehouse                                                                                                                   |
+| Name         | Type                                               | Description                                               |
+|--------------|:---------------------------------------------------|:----------------------------------------------------------|
+| **meta**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock                                |
+| **store**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
+| **quantity** | Double                                             | Minimum Stock quantity for the warehouse                  |
 
 
 
-To [create](../dictionaries/#suschnosti-towar-sozdat-towar) or [update](../dictionaries/#suschnosti-towar-izmenit-towar) Minimum Stock for a warehouse (or warehouses), you 
+To [create](../dictionaries/#entities-product-create-product) or [update](../dictionaries/#entities-product-change-product) Minimum Stock for a warehouse (or warehouses), you 
 can include the Minimum Stock with the warehouse and quantity details in the request body 
 when creating or updating a product. There are also separate resources for managing Minimum Stock by warehouse:
 

@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 25-04-2025
 #### Added
--The minimumStock field in the [product](../#entities-product) entity for working with Minimum Stock.
+- The minimumStock field in the [product](../dictionaries/#entities-product) entity for working with Minimum Stock.
 
 ### 15-04-2025
 #### Changed
