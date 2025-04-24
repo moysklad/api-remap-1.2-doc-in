@@ -898,7 +898,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **salesReturn** | OPERATION | All ALL | Sales Return |
 | **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
-| **uom* | base | All ALL | Units of measure |
+| **uom** | base | All ALL | Units of measure |
 | **warehouse** | base | All ALL | Warehouses |
 
 For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`

@@ -38,7 +38,7 @@ Search among service objects for matching the search string will be carried out 
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
 | **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-service-services-entity-attributes-tax-system-code) |
-| **uom* | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
+| **uom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | Int                                                || VAT % |

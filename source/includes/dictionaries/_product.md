@@ -54,7 +54,7 @@ The search among the objects of products to match the search string will be carr
 | **things**              | Array(String)                                      |                                                                                                                                                       | Serial numbers                                                                                                                                                                                                                                           |
 | **tnved**               | String(255)                                        |                                                                                                                                                       | TN VED code                                                                                                                                                                                                                                              |
 | **trackingType**        | Enum                                               |                                                                                                                                                       | Type of labeled product. [Learn more](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products)                                                                                                                             |
-| **uom*                  | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Units<br>`+Expand`                                                                                                                                                                                                                                       |
+| **uom**                  | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Units<br>`+Expand`                                                                                                                                                                                                                                       |
 | **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | When the entity was last updated<br>`+Required for response` `+Read-only`                                                                                                                                                                                |
 | **useParentVat**        | Boolean                                            |                                                                                                                                                       | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering`                                                                                      |
 | **variantsCount**       | Int                                                |                                                                                                                                                       | Number of variants for this product<br>`+Required when answering` `+Read only`                                                                                                                                                                            |
@@ -178,7 +178,7 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 | **barcodes** | Array(Object)                                      | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
 | **id** | UUID                                               | Product Package ID<br>`+Required when answering` `+Read Only` |
 | **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when answering` `+Required when creating` |
-| **uom* | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when answering` `+Expand` |
+| **uom** | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when answering` `+Expand` |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
 
@@ -333,11 +333,11 @@ To [create](../dictionaries/#entities-product-create-product) or [update](../dic
 can include the Minimum Stock with the warehouse and quantity details in the request body 
 when creating or updating a product. There are also separate resources for managing Minimum Stock by warehouse:
 
-+Get list (`/entity/product/{product_id}/storebalances`)
-+Get object (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
-+Create (`/entity/product/{product_id}/storebalances`)
-+Update (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
-+Delete (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
++ Get list (`/entity/product/{product_id}/storebalances`)
++ Get object (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
++ Create (`/entity/product/{product_id}/storebalances`)
++ Update (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
++ Delete (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
 
 ##### Image: structure and loading.
 When requesting a Product with images, a json representation of this Product will be displayed containing the **images** field. This field is

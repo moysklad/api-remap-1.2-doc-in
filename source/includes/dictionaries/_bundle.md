@@ -39,7 +39,7 @@ Using the JSON API, you can create and update information about Bundles, request
 | **taxSystem** | Enum | | Tax system code. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-tax-system-code) |
 | **tnved** | String(255) | | TN VED code |
 | **trackingType** | Enum | | Type of labeled product. [](../dictionaries/#entities-bundle-bundles-entity-attributes-type-of-labeled-products) |
-| **uom* | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
+| **uom** | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | Int | | VAT % |
