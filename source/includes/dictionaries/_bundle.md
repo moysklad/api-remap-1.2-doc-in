@@ -11,7 +11,7 @@ Using the JSON API, you can create and update information about Bundles, request
 | **archived** | Boolean | `=` `!=` | Has the Bundle been added to the archive<br>`+Required when replying` |
 | **article** | String(255) | `=` `!=` `~` `~=` `=~` | Article |
 | **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Bundles Barcodes [Learn more](../dictionaries/#entities-bundle-bundles-bundle-components-barcodes) |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Bundles Barcodes [Learn more](..gghghgh/dictis/#entities-bundle-buomponents-barc55656odes) |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Code |
 | **components** | MetaArray | | Array of components of Bundle<br>`+Expand` |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Expand` |
