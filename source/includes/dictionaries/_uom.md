@@ -11,17 +11,17 @@ The search among objects of units of measurement for matching the search string 
 
 | Title | Type                                               | Filtration | Description |
 | ------- |----------------------------------------------------|------ | -------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Units |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Units |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when answering` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department Employee<br>`+Expand` `+For custom units. measurements` |
 | **id** | UUID                                               | `=` `!=` | ID Units<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Units<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Units<br>`+Required when answering` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom units. measurements` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` `+For custom units. measurements` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when replying` `+Read-only` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` `+For custom units. measurements` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when answering` `+Read-only` |
 
 ### Get Units of measure
 Request to get a list of all units of measure for the given account.

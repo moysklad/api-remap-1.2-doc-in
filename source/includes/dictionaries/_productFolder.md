@@ -11,21 +11,21 @@ The search among the objects of product groups to match the search string will b
 #### Entity attributes
 | Title | Type                                               | Filtration | Description |
 | ----- |----------------------------------------------------|------- | ------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Has the Product group been added to the archive<br>`+Required when replying` `+Read-only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Product group been added to the archive<br>`+Required when answering` `+Read-only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product group code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Product groups |
 | **effectiveVat** | Int                                                | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean                                            | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Code of Product group<br>`+Required when replying` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Product Group ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product Group Metadata<br>`+Required when replying` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Code of Product group<br>`+Required when answering` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Product Group ID<br>`+Required when answering` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product Group Metadata<br>`+Required when answering` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product Group Name<br>`+ Mandatory forresponse` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when replying` `+Read Only` |
+| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the Product Group that this Product Group belongs to<br>`+Required when answering` `+Read Only` |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-group-tax-system-code) |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
@@ -470,7 +470,7 @@ Request to get metadata of Product Groups. The result is a JSON object including
 
 | Title | Type | Description |
 | ------- | ------------ |---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product Groups Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product Groups Metadata<br>`+Required when answering` |
 | **attributes** | Array(Object) | Collection of additional fields |
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).

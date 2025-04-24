@@ -11,13 +11,13 @@ A Product, Bundle or Product Variant can have no more than 10 Images.
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------| ----------|
-| **filename** | String(255)                                        | File name<br>`+Required when replying` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
-| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
-| **updated** | DateTime                                           | File upload time to server<br>`+Required when replying` |
+| **filename** | String(255)                                        | File name<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when answering` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when answering` |
+| **size** | Int                                                | File size in bytes<br>`+Required when answering` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when answering` |
+| **title** | String(255)                                        | Image Title<br>`+Required when answering` |
+| **updated** | DateTime                                           | File upload time to server<br>`+Required when answering` |
 
 ### Get a list of Product, Product Variant and Bundle Images
 Request to receive all images of a product, product variant or bundle for this account.

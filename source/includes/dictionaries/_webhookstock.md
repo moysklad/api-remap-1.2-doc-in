@@ -24,10 +24,10 @@ The set of features also depends on your tariff:
 
 | Title | Type | Description |
 | ------- | ---------- |--------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` |
-| **stockType** | Enum | The type of residues whose change causes the webhook to change residues. Possible values: `[stock]`<br>`+Required when replying` |
-| **reportType** | Enum | The Stock report type to which the webhook for changing stock is attached. Possible values: `[all, bystore]`<br>`+Required when replying` |
-| **reportUrl** | String(255) | URL for receiving data on [changed products, bundles, services, product variants for the specified period](../reports/#reports-stock-report-brief-stock-report)<br>`+Required when replying` |
+| **accountId** | UUID | Account ID<br>`+Required when answering` |
+| **stockType** | Enum | The type of residues whose change causes the webhook to change residues. Possible values: `[stock]`<br>`+Required when answering` |
+| **reportType** | Enum | The Stock report type to which the webhook for changing stock is attached. Possible values: `[all, bystore]`<br>`+Required when answering` |
+| **reportUrl** | String(255) | URL for receiving data on [changed products, bundles, services, product variants for the specified period](../reports/#reports-stock-report-brief-stock-report)<br>`+Required when answering` |
 
 The request parameter **requestId** is the notification identifier.
 
@@ -42,14 +42,14 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 
 | Title | Type | Description |
 | ------- | ---------- |---------|
-| **accountId** | UUID | Account ID<br>`+Required when replying`|
+| **accountId** | UUID | Account ID<br>`+Required when answering`|
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the leftover webhook<br>`+Read Only` |
-| **enabled** | Boolean | Webhook status checkbox for changing stock (enabled / disabled)<br>`+Required when replying` |
-| **stockType** | Enum | The type of residues that the webhook triggers to change. Possible values: `[stock]`<br>`+Required when replying` `+Required when creating` |
-| **reportType** | Enum | The Stock report type to which the webhook for changing stock is attached. Possible values: `[all, bystore]`<br>`+Required when replying` `+Required when creating` |
-| **id** | UUID | Webhook ID for changing stock<br>`+Required when replying` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Webhook metadata for changing stock<br>`+Required when replying` |
-| **url** | URL | The URL where the webhook will be processed. Allowed length is up to 255 characters<br>`+Required when replying` `+Required when creating` |
+| **enabled** | Boolean | Webhook status checkbox for changing stock (enabled / disabled)<br>`+Required when answering` |
+| **stockType** | Enum | The type of residues that the webhook triggers to change. Possible values: `[stock]`<br>`+Required when answering` `+Required when creating` |
+| **reportType** | Enum | The Stock report type to which the webhook for changing stock is attached. Possible values: `[all, bystore]`<br>`+Required when answering` `+Required when creating` |
+| **id** | UUID | Webhook ID for changing stock<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Webhook metadata for changing stock<br>`+Required when answering` |
+| **url** | URL | The URL where the webhook will be processed. Allowed length is up to 255 characters<br>`+Required when answering` `+Required when creating` |
 
 ### Get a list of webhooks for changing stock
 > Request to receive all webhooks to change stock on this account.

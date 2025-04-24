@@ -164,7 +164,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3038">3038</a> | Save error: Unable to delete the link between documents '{document type}' and '{document type}' | The link between the specified documents cannot be broken. |
 | <a name="error_3039">3039</a> | Validation error: cannot change items with serial numbers to items without serial numbers | Cannot change items with serial numbers in a line item to items without serial numbers |
 | <a name="error_3040">3040</a> | Validation error: The field '{field name}' cannot be more than '{character limit}' characters. | Please adjust the length of the field and try the request again. |
-| <a name="error_3041">3041</a> | Save error: The field '{field name}' cannot be modified when the value of the field '{field name}' is '{field value}'. | Editing the "Minimum Balance" field is unavailable when the type is 'ALL_WAREHOUSE_SAME'. |
+| <a name="error_3041">3041</a> | Save error: The field '{field name}' cannot be modified when the value of the field '{field name}' is '{field value}'. | The ability to edit the field depends on a specific value set in another field. |
 
 ### Error codes for POSs
 
