@@ -1289,9 +1289,7 @@ Successful request. Result is a JSON representation of a single Inventory Count 
 Request to create a new item in Inventory Count.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/batch/product variant that the item represents.
-You can also specify a field named **variant** according to
-what the indicated item is. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-inventory-count-items).
++ **assortment** - Link to the product/batch/product variant that the item represents. You can read more about this field in the description [Inventory Count item](../documents/#transactions-inventory-count-inventory-count-inventory-count-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create both one and Inventory Count items at the same time. All items created by this query
 will be added to the existing ones.

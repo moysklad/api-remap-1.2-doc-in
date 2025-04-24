@@ -93,7 +93,7 @@ The Shipment item object contains the following fields:
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batches/product variant/bundle, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **cost** | Int                                                | Cost price (only for services) |
-| **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **discount** | Float                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) `+Change-handler` `+Update-provider` |
 | **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` `+Change-handler` `+Updat-provider` |
@@ -3546,8 +3546,7 @@ Successful request. The result is a JSON representation of the Shipment item.
 Request to create a new item in the Shipment.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
-You can also specify a field named **service** or **variant**, depending on what the indicated item is. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents. Learn more about the field in the description of [Shipment items](../documents/#transactions-shipment-shipments-shipment-items).
 + **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs.
 You can create one or more Shipment items at the same time. All items created by the request
 will be added to the existing ones.

@@ -30,7 +30,7 @@ Examples:
 | **buyprice** | Object                                             | | Purchase price |
 | **characteristics** | Array(Object)                                      | | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when answering` `+Required when creating` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product variant Code |
-| **description**        | String(4096)	                                             | `=` `!=` `~` `~=` `=~`      | Product variant Description |
+| **description**        | String(4096)	                                             |      | Product variant Description |
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
 | **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required for response` `+Read only` |

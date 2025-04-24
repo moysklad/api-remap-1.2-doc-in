@@ -68,13 +68,14 @@ The fourth search condition for the fields of all contact persons of the counter
 
 ##### Detail fields
 
-| Title                       | Type         | Filtration | Description                                                                                         |
-|-----------------------------|--------------| ------ |-----------------------------------------------------------------------------------------------------|
-| **mod\_\_requisites\_\_in** | Object       | | Requisites for the Counterparty of the type `[Legal entity. India]` with details on individual fields |
-| **inn**                     | String(255)  | `=` `!=` `~` `~=` `=~` | PAN for the Counterparty of the type `[Legal entity]` |
-| **legalAddress**            | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                   |
-| **legalAddressFull**        | Object       | | Legal address of the Counterparty with details on individual fields                                 |
-| **legalTitle**              | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                      |
+| Title                                  | Type         | Filtration | Description                                                                                                   |
+|----------------------------------------|--------------| ------ |---------------------------------------------------------------------------------------------------------------|
+| **mod\_\_requisites\_\_in**            | Object       | | Requisites for the Counterparty of the type `[Legal entity. India]` with details on individual fields         |
+| **mod\_\_requisites\_\_international** | Object       | | Requisites for the Counterparty of the type `[Legal entity. International]` with details on individual fields |
+| **inn**                                | String(255)  | `=` `!=` `~` `~=` `=~` | Tax Number for the Counterparty of the type `[Legal entity]`                                                  |
+| **legalAddress**                       | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                             |
+| **legalAddressFull**                   | Object       | | Legal address of the Counterparty with details on individual fields                                           |
+| **legalTitle**                         | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                                |
 
 
 A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
@@ -108,6 +109,13 @@ To delete an address, you need to pass an empty string `""` to the string field 
 |---------| ------- |-------------|
 | **pan** | String(255) | PAN         |
 Only for counterparty with type `Legal entity. India`.
+
+| Title         | Type | Description    |
+|---------------| ------- |----------------|
+| **taxNumber** | String(255) | Tax Number     |
+| **gstNumber** | String(255) | GST/VAT Number |
+| **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata |
+Only for counterparty with type `Legal entity. International`.
 
 ##### Accounts of Counterparties
 
@@ -158,15 +166,16 @@ Depending on the counterparty type **companyType**, its object will display diff
 Counterparty types and corresponding values that can be passed in this field:
 
 | CompanyType field value | Region               | Counterparty type   |
-|-----------------------|----------------------|---------------------|
-| **legal**             | International        | Legal entity        |
-| **legalIN**           | India                | Legal entity. India |
+|-------------------------|----------------------|---------------------|
+| **legal**               | International        | Legal entity        |
+| **legalIN**             | India                | Legal entity. India |
+| **legalINTERNATIONAL**  | International        | Legal entity. International      |
 
 If the counterparty type is `Legal entity`, the following fields of details will be displayed:
 
 | Title            | Description                       |
 |------------------|-----------------------------------|
-| **inn**          | PAN                               |
+| **inn**          | Tax Number                        |
 | **legalAddress** | Legal address of the Counterparty |
 | **legalTitle**   | Full name of the Counterparty     |
 | **tags**         | Groups (array)                    |
@@ -180,16 +189,19 @@ If the counterparty type is `Legal entity. India`, the following fields of detai
 | **legalTitle**                    | Full name of the Counterparty     |
 | **tags**                          | Groups (array)                    |
 
+If the counterparty type is `Legal entity. International`, the following fields of details will be displayed:
+
+| Title                                            | Description                       |
+|--------------------------------------------------|-----------------------------------|
+| **mod\_\_requisites\_\_international.taxNumber** | Tax Number                        |
+| **mod\_\_requisites\_\_international.gstNumber** | GST/VAT Number                    |
+| **mod\_\_requisites\_\_international.country**   | Country of the Counterparty       |
+| **legalAddress**                                 | Legal address of the Counterparty |
+| **legalTitle**                                   | Full name of the Counterparty     |
+| **tags**                                         | Groups (array)                    |
+
 About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
-#### Counterparty Gender
-
-Counterparty Gender is used only for Counterparty type `[Individual]`. It is ignored for Counterparties type `[Individual Entrepreneur, Legal Entity]`.
-
-| Field Value   | Counterparty Gender |
-| ------------- | ------------------- |
-| **MALE** | Male |
-| **FEMALE** | Female |
 
 ### Get a list of Counterparties
 
@@ -648,7 +660,7 @@ Successful request. The result is a JSON representation of the list of Counterpa
        "externalCode":"rRlzrdZmjql9r9dveXPE43",
        "archived": false,
        "created":"2007-02-07 17:16:41",
-       "companyType":"legal",
+       "companyType":"legalINTERNATIONAL",
        "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
        "legalAddressFull":{
          "postalCode":"125009",
@@ -700,6 +712,18 @@ Successful request. The result is a JSON representation of the list of Counterpa
          "apartment":"111",
          "addInfo":"addinfo",
          "comment":"some words about address"
+       },
+       "mod__requisites__international":{
+         "taxNumber": "7736570901",
+         "gstNumber": "ABCD-123456",
+         "country":{
+           "meta":{
+             "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+             "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+             "type":"country",
+             "mediaType":"application/json"
+           }
+         }
        },
        "accounts":{
          "meta":{
@@ -1009,17 +1033,10 @@ curl -X POST
     "name": "Ivanov LLC",
     "code": "someCode",
     "externalCode": "extCode",
-    "companyType": "entrepreneur",
-    "legalLastName": "Ivanov",
-    "legalFirstName": "Ivan",
-    "legalMiddleName": "Ivanovich",
+    "companyType": "legal",
     "actualAddress": "Moscow, Academician Mil street, 15/21",
     "legalAddress": "Moscow, Aviastroiteley street 93/12",
-    "inn": "87654321",
-    "kpp": "15312532",
-    "ogrn": "12345",
-    "okpo": "12345",
-    "ogrnip": "58632598y21jk"
+    "inn": "87654321"
 }'
 ```
 > Response 200. Successful request. The result is a JSON representation of the created Counterparty.
@@ -1060,9 +1077,7 @@ curl -X POST
    "externalCode": "extCode",
    "archived": false,
    "created": "2020-06-17 18:21:53",
-   "companyType": "entrepreneur",
-   "legalTitle": "Individual entrepreneur Ivanov Ivan Ivanovich",
-   "legalAddress": "Moscow, Aviastroiteley street 93/12",
+   "companyType": "legal",
    "legalAddressFull": {
      "addInfo": "Moscow, Aviastroiteley street 93/12"
    },
@@ -1071,11 +1086,6 @@ curl -X POST
      "addInfo": "Moscow, Academician Mil street 15/21"
    },
    "inn": "87654321",
-   "okpo": "12345",
-   "ogrnip": "58632598y21jk",
-   "legalLastName": "Ivanov",
-   "legalFirstName": "Ivan",
-   "legalMiddleName": "Ivanovich",
   "accounts": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/accounts",
@@ -1128,13 +1138,20 @@ curl -X POST
   -H "Content-Type: application/json"
   -d ' {
         "name": "Johnson",
-        "companyType": "individual",
-        "legalLastName": "Johnson",
-        "legalFirstName": "John",
-        "legalMiddleName": "John",
-        "sex": "MALE",
-        "birthDate": "1953-11-01 00:00:00.000"
-        }'
+        "companyType": "legalINTERNATIONAL",
+        "mod__requisites__international":{
+          "taxNumber": "7736570901",
+          "gstNumber": "ABCD-123456",
+          "country":{
+            "meta":{
+              "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+              "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+              "type":"country",
+              "mediaType":"application/json"
+            }
+          }
+        }
+       }'
 ```
 > Response 200. Successful request. Result is JSON representation of the created Counterparty.
 
@@ -1172,13 +1189,7 @@ curl -X POST
   "externalCode": "mm62KDCZjOpCCNqvW3DtK1",
   "archived": false,
   "created": "2023-08-14 21:34:00.817",
-  "companyType": "individual",
-  "legalTitle": "John John Johnson",
-  "legalLastName": "Johnson",
-  "legalFirstName": "John",
-  "legalMiddleName": "John",
-  "birthDate": "1953-11-01 00:00:00.000",
-  "sex": "MALE",
+  "companyType": "legalINTERNATIONAL",
   "accounts": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/accounts",
@@ -1190,6 +1201,18 @@ curl -X POST
     }
   },
   "tags": [],
+  "mod__requisites__international":{
+    "taxNumber": "7736570901",
+    "gstNumber": "ABCD-123456",
+    "country":{
+      "meta":{
+        "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
+        "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
+        "type":"country",
+        "mediaType":"application/json"
+      }
+    }
+  },
   "contactpersons": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/23f049f3-3ad1-11ee-ac13-000c00000000/contactpersons",
