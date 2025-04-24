@@ -6,10 +6,6 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 24-04-2025
-#### Added
-- Field `currency` added in [Legal entity accounts](../dictionaries/#entities-entity-legal-entity)
-
 ### 15-04-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
