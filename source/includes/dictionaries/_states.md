@@ -7,13 +7,13 @@ Statuses can be added, changed and deleted through the API only with administrat
 
 | Title         | Type                                               | Description                                                                                              |
 |---------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                     |
-| **color**     | Int                                                | Status Color<br>`+Required when replying` `+Required when creating`                                      |
+| **accountId** | UUID                                               | Account ID<br>`+Required when answering` `+Read Only`                                                     |
+| **color**     | Int                                                | Status Color<br>`+Required when answering` `+Required when creating`                                      |
 | **entityType**| String(255)                                        | Entity type to which Status refers (keyword within the JSON API)<br>`+Required for response` `+Read-only`|
-| **id**        | UUID                                               | Status ID<br>`+Required when replying` `+Read Only`                                                      |
-| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Status Metadata<br>`+Required when replying` `+Read Only`                                                |
-| **name**      | String(255)                                        | Status Name<br>`+Required when replying` `+Required when creating`                                       |
-| **stateType** | Enum                                               | Status Type<br>`+Required when replying` `+Required when creating`                                       |
+| **id**        | UUID                                               | Status ID<br>`+Required when answering` `+Read Only`                                                      |
+| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Status Metadata<br>`+Required when answering` `+Read Only`                                                |
+| **name**      | String(255)                                        | Status Name<br>`+Required when answering` `+Required when creating`                                       |
+| **stateType** | Enum                                               | Status Type<br>`+Required when answering` `+Required when creating`                                       |
 
 ##### Status type
 

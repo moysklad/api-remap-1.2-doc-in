@@ -123,8 +123,8 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Common validation errors
 
-| Error code | Message | Description |
-| ---------- | ------- | ----------- |
+| Error code                    | Message | Description |
+|-------------------------------| ------- | ----------- |
 | <a name="error_3000">3000</a> | Error saving object: field '{field name}' cannot be empty or absent | The required field cannot be empty or missing. You can find all the required fields in the documentation for the entity you are working with, under the heading "Entity Attributes". Such fields are marked as `Required`. |
 | <a name="error_3001">3001</a> | Error saving object: field '{field name}' cannot be modified | You are trying to modify a field that is read-only. All read-only fields can be found in the documentation for the entity you are working with, under the heading "Entity Attributes". Such fields are marked as `Read Only`. |
 | <a name="error_3002">3002</a> | Error saving object: field '{field name}' cannot have a negative value | This field accepts only numeric values greater than or equal to zero. |
@@ -163,6 +163,8 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3037">3037</a> | Unable to send account deletion request. The account owner email address is missing or invalid. Contact the account owner | The specified account owner has an empty or invalid email address. |
 | <a name="error_3038">3038</a> | Save error: Unable to delete the link between documents '{document type}' and '{document type}' | The link between the specified documents cannot be broken. |
 | <a name="error_3039">3039</a> | Validation error: cannot change items with serial numbers to items without serial numbers | Cannot change items with serial numbers in a line item to items without serial numbers |
+| <a name="error_3040">3040</a> | Validation error: The field '{field name}' cannot be more than '{character limit}' characters. | Please adjust the length of the field and try the request again. |
+| <a name="error_3041">3041</a> | Save error: The field '{field name}' cannot be modified when the value of the field '{field name}' is '{field value}'. | The ability to edit the field depends on a specific value set in another field. |
 
 ### Error codes for POSs
 
@@ -238,18 +240,23 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error Codes for Products
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_16000">16000</a> | Product saving error: properties of alcoholic products cannot be negative | Alcoholic fields "code of alcoholic products", "strength" and "volume" must take a value strictly greater than 0. |
-| <a name="error_16001">16001</a> | Product saving error: item by weight cannot use serial number accounting | A product cannot be weighted and use accounting by serial numbers at the same time. These are mutually exclusive features. |
-| <a name="error_16002">16002</a> | Product saving error: serial accounting cannot be disabled | Once serial accounting is enabled, it can no longer be disabled. Otherwise, you can create a new item. |
-| <a name="error_16008">16008</a> | Product saving error: to use packages, you need to specify the unit of measure of the product | To use packages, the unit of measure of the product must be specified |
-| <a name="error_16009">16009</a> | Product saving error: ppeType field value not found in catalog | The specified PPE product code was not found in the directory |
-| <a name="error_16010">16010</a> | Product saving error: if it is indicated that the product is taxable, then the vat field must be filled in. Otherwise, vatEnabled for the product must be false | When passing the `vatEnabled` = true field, the VAT value must also be specified for the product. |
-| <a name="error_16011">16011</a> | Product saving error: Draft products cannot be accounted for by serial numbers. | Goods cannot be on tap and accounted for by serial numbers at the same time. |
-| <a name="error_16012">16012</a> | Product saving error: products cannot be both bulk and weighed. | Products cannot be bulk and weighed at the same time. |
-| <a name="error_16013">16013</a> | Product saving error: a weighted product cannot have the attribute of personal protective equipment. | Products cannot be on tap and have the sign of personal protective equipment at the same time. |
-| <a name="error_16014">16014</a> | Product save error: bulk product cannot have a personal protective equipment attribute. | Bulk products cannot have the sign of personal protective equipment. |
+| Error code                      | Message                                                                                                                                                         | Description                                                                                                                 |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| <a name="error_16000">16000</a> | Product saving error: properties of alcoholic products cannot be negative                                                                                       | Alcoholic fields "code of alcoholic products", "strength" and "volume" must take a value strictly greater than 0.           |
+| <a name="error_16001">16001</a> | Product saving error: item by weight cannot use serial number accounting                                                                                        | A product cannot be weighted and use accounting by serial numbers at the same time. These are mutually exclusive features.  |
+| <a name="error_16002">16002</a> | Product saving error: serial accounting cannot be disabled                                                                                                      | Once serial accounting is enabled, it can no longer be disabled. Otherwise, you can create a new item.                      |
+| <a name="error_16008">16008</a> | Product saving error: to use packages, you need to specify the unit of measure of the product                                                                   | To use packages, the unit of measure of the product must be specified                                                       |
+| <a name="error_16009">16009</a> | Product saving error: ppeType field value not found in catalog                                                                                                  | The specified PPE product code was not found in the directory                                                               |
+| <a name="error_16010">16010</a> | Product saving error: if it is indicated that the product is taxable, then the vat field must be filled in. Otherwise, vatEnabled for the product must be false | When passing the `vatEnabled` = true field, the VAT value must also be specified for the product.                           |
+| <a name="error_16011">16011</a> | Product saving error: Draft products cannot be accounted for by serial numbers.                                                                                 | Goods cannot be on tap and accounted for by serial numbers at the same time.                                                |
+| <a name="error_16012">16012</a> | Product saving error: products cannot be both bulk and weighed.                                                                                                 | Products cannot be bulk and weighed at the same time.                                                                       |
+| <a name="error_16013">16013</a> | Product saving error: a weighted product cannot have the attribute of personal protective equipment.                                                            | Products cannot be on tap and have the sign of personal protective equipment at the same time.                              |
+| <a name="error_16014">16014</a> | Product save error: bulk product cannot have a personal protective equipment attribute.                                                                         | Bulk products cannot have the sign of personal protective equipment.                                                        |
+| <a name="error_16016">16016</a> | Product saving error: A product with a minimum balance by warehouse must contain at least one warehouse.                                                        | When the Minimum Balance Type is set to Warehouse (WAREHOUSE_VARIED), at least one warehouse must have a specified balance. | 
+| <a name="error_16017">16017</a> | Error: Endpoint is available only with type: WAREHOUSE_VARIED.                                                                                                  | The endpoint is only available if the Minimum Balance Type is defined as Warehouse Minimum Balance (WAREHOUSE_VARIED).      | 
+| <a name="error_16018">16018</a> | Product saving error: You cannot add archived warehouses to the storeBalances field.                                                                            | An archived warehouse has been provided for the Warehouse Minimum Balance.                                                  | 
+| <a name="error_16019">16019</a> | Product saving error: A product with a minimum balance by warehouse must contain unique warehouse values.                                                       | A warehouse for the Warehouse Minimum Balance has been provided that already has a set minimum balance.                     | 
+| <a name="error_16020">16020</a> | Error with warehouse minimum balance: The number of items cannot exceed 1000.                                                                                   | The maximum allowed number of warehouses for defining warehouse minimum balances is 1000.                                   |
 
 ### Error Codes for Documents
 

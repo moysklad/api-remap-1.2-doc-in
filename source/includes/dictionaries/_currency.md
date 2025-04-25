@@ -13,21 +13,21 @@ The search among currency objects to match the search string will be carried out
 
 | Title | Type                                               | Filtration | Description |
 | ---------- |----------------------------------------------------| -------- | ----------- |
-| **archived** | Boolean                                            | `=` `!=` | Has the Currency been added to the archive<br>`+Required when replying` |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Numeric Code of the Currency<br>`+Required when replying` `+Required when creating` |
-| **default** | Boolean                                            | `=` `!=` | Is the currency the accounting currency<br>`+Required when replying` `+Read only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Currency been added to the archive<br>`+Required when answering` |
+| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Numeric Code of the Currency<br>`+Required when answering` `+Required when creating` |
+| **default** | Boolean                                            | `=` `!=` | Is the currency the accounting currency<br>`+Required when answering` `+Read only` |
 | **fullName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Full name of the Currency |
-| **id** | UUID                                               | `=` `!=` | Currency ID<br>`+Required when replying` `+Read only` |
+| **id** | UUID                                               | `=` `!=` | Currency ID<br>`+Required when answering` `+Read only` |
 | **indirect** | Boolean                                            | | Sign of the reverse exchange rate of the Currency<br>`+Required when answering` |
-| **isoCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when replying` `+Required when creating` |
+| **isoCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Letter Code of the Currency<br>`+Required when answering` `+Required when creating` |
 | **majorUnit** | Object                                             | | Forms of units of the whole part of the Currency. [Learn more](../dictionaries/#entities-currency-currency-entity-attributes-forms-of-units)<br>`+Required when answering` |
 | **margin** | Double                                             | | Mark-up for automatic course update<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency Metadata<br>`+Required when answering` |
 | **minorUnit** | Object                                             | | Forms of units of the fractional part of the Currency. [Learn more](../dictionaries/#entities-currency-currency-entity-attributes-forms-of-units)<br>`+Required when answering` |
 | **multiplicity** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Multiplicity of the exchange rate<br>`+Required when answering` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief name of the currency <br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Brief name of the currency <br>`+Required when answering` `+Required when creating` |
 | **rate** | Double                                             | | Exchange rate<br>`+Required when answering` |
-| **rateUpdateType** | String(255)                                        | | How to update the exchange rate. **auto** or **manual**<br>`+Required when replying` `+Read Only` |
+| **rateUpdateType** | String(255)                                        | | How to update the exchange rate. **auto** or **manual**<br>`+Required when answering` `+Read Only` |
 | **system** | Boolean                                            | | Is the currency based on the system reference currency<br>`+Read Only` |
 
 ##### Forms of units

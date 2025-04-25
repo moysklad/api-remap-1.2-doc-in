@@ -7,20 +7,20 @@ The entity code for Bonus Programs as part of the JSON API is the **bonusprogram
 
 | Title                         | Type | Description |
 | ------------------------------- | ------------ | ------------- |
-| **accountId**                 | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **active**                    | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when replying` |
-| **agentTags**                 | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when replying` |
-| **allAgents**                 | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when replying` |
-| **allProducts**               | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when replying` |
+| **accountId**                 | UUID | Account ID<br>`+Required when answering` `+Read Only` |
+| **active**                    | Boolean | An indicator of whether the bonus program is currently active<br>`+Required when answering` |
+| **agentTags**                 | Array(String) | Tags of counterparties to which the bonus program is applied. In the case of an empty account value, an empty array is displayed as a result.<br>`+Required when answering` |
+| **allAgents**                 | Boolean | An indicator of whether the discount applies to all counterparties (see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when answering` |
+| **allProducts**               | Boolean | An indicator of whether the bonus program is valid for all products (always `true`, see [Discounts](../dictionaries/#entities-discounts))<br>`+Required when answering` |
 | **earnRateRoublesToPoint**    | Int | Accrual rate |
-| **earnWhileRedeeming**        | Boolean | Allow simultaneous accrual and write-off of bonuses. If `true` - bonuses will be credited to the monetary part of the purchase, even if the purchase is partially paid with points.<br>`+Required when replying` |
-| **id**                        | UUID | Bonus Program ID<br>`+Required when replying` `+Read Only` |
+| **earnWhileRedeeming**        | Boolean | Allow simultaneous accrual and write-off of bonuses. If `true` - bonuses will be credited to the monetary part of the purchase, even if the purchase is partially paid with points.<br>`+Required when answering` |
+| **id**                        | UUID | Bonus Program ID<br>`+Required when answering` `+Read Only` |
 | **maxPaidRatePercents**       | Int | Maximum percentage of payment by points |
-| **meta**                      | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when replying` |
+| **meta**                      | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when answering` |
 | **name**                      | String(255) | Name of the Bonus program |
 | **postponedBonusesDelayDays** | Int | Points are credited after [N] days<br>`+Tariff option "Extended bonus program"` |
 | **spendRatePointsToRouble**   | Int | Write-off rate |
-| **welcomeBonusesEnabled**     | Boolean | Ability to earn welcome points<br>`+Required when replying` |
+| **welcomeBonusesEnabled**     | Boolean | Ability to earn welcome points<br>`+Required when answering` |
 | **welcomeBonusesMode**        | Enum | Condition for earning welcome points. Cannot be empty if `welcomeBonusesEnabled` = true. [Learn more](../dictionaries/#entities-bonus-program-bonus-programs-entity-attributes-bonus-points-conditions) |
 | **welcomeBonusesValue**       | Int | The number of welcome points accrued to the participants of the bonus program. Can't be negative. Cannot be empty if `welcomeBonusesEnabled` = true |
 

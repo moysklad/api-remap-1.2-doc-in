@@ -133,26 +133,26 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 | Title | Type | Description |
 | ------------ | ------------- |-------------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when replying` |
-| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when replying` |
-| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when replying` |
-| **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Dictionary settings metadata<br>`+Required when answering` |
+| **uniqueCodeRules** | Object | Code uniqueness settings for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-code-uniqueness-settings-for-lookup-entities)<br>`+Required when answering` |
+| **barcodeRules** | Object | Settings for barcode rules for dictionary entities. [Learn more](../dictionaries/#entities-assortment-assortment-nested-entity-attributes-settings-for-barcode-rules-for-lookup-entities)<br>`+Required when answering` |
+| **createdShared** | Boolean | Create new documents tagged "General"<br>`+Required when answering` |
 
 #### Nested entity attributes
 ##### Code uniqueness settings for lookup entities
 
 | Title | Type | Description |
 | ------------ | ------ | ------------- |
-| **checkUniqueCode** | Boolean | Checking the uniqueness of the entity code of the product directory<br>`+Required when replying` |
-| **fillUniqueCode** | Boolean | Set a unique code when creating the creation of goods directory entities<br>`+Required when replying` |
+| **checkUniqueCode** | Boolean | Checking the uniqueness of the entity code of the product directory<br>`+Required when answering` |
+| **fillUniqueCode** | Boolean | Set a unique code when creating the creation of goods directory entities<br>`+Required when answering` |
 
 ##### Settings for barcode rules for lookup entities
 
 | Title | Type | Description |
 | ----------- | ------ | -------- |
-| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, bundles, product variants and services<br>`+Required when replying` |
-| **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when replying` |
-| **weightBarcodePrefix** | Int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when replying` |
+| **fillEAN13Barcode** | Boolean | Automatically generate an EAN13 barcode for new products, bundles, product variants and services<br>`+Required when answering` |
+| **weightBarcode** | Boolean | Use barcode prefixes for bulk products<br>`+Required when answering` |
+| **weightBarcodePrefix** | Int | Barcode prefix for bulk goods. Possible values: X or XX format number<br>`+Required when answering` |
 
 ### Get Assortment
 

@@ -29,14 +29,14 @@ An object can have no more than 100 files.
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------| ----------|
-| **created** | DateTime                                           | File upload time to the server<br>`+Required when replying` |
-| **createdBy** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who uploaded the File<br>`+Required when replying` `+Expand` |
-| **filename** | String(255)                                        | Filename<br>`+Required when replying` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **created** | DateTime                                           | File upload time to the server<br>`+Required when answering` |
+| **createdBy** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who uploaded the File<br>`+Required when answering` `+Expand` |
+| **filename** | String(255)                                        | Filename<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when answering` |
 | **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata (field is passed only for Image files) |
-| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
+| **size** | Int                                                | File size in bytes<br>`+Required when answering` |
 | **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata (field is passed only for Image files) |
-| **title** | String(255)                                        | File Name<br>`+Required when replying` |
+| **title** | String(255)                                        | File Name<br>`+Required when answering` |
 
 ### Get a list of Operation Files, Products, Servicies, Taska and Accountd
 
