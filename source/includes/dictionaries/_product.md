@@ -322,11 +322,13 @@ or [updating](../dictionaries/#entities-product-change-product) products.
 
 Object structure in the **storeBalances** collection:
 
-| Name         | Type                                               | Description                                               |
-|--------------|:---------------------------------------------------|:----------------------------------------------------------|
-| **meta**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock                                |
-| **store**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
-| **quantity** | Double                                             | Minimum Stock quantity for the warehouse                  |
+| Name          | Type                                               | Description                                               |
+|---------------|:---------------------------------------------------|:----------------------------------------------------------|
+| **accountId** | UUID                                               | ID account<br>`+Read Only`                                |
+| **id**        | UUID                                               | ID for Minimum Stock<br> `+Read Only`                     |
+| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock                                |
+| **store**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
+| **quantity**  | Double                                             | Minimum Stock quantity for the warehouse                  |
 
 
 
