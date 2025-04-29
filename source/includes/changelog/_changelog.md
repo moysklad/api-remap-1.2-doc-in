@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 07-05-2025
+#### Added
+- The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
 ### 25-04-2025
 #### Added
 - The minimumStock field in the [product](../dictionaries/#entities-product) entity for working with Minimum Stock.
