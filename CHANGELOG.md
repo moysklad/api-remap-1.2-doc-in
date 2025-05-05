@@ -9,8 +9,8 @@ JSON API 1.2 changes will be added here soon
 - Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
 
-### 25-04-2025
-#### Added
+## 25-04-2025
+### Added
 - The minimumStock field in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product) entity for working with Minimum Stock.
 
 ## 15-04-2025
