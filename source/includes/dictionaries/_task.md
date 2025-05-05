@@ -7,47 +7,47 @@ Using the JSON API, you can create and update information about tasks, request l
 
 | Title | Type   | Filtration | Description   |
 | ------ | ------ | ----- | ------------ |
-| **accountId** | UUID                                               | `=` `!=` | Cashier account ID<br>`+Required when replying` `+Read only`                                                                                                         |
+| **accountId** | UUID                                               | `=` `!=` | Cashier account ID<br>`+Required when answering` `+Read only`                                                                                                         |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Account or legal entity associated with the task. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand` |
-| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                                                 |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when replying` `+Read-only` `+Expand`           |
+| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Task owner metadata<br>`+Required when answering` `+Expand` `+Required when creating`                                                                                 |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Employee who created the task (account administrator, if the author is an Application)<br>`+Required when answering` `+Read-only` `+Expand`           |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Application that created the task<br>`+Read Only` `+Expand`                                                                                          |
 | **completed** | DateTime                                           | | Task execution time<br>`+Required for response` `+Read-only`                                                                                                         |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read only`                                                                                                              |
-| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when replying` `+Required when creating`                                                                                                     |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when answering` `+Read only`                                                                                                              |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Task text<br>`+Required when answering` `+Required when creating`                                                                                                     |
 | **done** | Boolean                                            | `=` `!=` | Task completion mark<br>`+Required when answering`                                                                                                                   |
 | **dueToDate** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Task deadline                                                                                                                                                        |
-| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`                                       |
-| **id** | UUID                                               | `=` `!=` | Task ID<br>`+Required when replying` `+Read Only`                                                                                                                    |
+| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when answering` `+Expand`                                       |
+| **id** | UUID                                               | `=` `!=` | Task ID<br>`+Required when answering` `+Read Only`                                                                                                                    |
 | **implementer** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Employee who completed the task<br>`+Read-only` `+Expand`                                                                                            |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Task Metadata<br>`+Required when answering`                                                                                                                          |
 | **state**             | [Meta](../#kladana-json-api-general-info-metadata) |                             | Task type metadata<br>`+Expand`                                                                                                                                      |
-| **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when replying` `+Expand`                                                                                                         |
+| **notes** | [Meta](../#kladana-json-api-general-info-metadata) | | Task comment metadata<br>`+Required when answering` `+Expand`                                                                                                         |
 | **operation** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of the Document associated with the issue. A task can be linked either to a counterparty, or to a legal entity, or to a document<br>`+Expand`               |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when replying` `+Read-only`                                                                                                    |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time Tasks<br>`+Required when answering` `+Read-only`                                                                                                    |
 
 #### Task comments
 The task comment object contains the following fields:
 
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------|------- |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Person who created the comment (account administrator if the author is an app)<br>`+Required when replying` `+Read Only` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Person who created the comment (account administrator if the author is an app)<br>`+Required when answering` `+Read Only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the comment<br>`+Read Only` |
-| **moment** | DateTime                                           | When the comment was created<br>`+Required when replying` `+Read only` |
-| **description** | String(4096)                                       | Comment text<br>`+Required when replying` `+Required when creating` |
+| **moment** | DateTime                                           | When the comment was created<br>`+Required when answering` `+Read only` |
+| **description** | String(4096)                                       | Comment text<br>`+Required when answering` `+Required when creating` |
 
 #### Task type
 The task type object contains the following fields:
 
 | Title       | Type     | Description   |
 | -------------- | ------------ | ----------------|
-| **accountId**  | UUID                                                      | account ID<br>`+Required when replying` `+Read Only`                   |
-| **color**      | Int                                                       | Task type color<br>`+Required when replying` `+Required when creating` |
-| **entityType** | String(255)                                               | Entity type.  It is always a task<br>`+Required when replying` `+Read Only` |
-| **id**         | UUID                                                      | Task type ID<br>`+Required when replying` `+Read Only`                 |
-| **meta**       | [Meta](../#kladana-json-api-general-info-metadata) | Task type metadata<br>`+Required when replying` `+Read Only`           |
-| **name**       | String(255)                                               | Task type name<br>`+Required when replying` `+Required when creating`  |
-| **stateType**  | Enum                                                      | State type<br>`+Required when replying`                               |
+| **accountId**  | UUID                                                      | account ID<br>`+Required when answering` `+Read Only`                   |
+| **color**      | Int                                                       | Task type color<br>`+Required when answering` `+Required when creating` |
+| **entityType** | String(255)                                               | Entity type.  It is always a task<br>`+Required when answering` `+Read Only` |
+| **id**         | UUID                                                      | Task type ID<br>`+Required when answering` `+Read Only`                 |
+| **meta**       | [Meta](../#kladana-json-api-general-info-metadata) | Task type metadata<br>`+Required when answering` `+Read Only`           |
+| **name**       | String(255)                                               | Task type name<br>`+Required when answering` `+Required when creating`  |
+| **stateType**  | Enum                                                      | State type<br>`+Required when answering`                               |
 
 The **color** field is passed to the API as an integer consisting of 4 bytes because color is transmitted in the ARGB color space. Each byte is responsible for its own
 color respectively: 1 - for transparency, 2 - for red, 3 - for green,
@@ -267,8 +267,8 @@ Mandatory fields to create:
 
 | Title | Type | Description |
 | ------ | ------- |----- |
-| **description** | String(4096) | Task text<br>`+Required when replying` `+Required when creating` |
-| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee responsible for the task<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **description** | String(4096) | Task text<br>`+Required when answering` `+Required when creating` |
+| **assignee** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee responsible for the task<br>`+Required when answering` `+Expand` `+Required when creating` |
 
 > An example of a request to create a new task.
 
@@ -904,7 +904,7 @@ For successful creation, the following fields must be specified in the request b
 
 | Title | Type | Description |
 | ------ | ------- |------ |
-| **text** | String(4096) | Comment text<br>`+Required when replying` `+Required when creating` |
+| **text** | String(4096) | Comment text<br>`+Required when answering` `+Required when creating` |
 
 **Parameters**
 
@@ -1065,7 +1065,7 @@ For successful creation, the following fields must be specified in the request b
 
 | Title | Type | Description |
 | ------ | ------- |------- |
-| **text** | String(4096) | Comment text<br>`+Required when replying` `+Required when creating` |
+| **text** | String(4096) | Comment text<br>`+Required when answering` `+Required when creating` |
 
 **Parameters**
 

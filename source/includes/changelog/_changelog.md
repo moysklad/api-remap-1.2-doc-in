@@ -6,12 +6,16 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 18-04-2025
+### 05-05-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+### 25-04-2025
+#### Added
+- The minimumStock field in the [product](../dictionaries/#entities-product) entity for working with Minimum Stock.
 
 ### 15-04-2025
 #### Changed

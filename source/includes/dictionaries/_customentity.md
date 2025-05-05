@@ -12,9 +12,9 @@ This identifier is available in the metadata request for the entity, located in 
 
 | Title    | Type                                               | Description                                                             |
 |----------|:---------------------------------------------------|:------------------------------------------------------------------------|
-| **id**   | UUID                                               | Custom list ID<br>`+Required when replying` `+Read Only`                |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom list metadata<br>`+Required when replying`                       |
-| **name** | String(255)                                        | Custom list name<br>`+Required when replying` `+Required when creating` |
+| **id**   | UUID                                               | Custom list ID<br>`+Required when answering` `+Read Only`                |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom list metadata<br>`+Required when answering`                       |
+| **name** | String(255)                                        | Custom list name<br>`+Required when answering` `+Required when creating` |
 
 ### Get a list of Custom lists
 
@@ -128,11 +128,11 @@ Request to get Custom list metadata. The result is a JSON object including:
 
 | Title            | Type                                               | Description                                                                               |
 |------------------|:---------------------------------------------------|:------------------------------------------------------------------------------------------|
-| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) | Custom list metadata<br>`+Required when replying`                                         |
-| **entityMeta**   | [Meta](../#kladana-json-api-general-info-metadata) | Link to the list of entities of Custom list.<br>`+Required when replying`                 |
-| **attributes**   | Array(Object)                                      | Collection of additional fields for a Custom list.<br>`+Required when replying` `+Expand` |
-| **id**           | UUID                                               | Custom list ID<br>`+Required when replying` `+Read Only`                                  |
-| **name**         | String(255)                                        | Custom list name<br>`+Required when replying`                                             |
+| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) | Custom list metadata<br>`+Required when answering`                                         |
+| **entityMeta**   | [Meta](../#kladana-json-api-general-info-metadata) | Link to the list of entities of Custom list.<br>`+Required when answering`                 |
+| **attributes**   | Array(Object)                                      | Collection of additional fields for a Custom list.<br>`+Required when answering` `+Expand` |
+| **id**           | UUID                                               | Custom list ID<br>`+Required when answering` `+Read Only`                                  |
+| **name**         | String(255)                                        | Custom list name<br>`+Required when answering`                                             |
 | **createShared** | Boolean                                            | Create new elements in the custom list with the label "Shared Access"                     |
 
 The structure of a separate object representing an additional field is described in detail in
@@ -191,18 +191,18 @@ curl -X GET
 
 | Title            | Type                                               | Filtration                                                                                                                                                                | Description                                                                                        |
 |------------------|:---------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                                           | Custom list element metadata<br>`+Required when replying`                                          |
-| **id**           | UUID                                               | `=` `!=`                                                                                                                                                                  | Element ID of the Custom list<br>`+Required when replying` `+Read Only`                            |
-| **accountId**    | UUID                                               | `=` `!=`                                                                                                                                                                  | Account ID<br>`+Required when replying` `+Read Only`                                               |
-| **updated**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                                | The moment of the last update of the Custom list element<br>`+Required when replying` `+Read Only` |
-| **name**         | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                                    | Name of the Custom list element<br>`+Required when replying` `+Required when creating`             |
+| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                                           | Custom list element metadata<br>`+Required when answering`                                          |
+| **id**           | UUID                                               | `=` `!=`                                                                                                                                                                  | Element ID of the Custom list<br>`+Required when answering` `+Read Only`                            |
+| **accountId**    | UUID                                               | `=` `!=`                                                                                                                                                                  | Account ID<br>`+Required when answering` `+Read Only`                                               |
+| **updated**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                                | The moment of the last update of the Custom list element<br>`+Required when answering` `+Read Only` |
+| **name**         | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                                    | Name of the Custom list element<br>`+Required when answering` `+Required when creating`             |
 | **code**         | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                                    | Element Code of the Custom list                                                                    |
 | **description**  | String(4096)                                       | `=` `!=` `~` `~=` `=~`                                                                                                                                                    | Description of the element of the Custom list                                                      |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                                    | The external code of the Custom list element<br>`+Required when replying`                          |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                                    | The external code of the Custom list element<br>`+Required when answering`                          |
 | **attributes**   | Array(Object)                                      | [Filtering the selection using the filter parameter](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of additional fields in the [Metadata](../#kladana-json-api-general-info-metadata) format    |
 | **owner**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                                  | Owner (Employee)<br>`+Expand`                                                                      |
-| **shared**       | Boolean                                            | `=` `!=`                                                                                                                                                                  | Shared Access<br>`+Required when replying`                                                         |
-| **group**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                                  | Employee's department<br>`+Required when replying` `+Expand`                                       |
+| **shared**       | Boolean                                            | `=` `!=`                                                                                                                                                                  | Shared Access<br>`+Required when answering`                                                         |
+| **group**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                                                  | Employee's department<br>`+Required when answering` `+Expand`                                       |
 
 ### Get Custom list elements
 

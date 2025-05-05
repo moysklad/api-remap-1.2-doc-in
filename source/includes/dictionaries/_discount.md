@@ -8,13 +8,13 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type | Description |
 | -------- |------- | ---------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read Only` |
 | **active** | Boolean | An indicator of whether the discount is active at the moment<br>`+Required when answering` |
 | **agentTags** | Array(String) | Account tags to which the discount is applied, if not applied to all accounts |
 | **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when answering` |
 | **assortment** | Array(Object) | An array of metadata for Goods and Services that have been selected to apply the discount, if it is not applied to all products |
-| **id** | UUID | Discount ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata Discounts<br>`+Required when replying` |
+| **id** | UUID | Discount ID<br>`+Required when answering` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata Discounts<br>`+Required when answering` |
 | **name** | String(255) | Discount Name<br>`+Required when answering` |
 
 #### Special price fields
@@ -29,7 +29,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type   | Description |
 | -------- |--------| ---------- |
-| **priceType** | Object | Price type<br>`+Required when replying` |
+| **priceType** | Object | Price type<br>`+Required when answering` |
 | **value** | Int    | Price value if a fixed value is selected |
 
 #### Cumulative discount fields

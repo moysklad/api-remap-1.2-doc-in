@@ -7,7 +7,7 @@ Using the json api, you can add new variant characteristics.
 
 | Title | Type | Description |
 | ---------|--------|--------|
-| **id** | UUID | ID of the corresponding Feature<br>`+Required when replying` `+Read Only` |
+| **id** | UUID | ID of the corresponding Feature<br>`+Required when answering` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Feature metadata<br>`+Required for response` `+Read-only` |
 | **name** | String(255) | Name Characteristics<br>`+Required when answering` `+Required when creating` |
 | **required** | Boolean | Mandatory specification of Characteristics in the variant, always set to false<br>`+Required when answering` `+Read-only` |

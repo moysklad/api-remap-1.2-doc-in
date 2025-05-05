@@ -15,31 +15,31 @@ Search among objects of legal entities to match the search string will be carrie
 
 | Title                      | Type                                               | Filtration | Description                                                                                                                                                                                                                              |
 |----------------------------|----------------------------------------------------| -------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                     |
+| **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only`                                                                                                                                                                                     |
 | **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity                                                                                                                                                                                                       |
 | **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address)                                                                        |
-| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying`                                                                                                                                                              |
+| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when answering`                                                                                                                                                              |
 | **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only`                                                                                                                                                                                 |
 | **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand`                                                                                                                                                                                        |
 | **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code                                                                                                                                                                                                                        |
 | **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the legal entity may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
-| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying`                                                                                                                                                                                               |
+| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when answering`                                                                                                                                                                                               |
 | **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa                                                                                                                                                                                                                      |
-| **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when replying`                                                                                                                                                                             |
-| **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand`                                                                                                                                                                             |
-| **id**                     | UUID                                               | `=` `!=`| Legal entity ID<br>`+Required when replying` `+Read only`                                                                                                                                                                                |
-| **meta**                   | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when replying`                                                                                                                                                                                       |
-| **name**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                 |
+| **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when answering`                                                                                                                                                                             |
+| **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when answering` `+Expand`                                                                                                                                                                             |
+| **id**                     | UUID                                               | `=` `!=`| Legal entity ID<br>`+Required when answering` `+Read only`                                                                                                                                                                                |
+| **meta**                   | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity metadata<br>`+Required when answering`                                                                                                                                                                                       |
+| **name**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity name<br>`+Required when answering` `+Required when creating`                                                                                                                                                                 |
 | **owner**                  | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand`                                                                                                                                                                                                            |
-| **shared**                 | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying`                                                                                                                                                                                                     |
+| **shared**                 | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering`                                                                                                                                                                                                     |
 | **syncId**                 | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling`                                                                                                                                                                                 |
-| **updated**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when replying` `+Read-only`                                                                                                                                                  |
+| **updated**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Legal entity<br>`+Required when answering` `+Read-only`                                                                                                                                                  |
 
 #### Detail fields
 
 | Title                                  | Type          | Filtration | Description                                                                                                                                     |
 |----------------------------------------|---------------| -------- |-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accounts**                           | Array(Object) | | Legal entity accounts metadata<br>`+Required when replying` `+Expand`                                                                           |
+| **accounts**                           | Array(Object) | | Legal entity accounts metadata<br>`+Required when answering` `+Expand`                                                                           |
 | **attributes**                         | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional fields of a legal entity                                                                                        |
 | **ChiefAccountSign**                   | Object        | | Signature of the chief accountant. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal) |
 | **ChiefAccountant**                    | String(255)   | | Chief accountant                                                                                                                                |
@@ -100,27 +100,27 @@ Only for legal entity with type `Legal entity. International`.
 
 | Title | Type                                               | Description|
 | ---------|----------------------------------------------------| ----------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
-| **filename** | String(255)                                        | File name<br>`+Required when replying` |
-| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
-| **updated** | DateTime                                           | File upload time to server<br>`+Required when replying` |
-| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when answering` |
+| **title** | String(255)                                        | Image Title<br>`+Required when answering` |
+| **filename** | String(255)                                        | File name<br>`+Required when answering` |
+| **size** | Int                                                | File size in bytes<br>`+Required when answering` |
+| **updated** | DateTime                                           | File upload time to server<br>`+Required when answering` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when answering` |
 
 ##### Legal entity accounts
 
 | Title | Type                                               | Description|
 | ---------|----------------------------------------------------| ----------|
-| **accountId** | UUID                                               |Account ID<br>`+Required when replying` `+Read Only` |
-| **accountNumber** | String(255)                                        | Account number<br>`+Required when replying` `+Required when creating` |
-| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when replying` |
+| **accountId** | UUID                                               |Account ID<br>`+Required when answering` `+Read Only` |
+| **accountNumber** | String(255)                                        | Account number<br>`+Required when answering` `+Required when creating` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when answering` |
 | **bankLocation** | String(255)                                        | Bank address |
 | **bankName** | String(255)                                        | Bank name |
 | **bic** | String(255)                                        | BIC |
 | **correspondentAccount** | String(255)                                        | Corr account |
-| **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
+| **id** | UUID                                               | Account ID<br>`+Required when answering` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when answering` |
-| **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
+| **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when answering` `+Read only` |
 
 #### Legal entity type
 Depending on the legal entity type **companyType**, its object will display different sets of details.
