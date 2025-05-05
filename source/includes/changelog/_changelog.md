@@ -6,6 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 30-04-2025
+#### Added
+- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report-get-a-list-of-operation-reports)
+- Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
+
 ### 25-04-2025
 #### Added
 - The minimumStock field in the [product](../dictionaries/#entities-product) entity for working with Minimum Stock.

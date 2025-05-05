@@ -18,6 +18,8 @@ If production has not started for a Production Order, attempts to create an Oper
 | ----- | ----- | ---------- | ----------- |
 | **accountId** | UUID  | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **created** | DateTime | | Date created<br>`+Required when responding` `+Read-only` |
+| **defect** | Boolean | | Attribute of defect. Cannot be changed after creation<br>`+Required when responding` |
+| **description** | String(4096) | Operation Report Comment |
 | **externalCode** | String(255) | | Operation Report External Code <br>`+Required when responding` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when responding` `+Expand` |
 | **id** | UUID | | Operation Report ID<br>`+Required when responding` `+Read-only` |
@@ -37,6 +39,11 @@ If production has not started for a Production Order, attempts to create an Oper
 | **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when replying` `+Read-only` |
 
 The entity has restrictions on expand: expand of nested fields is not available for the **productionStage.productionRow** field.
+
+To create a defect, you must send the defect=true attribute. The Operation Reports document of the defect type has the following limitations:
+1. The cost of a defect can only be associated with products released after it. Therefore, it is necessary that after the defect there remains available production volume for the release of products. The date of the defect document also cannot be the last among all the completions of the Production Order stages.
+2. Once created, a defect cannot be changed back to a high-quality completion of the operation.
+3. A defect does not produce products (scrap), so its products cannot be requested and changed.
 
 ### Get a list of Operation Reports
 A request for Operation Reports on an account.

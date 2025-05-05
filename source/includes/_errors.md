@@ -392,8 +392,8 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Operation Reports
 
-| Error code | Message | Description |
-| ---------- | ------- | ----------- |
+| Error code                      | Message | Description |
+|---------------------------------| ------- | ----------- |
 | <a name="error_26200">26200</a> | Error saving Operation Report: production has not started, production must be started | Production must be started before starting the production operations |
 | <a name="error_26201">26201</a> | Error saving Operation Report: only product series in the assortment field can be changed | Series can be changed, but products or product variants cannot be changed|
 | <a name="error_26202">26202</a> | Error saving Operation Report: inactive user cannot be specified as a performer | Only active users can perform Production orders|
@@ -403,6 +403,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26206">26206</a> | Error deleting Operation Report: It is impossible to delete the completed operation because the total production volume of the intermediate operation cannot be less than the production volume of the final operation | It is impossible to reduce the production volume of the operation if this would result in overproduction of the final operation |
 | <a name="error_26207">26207</a> | Error saving Operation Report: Serial numbers must be specified for serialized items | Serial numbers must be specified for all materials and products with serial numbers |
 | <a name="error_26208">26208</a> | Error saving Operation Report: {Quantity field} value must match the number of serial numbers in the things field | Serial numbers must be updated when consumedQuantity or producedQuantity changes |
+| <a name="error_26209">26209</a> | Error saving Stage execution: Cannot enable calculation via standard hours and change the labour cost | Check the status of the standard hour accounting flag (enableHourAccounting). When standard hour accounting is enabled, the labor cost value (laborUnitCost field) will be reset and calculated automatically. If you want to send a new labor cost value, first change the calculation type to fixed (enableHourAccounting flag == false). |
+| <a name="error_26210">26210</a> | Error saving Stage execution:The transaction was created with a fixed calculation, the calculation type cannot be changed. | Check the status of the standard hour accounting flag (enableHourAccounting) for the Production Operation of the Production Order. For a transaction with an initially fixed type calculation (enableHourAccounting flag == false), switching to standard hour accounting calculation is not allow. |
+| <a name="error_26211">26211</a> | Error saving Operation Reports: the volume of scarp cannot be equal to the entire available volume of the operation | It is impossible to write off the entire available volume of production at an operation as a scarp, because further production will become unavailable and this will not allow the cost of the scarp to be attributed to finished products. |
+| <a name="error_26212">26212</a> | Error saving Operation Reports: You cannot create a scrap as a completion of production | Ensure you do not create a situation where an existing or created scrap includes the remaining production volume or the final completion date. This will prevent the cost of the scrap from being allocated to finished goods. |
+| <a name="error_26213">26213</a> | Error saving Operation Reports: cannot change the defect attribute | Ensure you are not changing the value of the defect flag. The indication of the Operation Report's association with scrap can only be specified during the document creation. |
 
 ### Error codes for Counterparties
 
