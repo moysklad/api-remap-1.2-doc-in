@@ -37,7 +37,7 @@ Examples:
 | **images**             | MetaArray                                          |                            | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when answering` `+Expand`                                                                                                                        |
 | **meta**               | [Meta](../#kladana-json-api-general-info-metadata) |                            | Product variant Metadata<br>`+Required when answering`                                                                                                                                                                                                  |
 | **minPrice**           | Object                                             |                            | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price)                                                                                                                                            |
-| **minimumStock**       | Object                                             |                            | Minimum stock. [Learn more here](../dictionaries/#entities-product-variant-product-variants-products-nested-entity-attributes-minimum-stock)<br>`+Available upon request`                                                                               |
+| **minimumStock**       | Object                                             |                            | Minimum stock. [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-minimum-stock)<br>`+Available upon request`                                                                                                              |
 | **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~`     | Product name with Product variant<br>`+Required when answering`                                                                                                                                                                                         |
 | **packs**              | Array(Object)                                      |                            | Product variant packages [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-packaging-product-variants)                                                                                                                    |
 | **product**            | [Meta](../#kladana-json-api-general-info-metadata) |                            | Metadata of the [product](../dictionaries/#entities-product) to which the Product variant is attached<br>`+Required when answering` `+Expand` `+Required when creating`                                                                                 |
@@ -410,6 +410,7 @@ Successful request. The result is a JSON representation of the list of Product v
 }
 ```
 > Get the list of Variants with the Minimum Stock field included.
+
 ```shell
 curl -X GET
   "https://api.kladana.com/api/remap/1.2/entity/variant?fields=minimumStock"
@@ -771,6 +772,7 @@ Successful request. The result is a JSON representation of the created Product v
 }
 ```
 > Example of a request to create a new Variant with a populated Minimum Stock field.
+
   ```shell
   curl -X POST
     "https://api.kladana.com/api/remap/1.2/entity/variant"
@@ -1869,6 +1871,7 @@ Successful request. The result is a JSON representation of the Product variant.
 }
 ```
 > Example of a request to update a Variant with an overridden Minimum Stock.
+
   ```shell
   curl -X PUT
     "https://api.kladana.com/api/remap/1.2/entity/variant/7a80d64e-1394-11f0-ac15-001100000028"
