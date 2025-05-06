@@ -20,6 +20,7 @@ Production Operation Metadata<br>`+Required when Response` `+Read Only` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **performers** | MetaArray | | Metadata of possible performers<br>`+Required when answering` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when answering` |
+| standardHourCost | Double | | Standard Hour cost of a certain production operation<br>`+Required when responding` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |
 
 Features of work:<br>
@@ -177,6 +178,7 @@ Successful request. The result is a JSON representation of the created Productio
      }
    },
    "shared": true,
+   "standardHourCost": 0.0,
    "group": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
@@ -250,6 +252,7 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "shared": true,
+     "standardHourCost": 0.0,
      "group": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
@@ -285,6 +288,7 @@ Successful request. The result is a JSON array of representations of the created
        }
      },
      "shared": true,
+     "standardHourCost": 0.0,
      "group": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",
@@ -413,6 +417,7 @@ Successful request. The result is a JSON representation of the Production Operat
      }
    },
    "shared": true,
+   "standardHourCost": 0.0,
    "group": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",

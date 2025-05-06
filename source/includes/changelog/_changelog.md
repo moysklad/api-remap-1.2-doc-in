@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 30-04-2025
 #### Added
-- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report-get-a-list-of-operation-reports)
+- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
 - Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
 
 ### 25-04-2025
