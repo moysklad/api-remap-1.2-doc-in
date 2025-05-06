@@ -14,13 +14,12 @@ Using the JSON API, you can query and update lists of Production Operations and 
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Production Operation ID<br>`+Required for response` `+Read only` |
 | **materialStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Material warehouse metadata<br>`+Read-only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | 
-Production Operation Metadata<br>`+Required when Response` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation Metadata<br>`+Required when Response` `+Read Only` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required for response` `+Required for creation` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **performers** | MetaArray | | Metadata of possible performers<br>`+Required when answering` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when answering` |
-| standardHourCost | Double | | Standard Hour cost of a certain production operation<br>`+Required when responding` |
+| **standardHourCost** | Double | | Standard Hour cost of a certain production operation<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required for response` `+Read only` |
 
 Features of work:<br>

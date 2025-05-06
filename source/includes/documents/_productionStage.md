@@ -26,7 +26,7 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when replying` `+Read-only` |
 | **skippedQuantity** | Double | | Quantity that will not be executed. For example, due to a production stop<br>`+Read-only` |
 | **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operations)<br>`+Expand` `+Required when replying` `+Read-only` |
-| **standardHourCost** | Double | | Standard Hour cost<br>`+Required when responding` |
+| **standardHourCost** | Double | | Standard Hour cost<br>`+Required when replying` |
 | **standardHourUnit** | Double | | Standard hours of a unit of production volume |
 | **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
 

@@ -18,9 +18,9 @@ If production has not started for a Production Order, attempts to create an Oper
 | ----- | ----- | ---------- | ----------- |
 | **accountId** | UUID  | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **created** | DateTime | | Date created<br>`+Required when responding` `+Read-only` |
-| **defect** | Boolean | | Attribute of defect. Cannot be changed after creation<br>`+Required when responding` |
+| **defect** | Boolean | | Attribute of defect. Cannot be changed after creation<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Operation Report Comment |
-| **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when responding` |
+| **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when replying` |
 | **externalCode** | String(255) | | Operation Report External Code <br>`+Required when responding` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when responding` `+Expand` |
 | **id** | UUID | | Operation Report ID<br>`+Required when responding` `+Read-only` |
@@ -37,7 +37,7 @@ If production has not started for a Production Order, attempts to create an Oper
 | **productionVolume** | Double | | Production Volume<br>`+Required when replying` |
 | **products** | MetaArray | | Metadata of Products of Operation Report. Only available for last operation. [Learn more](#transactions-operation-report-change-operation-report-products-of-operation-report)<br>`+Expand` |
 | **shared** | Boolean | | Public access<br>`+Required when replying` |
-| **standardHourCost** | Double | | Standard Hour cost<br>`+Required when responding` |
+| **standardHourCost** | Double | | Standard Hour cost<br>`+Required when replying` |
 | **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when replying` `+Read-only` |
 
 The entity has restrictions on expand: expand of nested fields is not available for the **productionStage.productionRow** field.
