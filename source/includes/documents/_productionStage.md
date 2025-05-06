@@ -16,6 +16,7 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | **availableQuantity** | Double | | Quantity available for execution<br>`+Read-only` |
 | **blockedQuantity** | Double | | Quantity that cannot be executed at the moment. For example, the previous Production Operation has not yet been executed<br>`+Read-only` |
 | **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |
+| **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when replying` |
 | **id** | UUID | | Production Operation ID<br>`+Required in response` `+Read-only` |
 | **labourUnitCost** | Double | | Labor costs per production item<br> |
 | **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required in response` |
@@ -26,6 +27,7 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when replying` `+Read-only` |
 | **skippedQuantity** | Double | | Quantity that will not be executed. For example, due to a production stop<br>`+Read-only` |
 | **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operations)<br>`+Expand` `+Required when replying` `+Read-only` |
+| **standardHourCost** | Double | | Standard Hour cost<br>`+Required when replying` |
 | **standardHourUnit** | Double | | Standard hours of a unit of production volume |
 | **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
 
@@ -138,7 +140,9 @@ Successful request. Result is a JSON representation of the Production Operations
       "skippedQuantity": 0.0,
       "processingUnitCost": 2.0,
       "labourUnitCost": 0.0,
-      "standardHourUnit": 0.0
+      "standardHourUnit": 0.0,
+      "standardHourCost": 0.0,
+      "enableHourAccounting": false
     }
   ]
 }
@@ -217,7 +221,9 @@ Successful request. Result is a JSON representation of the updated Production Op
   "skippedQuantity": 0.0,
   "processingUnitCost": 70.0,
   "labourUnitCost": 30.5,
-  "standardHourUnit": 43.5
+  "standardHourUnit": 43.5,
+  "standardHourCost": 0.0,
+  "enableHourAccounting": false
 }
 ```
 

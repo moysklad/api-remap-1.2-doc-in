@@ -36,10 +36,12 @@ The object of the production operation in the Bill of Materials contains the fol
 | Name | Type | Description |
 | ----- | ---- | ------- |
 | **accountId** | UUID | Account ID<br>`+Required when answering` `+Read-only` |
+| **enableHourAccounting** | Boolean | Is standard hours accounting enabled<br>`+Required when replying` |
 | **id** | UUID | Raw material ID<br>`+Required when answering` `+Read-only` |
 | **cost** | Double | Production cost of a certain production operation `+Required when answering` |
 | **labourCost** | Double | Labor cost of a certain production operation `+Required when answering` |
 | **standardHour** | Double | Standard hours of a production operation `+Required when answering` |
+| **standardHourCost** | Double | Standard Hour cost of a certain production operation<br>`+Required when replying` `+Read-only` |
 | **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Bill of Materials item metadata<br>`+Required when answering` |
 
 Production operations of a Bill of Materials strictly correspond to the stages of the linked production process.
