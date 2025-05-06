@@ -371,6 +371,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_25060">25060</a> | Save error: array element '{type}' can only contain an item from the Routing specified in the Bill of Materials in the processingProcess field | Check that the specified Routing items belong to the Routing of the Bill of Materials. |
 | <a name="error_25061">25061</a> | Save error: You cannot specify production cost in both the Bill of Materials and the production operations of Bill of Materials. | Check that you are not passing the production cost (cost field) in both the Bill of Materials and the items of the production operation. |
 | <a name="error_25062">25062</a> | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product | Check that the operation does not result in incorrect Bills of Materials. |
+| <a name="error_25063">25063</a> | Save error: Cannot enable calculation via standard hours and change the labour cost | Check the status of the standard hour accounting flag for the Operation of Bill of Materials (enableHourAccounting). When standard hour accounting is enabled, the labor cost value (laborUnitCost field) will be reset and calculated automatically. If you want to send a new labor cost value, first change the calculation type to fixed (enableHourAccounting flag == false). |
 
 ### Error codes for Production Orders
 
@@ -389,6 +390,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26111">26111</a> | Error deleting: last product cannot be deleted when 'awaiting' flag is active | At least one product is required when 'awaiting' is set |
 | <a name="error_26112">26112</a> | Error updating Production Order: field {date field} cannot be assigned a value after {date} | The field has limitations and dependencies. A date before the specified one must be passed |
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
+| <a name="error_26114">26114</a> | Error updating Production Operation: Cannot enable calculation via standard hours and change the labour cost | Check the status of the standard hour accounting flag for the Production Operation (enableHourAccounting). When standard hour accounting is enabled, the labor cost value (laborUnitCost field) will be reset and calculated automatically. If you want to send a new labor cost value, first change the calculation type to fixed (enableHourAccounting flag == false). |
 
 ### Error codes for Operation Reports
 

@@ -16,6 +16,7 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 | **availableQuantity** | Double | | Quantity available for execution<br>`+Read-only` |
 | **blockedQuantity** | Double | | Quantity that cannot be executed at the moment. For example, the previous Production Operation has not yet been executed<br>`+Read-only` |
 | **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |
+| **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when replying` |
 | **id** | UUID | | Production Operation ID<br>`+Required in response` `+Read-only` |
 | **labourUnitCost** | Double | | Labor costs per production item<br> |
 | **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required in response` |
@@ -140,7 +141,8 @@ Successful request. Result is a JSON representation of the Production Operations
       "processingUnitCost": 2.0,
       "labourUnitCost": 0.0,
       "standardHourUnit": 0.0,
-      "standardHourCost": 0.0
+      "standardHourCost": 0.0,
+      "enableHourAccounting": false
     }
   ]
 }
@@ -220,7 +222,8 @@ Successful request. Result is a JSON representation of the updated Production Op
   "processingUnitCost": 70.0,
   "labourUnitCost": 30.5,
   "standardHourUnit": 43.5,
-  "standardHourCost": 0.0
+  "standardHourCost": 0.0,
+  "enableHourAccounting": false
 }
 ```
 

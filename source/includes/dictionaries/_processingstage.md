@@ -7,7 +7,7 @@ Using the JSON API, you can query and update lists of Production Operations and 
 | Title | Type    | Filtration | Description |
 | ------- | ----- | ---------- | ----------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
-**allPerformers**   | Boolean |  | Availability indicator for assignment to any employee stage<br>`+Required when answering` |
+| **allPerformers**   | Boolean |  | Availability indicator for assignment to any employee stage<br>`+Required when answering` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when answering` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when answering` |
