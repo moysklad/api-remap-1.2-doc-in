@@ -50,7 +50,6 @@ Search among objects of legal entities to match the search string will be carrie
 | **fax**                                | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number                                                                                                                                      |
 | **mod\_\_requisites\_\_in**            | Object       | | Requisites for legal entity of the type `[Legal entity. India]` with details on individual fields                                               |
 | **mod\_\_requisites\_\_international** | Object       | | Requisites for legal entity of the type `[Legal entity. International]` with details on individual fields                                       |
-| **inn**                                | String(255)  | `=` `!=` `~` `~=` `=~` | Tax Number for legal entity of the type `[Legal entity]`                                                                                        |
 | **fsrarId**                            | String(255)   | | Identifier in FSRAR                                                                                                                             |
 | **isEgaisEnable**                      | Boolean       | | Is EGAIS enabled for this legal entity                                                                                                          |
 | **legalAddress**                       | String(255)   | `=` `!=` `~` `~=` `=~` | Legal address Legal entity                                                                                                                      |
@@ -129,19 +128,8 @@ Legal entity types and corresponding values that can be passed to the value of t
 
 | CompanyType field value | Region               | Legal entity type   |
 |-----------------------|----------------------|---------------------|
-| **legal**               | International        | Legal entity        |
 | **legalIN**             | India                | Legal entity. India |
 | **legalINTERNATIONAL**  | International        | Legal entity. International      |
-
-<br>
-
-If the legal entity type is `Legal entity`, the following fields of details will be displayed:
-
-| title            | description                     |
-|------------------|---------------------------------|
-| **legalTitle**   | Full name of the legal entity   |
-| **legalAddress** | Legal address of a legal entity |
-| **inn**          | Tax Number                      |
 
 <br>
 
@@ -1272,7 +1260,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
-   "companyType": "legal",
+   "companyType": "legalIN",
    "archived": false,
    "created": "2007-02-07 17:16:41",
    "legalTitle": "Great Light Prom LLC",
@@ -1328,7 +1316,9 @@ Successful request. The result is a JSON representation of the legal entity with
      "addInfo": "addinfo",
      "comment": "some words about address"
    },
-   "inn": "87654321",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -1461,12 +1451,14 @@ Request to update the legal entity with the specified ID.
            "description": "legal entity making small profits",
            "code": "666",
            "externalCode": "666AAAA666",
-           "companyType": "legal",
+           "companyType": "legalIN",
            "archived": false,
            "legalTitle": "Great Light Prom LLC",
            "legalAddress": "Moscow, Lenin street, 42/685",
            "actualAddress": "g PermSt. Stanislav d 75",
-           "inn": "87654321",
+           "mod__requisites__in":{
+             "pan": "87654321"
+           },
            "email": "svetprom@mail.svet",
            "phone": "22222222",
            "fax": "bello123",
@@ -1514,12 +1506,14 @@ Successful request. The result is JSON of the updated legal entity.
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
-   "companyType": "legal",
+   "companyType": "legalIN",
    "archived": false,
    "legalTitle": "Great Light Prom LLC",
    "legalAddress": "Moscow, Lenin street, 42/685",
    "actualAddress": "Perm Stalin street 75",
-   "inn": "87654321",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",

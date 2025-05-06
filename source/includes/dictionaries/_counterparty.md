@@ -72,7 +72,6 @@ The fourth search condition for the fields of all contact persons of the counter
 |----------------------------------------|--------------| ------ |---------------------------------------------------------------------------------------------------------------|
 | **mod\_\_requisites\_\_in**            | Object       | | Requisites for the Counterparty of the type `[Legal entity. India]` with details on individual fields         |
 | **mod\_\_requisites\_\_international** | Object       | | Requisites for the Counterparty of the type `[Legal entity. International]` with details on individual fields |
-| **inn**                                | String(255)  | `=` `!=` `~` `~=` `=~` | Tax Number for the Counterparty of the type `[Legal entity]`                                                  |
 | **legalAddress**                       | String(255)  | `=` `!=` `~` `~=` `=~` | Legal address of the Counterparty                                                                             |
 | **legalAddressFull**                   | Object       | | Legal address of the Counterparty with details on individual fields                                           |
 | **legalTitle**                         | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                                |
@@ -167,18 +166,8 @@ Counterparty types and corresponding values that can be passed in this field:
 
 | CompanyType field value | Region               | Counterparty type   |
 |-------------------------|----------------------|---------------------|
-| **legal**               | International        | Legal entity        |
 | **legalIN**             | India                | Legal entity. India |
 | **legalINTERNATIONAL**  | International        | Legal entity. International      |
-
-If the counterparty type is `Legal entity`, the following fields of details will be displayed:
-
-| Title            | Description                       |
-|------------------|-----------------------------------|
-| **inn**          | Tax Number                        |
-| **legalAddress** | Legal address of the Counterparty |
-| **legalTitle**   | Full name of the Counterparty     |
-| **tags**         | Groups (array)                    |
 
 If the counterparty type is `Legal entity. India`, the following fields of details will be displayed:
 
@@ -389,127 +378,6 @@ Successful request. The result is a JSON representation of the list of Counterpa
       },
       "bonusPoints": 0
     },
-    {  
-      "meta":{  
-        "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055",
-        "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-        "type":"counterparty",
-        "mediaType":"application/json"
-      },
-      "id":"12a8e347-692c-11e6-8a84-bae500000055",
-      "accountId":"1185513e-692c-11e6-8a84-bae500000001",
-      "owner":{  
-        "meta":{  
-          "href":"https://api.kladana.com/api/remap/1.2/entity/employee/12747f9e-692c-11e6-8a84-bae50000002a",
-          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-          "type":"employee",
-          "mediaType":"application/json"
-        }
-      },
-      "shared": false,
-      "created":"2007-02-07 17:16:41",
-      "group":{  
-        "meta":{  
-          "href":"https://api.kladana.com/api/remap/1.2/entity/group/11883c67-692c-11e6-8a84-bae500000002",
-          "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-          "type":"group",
-          "mediaType":"application/json"
-        }
-      },
-      "updated":"2016-08-23 15:21:09",
-       "name":"OOO \"Buyer\"",
-       "externalCode":"DTItQRbDhyl472ZqC5OWw2",
-       "archived": false,
-       "companyType":"legal",
-       "legalTitle":"Limited Liability Company \"Buyer\"",
-       "legalAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 123, addInfo",
-       "legalAddressFull":{  
-        "postalCode":"125009",
-        "country":{  
-          "meta":{  
-            "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-            "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
-            "type":"country",
-            "mediaType":"application/json"
-          }
-        },
-        "region":{  
-          "meta":{  
-            "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-            "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
-            "type":"region",
-            "mediaType":"application/json"
-          }
-        },
-      "city":"Moscow",
-         "street": "Tverskaya street",
-         "house":"1",
-         "apartment":"123",
-         "addInfo":"addinfo",
-         "comment":"some words about address"
-       },
-       "actualAddress":"125009, Russia, Moscow, Moscow, Tverskaya st., 1, 111, addInfo",
-       "actualAddressFull":{
-         "postalCode":"125009",
-         "country":{
-           "meta":{
-             "href":"https://api.kladana.com/api/remap/1.2/entity/country/9df7c2c3-7782-4c5c-a8ed-1102af611608",
-             "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/country/metadata",
-             "type":"country",
-             "mediaType":"application/json"
-           }
-         },
-         "region":{
-           "meta":{
-             "href":"https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077",
-             "metadataHref":"https://api.kladana.com/api/remap/1.2/entity/region/metadata",
-             "type":"region",
-             "mediaType":"application/json"
-           }
-         },
-         "city":"Moscow",
-         "street": "Tverskaya street",
-         "house":"1",
-         "apartment":"111",
-         "addInfo":"addinfo",
-         "comment":"some words about address"
-       },
-       "inn": "7736570902",
-       "accounts":{
-         "meta":{
-           "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/accounts",
-           "type":"account",
-           "mediaType":"application/json",
-           "size":0,
-           "limit":1000,
-           "offset":0
-         }
-       },
-       "tags":[
-
-       ],
-       "contactpersons":{
-         "meta":{
-           "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/contactpersons",
-           "type":"contactperson",
-           "mediaType":"application/json",
-           "size":0,
-           "limit":1000,
-           "offset":0
-         }
-       },
-       "notes":{
-         "meta":{
-           "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12a8e347-692c-11e6-8a84-bae500000055/notes",
-           "type":"note",
-           "mediaType":"application/json",
-           "size":0,
-           "limit":1000,
-           "offset":0
-         }
-       },
-       "salesAmount":0
-     },
      {
        "meta":{
          "href":"https://api.kladana.com/api/remap/1.2/entity/counterparty/12c9ebcf-692c-11e6-8a84-bae50000005d",
@@ -1027,114 +895,6 @@ curl -X POST
 curl -X POST
   "https://api.kladana.com/api/remap/1.2/entity/counterparty"
   -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
-  -d '{
-    "name": "Ivanov LLC",
-    "code": "someCode",
-    "externalCode": "extCode",
-    "companyType": "legal",
-    "actualAddress": "Moscow, Academician Mil street, 15/21",
-    "legalAddress": "Moscow, Aviastroiteley street 93/12",
-    "inn": "87654321"
-}'
-```
-> Response 200. Successful request. The result is a JSON representation of the created Counterparty.
-
-```json
-{
-  "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000",
-    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-    "type": "counterparty",
-    "mediaType": "application/json",
-    "uuidHref": "https://app.kladana.com/app/#company/edit?id=45fd2f10-b0ae-11ea-0a80-163500000000"
-  },
-  "id": "45fd2f10-b0ae-11ea-0a80-163500000000",
-  "accountId": "02865f48-b0ae-11ea-0a80-203a00000002",
-  "owner": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/02e06bea-b0ae-11ea-0a80-1d9c00000034",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=02e06bea-b0ae-11ea-0a80-1d9c00000034"
-    }
-  },
-  "shared": false,
-  "group": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/group/02877fda-b0ae-11ea-0a80-203a00000003",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
-  "version": 0,
-  "updated": "2020-06-17 18:21:53",
-   "name": "IP Ivanov",
-   "code": "someCode",
-   "externalCode": "extCode",
-   "archived": false,
-   "created": "2020-06-17 18:21:53",
-   "companyType": "legal",
-   "legalAddressFull": {
-     "addInfo": "Moscow, Aviastroiteley street 93/12"
-   },
-   "actualAddress": "Moscow, Academician Mil street, 15/21",
-   "actualAddressFull": {
-     "addInfo": "Moscow, Academician Mil street 15/21"
-   },
-   "inn": "87654321",
-  "accounts": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/accounts",
-      "type": "account",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "tags": [],
-  "contactpersons": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/contactpersons",
-      "type": "contactperson",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "notes": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/45fd2f10-b0ae-11ea-0a80-163500000000/notes",
-      "type": "note",
-      "mediaType": "application/json",
-      "size": 0,
-      "limit": 100,
-      "offset": 0
-    }
-  },
-  "state": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/03935900-b0ae-11ea-0a80-1d9c0000008c",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-      "type": "state",
-      "mediaType": "application/json"
-    }
-  },
-  "salesAmount": 0.0
-}
-```
-
-> Example 4
-
-```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/counterparty"
-  -H "Authorization: Basic <Credentials>"
   -H "Content-Type: application/json"
   -d ' {
         "name": "Johnson",
@@ -1267,7 +1027,7 @@ curl -X POST
           "name": "Vegetable Express LLC",
           "description": "Vegetable Delivery Network",
           "code": "ovoshexpressCode",
-          "companyType": "legal",
+          "companyType": "legalIN",
           "externalCode": "extVagetable",
           "email": "ovosh@delivery.ru",
           "phone": "+7 495 662 12 23",
@@ -1323,7 +1083,9 @@ curl -X POST
               "addInfo": "addinfo",
               "comment": "some words about address"
           },
-          "inn": "1251521244152"
+          "mod__requisites__in":{
+            "pan": "87654321"
+          },
           "tags": [
               "Vegetables",
               "Food",
@@ -1405,7 +1167,7 @@ curl -X POST
    "description":"Vegetable Delivery Network",
    "code":"ovoshexpressCode",
    "externalCode":"extVagetable",
-   "companyType": "legal",
+   "companyType": "legalIN",
    "archived": false,
    "created":"2007-02-07 17:16:41",
    "legalTitle":"Limited Liability Company \"Vegetable Express\"",
@@ -1461,7 +1223,9 @@ curl -X POST
      "addInfo":"addinfo",
      "comment":"some words about address"
    },
-   "inn": "1251521244152",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email":"ovosh@delivery.ru",
    "phone":"+7 495 662 12 23",
    "fax":"1052034",
@@ -1602,14 +1366,16 @@ curl -X POST
             "description": "Network of building materials markets Raduga EXPO",
             "code": "rainbow",
             "externalCode": "extRainbow",
-            "companyType": "legal",
+            "companyType": "legalIN",
             "email": "raduga@retail.ru",
             "phone": "+7 495 162 32 23",
             "fax": "1052054",
             "actualAddress": "Moscow, Stroiteley st. 331",
             "legalTitle": "Limited Liability Company \"Rainbow EXPO\"",
             "legalAddress": "Moscow, Chernorabochego street 93/12",
-            "inn": "1251581244152",
+            "mod__requisites__in":{
+              "pan": "87654321"
+            },
             "tags": [
                 "Builders",
                 "Repair",
@@ -1735,13 +1501,15 @@ curl -X POST
      "description":"Network of building materials markets Raduga EXPO",
      "code":"rainbow",
      "externalCode":"extRainbow",
-     "companyType": "legal",
+     "companyType": "legalIN",
      "archived": false,
      "created":"2007-02-07 17:16:41",
      "legalTitle":"Limited Liability Company \"Rainbow EXPO\"",
      "legalAddress": "Moscow, Chernorabochego street 93/12",
      "actualAddress": "Moscow, Stroiteley st. 331",
-     "inn": "1251581244152",
+     "mod__requisites__in":{
+       "pan": "87654321"
+     },
      "email": "raduga@retail.ru",
      "phone":"+7 495 162 32 23",
      "fax":"1052054",

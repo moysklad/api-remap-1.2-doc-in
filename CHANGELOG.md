@@ -2,20 +2,28 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 30-04-2025
+### 06-05-2025
 #### Added
 - Fields `description`, `defect` in [Operation Report](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-operation-report)
 - Errors [26211-26213](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-operation-reports)
 
 ### 25-04-2025
 #### Added
+## 05-05-2025
+### Changed
+- Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+
+## 25-04-2025
+### Added
 - The minimumStock field in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product) entity for working with Minimum Stock.
 
 ## 15-04-2025
 ### Changed
 - Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
-### Added
 - Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
 
@@ -46,7 +54,6 @@ JSON API 1.2 changes will be added here soon
 ### Changed
 - Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
-### Added
 - Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
 
