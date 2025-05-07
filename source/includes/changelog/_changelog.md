@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 06-05-2025
+#### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)
+
 ### 05-05-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)

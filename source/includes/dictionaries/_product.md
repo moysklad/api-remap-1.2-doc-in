@@ -339,6 +339,7 @@ when creating or updating a product. There are also separate resources for manag
 + Create (`/entity/product/{product_id}/storebalances`)
 + Update (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
 + Delete (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
++ Bulk deletion (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
 
 ##### Image: structure and loading.
 When requesting a Product with images, a json representation of this Product will be displayed containing the **images** field. This field is
@@ -3914,7 +3915,7 @@ Successful request. The result is a JSON representation of the updated Product.
         "type": "WAREHOUSE_VARIED",
         "storeBalances": {
             "meta": {
-                "href": "https://api-api-1.testms-test.lognex.ru/api/remap/1.2/entity/product/88df2fc1-1065-11f0-ac15-000700000012/storebalances",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/88df2fc1-1065-11f0-ac15-000700000012/storebalances",
                 "type": "minimumstock",
                 "mediaType": "application/json",
                 "size": 2,
@@ -3965,3 +3966,31 @@ Successful request. The result is a JSON representation of the updated Product.
     }
 }
 ```  
+
+> The request for the bulk deletion of Minimum Stock in the product.
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of the Minimum Stock items.
