@@ -224,6 +224,7 @@ There are also separate endpoints for managing minimum stock values by warehouse
 + Create (`/entity/product/{product_id}/storebalances`)
 + Update (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
 + Delete (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
++ Bulk deletion (`/entity/product/{product_id}/storebalances/delete`)
 
 ##### Packaging Product variants
 
@@ -1870,7 +1871,7 @@ Successful request. The result is a JSON representation of the Product variant.
    }
 }
 ```
-> Example of a request to update a Variant with an overridden Minimum Stock.
+> Example of a request to update the Product variant with an overridden Minimum Stock.
 
   ```shell
   curl -X PUT
@@ -1888,7 +1889,7 @@ Successful request. The result is a JSON representation of the Product variant.
   ```
 
 > Response 200 (application/json)
-Successful request. The result is the JSON representation of the updated Variant with the overridden Minimum Stock.
+Successful request. The result is the JSON representation of the updated the Product variant with the overridden Minimum Stock.
 
   ```json
 {
@@ -1968,3 +1969,32 @@ Successful request. The result is the JSON representation of the updated Variant
   }
 }
 ```
+
+> Example of a request to bulk deletion of minimum stock levels by warehouses in the Product variant
+
+```shell
+curl -X POST
+  "https://api.moysklad.ru/api/remap/1.2/entity/variant/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.moysklad.ru/api/remap/1.2/entity/variant/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.moysklad.ru/api/remap/1.2/entity/variant/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of minimum stock levels by warehouses in the Product variant.
