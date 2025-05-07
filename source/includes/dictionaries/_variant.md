@@ -219,12 +219,12 @@ To [create](../dictionaries/#entities-product-variant-create-product-variant) or
 or updating a variant by specifying the warehouse and the minimum stock quantity.
 There are also separate endpoints for managing minimum stock values by warehouse:
 
-+ Get list (`/entity/product/{product_id}/storebalances`)
-+ Get object (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
-+ Create (`/entity/product/{product_id}/storebalances`)
-+ Update (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
-+ Delete (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
-+ Bulk deletion (`/entity/product/{product_id}/storebalances/delete`)
++ Get list (`/entity/variant/{variant_id}/storebalances`)
++ Get object (`/entity/variant/{variant_id}/storebalances/{minimumstock_id}`)
++ Create (`/entity/variant/{variant_id}/storebalances`)
++ Update (`/entity/variant/{variant_id}/storebalances/{minimumstock_id}`)
++ Delete (`/entity/variant/{variant_id}/storebalances/{minimumstock_id}`)
++ Bulk deletion (`/entity/variant/{variant_id}/storebalances/delete`)
 
 ##### Packaging Product variants
 
