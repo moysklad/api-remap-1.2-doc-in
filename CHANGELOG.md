@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 13-05-2025
+### Added
+- New transaction types for [Event Feed](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed)
+
 ## 05-05-2025
 ### Changed
 - Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
