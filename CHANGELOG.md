@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 06-05-2025
+## 13-05-2025
 ### Added
 - Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product)
 
