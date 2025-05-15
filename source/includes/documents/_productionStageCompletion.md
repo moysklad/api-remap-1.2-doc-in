@@ -17,6 +17,7 @@ If production has not started for a Production Order, attempts to create an Oper
 | Title | Type  | Filtration | Description |
 | ----- | ----- | ---------- | ----------- |
 | **accountId** | UUID  | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **applicable** | Boolean | `=` `!=`  | Check mark<br>`+Required when answering`  `+Read Only` |
 | **created** | DateTime | | Date created<br>`+Required when responding` `+Read-only` |
 | **externalCode** | String(255) | | Operation Report External Code <br>`+Required when responding` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when responding` `+Expand` |
