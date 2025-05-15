@@ -10,6 +10,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Field `currency` added in [Legal entity accounts](../dictionaries/#entities-entity-legal-entity)
 
+### 15-05-2025
+#### Changed
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
+
 ### 13-05-2025
 #### Added
 - Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)
