@@ -6,6 +6,32 @@ JSON API 1.2 changes will be added here soon
 ### Changed
 - Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
 
+## 13-05-2025
+### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product)
+
+## 05-05-2025
+### Changed
+- Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+
+## 25-04-2025
+### Added
+- The minimumStock field in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product) entity for working with Minimum Stock.
+
+## 15-04-2025
+### Changed
+- Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
+
+## 10-04-2025
+### Changed
+- Description for automatically disabling JSON API for a user in [Limitations](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-limitations)
+
 ## 10-03-2025
 ### Added
 - Bundles are supported in the following transactions containing the Commission Agency Contract:
@@ -20,11 +46,15 @@ JSON API 1.2 changes will be added here soon
 ### Removed
 - `18002` [error code](https://dev.kladana.com/doc/api/remap/1.2/index.html#kladana-json-api-errors-error-codes-for-sales-and-shipments)
 
+## 05-03-2025
+### Changed
+- Set `legalIN` as the only available value for `companyType` for India in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties-counterparty-type)
+- Set `legalIN` as the only available value for `companyType` for India in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity-legal-entity-type)
+
 ## 10-02-2025
 ### Changed
 - Field `companyType` in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
-### Added
 - Requisites details in [Counterparty](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
 

@@ -13,14 +13,14 @@ The search among country objects for matching the search string will be carried 
 
 | Title | Type                                               | Filtration | Description |
 | -------|----------------------------------------------------| -------- |----- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br> `+Required when replying` `+Read-only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br> `+Required when answering` `+Read-only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Country Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Countries |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Country Code<br>`+Required when replying` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Country Code<br>`+Required when answering` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department-owner<br>`+Expand` `+For custom countries` |
-| **id** | UUID                                               | `=` `!=` | Country ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | `=` `!=` | Country ID<br>`+Required when answering` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Required when answering` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Country Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Country Name<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee-owner<br>`+Expand` `+For custom countries` |
 | **shared** | Boolean                                            | `=` `!=` | Flag Share<br>`+For custom countries` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |

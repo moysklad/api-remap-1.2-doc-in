@@ -75,7 +75,7 @@ Sales Order items are arranged as a list of objects (products, services, variant
 | ----- | -------- | --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of an item (product/service/bundle/variant) <br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
-| **discount** | Int                                                | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **discount** | Float                                                | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` `+Update-provider` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Price of a product/service in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
@@ -2572,10 +2572,7 @@ Successful request. Result is JSON representation of an individual Sales Order i
 Request to create a new item in the Sales Order.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batches/product variant/set that the item represents.
-
-You can also specify a field named **product**, **service**, **variant**, **bundle** as per
-what the indicated item is. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
++ **assortment** - Link to the product/service/batches/product variant/set that the item represents. You can read more about this field in the description of the [Order item](../documents/#transactions-sales-order-sales-orders-sales-orders-items)
 
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 

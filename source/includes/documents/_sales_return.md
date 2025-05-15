@@ -64,7 +64,7 @@ The Sales Return element object contains the following fields:
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` |
 | **cost** | Int                                                | Cost price. It is displayed only for Unreferenced Return (Return with no reason) |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country Metadata<br>`+Expand` |
-| **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
+| **discount** | Float                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br>`+Change-handler` |
 | **price** | Float                                              |Price of products/services in paise<br>`+Required when replying` `+Change-handler` |
@@ -1928,9 +1928,7 @@ Successful request. The result is a JSON representation of the Sales Return item
 Request to create a new item in Sales Return.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortmet** - Link to the product, service, batch, or product variant that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of [Sales Return items](../documents/#transactions-sales-return-sales-returns-sales-return-items).
++ **assortmet** - Link to the product, service, batch, or product variant that the item represents. You can read more about this field in the description of [Sales Return items](../documents/#transactions-sales-return-sales-returns-sales-return-items).
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create both one and some Sales Return items at the same time. All items created by this request
 will be added to the existing ones.

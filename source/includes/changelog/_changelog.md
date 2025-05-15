@@ -8,7 +8,33 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 15-05-2025
 #### Changed
-- Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
+
+### 13-05-2025
+#### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)
+
+### 05-05-2025
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+### 25-04-2025
+#### Added
+- The minimumStock field in the [product](../dictionaries/#entities-product) entity for working with Minimum Stock.
+
+### 15-04-2025
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+### 10-04-2025
+#### Changed
+- Description for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations)
 
 ### 10-03-2025
 #### Added
@@ -24,11 +50,15 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Removed
 - `18002` [error code](../#kladana-json-api-errors-error-codes-for-sales-and-shipments)
 
+### 05-03-2025
+#### Changed
+- Set `legalIN` as the only available value for `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties-counterparty-type)
+- Set `legalIN` as the only available value for `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity-legal-entity-type)
+
 ### 10-02-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 

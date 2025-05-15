@@ -7,28 +7,28 @@ Using the JSON API, you can create and update information about Bonus Operations
 
 | Title                 | Type | Filtering | Description |
 |-----------------------|----------- |-------------| ------------- |
-| **accountId**         | UUID |`=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **agent**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **applicable**        | Boolean |`=` `!=` | Check mark<br>`+Required when replying` |
+| **accountId**         | UUID |`=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **agent**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Metadata of the Counterparty associated with the bonus operation<br>`+Required when answering` `+Expand` `+Required when creating` |
+| **applicable**        | Boolean |`=` `!=` | Check mark<br>`+Required when answering` |
 | **bonusProgram**      | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Bonus program metadata<br>`+Expand` |
 | **bonusValue**        | Int |`=` `!=` `<` `>` `<=` `>=` | Number of bonus points |
 | **categoryType**      | Enum | | Bonus operation category. Possible values: `REGULAR`, `WELCOME`<br>`+Read Only` |
 | **code**              | String(255) |`=` `!=` `~` `~=` `=~` | Bonus Transaction Code |
-| **created**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when replying` |
+| **created**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of Bonus operation creation<br>`+Required when answering` |
 | **executionDate**     | DateTime | | Date of the bonus operation. |
-| **externalCode**      | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when replying` |
-| **group**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **externalCode**      | String(255) |`=` `!=` `~` `~=` `=~` | External code of the Bonus operation<br>`+Required when answering` |
+| **group**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
 | **id**                | UUID |`=` `!=` | Bonus transaction ID<br>`+Required for response` `+Read-only` |
-| **meta**              | [Meta](../#kladana-json-api-general-info-metadata) | | Bonus operation metadata<br>`+Required when replying` |
+| **meta**              | [Meta](../#kladana-json-api-general-info-metadata) | | Bonus operation metadata<br>`+Required when answering` |
 | **moment**            | DateTime |`=` `!=` `<` `>` `<=` `>=` | Time of the bonus operation |
 | **name**              | String(255) |`=` `!=` `~` `~=` `=~` | Name of the Bonus transaction |
 | **organization**      | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Legal entity metadata<br>`+Expand` |
 | **owner**             | [Meta](../#kladana-json-api-general-info-metadata) |`=` `!=` | Owner (Employee)<br>`+Expand` |
 | **parentDocument**    | [Meta](../#kladana-json-api-general-info-metadata) | | St. Metadataof the linked document of the bonus operation<br>`+Expand` |
-| **shared**            | Boolean |`=` `!=` | Sharing<br>`+Required when replying` |
+| **shared**            | Boolean |`=` `!=` | Sharing<br>`+Required when answering` |
 | **transactionStatus** | Enum | | Status of the bonus operation. Possible values: `WAIT_PROCESSING`, `COMPLETED`, `CANCELED`<br>`+Read Only` |
-| **transactionType**   | Enum | | Type of bonus operation. Possible values: `EARNING`, `SPENDING`<br>`+Required when replying` `+Required when creating` |
-| **updated**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Bonus operation<br>`+Required when replying` |
+| **transactionType**   | Enum | | Type of bonus operation. Possible values: `EARNING`, `SPENDING`<br>`+Required when answering` `+Required when creating` |
+| **updated**           | DateTime |`=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Bonus operation<br>`+Required when answering` |
 | **updatedBy**         | UID |`=` `!=` | The author of the last update of the bonus operation in the format `uid` (`admin@admin`) (The attribute is used only for filtering) |
 
 ##### The "executionDate" attribute
@@ -275,9 +275,9 @@ Mandatory fields to create:
 
 | Title               | Type | Description |
 |---------------------| --------------------- | --------------------- |
-| **agent**           | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparty associated with the bonus operation<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **bonusProgram**   | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **transactionType** | Enum | Type of bonus operation<br>`+Required when replying` `+Required when creating` |
+| **agent**           | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Counterparty associated with the bonus operation<br>`+Required when answering` `+Expand` `+Required when creating` |
+| **bonusProgram**   | [Meta](../#kladana-json-api-general-info-metadata) | Bonus Program Metadata<br>`+Required when answering` `+Expand` `+Required when creating` |
+| **transactionType** | Enum | Type of bonus operation<br>`+Required when answering` `+Required when creating` |
 
 > An example of a request to create a new bonus operation.
 

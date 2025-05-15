@@ -11,18 +11,18 @@ The search among the project objects for matching the search string will be carr
 #### Entity attributes
 | Title | Type                                               | Filtration | Description |
 | ----- |----------------------------------------------------| ------- | ---------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Has the Project been archived<br>`+Required when replying` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Project been archived<br>`+Required when answering` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Project Description |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when replying` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Project ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Project Metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when replying` `+Required when creating` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project external code<br>`+Required when answering` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Project ID<br>`+Required when answering` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Project Metadata<br>`+Required when answering` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Project Name<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | MetadataOwner's (Employee)<br>`+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 About working with Project fields can be read [here](../#kladana-json-api-general-info-additional-fields)
@@ -491,9 +491,9 @@ Request for obtaining Projects metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | ------- | ---------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Project Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Project Metadata<br>`+Required when answering` |
 | **attributes** | Array(Object) | Collection of additional fields |
-| **createShared** | Boolean | Create new Projects with tag "General"<br>`+Required when replying` |
+| **createShared** | Boolean | Create new Projects with tag "General"<br>`+Required when answering` |
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 

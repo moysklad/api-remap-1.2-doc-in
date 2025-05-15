@@ -62,7 +62,7 @@ Invoice Items is a list of products, product variants, bundles, and services. Th
 | ---------- |----------------------------------------------------|-------- |
 | **accountId** | UUID                                               | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
-| **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
+| **discount** | Float                                               | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
 | **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
@@ -2640,9 +2640,7 @@ Successful request. Result is a JSON representation of a single Sales Invoice it
 Request to create a new item in the Sales Invoice.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the product/service/batch/product variant that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
++ **assortment** - Link to the product/service/batch/product variant that the item represents. You can read more about this field in the description of the [Invoice item](../documents/#transactions-sales-invoice-sales-invoices-sales-invoice-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 Just like when working with [Sales Order Items](../documents/#transactions-sales-order-sales-orders-sales-orders-items), you can create one or more items in one request.
 
