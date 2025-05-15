@@ -72,7 +72,7 @@ The Receiving item object contains the following fields:
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batch/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider`|
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
-| **discount** | Int                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **discount** | Float                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Price of products/services in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
@@ -2856,9 +2856,7 @@ Successful request. The result is a JSON representation of a single Receiving it
 Request to create a new item in Receiving.
 For successful creation, the following fields must be specified in the request body:
 
-+ **assortment** - Link to the products, services, batches, product variants that the item represents.
-You can also specify a field named **service**, **variant** according to
-what the indicated item is. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-receivings-receiving-items)
++ **assortment** - Link to the products, services, batches, product variants that the item represents. You can read more about this field in the description of the [Receiving item](../documents/#transactions-receiving-receivings-receiving-items)
 + **quantity** - Quantity of the specified item. Must be positive, otherwise an error will occur.
 You can create one or more Receiving items at the same time. All items created by this request
 will be added to the existing ones.

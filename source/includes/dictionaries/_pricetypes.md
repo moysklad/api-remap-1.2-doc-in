@@ -8,10 +8,10 @@ The entity code for the Price Type in the JSON API is the **pricetype** keyword.
 
 | Title| Type| description |
 | ---------| -----| ----------|
-| **externalCode** | String(255) | Price Type External Code<br>`+Required when replying` |
+| **externalCode** | String(255) | Price Type External Code<br>`+Required when answering` |
 | **id** | UUID | Price type ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
-| **name** | String(255) | Price Type Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255) | Price Type Name<br>`+Required when answering` `+Required when creating` |
 
 ### Get a list of all price types
  

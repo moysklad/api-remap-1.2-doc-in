@@ -12,17 +12,17 @@ The search among the objects of the sales channel for matching the search string
 #### Entity attributes
 | Title | Type                                               | Filtration | Description |
 | -------|----------------------------------------------------| -------| ---------|
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Has the Sales Channel been archived<br>`+Required when replying` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Sales Channel been archived<br>`+Required when answering` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Sales Channel Description |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel External Code<br>`+Required when replying` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Sales Channel ID<br>`+Required when replying` `+Read Only` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel External Code<br>`+Required when answering` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Sales Channel ID<br>`+Required when answering` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Channel Metadata<br>`+Required when responding` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Channel Name<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **type** | Enum                                               | `=` `!=` | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering` `+Required when creating` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 

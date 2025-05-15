@@ -901,14 +901,14 @@ The report results can be filtered using the filter parameter. You cannot specif
 | Title | Type | Filtration | Description |
 | -------- | -----| -------- | ------------ |
 | **moment** | DateTime | `=` | point in time at which you want to withdraw the stock balance. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
-| **product** | Object | `=` `!=` | a link to the product you want to filter by. |
+| **product** | Object | `=`  | a link to the product you want to filter by. |
 | **productFolder** | Object | `=` | a link to the product group by which you want to filter. |
 | **search** | String(255) | `=` | special text search option. The search is carried out by the occurrence of a substring in the names of products, product variants, batches. |
 | **soldByWeight** | Boolean | `=` | parameter for filtering by weight item. Possible values: true, false. |
 | **stockMode** | Enum | `=` | parameter for filtering by the remainder value. The default value is nonEmpty. [Available values](../reports/#reports-stock-report-the-warehouse-stock-report-attributes-available-for-filtering-available-values-for-stockmode) |
-| **store** | Object | `=` `!=` | a link to the warehouse for which you want to generate a report. |
-| **supplier** | Object | `=` `!=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
-| **variant** | Object | `=` `!=` | link to the product variant by which you want to filter. |
+| **store** | Object | `=`  | a link to the warehouse for which you want to generate a report. |
+| **supplier** | Object | `=` | parameter for filtering by supplier. The value of the parameter is a link to the counterparty or organization. The selection will include products with the specified supplier. |
+| **variant** | Object | `=`  | link to the product variant by which you want to filter. |
 
 ##### Available values for stockMode
 

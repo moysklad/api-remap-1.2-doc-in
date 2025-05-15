@@ -13,8 +13,8 @@ Search among service objects for matching the search string will be carried out 
 
 | Title | Type                                               | Filtration | Description |
 | ----- |----------------------------------------------------| ------ | ------ |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when answering` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
 | **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Service barcodes. [Learn more](../dictionaries/#entities-service-services-services-metadata-barcodes) |
 | **buyPrice** | Object   |  | Purchase price. [Learn more](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
@@ -23,22 +23,22 @@ Search among service objects for matching the search string will be carried out 
 | **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when answering` |
 | **effectiveVat** | Int                                                | | Real VAT %<br>`+Read only` |
 | **effectiveVatEnabled** | Boolean                                            | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Service Code<br>`+Required when replying` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Service Code<br>`+Required when answering` |
 | **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when answering` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when answering` |
 | **minPrice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
-| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
+| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when answering` `+Read only` |
 | **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-service-services-entity-attributes-sign-of-the-subject-of-calculation) |
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | |  group metadata<br>`+Expand` |
 | **salePrice** | Array(Object)                                      | | Sale prices. [Learn more](../dictionaries/#entities-service-services-services-metadata-sales-prices) |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
 | **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-service-services-entity-attributes-tax-system-code) |
-| **uom* | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
+| **uom** | [Meta](../#kladana-json-api-general-info-metadata) | | Units<br>`+Expand` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 | **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
 | **vat** | Int                                                || VAT % |
@@ -99,29 +99,29 @@ About working with Service fields can be read [here](../#kladana-json-api-genera
 | Title | Type  | Description |
 | ----- | ----- | ----------- |
 | **value** | Float  | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
-| **priceType** | Object | Price type<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
+| **priceType** | Object | Price type<br>`+Required when answering` |
 
 
 ##### Purchase price
 
 | Title | Type      | Description |
 | ----- |---------- | ----------- |
-| **value** | Float                                              | Price value<br>`+Required when replying` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
+| **value** | Float                                              | Price value<br>`+Required when answering` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
 
 ##### Minimum price
 
 | Title | Type                                               | Description |
 | ----- |----------------------------------------------------|------- |
 | **value** | Float                                              | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
 
 ##### Group Services
 
 | Title | Type | Description |
 | ----- | ------ |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Services group.<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Services group.<br>`+Required when answering` |
 You can see the description of the Group entity [here](../dictionaries/#entities-product-group).
 Updating this attribute will also update the **pathName** attribute.
 

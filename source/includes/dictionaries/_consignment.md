@@ -12,17 +12,17 @@ The search among the objects of the batches for matching the search string will 
 
 | Title | Type | Filtration | Description |
 | ------| ------ | ------ | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or product variant metadata<br>`+Required when responding` `+Required when creating` |
 | **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Batches barcodes |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Batches Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Batches Description |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Batches Code<br>`+Required when replying` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Batches Code<br>`+Required when answering` |
 | **id** | UUID | `=` `!=` | Batch ID<br>`+Required for response` `+Read only` |
 | **images** | [Meta](../#kladana-json-api-general-info-metadata) | | Image of the product to which this batch belongs |
-| **label** | String(255) | | Batch Label<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Batches Metadata<br>`+Required when replying`|
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
+| **label** | String(255) | | Batch Label<br>`+Required when answering` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Batches Metadata<br>`+Required when answering`|
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when answering` `+Read Only` |
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Nested entity attributes
@@ -34,7 +34,7 @@ The response is an object, with the following structure:
 
 | Title | Type | Description |
 | ------ | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Batches Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Batches Metadata<br>`+Required when answering` |
 | **attributes** | Array(Object) | Collection of additional fields |
 
 ### Get a list of Batches
@@ -434,7 +434,7 @@ Request for batch metadata. The result is a JSON object including:
 
 | Title | Type | Description |
 | ------ | ------- |---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata<br>`+Required when answering` |
 | **attributes** | Array(Object) | Collection of additional  fields|
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).

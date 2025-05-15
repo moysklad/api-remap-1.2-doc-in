@@ -8,17 +8,17 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 
 | Title | Type  | Filtration| Description | 
 | ----- | ----- | --------- | ----------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has Routing been archived<br>`+Required when answering` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment Routing |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required for response` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required in response` `+Read-only` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
 
 #### Nested entity attributes
@@ -29,8 +29,8 @@ The Routing item object contains the following fields:
 
 | Title | Type | Description |
 | ----- | ---- | ----------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read Only` |
+| **id** | UUID | Item ID<br>`+Required when answering` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
 | **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 | **nextPositions**   | MetaArray | Metadata for the following Routing items  |
@@ -412,8 +412,8 @@ a large number of items can be read on the example of working with document item
 #### Routing item attributes
 | Title | Type | Description |
 | ---------- | -------- | ---------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read Only` |
+| **id** | UUID | Item ID<br>`+Required when answering` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
 | **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
 
