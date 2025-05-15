@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 21-03-2025
+## 15-05-2025
 ### Changed
 - Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
 
