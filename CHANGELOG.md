@@ -3,10 +3,6 @@
 JSON API 1.2 changes will be added here soon
 
 ## 15-05-2025
-### Added
-- Field `currency` added in [Legal entity accounts](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity)
-
-## 15-05-2025
 ### Changed
 - Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
 
