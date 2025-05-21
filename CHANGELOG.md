@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 20-05-2025
+#### Added
+- Add new [error 3042](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+
 ## 15-05-2025
 ### Changed
 - Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
@@ -20,10 +24,6 @@ JSON API 1.2 changes will be added here soon
 ## 25-04-2025
 ### Added
 - The minimumStock field in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product) entity for working with Minimum Stock.
-
-### 20-05-2025
-#### Added
-- Add new [error 3042](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
 
 ## 15-04-2025
 ### Changed
