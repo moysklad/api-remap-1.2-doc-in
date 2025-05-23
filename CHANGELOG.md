@@ -2,10 +2,22 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 06-05-2025
+### 22-05-2025
 #### Added
 - Fields `description`, `defect` in [Operation Report](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-operation-report)
 - Errors [26211-26213](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-operation-reports)
+
+### 20-05-2025
+#### Added
+- Add new [error 3042](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+
+## 15-05-2025
+### Changed
+- Description of `accountCountry` attribute in [Company Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-company-settings)
+
+## 13-05-2025
+### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product)
 
 ## 05-05-2025
 ### Changed

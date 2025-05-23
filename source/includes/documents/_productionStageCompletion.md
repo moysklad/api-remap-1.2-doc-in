@@ -603,7 +603,7 @@ Successful request. The result is a JSON representation of the generated Operati
                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
                 "type": "employee",
                 "mediaType": "application/json",
-                "": "https://online-api-4.testms-test.lognex.ru/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
+                "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a7354b1a-95dd-11ee-0a81-07230000004d"
               }
             },      
             "productionStage": {
