@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 23-05-2025
+### Added
+- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-bulk-deletion-of-items)
+
 ### 20-05-2025
 #### Added
 - Add new [error 3042](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)

@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 23-05-2025
+#### Added
+- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-bulk-deletion-of-items)
+
 ### 20-05-2025
 #### Added
 - Add new [error 3042](..#kladana-json-api-errors-common-validation-errors)
