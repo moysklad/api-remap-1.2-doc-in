@@ -4,7 +4,7 @@ JSON API 1.2 changes will be added here soon
 
 ## 23-05-2025
 ### Added
-- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-bulk-deletion-of-items)
+- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-production-operations)
 
 ### 20-05-2025
 #### Added

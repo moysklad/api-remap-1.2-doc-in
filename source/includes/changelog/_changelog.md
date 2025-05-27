@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 23-05-2025
 #### Added
-- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-bulk-deletion-of-items)
+- Field `plannedEndDate` in [Production Operations](../documents/#transactions-production-order-production-operations)
 
 ### 20-05-2025
 #### Added
