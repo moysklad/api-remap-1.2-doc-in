@@ -6,9 +6,21 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 13-05-2025
+### 27-05-2025
 #### Added
 - New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
+
+### 20-05-2025
+#### Added
+- Add new [error 3042](..#kladana-json-api-errors-common-validation-errors)
+
+### 15-05-2025
+#### Changed
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
+
+### 13-05-2025
+#### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)
 
 ### 05-05-2025
 #### Changed
