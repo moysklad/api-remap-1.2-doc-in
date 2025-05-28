@@ -880,6 +880,7 @@ The report displays the balances of products / product variants / batches in war
 Balances stored outside of warehouse bins will not be included.
 
 Restrictions on the Warehouse Bin Balances Endpoint:
+
 - mandatory filtering parameter: **assortmentId** or **storeId**
 
 #### Available Filters for the Current Warehouse Bin Balances Report
