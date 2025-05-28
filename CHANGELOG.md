@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+## 02-06-2025
+### Added
+- [Brief Report on Warehouse Bin Balances](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-stock-report-get-a-brief-report-on-warehouse-bin-balances)
+
 ## 27-05-2025
 ### Added
 - New transaction types for [Event Feed](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed)

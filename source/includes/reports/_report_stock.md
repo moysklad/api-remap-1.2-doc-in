@@ -658,7 +658,9 @@ Successful request. The result is a JSON representation of the report.
 ```
 ### Brief Stock Report
 
-Brief Stock Report is a report that shows only the product item ID, stock balance, 'Committed' and 'In Transit' items at the time of the request. Use the report if you need to monitor the balance of a large number of goods and request data every 5-15 minutes.
+Brief Stock Report is a report that shows only the product item ID, stock balance, 'Committed' and 'In Transit' items at the time of the request.
+Endpoints are designed to update the stock, the 'Committed' items, and the 'In Transit' items for a large number of products frequently and quickly.
+Use the report if you need to monitor the balance of a large number of goods and request data every 5-15 minutes.
  
 Differences from the Advanced balance report:
 
@@ -670,11 +672,14 @@ Differences from the Advanced balance report:
 - Only one data type is returned, it is specified in the `stockType` parameter.
 - No sorting, data is displayed in random order.
 
+#### Stock Report Variants
+To get the report, use one of the following endpoints:
+
+- Product-wise Stock Summary `/report/stock/all/current` - shows balances grouped by products
+- Warehouse-wise Stock Summary `/report/stock/bystore/current` - shows balances grouped by products and warehouses
+- Bin-wise Stock Summary `/report/stock/byslot/current` - shows balances grouped by products, warehouses, and warehouse bins
+
 ### Get the Brief Stock Report
-To get the report, use the `/report/stock/all/current` and `/report/stock/bystore/current` endpoints.
-
-Endpoints are designed to update the stock, the 'Committed' items, and the 'In Transit' items for a large number of products frequently and quickly.
-
 #### include parameter
 By default, only results with a non-zero remainder value are displayed. To display zero stock, add the `include=zeroLines` parameter.
 
@@ -867,6 +872,62 @@ Successful request. The result is a JSON representation of the report.
 [
    {"assortmentId":"12345678-5838-aaeb-0a80-003a003ef439","storeId":"12345678-b123-aaee-0a80-012b0001bb10","stock":1},
    {"assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c","storeId":"12345678-b123-aaee-0a80-012b0001bb10","stock":3}
+]
+```
+
+### Get a Brief Report on Warehouse Bin Balances
+The report displays the balances of products / product variants / batches in warehouse bins for a specific warehouse(s) or for all warehouses for a particular product(s).
+Balances stored outside of warehouse bins will not be included.
+
+Restrictions on the Warehouse Bin Balances Endpoint:
+- mandatory filtering parameter: **assortmentId** or **storeId**
+
+#### Available Filters for the Current Warehouse Bin Balances Report
+Specify the entity ID, not the URL.
+
+| Title            | Type   | Filtration | Description                                                                  |
+|------------------|:-------| :--------- |------------------------------------------------------------------------------|
+| **assortmentId** | UUID   | `=`        | Include only specified products, product variants, and batches in the report |
+| **storeId**      | UUID   | `=`        | Include only specified warehouses in the report                              |
+
+Multiple values can be specified using commas or multiple parameters:
+
+- `filter=assortmentId=00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002`
+- `filter=assortmentId=00000000-0000-0000-0000-000000000001;assortmentId=00000000-0000-0000-0000-000000000002`
+- `filter=assortmentId=00000000-0000-0000-0000-000000000001&filter=assortmentId=00000000-0000-0000-0000-000000000002`
+
+> Request to retrieve current warehouse bin balances with filtering
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/report/stock/byslot/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the report.
+
+```json
+[
+  {
+    "assortmentId":"12345678-5838-aaeb-0a80-003a003ef439",
+    "storeId":"12345678-b123-aaee-0a80-012b0001bb10",
+    "slotId":"c3b59812-cd5a-11ed-0a80-0142000026a3",
+    "stock":1.2
+  },
+  {
+    "assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c",
+    "storeId":"12345678-b123-aaee-0a80-012b0001bb10",
+    "slotId":"ede4720d-212f-11ee-ac12-000d000000f0",
+    "stock":3
+  },
+  {
+    "assortmentId":"12345678-279c-aaeb-0a80-00d6001f847c",
+    "storeId":"12345678-b123-aaee-0a80-012b0001bb10",
+    "slotId":"dc27cf31-212f-11ee-ac12-001000000000",
+    "stock":1
+  }
 ]
 ```
 

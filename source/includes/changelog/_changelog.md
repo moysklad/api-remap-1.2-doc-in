@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 02-06-2025
+#### Added
+- [Brief Report on Warehouse Bin Balances](../reports/#reports-stock-report-get-a-brief-report-on-warehouse-bin-balances)
+
 ### 27-05-2025
 #### Added
 - New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
