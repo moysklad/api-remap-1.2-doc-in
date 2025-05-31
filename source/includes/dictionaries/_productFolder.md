@@ -27,8 +27,8 @@ The search among the objects of product groups to match the search string will b
 | **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Link to the Group of goods, which includes this Group of goods, in the Metadata format<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-group-tax-system-code) |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
+| **useParentVat** | Boolean                                            | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when replying` |
 | **vat** | Int                                                | | VAT % |
 | **vatEnabled** | Boolean                                            | | Is VAT included for the group. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for a group. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
 

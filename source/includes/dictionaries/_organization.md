@@ -22,8 +22,8 @@ Search among objects of legal entities to match the search string will be carrie
 | **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only`                                                                                                                                                                                 |
 | **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand`                                                                                                                                                                                        |
 | **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code                                                                                                                                                                                                                        |
-| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the legal entity may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
-| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when answering`                                                                                                                                                                                               |
+| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the legal entity may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when replying` |
+| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying`                                                                                                                                                                                               |
 | **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa                                                                                                                                                                                                                      |
 | **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when answering`                                                                                                                                                                             |
 | **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when answering` `+Expand`                                                                                                                                                                             |
@@ -118,9 +118,9 @@ Only for legal entity with type `Legal entity. International`.
 | **bankName** | String(255)                                        | Bank name |
 | **bic** | String(255)                                        | BIC |
 | **correspondentAccount** | String(255)                                        | Corr account |
-| **id** | UUID                                               | Account ID<br>`+Required when answering` `+Read only` |
-| **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when answering` |
-| **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when answering` `+Read only` |
+| **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
+| **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when replying` |
+| **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
 
 #### Legal entity type
 Depending on the legal entity type **companyType**, its object will display different sets of details.

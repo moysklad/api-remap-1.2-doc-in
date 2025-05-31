@@ -14,7 +14,7 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Invoice Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Sales Invoice<br>`+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Sales Invoice Comment<br> `+Change-handler` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Sales Invoice code<br>`+Required when replying` `+Change-handler` |
@@ -24,19 +24,19 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Invoice Metadata<br>`+Required when replying` `+Change-handler` |
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Invoice name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity Sales Invoice metadata<br>`+Expand` `+Change-handler` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float                                              | | Amount of incoming payments on the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **paymentPlannedMoment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
-| **positions** | MetaArray                                          | | Sales Invoice Metadata<br>`+Required for response` `+Expand` `+Change-handler` |
-| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray                                          | | Sales Invoice Metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **rate** | Object                                             || Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shippedSum** | Float                                              | | Amount of shipped<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **shippedSum** | Float                                              | | Amount of shipped<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Invoice status metadata<br>`+Expand` `+Change-handler` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` `+Change-handler` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -62,10 +62,10 @@ Invoice Items is a list of products, product variants, bundles, and services. Th
 | ---------- |----------------------------------------------------|-------- |
 | **accountId** | UUID                                               | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is a item<br>`+Required when answering` `+Expand` `+Change-handler` |
-| **discount** | Float                                               | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
+| **discount** | Int                                               | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
 | **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
-| **price** | Float                                              | Price of goods/services in paise<br>`+Required when answering` `+Change-handler` |
+| **price** | Float                                              | Price of goods/services in paise<br>`+Required when replying` `+Change-handler` |
 | **quantity** |  Float    | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |
 | **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` |

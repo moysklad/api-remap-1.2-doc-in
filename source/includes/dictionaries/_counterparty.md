@@ -41,7 +41,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **bonusPoints**        | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty Code |
-| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
+| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when replying` |
 | **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
 | **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when answering` |
 | **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
@@ -126,10 +126,10 @@ Only for counterparty with type `Legal entity. International`.
 | **bankName** | String(255)                                        | Bank name |
 | **bic** | String(255)                                        | BIC |
 | **correspondentAccount** | String(255)                                        | Corr account |
-| **id** | UUID                                               | Account ID<br>`+Required when answering` `+Read only` |
-| **isDefault** | Boolean                                            | Is the account the main account of the Counterparty<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when answering` |
-| **updated** | DateTime                                           | The moment of the last update of the Counterparty<br>`+Required when answering` `+Read-only` |
+| **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
+| **isDefault** | Boolean                                            | Is the account the main account of the Counterparty<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty Account Metadata<br>`+Required when replying` |
+| **updated** | DateTime                                           | The moment of the last update of the Counterparty<br>`+Required when replying` `+Read-only` |
 
 ##### Contact persons of Counterparties
 
@@ -151,14 +151,14 @@ Only for counterparty with type `Legal entity. International`.
 
 | Title | Type                                               | Description |
 | ------ |----------------------------------------------------| ----- |
-| **accountId** | UUID                                               | Account ID<br>`+Required when answering` `+Read Only` |
-| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required for response` `+Read-only` `+Expand` |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when answering` `+Read-only` |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
+| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required when replying` `+Read-only` `+Expand` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
-| **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required for response` `+Read-only` |
-| **description** | String(4096)                                       | Counterparty incident text<br>`+Required when answering` `+Required when creating` |
-| **id** | UUID                                               | incident ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required for response` |
+| **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required when replying` `+Read-only` |
+| **description** | String(4096)                                       | Counterparty incident text<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID                                               | incident ID<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required when replying` |
 
 #### Counterparty type
 Depending on the counterparty type **companyType**, its object will display different sets of details.

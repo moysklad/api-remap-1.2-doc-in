@@ -15,8 +15,8 @@ Search among objects of departments to match the search string will be carried o
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **id** | UUID                                               | `=` `!=` | Department ID<br>`+Required when answering` `+Read Only` |
 | **index** | Int                                                | | Ordinal number in the list of departments |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Department Metadata<br>`+Required when answering` |
-| **name** | String(255)                                        | | Department Name<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Department Metadata<br>`+Required when replying` |
+| **name** | String(255)                                        | | Department Name<br>`+Required when replying` |
 
 ### Get Departments
 

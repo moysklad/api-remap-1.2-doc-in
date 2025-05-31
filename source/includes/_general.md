@@ -167,7 +167,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 | Name | Type        | Description |
 |------|-------------|-------------|
-| **error** | String(255) | Error name<br>`+Required for response` |
+| **error** | String(255) | Error name<br>`+Required when replying` |
 | **parameter** | String(255) | The parameter on which the error occurred |
 | **code** | Int         | Error code. If the field contains nothing, see HTTP status code |
 | **error_message** | String(255) | Message attached to the error |
@@ -262,7 +262,7 @@ The response contains a description of the additional fields in the form of an *
 | Title | Type | Description |
 | ----- | -----| ----------- |
 | **description** | String(4096) | Description of additional fields |
-| **id** | UUID | Additional fields ID<br>`+Required for response` `+Read only` |
+| **id** | UUID | Additional fields ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields<br>`+Required when replying` |
 | **name** | String(255) | Name of additional fields<br>`+Required when replying` `+Required when creating` |
 | **required** | Boolean | Is the additional field required<br>`+Required when replying` |
@@ -357,7 +357,7 @@ To load the value for additional fields of the file type, you need to specify an
 | Title | Type | Description |
 | ----- |---- | ---------- |
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
-| **content** | String | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
+| **content** | String | File bytes encoded in base64<br>`+Required when replying` `+Required when creating` |
 
 To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
 
@@ -2934,10 +2934,10 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **archived**     | Boolean | Whether the Employee was added to the archive<br>`+Required when replying` `+Read Only` |
 | **attributes**   | Array(Object) | Additional Employee fields<br>`+Read-only` |
 | **code**         | String(255) | Employee Code<br>`+Read Only` |
-| **created**      | DateTime | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **created**      | DateTime | Employee Creation Time<br>`+Required when replying` `+Read Only` |
 | **description**  | String(4096) | Employee Comment<br>`+Read Only` |
 | **email**        | String(255) | Employee Email<br>`+Read Only` |
-| **externalCode** | String(255) | Employee External ID<br>`+Required for response` `+Read Only` |
+| **externalCode** | String(255) | Employee External ID<br>`+Required when replying` `+Read Only` |
 | **firstName**    | String(255) | Name<br>`+Read Only` |
 | **fullName**     | String(255) | First name Middle name Last name<br>`+Read only` |
 | **group**        | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
@@ -2945,9 +2945,9 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **image**        | Object | Photo of an employee. [Learn more](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
 | **inn**          | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
 | **lastName**     | String(255) | Last name<br>`+Required when replying` `+Read only` |
-| **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
+| **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when replying` `+Read Only` |
 | **middleName**   | String(255) | Middle name<br>`+Read only` |
-| **name**         | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
+| **name**         | String(255) | Employee Name<br>`+Required when replying` `+Read Only` |
 | **owner**        | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
 | **permissions**  | Object | Enumeration of employee's permissions. [Learn more](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
 | **phone**        | String(255) | Employee phone<br>`+Read-only` |

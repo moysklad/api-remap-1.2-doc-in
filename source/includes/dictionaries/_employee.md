@@ -18,7 +18,7 @@ The search among employee objects for matching the search string will be carried
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when answering` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
-| **created** | DateTime                                           | | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **created** | DateTime                                           | | Employee Creation Time<br>`+Required when replying` `+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Employee |
 | **email** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Email |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when answering` |
@@ -28,11 +28,11 @@ The search among employee objects for matching the search string will be carried
 | **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when answering` `+Read Only` |
 | **images** | Object                                             | | Photo of an employee. [Learn more](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
 | **inn** | String(255)                                        | | TIN of the employee (in the format of the TIN of an individual) |
-| **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when answering` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
+| **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when replying` |
 | **middleName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Middle name |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when answering` `+Expand` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when replying` `+Read Only` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **phone** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee phone |
 | **position** | String(255)                                        | | Employee position |
 | **salary** | Object | | Employee salary  |

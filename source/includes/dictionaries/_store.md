@@ -443,9 +443,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
 Create a new Warehouse.
 
 #### Description
-The warehouse is created based on the passed JSON object,
-which contains a representation of the new Warehouse.
-The field required for creation - `name` must not be empty.
+
+The warehouse is created based on the provided JSON object, which represents the new warehouse. The `name` field is required when creating a warehouse and must not be empty.
 
 > An example of a request to create a new Warehouse.
 
@@ -1457,12 +1456,12 @@ Warehouse locations are accessed if you have the right to see the corresponding 
 
 | Title | Type                                               | Filtration | Description |
 |----- |----------------------------------------------------| -------- | ----------- |
-| **accountId** | UUID                                               | | Account ID<br>`+Required when answering` `+Read Only` |
-| **externalCode** | String(255)                                        || External Warehouse Location Code<br>`+Required when answering` |
-| **id** | UUID                                               | | Warehouse Location ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Location Metadata<br>`+Required when answering` |
-| **name** | String(255)                                        | | Warehouse Location Name<br>`+Required for response` `+Required for creation` |
-| **updated** | DateTime                                           | | Time when the Warehouse Location was last updated<br>`+Required when answering` `+Read Only` |
+| **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
+| **externalCode** | String(255)                                        || External Warehouse Location Code<br>`+Required when replying` |
+| **id** | UUID                                               | | Warehouse Location ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Location Metadata<br>`+Required when replying` |
+| **name** | String(255)                                        | | Warehouse Location Name<br>`+Required when replying` `+Required when creating` |
+| **updated** | DateTime                                           | | Time when the Warehouse Location was last updated<br>`+Required when replying` `+Read Only` |
 
 ### Get Warehouse Locations
 Get a list of all Warehouse Location.

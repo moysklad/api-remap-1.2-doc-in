@@ -6,11 +6,11 @@ Using the JSON API, you can request lists of printable templates for entities. H
 
 | Title | Type | Description |
 | ------- | ---------- |------ |
-| **content** | URL | Download link<br>`+Required when answering` |
-| **id** | UUID | Template ID<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Basic Template<br>`+Required when answering` |
-| **name** | String(255) | Template name<br>`+Required when answering` |
-| **type** | String(255) | Template type (entity - document)<br>`+Required for response` |
+| **content** | URL | Download link<br>`+Required when replying` |
+| **id** | UUID | Template ID<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Basic Template<br>`+Required when replying` |
+| **name** | String(255) | Template name<br>`+Required when replying` |
+| **type** | String(255) | Template type (entity - document)<br>`+Required when replying` |
 
 ### List of basic print templates
 
@@ -284,11 +284,11 @@ Successful request. The result is a JSON representation of a basic template for 
 
 | Title | Type | Description |
 | ------- | ---------- |------- |
-| **content** | URL | Download link<br>`+Required when answering` |
-| **id** | UUID | Template ID<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom template metadata<br>`+Required when answering` |
-| **name** | String(255) | Template name<br>`+Required when answering` |
-| **type** | String(255) | Template type (entity - document)<br>`+Required for response` |
+| **content** | URL | Download link<br>`+Required when replying` |
+| **id** | UUID | Template ID<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom template metadata<br>`+Required when replying` |
+| **name** | String(255) | Template name<br>`+Required when replying` |
+| **type** | String(255) | Template type (entity - document)<br>`+Required when replying` |
 
 ### List of custom print templates
  

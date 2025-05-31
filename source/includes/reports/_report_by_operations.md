@@ -24,13 +24,13 @@ The report is generated for a specific item and contains information about docum
 
 | Name | Type | Description |
 | ---------- | ----- | --------- |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product, Product variant, or Batch metadata<br>`+Required in response` |
-| **avgStockDays** | Float | Number of days in stock<br>`+Required in response` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product, Product variant, or Batch metadata<br>`+Required when replying` |
+| **avgStockDays** | Float | Number of days in stock<br>`+Required when replying` |
 | **costPerUnit** | Float | Cost per unit |
-| **moment** | DateTime | Document date<br>`+Required in response` |
-| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required in response` |
-| **stock** | Float | Stock<br>`+Required in response` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouese metadata<br>`+Required when responding` |
+| **moment** | DateTime | Document date<br>`+Required when replying` |
+| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when replying` |
+| **stock** | Float | Stock<br>`+Required when replying` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouese metadata<br>`Required when replying` |
 | **sumCost** | Float | Cost sum |
 
 #### Attributes available for filtering
@@ -237,10 +237,10 @@ The report is generated for a specific product and contains information about do
 
 | Name | Type | Description |
 | --------- | ----- | -------- |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product, Product variant, or Batch metadata<br>`+Required when responding` |
-| **inTransit** | Float | 'In transit' products<br>`+Required when responding` |
-| **moment** | DateTime | Document date<br>`+Required when responding` |
-| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required in response` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product, Product variant, or Batch metadata<br>`+Required when replying` |
+| **inTransit** | Float | 'In transit' products<br>`+Required when replying` |
+| **moment** | DateTime | Document date<br>`+Required when replying` |
+| **operation** | [Meta](../#kladana-json-api-general-info-metadata) | Document metadata<br>`+Required when replying` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata |
 
 #### Attributes available for filtering
