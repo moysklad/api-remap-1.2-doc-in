@@ -25,7 +25,9 @@ jobs:
 
       - name: Test urls names in md files
         run:
-          if egrep -i -n 'api.moysklad.ru' source/includes*; then
+          directory="source/includes"
+          pattern="api.moysklad.ru"
+          if egrep -i -n "$pattern" "$directory"/*; then
             exit 1
 
   build:
