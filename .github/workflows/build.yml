@@ -27,7 +27,7 @@ jobs:
         run:
           directory="source/includes"
           pattern="api.moysklad.ru"
-          if egrep -i -n "$pattern" "$directory"/*; then
+          if [grep -i -n "$pattern" "$directory"/*]; then
             exit 1
           fi
 
