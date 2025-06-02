@@ -28,7 +28,7 @@ jobs:
           directory="source/includes"
           pattern="api.moysklad.ru"
           if [grep -i -n "$pattern" "$directory"/*]; then
-            exit 1
+            exit 1;
           fi
 
   build:
