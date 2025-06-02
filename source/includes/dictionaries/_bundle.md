@@ -127,6 +127,7 @@ The structure of the overhead object.
 
 ##### Minimum price
 The structure of the minPrice object.
+api.moysklad.ru
 
 | Title | Type | Description |
 | ------|------| -------------|
