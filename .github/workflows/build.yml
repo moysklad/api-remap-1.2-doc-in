@@ -29,6 +29,7 @@ jobs:
           pattern="api.moysklad.ru"
           if egrep -i -n "$pattern" "$directory"/*; then
             exit 1
+          fi
 
   build:
     runs-on: ubuntu-latest
