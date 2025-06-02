@@ -127,7 +127,6 @@ The structure of the overhead object.
 
 ##### Minimum price
 The structure of the minPrice object.
-api.moysklad.ru
 
 | Title | Type | Description |
 | ------|------| -------------|
@@ -241,7 +240,7 @@ curl -X GET
    "context": {
      "employee": {
        "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+         "href": "https://api.moysklad.ru/api/remap/1.2/context/employee",
          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
          "type": "employee",
          "mediaType": "application/json"

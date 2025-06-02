@@ -26,5 +26,6 @@ jobs:
       - name: Test urls names in md files
         run:
           if sudo grep -l "api.moysklad.ru" source/includes/*/*; then
+          echo "Допущена ошибка в названии домена, должен быть api.kladana.com"
           exit 1;
           fi
