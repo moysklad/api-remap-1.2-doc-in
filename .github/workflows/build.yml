@@ -25,7 +25,6 @@ jobs:
 
       - name: Test urls names in md files
         run:
-          if cat source/includes/*/* | grep -i -n "api.moysklad.ru"; then
-          cat source/includes/*/* | grep -i -n "api.moysklad.ru";
+          if sudo grep -l "api.moysklad.ru" source/includes/*/*; then
           exit 1;
           fi
