@@ -6,10 +6,14 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 22-05-2025
+### 03-06-2025
 #### Added
 - Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
 - Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
+
+### 27-05-2025
+#### Added
+- New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
 
 ### 20-05-2025
 #### Added
