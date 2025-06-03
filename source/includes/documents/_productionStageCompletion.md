@@ -23,7 +23,7 @@ If production has not started for a Production Order, attempts to create an Oper
 | **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when replying` |
 | **externalCode** | String(255) | | Operation Report External Code <br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | | Operation Report ID<br>`+Required when responding` `+Read-only` |
+| **id** | UUID | | Operation Report ID<br>`+Required when replying` `+Read-only` |
 | **labourUnitCost** | Double | | Labor cost per unit of production<br>`+Required when replying` |
 | **standardHourUnit** | Double | | Standard Hours of a production unit<br>`+Required when replying` |
 | **materials** | MetaArray | | Metadata of Operation Report Raw materials [Learn more](#transactions-operation-report-change-operation-report-operation-report-raw-materials)<br>`+Expand` |

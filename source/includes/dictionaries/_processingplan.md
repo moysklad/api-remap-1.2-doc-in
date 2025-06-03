@@ -7,8 +7,8 @@ Using the JSON API, you can create and update information about Bills of Materia
 
 | Title | Type   | Filtration | Description |
 | ------ | ------- | ------ | ----- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
-| **archived**  | Boolean   | `=` `!=`  | Is the Bill of Materials archived or not<br>`+Required when answering` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived**  | Boolean   | `=` `!=`  | Is the Bill of Materials archived or not<br>`+Required when replying` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code of the Bill of Materials |
 | **cost** | Int                                                | | Production cost |
 | **costDistributionType** | Enum | | Cost of distribution type. Possible values: `BY_PRICE`, `BY_PRODUCTION`<br>`+Required when replying` `+Read-only` |
