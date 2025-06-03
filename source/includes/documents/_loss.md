@@ -11,7 +11,7 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **applicable** | Boolean                                            | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Write-off Code |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Write-off<br>`+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Write-Off Comment<br>`+Change-handler` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Code of Write-off<br>`+Required when replying` `+Change-handler` |
@@ -21,16 +21,16 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Write-off Metadata<br>`+Required when replying` `+Change-handler` |
 | **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | string(255)                                        | `=` `!=` `~` `~=` `=~` | Write-off Name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **positions** | MetaArray                                          | | Write-off item metadata<br>`+Required for response` `+Expand` `+Change-handler` |
-| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray                                          | | Write-off item metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
 | **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`| Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -50,7 +50,7 @@ Write-off items is a list of products/product variants/batches. The Write-off it
 | ------------|----------------------------------------------------| --------- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` |
-| **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` |
 | **price** | Float                                              | Price of products/services in paise<br>`+Required when replying` `+Change-handler` |
 | **quantity** |  Float    | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |

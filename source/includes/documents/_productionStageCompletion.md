@@ -21,18 +21,18 @@ If production has not started for a Production Order, attempts to create an Oper
 | **defect** | Boolean | | Attribute of defect. Cannot be changed after creation<br>`+Required when replying` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Operation Report Comment |
 | **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when replying` |
-| **externalCode** | String(255) | | Operation Report External Code <br>`+Required when responding` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when responding` `+Expand` |
+| **externalCode** | String(255) | | Operation Report External Code <br>`+Required when replying` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID | | Operation Report ID<br>`+Required when responding` `+Read-only` |
-| **labourUnitCost** | Double | | Labor cost per unit of production<br>`+Required when responding` |
-| **standardHourUnit** | Double | | Standard Hours of a production unit<br>`+Required when responding` |
+| **labourUnitCost** | Double | | Labor cost per unit of production<br>`+Required when replying` |
+| **standardHourUnit** | Double | | Standard Hours of a production unit<br>`+Required when replying` |
 | **materials** | MetaArray | | Metadata of Operation Report Raw materials [Learn more](#transactions-operation-report-change-operation-report-operation-report-raw-materials)<br>`+Expand` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Operation Report Metadata <br>`+Required in response` `+Read-only` |
-| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required in response` |
-| **name** | String(255) | | Operation Report Title<br>`+Required in response` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Operation Report Metadata <br>`+Required when replying` `+Read-only` |
+| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **name** | String(255) | | Operation Report Title<br>`+Required when replying` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | | Owner (Employee)<br>`+Expand` |
 | **performer** | [Meta](../#kladana-json-api-general-info-metadata) | | Performer (Employee)<br>`+Expand` |
-| **processingUnitCost** | Double | | Cost per unit of production volume<br>`+Required in response` |
+| **processingUnitCost** | Double | | Cost per unit of production volume<br>`+Required when replying` |
 | **productionStage** | [Meta](../#kladana-json-api-general-info-metadata) | | [Production operation](#transactions-production-order-production-operations)<br>`+Expand` `+Cannot be changed after creation` |
 | **productionVolume** | Double | | Production Volume<br>`+Required when replying` |
 | **products** | MetaArray | | Metadata of Products of Operation Report. Only available for last operation. [Learn more](#transactions-operation-report-change-operation-report-products-of-operation-report)<br>`+Expand` |
@@ -1172,10 +1172,10 @@ The material object of Operation Report contains the following fields:
 
 | Name | Type | Description |
 | -------------------- |:----------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required if response` `+Read-only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of a product/product variant/batches that the item represents<br>`+Required if response` `+Expand` |
-| **consumedQuantity** | Float | The number of products/product variants of this type in item. If the position is a product that has accounting by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this position in the document<br>`+Required when responding` |
-| **id** | UUID | Item ID<br>`+Required when responding` `+Read-only` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of a product/product variant/batches that the item represents<br>`+Required when replying` `+Expand` |
+| **consumedQuantity** | Float | The number of products/product variants of this type in item. If the position is a product that has accounting by serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this position in the document<br>`+Required when replying` |
+| **id** | UUID | Item ID<br>`+Required when replying` `+Read-only` |
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the product of the position is not accounted for by serial numbers. Otherwise, the number of products in the position will be equal to the number of serial numbers passed in the attribute value |
 
 #### Products of Operation Report
@@ -1185,9 +1185,9 @@ The product object of Operation Report contains the following fields:
 
 | Name | Type | Description |
 | -------------------- |:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | Account ID<br>`+Required if response is `+Read-only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the product/product variant/batches that the item represents<br>`+Required if response is `+Expand` |
-| **id** | UUID | Item ID<br>`+Required if response is `+Read-only` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the product/product variant/batches that the item represents<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Item ID<br>`+Required when replying` `+Read-only` |
 | **producedQuantity** | Float | Quantity of products/product variants of this type in the item. If the item is a product that has serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document<br>`+Required when replying` |
 | **things** | Array(String) | Serial numbers. The value of this attribute it is ignored if the item is not accounted for by serial numbers. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value |
 

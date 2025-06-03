@@ -9,27 +9,27 @@ To access the report via the API, you need the access rights to view the Profit 
 
 | Title              | Type | Description                                                                                                                                                                         |
 |--------------------| -----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service)<br>`+Required when answering` |
-| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                                                 |
-| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                                                   |
-| **profit**         | Float | Profit<br>`+Required when answering`                                                                                                                                                |
+| **assortment**     | Object | Brief presentation of the Good or Service in the report. [More here](../dictionaries/#entities-product) and [here](../dictionaries/#entities-service)<br>`+Required when replying` |
+| **margin**         | Float | Product profitability<br>`+Required when replying`                                                                                                                                 |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when replying`                                                                                                                                   |
+| **profit**         | Float | Profit<br>`+Required when replying`                                                                                                                                                |
 | **returnCost**     | Float | Cost of returns<br>`+Required when replying`                                                                                                                                        |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                                                        |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when replying`                                                                                                                        |
 | **returnPrice**    | Float | Price returns<br>`+Required when replying`                                                                                                                                          |
 | **returnQuantity** | Int | Number of returns<br>`+Required when replying`                                                                                                                                      |
 | **returnSum**      | Float | Refund amount<br>`+Required when replying`                                                                                                                                          |
-| **sellCost**       | Float | Cost price<br>`+Required when answering`                                                                                                                                            |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                                                  |
-| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering`                                                                                                                                 |
+| **sellCost**       | Float | Cost price<br>`+Required when replying`                                                                                                                                            |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when replying`                                                                                                                                  |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when replying`                                                                                                                                 |
 | **sellQuantity**   | Int | Quantity sold<br>`+Required when replying`                                                                                                                                          |
-| **sellSum**        | Float | Sales amount<br>`+Required when answering`                                                                                                                                          |
+| **sellSum**        | Float | Sales amount<br>`+Required when replying`                                                                                                                                          |
 
 #### Assortment object structure
 
 | Title | Type | Description |
 | -----|---------|--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product or Service<br>`+Required when replying` |
-| **name** | String(255) | Name of Goods or Services<br>`+Required when answering` |
+| **name** | String(255) | Name of Goods or Services<br>`+Required when replying` |
 | **code** | String(255) | Product or service code |
 | **uom* | Object | Unit of measurement |
 | **article** | String(255) | Product SKU |
@@ -240,29 +240,29 @@ Successful request. The result is a JSON representation of the report.
 | Title              | Type | Description                                                                                                                                                                                                                                               |
 |--------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **assortment**     | Object | Brief representation of the Modification, Service, or Bundle in the report. [More here](../dictionaries/#entities-product-variant), [here](../dictionaries/#entities-service) and [here](../dictionaries/#entities-bundle)<br>`+ Mandatory when replying` |
-| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                                                                                                                       |
-| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                                                                                                                         |
-| **profit**         | Float | Profit<br>`+Required when answering`                                                                                                                                                                                                                      |
+| **margin**         | Float | Product profitability<br>`+Required when replying`                                                                                                                                                                                                       |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when replying`                                                                                                                                                                                                         |
+| **profit**         | Float | Profit<br>`+Required when replying`                                                                                                                                                                                                                      |
 | **returnCost**     | Float | Cost of returns<br>`+Required when replying`                                                                                                                                                                                                              |
-| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                                                                                                                              |
+| **returnCostSum**  | Float | The sum of the cost of returns<br>`+Required when replying`                                                                                                                                                                                              |
 | **returnPrice**    | Float | Price returns<br>`+Required when replying`                                                                                                                                                                                                                |
 | **returnQuantity** | Int | Number of returns<br>`+Required when replying`                                                                                                                                                                                                            |
 | **returnSum**      | Float | Refund amount<br>`+Required when replying`                                                                                                                                                                                                                |
-| **sellCost**       | Float | Cost price<br>`+Required when answering`                                                                                                                                                                                                                  |
-| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                                                                                                                        |
-| **sellPrice**      | Float | Sales price (average)<br>`+Required when answering`                                                                                                                                                                                                       |
+| **sellCost**       | Float | Cost price<br>`+Required when replying`                                                                                                                                                                                                                  |
+| **sellCostSum**    | Float | Sum of cost of sales<br>`+Required when replying`                                                                                                                                                                                                        |
+| **sellPrice**      | Float | Sales price (average)<br>`+Required when replying`                                                                                                                                                                                                       |
 | **sellQuantity**   | Int | Quantity sold<br>`+Required when replying`                                                                                                                                                                                                                |
-| **sellSum**        | Float | Sales amount<br>`+Required when answering`                                                                                                                                                                                                                |
+| **sellSum**        | Float | Sales amount<br>`+Required when replying`                                                                                                                                                                                                                |
 
 #### Assortment object structure
 
 | Title | Type | Description |
 | -----|---------|-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product variant, Service, or Bundle Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product variant, Service, or Bundle Metadata<br>`+Required when replying` |
 | **name** | String(255) | Entity name<br>`+Required when replying` |
-| **code** | String(255) | Entity code<br>`+Required for response` |
-| **article** | String(255) | Article of Product variant or Bundle<br>`+Required when answering` |
-| **images** | Object | Product variant Image<br>`+Required when answering` |
+| **code** | String(255) | Entity code<br>`+Required when replying` |
+| **article** | String(255) | Article of Product variant or Bundle<br>`+Required when replying` |
+| **images** | Object | Product variant Image<br>`+Required when replying` |
 
 #### Attributes available for filtering
 
@@ -468,24 +468,24 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description                                                                                                                               |
 | -----|---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-employee)<br>`+Required when answering` |
-| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                       |
-| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                         |
-| **profit** | Float | Profit<br>`+Required when answering`                                                                                                      |
+| **employees** | Object | Brief representation of the Employee in the report. [More details here](../dictionaries/#entities-employee)<br>`+Required when replying` |
+| **margin**         | Float | Product profitability<br>`+Required when replying`                                                                                       |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when replying`                                                                                         |
+| **profit** | Float | Profit<br>`+Required when replying`                                                                                                      |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                       |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                              |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when replying`                                                                              |
 | **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                            |
 | **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                                |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                       |
-| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                             |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                        |
-| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                                |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when replying`                                                                                       |
+| **salesCount** | Int | Number of sales<br>`+Required when replying`                                                                                             |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when replying`                                                                                        |
+| **sellSum** | Float | Sales amount<br>`+Required when replying`                                                                                                |
 
 #### Employee object structure
 
 | Title | Type | Description |
 | -----|---------|---------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when replying` |
 | **name** | String(255) | Employee Name<br>`+Required when replying` |
 
 #### Attributes available for filtering
@@ -608,18 +608,18 @@ Successful request. The result is a JSON representation of the report.
 
 | Title | Type | Description                                                                                                                              |
 | ------- | ----- |------------------------------------------------------------------------------------------------------------------------------------------|
-| **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-counterparty)<br>`+Required when answering` |
-| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                      |
-| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                        |
-| **profit** | Float | Profit<br>`+Required when answering`                                                                                                     |
+| **counterparty** | Object | Brief presentation of the Buyer in the report. [More details here](../dictionaries/#entities-counterparty)<br>`+Required when replying` |
+| **margin**         | Float | Product profitability<br>`+Required when replying`                                                                                      |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when replying`                                                                                        |
+| **profit** | Float | Profit<br>`+Required when replying`                                                                                                     |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                      |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                             |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when replying`                                                                             |
 | **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                           |
 | **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                               |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                      |
-| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                            |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                       |
-| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                               |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when replying`                                                                                      |
+| **salesCount** | Int | Number of sales<br>`+Required when replying`                                                                                            |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when replying`                                                                                       |
+| **sellSum** | Float | Sales amount<br>`+Required when replying`                                                                                               |
 
 #### Structure of the counterparty object
 
@@ -750,25 +750,25 @@ Successful request. The result is a JSON representation of the report.
 | Title | Type | Description                                                                                                                                          |
 | ---------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **salesChannel** | Object | A brief representation of the Sales Channel in the report. [More details here](../dictionaries/#entities-sales-channel)<br>`+Required when replying` |
-| **margin**         | Float | Product profitability<br>`+Required when answering`                                                                                                  |
-| **salesMargin**    | Float | Sales profitability<br>`+Required when answering`                                                                                                    |
-| **profit** | Float | Profit<br>`+Required when answering`                                                                                                                 |
+| **margin**         | Float | Product profitability<br>`+Required when replying`                                                                                                  |
+| **salesMargin**    | Float | Sales profitability<br>`+Required when replying`                                                                                                    |
+| **profit** | Float | Profit<br>`+Required when replying`                                                                                                                 |
 | **returnAvgCheck** | Float | Average refund receipt<br>`+Required when replying`                                                                                                  |
-| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when answering`                                                                                         |
+| **returnCostSum** | Float | The sum of the cost of returns<br>`+Required when replying`                                                                                         |
 | **returnCount** | Int | Number of returns<br>`+Required when replying`                                                                                                       |
 | **returnSum** | Float | Refund amount<br>`+Required when replying`                                                                                                           |
-| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when answering`                                                                                                  |
-| **salesCount** | Int | Number of sales<br>`+Required when answering`                                                                                                        |
-| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when answering`                                                                                                   |
-| **sellSum** | Float | Sales amount<br>`+Required when answering`                                                                                                           |
+| **salesAvgCheck** | Float | Average sales receipt<br>`+Required when replying`                                                                                                  |
+| **salesCount** | Int | Number of sales<br>`+Required when replying`                                                                                                        |
+| **sellCostSum** | Float | Sum of cost of sales<br>`+Required when replying`                                                                                                   |
+| **sellSum** | Float | Sales amount<br>`+Required when replying`                                                                                                           |
 
 #### SalesChannel object structure
 
 | Title | Type | Description |
 | ---------| ---- |---------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Sales Channel Metadata<br>`+Required when replying` |
 | **name** | String(255) | Sales Channel Name<br>`+Required when replying` |
-| **type** | Enum | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when answering ` |
+| **type** | Enum | Sales Channel Type [Learn more](../dictionaries/#entities-sales-channel-sales-channels-sales-channel-type)<br>`+Required when replying ` |
 
 #### Attributes available for filtering
 
