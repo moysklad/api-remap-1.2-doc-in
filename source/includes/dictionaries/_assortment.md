@@ -810,7 +810,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://app.moysklad.ru/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
+        "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
       },
       "id": "ba3c6d6d-3d33-11ef-ac15-0010000000ef",
       "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
