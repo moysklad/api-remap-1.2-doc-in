@@ -29,3 +29,9 @@ jobs:
           echo "Допущена ошибка в названии домена, должен быть api.kladana.com";
           exit 1;
           fi
+      - name: Test urls names in md files
+        run:
+          if sudo grep -l "online.moysklad.ru" source/includes/*/*; then
+          echo "Допущена ошибка в названии домена, должен быть online.kladana.com";
+          exit 1;
+          fi
