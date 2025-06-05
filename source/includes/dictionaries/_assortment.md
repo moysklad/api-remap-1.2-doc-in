@@ -160,7 +160,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 ```shell
 curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/assortment"
+   "https://online.moysklad.ru/api/remap/1.2/entity/assortment"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
