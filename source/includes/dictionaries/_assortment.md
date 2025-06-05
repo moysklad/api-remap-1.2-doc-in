@@ -88,7 +88,7 @@ The functionality is described in more detail in the section [Filtering by addit
 
 Filtering examples:
 
-- `filter=stockStore=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=stockStore=https://online.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
 - `filter=id=677c4032-8667-11e6-8a84-bae500003344`
 - `filter=name~див`
 - `filter=code~0002`
@@ -160,7 +160,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 
 ```shell
 curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/assortment"
+   "https://online.moysklad.ru/api/remap/1.2/entity/assortment"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -810,7 +810,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
         "type": "product",
         "mediaType": "application/json",
-        "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
+        "uuidHref": "https://online.moysklad.ru/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
       },
       "id": "ba3c6d6d-3d33-11ef-ac15-0010000000ef",
       "accountId": "1e831ee5-3d33-11ef-ac15-000f00000001",
