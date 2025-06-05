@@ -88,7 +88,7 @@ The functionality is described in more detail in the section [Filtering by addit
 
 Filtering examples:
 
-- `filter=stockStore=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
+- `filter=stockStore=https://online.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
 - `filter=id=677c4032-8667-11e6-8a84-bae500003344`
 - `filter=name~див`
 - `filter=code~0002`
