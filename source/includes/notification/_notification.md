@@ -45,7 +45,7 @@ Successful request. The result is a JSON representation of the list of Notificat
 ```json
 {
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/notification",
+    "href": "https://api.moysklad.ru/api/remap/1.2/notification",
     "type": "notification",
     "mediaType": "application/json",
     "size": 3,
