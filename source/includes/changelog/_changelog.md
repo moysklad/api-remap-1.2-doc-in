@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 05-06-2025
+#### Added
+- Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
+
 ### 03-06-2025
 #### Added
 - Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)

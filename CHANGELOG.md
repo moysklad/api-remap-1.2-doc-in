@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 05-06-2025
+#### Added
+- Error [17024](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+
 ### 03-06-2025
 #### Added
 - Fields `description`, `defect` in [Operation Report](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-operation-report)
