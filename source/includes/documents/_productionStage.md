@@ -12,20 +12,22 @@ Learn more about [Production operations](https://support.kladana.com/hc/en-us/ar
 
 | Name | Type | Filtering | Description |
 | ---------- | ------- | ---------- | --------- |
-| **accountId** | UUID | | Account ID<br>`+Required in response` `+Read-only` |
+| **accountId** | UUID | | Account ID<br>`+Required when replying` `+Read-only` |
 | **availableQuantity** | Double | | Quantity available for execution<br>`+Read-only` |
 | **blockedQuantity** | Double | | Quantity that cannot be executed at the moment. For example, the previous Production Operation has not yet been executed<br>`+Read-only` |
 | **completedQuantity** | Double | | Completed quantity<br>`+Read-only` |
-| **id** | UUID | | Production Operation ID<br>`+Required in response` `+Read-only` |
+| **enableHourAccounting** | Boolean | | Is standard hours accounting enabled<br>`+Required when replying` |
+| **id** | UUID | | Production Operation ID<br>`+Required when replying` `+Read-only` |
 | **labourUnitCost** | Double | | Labor costs per production item<br> |
-| **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required in response` |
+| **materials** | MetaArray | | Metadata of the raw materials of a Production Operation. [Learn more](#transactions-production-order-raw-materials-for-a-production-operation)<br>`+Required when replying` |
 | **materialStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the raw material warehouse<br>`+Read-only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata<br>`+Required in response` `+Read-only` |
-| **orderingPosition** | Int | | Production Operation Index in a Production Order item<br>`+Required in response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata<br>`+Required when replying` `+Read-only` |
+| **orderingPosition** | Int | | Production Operation Index in a Production Order item<br>`+Required when replying` `+Read-only` |
 | **processingUnitCost** | Double | | Cost per unit of production volume<br> |
 | **productionRow** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of a Production Order item<br>`+Expand` `+Required when replying` `+Read-only` |
 | **skippedQuantity** | Double | | Quantity that will not be executed. For example, due to a production stop<br>`+Read-only` |
 | **stage** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation metadata. [Learn more](..dictionaries/#entities-production-operations)<br>`+Expand` `+Required when replying` `+Read-only` |
+| **standardHourCost** | Double | | Standard Hour cost<br>`+Required when replying` |
 | **standardHourUnit** | Double | | Standard hours of a unit of production volume |
 | **totalQuantity** | Double | | The volume of the Production Operation. It is equal to the volume of a Production Order item<br>`+Read-only` |
 
@@ -39,9 +41,9 @@ A material object for a Production Operation contains the following fields:
 
 | Name | Type | Description |
 | ----------- | ------ | ----------- |
-| **accountId** | UUID | Account ID<br>`+Required if response` `+Read-only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of a product/service/product variant/batch that is represented by an item<br>`+Required if response` `+Expand` |
-| **id** | UUID | Item ID <br>`+Required if response` `+Read-only` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of a product/service/product variant/batch that is represented by an item<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Item ID <br>`+Required when replying` `+Read-only` |
 | **planQuantity** | Float | Quantity of products/product variants of this type in an item<br>`+Required when replying` |
 
 ### Get the list of Production Operations for a Production Order
@@ -138,7 +140,9 @@ Successful request. Result is a JSON representation of the Production Operations
       "skippedQuantity": 0.0,
       "processingUnitCost": 2.0,
       "labourUnitCost": 0.0,
-      "standardHourUnit": 0.0
+      "standardHourUnit": 0.0,
+      "standardHourCost": 0.0,
+      "enableHourAccounting": false
     }
   ]
 }
@@ -217,7 +221,9 @@ Successful request. Result is a JSON representation of the updated Production Op
   "skippedQuantity": 0.0,
   "processingUnitCost": 70.0,
   "labourUnitCost": 30.5,
-  "standardHourUnit": 43.5
+  "standardHourUnit": 43.5,
+  "standardHourCost": 0.0,
+  "enableHourAccounting": false
 }
 ```
 

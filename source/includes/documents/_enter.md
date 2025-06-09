@@ -11,27 +11,27 @@ Using the JSON API, you can create and update information about Stock Adjustment
 | **applicable** | Boolean                                            | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) <br> `+Change-handler` `+Update-provider` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Stock Adjustment Code |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Stock Adjustment<br>`+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Stock Adjustment Comment <br> `+Change-handler` `+Update-provider` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Stock Adjustment External Code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Requiredwhen answering ` `+Expand` |
+| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Stock Adjustment ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Stock Adjustment Metadata<br>`+Required when replying` `+Change-handler` |
-| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required for response` `+Change-handler` `+Update-provider` |
+| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Stock Adjustment Number<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **overhead** | Object                                             | | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then overhead expenses cannot be set<br>`+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **positions** | MetaArray                                          | | Stock Adjustment items matadata<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
-| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **published** | Boolean                                            | `=` `!=` | Is the document publishednt<br>`+Required when replying` `+Read-only` |
 | **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Stock Adjustment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Stock Adjustment Total in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last updated time of Stock Adjustment<br>`+Required when replying` `+Read-only` `+Change-handler` |
@@ -58,11 +58,11 @@ Stock Adjustment items is a list of products and product variants. Stock Adjustm
 
 | Title | Type                                               | Description |
 |---------|----------------------------------------------------|--------|
-| **accountId** | UUID                                               | Account ID<br>`+Required forvete` `+Read Only` `+Change-handler` |
+| **accountId** | UUID                                               | Account ID<br>`+Confirmation required` `+Read Only` `+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batches/product variant, which is an item<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country metadata<br>`+Expand` |
-| **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then no overhead expenses can be set<br>`+Required in response` `+Read-Only` |
+| **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If Stock Adjustment items are not set, then no overhead expenses can be set<br>`+Required when replying` `+Read-Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br> `+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Product/service price in paise<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **quantity** | Float                                                | The number of products/services of this type in the item. If the item is a product that has tracking by serial numbers enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` `+Update-provider ` |

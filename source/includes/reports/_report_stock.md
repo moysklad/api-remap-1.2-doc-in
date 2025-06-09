@@ -23,7 +23,7 @@ An extended Stock report is a detailed report that collects data on all products
 | **externalCode** | String(255) | External code of the entity for which the stock is displayed<br>`+Required when replying` |
 | **folder** | Object | Group of Products/Product variants/Series. [Learn more](../reports/#reports-stock-report-extended-stock-report-group) |
 | **images** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series Image|
-| **inTransit** | Float | Waiting<br>`+Required for response` |
+| **inTransit** | Float | Waiting<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Product/Product variant/Series for which the rest is issued<br>`+Required when replying` |
 | **name** | String(255) | Name<br>`+Required when replying` |
 | **price** | Float | Cost price in paise<br>`+Required when replying`|
@@ -950,7 +950,7 @@ The `stockByStore` field is returned from objects with the following attributes:
 | -------| ------------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Warehouse metadata for the stock displaying <br>`+Required when replying` |
 | **stock** | Float | Stock<br>`+Required when replying` |
-| **inTransit** | Float | Waiting<br>`+Required for response` |
+| **inTransit** | Float | Waiting<br>`+Required when replying` |
 | **reserve** | Float | Reserve<br>`+Required when replying` |
 | **name** | String(255) | Warehouse name<br>`+Required when replying` |
 

@@ -14,7 +14,7 @@ The transactions of the following types can be published: Sales Order, Sales Inv
 | Title | Type | Description |
 | ------------ | ------- | -------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Post Metadata<br>`+Required when replying` |
-| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required in response` `+Expand` |
+| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required when replying` `+Expand` |
 | **href** | URL | Link to Publication page<br>`+Required when replying` |
 
 ### Get publications
