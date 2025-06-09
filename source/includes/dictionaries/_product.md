@@ -278,7 +278,7 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 ##### Minimum Stock
 
 Minimum stock is the minimum quantity of goods that must always be on hand at the warehouse. 
-The `minimumStock` field is available when using the additional parameter `fields=minimumStock` or when passing the field in a create or update entity request. 
+The `minimumStock` field is available when using the additional parameter `fields=minimumStock` or when passing the field in a create or update entity request. About working with parameter fields can be read [here](../#kladana-json-api-general-info-what-is-fields) 
 Example:
 
 + `.../product/{product_id}?fields=minimumStock`

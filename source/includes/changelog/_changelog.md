@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 09-06-2025
+#### Added
+- Description of `fields` parameter [Fields](../#kladana-json-api-general-info-what-is-fields)
+
 ### 03-06-2025
 #### Added
 - Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
