@@ -4,6 +4,9 @@ JSON API 1.2 changes will be added here soon
 
 ### 05-06-2025
 #### Added
+- link to Production Order in [Sales Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-sales-order)
+- link to Production Order in [Purchase Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-purchase-order)
+- link to Production Order in [Receiving](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-receiving)
 - Error [17024](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
 
 ### 03-06-2025

@@ -8,6 +8,9 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 05-06-2025
 #### Added
+- link to Production Order in [Sales Order](../documents/#transactions-sales-order)
+- link to Production Order in [Purchase Order](../documents/#transactions-purchase-order)
+- link to Production Order in [Receiving](../documents/#transactions-receiving)
 - Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
 
 ### 03-06-2025
