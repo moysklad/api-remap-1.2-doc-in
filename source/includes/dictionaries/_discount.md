@@ -8,14 +8,14 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type | Description |
 | -------- |------- | ---------- |
-| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read Only` |
-| **active** | Boolean | An indicator of whether the discount is active at the moment<br>`+Required when answering` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **active** | Boolean | An indicator of whether the discount is active at the moment<br>`+Required when replying` |
 | **agentTags** | Array(String) | Account tags to which the discount is applied, if not applied to all accounts |
-| **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when answering` |
+| **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when replying` |
 | **assortment** | Array(Object) | An array of metadata for Goods and Services that have been selected to apply the discount, if it is not applied to all products |
-| **id** | UUID | Discount ID<br>`+Required when answering` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata Discounts<br>`+Required when answering` |
-| **name** | String(255) | Discount Name<br>`+Required when answering` |
+| **id** | UUID | Discount ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata Discounts<br>`+Required when replying` |
+| **name** | String(255) | Discount Name<br>`+Required when replying` |
 
 #### Special price fields
 
@@ -43,8 +43,8 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type | Description |
 | -------- |------| ---------- |
-| **amount** | Int  | Amount of savings in paise<br>`+Required when answering` |
-| **discount** | Float  | Discount percentage corresponding to this amount |
+| **amount** | Int  | Amount of savings in paise<br>`+Required when replying` |
+| **discount** | Int  | Discount percentage corresponding to this amount |
 
 
 ### Get all discounts

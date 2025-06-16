@@ -13,17 +13,17 @@ Using the JSON API, you can create and update Inventory Count information, query
 | **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last delete time of Inventory Count<br>`+Read Only` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment of Incoming payment |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External ID of the returned Inventory Count<br>`+Required in response` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External ID of the returned Inventory Count<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Inventory Count ID<br>`+Required for response` `+Read only` |
+| **id** | UUID | `=` `!=` | Inventory Count ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Inventory Count Metadata<br>`+Required when replying` |
 | **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of returned Inventory Count<br>`+Required for response` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Name of returned Inventory Count<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **positions** | MetaArray | | Inventory Count Items Metadata<br>`+Required for response` `+Expand` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray | | Inventory Count Items Metadata<br>`+Required when replying` `+Expand` |
+| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Inventory Count Status Metadata<br>`+Expand` |
@@ -45,13 +45,13 @@ Inventory Count Items is the liast of products and product variants. Inventory C
 | Title | Type    | Description |
 | ----- | ------- | ----------- |
 | **accountId** | UUID   | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when answering` `+Expand` |
-| **calculatedQuantity** | Float                                              | Estimated balance<br>`+Required when answering` |
-| **correctionAmount** | Float                                              | Difference between calculated balance and actual balance<br>`+Required when answering` `+Read only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product/service/batch/product variant, which is an item<br>`+Required when replying` `+Expand` |
+| **calculatedQuantity** | Float                                              | Estimated balance<br>`+Required when replying` |
+| **correctionAmount** | Float                                              | Difference between calculated balance and actual balance<br>`+Required when replying` `+Read only` |
 | **correctionSum** | Float                                              | Excess/shortage<br>`+Required when replying` `+Read only` |
 | **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
-| **price** | Float                                              | The price of the product/service in paise<br>`+Required when answering` |
+| **price** | Float                                              | The price of the product/service in paise<br>`+Required when replying` |
 | **quantity** | Float                                                | The number of products/services of this type in the item. If an item is a product with serial number accounting enabled, then the value in the field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` |
 
 You can work with items using [special resources for Inventory Count items managing](../documents/#transactions-inventory-count-inventory-count-inventory-count-items),

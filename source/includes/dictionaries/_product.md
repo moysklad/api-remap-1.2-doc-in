@@ -15,9 +15,9 @@ The search among the objects of products to match the search string will be carr
 
 | Title                   | Type                                               | Filtration                                                                                                                                            | Description                                                                                                                                                                                                                                              |
 |-------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId**           | UUID                                               |                                                                                                                                                       | Account ID<br>`+Required when answering` `+Read Only`                                                                                                                                                                                                     |
+| **accountId**           | UUID                                               |                                                                                                                                                       | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                     |
 | **drunk**               | Object                                             |                                                                                                                                                       | An object containing the fields of alcoholic products. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-an-object-containing-the-fields-of-alcoholic-products)                                                           |
-| **archived**            | Boolean                                            | `=` `!=`                                                                                                                                              | Has the Product been added to the archive<br>`+Required when answering`                                                                                                                                                                                   |
+| **archived**            | Boolean                                            | `=` `!=`                                                                                                                                              | Has the Product been added to the archive<br>`+Required when replying`                                                                                                                                                                                   |
 | **article**             | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Article                                                                                                                                                                                                                                                  |
 | **attributes**          | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields                                                                                                                                                                                                                          |
 | **barcodes**            | Array(Object)                                      | `=` `!=` `~` `~=` `=~`                                                                                                                                | Bundle barcodes. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-barcodes)                                                                                                                                              |
@@ -25,29 +25,29 @@ The search among the objects of products to match the search string will be carr
 | **code**                | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Product Code                                                                                                                                                                                                                                             |
 | **country**             | [Meta](../#kladana-json-api-general-info-metadata) || Country Metadata<br>`+Expand`                                                                                                                         |
 | **description**         | String(4096)                                       | `=` `!=` `~` `~=` `=~`                                                                                                                                | Product Description                                                                                                                                                                                                                                      |
-| **discountProhibited**  | Boolean                                            |                                                                                                                                                       | Sign of prohibition of discounts<br>`+Required when answering`                                                                                                                                                                                           |
+| **discountProhibited**  | Boolean                                            |                                                                                                                                                       | Sign of prohibition of discounts<br>`+Required when replying`                                                                                                                                                                                           |
 | **effectiveVat**        | Int                                                |                                                                                                                                                       | Real VAT %<br>`+Read only`                                                                                                                                                                                                                               |
 | **effectiveVatEnabled** | Boolean                                            |                                                                                                                                                       | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only`                         |
-| **externalCode**        | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | External Product Code<br>`+Required when answering`                                                                                                                                                                                                       |
+| **externalCode**        | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | External Product Code<br>`+Required when replying`                                                                                                                                                                                                       |
 | **files**               | MetaArray                                          |                                                                                                                                                       | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Expand`                                                                                                                                                     |
-| **group**               | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Employee department metadata<br>`+Required when answering` `+Expand`                                                                                                                                                                                      |
-| **id**                  | UUID                                               | `=` `!=`                                                                                                                                              | Item ID<br>`+Required when answering` `+Read Only`                                                                                                                                                                                                        |
+| **group**               | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Employee department metadata<br>`+Required when replying` `+Expand`                                                                                                                                                                                      |
+| **id**                  | UUID                                               | `=` `!=`                                                                                                                                              | Item ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                        |
 | **images**              | MetaArray                                          |                                                                                                                                                       | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 10)<br>`+Expand`                                                                                                                                                    |
 | **isSerialTrackable**   | Boolean                                            | `=` `!=`                                                                                                                                              | Accounting for serial numbers. This mark is not compatible with the features **weighed**, **alcoholic**, **ppeType**, **trackingType**, **onTap**.                                                                                                       |
-| **meta**                | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Product Metadata<br>`+Required when answering`                                                                                                                                                                                                            |
+| **meta**                | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Product Metadata<br>`+Required when replying`                                                                                                                                                                                                            |
 | **minPrice**            | Object                                             |                                                                                                                                                       | Minimum price. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-price)                                                                                                                                           |
 | **minimumBalance**      | Int                                                | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Minimum stock<br>`+Deprecated`                                                                                                                                                                                                                           |
 | **minimumStock**        | Object                                             |                                                                                                                                                       | Minimum stock. [Learn more here](../dictionaries/#entities-product-products-nested-entity-attributes-minimum-stock)<br>`+Available upon request`                                                   |
-| **name**                | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Item Name<br>`+Required when answering` `+Required when creating`                                                                                                                                                                                         |
+| **name**                | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Item Name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                         |
 | **owner**               | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Owner (Employee) metadata<br>`+Expand`                                                                                                                                                                                                                   |
 | **packs**               | Array(Object)                                      |                                                                                                                                                       | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)                                                                                                                                   |
 | **partialDisposal**     | Boolean                                            |                                                                                                                                                       | Management of the state of partial disposal of marked products. "true" - the feature is enabled.                                                                                                                                                         |
-| **pathName**            | String                                             | `=` `!=` `~` `~=` `=~`                                                                                                                                | Name of the group that the Product belongs to<br>`+Required when answering` `+Read only`                                                                                                                                                                  |
+| **pathName**            | String                                             | `=` `!=` `~` `~=` `=~`                                                                                                                                | Name of the group that the Product belongs to<br>`+Required when replying` `+Read only`                                                                                                                                                                  |
 | **paymentItemType**     | Enum                                               |                                                                                                                                                       | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-product-products-entity-attributes-sign-of-the-subject-of-calculation)                                                                                                        |
 | **ppeType**             | Enum                                               |                                                                                                                                                       | Classification type code for medical personal protective equipment (EAN-13). [Learn more](../dictionaries/#entities-product-products-entity-attributes-classification-codes-for-types-of-products-and-services-of-medical-personal-protective-equipment) |
 | **productFolder**       | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Product group metadata<br>`+Expand`                                                                                                                                                                                                                      |
 | **salePrice**           | Array(Object)                                      |                                                                                                                                                       | Sale prices. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-sales-prices)                                                                                                                                              |
-| **shared**              | Boolean                                            | `=` `!=`                                                                                                                                              | Sharing<br>`+Required when answering`                                                                                                                                                                                                                     |
+| **shared**              | Boolean                                            | `=` `!=`                                                                                                                                              | Sharing<br>`+Required when replying`                                                                                                                                                                                                                     |
 | **supplier**            | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Supplier counterparty metadata<br>`+Expand`                                                                                                                                                                                                              |
 | **syncId**              | UUID                                               | `=` `!=`                                                                                                                                              | Synchronization ID<br>`+Read-only` `+Fill on creation`                                                                                                                                                                                                   |
 | **taxSystem**           | Enum                                               |                                                                                                                                                       | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)                                                                                                                                              |
@@ -55,9 +55,9 @@ The search among the objects of products to match the search string will be carr
 | **tnved**               | String(255)                                        |                                                                                                                                                       | TN VED code                                                                                                                                                                                                                                              |
 | **trackingType**        | Enum                                               |                                                                                                                                                       | Type of labeled product. [Learn more](../dictionaries/#entities-product-products-entity-attributes-type-of-labeled-products)                                                                                                                             |
 | **uom**                  | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Units<br>`+Expand`                                                                                                                                                                                                                                       |
-| **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | When the entity was last updated<br>`+Required for response` `+Read-only`                                                                                                                                                                                |
-| **useParentVat**        | Boolean                                            |                                                                                                                                                       | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering`                                                                                      |
-| **variantsCount**       | Int                                                |                                                                                                                                                       | Number of variants for this product<br>`+Required when answering` `+Read only`                                                                                                                                                                            |
+| **updated**             | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | When the entity was last updated<br>`+Required when replying` `+Read-only`                                                                                                                                                                                |
+| **useParentVat**        | Boolean                                            |                                                                                                                                                       | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when replying`                                                                                      |
+| **variantsCount**       | Int                                                |                                                                                                                                                       | Number of variants for this product<br>`+Required when replying` `+Read only`                                                                                                                                                                            |
 | **vat**                 | Int                                                |                                                                                                                                                       | VAT %                                                                                                                                                                                                                                                    |
 | **vatEnabled**          | Boolean                                            |                                                                                                                                                       | Is VAT included on the item. Using this flag, you can set VAT = 0 or VAT = "without VAT" for the product. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%.                                              |
 | **volume**              | Int                                                | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Volume                                                                                                                                                                                                                                                   |
@@ -176,9 +176,9 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|--------- |
 | **barcodes** | Array(Object)                                      | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
-| **id** | UUID                                               | Product Package ID<br>`+Required when answering` `+Read Only` |
-| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when answering` `+Required when creating` |
-| **uom** | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | Product Package ID<br>`+Required when replying` `+Read Only` |
+| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when replying` `+Required when creating` |
+| **uom* | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand` |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
 
@@ -201,9 +201,9 @@ The response is an object, with the following structure:
 
 | Title | Type          | Description |
 | ---------|---------------|--------- |
-| **meta** | Meta          | Metadata<br>`+Required when answering` |
-| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required` |
-| **createShared** | Boolean       | Create new Products tagged "General"<br>`+Required when answering` |
+| **meta** | Meta          | Metadata<br>`+Required when replying` |
+| **attributes** | Array(Object) | Collection of all existing additional Product fields in [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` |
+| **createShared** | Boolean       | Create new Products tagged "General"<br>`+Required when replying` |
 
 Structures of objects of individual collections:
 
@@ -248,7 +248,7 @@ This object does not match the **weighed**, **isSerialTrackable**, **ppeType**, 
 
 | Title | Type | Description |
 | ---------| ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the vendor group.<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the vendor group.<br>`+Required when replying` |
 
 Supplier type - Counterparty. You can see the description of the Counterparty entity [here](../dictionaries/#entities-counterparty)
 
@@ -256,24 +256,24 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|-------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
-| **priceType** | Object                                             | Price type<br>`+Required when answering` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
+| **priceType** | Object                                             | Price type<br>`+Required when replying` |
 
 
 ##### Purchase price
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|----------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 
 | Title | Type                                               | Description |
 | ---------|----------------------------------------------------|---------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum Stock
 
@@ -341,6 +341,7 @@ when creating or updating a product. There are also separate resources for manag
 + Create (`/entity/product/{product_id}/storebalances`)
 + Update (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
 + Delete (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
++ Bulk deletion (`/entity/product/{product_id}/storebalances/{minimumstock_id}`)
 
 ##### Image: structure and loading.
 When requesting a Product with images, a json representation of this Product will be displayed containing the **images** field. This field is
@@ -348,13 +349,13 @@ an array of elements. Field elements **images** have fields:
 
 | Title | Type | Description |
 | ---------| ------- |-------- |
-| **filename** | String(255) | File name<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when answering` |
-| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when answering` |
-| **size** | Int | File size in bytes<br>`+Required when answering` |
-| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when answering` |
-| **title** | String(255) | Image Title<br>`+Required when answering` |
-| **updated** | DateTime | File upload time to server<br>`+Required when answering` |
+| **filename** | String(255) | File name<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
+| **size** | Int | File size in bytes<br>`+Required when replying` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
+| **title** | String(255) | Image Title<br>`+Required when replying` |
+| **updated** | DateTime | File upload time to server<br>`+Required when replying` |
 
 #### Uploading
 
@@ -375,7 +376,7 @@ The API documentation for working with Images can be found in the [Image](../dic
 
 | Title | Type | Description |
 | ---------| ------- |-------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Product group.<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Product group.<br>`+Required when replying` |
 
 You can see the description of the Group entity [here](../dictionaries/#entities-product-group)
 Updating this attribute will also update the **pathName** attribute.
@@ -384,7 +385,7 @@ Updating this attribute will also update the **pathName** attribute.
 
 | Title | Type | Description |
 | ---------| ------- |------- |
-| **weighed** | Boolean | A field indicating whether the item is a weight item. If its value is false, the field is not displayed.<br>`+Required when answering` |
+| **weighed** | Boolean | A field indicating whether the item is a weight item. If its value is false, the field is not displayed.<br>`+Required when replying` |
 
 This mark cannot be combined with the **onTap**, **isSerialTrackable**, **ppeType**, **alcoholic** features. Labeling of weight items is only supported for type **MILK**.
 
@@ -392,7 +393,7 @@ This mark cannot be combined with the **onTap**, **isSerialTrackable**, **ppeTyp
 
 | Title | Type | Description |
 | ---------| ------- |------- |
-| **onTap** | Boolean | A field indicating whether the product is draft. If its value is false, the field is not displayed.<br>`+Required when answering` |
+| **onTap** | Boolean | A field indicating whether the product is draft. If its value is false, the field is not displayed.<br>`+Required when replying` |
 
 This mark cannot be combined with the **weighed**, **isSerialTrackable**, **ppeType** features. Draft labeling is only supported for **MILK**, **PERFUMERY** types.
 
@@ -3916,7 +3917,7 @@ Successful request. The result is a JSON representation of the updated Product.
         "type": "WAREHOUSE_VARIED",
         "storeBalances": {
             "meta": {
-                "href": "https://api-api-1.testms-test.lognex.ru/api/remap/1.2/entity/product/88df2fc1-1065-11f0-ac15-000700000012/storebalances",
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/88df2fc1-1065-11f0-ac15-000700000012/storebalances",
                 "type": "minimumstock",
                 "mediaType": "application/json",
                 "size": 2,
@@ -3967,3 +3968,31 @@ Successful request. The result is a JSON representation of the updated Product.
     }
 }
 ```  
+
+> The request for the bulk deletion of Minimum Stock in the product.
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of the Minimum Stock items.

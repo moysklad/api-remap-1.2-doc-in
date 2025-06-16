@@ -22,8 +22,8 @@ Search among objects of legal entities to match the search string will be carrie
 | **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only`                                                                                                                                                                                 |
 | **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand`                                                                                                                                                                                        |
 | **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code                                                                                                                                                                                                                        |
-| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the legal entity may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when answering` |
-| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when answering`                                                                                                                                                                                               |
+| **companyType**            | Enum                                               | `=` `!=` | Legal entity type. Depending on the value of this field, the set of displayed details of the legal entity may change. [More details here](../dictionaries/#entities-entity-legal-entity-legal-entity-type)<br>`+Required when replying` |
+| **created**                | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying`                                                                                                                                                                                               |
 | **description**            | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Yurlitsa                                                                                                                                                                                                                      |
 | **externalCode**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of a legal entity<br>`+Required when answering`                                                                                                                                                                             |
 | **group**                  | [Meta](../#kladana-json-api-general-info-metadata) | | Employee's department<br>`+Required when answering` `+Expand`                                                                                                                                                                             |
@@ -50,7 +50,6 @@ Search among objects of legal entities to match the search string will be carrie
 | **fax**                                | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number                                                                                                                                      |
 | **mod\_\_requisites\_\_in**            | Object       | | Requisites for legal entity of the type `[Legal entity. India]` with details on individual fields                                               |
 | **mod\_\_requisites\_\_international** | Object       | | Requisites for legal entity of the type `[Legal entity. International]` with details on individual fields                                       |
-| **inn**                                | String(255)  | `=` `!=` `~` `~=` `=~` | Tax Number for legal entity of the type `[Legal entity]`                                                                                        |
 | **fsrarId**                            | String(255)   | | Identifier in FSRAR                                                                                                                             |
 | **isEgaisEnable**                      | Boolean       | | Is EGAIS enabled for this legal entity                                                                                                          |
 | **legalAddress**                       | String(255)   | `=` `!=` `~` `~=` `=~` | Legal address Legal entity                                                                                                                      |
@@ -119,9 +118,9 @@ Only for legal entity with type `Legal entity. International`.
 | **bankName** | String(255)                                        | Bank name |
 | **bic** | String(255)                                        | BIC |
 | **correspondentAccount** | String(255)                                        | Corr account |
-| **id** | UUID                                               | Account ID<br>`+Required when answering` `+Read only` |
-| **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when answering` |
-| **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when answering` `+Read only` |
+| **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
+| **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when replying` |
+| **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
 
 #### Legal entity type
 Depending on the legal entity type **companyType**, its object will display different sets of details.
@@ -129,19 +128,8 @@ Legal entity types and corresponding values that can be passed to the value of t
 
 | CompanyType field value | Region               | Legal entity type   |
 |-----------------------|----------------------|---------------------|
-| **legal**               | International        | Legal entity        |
 | **legalIN**             | India                | Legal entity. India |
 | **legalINTERNATIONAL**  | International        | Legal entity. International      |
-
-<br>
-
-If the legal entity type is `Legal entity`, the following fields of details will be displayed:
-
-| title            | description                     |
-|------------------|---------------------------------|
-| **legalTitle**   | Full name of the legal entity   |
-| **legalAddress** | Legal address of a legal entity |
-| **inn**          | Tax Number                      |
 
 <br>
 
@@ -1272,7 +1260,7 @@ Successful request. The result is a JSON representation of the legal entity with
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
-   "companyType": "legal",
+   "companyType": "legalIN",
    "archived": false,
    "created": "2007-02-07 17:16:41",
    "legalTitle": "Great Light Prom LLC",
@@ -1328,7 +1316,9 @@ Successful request. The result is a JSON representation of the legal entity with
      "addInfo": "addinfo",
      "comment": "some words about address"
    },
-   "inn": "87654321",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",
@@ -1461,12 +1451,14 @@ Request to update the legal entity with the specified ID.
            "description": "legal entity making small profits",
            "code": "666",
            "externalCode": "666AAAA666",
-           "companyType": "legal",
+           "companyType": "legalIN",
            "archived": false,
            "legalTitle": "Great Light Prom LLC",
            "legalAddress": "Moscow, Lenin street, 42/685",
            "actualAddress": "g PermSt. Stanislav d 75",
-           "inn": "87654321",
+           "mod__requisites__in":{
+             "pan": "87654321"
+           },
            "email": "svetprom@mail.svet",
            "phone": "22222222",
            "fax": "bello123",
@@ -1514,12 +1506,14 @@ Successful request. The result is JSON of the updated legal entity.
    "description": "legal entity making small profits",
    "code": "666",
    "externalCode": "666AAAA666",
-   "companyType": "legal",
+   "companyType": "legalIN",
    "archived": false,
    "legalTitle": "Great Light Prom LLC",
    "legalAddress": "Moscow, Lenin street, 42/685",
    "actualAddress": "Perm Stalin street 75",
-   "inn": "87654321",
+   "mod__requisites__in":{
+     "pan": "87654321"
+   },
    "email": "svetprom@mail.svet",
    "phone": "22222222",
    "fax": "bello123",

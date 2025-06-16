@@ -10,24 +10,24 @@ You can get information about company settings and product price types.
 | **checkMinPrice** | Boolean | Automatically set the minimum price. If enabled, when saving sales documents with prices less than the minimum prices (specified in the item cards), the prices will be automatically increased to the minimum prices.<br>`+Required when answering` |
 | **checkShippingStock** | Boolean | Prohibit shipment of missing items. If the prohibition is set (true value), users will not be able to ship out-of-stock items from the warehouse.<br>`+Required when answering` |
 | **companyAddress** | String(255) | Company email address |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Standard currency metadata<br>`+Required when answering` |
-| **discountStrategy** | Enum | Joint application of discounts. [Learn more](../dictionaries/#entities-company-settings-combined-application-of-discounts)<br>`+Required when answering` `+Required when creating` |
-| **globalOperationNumbering** | Boolean | Use consecutive numbering of documents. If true, continuous numbering will be set for the entire history, otherwise the numbering of documents will start anew every calendar year.<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Company Settings Metadata<br>`+Required when answering` |
-| **priceTypes** | Array(Object) | Collection of all existing price types. [Learn more](../dictionaries/#entities-company-settings-price-type)<br>`+Required when answering` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Standard currency metadata<br>`+Required when replying` |
+| **discountStrategy** | Enum | Joint application of discounts. [Learn more](../dictionaries/#entities-company-settings-combined-application-of-discounts)<br>`+Required when replying` `+Required when creating` |
+| **globalOperationNumbering** | Boolean | Use consecutive numbering of documents. If true, continuous numbering will be set for the entire history, otherwise the numbering of documents will start anew every calendar year.<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Company Settings Metadata<br>`+Required when replying` |
+| **priceTypes** | Array(Object) | Collection of all existing price types. [Learn more](../dictionaries/#entities-company-settings-price-type)<br>`+Required when replying` |
 | **useCompanyAddress** | Boolean | Use the company address for emails. If enabled, emails will be sent from the address specified in companyAddress, otherwise emails will be sent from the user's address.<br>`+Reply Required` |
 | **useRecycleBin** | Boolean | Use cart. If enabled, all documents will be placed in the trash when they are deleted. It will also be possible to recover erroneously deleted documents.<br>`+Required when answering` |
-| **accountCountry** | String(255) | Passed for information about which country configuration is active on the user's account. Possible values: RU, BY, KZ.<br>`+Required when answering` `+Read only` |
+| **accountCountry** | String(255) | Passed for information about which country configuration is active on the user's account. Possible values: IN, INTERNATIONAL.<br>`+Required when answering` `+Read only` |
 
 #### Price type
 The structure of a separate object representing the price type:
 
 | Title | Type | Description |
 |----------|-------|------------|
-| **externalCode** | String(255) | Price Type External Code<br>`+Required when answering` |
-| **id** | UUID | Price Type ID<br>`+Required when answering` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Price Type Metadata<br>`+Required when Response` `+Read Only` |
-| **name** | String(255) | Price Type Name<br>`+Required when answering` `+Required when creating` |
+| **externalCode** | String(255) | Price Type External Code<br>`+Required when replying` |
+| **id** | UUID | Price Type ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Price Type Metadata<br>`+Required when replying` `+Read Only` |
+| **name** | String(255) | Price Type Name<br>`+Required when replying` `+Required when creating` |
 
 #### Combined application of discounts
 An enumeration of values representing the combined application of discounts:
@@ -43,7 +43,7 @@ Each user directory contains the fields:
 
 | Title | Type | Description |
 |----------|-------|------------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when responding` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
 | **entityMeta** | URL | Link to the list of entities in this user reference |
 | **name** | String(255) | Directory name |
 
@@ -129,7 +129,7 @@ Successful request. The result is a JSON representation of Company Settings.
     "useRecycleBin": true,
     "useCompanyAddress": true,
     "companyAddress": "MyCompany@kladana.com",
-    "accountCountry": "RU"
+    "accountCountry": "IN"
 }
 ```
 
@@ -238,7 +238,7 @@ Successful request. The result is a JSON representation of Company Settings.
     "useRecycleBin": true,
     "useCompanyAddress": true,
     "companyAddress": "MyCompany@kladana.com",
-    "accountCountry": "RU"
+    "accountCountry": "IN"
 }
 ```
 

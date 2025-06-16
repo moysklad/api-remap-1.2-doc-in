@@ -6,9 +6,37 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 07-05-2025
+### 19-06-2025
 #### Added
 - The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
+### 03-06-2025
+#### Added
+- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
+- Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
+
+### 27-05-2025
+#### Added
+- New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
+
+### 20-05-2025
+#### Added
+- Add new [error 3042](..#kladana-json-api-errors-common-validation-errors)
+
+### 15-05-2025
+#### Changed
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
+
+### 13-05-2025
+#### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)
+
+### 05-05-2025
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
 ### 25-04-2025
 #### Added
@@ -18,7 +46,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
@@ -49,7 +76,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 
