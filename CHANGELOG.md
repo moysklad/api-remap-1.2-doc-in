@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 19-06-2025
+#### Added
+- The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
 ### 09-06-2025
 #### Added
 - Description of `fields` parameter [Fields](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-what-is-fields)
