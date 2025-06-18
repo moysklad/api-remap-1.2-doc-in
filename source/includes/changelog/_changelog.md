@@ -11,7 +11,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - link to Production Order in [Sales Order](../documents/#transactions-sales-order)
 - link to Production Order in [Purchase Order](../documents/#transactions-purchase-order)
 - link to Production Order in [Receiving](../documents/#transactions-receiving)
-- Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
+- Errors [17024, 26115](../#kladana-json-api-errors-error-codes-for-documents)
 
 ### 09-06-2025
 #### Added
