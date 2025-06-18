@@ -1125,7 +1125,7 @@ curl -X POST
 }
 ```
 
-When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example:
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. About working with parameter fields can be read [here](../#kladana-json-api-general-info-what-is-fields). For example:
 
 + `/customerorder/{document id}?fields=stock&expand=positions`
 
@@ -2921,6 +2921,21 @@ Successful request. Result is JSON representation of the updated Shipment with e
     "payedSum": 0
 }
 ```
+
+### What is fields
+
+In the JSON API, some entity fields are not included in responses by default. To retrieve these additional data fields, use the `fields` parameter.
+Specify the field key you want to include as the parameter value.
+
+#### The following rules apply to fields:
+* Only 1 value can be passed per request
+* Unsupported or invalid values will trigger [error 3042](#kladana-json-api-errors-common-validation-errors)
+* To get nested objects in hidden fields, explicitly use `expand`. For example: `/customerorder/{id}?fields=stock&expand=positions`.
+* Fields is allowed only for sample sizes of 100 or fewer. For example: `https://api.kladana.com/api/remap/1.2/entity/customerorder?fields=stock&expand=positions&limit=100`. If a larger limit is specified along with fields, the fields parameter will be ignored.
+
+#### Used in:
+* [Balances and cost in documents](#kladana-json-api-general-info-balances-and-cost-in-transaction-items)
+* [Minimum stock in product](dictionaries/#entities-product-products-nested-entity-attributes-minimum-stock)
 
 ### Employee request context
 
