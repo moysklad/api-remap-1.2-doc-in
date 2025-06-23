@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 23-06-2025
+#### Fixed
+- Actualized [User Settings](../dictionaries/#entities-user-settings)
+
 ### 09-06-2025
 #### Added
 - Description of `fields` parameter [Fields](../#kladana-json-api-general-info-what-is-fields)

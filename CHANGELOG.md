@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 23-06-2025
+#### Fixed
+- Actualized [User Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-settings)
+
 ### 09-06-2025
 #### Added
 - Description of `fields` parameter [Fields](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-what-is-fields)
