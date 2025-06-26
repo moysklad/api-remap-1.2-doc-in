@@ -16,17 +16,17 @@ Using the JSON API, you can create and update information about Bundles, request
 | **components** | MetaArray | | Array of components of Bundle<br>`+Expand` |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | | Country Metadata<br>`+Expand` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Bundle Description |
-| **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`+Required when answering` |
+| **discountProhibited** | Boolean | | Sign of prohibition of discounts<br>`Required when replying` |
 | **effectiveVat** | Int | | Real VAT %<br>`+Read Only`|
 | **effectiveVatEnabled** | Boolean | | Additional characteristic for determining delimitation of real VAT = 0 or "without VAT". (effectiveVat = 0, effectiveVatEnabled = false) -> "without VAT", (effectiveVat = 0, effectiveVatEnabled = true) -> 0%.<br>`+Read Only` |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Bundle Code<br>`+Required when answering` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when answering` `+Expand` |
-| **id** | UUID | `=` `!=` | Bundle ID<br>`+Required for response` `+Read only` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
+| **id** | UUID | `=` `!=` | Bundle ID<br>`+Required when replying` `+Read only` |
 | **images** | MetaArray | | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 10)<br>`+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bundle Metadata<br>`+Required when answering` |
 | **minprice** | Object | | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Name<br>`+Required when responding` `+Required when creating` |
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Bundle Name<br>`+Required when replying` `+Required when creating` |
 | **overhead** | Object | | Additional expenses. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-additional-expenses) |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **partialDisposal** | Boolean | | Management of the state of partial disposal of marked goods. "true" - the feature is enabled. |
@@ -39,9 +39,9 @@ Using the JSON API, you can create and update information about Bundles, request
 | **taxSystem** | Enum | | Tax system code. [Learn more](../dictionaries/#entities-bundle-bundles-entity-attributes-tax-system-code) |
 | **tnved** | String(255) | | TN VED code |
 | **trackingType** | Enum | | Type of labeled product. [](../dictionaries/#entities-bundle-bundles-entity-attributes-type-of-labeled-products) |
-| **uom** | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
-| **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when answering` |
+| **uom* | [Meta](../#kladana-json-api-general-info-metadata) || Units<br>`+Expand` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
+| **useParentVat** | Boolean | | Whether the VAT rate of the parent group is used. If true for the assortment unit, the rate set for the parent group will be applied.<br>`+Required when replying` |
 | **vat** | Int | | VAT % |
 | **vatEnabled** | Boolean | | Is VAT included on the item. Using this flag, you can set VAT = 0 or VAT = "without VAT" for the product. (vat = 0, vatEnabled = false) -> vat = "excluding VAT", (vat = 0, vatEnabled = true) -> vat = 0%. |
 | **volume** | Int | `=` `!=` `<` `>` `<=` `>=` | Volume |
@@ -122,26 +122,26 @@ The structure of the overhead object.
 
 | Title | Type | Description |
 | ------| ----- |------ |
-| **value** | Float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
+| **value** | Float | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 The structure of the minPrice object.
 
 | Title | Type | Description |
 | ------|------| -------------|
-| **value** | Float | Price value<br>`+Required when answering` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
+| **value** | Float | Price value<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 #### Bundle Components
 Bundle Components is a list of products/services/product variants that are part of a Bundle. Bundle can have from 1 to 50 components. Object of a Bundle component contains the following fields:
 
 | Title | Type | Description |
 | ------------- | --------------- |----------------- |
-| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batch that the component represents<br>`+Required for response` `+Expand` |
-| **id** | UUID | Component ID<br>`+Required for response` `+Read-only` |
-| **quantity** | Int | Quantity of goods/services of this type in the <br>component`+Required when answering` `+Read-only` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product/service/batch that the component represents<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Component ID<br>`+Required when replying` `+Read-only` |
+| **quantity** | Int | Quantity of goods/services of this type in the <br>component`+Required when replying` `+Read-only` |
 
 ##### Bundles Metadata
 

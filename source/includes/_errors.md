@@ -372,6 +372,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_25060">25060</a> | Save error: array element '{type}' can only contain an item from the Routing specified in the Bill of Materials in the processingProcess field | Check that the specified Routing items belong to the Routing of the Bill of Materials. |
 | <a name="error_25061">25061</a> | Save error: You cannot specify production cost in both the Bill of Materials and the production operations of Bill of Materials. | Check that you are not passing the production cost (cost field) in both the Bill of Materials and the items of the production operation. |
 | <a name="error_25062">25062</a> | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product | Check that the operation does not result in incorrect Bills of Materials. |
+| <a name="error_25063">25063</a> | Save error: Cannot enable calculation via standard hours and change the labour cost | Check the status of the standard hour accounting flag for the Operation of Bill of Materials (enableHourAccounting). When standard hour accounting is enabled, the labor cost value (laborUnitCost field) will be reset and calculated automatically. If you want to send a new labor cost value, first change the calculation type to fixed (enableHourAccounting flag == false). |
 
 ### Error codes for Production Orders
 
@@ -390,11 +391,12 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26111">26111</a> | Error deleting: last product cannot be deleted when 'awaiting' flag is active | At least one product is required when 'awaiting' is set |
 | <a name="error_26112">26112</a> | Error updating Production Order: field {date field} cannot be assigned a value after {date} | The field has limitations and dependencies. A date before the specified one must be passed |
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
+| <a name="error_26114">26114</a> | Error updating Production Operation: Cannot enable calculation via standard hours and change the labour cost | Check the status of the standard hour accounting flag for the Production Operation (enableHourAccounting). When standard hour accounting is enabled, the labor cost value (laborUnitCost field) will be reset and calculated automatically. If you want to send a new labor cost value, first change the calculation type to fixed (enableHourAccounting flag == false). |
 
 ### Error codes for Operation Reports
 
-| Error code | Message | Description |
-| ---------- | ------- | ----------- |
+| Error code                      | Message | Description |
+|---------------------------------| ------- | ----------- |
 | <a name="error_26200">26200</a> | Error saving Operation Report: production has not started, production must be started | Production must be started before starting the production operations |
 | <a name="error_26201">26201</a> | Error saving Operation Report: only product series in the assortment field can be changed | Series can be changed, but products or product variants cannot be changed|
 | <a name="error_26202">26202</a> | Error saving Operation Report: inactive user cannot be specified as a performer | Only active users can perform Production orders|
@@ -404,6 +406,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26206">26206</a> | Error deleting Operation Report: It is impossible to delete the completed operation because the total production volume of the intermediate operation cannot be less than the production volume of the final operation | It is impossible to reduce the production volume of the operation if this would result in overproduction of the final operation |
 | <a name="error_26207">26207</a> | Error saving Operation Report: Serial numbers must be specified for serialized items | Serial numbers must be specified for all materials and products with serial numbers |
 | <a name="error_26208">26208</a> | Error saving Operation Report: {Quantity field} value must match the number of serial numbers in the things field | Serial numbers must be updated when consumedQuantity or producedQuantity changes |
+| <a name="error_26209">26209</a> | Error saving Stage execution: Cannot enable calculation via standard hours and change the labour cost | Check the status of the standard hour accounting flag (enableHourAccounting). When standard hour accounting is enabled, the labor cost value (laborUnitCost field) will be reset and calculated automatically. If you want to send a new labor cost value, first change the calculation type to fixed (enableHourAccounting flag == false). |
+| <a name="error_26210">26210</a> | Error saving Stage execution:The transaction was created with a fixed calculation, the calculation type cannot be changed. | Check the status of the standard hour accounting flag (enableHourAccounting) for the Production Operation of the Production Order. For a transaction with an initially fixed type calculation (enableHourAccounting flag == false), switching to standard hour accounting calculation is not allow. |
+| <a name="error_26211">26211</a> | Error saving Operation Reports: the volume of scarp cannot be equal to the entire available volume of the operation | It is impossible to write off the entire available volume of production at an operation as a scarp, because further production will become unavailable and this will not allow the cost of the scarp to be attributed to finished products. |
+| <a name="error_26212">26212</a> | Error saving Operation Reports: You cannot create a scrap as a completion of production | Ensure you do not create a situation where an existing or created scrap includes the remaining production volume or the final completion date. This will prevent the cost of the scrap from being allocated to finished goods. |
+| <a name="error_26213">26213</a> | Error saving Operation Reports: cannot change the defect attribute | Ensure you are not changing the value of the defect flag. The indication of the Operation Report's association with scrap can only be specified during the document creation. |
 
 ### Error codes for Counterparties
 

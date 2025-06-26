@@ -7,25 +7,25 @@ Using the JSON API, you can create and update information about Bills of Materia
 
 | Title | Type   | Filtration | Description |
 | ------ | ------- | ------ | ----- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
-| **archived**  | Boolean   | `=` `!=`  | Is the Bill of Materials archived or not<br>`+Required when answering` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived**  | Boolean   | `=` `!=`  | Is the Bill of Materials archived or not<br>`+Required when replying` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code of the Bill of Materials |
 | **cost** | Int                                                | | Production cost |
-| **costDistributionType** | Enum | | Cost of distribution type. Possible values: `BY_PRICE`, `BY_PRODUCTION`<br>`+Required if answered` `+Read-only` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when answering` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
-|**stages** | MetaArray | | Collection of metadata of the Bill of Materials' operations <br>`+Required when answering` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Bill of Materials ID<br>`+Required when answering` `+Read only` |
-| **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when answering` `+Expand` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when answering` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when answering` `+Required when creating` |
+| **costDistributionType** | Enum | | Cost of distribution type. Possible values: `BY_PRICE`, `BY_PRODUCTION`<br>`+Required when replying` `+Read-only` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when replying` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+|**stages** | MetaArray | | Collection of metadata of the Bill of Materials' operations <br>`+Required when replying` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
+| **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when replying` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **parent** | [Meta](../#kladana-json-api-general-info-metadata) | | Tech group metadata cards<br>`+Required when answering` `+Expand` |
-| **pathName** | String                                             | | The name of the group that includes Bill of Materials<br>`+Required when answering` `+Read only` |
-| **processingProcess** | [Meta](../#kladana-json-api-general-info-metadata) | | Bill of Materials Metadata<br>`+Required in response` `+Expand` |
-| **products** | MetaArray                                          | | Collection of finished products metadata Bills of Materials<br>`+Required when answering` `+Expand` `+Required when creating` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when answering` `+Read only` |
+| **parent** | [Meta](../#kladana-json-api-general-info-metadata) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
+| **pathName** | String                                             | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
+| **processingProcess** | [Meta](../#kladana-json-api-general-info-metadata) | | Bill of Materials Metadata<br>`+Required when replying` `+Expand` |
+| **products** | MetaArray                                          | | Collection of finished products metadata Bills of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when replying` `+Read only` |
 
 For costDistributionType, the value BY_PRODUCTION is only available for Bills of Materials with two or more product items. When the number of product items changes to a value less than 2, it automatically changes to BY_PRICE.
 
@@ -36,11 +36,13 @@ The object of the production operation in the Bill of Materials contains the fol
 | Name | Type | Description |
 | ----- | ---- | ------- |
 | **accountId** | UUID | Account ID<br>`+Required when answering` `+Read-only` |
+| **enableHourAccounting** | Boolean | Is standard hours accounting enabled<br>`+Required when replying` |
 | **id** | UUID | Raw material ID<br>`+Required when answering` `+Read-only` |
-| **cost** | Double | Production cost of a certain production operation `+Required when answering` |
-| **labourCost** | Double | Labor cost of a certain production operation `+Required when answering` |
-| **standardHour** | Double | Standard hours of a production operation `+Required when answering` |
-| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Bill of Materials item metadata<br>`+Required when answering` |
+| **cost** | Double | Production cost of a certain production operation `+Required when replying` |
+| **labourCost** | Double | Labor cost of a certain production operation `+Required when replying` |
+| **standardHour** | Double | Standard hours of a production operation `+Required when replying` |
+| **standardHourCost** | Double | Standard Hour cost of a certain production operation<br>`+Required when replying` `+Read-only` |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Bill of Materials item metadata<br>`+Required when replying` |
 
 Production operations of a Bill of Materials strictly correspond to the stages of the linked production process.
 
@@ -54,12 +56,12 @@ Raw material object in Bills of Materials contains the following fields:
 
 | Title   | Type   | Description   |
 | ------- | ------ | ------------- |
-| **accountId** | UUID    | Account ID<br>`+Required when answering` `+Read Only`    |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when answering` `+Expand` |
-| **id** | UUID | Raw material ID<br>`+Required when answering` `+Read-only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Product item metadata. If the **assortment** field specifies a product variant, the field contains the product to which the product variant applies<br>`+Required when answering` `+Expand` |
-| **quantity** | Float | Quantity of products of the type in the item<br>`+Required when answering` |
-| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required in response` |
+| **accountId** | UUID    | Account ID<br>`+Required when replying` `+Read Only`    |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Raw material ID<br>`+Required when replying` `+Read-only` |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Product item metadata. If the **assortment** field specifies a product variant, the field contains the product to which the product variant applies<br>`+Required when replying` `+Expand` |
+| **quantity** | Float | Quantity of products of the type in the item<br>`+Required when replying` |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required when replying` |
 | **materialProcessingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' raw material<br>`+Read-only` |
 
 If you do not specify a link to a Bill of Materials item when adding a raw material, the material will be linked by default to the first item in the Bill of Materials.
@@ -71,11 +73,11 @@ Product Object of a Bill of Materials contains the following fields:
 
 | Title | Type | Description |
 | -------- | -------- |------- |
-| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when answering` `+Expand` |
-| **id** | UUID | Product ID<br>`+Required when answering` `+Read Only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a product variant is specified in the **assortment** field, the field contains the product to which the product variant relates<br>`+Required when answering` `+Expand` |
-| **quantity** | Int | Quantity of products of this type in item<br>`+Required when answering` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Product ID<br>`+Required when replying` `+Read Only` |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a product variant is specified in the **assortment** field, the field contains the product to which the product variant relates<br>`+Required when replying` `+Expand` |
+| **quantity** | Int | Quantity of products of this type in item<br>`+Required when replying` |
 
 You can work with materials and products using [special resources for managing items of Bills of Materials](../dictionaries/#entities-bills-of-materials),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,

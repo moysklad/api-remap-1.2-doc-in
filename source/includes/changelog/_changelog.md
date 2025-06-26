@@ -6,9 +6,23 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 23-05-2025
+### 26-06-2025
 #### Added
 - Field `plannedEndDate` in [Production Operations](../documents/#transactions-production-order-production-operations)
+
+### 09-06-2025
+#### Added
+- Description of `fields` parameter [Fields](../#kladana-json-api-general-info-what-is-fields)
+- [Brief Report on Warehouse Bin Balances](../reports/#reports-stock-report-get-a-brief-report-on-warehouse-bin-balances)
+
+### 03-06-2025
+#### Added
+- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
+- Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
+
+### 27-05-2025
+#### Added
+- New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
 
 ### 20-05-2025
 #### Added
