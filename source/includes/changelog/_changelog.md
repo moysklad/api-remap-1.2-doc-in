@@ -6,6 +6,13 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 18-06-2025
+#### Added
+- link to Production Order in [Sales Order](../documents/#transactions-sales-order)
+- link to Production Order in [Purchase Order](../documents/#transactions-purchase-order)
+- link to Production Order in [Receiving](../documents/#transactions-receiving)
+- Errors [17024, 26115](../#kladana-json-api-errors-error-codes-for-documents)
+
 ### 09-06-2025
 #### Added
 - Description of `fields` parameter [Fields](../#kladana-json-api-general-info-what-is-fields)

@@ -64,6 +64,7 @@ The values of the `taxSystem` field.
 | **purchaseOrders** | Array of links to the related Purchase Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **demands** | Array of links to the related Shipments in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **payments** | Array of links to the related Payments in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **productionTasks** | Array of links to the related Production Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **invoicesOut** | Array of links to the related Sales Invoices in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **moves** | Array of links to the related Transfers in the [metadata](../#kladana-json-api-general-info-metadata)format|
 
