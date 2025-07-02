@@ -2,9 +2,13 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 23-06-2025
+### 02-07-2025
 #### Fixed
 - Actualized [User Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-settings)
+
+### 01-07-2025
+#### Added
+- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-production-operations)
 
 ### 09-06-2025
 #### Added
