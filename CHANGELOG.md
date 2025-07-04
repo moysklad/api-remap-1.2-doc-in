@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 04-07-2025
+#### Added
+- Add new [error 33013](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-printed-forms)
+
 ### 02-07-2025
 #### Fixed
 - Actualized [User Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-settings)
