@@ -44,7 +44,7 @@ Each user directory contains the fields:
 | Title | Type | Description |
 |----------|-------|------------|
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
-| **entityMeta** | URL | Link to the list of entities in this user reference |
+| **entityMeta** | [Meta](../#kladana-json-api-general-info-metadata)  | Link to the list of entities in this user reference |
 | **name** | String(255) | Directory name |
 
 ### Get company settings

@@ -35,8 +35,6 @@ Result: JSON object including fields:
 | Parameter | Description |
 | ---------| ---------|
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
 
 > Get a list of Images for a Product
 

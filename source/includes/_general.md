@@ -179,25 +179,27 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Returned HTTP error statuses and their description
 
-| HTTP status code | Description |
-| -----------------| ----------- |
-| **301** | The requested resource has another URL |
-| **303** | The requested resource has another URL. Use GET request to find it |
-| **400** | The transmitted request has a JSON structure error |
-| **401** | Incorrect username or password, or the user or account has been blocked |
-| **403** | No permission to view the object |
-| **404** | The requested resource does not exist |
-| **405** | HTTP method specified incorrectly for the requested resource|
-| **409** | The specified object is in use and cannot be deleted |
-| **410** | API version no longer supported |
-| **412** | A required query string parameter or JSON structure field was not specified |
-| **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
-| **415** | The format of the request content in headers or body is not supported |
-| **429** | Request limit was exceeded |
-| **500** | An unexpected error occurred while processing the request |
-| **502** | Service temporarily unavailable |
-| **503** | Service temporarily disabled |
-| **504** | Service timeout exceeded Please try again later |
+| HTTP status code | Description                                                                                                                                                          |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **200**          | The request was successfully completed                                                                                                                               |
+| **301**          | The requested resource has another URL                                                                                                                               |
+| **302**          | The requested resource is temporarily located at a different URI                                                                                                     |
+| **303**          | The requested resource has another URL. Use GET request to find it                                                                                                   |
+| **400**          | The transmitted request has a JSON structure error                                                                                                                   |
+| **401**          | Incorrect username or password, or the user or account has been blocked                                                                                              |
+| **403**          | No permission to view the object                                                                                                                                     |
+| **404**          | The requested resource does not exist                                                                                                                                |
+| **405**          | HTTP method specified incorrectly for the requested resource                                                                                                         |
+| **409**          | The specified object is in use and cannot be deleted                                                                                                                 |
+| **410**          | API version no longer supported                                                                                                                                      |
+| **412**          | A required query string parameter or JSON structure field was not specified                                                                                          |
+| **413**          | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
+| **415**          | The format of the request content in headers or body is not supported                                                                                                |
+| **429**          | Request limit was exceeded                                                                                                                                           |
+| **500**          | An unexpected error occurred while processing the request                                                                                                            |
+| **502**          | Service temporarily unavailable                                                                                                                                      |
+| **503**          | Service temporarily disabled                                                                                                                                         |
+| **504**          | Service timeout exceeded Please try again later                                                                                                                      |
 
 Along with the error response body, you may receive the following headers:
 
