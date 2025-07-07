@@ -2,12 +2,20 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 18-06-2025
+### 07-07-2025
 #### Added
 - link to Production Order in [Sales Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-sales-order)
 - link to Production Order in [Purchase Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-purchase-order)
 - link to Production Order in [Receiving](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-receiving)
 - Errors [17024, 26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+
+### 02-07-2025
+#### Fixed
+- Actualized [User Settings](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-settings)
+
+### 01-07-2025
+#### Added
+- Field `plannedEndDate` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-production-operations)
 
 ### 09-06-2025
 #### Added
