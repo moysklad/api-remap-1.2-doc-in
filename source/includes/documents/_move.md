@@ -41,6 +41,8 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **targetStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse being Transfer to<br>`+Required when replying` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                  |
 | **updated**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Last update time Transfers<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                               |
 
+Filtering by **sourceStore** and **targetStore** works with other names, **store** and **agentStore** respectively, and the `=` `!=` operators.
+
 #### Overhead Expenses
 
 Description of overhead expenses fields

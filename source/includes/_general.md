@@ -1209,6 +1209,8 @@ In the JSON API, fields of type date-time (point in time) are a string in the fo
 
 Minimum value: `1970-01-01 03:00:00`
 
+The values in the date-time fields, which are responsible for the moment of creation or update, are specified in the time zone: `MSK` (Moscow time).
+
 The following fields are set and output to the JSON API with minute precision, namely seconds and milliseconds set to `00`:
 
 + **incomingDate**
