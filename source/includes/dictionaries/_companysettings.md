@@ -41,11 +41,14 @@ An enumeration of values representing the combined application of discounts:
 In the Company Settings metadata,the **customEntities** field shows a list of user dictionaries.
 Each user directory contains the fields:
 
-| Title | Type | Description |
-|----------|-------|------------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
-| **entityMeta** | [Meta](../#kladana-json-api-general-info-metadata)  | Link to the list of entities in this user reference |
-| **name** | String(255) | Directory name |
+| Title             | Type                                              | Description                                                             |
+|-------------------|---------------------------------------------------|-------------------------------------------------------------------------|
+| **meta**          | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
+| **entityMeta**    | [Meta](../#kladana-json-api-general-info-metadata)| Link to the list of entities in this user reference                     |
+| **name**          | String(255)                                       | Directory name                                                          |
+| **createShared**  | Boolean                                           | Create new User Directory items with the "General" label                |
+| **attributes**    | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of additional fields customEntities                            |
+
 
 ### Get company settings
 > Request for Company Settings.
