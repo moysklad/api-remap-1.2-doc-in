@@ -256,7 +256,7 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 
 | Title         | Type                                               | Description                                                                                                                           |
 |---------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **value**     | Float                                              | Price value in kopecks<br>`+Required when replying`                                                                                             |
+| **value**     | Float                                              | Price value in minor units<br>`+Required when replying`                                                                                             |
 | **currency**  | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 | **priceType** | Object                                             | Price type<br>`+Required when replying`                                                                                               |
 
@@ -265,14 +265,14 @@ Supplier type - Counterparty. You can see the description of the Counterparty en
 
 | Title        | Type                                               | Description                                                                                                                           |
 |--------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **value**    | Float                                              | Price value in kopecks<br>`+Required when replying`                                                                                             |
+| **value**    | Float                                              | Price value in minor units<br>`+Required when replying`                                                                                             |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum price
 
 | Title        | Type                                               | Description                                                                                                                           |
 |--------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **value**    | Float                                              | Price value in kopecks<br>`+Required when replying`                                                                                             |
+| **value**    | Float                                              | Price value in minor units<br>`+Required when replying`                                                                                             |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Minimum Stock
