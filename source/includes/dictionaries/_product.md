@@ -326,7 +326,7 @@ Object structure in the **storeBalances** collection:
 |---------------|:---------------------------------------------------|:----------------------------------------------------------|
 | **accountId** | UUID                                               | ID account<br>`+Read Only`                                |
 | **id**        | UUID                                               | ID for Minimum Stock<br> `+Read Only`                     |
-| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock                                |
+| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock<br> `+Read Only`               |
 | **store**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
 | **quantity**  | Double                                             | Minimum Stock quantity for the warehouse                  |
 
