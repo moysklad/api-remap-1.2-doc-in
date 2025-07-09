@@ -1360,15 +1360,15 @@ Example: `filter=<reference to additional field>=<value>`
 
 ##### Available operators for filtering additional fields
 
-| Title | JSON value field type | Value of type field in JSON |Description |
-| ------| --------------------- | --------------------------- | -----------|
+| Title | JSON value field type | Value of type field in JSON | Description                                                                                                                          |
+| ------| --------------------- | --------------------------- |--------------------------------------------------------------------------------------------------------------------------------------|
 | **Date** | string | time | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
-| **Handbook** | object | {entityType} | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=` |
-| **Link** | string | link | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **File** | string | file | Filtering not supported |
-| **Checkbox** | boolean | boolean | `=true`, `=false` |
+| **Handbook** | object | {entityType} | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`                                                      |
+| **Link** | string | link | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
+| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
+| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
+| **File** | string | file | Filtering not supported                                                                                                              |
+| **Checkbox** | boolean | boolean | `=true`, `=false`, `!=true`, `!=false`                                                                                               |
 | **The number is fractional**| number | double | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 | **Integer number** | number | long | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 

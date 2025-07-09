@@ -387,7 +387,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26106">26106</a> | Error saving item of Production Order: cannot change or delete products when the final operation of the item has started | Products of Production Order can be changed until its completion |
 | <a name="error_26107">26107</a> | Error saving: Production Order item {identifier} does not belong to the Production Order {identifier} | The request specifies an item from another Production Order |
 | <a name="error_26108">26108</a> | Error deleting Production Order item: cannot delete an item that has completed operations | A Production Order item can be deleted before it has started |
-| <a name="error_26109">26109</a> | Error updating production operation: cannot change a started production operation | A production operation can be changed until it has started |
+| <a name="error_26109">26109</a> | Error updating production operation: cannot change a started production operation | During production execution only the planned end date can be changed; all other changes to the production operation must be made before production begins. |
 | <a name="error_26110">26110</a> | Error deleting: last material cannot be deleted when 'reserve' flag is active | At least one material is required when reserving materials |
 | <a name="error_26111">26111</a> | Error deleting: last product cannot be deleted when 'awaiting' flag is active | At least one product is required when 'awaiting' is set |
 | <a name="error_26112">26112</a> | Error updating Production Order: field {date field} cannot be assigned a value after {date} | The field has limitations and dependencies. A date before the specified one must be passed |
