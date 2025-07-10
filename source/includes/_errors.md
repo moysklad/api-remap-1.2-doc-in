@@ -459,21 +459,22 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Printed forms
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_33000">33000</a> | Printable form generation error: printable template not found | The template specified when generating the printable does not exist. Check that the specified print template is correct. |
-| <a name="error_33001">33001</a> | Form generation error: unknown format | Check that the specified format is included in the list of listed: xls, pdf, html, ods. |
-| <a name="error_33002">33002</a> | Printable form generation error: '<error text>' | The error text indicates problems that occurred while printing the document. |
-| <a name="error_33003">33003</a> | Print form generation error: no link to print template | In order to generate a printed form, you need to send a template. |
-| <a name="error_33004">33004</a> | Printable form generation error: missing count field for printable template | When printing sets, you must specify the count field - the number of copies of the printed form in the set. |
-| <a name="error_33005">33005</a> | Print form generation error: both fields for template references are specified: template and templates. | It is possible to specify only one of the request fields template or templates. |
-| <a name="error_33006">33006</a> | Error generating a printable: the count field for a printable template can only take integer values in the range from 1 to 10 | The count field must be in the range [1, 10]. |
-| <a name="error_33007">33007</a> | Print form generation error: no link to legal entity | In order to generate a printable for a product, you need to send a link to a legal entity. |
-| <a name="error_33008">33008</a> | Print form generation error: number of price tags/thermal labels missing | In order to generate a printable for a product, you need to send a quantity. |
-| <a name="error_33009">33009</a> | Print form generation error: price type missing | In order to generate a printable for a product, you need to send a price type. |
-| <a name="error_33010">33010</a> | Document set printable generation error: No suitable printable templates were passed for the specified entity. | To print a set of documents, you need to transfer at least 1 printable template suitable for this entity. |
-| <a name="error_33011">33011</a> | Error generating the print form of a set of documents: the entity for printing the set must be a document | You cannot print a document set for an entity that is not a document. |
-| <a name="error_33012">33012</a> | Printing for type '{type}' is not supported | Printing is not supported for this type. |
+| Error code                      | Message                                                                                                                       | Description                                                                                                              |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| <a name="error_33000">33000</a> | Printable form generation error: printable template not found                                                                 | The template specified when generating the printable does not exist. Check that the specified print template is correct. |
+| <a name="error_33001">33001</a> | Form generation error: unknown format                                                                                         | Check that the specified format is included in the list of listed: xls, pdf, html, ods.                                  |
+| <a name="error_33002">33002</a> | Printable form generation error: '<error text>'                                                                               | The error text indicates problems that occurred while printing the document.                                             |
+| <a name="error_33003">33003</a> | Print form generation error: no link to print template                                                                        | In order to generate a printed form, you need to send a template.                                                        |
+| <a name="error_33004">33004</a> | Printable form generation error: missing count field for printable template                                                   | When printing sets, you must specify the count field - the number of copies of the printed form in the set.              |
+| <a name="error_33005">33005</a> | Print form generation error: both fields for template references are specified: template and templates.                       | It is possible to specify only one of the request fields template or templates.                                          |
+| <a name="error_33006">33006</a> | Error generating a printable: the count field for a printable template can only take integer values in the range from 1 to 10 | The count field must be in the range [1, 10].                                                                            |
+| <a name="error_33007">33007</a> | Print form generation error: no link to legal entity                                                                          | In order to generate a printable for a product, you need to send a link to a legal entity.                               |
+| <a name="error_33008">33008</a> | Print form generation error: number of price tags/thermal labels missing                                                      | In order to generate a printable for a product, you need to send a quantity.                                             |
+| <a name="error_33009">33009</a> | Print form generation error: price type missing                                                                               | In order to generate a printable for a product, you need to send a price type.                                           |
+| <a name="error_33010">33010</a> | Document set printable generation error: No suitable printable templates were passed for the specified entity.                | To print a set of documents, you need to transfer at least 1 printable template suitable for this entity.                |
+| <a name="error_33011">33011</a> | Error generating the print form of a set of documents: the entity for printing the set must be a document                     | You cannot print a document set for an entity that is not a document.                                                    |
+| <a name="error_33012">33012</a> | Printing for type '{type}' is not supported                                                                                   | Printing is not supported for this type.                                                                                 |
+| <a name="error_33013">33013</a> | Print form generation error: application is temporarily unavailable                                                           | Service is temporarily unavailable. try again later                                                                      |
 
 ### Error codes for Publications
 
