@@ -16,7 +16,7 @@ Using the JSON API, you can create and update information about Purchase Orders,
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
 | **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | The moment of last deletion of the Purchase Order<br>`+Read Only` |
-| **deliveryPlannedMoment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Planned date of shipment |
+| **deliveryPlannedMoment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Planned date of Receiving |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Purchase Order Comment |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External code of the Purchase Order<br>`+Required when replying` |
 | **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |

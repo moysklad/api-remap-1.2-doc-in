@@ -116,6 +116,9 @@ Request to receive the Stock movement report by goods.
 | **X-Lognex-Accept-Timezone** | An optional header that specifies the current date on the client in RFC 3522. The time zone must be specified in the format sign and 4 characters (not in Obsolete Date and Time). Date example: `Wed, 16 Aug 2017 23:07:01 +0700`. When calculating indicators, the dates of transactions are shifted to the client's time zone. |
 | **X-Lognex-Content-Timezone** | Response header. It specifies (as the server thinks) the current date on the client in RFC 3522. |
 
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is missing and the **momentTo** parameter is specified, reports from the beginning of the current year to **momentTo** are displayed.
+If the **momentTo** parameter is missing and the **momentFrom** parameter is specified, reports from **momentFrom** to the current day are displayed.
 
 > Request to receive the "Stock movement report by goods".
 
@@ -350,6 +353,9 @@ To successfully complete the request, one of the filtering parameters **product*
 | **X-Lognex-Accept-Timezone** | An optional header that specifies the current date on the client in RFC 3522. The time zone must be specified in the format sign and 4 characters (not in Obsolete Date and Time). Date example: `Wed, 16 Aug 2017 23:07:01 +0700`. When calculating indicators, the dates of transactions are shifted to the client's time zone. |
 | **X-Lognex-Content-Timezone** | Response header. It specifies (as the server thinks) the current date on the client in RFC 3522. |
 
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is missing and the **momentTo** parameter is specified, reports from the beginning of the current year to **momentTo** are displayed.
+If the **momentTo** parameter is missing and the **momentFrom** parameter is specified, reports from **momentFrom** to the current day are displayed.
 
 > Request to receive the "Product Stock movement report" with the specified product id.
 
@@ -598,6 +604,10 @@ Request to receive the Stock movement report by product with transaction details
 | --------- | ------- |
 | **X-Lognex-Accept-Timezone** | An optional header that specifies the current date on the client in RFC 3522. The time zone must be specified in the format sign and 4 characters (not in Obsolete Date and Time). Date example: `Wed, 16 Aug 2017 23:07:01 +0700`. When calculating indicators, the dates of transactions are shifted to the client's time zone. |
 | **X-Lognex-Content-Timezone** | Response header. It specifies (as the server thinks) the current date on the client in RFC 3522. |
+
+If the **momentFrom** and **momentTo** parameters are missing, reports for the last month are displayed.
+If the **momentFrom** parameter is missing and the **momentTo** parameter is specified, reports from the beginning of the current year to **momentTo** are displayed.
+If the **momentTo** parameter is missing and the **momentFrom** parameter is specified, reports from **momentFrom** to the current day are displayed.
 
 > Request to receive the report "Product Stock movement report with transaction details" with the specified product id.
 

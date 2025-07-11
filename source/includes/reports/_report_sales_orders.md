@@ -10,11 +10,11 @@ Using the JSON API, you can request sales and orders indicators - the number and
 
 #### Indicators (series)
 
-| Title | Type     | Description |
-| ------------ |----------| -------------- |
+| Title | Type    | Description |
+| ------------ |---------| -------------- |
 | **date** | DateTime | Date<br>`+Required when replying` |
-| **quantity** | Int      | Quantity<br>`+Required when replying` |
-| **sum** | Float    | Amount<br>`+Required when replying` |
+| **quantity** | Float   | Quantity<br>`+Required when replying` |
+| **sum** | Float   | Amount<br>`+Required when replying` |
 
 **Parameters**
 

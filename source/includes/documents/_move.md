@@ -41,6 +41,8 @@ Using the JSON API, you can create and update information about Transfers, reque
 | **targetStore**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                             | Metadata of the warehouse being Transfer to<br>`+Required when replying` `+Expand` `+Required when creating``+Change-handler` `+Update-provider`                                  |
 | **updated**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                                  | Last update time Transfers<br>`+Required when replying` `+Read-only``+Change-handler`                                                                                               |
 
+Filtering by **sourceStore** and **targetStore** works with other names, **store** and **agentStore** respectively, and the `=` `!=` operators.
+
 #### Overhead Expenses
 
 Description of overhead expenses fields
@@ -81,6 +83,16 @@ with an array of Transfer items included in the request body. It is important to
 be perceived as "all Transfer items" and will completely replace the existing collection when updating the object. Superfluous items are deleted, new ones are added, existing ones are changed.
 
 [Learn more](../#kladana-json-api-general-info-additional-fields) about working with additional fields.
+
+#### Links to other transactions
+
+| Title | Description                                                                                                                        |
+| ------- |------------------------------------------------------------------------------------------------------------------------------------|
+| **customerOrder** | Link to the Sales Orderto which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)   |
+| **demand** | Link to the Demand which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)          |
+| **internalOrder** | Link to the Inretnal Order which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)  |
+| **supply** | Link to the Supply which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)          |
+| **productionTask** | Link to the Production Task which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 ### Get Transfers
  
