@@ -4,6 +4,11 @@ JSON API 1.2 changes will be added here soon
 
 ### 10-07-2025
 #### Added
+- New notification type added [New event in the event feed](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
+- New notification group added [Followed events](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-notification-settings-change-notification-settings)
+
+### 10-07-2025
+#### Added
 - Add new [error 33013](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-printed-forms)
 
 ### 09-07-2025

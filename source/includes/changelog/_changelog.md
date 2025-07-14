@@ -8,6 +8,11 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 10-07-2025
 #### Added
+- New notification type added [New event in the event feed](../notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
+- New notification group added [Followed events](../notification/#notifications-notification-settings-change-notification-settings)
+
+### 10-07-2025
+#### Added
 - Add new [error 33013](../#kladana-json-api-errors-error-codes-for-printed-forms)
 
 ### 09-07-2025
