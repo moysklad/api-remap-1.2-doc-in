@@ -1,5 +1,7 @@
 ## Company settings
 
+The entity code for Company Settings in the JSON API is the **companysettings** keyword.
+
 You can get information about company settings and product price types.
 
 #### Company settings

@@ -2,6 +2,7 @@
 ### Images
 Using the JSON API, you can create and update information on Images for Products, Bundles and Product Variants, request lists of Images,
 as well as information on individual Images.
+The entity code for an Image in the JSON API is the **image** keyword.
 
 Products, Bundles and Product Variants may contain multiple identical Images. Images are considered the same if when adding Images
 they had the same `filename` and `content`. Identical Images have the same `id` parameter value.

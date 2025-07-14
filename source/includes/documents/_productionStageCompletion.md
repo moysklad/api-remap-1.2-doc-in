@@ -1,5 +1,7 @@
 ## Operation Report
 
+The entity code for Operation Report in the JSON API is the **productionstagecompletion** keyword.
+
 The Operation Report provides detailed information about the completed Production Operation from a Production Order. It includes the cost of raw materials actually used, the cost of finished goods (both ready for use and in progress), operational costs, and other relevant details.
 
 Using the JSON API, you can perform the following actions on Operation Reports: 
