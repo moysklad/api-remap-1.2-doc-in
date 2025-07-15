@@ -2,12 +2,20 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 07-07-2025
+### 15-07-2025
 #### Added
 - link to Production Order in [Sales Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-sales-order)
 - link to Production Order in [Purchase Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-purchase-order)
 - link to Production Order in [Receiving](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-receiving)
 - Errors [17024, 26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+
+### 10-07-2025
+#### Added
+- Add new [error 33013](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-printed-forms)
+
+### 09-07-2025
+#### Added
+- Add new [error 3043](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
 
 ### 02-07-2025
 #### Fixed
