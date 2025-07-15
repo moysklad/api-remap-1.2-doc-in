@@ -242,7 +242,7 @@ The format of oldValue and newValue is the same as the format of the field whose
 | **NotificationTaskUnassigned** | Task | Task removed |
 | **NotificationBonusMoney** | Balance | Bonus money has been credited to the account |
 | **NewMentionInEvent**  | Employee Mentions | New mention in the event feed |
-| **NewEventInEventFeed**  | Followed events | New events in followed transactions |
+| **NewEventInEventFeed**  | Followed events | New events in followed object |
 
 ## Detailed description of notification types
 
@@ -2151,7 +2151,7 @@ Successful request. Result - JSON representation of Notification.
   "read": false,
   "title": "New mention: Sales Order 00001",
   "description": "Call the buyer of the Sales Order 00001",
-  "operation": {
+  "entity": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/5dee4523-f5ab-11ee-c0a8-3010000000ed",
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
