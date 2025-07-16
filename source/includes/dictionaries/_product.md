@@ -3970,6 +3970,7 @@ Successful request. The result is a JSON representation of the updated Product.
 ```  
 
 > The request for the bulk deletion of Minimum Stock in the product.
+
 ```shell
 curl -X POST
   "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
