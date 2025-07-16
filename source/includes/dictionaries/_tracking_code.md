@@ -2,6 +2,7 @@
 ### Marking code
 
 Using the JSON API, you can get, create, edit, and delete Marking Codes.
+The entity code for Marking codes in the JSON API is the **trackingCodes** keyword.
 An entity is represented as an identifier, a text code, a code type, and an array of nested Marking Codes.
 Marking codes refer to a single item of a specific document. The output order of the first level Marking Code is fixed - nested Marking Codes can be output in random order.
 
