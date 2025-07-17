@@ -1,6 +1,8 @@
 ## Webhooks
 Using the JSON API, you can work with webhooks.
 
+The entity code for Webhooks in the JSON API is the **webhook** keyword.
+
 A webhook is a mechanism for sending notifications. A notification is sent when there is a change in the system that tracks the webhook. For example, if you enable a product webhook, when you change the product name, you receive a notification with a link to the changed product. Read more about working with webhooks in [Webhooks](../workbook/#workbook-webhooks).
 
 Using API version 1.2, you can view, modify, delete webhooks created only using API version 1.2.

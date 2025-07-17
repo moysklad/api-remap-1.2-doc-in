@@ -1,5 +1,7 @@
 ## Operation Report
 
+The entity code for Operation Report in the JSON API is the **productionstagecompletion** keyword.
+
 The Operation Report provides detailed information about the completed Production Operation from a Production Order. It includes the cost of raw materials actually used, the cost of finished goods (both ready for use and in progress), operational costs, and other relevant details.
 
 Using the JSON API, you can perform the following actions on Operation Reports: 
@@ -41,6 +43,8 @@ If production has not started for a Production Order, attempts to create an Oper
 | **updated** | DateTime | | The moment of the last update of Operation Report<br>`+Required when replying` `+Read-only` |
 
 The entity has restrictions on expand: expand of nested fields is not available for the **productionStage.productionRow** field.
+
+You can filter by **assortment** with `=`, which will allow you to get completed production steps with a specific material or product.
 
 To create a defect, you must send the defect=true attribute. The Operation Reports document of the defect type has the following limitations:
 1. The cost of a defect can only be associated with products released after it. Therefore, it is necessary that after the defect there remains available production volume for the release of products. The date of the defect document also cannot be the last among all the completions of the Production Order stages.
