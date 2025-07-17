@@ -1,5 +1,7 @@
 ## Company Subscription
 
+The entity code for a Company Subscription in the JSON API is the **subscription** keyword.
+
 Get information about the current subscription of the company.
 
 #### Company Subscription

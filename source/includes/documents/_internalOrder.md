@@ -70,6 +70,16 @@ items will be deleted, new ones added, existing ones changed.
 
 About working with Internal Order fields can be read [here](../#kladana-json-api-general-info-additional-fields).
 
+#### Links to other transactions
+
+| Title | Description                                                                                                                               |
+| ------- |-------------------------------------------------------------------------------------------------------------------------------------------|
+| **purchaseOrder** | Link to the Purchase Orderto which this Internal Order is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **move** | Link to the Move which this Internal Order is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)             |
+| **processingOrder** | Link to the Processing Order which this Internal Order is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **supply** | Link to the Supply which this Supply is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)                   |
+| **productionTask** | Link to the Production Task which this Internal Order is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)  |
+
 
 ### Get Internal Orders
 
