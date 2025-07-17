@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 15-07-2025
+### 17-07-2025
 #### Added
 - link to Production Order in [Sales Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-sales-order)
 - link to Production Order in [Purchase Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-purchase-order)
