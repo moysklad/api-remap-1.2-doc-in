@@ -2,14 +2,17 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 17-07-2025
+### 18-07-2025
 #### Added
 - link to Production Order in [Sales Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-sales-order)
+- link to Production Order in [Internal Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-internal-order)
 - link to Production Order in [Purchase Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-purchase-order)
 - link to Production Order in [Receiving](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-receiving)
-- Errors [17024, 26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+- link to Production Order in [Transfer](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-transfer)
+- Error [17024](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
+- Error [26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-orders)
 
-### 17-08-2025
+### 17-07-2025
 #### Added
 - Add new [error 13005](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-the-stock-report)
 

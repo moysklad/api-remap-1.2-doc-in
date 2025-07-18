@@ -56,13 +56,13 @@ Description of overhead expenses fields
 
 #### Links to other documents
 
-| Title | Description |
-| -------- | --------|
-| **purchaseOrder** | Link to the related order to the supplier in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| Title | Description                                                                                                         |
+| -------- |---------------------------------------------------------------------------------------------------------------------|
+| **purchaseOrder** | Link to the related order to the supplier in the format [Metadata](../#kladana-json-api-general-info-metadata)      |
 | **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **productionTasks** | Array of links to the related Production Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
-| **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata)          |
+| **productionTasks** | An array of links to related Production Orders in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata)           |
 
 #### Receiving Items
 Receiving Items is a list of goods/services/product variants/batches.

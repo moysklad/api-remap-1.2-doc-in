@@ -49,13 +49,13 @@ Using the JSON API, you can create and update information about Purchase Orders,
 
 #### Links to other documents
 
-| Title | Description |
-| ------------ | ---------- |
-| **customerOrders** | An array of links to related customer orders in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
-| **productionTasks** | Array of links to the related Production Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
-| **supplies** | An array of links to related acceptances in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| Title | Description                                                                                                              |
+| ------------ |--------------------------------------------------------------------------------------------------------------------------|
+| **customerOrders** | An array of links to related customer orders in the format [Metadata](../#kladana-json-api-general-info-metadata)        |
+| **invoicesIn** | An array of links to related supplier accounts in the format [Metadata](../#kladana-json-api-general-info-metadata)      |
+| **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata)               |
+| **productionTasks** | An array of links to related Production Orders in the format [Metadata](../#kladana-json-api-general-info-metadata)      |
+| **supplies** | An array of links to related acceptances in the format [Metadata](../#kladana-json-api-general-info-metadata)            |
 | **internalOrder** | An internal order associated with a Purchase order, in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Purchase Order Items
