@@ -86,13 +86,13 @@ be perceived as "all Transfer items" and will completely replace the existing co
 
 #### Links to other transactions
 
-| Title | Description                                                                                                                        |
-| ------- |------------------------------------------------------------------------------------------------------------------------------------|
-| **customerOrder** | Link to the Sales Orderto which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)   |
-| **demand** | Link to the Demand which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)          |
-| **internalOrder** | Link to the Inretnal Order which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)  |
-| **supply** | Link to the Supply which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)          |
-| **productionTask** | Link to the Production Task which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| Title               | Description                                                                                                                       |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **customerOrder**   | Link to the Sales Orderto which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)  |
+| **demand**          | Link to the Demand which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)         |
+| **internalOrder**   | Link to the Inretnal Order which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **supply**          | Link to the Supply which this Transfer is associated in the format [Metadata](../#kladana-json-api-general-info-metadata)         |
+| **productionTasks** | An array of links to related Production Orders in the format [Metadata](../#kladana-json-api-general-info-metadata)               |
 
 ### Get Transfers
  
