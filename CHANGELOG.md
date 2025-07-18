@@ -10,7 +10,6 @@ JSON API 1.2 changes will be added here soon
 - link to Production Order in [Receiving](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-receiving)
 - link to Production Order in [Transfer](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-transfer)
 - Error [17024](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-documents)
-- Error [26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-orders)
 
 ### 17-07-2025
 #### Added
