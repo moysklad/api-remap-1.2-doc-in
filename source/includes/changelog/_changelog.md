@@ -13,6 +13,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - link to Production Order in [Receiving](../documents/#transactions-receiving)
 - Errors [17024, 26115](../#kladana-json-api-errors-error-codes-for-documents)
 
+### 17-08-2025
+#### Added
+- Add new [error 13005](../#kladana-json-api-errors-error-codes-for-the-stock-report)
+
 ### 10-07-2025
 #### Added
 - Add new [error 33013](../#kladana-json-api-errors-error-codes-for-printed-forms)
