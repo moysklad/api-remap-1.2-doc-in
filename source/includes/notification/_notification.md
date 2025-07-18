@@ -2092,8 +2092,8 @@ NewEventInEventFeed - notification about a new event in the event feed.
 
 | Name            | Type                                                 | Description                                                                                                     |
 |-----------------|:----------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| **meta**        | [Meta](../#kladana-json-api-general-info-metadata)  | Object metadata<br>`+Required when responding` `+Read-only`                                                      |
-| **id**          | UUID                                                | Notification ID<br>`+Required when responding` `+Read-only`                                                      |
+| **meta**        | [Meta](../#kladana-json-api-general-info-metadata)  | Object metadata<br>`+Required when replying` `+Read-only`                                                      |
+| **id**          | UUID                                                | Notification ID<br>`+Required when replying` `+Read-only`                                                      |
 | **accountId**   | UUID                                                | Account ID<br>`+Required when replying` `+Read-only`                                                             |
 | **created**     | DateTime                                            | Date and time the Notification was generated<br>`+Required when replying` `+Read-only`                           |
 | **read**        | Boolean                                             | Whether the Notification was read<br>`+Required when replying` `+Read-only`                                      |
@@ -2107,9 +2107,9 @@ The object in whose feed the event was added.
 
 | Name     | Type                                                  | Description                                                  |
 |----------|:-----------------------------------------------------|:--------------------------------------------------------------|
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata)   | Object metadata<br>`+Required when responding` `+Read-only`   |
-| **id**   | UUID                                                 | Object ID<br>`+Required when responding` `+Read-only`         |
-| **name** | String(255)                                          | Object name<br>`+Required when responding` `+Read-only`       |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata)   | Object metadata<br>`+Required when replying` `+Read-only`   |
+| **id**   | UUID                                                 | Object ID<br>`+Required when replying` `+Read-only`         |
+| **name** | String(255)                                          | Object name<br>`+Required when replying` `+Read-only`       |
 
 Valid values for **meta.type**:
 
