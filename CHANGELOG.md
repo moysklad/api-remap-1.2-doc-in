@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 17-08-2025
+### 17-07-2025
 #### Added
 - Add new [error 13005](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-the-stock-report)
 

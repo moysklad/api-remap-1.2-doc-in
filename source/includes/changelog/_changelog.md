@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 17-08-2025
+### 17-07-2025
 #### Added
 - Add new [error 13005](../#kladana-json-api-errors-error-codes-for-the-stock-report)
 
