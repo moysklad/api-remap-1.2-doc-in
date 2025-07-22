@@ -1,5 +1,7 @@
 ## Transaction statuses
 
+The entity code for Transaction statuses in the JSON API is the **state** keyword.
+
 Statuses can be added, changed and deleted through the API only with administrator rights.
 
 ### Statuses

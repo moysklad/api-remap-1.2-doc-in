@@ -2,6 +2,8 @@
 
 ### Working with the Event Feed in transactions 
 
+The entity code for the Event Feed in the JSON API is the **notes** keyword.
+
 Using the JSON API, you can create, update, and delete events, query lists of events, and query details of 
 individual events for the transactions of the following type:
 

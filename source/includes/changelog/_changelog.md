@@ -6,9 +6,29 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 19-06-2025
+### 22-07-2025
 #### Added
 - The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
+### 17-07-2025
+#### Added
+- Add new [error 13005](../#kladana-json-api-errors-error-codes-for-the-stock-report)
+
+### 10-07-2025
+#### Added
+- Add new [error 33013](../#kladana-json-api-errors-error-codes-for-printed-forms)
+
+### 09-07-2025
+#### Added
+- Add new [error 3043](..#kladana-json-api-errors-common-validation-errors)
+
+### 02-07-2025
+#### Fixed
+- Actualized [User Settings](../dictionaries/#entities-user-settings)
+
+### 01-07-2025
+#### Added
+- Field `plannedEndDate` in [Production Operations](../documents/#transactions-production-order-production-operations)
 
 ### 09-06-2025
 #### Added

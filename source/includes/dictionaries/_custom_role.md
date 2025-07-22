@@ -1,6 +1,8 @@
 ## User roles
 ### User Role
 
+The entity code for a User Role in the JSON API is the **role** keyword.
+
 Using the JSON API, you can query and change user roles.
 You can receive and change roles on behalf of an employee with `System Administrator` rights or on behalf of `Applications`.
  

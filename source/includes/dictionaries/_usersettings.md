@@ -1,5 +1,7 @@
 ## User Settings
 
+The entity code for User Settings in the JSON API is the **usersettings** keyword.
+
 Using the JSON API, you can get and edit user settings.
 
 #### User Settings
@@ -24,13 +26,13 @@ Using the JSON API, you can get and edit user settings.
 
 Valid print rules:
 
-| Document Printing Rules | The value of the printFormat field |
-| ------------------------------------ | --------------------- |
-| Download PDF | pdf |
-| Download in Excel format | xls |
-| Download in Open Office Calc format | ods |
-| Offer a choice | "" (empty string) |
-| Open in browser | individual |
+| Document Printing Rules             | The value of the printFormat field |
+|-------------------------------------|------------------------------------|
+| Download PDF                        | pdf                                |
+| Download in Excel format            | xls                                |
+| Download in Open Office Calc format | ods                                |
+| Offer a choice                      | "" (empty string)                  |
+| Open in browser                     | pdf_open                           |
 
 #### Start screen
 
