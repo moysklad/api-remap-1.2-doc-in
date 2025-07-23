@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 24-07-2025
+#### Fixed
+- Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
+
 ### 17-07-2025
 #### Added
 - Add new [error 13005](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-the-stock-report)
