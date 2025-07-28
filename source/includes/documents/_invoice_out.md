@@ -5,46 +5,46 @@ Using the JSON API, you can create and update information about the Sales Invoic
 
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-| ---------|----------------------------------------------------| -------- | ------- |
-| **accountId** | UUID                                               | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| Title | Type                                              | Filtration | Description |
+| ---------|---------------------------------------------------| -------- | ------- |
+| **accountId** | UUID                                              | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Invoice metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty Sales Invoice metadata<br>`+Expand` `+Change-handler` |
-| **applicable** | Boolean                                            | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Invoice Code |
+| **applicable** | Boolean                                           | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
+| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
+| **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Sales Invoice Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Sales Invoice<br>`+Read Only` |
-| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Sales Invoice Comment<br> `+Change-handler` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Sales Invoice code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | The moment of the last deletion of the Sales Invoice<br>`+Read Only` |
+| **description** | String(4096)                                      | `=` `!=` `~` `~=` `=~` | Sales Invoice Comment<br> `+Change-handler` |
+| **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | External Sales Invoice code<br>`+Required when replying` `+Change-handler` |
+| **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read Only` `+Change-handler |
+| **id** | UUID                                              | `=` `!=` | Sales Invoice ID<br>`+Required when replying` `+Read Only` `+Change-handler |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Invoice Metadata<br>`+Required when replying` `+Change-handler` |
-| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Invoice name<br>`+Required when replying` `+Change-handler` |
+| **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
+| **name** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Sales Invoice name<br>`+Required when replying` `+Change-handler` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity Sales Invoice metadata<br>`+Expand` `+Change-handler` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **paidSum** | Float                                              | | Amount of incoming payments on the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **paymentPlannedMoment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
-| **positions** | MetaArray                                          | | Sales Invoice Metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
-| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
+| **paidSum** | Float                                             | | Amount of incoming payments on the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **paymentPlannedMoment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Planned payment date<br>`+Change-handler` |
+| **positions** | MetaArray                                         | | Sales Invoice Metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
+| **printed** | Boolean                                           | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
-| **published** | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             || Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **published** | Boolean                                           | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
+| **rate** | Object                                            || Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shippedSum** | Float                                              | | Amount of shipped<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **shared** | Boolean                                           | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shippedSum** | Float                                             | | Amount of shipped<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Invoice status metadata<br>`+Expand` `+Change-handler` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand` `+Change-handler` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **vatEnabled** | Boolean                                            | | Is VAT taken into Sales Invoice<br>`+Required when replying` `+Change-handler` |
-| **vatIncluded** | Boolean                                            | | Is VAT included in the price<br>`+Change-handler` |
-| **vatSum** | Float                                              | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **sum** | Float                                             | `=` `!=` `<` `>` `<=` `>=` | Invoice amount in specified currency<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatEnabled** | Boolean                                           | | Is VAT taken into Sales Invoice<br>`+Required when replying` `+Change-handler` |
+| **vatIncluded** | Boolean                                           | | Is VAT included in the price<br>`+Change-handler` |
+| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
 
 #### Links to other transactions
 
