@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 18-07-2025
+### 31-07-2025
 #### Added
 - link to Production Order in [Sales Order](../documents/#transactions-sales-order)
 - link to Production Order in [Internal Order](../documents/#transactions-internal-order)
@@ -14,6 +14,14 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - link to Production Order in [Receiving](../documents/#transactions-receiving)
 - link to Production Order in [Transfer](../documents/#transactions-transfer)
 - Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
+
+### 24-07-2025
+#### Fixed
+- Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
+
+### 22-07-2025
+#### Added
+- The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
 
 ### 17-07-2025
 #### Added

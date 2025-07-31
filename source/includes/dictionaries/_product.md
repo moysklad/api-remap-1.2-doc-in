@@ -322,11 +322,13 @@ or [updating](../dictionaries/#entities-product-change-product) products.
 
 Object structure in the **storeBalances** collection:
 
-| Name         | Type                                               | Description                                               |
-|--------------|:---------------------------------------------------|:----------------------------------------------------------|
-| **meta**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock                                |
-| **store**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
-| **quantity** | Double                                             | Minimum Stock quantity for the warehouse                  |
+| Name          | Type                                               | Description                                               |
+|---------------|:---------------------------------------------------|:----------------------------------------------------------|
+| **accountId** | UUID                                               | ID account<br>`+Read Only`                                |
+| **id**        | UUID                                               | ID for Minimum Stock<br> `+Read Only`                     |
+| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock<br> `+Read Only`               |
+| **store**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
+| **quantity**  | Double                                             | Minimum Stock quantity for the warehouse                  |
 
 
 
@@ -3968,6 +3970,7 @@ Successful request. The result is a JSON representation of the updated Product.
 ```  
 
 > The request for the bulk deletion of Minimum Stock in the product.
+
 ```shell
 curl -X POST
   "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
