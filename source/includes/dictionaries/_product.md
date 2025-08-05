@@ -71,12 +71,6 @@ by updating the **productFolder** attribute.
 
 When working with region-specific fields, you should include a special header. See more details [here](../#kladana-json-api-general-info-regional-headers).
 
-| Name   | Type   | Description   |
-| ------ | ------ | ------------- |
-| **mod__marking__uz**  | Object | Product marking module. [Learn more](../dictionaries/#entities-product-products-entity-attributes-product-marking-module-for-uzbekistan)<br>`+Uzbekistan only`              |
-| **mod__tasnif__uz**      | Object | Module with data from the TASNIF directory. [Learn more](../dictionaries/#entities-product-products-entity-attributes-module-for-uzbekistan-with-data-from-the-tasnif-directory)<br>`+Uzbekistan only` |
-```
-
 ##### Type of labeled products
 
 The values of the trackingType field.
@@ -407,31 +401,6 @@ This mark cannot be combined with the **onTap**, **isSerialTrackable**, **ppeTyp
 | **onTap** | Boolean | A field indicating whether the product is draft. If its value is false, the field is not displayed.<br>`+Required when replying` |
 
 This mark cannot be combined with the **weighed**, **isSerialTrackable**, **ppeType** features. Draft labeling is only supported for **MILK**, **PERFUMERY** types.
-
-##### Product Marking Module for Uzbekistan
-
-| Name             | Type  | Description                                         |
-| ---------------- | ------| -------------------------------------------------- |
-| **trackingType** | Enum   | Type of marked product `+Uzbekistan only`           |
-
-Allowed values for the trackingType field:
-
-| Value             | Description                      |
-| ----------------- | -------------------------------- |
-| **ALCOHOL**       | Alcoholic products              |
-| **BEER**          | Beer products                  |
-| **HOME_APPLIANCE**| Household appliances           |
-| **NOT_TRACKED**   | Not marked                    |
-| **TOBACCO**       | Tobacco products              |
-| **WATER**         | Water and soft drinks          |
-
-##### Module for Uzbekistan with data from the TASNIF directory
-
-| Name             | Type    | Description   |
-| ---------------- | ------- | ------------- |
-| **ikpu**         | String  | Code from the TASNIF directory `+Uzbekistan only`          |
-| **packCode**     | String  | Packaging code from the TASNIF directory `+Uzbekistan only`|
-| **barcodeTasnif**| String  | Barcode from the TASNIF directory `+Uzbekistan only`       |
 
 ##### Features of filtering the archived field
 If filtering by the **id** and **archived** fields is performed at the same time, then the filtering by the **archived** field is not taken into account.
