@@ -179,8 +179,8 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Returned HTTP error statuses and their description
 
-| HTTP status code | Description                                                                                                                                                          |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| HTTP status code | Description   |
+| ---------------- | ------------- |
 | **200**          | The request was successfully completed                                                                                                                               |
 | **301**          | The requested resource has another URL                                                                                                                               |
 | **302**          | The requested resource is temporarily located at a different URI                                                                                                     |
@@ -225,7 +225,7 @@ List of entities with additional fields:
 
 + [Contract](dictionaries/#entities-contract)
 + [Counterparty](dictionaries/#entities-counterparty)
-+ [Custom list](dictionaries/#entities-custom-list) (each has its own)
++ [Custom list](dictionaries/#entities-custom-list) (each user has its own)
 + [Legal entity](dictionaries/#entities-entity)
 + [Project](dictionaries/#entities-project)
 + [Warehouse](dictionaries/#entities-warehouse)
@@ -865,7 +865,7 @@ curl -X PUT
   "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
-  -H 'Content-Type: application/json' \
+  -H 'Content-Type: application/json' 
   -d '{
         "attributes": [
             {
@@ -1127,7 +1127,9 @@ curl -X POST
 }
 ```
 
-When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. About working with parameter fields can be read [here](../#kladana-json-api-general-info-what-is-fields). For example:
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. Learn more about [the fields parameter](../#kladana-json-api-general-info-what-is-fields).
+
+For example:
 
 + `/customerorder/{document id}?fields=stock&expand=positions`
 
@@ -1207,7 +1209,7 @@ In the JSON API, fields of type date-time (point in time) are a string in the fo
 + With milliseconds: `YYYY-MM-DD HH:mm:ss.mmm` This format returns date-time fields in query responses.
 + Without seconds: `YYYY-MM-DD HH:mm` Only for filtering parameters.
 
-Minimum value: `1970-01-01 03:00:00`
+Minimum value for filtering: `1970-01-01 03:00:00`, the maximum date value is limited.
 
 The values in the date-time fields, which are responsible for the moment of creation or update, are specified in the time zone: `MSK` (Moscow time).
 
@@ -1355,7 +1357,7 @@ ID example:
 
 For example:
 
-+ `filter=productid=94975104-3cad-11e8-1e44-bd4d00000084`
++ `filter=id=94975104-3cad-11e8-1e44-bd4d00000084`
 
 #### Filtering by additional fields
 
@@ -1364,15 +1366,15 @@ Example: `filter=<reference to additional field>=<value>`
 
 ##### Available operators for filtering additional fields
 
-| Title | JSON value field type | Value of type field in JSON | Description                                                                                                                          |
-| ------| --------------------- | --------------------------- |--------------------------------------------------------------------------------------------------------------------------------------|
+| Title | JSON value field type | Value of type field in JSON | Description  |
+| ----- | --------------------- | --------------------------- | ------------ |
 | **Date** | string | time | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
-| **Handbook** | object | {entityType} | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`                                                      |
+| **Handbook** | object | {entityType} | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=` |
 | **Link** | string | link | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
-| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
-| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
-| **File** | string | file | Filtering not supported                                                                                                              |
-| **Checkbox** | boolean | boolean | `=true`, `=false`, `!=true`, `!=false`                                                                                               |
+| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`  |
+| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`  |
+| **File** | string | file | Filtering not supported   |
+| **Checkbox** | boolean | boolean | `=true`, `=false`, `!=true`, `!=false`  |
 | **The number is fractional**| number | double | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 | **Integer number** | number | long | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 
@@ -1401,7 +1403,7 @@ state.name String type parameter. The filtered selection will include all docume
 
 An example request using the state.name filter:
 
-`https://api.kladana.com/api/remap/1.2/entity/customerOrder?filter=state.name=Новый;state.name=Принят`
+`https://api.kladana.com/api/remap/1.2/entity/customerorder?filter=state.name=New;state.name=Accepted`
 
 The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of items with the specified assortment entities.
 assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Product variant, Service, Bundle, Product group.
@@ -2168,7 +2170,10 @@ curl -X GET
   -H "Accept-Encoding: gzip"
 ```
 
-> Response with expanded Demand and Demand.Agent
+> Response 200 (application/json)
+
+Successful request. The result is a JSON representation of the Customer Return with expanded shipment objects and their agent.
+
 
 ```json
 {
@@ -2926,18 +2931,24 @@ Successful request. Result is JSON representation of the updated Shipment with e
 }
 ```
 
-### What is fields
+### Using the fields parameter
 
 In the JSON API, some entity fields are not included in responses by default. To retrieve these additional data fields, use the `fields` parameter.
 Specify the field key you want to include as the parameter value.
 
-#### The following rules apply to fields:
+#### Rules for using the fields parameter
+
+The following rules apply to fields:
+
 * Only 1 value can be passed per request
 * Unsupported or invalid values will trigger [error 3042](#kladana-json-api-errors-common-validation-errors)
 * To get nested objects in hidden fields, explicitly use `expand`. For example: `/customerorder/{id}?fields=stock&expand=positions`.
 * Fields is allowed only for sample sizes of 100 or fewer. For example: `https://api.kladana.com/api/remap/1.2/entity/customerorder?fields=stock&expand=positions&limit=100`. If a larger limit is specified along with fields, the fields parameter will be ignored.
 
-#### Used in:
+### Where the fields parameter is used
+
+The `fields` parameter can be applied in the following cases:
+
 * [Balances and cost in documents](#kladana-json-api-general-info-balances-and-cost-in-transaction-items)
 * [Minimum stock in product](dictionaries/#entities-product-products-nested-entity-attributes-minimum-stock)
 
@@ -3627,4 +3638,5 @@ where _id_ is the UUID of the application installed on the account
 
 An example of a request to get a list of records:
 `https://api.kladana.com/api/remap/1.2/audit?filter=application=https://api.kladana.com/api/remap/1.2/entity/application/46ea8005-2965-11e9-9ff4-34e80009ac49` 
+
 

@@ -53,7 +53,7 @@ Possible values for the `source` parameter are listed below:
 | **registration** | Account registration |
 | **clearrecyclebin** | Automatic emptying of the basket |
 | **combine** | Association |
-| **bulkcreate** | Bulk create |
+| **bulkcreate** | Bulk creation |
 | **connectors** | Synchronization with MI |
 | **copy** | Copy |
 | **emailsend** | Sending a message |
@@ -524,7 +524,7 @@ Filtering can be done by the fields described below.
 | **registration** | Account registration |
 | **clearrecyclebin** | Automatic emptying of the basket |
 | **combine** | Association |
-| **bulkcreate** | Bulk create |
+| **bulkcreate** | Bulk creation |
 | **connectors** | Synchronization with MI |
 | **copy** | Copy |
 | **emailsend** | Sending a message |

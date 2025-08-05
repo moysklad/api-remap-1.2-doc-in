@@ -68,6 +68,7 @@ The **pathName** attribute itself is a read-only attribute, but it can be change
 by updating the **productFolder** attribute.
 
 ##### Type of labeled products
+
 The values of the trackingType field.
 
 | Value               | Description                          |
