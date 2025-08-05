@@ -67,10 +67,6 @@ The search among the objects of products to match the search string will be carr
 The **pathName** attribute itself is a read-only attribute, but it can be changed
 by updating the **productFolder** attribute.
 
-##### Region-Specific Entity Attributes
-
-When working with region-specific fields, you should include a special header. See more details [here](../#kladana-json-api-general-info-regional-headers).
-
 ##### Type of labeled products
 
 The values of the trackingType field.

@@ -225,10 +225,9 @@ List of entities with additional fields:
 
 + [Contract](dictionaries/#entities-contract)
 + [Counterparty](dictionaries/#entities-counterparty)
-+ [Custom list](dictionaries/#entities-custom-list) (each has its own)
++ [Custom list](dictionaries/#entities-custom-list) (each user has its own)
 + [Legal entity](dictionaries/#entities-entity)
 + [Project](dictionaries/#entities-project)
-+ [Custom List](dictionaries/#entities-custom-list) (each user has its own)
 + [Warehouse](dictionaries/#entities-warehouse)
 + [Employee](dictionaries/#entities-employee)
 + [Product](dictionaries/#entities-product)
@@ -1316,7 +1315,7 @@ you can use the following construction to filter the selection by this field:
 
 Link example:
 
-+ `https://api.kladana.com/api/remap/1.2/entity/&lt;type>/<id>`
++ `https://api.kladana.com/api/remap/1.2/entity/<type>/<id>`
 
 Here are some examples:
 
@@ -1943,7 +1942,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
         "type": "salesreturn",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
+        "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
       },
       "id": "c6f47cc4-e1dd-11ee-ac1b-000e00000013",
       "accountId": "081311c2-c42e-11ee-ac1b-000d00000001",
@@ -1953,7 +1952,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
         }
       },
       "shared": false,
@@ -1977,7 +1976,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
             "type": "currency",
             "mediaType": "application/json",
-            "uuidHref": "https://online.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+            "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
           }
         }
       },
@@ -1988,7 +1987,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
           "type": "store",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
+          "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
         }
       },
       "agent": {
@@ -1997,7 +1996,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
           "type": "organization",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+          "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
         }
       },
       "organization": {
@@ -2006,7 +2005,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
           "type": "organization",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+          "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
         }
       },
       "created": "2024-03-14 11:35:13.700",
@@ -2051,7 +2050,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
             "type": "employee",
             "mediaType": "application/json",
-            "uuidHref": "https://online.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=09a8ad82-c42e-11ee-ac1b-000e0000004e"
           }
         },
         "shared": false,
@@ -2075,7 +2074,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
               "type": "currency",
               "mediaType": "application/json",
-              "uuidHref": "https://online.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
+              "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0a1b4b87-c42e-11ee-ac1b-000e0000009d"
             }
           }
         },
@@ -2086,7 +2085,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
             "type": "store",
             "mediaType": "application/json",
-            "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
+            "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=0a152f4e-c42e-11ee-ac1b-000e00000098"
           }
         },
         "agent": {
@@ -2095,7 +2094,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
             "type": "organization",
             "mediaType": "application/json",
-            "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+            "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
           }
         },
         "organization": {
@@ -2104,7 +2103,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
             "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
             "type": "organization",
             "mediaType": "application/json",
-            "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
+            "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=0a0583b3-c42e-11ee-ac1b-000e00000095"
           }
         },
         "created": "2024-03-14 11:32:58.117",
@@ -2141,7 +2140,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
               "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
               "type": "salesreturn",
               "mediaType": "application/json",
-              "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
+              "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=c6f47cc4-e1dd-11ee-ac1b-000e00000013"
             }
           }
         ]
@@ -3640,19 +3639,4 @@ where _id_ is the UUID of the application installed on the account
 An example of a request to get a list of records:
 `https://api.kladana.com/api/remap/1.2/audit?filter=application=https://api.kladana.com/api/remap/1.2/entity/application/46ea8005-2965-11e9-9ff4-34e80009ac49` 
 
-### Regional headers
-
-For accounts registered with regional settings other than Russian, you must include the `X-Lognex-Accept-Region` header in your request.
-
-Possible values for this header are:
-
-| `X-Lognex-Accept-Region` value | Description                            |
-| ------------------------------ | -------------------------------------- |
-| **ru**                         | Russia region (default)                |
-| **uz**                         | Uzbekistan region                      |
-
-Passing the regional header enables access to region-specific fields.  
-[See product example](dictionaries/#entities-product-products-region-specific-entity-attributes)
-
-The response will include region-specific fields and the `X-Lognex-Content-Region` header indicating the region code.
 
