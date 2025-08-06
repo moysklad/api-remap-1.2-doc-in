@@ -1,5 +1,7 @@
 ## User Settings
 
+The entity code for User Settings in the JSON API is the **usersettings** keyword.
+
 Using the JSON API, you can get and edit user settings.
 
 #### User Settings

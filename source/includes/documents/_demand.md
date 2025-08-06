@@ -9,56 +9,56 @@ Shipment supports external widget change notification protocol **change-handler*
 
 #### Entity attributes
 
-| Title | Type                                               | Filtration | Description |
-|-----------|----------------------------------------------------| --------- |--------|
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| Title | Type                                              | Filtration | Description |
+|-----------|---------------------------------------------------| --------- |--------|
+| **accountId** | UUID                                              | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **applicable** | Boolean                                            | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **attributes** | Array(Object)                                      | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment Code |
+| **applicable** | Boolean                                           | `=` `!=` | Postmark<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **attributes** | Array(Object)                                     | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` `+Update-provider` |
+| **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Shipment Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **created** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of the Shipment last deletion<br>`+Read Only` |
-| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Shipment Comment <br/> `+Change-handler` `+Update-provider`|
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Shipment Code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata. Maximum number of files - 100.<br>`+Required when replying` `+Expand` |
+| **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Time of the Shipment last deletion<br>`+Read Only` |
+| **description** | String(4096)                                      | `=` `!=` `~` `~=` `=~` | Shipment Comment <br/> `+Change-handler` `+Update-provider`|
+| **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | External Shipment Code<br>`+Required when replying` `+Change-handler` |
+| **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata. Maximum number of files - 100.<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Shipment ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **id** | UUID                                              | `=` `!=` | Shipment ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Shipment Metadata<br>`+Required when replying` `+Change-handler` |
-| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Shipment date<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment Name<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Shipment date<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **name** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Shipment Name<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **overhead** | Object                                             | | Overhead expenses. [Learn more](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
+| **overhead** | Object                                            | | Overhead expenses. [Learn more](../documents/#transactions-shipment-shipments-overhead-expenses). If Shipping Items are not set, then charges cannot be set<br>`+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **paidSum** | Float                                              || Amount of incoming payments for the Shipment<br>`+Required when replying` `+Read only` |
-| **positions** | MetaArray                                          | | Shipment item metadata<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
-| **printed** | Boolean                                            | `=` `!=` | Is the Shipment printed or not<br>`+Required when replying` `+Read Only` |
+| **paidSum** | Float                                             || Amount of incoming payments for the Shipment<br>`+Required when replying` `+Read only` |
+| **positions** | MetaArray                                         | | Shipment item metadata<br>`+Required when replying` `+Expand` `+Change-handler` `+Update-provider` |
+| **printed** | Boolean                                           | `=` `!=` | Is the Shipment printed or not<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
-| **published** | Boolean                                            | `=` `!=` | Is the Shipment published or not<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **published** | Boolean                                           | `=` `!=` | Is the Shipment published or not<br>`+Required when replying` `+Read Only` |
+| **rate** | Object                                            | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **shipmentAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Shipment delivery address<br/> `+Change-handler` |
-| **shipmentAddressFull** | Object                                             | | Delivery address of Shipments with details for individual fields. [Learn more](../documents/#transactions-shipment-shipments-entity-attributes-delivery-address)<br> `+Change-handler` |
+| **shared** | Boolean                                           | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shipmentAddress** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Shipment delivery address<br/> `+Change-handler` |
+| **shipmentAddressFull** | Object                                            | | Delivery address of Shipments with details for individual fields. [Learn more](../documents/#transactions-shipment-shipments-entity-attributes-delivery-address)<br> `+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Shipment status metadata<br>`+Expand` `+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` `+Update-provider` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **syncId** | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Shipment last updated time<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **vatEnabled** | Boolean                                            | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
-| **vatIncluded** | Boolean                                            | | Is VAT included in the price <br/> `+Change-handler` `+Update-provider` |
-| **vatSum** | Float                                              | | VAT amount <br/> `+Change-handler` `+Read-only` |
+| **sum** | Float                                             | `=` `!=` `<` `>` `<=` `>=`| Shipment amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Shipment last updated time<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatEnabled** | Boolean                                           | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **vatIncluded** | Boolean                                           | | Is VAT included in the price <br/> `+Change-handler` `+Update-provider` |
+| **vatSum** | Float                                             | | VAT amount <br/> `+Change-handler` `+Read-only` |
 
 #### Overhead Expenses
 
 Description of overhead expenses fields.
 
-| Title | Type | Description |
-| ------- |------| -------- |
-| **sum** | Int  | Amount in paise<br>`+Required when replying` `+Update-provider` |
-| **distribution** | Enum | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
+| Title | Type  | Description |
+| ------- |-------| -------- |
+| **sum** | Float | Amount in paise<br>`+Required when replying` `+Update-provider` |
+| **distribution** | Enum  | Overhead expenses distribution `[weight, volume, price]` -> `[by weight, by volume, by price]`<br>`+Required when replying` `+Update-provider` |
 
 #### Links to other transactions
 

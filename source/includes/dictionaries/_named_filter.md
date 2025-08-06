@@ -1,6 +1,8 @@
 ## Saved filter
 ### Saved filters
 
+The entity code for Saved filters in the JSON API is the **namedfilter** keyword.
+
 Using the JSON API, you can get saved filters by ID and as a list.
 A saved filter is a set of parameters and their values configured by users,
 to filter the list of entities and documents.

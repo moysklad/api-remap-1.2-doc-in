@@ -22,27 +22,28 @@ Examples:
 
 #### Entity Attributes
 
-| Title | Type                                               | Filtration | Description |
-| ------|----------------------------------------------------| ------- | ------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Whether the product was added to the archive<br>`+Required when answering` |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | An array of Product variant barcodes. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-barcodes) |
-| **buyprice** | Object                                             | | Purchase price |
-| **characteristics** | Array(Object)                                      | | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when replying` `+Required when creating` |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product variant Code |
-| **description**        | String(4096)	                                             | `=` `!=` `~` `~=` `=~`      | Product variant Description |
-| **discountProhibited** | Boolean                                            | | Sign of prohibition of discounts<br>`+Required when replying` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External Product variant Code<br>`+Orequired when replying` |
-| **id** | UUID                                               | `=` `!=` | Product variant ID<br>`+Required when replying` `+Read only` |
-| **images** | MetaArray                                          | | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when replying` `+Expand` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Product variant Metadata<br>`+Required when replying` |
-| **minPrice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price) |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Product name with Product variant<br>`+Required when answering` |
-| **packs** | Array(Object)                                      | | Product variant packages [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-packaging-product-variants) |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the [product](../dictionaries/#entities-product) to which the Product variant is attached<br>`+Required when answering` `+Expand` `+Required when creating` |
-| **salePrice** | Array(Object)                                      | | Sale prices. [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-sales-prices) |
-| **things** | Array(String)                                      | | Serial Numbers<br>`+Read Only` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
+| Title                  | Type                                               | Filtration                 | Description                                                                                                                                                                                                                                             |
+|------------------------|----------------------------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**          | UUID                                               | `=` `!=`                   | Account ID<br>`+Required when answering` `+Read Only`                                                                                                                                                                                                   |
+| **archived**           | Boolean                                            | `=` `!=`                   | Whether the product was added to the archive<br>`+Required when answering`                                                                                                                                                                              |
+| **barcodes**           | Array(Object)                                      | `=` `!=` `~` `~=` `=~`     | An array of Product variant barcodes. To filter by a field, you must specify it in the singular **barcode**. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-barcodes)                                                                                                        |
+| **buyprice**           | Object                                             |                            | Purchase price                                                                                                                                                                                                                                          |
+| **characteristics**    | Array(Object)                                      |                            | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when replying` `+Required when creating` |
+| **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~`     | Product variant Code                                                                                                                                                                                                                                    |
+| **description**        | String(4096)	                                      |                       `=` `!=` `~` `~=` `=~`     | Product variant Description                                                                                                                                                                                                                             |
+| **discountProhibited** | Boolean                                            |                            | Sign of prohibition of discounts<br>`+Required when replying`                                                                                                                                                                                          |
+| **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~`     | External Product variant Code<br>`+Orequired when replying`                                                                                                                                                                                             |
+| **id**                 | UUID                                               | `=` `!=`                   | Product variant ID<br>`+Required when replying` `+Read only`                                                                                                                                                                                             |
+| **images**             | MetaArray                                          |                            | [Images](../dictionaries/#entities-image) array metadata (Maximum number of images - 10)<br>`+Required when replying` `+Expand`                                                                                                                        |
+| **meta**               | [Meta](../#kladana-json-api-general-info-metadata) |                            | Product variant Metadata<br>`+Required when replying`                                                                                                                                                                                                  |
+| **minPrice**           | Object                                             |                            | Minimum price. [Learn more](../dictionaries/#entities-bundle-bundles-nested-entity-attributes-minimum-price)                                                                                                                                            |
+| **minimumStock**       | Object                                             |                            | Minimum stock. [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-minimum-stock)<br>`+Available upon request`                                                                                                              |
+| **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~`     | Product name with Product variant<br>`+Required when answering`                                                                                                                                                                                         |
+| **packs**              | Array(Object)                                      |                            | Product variant packages [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-packaging-product-variants)                                                                                                                    |
+| **product**            | [Meta](../#kladana-json-api-general-info-metadata) |                            | Metadata of the [product](../dictionaries/#entities-product) to which the Product variant is attached<br>`+Required when answering` `+Expand` `+Required when creating`                                                                                 |
+| **salePrice**          | Array(Object)                                      |                            | Sale prices. [Learn more](../dictionaries/#entities-product-variant-product-variants-loading-sales-prices)                                                                                                                                              |
+| **things**             | Array(String)                                      |                            | Serial Numbers<br>`+Read Only`                                                                                                                                                                                                                          |
+| **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only`                                                                                                                                                                               |
 
 #### Attributes available for sorting
 
@@ -153,6 +154,77 @@ If the Product variant does not have separate sales prices, the corresponding sa
 | ------ |----------------------------------------------------|------ |
 | **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
+
+##### Minimum Stock
+
+The minimum stock is the minimum quantity of an item that must always be available in stock.
+The `minimumStock` field is available when using the additional parameter `fields=minimumStock` or when the field is included in the request for creating or updating an entity.
+Example:
+
++ `.../variant/{variant_id}?fields=minimumStock`
+
+##### Minimum Stock type
+Values for the type field.
+
+| Value                  | Description                                 |
+|------------------------|:--------------------------------------------|
+| **ALL_WAREHOUSE_SUM**  | Total across all warehouses                 |
+| **ALL_WAREHOUSE_SAME** | The same across all warehouses `+Read Only` |
+| **WAREHOUSE_VARIED**   | Set for each warehouse                      |
+
+
+Minimum stock values in a variant can only be edited if they are not inherited from the parent product.
+Examples can be found in the [retrieval](../dictionaries/#entities-product-variant-get-a-list-of-product-variants), [creation](../dictionaries/#entities-product-variant-create-product-variant),
+or [update](../dictionaries/#entities-product-variant-change-product-variant) sections of the variant documentation.
+
+
+###### Minimum Stock Attributes with the ALL_WAREHOUSE_SUM type
+
+| Name          | Type    | Description                                                        |
+|---------------|:--------|:-------------------------------------------------------------------|
+| **type**      | String  | Type of Minimum Stock                                              |
+| **inherited** | Boolean | Indicates whether the minimum stock is inherited from the product  |
+| **quantity**  | Double  | Total Minimum Stock quantity across all warehouses                 |
+
+
+###### Minimum Stock Attributes with the ALL_WAREHOUSE_SAME type
+
+| Name          | Type    | Description                                                            |
+|---------------|:--------|:-----------------------------------------------------------------------|
+| **type**      | String  | Type of Minimum Stock<br> `+Read Only`                                 |
+| **inherited** | Boolean | Indicates whether the minimum stock is inherited from the product      |
+| **quantity**  | Double  | Minimum Stock quantity is the same for every warehouse<br>`+Read Only` |
+
+
+###### Minimum Stock Attributes with the WAREHOUSE_VARIED type
+
+| Name              | Type      | Description                                                       |
+|-------------------|:----------|:------------------------------------------------------------------|
+| **type**          | String    | Type of Minimum Stock                                             |
+| **inherited**     | Boolean   | Indicates whether the minimum stock is inherited from the product |
+| **storebalances** | MetaArray | Minimum Stock quantity set for each warehouse                     |
+
+
+Object structure in the **storeBalances** collection:
+
+| Name          | Type                                               | Description                                               |
+|---------------|:---------------------------------------------------|:----------------------------------------------------------|
+| **accountId** | UUID                                               | ID account<br>`+Read Only`                                |
+| **id**        | UUID                                               | ID for Minimum Stock<br>`+Read Only`                      |
+| **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for Minimum Stock<br>`+Read Only`                |
+| **store**     | [Meta](../#kladana-json-api-general-info-metadata) | Metadata for the warehouse where the Minimum Stock is set |
+| **quantity**  | Double                                             | Minimum Stock quantity for the warehouse                  |
+
+To [create](../dictionaries/#entities-product-variant-create-product-variant) or [update](../dictionaries/#entities-product-variant-change-product-variant) a warehouse-specific minimum stock, you can include it in the request body when creating
+or updating a variant by specifying the warehouse and the minimum stock quantity.
+There are also separate endpoints for managing minimum stock values by warehouse:
+
++ Get list (`/entity/variant/{variant_id}/storebalances`)
++ Get object (`/entity/variant/{variant_id}/storebalances/{minimumstock_id}`)
++ Create (`/entity/variant/{variant_id}/storebalances`)
++ Update (`/entity/variant/{variant_id}/storebalances/{minimumstock_id}`)
++ Delete (`/entity/variant/{variant_id}/storebalances/{minimumstock_id}`)
++ Bulk deletion (`/entity/variant/{variant_id}/storebalances/delete`)
 
 ##### Packaging Product variants
 
@@ -338,7 +410,133 @@ Successful request. The result is a JSON representation of the list of Product v
    ]
 }
 ```
+> Get the list of Variants with the Minimum Stock field included.
 
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/entity/variant?fields=minimumStock"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. The result is the JSON representation of the list of Variants.
+
+```json
+{
+  "context": {
+    "employee": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/?fields=minimumStock",
+    "type": "variant",
+    "mediaType": "application/json",
+    "size": 1,
+    "limit": 1000,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/variant/0fc3547c-1395-11f0-ac15-001100000045",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+        "type": "variant",
+        "mediaType": "application/json",
+        "uuidHref": "https://api.kladana.com/app/#feature/edit?id=0fc34911-1395-11f0-ac15-001100000043"
+      },
+      "id": "0fc3547c-1395-11f0-ac15-001100000045",
+      "accountId": "762af84a-0ec6-11f0-ac15-001000000001",
+      "updated": "2025-04-07 12:45:38.399",
+      "name": "Potato (yellow)",
+      "code": "00004",
+      "externalCode": "KDnPv4IYhLVJKh4NKP9mL0",
+      "archived": false,
+      "characteristics": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/7a797ba3-1394-11f0-ac15-001100000025",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "id": "7a797ba3-1394-11f0-ac15-001100000025",
+          "name": "Colour",
+          "value": "yellow"
+        }
+      ],
+      "images": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/0fc3547c-1395-11f0-ac15-001100000045/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
+      "salePrices": [
+        {
+          "value": 0.0,
+          "currency": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/currency/77a29ae9-0ec6-11f0-ac15-0012000000a4",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+              "type": "currency",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#currency/edit?id=77a29ae9-0ec6-11f0-ac15-0012000000a4"
+            }
+          },
+          "priceType": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/77f67b4c-0ec6-11f0-ac15-0012000000a5",
+              "type": "pricetype",
+              "mediaType": "application/json"
+            },
+            "id": "77f67b4c-0ec6-11f0-ac15-0012000000a5",
+            "name": "Sale price",
+            "externalCode": "cbcf493b-55bc-11d9-848a-00112f43529a"
+          }
+        }
+      ],
+      "barcodes": [
+        {
+          "ean13": "2000000000107"
+        }
+      ],
+      "discountProhibited": false,
+      "minimumStock": {
+        "type": "WAREHOUSE_VARIED",
+        "inherited": true,
+        "storebalances": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/0fc3547c-1395-11f0-ac15-001100000045/storebalances",
+            "type": "minimumstock",
+            "mediaType": "application/json",
+            "size": 1,
+            "limit": 1000,
+            "offset": 0
+          }
+        }
+      },
+      "product": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/3bdfdb5b-137a-11f0-ac15-001100000018",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json",
+          "uuidHref": "https://api.kladana.com/app/#good/edit?id=3bdfb95e-137a-11f0-ac15-001100000016"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### Create Product variant
 Create a new Product variant. To create a new Product variant, the fields **product**, **characteristics** are required.
@@ -572,6 +770,118 @@ Successful request. The result is a JSON representation of the created Product v
        "mediaType": "application/json"
      }
    }
+}
+```
+> Example of a request to create a new Variant with a populated Minimum Stock field.
+
+  ```shell
+  curl -X POST
+    "https://api.kladana.com/api/remap/1.2/entity/variant"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "characteristics": [
+              {
+                "id": "7a797ba3-1394-11f0-ac15-001100000025",
+                "value": "yellow"
+              }
+            ],
+            "product": {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/15007028-137a-11f0-ac15-001100000008",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+              }
+            }
+            "minimumStock": {
+              "type": "ALL_WAREHOUSE_SUM",
+              "inherited" : false,
+              "quantity": 8.0
+            }
+          }'  
+  ```
+
+> Response 200 (application/json)
+Successful request. The result is the JSON representation of the created Variant with the overridden Minimum Stock.
+
+  ```json
+{
+  "meta" : {
+    "href" : "https://api.kladana.com/api/remap/1.2/entity/variant/7a80d64e-1394-11f0-ac15-001100000028",
+    "metadataHref" : "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+    "type" : "variant",
+    "mediaType" : "application/json",
+    "uuidHref" : "https://api.kladana.com/app/#feature/edit?id=7a80c220-1394-11f0-ac15-001100000026"
+  },
+  "id" : "7a80d64e-1394-11f0-ac15-001100000028",
+  "accountId" : "762af84a-0ec6-11f0-ac15-001000000001",
+  "updated" : "2025-04-07 12:41:53.560",
+  "name" : "Potato (yellow)",
+  "code" : "00002",
+  "externalCode" : "Mk0FH0vcg-B9rndAHA1vW1",
+  "archived" : false,
+  "characteristics" : [ {
+    "meta" : {
+      "href" : "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/7a797ba3-1394-11f0-ac15-001100000025",
+      "type" : "attributemetadata",
+      "mediaType" : "application/json"
+    },
+    "id" : "7a797ba3-1394-11f0-ac15-001100000025",
+    "name" : "Colour",
+    "value" : "yellow"
+  } ],
+  "images" : {
+    "meta" : {
+      "href" : "https://api.kladana.com/api/remap/1.2/entity/variant/7a80d64e-1394-11f0-ac15-001100000028/images",
+      "type" : "image",
+      "mediaType" : "application/json",
+      "size" : 0,
+      "limit" : 1000,
+      "offset" : 0
+    }
+  },
+  "salePrices" : [ {
+    "value" : 0.0,
+    "currency" : {
+      "meta" : {
+        "href" : "https://api.kladana.com/api/remap/1.2/entity/currency/77a29ae9-0ec6-11f0-ac15-0012000000a4",
+        "metadataHref" : "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type" : "currency",
+        "mediaType" : "application/json",
+        "uuidHref" : "https://api.kladana.com/app/#currency/edit?id=77a29ae9-0ec6-11f0-ac15-0012000000a4"
+      }
+    },
+    "priceType" : {
+      "meta" : {
+        "href" : "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/77f67b4c-0ec6-11f0-ac15-0012000000a5",
+        "type" : "pricetype",
+        "mediaType" : "application/json"
+      },
+      "id" : "77f67b4c-0ec6-11f0-ac15-0012000000a5",
+      "name" : "Sale price",
+      "externalCode" : "cbcf493b-55bc-11d9-848a-00112f43529a"
+    }
+  } ],
+  "barcodes" : [ {
+    "ean13" : "2000000000084"
+  } ],
+  "discountProhibited" : false,
+  "minimumStock" : {
+    "type" : "ALL_WAREHOUSE_SUM",
+    "inherited" : false,
+    "quantity" : 8.0
+  },
+  "product" : {
+    "meta" : {
+      "href" : "https://api.kladana.com/api/remap/1.2/entity/product/15007028-137a-11f0-ac15-001100000008",
+      "metadataHref" : "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type" : "product",
+      "mediaType" : "application/json",
+      "uuidHref" : "https://api.kladana.com/app/#good/edit?id=14ff096e-137a-11f0-ac15-001100000006"
+    }
+  }
 }
 ```
 
@@ -1561,3 +1871,130 @@ Successful request. The result is a JSON representation of the Product variant.
    }
 }
 ```
+> Example of a request to update the Product variant with an overridden Minimum Stock.
+
+  ```shell
+  curl -X PUT
+    "https://api.kladana.com/api/remap/1.2/entity/variant/7a80d64e-1394-11f0-ac15-001100000028"
+    -H "Authorization: Basic <Credentials>"
+    -H "Accept-Encoding: gzip"
+    -H "Content-Type: application/json"
+      -d '{
+            "minimumStock": {
+              "type": "ALL_WAREHOUSE_SUM",
+              "inherited" : false,
+              "quantity": 1.0
+            }
+          }'  
+  ```
+
+> Response 200 (application/json)
+Successful request. The result is the JSON representation of the updated the Product variant with the overridden Minimum Stock.
+
+  ```json
+{
+  "meta" : {
+    "href" : "https://api.kladana.com/api/remap/1.2/entity/variant/7a80d64e-1394-11f0-ac15-001100000028",
+    "metadataHref" : "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+    "type" : "variant",
+    "mediaType" : "application/json",
+    "uuidHref" : "https://api.kladana.com/app/#feature/edit?id=7a80c220-1394-11f0-ac15-001100000026"
+  },
+  "id" : "7a80d64e-1394-11f0-ac15-001100000028",
+  "accountId" : "762af84a-0ec6-11f0-ac15-001000000001",
+  "updated" : "2025-04-07 12:41:53.560",
+  "name" : "Potato (yellow)",
+  "code" : "00002",
+  "externalCode" : "Mk0FH0vcg-B9rndAHA1vW1",
+  "archived" : false,
+  "characteristics" : [ {
+    "meta" : {
+      "href" : "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/7a797ba3-1394-11f0-ac15-001100000025",
+      "type" : "attributemetadata",
+      "mediaType" : "application/json"
+    },
+    "id" : "7a797ba3-1394-11f0-ac15-001100000025",
+    "name" : "Colour",
+    "value" : "yellow"
+  } ],
+  "images" : {
+    "meta" : {
+      "href" : "https://api.kladana.com/api/remap/1.2/entity/variant/7a80d64e-1394-11f0-ac15-001100000028/images",
+      "type" : "image",
+      "mediaType" : "application/json",
+      "size" : 0,
+      "limit" : 1000,
+      "offset" : 0
+    }
+  },
+  "salePrices" : [ {
+    "value" : 0.0,
+    "currency" : {
+      "meta" : {
+        "href" : "https://api.kladana.com/api/remap/1.2/entity/currency/77a29ae9-0ec6-11f0-ac15-0012000000a4",
+        "metadataHref" : "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type" : "currency",
+        "mediaType" : "application/json",
+        "uuidHref" : "https://api.kladana.com/app/#currency/edit?id=77a29ae9-0ec6-11f0-ac15-0012000000a4"
+      }
+    },
+    "priceType" : {
+      "meta" : {
+        "href" : "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/77f67b4c-0ec6-11f0-ac15-0012000000a5",
+        "type" : "pricetype",
+        "mediaType" : "application/json"
+      },
+      "id" : "77f67b4c-0ec6-11f0-ac15-0012000000a5",
+      "name" : "Sale price",
+      "externalCode" : "cbcf493b-55bc-11d9-848a-00112f43529a"
+    }
+  } ],
+  "barcodes" : [ {
+    "ean13" : "2000000000084"
+  } ],
+  "discountProhibited" : false,
+  "minimumStock" : {
+    "type" : "ALL_WAREHOUSE_SUM",
+    "inherited" : false,
+    "quantity" : 1.0
+  },
+  "product" : {
+    "meta" : {
+      "href" : "https://api.kladana.com/api/remap/1.2/entity/product/15007028-137a-11f0-ac15-001100000008",
+      "metadataHref" : "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type" : "product",
+      "mediaType" : "application/json",
+      "uuidHref" : "https://api.kladana.com/app/#good/edit?id=14ff096e-137a-11f0-ac15-001100000006"
+    }
+  }
+}
+```
+
+> Example of a request to bulk deletion of minimum stock levels by warehouses in the Product variant
+
+```shell
+curl -X POST
+  "https://api.kladana.com/api/remap/1.2/entity/variant/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+  -H "Content-Type: application/json"
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce2da5-684d-11ee-ac12-000c000000a2",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/7fce37a5-684d-11ee-ac12-000c000000a3",
+            "type": "minimumstock",
+            "mediaType": "application/json"
+          }
+        }
+      ]'  
+```
+
+> Response 200 (application/json)
+Successful deletion of minimum stock levels by warehouses in the Product variant.

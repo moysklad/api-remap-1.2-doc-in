@@ -34,7 +34,7 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **published** | Boolean                                            | `=` `!=` | Is the transaction published or not<br>`+Required when replying` `+Read Only` |
-| **rate** | Object   | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **rate** | Object                                             | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **reservedSum** | Float                                              | | Amount of reserved products<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
@@ -43,7 +43,7 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **shippedSum** | Float                                              | | Amount of shipped products<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
+| **sum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. Cannot be edited |
 | **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date and time of the Sales Order last update<br>`+Required when replying` `+Read-only``+Change-handler` |
@@ -64,6 +64,7 @@ The values of the `taxSystem` field.
 | **purchaseOrders** | Array of links to the related Purchase Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **demands** | Array of links to the related Shipments in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **payments** | Array of links to the related Payments in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **productionTasks** | Array of links to the related Production Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **invoicesOut** | Array of links to the related Sales Invoices in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **moves** | Array of links to the related Transfers in the [metadata](../#kladana-json-api-general-info-metadata)format|
 

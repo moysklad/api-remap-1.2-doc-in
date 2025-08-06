@@ -11,6 +11,27 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - New notification type added [New event in the event feed](../notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
 - New notification group added [Followed events](../notification/#notifications-notification-settings-change-notification-settings)
 
+### 31-07-2025
+#### Added
+- link to Production Order in [Sales Order](../documents/#transactions-sales-order)
+- link to Production Order in [Internal Order](../documents/#transactions-internal-order)
+- link to Production Order in [Purchase Order](../documents/#transactions-purchase-order)
+- link to Production Order in [Receiving](../documents/#transactions-receiving)
+- link to Production Order in [Transfer](../documents/#transactions-transfer)
+- Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
+
+### 24-07-2025
+#### Fixed
+- Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
+
+### 22-07-2025
+#### Added
+- The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
+### 17-07-2025
+#### Added
+- Add new [error 13005](../#kladana-json-api-errors-error-codes-for-the-stock-report)
+
 ### 10-07-2025
 #### Added
 - Add new [error 33013](../#kladana-json-api-errors-error-codes-for-printed-forms)

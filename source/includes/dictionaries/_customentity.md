@@ -2,6 +2,8 @@
 
 ### Custom lists
 
+The entity code for Custom lists in the JSON API is the **customentity** keyword.
+
 Using the JSON API, you can create, update, and delete Custom lists. It also allows you to manage elements
 within Custom lists and retrieve details about their additional fields.
 <br>
