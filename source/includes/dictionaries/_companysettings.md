@@ -8,9 +8,9 @@ You can get information about company settings and product price types.
 #### Entity attributes
 
 | Title | Type | Description |
-|----------|-------|------------|
-| **checkMinPrice** | Boolean | Automatically set the minimum price. If enabled, when saving sales documents with prices less than the minimum prices (specified in the item cards), the prices will be automatically increased to the minimum prices.<br>`+Required when answering` |
-| **checkShippingStock** | Boolean | Prohibit shipment of missing items. If the prohibition is set (true value), users will not be able to ship out-of-stock items from the warehouse.<br>`+Required when answering` |
+|---------- |-------|------------|
+| **checkMinPrice** | Boolean | Automatically set the minimum price. If enabled, when saving sales documents with prices less than the minimum prices (specified in the item cards), the prices will be automatically increased to the minimum prices.<br>`+Required when replying` |
+| **checkShippingStock** | Boolean | Prohibit shipment of missing items. If the prohibition is set (true value), users will not be able to ship out-of-stock items from the warehouse.<br>`+Required when replying` |
 | **companyAddress** | String(255) | Company email address |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Standard currency metadata<br>`+Required when replying` |
 | **discountStrategy** | Enum | Joint application of discounts. [Learn more](../dictionaries/#entities-company-settings-combined-application-of-discounts)<br>`+Required when replying` `+Required when creating` |
@@ -43,13 +43,13 @@ An enumeration of values representing the combined application of discounts:
 In the Company Settings metadata,the **customEntities** field shows a list of user dictionaries.
 Each user directory contains the fields:
 
-| Title             | Type                                              | Description                                                             |
-|-------------------|---------------------------------------------------|-------------------------------------------------------------------------|
-| **meta**          | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
-| **entityMeta**    | [Meta](../#kladana-json-api-general-info-metadata)| Link to the list of entities in this user reference                     |
-| **name**          | String(255)                                       | Directory name                                                          |
-| **createShared**  | Boolean                                           | Create new User Directory items with the "General" label                |
-| **attributes**    | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of additional fields customEntities                            |
+| Title | Type | Description |
+|----------|-------|------------|
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the User Directory<br>`+Required when replying` `+Read Only` |
+| **entityMeta** | URL | Link to the list of entities in this user reference |
+| **name** | String(255) | Directory name |
+| **createShared** | Boolean | Create new Custom list items with the "Shared" label |
+| **attributes**   | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Custom list attributes |
 
 
 ### Get company settings
@@ -273,6 +273,16 @@ Successful request. The result is a JSON representation of company settings meta
         "type": "customermetadata",
         "mediaType": "application/json"
       },
+       "attributes": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/eaacabaf-2655-11e6-8a84-bae500000045/metadata/attributes",
+          "type": "attributemetadata",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
       "id": "eaacabaf-2655-11e6-8a84-bae500000045",
       "name": "Partners",
       "createShared": true
@@ -282,6 +292,16 @@ Successful request. The result is a JSON representation of company settings meta
         "href": "https://api.kladana.com/api/remap/1.2/context/companysettings/metadata/customEntities/f3aff189-2655-11e6-8a84-bae500000046",
         "type": "customermetadata",
         "mediaType": "application/json"
+      },
+      "attributes": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/customentity/f3aff189-2655-11e6-8a84-bae500000046/metadata/attributes",
+          "type": "attributemetadata",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
       },
       "id": "f3aff189-2655-11e6-8a84-bae500000046",
       "name": "Advertising Agencies",

@@ -12,18 +12,17 @@ This identifier is available in the metadata request for the entity, located in 
 
 #### Entity attributes
 
-| Title    | Type                                               | Description                                                             |
-|----------|:---------------------------------------------------|:------------------------------------------------------------------------|
-| **id**   | UUID                                               | Custom list ID<br>`+Required when answering` `+Read Only`                |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom list metadata<br>`+Required when answering`                       |
-| **name** | String(255)                                        | Custom list name<br>`+Required when answering` `+Required when creating` |
+| Title    | Type  | Description  |
+| -------- | ----- | ------------ |
+| **id**   | UUID                                               | Custom list ID<br>`+Required when replying` `+Read Only`                |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Custom list metadata<br>`+Required when replying`                       |
+| **name** | String(255)                                        | Custom list name<br>`+Required when replying` `+Required when creating` |
 
 ### Get a list of Custom lists
 
 To get all Custom lists, you can send a request for
 the [company settings](../dictionaries/#entities-company-settings-get-company-settings-metadata) metadata. In the
-resulting entity, the `customEntities` field contains a list of entities for all existing Custom lists. Each entity in
-this list includes an `id` field, which specifies the identifier for each list.
+resulting entity, the `customEntities` field contains a list of entities for all existing Custom lists. Each entity in this list includes an `id` field, which specifies the identifier for each list.
 
 ### Create Custom list
 
@@ -69,8 +68,8 @@ This action is available exclusively to users with administrator rights.
 
 **Parameters**
 
-| Parameter       | Description                                                                         |
-|:----------------|:------------------------------------------------------------------------------------|
+| Parameter   | Description   |
+| ----------- | ------------- |
 | **metadata_id** | `string` (required) *Example: 3f9a2f30-76af-11e7-6adb-ede50000000b* Custom list ID. |
 
 > Request to update a new Custom list.

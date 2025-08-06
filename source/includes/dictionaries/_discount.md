@@ -22,14 +22,14 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | Title | Type          | Description |
 | -------- |---------------| ---------- |
 | **productfolders** | Array(Object) | Array of metadata of Groups of goods to which the discount is applied, if it is not applied to all goods |
-| **discount** | Float           | Discount percentage if fixed percentage is selected |
+| **discount** | Float | Discount percentage if fixed percentage is selected |
 | **specialprice** | Object        | Specialist. price (if a price type is selected). [Learn more](../dictionaries/#entities-discounts-special-price) |
 
 #### Special Price
 
 | Title | Type   | Description |
 | -------- |--------| ---------- |
-| **priceType** | Object | Price type<br>`+Required when answering` |
+| **priceType** | Object | Price type<br>`+Required when replying` |
 | **value** | Int    | Price value if a fixed value is selected |
 
 #### Cumulative discount fields
@@ -43,8 +43,8 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 
 | Title | Type | Description |
 | -------- |------| ---------- |
-| **amount** | Int  | Amount of savings in paise<br>`+Required when replying` |
-| **discount** | Int  | Discount percentage corresponding to this amount |
+| **amount** | Int  | Amount of savings in paise<br>`+Required when answering` |
+| **discount** | Float  | Discount percentage corresponding to this amount |
 
 
 ### Get all discounts
@@ -52,8 +52,8 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 Request to receive all account discounts.
 Result: JSON object including fields:
 
-| Title | Type | Description |
-| -------- |------- | ---------- |
+| Title    | Type  | Description |
+| -------- | ----- | ----------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing discounts. |
