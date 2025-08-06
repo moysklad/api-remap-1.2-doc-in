@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 10-07-2025
+### 07-08-2025
 #### Added
 - New notification type added [New event in the event feed](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
 - New notification group added [Followed events](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-notification-settings-change-notification-settings)

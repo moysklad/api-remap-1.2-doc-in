@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 10-07-2025
+### 07-08-2025
 #### Added
 - New notification type added [New event in the event feed](../notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
 - New notification group added [Followed events](../notification/#notifications-notification-settings-change-notification-settings)
