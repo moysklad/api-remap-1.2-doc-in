@@ -3639,4 +3639,8 @@ where _id_ is the UUID of the application installed on the account
 An example of a request to get a list of records:
 `https://api.kladana.com/api/remap/1.2/audit?filter=application=https://api.kladana.com/api/remap/1.2/entity/application/46ea8005-2965-11e9-9ff4-34e80009ac49` 
 
+### Accept-Language Header
 
+Use the Accept-Language header to receive error messages in your preferred language. Header value processing complies 
+with the HTTP standard (RFC 7231). Current support is limited to Russian (ru) and English (en) languages and applies 
+only to error messages. The functionality and list of supported languages may be expanded in the future.
