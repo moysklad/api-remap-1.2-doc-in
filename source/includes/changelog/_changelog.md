@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 08-08-2025
+#### Added
+- Information for working with header [Accept-Language](../#mojsklad-json-api-obschie-swedeniq-zagolowok-accept-language)
+
 ### 07-08-2025
 #### Added
 - New notification type added [New event in the event feed](../notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
