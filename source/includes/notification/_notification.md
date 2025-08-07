@@ -242,6 +242,7 @@ The format of oldValue and newValue is the same as the format of the field whose
 | **NotificationTaskUnassigned** | Task | Task removed |
 | **NotificationBonusMoney** | Balance | Bonus money has been credited to the account |
 | **NewMentionInEvent**  | Employee Mentions | New mention in the event feed |
+| **NewEventInEventFeed**  | Followed events | New events in followed object |
 
 ## Detailed description of notification types
 
@@ -2005,7 +2006,7 @@ Successful request. The result is a JSON representation of the Notification.
 ### New mention in the event feed
 #### Notification type
 
-NewMentionInEven - notification about a new mention in the event feed.
+NewMentionInEvent - notification about a new mention in the event feed.
 
 #### Notification attributes
 
@@ -2032,7 +2033,13 @@ The object in whose feed the event with the mention was added.
 
 Valid values ​​for **meta.type**:
 
-+ **customerorder** - Sales Order
++ **customerorder** - Sales order
++ **invoiceout** - Sales invoice
++ **invoicein** - Purchase invoice
++ **purchaseorder** - Purchase order
++ **purchasereturn** - Purchase return
++ **supply** - Receiving
++ **commissionreportout** - Commission report out
 
 **Parameters**
 
@@ -2078,6 +2085,85 @@ Successful request. Result - JSON representation of Notification.
 }
 ```
 
+### New event in the event feed
+#### Notification type
+NewEventInEventFeed - notification about a new event in the event feed.
+#### Notification attributes
+
+| Name            | Type                                                 | Description                                                                                                     |
+|-----------------|:----------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
+| **meta**        | [Meta](../#kladana-json-api-general-info-metadata)  | Object metadata<br>`+Required when replying` `+Read-only`                                                      |
+| **id**          | UUID                                                | Notification ID<br>`+Required when replying` `+Read-only`                                                      |
+| **accountId**   | UUID                                                | Account ID<br>`+Required when replying` `+Read-only`                                                             |
+| **created**     | DateTime                                            | Date and time the Notification was generated<br>`+Required when replying` `+Read-only`                           |
+| **read**        | Boolean                                             | Whether the Notification was read<br>`+Required when replying` `+Read-only`                                      |
+| **title**       | String(255)                                         | Short text of the notification<br>`+Required when replying` `+Read-only`                                         |
+| **description** | String(4096)                                        | Description of the notification<br>`+Required when replying` `+Read-only`                                        |
+| **entity**      | Object                                              | The object in whose feed the event was added<br>`+Required when replying` `+Read-only`                           |
+
+#### Attributes of nested entities
+##### Object
+The object in whose feed the event was added.
+
+| Name     | Type                                                  | Description                                                  |
+|----------|:-----------------------------------------------------|:--------------------------------------------------------------|
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata)   | Object metadata<br>`+Required when replying` `+Read-only`   |
+| **id**   | UUID                                                 | Object ID<br>`+Required when replying` `+Read-only`         |
+| **name** | String(255)                                          | Object name<br>`+Required when replying` `+Read-only`       |
+
+Valid values for **meta.type**:
+
++ **customerorder** - Sales order
++ **invoiceout** - Sales invoice
++ **invoicein** - Purchase invoice
++ **purchaseorder** - Purchase order
++ **purchasereturn** - Purchase return
++ **supply** - Receiving
++ **commissionreportout** - Commission report out
+
+**Parameters**
+
+| Parameter| Description                                                                         |
+|:---------|:------------------------------------------------------------------------------------|
+| **id**   | `string` (required) *Example: c290e571-f65d-11ee-c0a8-300d0000000a* Notification id.|
+
+> Request to receive Notification with the specified id.
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result - JSON representation of Notification.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a",
+    "type": "NewEventInEventFeed",
+    "mediaType": "application/json"
+  },
+  "id": "c290e571-f65d-11ee-c0a8-300d0000000a",
+  "accountId": "3a0c5979-f5ab-11ee-c0a8-300f00000001",
+  "created": "2025-08-01 12:00:00.333",
+  "read": false,
+  "title": "New mention: Sales Order 00001",
+  "description": "Call the buyer of the Sales Order 00001",
+  "entity": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/5dee4523-f5ab-11ee-c0a8-3010000000ed",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/customerorder/metadata",
+      "type": "customerorder",
+      "mediaType": "application/json"
+    },
+    "id": "5dee4523-f5ab-11ee-c0a8-3010000000ed",
+    "name": "00001"
+  }
+}
+```
+
 ## Notification settings
 
 ### Entity attributes
@@ -2099,6 +2185,7 @@ Notification group code values.
 | **stock** | Warehouse balances |
 | **task** | Tasks | 
 | **mentions**  | Employee Mentions |
+| **followedEvents** | Followed events |
 
 ### Get notification settings
 Query the current user's Notification settings.
@@ -2150,9 +2237,13 @@ Successful request. JSON representation of notification settings.
        "enabled" : true,
        "channels" : [ "email", "push" ]
      },
-      "mentions" : {
-      "enabled" : true,
-      "channels" : [ "email", "push" ]
+     "mentions" : {
+       "enabled" : true,
+       "channels" : [ "email", "push" ]
+     },
+     "followedEvents": {
+       "enabled": true,
+       "channels" : [ "email", "push" ]
      }
    }
 }
@@ -2206,9 +2297,13 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
                  "enabled" : true,
                  "channels" : [ "email", "push" ]
                },
-                "mentions" : {
-                "enabled" : true,
-                "channels" : [ "email", "push" ]
+               "mentions" : {
+                 "enabled" : true,
+                 "channels" : [ "email", "push" ]
+               },
+               "followedEvents" : {
+                 "enabled" : true,
+                 "channels" : [ "email", "push" ]
                }
              }
            }'
