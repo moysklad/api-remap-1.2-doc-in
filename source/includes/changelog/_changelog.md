@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 08-08-2025
 #### Added
-- Information for working with header [Accept-Language](../#mojsklad-json-api-obschie-swedeniq-zagolowok-accept-language)
+- Information for working with header [Accept-Language](../#kladana-json-api-general-info-accept-language-header)
 
 ### 07-08-2025
 #### Added
