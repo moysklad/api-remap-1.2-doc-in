@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 08-08-2025
+#### Added
+- Information for working with header [Accept-Language](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-accept-language-header)
+
 ### 07-08-2025
 #### Added
 - New notification type added [New event in the event feed](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
