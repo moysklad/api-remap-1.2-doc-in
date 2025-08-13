@@ -29,16 +29,16 @@ The search among the objects of the sales channel for matching the search string
 #### Sales Channel Type
 An enumeration of values representing the Sales Channel type:
 
-| Title | Description           |
-| ------ |-----------------------|
-| **Messenger** | Messenger             |
-| **SOCIAL_NETWORK** | Social network        |
-| **MARKETPLACE** | Marketplace           |
-| **ECOMERCE** | Online store          |
+| Title | Description |
+| ------ | ------ |
+| **MESSENGER** | Messenger|
+| **SOCIAL_NETWORK** | Social network |
+| **MARKETPLACE** | Marketplace |
+| **ECOMERCE** | Online store |
 | **CLASSIFIED_ADS** | Board of announcements |
-| **DIRECT_SALES** | Direct sales          |
-| **RETAIL_SALES** | Retail sales          |
-| **OTHER** | Other                 |
+| **DIRECT_SALES** | Direct sales |
+| **RETAIL_SALES** | Retail sales|
+| **OTHER** | Other |
 
 #### Attributes available for filtering
 

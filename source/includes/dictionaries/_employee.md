@@ -870,37 +870,37 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **retireOrderOSU** | DICTIONARY | All NO | Write-off from circulation OSU                 |
 | **employees** | base | All ALL | Employees                                      |
 | **enrollOrder** | DICTIONARY | All NO | Introduction of marking codes into circulation |
-| **enter** | OPERATION | All ALL | Posting                                        |
-| **good** | DICTIONARY | All ALL | Goods and Services                             |
-| **internalOrder** | OPERATION | All ALL | Internal orders                                |
-| **inventory** | DICTIONARY | All ALL | Inventory                                      |
-| **invoiceIn** | OPERATION | All ALL | Supplier invoice                               |
-| **invoiceOut** | OPERATION | All ALL | Account for buyers                             |
-| **loss** | OPERATION | All ALL | Write-off                                      |
-| **move** | OPERATION | All ALL | Moving                                         |
-| **myCompany** | base | view: ALL, create: NO, edit: NO, delete: NO | Jur. Faces                                     |
-| **paymentIn** | OPERATION | All ALL | Incoming payment                               |
-| **paymentOut** | OPERATION | All ALL | Outgoing payment                               |
-| **processingOrder** | OPERATION | All ALL | Production order                               |
-| **processingPlan** | base | All ALL | Bills of Materials                             |
-| **processingStage** | base | All ALL | Stages of production                           |
-| **processingProcess** | base | All ALL | Routing                                        |
-| **productionTask**   | OPERATION | All ALL  | Production Orders                              |
-| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report                               |
-| **project** | base | All ALL | Projects                                       |
-| **purchaseOrder** | OPERATION | All ALL | Order to suppliers                             |
-| **purchaseReturn** | OPERATION | All ALL | Return to supplier                             |
-| **remainsOrder** | DICTIONARY | All NO | Description of residues                        |
-| **remarkingOrder** | DICTIONARY | All NO | Relabeling                                     |
-| **retailDemand** | OPERATION | All ALL | Sales                                          |
-| **retailSalesReturn** | OPERATION | All ALL | Returns                                        |
-| **retireOrder** | DICTIONARY | All NO | Write-off from circulation                     |
-| **salesReturn** | OPERATION | All ALL | Sales Return                                   |
-| **supply** | OPERATION | All ALL | Receivings                                     |
-| **trackingCodeList** | view, print | All NO | Marking codes                                  |
-| **uom** | base | All ALL | Units of measure                               |
-| **warehouse** | base | All ALL | Warehouses                                     |
-| **salesChannel** | base | All ALL | Sales channel                                  |
+| **enter** | OPERATION | All ALL | Posting |
+| **good** | DICTIONARY | All ALL | Goods and Services |
+| **internalOrder** | OPERATION | All ALL | Internal orders |
+| **inventory** | DICTIONARY | All ALL | Inventory |
+| **invoiceIn** | OPERATION | All ALL | Supplier invoice |
+| **invoiceOut** | OPERATION | All ALL | Account for buyers |
+| **loss** | OPERATION | All ALL | Write-off |
+| **move** | OPERATION | All ALL | Moving |
+| **myCompany** | base | view: ALL, create: NO, edit: NO, delete: NO | Jur. Faces |
+| **paymentIn** | OPERATION | All ALL | Incoming payment |
+| **paymentOut** | OPERATION | All ALL | Outgoing payment |
+| **processingOrder** | OPERATION | All ALL | Production order |
+| **processingPlan** | base | All ALL | Bills of Materials |
+| **processingStage** | base | All ALL | Stages of production |
+| **processingProcess** | base | All ALL | Routing |
+| **productionTask**   | OPERATION | All ALL  | Production Orders              |
+| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report |
+| **project** | base | All ALL | Projects |
+| **purchaseOrder** | OPERATION | All ALL | Order to suppliers |
+| **purchaseReturn** | OPERATION | All ALL | Return to supplier |
+| **remainsOrder** | DICTIONARY | All NO | Description of residues |
+| **remarkingOrder** | DICTIONARY | All NO | Relabeling |
+| **retailDemand** | OPERATION | All ALL | Sales |
+| **retailSalesReturn** | OPERATION | All ALL | Returns |
+| **retireOrder** | DICTIONARY | All NO | Write-off from circulation |
+| **salesChannel** | BASE | All ALL | Sales Channel |
+| **salesReturn** | OPERATION | All ALL | Sales Return |
+| **supply** | OPERATION | All ALL | Receivings |
+| **trackingCodeList** | view, print | All NO | Marking codes |
+| **uom** | base | All ALL | Units of measure |
+| **warehouse** | base | All ALL | Warehouses |
 
 For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`
   for these permissions, an error will be returned.
@@ -1110,7 +1110,7 @@ Successful request. The result is a JSON representation of information about the
               "create": "ALL",
               "update": "ALL",
               "delete": "ALL"
-            },          
+            },
             "warehouse": {
                 "view": "ALL",
                 "create": "ALL",

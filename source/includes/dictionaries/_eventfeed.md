@@ -4,10 +4,8 @@
 
 The entity code for the Event Feed in the JSON API is the **notes** keyword.
 
-Using the JSON API, you can create, update, and delete events, query lists of events, and query details of 
-individual events for the transactions of the following type:
+Using the JSON API, you can request lists of events, as well as information on individual events for transactions of the following types:
 
-+ Commission Agent Report (commissionreportout)
 + [Purchase Order](../documents/#transactions-purchase-order)
 + [Purchase Return](../documents/#transactions-purchase-returns)
 + [Receiving](../documents/#transactions-receiving)
@@ -34,12 +32,13 @@ No more than 5000 Events can be created for each transaction.
 
 #### Access rights
 
-| Operation          | Access                                                                                      |
-|--------------------|---------------------------------------------------------------------------------------------|
-| **View events**    | User with administrator rights or with the right to view the transactions.                  |
-| **Event Creation** | User must have administrator rights or transaction viewing rights.                          | 
-| **Event Editing**  | User must have administrator rights or be the event author with transaction viewing rights. | 
-| **Event Deletion** | User must have administrator rights or be the event author with transaction viewing rights. |
+| Operation              | Access |
+| ---------------------- | ------ |
+| **View events**   | User with administrator rights or with permission to view the transaction|
+| **Create events** | User with administrator rights or with permission to view the transaction|
+| **Edit events**   | User with administrator rights or the event author with permission to view the transaction|
+| **Delete events** | User with administrator rights or the event author with permission to view the transaction|
+
 
 #### Entity attributes
 

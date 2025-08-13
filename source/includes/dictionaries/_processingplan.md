@@ -35,18 +35,25 @@ The object of the production operation in the Bill of Materials contains the fol
 
 | Name | Type | Description |
 | ----- | ---- | ------- |
-| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read-only` |
-| **enableHourAccounting** | Boolean | Is standard hours accounting enabled<br>`+Required when replying` |
-| **id** | UUID | Raw material ID<br>`+Required when answering` `+Read-only` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
+| **enableHourAccounting** | Boolean | Indicates whether standard hour accounting is enabled<br>`+Required when replying` |
+| **id** | UUID | Raw material ID<br>`+Required when replying` `+Read-only` |
 | **cost** | Double | Production cost of a certain production operation `+Required when replying` |
 | **labourCost** | Double | Labor cost of a certain production operation `+Required when replying` |
 | **standardHour** | Double | Standard hours of a production operation `+Required when replying` |
-| **standardHourCost** | Double | Standard Hour cost of a certain production operation<br>`+Required when replying` `+Read-only` |
 | **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Bill of Materials item metadata<br>`+Required when replying` |
+| **standardHourCost** | Double | Standart Hour Cost<br>`+Required when replying` `+Read-only` |
 
-Production operations of a Bill of Materials strictly correspond to the stages of the linked production process.
+Features:
 
-It is not possible to simultaneously transfer the total production cost for the Bill of Materials and the production cost for a production operation.
+- Production operations of Bills of Materials strictly match the production operations in the positions of the linked Routing.  
+- You cannot simultaneously pass the total production cost for a Bill of Materials and the production cost for a production operation.  
+
+To use standard hours in labour cost calculation, you should first set the standard hour cost (`standardHourCost` field) in the [Production operation](../dictionaries/#entities-production-operations).  
+Then, you need to pass the activation flag (`enableHourAccounting=true`). Changing the value while the flag is enabled is not allowed — to pass a fixed value, the flag must be deactivated.  
+
+In new BOMs, labour cost calculation based on standard hours will be enabled automatically if a standard hour cost was previously set for the Production operation of the BOM.
+
 
 #### Raw Materials of Bills of Materials
 

@@ -7,22 +7,23 @@ Using the JSON API, you can query and update lists of Production Operations and 
 | Title | Type    | Filtration | Description |
 | ------- | ----- | ---------- | ----------- |
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **allPerformers**   | Boolean |  | Availability indicator for assignment to any employee stage<br>`+Required when replying` |
-| **archived** | Boolean                                            | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when replying` |
+**allPerformers**   | Boolean |  | Availability indicator for assignment to any employee stage<br>`+Required when replying` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when replying`  |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when replying` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when replying`  |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Production Operation ID<br>`+Required when replying` `+Read only` |
 | **materialStore** | [Meta](../#kladana-json-api-general-info-metadata) | | Material warehouse metadata<br>`+Read-only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Production Operation Metadata<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | 
+Production Operation Metadata<br>`+Required when replying` `+Read Only` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Production Operation Name<br>`+Required when replying` `+Required for creation` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **performers** | MetaArray | | Metadata of possible performers<br>`+Required when replying` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
-| **standardHourCost** | Double | | Standard Hour cost of a certain production operation<br>`+Required when replying` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Production Operation last update time<br>`+Required when replying` `+Read only` |
+| **standardHourCost**   | Double | | Standard Hour Cost<br>`+Required when replying` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Ешьу ща еру Production Operation last update <br>`+Required when replying` `+Read only` |
 
-Features of work:<br>
+Features:<br>
 If the allperformers flag=true AND the performers[] list is empty, then this state is: “Any active employee can be assigned as the performer of this stage.”<br>
 If the allperformers flag=false AND the performers[] list is empty, then this state is: “No one can be assigned as the performer of this stage.”<br>
 If the allperformers flag=false AND the performers[] list is returned with data, then this state is: “Only an employee from the selection can be assigned as the performer of this stage.”<br>
@@ -99,6 +100,7 @@ Successful request. The result is a JSON representation of the list of Productio
          }
        },
        "shared": true,
+       "standardHourCost": 0.0,
        "group": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/group/d0668856-8fd9-11ed-ac12-000e00000001",

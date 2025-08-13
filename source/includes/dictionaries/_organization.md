@@ -17,8 +17,8 @@ Search among objects of legal entities to match the search string will be carrie
 |----------------------------|----------------------------------------------------| -------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **accountId**              | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only`                                                                                                                                                                                     |
 | **actualAddress**          | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the legal entity                                                                                                                                                                                                       |
-| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address)                                                                        |
-| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when answering`                                                                                                                                                              |
+| **actualAddressFull**      | Object                                             | | The actual address of the Legal entity with details on individual fields. [Learn more](../dictionaries/#entities-entity-legal-entity-nested-entity-attributes-address)                                                                        |
+| **archived**               | Boolean                                            | `=` `!=` | Has the legal entity been added to the archive<br>`+Required when replying`                                                                                                                                                              |
 | **bonusPoints**            | Int                                                | | Bonus points for an active bonus program<br>`+Read Only`                                                                                                                                                                                 |
 | **bonusProgram**           | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active bonus program<br>`+Expand`                                                                                                                                                                                        |
 | **code**                   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Legal entity code                                                                                                                                                                                                                        |
@@ -61,7 +61,7 @@ Search among objects of legal entities to match the search string will be carrie
 | **utmUrl**                             | String(255)   | | UTM IP address                                                                                                                                  |
 
 #### Nested entity attributes
-#### Attributes of entity Address
+#### Address
 
 | Title | Type | Description|
 | ---------| -----| ----------|

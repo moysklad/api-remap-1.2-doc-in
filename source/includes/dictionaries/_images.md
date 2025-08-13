@@ -138,7 +138,7 @@ Successful request. Result is empty JSON.
 ```
 
 The link to download the image is in the `location` header. You can get the image from the link without authorization.
-The link is active for 5 minutes.
+The link is active for 1 minutes.
 
 
 ### Add Image to Product, Product Variant, Bundle

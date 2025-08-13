@@ -1,9 +1,7 @@
 ## Warehouse
-
 ### Warehouses
 
 The entity code for Warehouses in the JSON API is the **store** keyword.
-
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among warehouse objects for matching the search string will be carried out using the following fields:

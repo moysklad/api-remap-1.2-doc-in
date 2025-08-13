@@ -32,30 +32,30 @@ The fourth search condition for the fields of all contact persons of the counter
 
 | Title                  | Type                                               | Filtration | Description |
 |------------------------|----------------------------------------------------| -------- | -------- |
-| **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
-| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-accounts-of-counterparties)<br>`+Required when answering` `+Expand` |
+| **accountId**          | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accounts**           | MetaArray                                          | | Array of Counterparty accounts. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-accounts-of-counterparties)<br>`+Required when replying` `+Expand` |
 | **actualAddress**      | String(255)                                        | `=` `!=` `~` `~=` `=~` | Actual address of the Counterparty |
-| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address) |
-| **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when answering` |
+| **actualAddressFull**  | Object                                             | | The actual address of the Counterparty with details on individual fields. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-address) |
+| **archived**           | Boolean                                            | `=` `!=` | Has the Counterparty been added to the archive<br>`+Required when replying` |
 | **attributes**         | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata array fields |
 | **bonusPoints**        | Int                                                | | Bonus points for an active bonus program<br>`+Read Only` |
 | **bonusProgram**       | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the active Bonus Program<br>`+Expand` |
 | **code**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty Code |
-| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when replying` |
-| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-contact-persons-of-counterparties)<br>`+Expand`|
-| **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when answering` |
+| **companyType**        | Enum                                               | `=` `!=` | Counterparty type. Depending on the value of this field, the set of displayed details of the counterparty may change. [Learn more](../dictionaries/#entities-counterparty-counterparties-counterparty-type)<br>`+Required when answering` |
+| **contactpersons**     | MetaArray                                          | | An array of contact persons of the Counterparty's firm. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-contact-persons-of-counterparties)<br>`+Expand`|
+| **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` |
 | **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty |
 | **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty |
 | **discounts**          | Array(Object)                                      || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
 | **email**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | Email address |
 | **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty external code<br>`+Required when answering` |
 | **fax**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Fax number |
-| **files**              | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when answering` `+Expand` |
-| **group**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
-| **id**                 | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read only` |
-| **meta**               | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when answering` |
-| **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when answering` `+Required when creating` |
-| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [Learn more](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents)<br>`+Expand` |
+| **files**              | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **group**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
+| **id**                 | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read only` |
+| **meta**               | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of the Counterparty<br>`+Required when replying` |
+| **name**               | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty name<br>`+Required when replying` `+Required when creating` |
+| **notes**              | MetaArray                                          | | Array of Counterparty incidents. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-account-incidents)<br>`+Expand` |
 | **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
 | **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [Learn more](../dictionaries/#entities-price-type-price-types) |
@@ -82,7 +82,7 @@ or if the accumulative discount conditions **Percentage of discounts for a certa
 You can see the format for displaying discounts in the [Discounts](../dictionaries/#entities-discounts) section.
 
 #### Nested entity attributes
-#### Attributes of entity Address
+##### Address
 
 | Title | Type | Description |
 | -------| ------- | ----- |
@@ -178,18 +178,7 @@ If the counterparty type is `Legal entity. India`, the following fields of detai
 | **legalTitle**                    | Full name of the Counterparty     |
 | **tags**                          | Groups (array)                    |
 
-If the counterparty type is `Legal entity. International`, the following fields of details will be displayed:
-
-| Title                                            | Description                       |
-|--------------------------------------------------|-----------------------------------|
-| **mod\_\_requisites\_\_international.taxNumber** | Tax Number                        |
-| **mod\_\_requisites\_\_international.gstNumber** | GST/VAT Number                    |
-| **mod\_\_requisites\_\_international.country**   | Country of the Counterparty       |
-| **legalAddress**                                 | Legal address of the Counterparty |
-| **legalTitle**                                   | Full name of the Counterparty     |
-| **tags**                                         | Groups (array)                    |
-
-About working with Counterparty fields can be read [here](../#kladana-json-api-general-info-additional-fields)
+[Learn more](../#kladana-json-api-general-info-additional-fields) about working with Counterparty fields.
 
 
 ### Get a list of Counterparties
@@ -660,7 +649,7 @@ Result: JSON object including fields:
 Mandatory fields to create:
 
 | Title | Description |
-| ------------------------------ | :--------------------------- |
+| ----- | ----------- |
 | **name** | Name of the Counterparty |
 
 
@@ -2569,7 +2558,11 @@ curl -X POST
 
 #### Description
 
-Update the Counterparty account with the specified ID. Fields that were not specified in the JSON request are not changed.
+Update the Counterparty account with the specified ID. 
+
+All fields specified in the request JSON object are updated, except those marked as `Read only` in the description of [counterparty contact persons](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-contact-persons-of-counterparties).
+
+Fields that were not specified in the JSON request are not changed.
 
 > Example of a request to update a Counterparty account.
 
@@ -3114,7 +3107,8 @@ curl -X GET
 
 Update the incident of the Account with the specified id.
 All fields specified in the request JSON object are updated, except for
-marked `Read-only` in the description of ['s incident attributes](../dictionaries/#entities-counterparty-counterparties-attributes-of-entity-address-account-incidents).
+marked `Read-only` in the description of [counterparty incident attributes](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-account-incidents).
+
 Fields that were not specified in the request JSON are not changed.
 
 **Parameters**
