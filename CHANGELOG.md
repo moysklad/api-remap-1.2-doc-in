@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-## 16-05-2025
+## 25-08-2025
 ### Added
 - Field `applicable` in [Operation Report](https://dev.kladana.com/doc/api/remap/1.2/#transactions-operation-report)
 
