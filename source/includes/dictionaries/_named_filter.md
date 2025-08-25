@@ -1,6 +1,8 @@
 ## Saved filter
 ### Saved filters
 
+The entity code for Saved filters in the JSON API is the **namedfilter** keyword.
+
 Using the JSON API, you can get saved filters by ID and as a list.
 A saved filter is a set of parameters and their values configured by users,
 to filter the list of entities and documents.
@@ -16,11 +18,11 @@ Each entity type will have its own set of filtering options.
 
 | Title | Type                                               | Description|
 | ---------|----------------------------------------------------| ----------|
-| **accountId** | UUID                                               | Account ID<br>`+Required when answering` `+Read Only` |
-| **id** | UUID                                               | Filter ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Filter metadata<br>`+Required when answering` |
-| **name** | String                                             | Filter name<br>`+Required when answering` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when answering` `+Read-only` `+Expand` |
+| **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
+| **id** | UUID                                               | Filter ID<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Filter metadata<br>`+Required when replying` |
+| **name** | String                                             | Filter name<br>`+Required when replying` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read-only` `+Expand` |
 
 Request example:
 Entities and documents - ```/entity/[entityType]/namedfilter```

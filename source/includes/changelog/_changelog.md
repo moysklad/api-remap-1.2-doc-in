@@ -10,6 +10,74 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Field `applicable` in [Operation Report](../documents/#transactions-operation-report)
 
+### 08-08-2025
+#### Added
+- Information for working with header [Accept-Language](../#kladana-json-api-general-info-accept-language-header)
+
+### 07-08-2025
+#### Added
+- New notification type added [New event in the event feed](../notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
+- New notification group added [Followed events](../notification/#notifications-notification-settings-change-notification-settings)
+
+### 31-07-2025
+#### Added
+- link to Production Order in [Sales Order](../documents/#transactions-sales-order)
+- link to Production Order in [Internal Order](../documents/#transactions-internal-order)
+- link to Production Order in [Purchase Order](../documents/#transactions-purchase-order)
+- link to Production Order in [Receiving](../documents/#transactions-receiving)
+- link to Production Order in [Transfer](../documents/#transactions-transfer)
+- Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
+
+### 24-07-2025
+#### Fixed
+- Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
+
+### 22-07-2025
+#### Added
+- The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
+### 17-07-2025
+#### Added
+- Add new [error 13005](../#kladana-json-api-errors-error-codes-for-the-stock-report)
+
+### 10-07-2025
+#### Added
+- Add new [error 33013](../#kladana-json-api-errors-error-codes-for-printed-forms)
+
+### 09-07-2025
+#### Added
+- Add new [error 3043](..#kladana-json-api-errors-common-validation-errors)
+
+### 02-07-2025
+#### Fixed
+- Actualized [User Settings](../dictionaries/#entities-user-settings)
+
+### 01-07-2025
+#### Added
+- Field `plannedEndDate` in [Production Operations](../documents/#transactions-production-order-production-operations)
+
+### 09-06-2025
+#### Added
+- Description of `fields` parameter [Fields](../#kladana-json-api-general-info-what-is-fields)
+- [Brief Report on Warehouse Bin Balances](../reports/#reports-stock-report-get-a-brief-report-on-warehouse-bin-balances)
+
+### 03-06-2025
+#### Added
+- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
+- Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
+
+### 27-05-2025
+#### Added
+- New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
+
+### 20-05-2025
+#### Added
+- Add new [error 3042](..#kladana-json-api-errors-common-validation-errors)
+
+### 15-05-2025
+#### Changed
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
+
 ### 13-05-2025
 #### Added
 - Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)

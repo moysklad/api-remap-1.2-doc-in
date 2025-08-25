@@ -1,6 +1,8 @@
 ## Batch
 ### Batch
 
+The entity code for batches in the JSON API is the **consignment** keyword.
+
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the batches for matching the search string will be carried out using the following fields:
@@ -12,18 +14,20 @@ The search among the objects of the batches for matching the search string will 
 
 | Title | Type | Filtration | Description |
 | ------| ------ | ------ | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
-| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Link or product variant metadata<br>`+Required when responding` `+Required when creating` |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Batches barcodes |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Batches Code |
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **archived**     | Boolean | `=` `!=` | Whether the batch is archived<br>`+Required when replying`  |
+| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields of the batch<br>`+Required when replying` `+Required when creating` |
+| **assortment**   | [Meta](../#kladana-json-api-general-info-metadata) |  | Metadata of the product/service/bundle represented by the component<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Batch barcodes. To filter by this field, use its singular form - **barcode**. |
+| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Code |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Batches Description |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Batches Code<br>`+Required when answering` |
-| **id** | UUID | `=` `!=` | Batch ID<br>`+Required for response` `+Read only` |
+| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Batches Code<br>`+Required when replying` |
+| **id** | UUID | `=` `!=` | Batch ID<br>`+Required when replying` `+Read only` |
 | **images** | [Meta](../#kladana-json-api-general-info-metadata) | | Image of the product to which this batch belongs |
-| **label** | String(255) | | Batch Label<br>`+Required when answering` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Batches Metadata<br>`+Required when answering`|
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when answering` `+Read Only` |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **label** | String(255) | | Batch Label<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Batches Metadata<br>`+Required when replying`|
+| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
+| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 #### Nested entity attributes
 ##### Batch Metadata
@@ -65,7 +69,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON representation of a list of custom batches.
 
 ```json
@@ -102,6 +106,7 @@ Successful request. The result is a JSON representation of a list of custom batc
        "updated": "2017-05-12 10:51:15",
        "name": "product/consignment",
        "code": "1012",
+       "archived": false,
        "externalCode": "g9BOLNRZglk9NMOHxcrVV0",
        "label": "consignment",
        "barcodes": [
@@ -146,7 +151,7 @@ Request to create a new batch. To successfully create a batch, the fields must b
 
 ```shell
    curl -X POST
-     "\https://api.kladana.com/api/remap/1.2/entity/consignment"
+     "https://api.kladana.com/api/remap/1.2/entity/consignment"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -174,7 +179,7 @@ Request to create a new batch. To successfully create a batch, the fields must b
         }'
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON representation of the created batches.
 
 ```json
@@ -190,6 +195,7 @@ Successful request. The result is a JSON representation of the created batches.
    "updated": "2016-07-26 12:05:25",
    "name": "fatsfatsfvf (dfvtsf) / Label",
    "externalCode": "NptSJ1REgVkhqCV0RlyfV0",
+   "archived": false,
    "label": "Label",
    "barcodes": [
      {
@@ -231,7 +237,7 @@ curl -X DELETE
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful deletion of the Batches.
 
 ### Batches bulk delete
@@ -351,7 +357,7 @@ Updated batches must contain the identifier in the form of metadata.
            ]'
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON array of representations of the created and updated batches.
 
 ```json
@@ -368,6 +374,7 @@ Successful request. The result is a JSON array of representations of the created
      "updated": "2016-07-26 12:05:25",
      "name": "fatsfatsfvf (dfvtsf) / Label",
      "externalCode": "NptSJ1REgVkhqCV0RlyfV0",
+     "archived": false,
      "label": "Label",
      "barcodes": [
        {
@@ -402,6 +409,7 @@ Successful request. The result is a JSON array of representations of the created
      "name": "fatsfatsfvf (obkhets) / Strange goods",
      "description": "It's better to track product batches with this name",
      "code": "ke21k421c1o42n4signment12",
+     "archived": false,
      "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",
      "label": "Strange Goods",
      "barcodes": [
@@ -448,7 +456,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON representation of the batches metadata.
 
 ```json
@@ -504,7 +512,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON representation of a separate additional fields.
 
 ```json
@@ -542,7 +550,7 @@ curl -X GET
    -H "Accept-Encoding: gzip"
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON representation of the custom batches.
 
 ```json
@@ -558,6 +566,7 @@ Successful request. The result is a JSON representation of the custom batches.
    "updated": "2017-05-12 10:51:15",
    "name": "product/consignment",
    "code": "1012",
+   "archived": false,
    "externalCode": "g9BOLNRZglk9NMOHxcrVV0",
    "label": "consignment",
    "barcodes": [
@@ -636,7 +645,7 @@ Batches update request. You can only update fields that are not marked `Read Onl
            }'
 ```
 
-> Response 200(application/json)
+> Response 200 (application/json)
 Successful request. The result is a JSON representation of the updated batches.
 
 ```json
@@ -653,6 +662,7 @@ Successful request. The result is a JSON representation of the updated batches.
    "name": "fatsfatsfvf (obkhets) / Strange goods",
    "description": "It's better to track product batches with this name",
    "code": "ke21k421c1o42n4signment12",
+   "archived": false,
    "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",
    "label": "Strange Goods",
    "barcodes": [

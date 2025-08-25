@@ -18,32 +18,32 @@ Kladana JSON API allows you to create and update information about Sales Orders,
 | **deleted** | Datetime                                           | `=` `!=` `<` `>` `<=` `>=` | The Sales Order last deletion date and time<br>`+Read Only` |
 | **deliveryPlannedMoment** | Datetime                                           | `=` `!=` `<` `>` `<=` `>=` | Estimated date of shipment<br>`+Change-handler` `+Update-provider` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Sales Order Comment<br>`+Change-handler` `+Update-provider` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Order External Code<br>`+Required for response``+Change-handler` `+Update-provider` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Order External Code<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **files** | MetaArray                                          | | Files array metadata. Maximum number of files - 100<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Sales Order ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **invoicedSum** | Float                                              | | Sales invoice amount<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Order Metadata<br>`+Required when replying``+Change-handler` |
-| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The date of transaction<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Order Name<br>`+Required for response``+Change-handler` `+Update-provider` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
+| **moment** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The date of transaction<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Order Name<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating``+Change-handler` `+Update-provider` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **paidSum** | Float                                              | | Amount of incoming payments for the Sales Order<br>`+Required when replying` `+Read-only``+Change-handler` |
-| **positions** | MetaArray                                          | | Sales Order item metadata<br>`+Required for response` `+Expand``+Change-handler` `+Update-provider` |
-| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray                                          | | Sales Order item metadata<br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
+| **printed** | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **published** | Boolean                                            | `=` `!=` | Is the transaction published or not<br>`+Required when replying` `+Read Only` |
-| **rate** | Object   | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
+| **rate** | Object                                             | | Currency<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **reservedSum** | Float                                              | | Amount of reserved products<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **shipmentAddress** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Sales Order Delivery Address<br>`+Change-handler` |
 | **shipmentAddressFull** | Object                                             | | Delivery address of the Sales Order with individual fields details. [Learn more](../documents/#transactions-sales-order-sales-orders-entity-attributes-39-delivery-address-39)<br>`+Change-handler` |
-| **shippedSum** | Float                                              | | Amount of shipped products<br>`+Required for response` `+Read-only``+Change-handler` |
+| **shippedSum** | Float                                              | | Amount of shipped products<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Order status metadata<br>`+Expand``+Change-handler` `+Update-provider` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Expand``+Change-handler` `+Update-provider` |
-| **sum** | Int                                                | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
+| **sum** | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Amount of the Sales Order in the specified currency<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID. Cannot be edited |
 | **taxSystem** | Enum                                               | | Tax system code. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Change-handler` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Date and time of the Sales Order last update<br>`+Required when replying` `+Read-only``+Change-handler` |
@@ -64,6 +64,7 @@ The values of the `taxSystem` field.
 | **purchaseOrders** | Array of links to the related Purchase Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **demands** | Array of links to the related Shipments in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **payments** | Array of links to the related Payments in the [metadata](../#kladana-json-api-general-info-metadata)format|
+| **productionTasks** | Array of links to the related Production Orders in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **invoicesOut** | Array of links to the related Sales Invoices in the [metadata](../#kladana-json-api-general-info-metadata)format|
 | **moves** | Array of links to the related Transfers in the [metadata](../#kladana-json-api-general-info-metadata)format|
 
@@ -76,7 +77,7 @@ Sales Order items are arranged as a list of objects (products, services, variant
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read-only``+Change-handler` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of an item (product/service/bundle/variant) <br>`+Required when replying` `+Expand``+Change-handler` `+Update-provider` |
 | **discount** | Float                                                | The percentage of a discount or a margin. The margin is indicated as a negative number, i.e. -10 creates 10% margin<br>`+Required when replying``+Change-handler` `+Update-provider` |
-| **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only``+Change-handler` `+Update-provider` |
+| **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read-only``+Change-handler` `+Update-provider` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging)<br>`+Change-handler` `+Update-provider` |
 | **price** | Float                                              | Price of a product/service in paise<br>`+Required when replying``+Change-handler` `+Update-provider` |
 | **quantity** | Float                                               | The number of product/service items of a certain type. If the item is a product that has tracking by serial numbers enabled, the value in this field is always equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying``+Change-handler` `+Update-provider `|

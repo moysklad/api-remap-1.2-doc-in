@@ -5,43 +5,43 @@ Using the JSON API, you can create and update information about Sales Returns, q
 ### Sales Returns
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------ | ------- | -------- | -------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| Title | Type                                              | Filtration | Description |
+| ------ |---------------------------------------------------| -------- | -------- |
+| **accountId** | UUID                                              | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` `+Change-handler` |
-| **applicable** | Boolean | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return code |
+| **applicable** | Boolean                                           | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
+| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) `+Change-handler` |
+| **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Sales Return code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` `+Change-handler` |
-| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Last delete date in Sales Return<br>`+Read Only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Sales Return Comment<br>`+Change-handler` |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return External Code<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata. The maximum number of files is 100<br>`+Required when replying` `+Expand` |
+| **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Last delete date in Sales Return<br>`+Read Only` |
+| **description** | String(4096)                                      | `=` `!=` `~` `~=` `=~` | Sales Return Comment<br>`+Change-handler` |
+| **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Sales Return External Code<br>`+Required when replying` `+Change-handler` |
+| **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata. The maximum number of files is 100<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Sales Return ID<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Return Metadata<br>`+Required in response` `+Change-handler` |
-| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Transaction date<br>`+Required when replying` `+Change-handler` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Sales Return Name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
+| **id** | UUID                                              | `=` `!=` | Sales Return ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Sales Return Metadata<br>`+Required when replying` `+Change-handler` |
+| **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Transaction date<br>`+Required when replying` `+Change-handler` |
+| **name** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Sales Return Name<br>`+Required when replying` `+Change-handler` |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` `+Change-handler` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **positions** | MetaArray | | Sales Return item metadata<br>`+Required in response` `+Expand` `+Change-handler` |
-| **printed** | Boolean | `=` `!=` | Is the transaction printed or not<br>`+Required when responding` `+Read Only` |
+| **positions** | MetaArray                                         | | Sales Return item metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
+| **printed** | Boolean                                           | `=` `!=` | Is the transaction printed or not<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
-| **published** | Boolean | `=` `!=`| Document publication status (yes/no) <br>`+Required when replying` `+Read Only` |
-| **rate** | Object | | Currency [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
+| **published** | Boolean                                           | `=` `!=`| Document publication status (yes/no) <br>`+Required when replying` `+Read Only` |
+| **rate** | Object                                            | | Currency [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
 | **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                           | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales Return<br>`+Expand` status metadata `+Change-handler` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when responding` `+Expand` `+Required when creating` `+Change-handler` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Sales Return Total in paisas<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Sales Return Last update date<br>`+Required for response` `+Read-only` `+Change-handler` |
-| **vatEnabled** | Boolean | | Is VAT taken into account or not<br>`+Required when replying` `+Change-handler` |
-| **vatIncluded** | Boolean | | Is VAT included in the price of `+Change-handler` or not|
-| **vatSum** | Float | | VAT amount<br>`+Required when replying` `+Change-handler` |
+| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
+| **sum** | Float                                             | `=` `!=` `<` `>` `<=` `>=` | Sales Return Total in paisas<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Sales Return Last update date<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatEnabled** | Boolean                                           | | Is VAT taken into account or not<br>`+Required when replying` `+Change-handler` |
+| **vatIncluded** | Boolean                                           | | Is VAT included in the price of `+Change-handler` or not|
+| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` `+Change-handler` |
 
 #### Links to other documents
 
@@ -65,7 +65,7 @@ The Sales Return element object contains the following fields:
 | **cost** | Int                                                | Cost price. It is displayed only for Unreferenced Return (Return with no reason) |
 | **country** | [Meta](../#kladana-json-api-general-info-metadata) | Country Metadata<br>`+Expand` |
 | **discount** | Float                                                | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Change-handler` |
-| **id** | UUID                                               | Item ID<br>`+Required for response` `+Read-only` `+Change-handler` |
+| **id** | UUID                                               | Item ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **pack** | Object                                             | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) <br>`+Change-handler` |
 | **price** | Float                                              |Price of products/services in paise<br>`+Required when replying` `+Change-handler` |
 | **quantity** | Float                                               | The number of products/services of this type in the item. If the item is a product with serial number accounting enabled, then the value in this field will always be equal to the number of serial numbers for this item in the transaction.<br>`+Required when replying` `+Change-handler` |

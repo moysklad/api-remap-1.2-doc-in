@@ -5,41 +5,41 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 ### Purchase Returns
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ----------| --------- | -------- | ----------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| Title | Type                                              | Filtration | Description |
+| ----------|---------------------------------------------------| -------- | ----------- |
+| **accountId** | UUID                                              | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **agentAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Counterparty account metadata<br>`+Expand` |
-| **applicable** | Boolean | `=` `!=` | Check mark<br>`+Required when replying` |
-| **attributes** | Array(Object) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
+| **applicable** | Boolean                                           | `=` `!=` | Check mark<br>`+Required when replying` |
+| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields) |
+| **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Supplier Return Code |
 | **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand` |
-| **created** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
-| **deleted** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required in response` |
-| **files** | MetaArray | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
+| **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
+| **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Time of last Purchase Returns deletion<br>`+Read-only` |
+| **description** | String(4096)                                      | `=` `!=` `~` `~=` `=~` | Comment Purchase Returns|
+| **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Purchase Returns External Code<br>`+Required when replying` |
+| **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID | `=` `!=` | Purchase Returns ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required in response` |
-| **moment** | DateTime | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
+| **id** | UUID                                              | `=` `!=` | Purchase Returns ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Purchase Returns Metadata<br>`+Required when replying` |
+| **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` |
+| **name** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Item Returned to Supplier<br>`+Required when replying` |
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` |
 | **organizationAccount** | [Meta](../#kladana-json-api-general-info-metadata) | | Legal entity account metadata<br>`+Expand` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when responding` `+Read Only` |
+| **printed** | Boolean                                           | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
-| **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
-| **rate** | Object | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
-| **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when replying` |
+| **published** | Boolean                                           | `=` `!=` | Is the document published<br>`+Required when replying` `+Read-only`|
+| **rate** | Object                                            | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` |
+| **shared** | Boolean                                           | `=` `!=` | Sharing<br>`+Required when replying` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Purchase Returns status metadata<br>`+Expand` |
 | **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **sum** | Int | `=` `!=` `<` `>` `<=` `>=` | Purchase Returns total amount in paise<br>`+Required when replying` `+Read Only` |
-| **syncId** | UUID | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
-| **vatEnabled** | Boolean | | Is VAT taken into account<br>`+Required when replying` |
-| **vatIncluded** | Boolean | | Is VAT included in the price |
-| **vatSum** | Float | | VAT amount<br>`+Required when replying` |
+| **sum** | Float                                             | `=` `!=` `<` `>` `<=` `>=` | Purchase Returns total amount in paise<br>`+Required when replying` `+Read Only` |
+| **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change |
+| **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
+| **vatEnabled** | Boolean                                           | | Is VAT taken into account<br>`+Required when replying` |
+| **vatIncluded** | Boolean                                           | | Is VAT included in the price |
+| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` |
 
 #### Links to other documents
 

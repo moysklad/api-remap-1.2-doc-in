@@ -33,17 +33,17 @@ The context contains only general information about the events related to it.
 
 | Title | Type | Description |
 | ----------------- | ------- |-------------- |
-| **entityType** | Enum | Entity name (the field is present only if it is the same for all Events within this Context)<br>`+Required for response` `+Read Only` |
-| **eventType** | Enum | Event Action (the field is present only if it is the same for all Events within the given Context)<br>`+Required for response` `+Read Only` |
-| **events** | Array(Object) | List of Method Audit Events<br>`+Required for response` `+Read Only` |
-| **id** | UUID | Context ID<br>`+Required for response` `+Read Only` |
+| **entityType** | Enum | Entity name (the field is present only if it is the same for all Events within this Context)<br>`+Required when replying` `+Read Only` |
+| **eventType** | Enum | Event Action (the field is present only if it is the same for all Events within the given Context)<br>`+Required when replying` `+Read Only` |
+| **events** | Array(Object) | List of Method Audit Events<br>`+Required when replying` `+Read Only` |
+| **id** | UUID | Context ID<br>`+Required when replying` `+Read Only` |
 | **info** | String(255) | Short Description<br>`+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Context entity metadata<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Context entity metadata<br>`+Required when replying` `+Read-only` |
 | **moment** | DateTime | Modified date<br>`+Required when replying` `+Read only` |
-| **objectCount** | Int | number of objects changed<br>`+Required for response` `+Read only` |
+| **objectCount** | Int | number of objects changed<br>`+Required when replying` `+Read only` |
 | **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying` |
-| **source** | Enum | Type of change<br>`+Required for response` `+Read only` |
-| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only` |
+| **source** | Enum | Type of change<br>`+Required when replying` `+Read only` |
+| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required when replying` `+Read-Only` |
 | **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only` |
 
 Possible values for the `source` parameter are listed below:
@@ -53,7 +53,7 @@ Possible values for the `source` parameter are listed below:
 | **registration** | Account registration |
 | **clearrecyclebin** | Automatic emptying of the basket |
 | **combine** | Association |
-| **bulkcreate** | Bulk create |
+| **bulkcreate** | Bulk creation |
 | **connectors** | Synchronization with MI |
 | **copy** | Copy |
 | **emailsend** | Sending a message |
@@ -245,17 +245,17 @@ more about which below.
 | Title | Type | Description                                                                                                                                                                                                   |
 | ----------| -----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **additionalInfo** | String(4096) | Additional Event Information<br>`+Read Only`                                                                                                                                                                  |
-| **audit** | Enum | Context metadata<br>`+Required for response` `+Read-only`                                                                                                                                                     |
-| **diff** | object | Changes occurred in the Event, in the special 'diff' format described in the ['diff' field format](../audit/#audit-audit-events-39-diff-39-field-format) section<br>`+Required for response` `+Only for reading` |
+| **audit** | Enum | Context metadata<br>`+Required when replying` `+Read-only`                                                                                                                                                     |
+| **diff** | object | Changes occurred in the Event, in the special 'diff' format described in the ['diff' field format](../audit/#audit-audit-events-39-diff-39-field-format) section<br>`+Required when replying` `+Only for reading` |
 | **entities** | [Meta](../#kladana-json-api-general-info-metadata) | Entity metadata. Will not be displayed only for products, services, product variants, bundles deleted before 20.08.2017<br>`+Read only`                                                                             |
-| **entityType** | Enum | Entity name<br>`+Required for response` `+Read only`                                                                                                                                                          |
-| **eventType** | Enum | Event Action<br>`+Required on response` `+Read-only`                                                                                                                                                          |
-| **moment** | DateTime | Event creation time<br>`+Required for response` `+Read-only`                                                                                                                                                  |
-| **name** | String(255) | Entity name<br>`+Required for response` `+Read-only`                                                                                                                                                          |
-| **objectCount** | Int | number of objects changed<br>`+Required for response` `+Read only`                                                                                                                                            |
+| **entityType** | Enum | Entity name<br>`+Required when replying` `+Read only`                                                                                                                                                          |
+| **eventType** | Enum | Event Action<br>`+Required when replying` `+Read-only`                                                                                                                                                          |
+| **moment** | DateTime | Event creation time<br>`+Required when replying` `+Read-only`                                                                                                                                                  |
+| **name** | String(255) | Entity name<br>`+Required when replying` `+Read-only`                                                                                                                                                          |
+| **objectCount** | Int | number of objects changed<br>`+Required when replying` `+Read only`                                                                                                                                            |
 | **objectType** | Enum | The type of entities this change is associated with. This field is only present for `entityType` = `entitysettings` or `statesettings` or `templatesettings`<br>`+Required when replying`                     |
-| **source** | Enum | Type of change<br>`+Required for response` `+Read only`                                                                                                                                                       |
-| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required on response` `+Read-Only`                                                               |
+| **source** | Enum | Type of change<br>`+Required when replying` `+Read only`                                                                                                                                                       |
+| **supportAccess** | Boolean | Whether the access was made by support on behalf of the user. The flag is omitted if the value is false<br>`+Required when replying` `+Read-Only`                                                               |
 | **id** | String(255) | Employee Login<br>`+Required when replying` `+Read Only`                                                                                                                                                      |
 
 #### 'Diff' field format
@@ -295,16 +295,16 @@ For entity creation events, the ``diff`` field will be absent.
 
 | Title | Type | Description |
 | ----------------- | ---------- | -----------------|
-| **attributeName** | String(255) | Entity attribute name<br>`+Required for response` `+Read-only` |
-| **oldValue** | Boolean | Attribute value before deletion<br>`+Required for response` `+Read only` |
+| **attributeName** | String(255) | Entity attribute name<br>`+Required when replying` `+Read-only` |
+| **oldValue** | Boolean | Attribute value before deletion<br>`+Required when replying` `+Read only` |
 
 #### Events for updating entities, moving/restoring from trash, moving/restoring from archive
 
 | Title | Type | Description |
 | ------| -----| ------------|
-| **attributeName** | String(255) | Entity attribute name<br>`+Required for response` `+Read-only` |
-| **oldValue** | Boolean | Attribute value before deletion<br>`+Required for response` `+Read only` |
-| **newValue** | Boolean | Attribute value after update<br>`+Required for response` `+Read-only` |
+| **attributeName** | String(255) | Entity attribute name<br>`+Required when replying` `+Read-only` |
+| **oldValue** | Boolean | Attribute value before deletion<br>`+Required when replying` `+Read only` |
+| **newValue** | Boolean | Attribute value after update<br>`+Required when replying` `+Read-only` |
 
 ### Get Events by Context
 Request to receive Context events with the specified ID. Result: JSON object including fields:
@@ -524,7 +524,7 @@ Filtering can be done by the fields described below.
 | **registration** | Account registration |
 | **clearrecyclebin** | Automatic emptying of the basket |
 | **combine** | Association |
-| **bulkcreate** | Bulk create |
+| **bulkcreate** | Bulk creation |
 | **connectors** | Synchronization with MI |
 | **copy** | Copy |
 | **emailsend** | Sending a message |

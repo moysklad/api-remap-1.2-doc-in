@@ -18,7 +18,7 @@ The search among employee objects for matching the search string will be carried
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when answering` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
-| **created** | DateTime                                           | | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **created** | DateTime                                           | | Employee Creation Time<br>`+Required when replying` `+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Employee |
 | **email** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Email |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when answering` |
@@ -28,11 +28,11 @@ The search among employee objects for matching the search string will be carried
 | **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when answering` `+Read Only` |
 | **images** | Object                                             | | Photo of an employee. [Learn more](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
 | **inn** | String(255)                                        | | TIN of the employee (in the format of the TIN of an individual) |
-| **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when answering` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
+| **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when replying` |
 | **middleName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Middle name |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when answering` `+Expand` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when replying` `+Read Only` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **phone** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee phone |
 | **position** | String(255)                                        | | Employee position |
 | **salary** | Object | | Employee salary  |
@@ -844,31 +844,31 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
   Entity Permission List
  
 
-| Title | Possible values | Default value | Description |
-| ------- | -------- | ------- | -------- |
-| **GTINList** | view, create, delete | All NO | GTIN List |
-| **accountAdjustment** | DICTIONARY | All ALL | Adjustment of account balances |
-| **bonustransaction** | OPERATION | All ALL | Bonus points |
-| **cashIn** | OPERATION | All ALL | Receipt order |
-| **cashOut** | OPERATION | All ALL | Disbursement order |
-| **cashboxAdjustment** | DICTIONARY | All ALL | Balance Adjustment |
-| **company** | DICTIONARY | All ALL | Counterparties |
-| **contract** | DICTIONARY | All ALL | Contracts |
+| Title | Possible values | Default value | Description                                    |
+| ------- | -------- | ------- |------------------------------------------------|
+| **GTINList** | view, create, delete | All NO | GTIN List                                      |
+| **accountAdjustment** | DICTIONARY | All ALL | Adjustment of account balances                 |
+| **bonustransaction** | OPERATION | All ALL | Bonus points                                   |
+| **cashIn** | OPERATION | All ALL | Receipt order                                  |
+| **cashOut** | OPERATION | All ALL | Disbursement order                             |
+| **cashboxAdjustment** | DICTIONARY | All ALL | Balance Adjustment                             |
+| **company** | DICTIONARY | All ALL | Counterparties                                 |
+| **contract** | DICTIONARY | All ALL | Contracts                                      |
 | **counterpartyAdjustment** | DICTIONARY | All ALL | Adjustment of counterparty or employee balances |
-| **country** | base | All ALL | Countries |
-| **crptCancellation** | DICTIONARY | All NO | Writing off marking codes |
-| **crptPackageCreation** | DICTIONARY | All NO | Formation of packaging |
-| **crptPackageDisaggregation** | DICTIONARY | All NO | Unpacking |
-| **crptPackageItemRemoval** | DICTIONARY | All NO | Unpacking |
-| **currency** | base| All ALL | Currencies |
-| **customEntity** | base | All ALL | Elements of user directories |
-| **customerOrder** | OPERATION | All ALL | Order to buyers |
-| **demand** | OPERATION | All ALL | Shipment |
-| **emissionOrder** | DICTIONARY | All NO | Order marking codes |
-| **utilizationReport** | DICTIONARY | All NO | Usage Report |
-| **atkAggregation** | DICTIONARY | All NO | Formation of ATK |
-| **retireOrderOSU** | DICTIONARY | All NO | Write-off from circulation OSU |
-| **employees** | base | All ALL | Employees |
+| **country** | base | All ALL | Countries                                      |
+| **crptCancellation** | DICTIONARY | All NO | Writing off marking codes                      |
+| **crptPackageCreation** | DICTIONARY | All NO | Formation of packaging                         |
+| **crptPackageDisaggregation** | DICTIONARY | All NO | Unpacking                                      |
+| **crptPackageItemRemoval** | DICTIONARY | All NO | Unpacking                                      |
+| **currency** | base| All ALL | Currencies                                     |
+| **customEntity** | base | All ALL | Elements of user directories                   |
+| **customerOrder** | OPERATION | All ALL | Order to buyers                                |
+| **demand** | OPERATION | All ALL | Shipment                                       |
+| **emissionOrder** | DICTIONARY | All NO | Order marking codes                            |
+| **utilizationReport** | DICTIONARY | All NO | Usage Report                                   |
+| **atkAggregation** | DICTIONARY | All NO | Formation of ATK                               |
+| **retireOrderOSU** | DICTIONARY | All NO | Write-off from circulation OSU                 |
+| **employees** | base | All ALL | Employees                                      |
 | **enrollOrder** | DICTIONARY | All NO | Introduction of marking codes into circulation |
 | **enter** | OPERATION | All ALL | Posting |
 | **good** | DICTIONARY | All ALL | Goods and Services |
@@ -886,7 +886,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **processingStage** | base | All ALL | Stages of production |
 | **processingProcess** | base | All ALL | Routing |
 | **productionTask**   | OPERATION | All ALL  | Production Orders              |
-| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report|
+| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report |
 | **project** | base | All ALL | Projects |
 | **purchaseOrder** | OPERATION | All ALL | Order to suppliers |
 | **purchaseReturn** | OPERATION | All ALL | Return to supplier |
@@ -895,6 +895,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **retailDemand** | OPERATION | All ALL | Sales |
 | **retailSalesReturn** | OPERATION | All ALL | Returns |
 | **retireOrder** | DICTIONARY | All NO | Write-off from circulation |
+| **salesChannel** | BASE | All ALL | Sales Channel |
 | **salesReturn** | OPERATION | All ALL | Sales Return |
 | **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
@@ -1103,7 +1104,13 @@ Successful request. The result is a JSON representation of information about the
                 "delete": "ALL",
                 "approve": "ALL"
             },
-           
+            "salesChannel": {
+              "view": "ALL",
+              "print": "ALL",
+              "create": "ALL",
+              "update": "ALL",
+              "delete": "ALL"
+            },
             "warehouse": {
                 "view": "ALL",
                 "create": "ALL",

@@ -1,6 +1,8 @@
 ## Webhooks
 Using the JSON API, you can work with webhooks.
 
+The entity code for webhooks in the JSON API is the **webhook** keyword.
+
 A webhook is a mechanism for sending notifications. A notification is sent when there is a change in the system that tracks the webhook. For example, if you enable a product webhook, when you change the product name, you receive a notification with a link to the changed product. Read more about working with webhooks in [Webhooks](../workbook/#workbook-webhooks).
 
 Using API version 1.2, you can view, modify, delete webhooks created only using API version 1.2.
@@ -43,16 +45,16 @@ An example of how the data will be transmitted:
 
 | Title | Type   | Description |
 | ------- |--------|---------- |
-| **events** | Object | Data about the event that triggered the webhook<br>`+Required for response` |
+| **events** | Object | Data about the event that triggered the webhook<br>`+Required when replying` |
 | **auditContext** | Object | Audit context corresponding to the webhook event |
 
 #### Event entity attributes
 
 | Title | Type | Description |
 | ------- | ------- |--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Changed entity metadata<br>`+Required when answering` |
-| **action** | Enum | The action that triggered the webhook. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Required for response` |
-| **accountId** | UUID | Cashier account ID<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Changed entity metadata<br>`+Required when replying` |
+| **action** | Enum | The action that triggered the webhook. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Required when replying` |
+| **accountId** | UUID | Cashier account ID<br>`+Required when replying` |
 | **updatedFields** | Array(String) | Entity fields modified by the user |
 
 To display an entity attribute, the **updatedFields** event needs the webhook to have **diffType=FIELDS** and **action=UPDATE**
@@ -60,9 +62,9 @@ To display an entity attribute, the **updatedFields** event needs the webhook to
 #### Audit context entity attributes
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------|--------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Audit context metadata<br>`+Required in response` |
-| **id** | String(255)                                        | Employee Login<br>`+Required when answering` `+Read Only` |
-| **moment** | DateTime                                           | Modified date<br>`+Required when answering` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Audit context metadata<br>`+Required when replying` |
+| **id** | String(255)                                        | Employee Login<br>`+Required when replying` `+Read Only` |
+| **moment** | DateTime                                           | Modified date<br>`+Required when replying` `+Read only` |
 
 There can be several objects in the **events** array. Request parameter **requestId** - notification identifier.
 
@@ -101,16 +103,16 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 
 | Title | Type | Description |
 | ------- | ------- |---------|
-| **accountId** | UUID | Account ID<br>`+Required when answering` |
-| **action** | Enum | The action that the webhook is tracking. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`. Setting `PROCESSED` is only possible for [asynchronous tasks](../#kladana-json-api-asynchronous-exchange)<br>`+Required when responding` `+Required when creating` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` |
+| **action** | Enum | The action that the webhook is tracking. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`. Setting `PROCESSED` is only possible for [asynchronous tasks](../#kladana-json-api-asynchronous-exchange)<br>`+Required when replying` `+Required when creating` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application that created the webhook<br> |
 | **diffType** | Enum | Entity change display mode. Only specified for the `UPDATE` action. Possible values: `[NONE, FIELDS]` (default `NONE`) |
-| **enabled** | Boolean | Webhook status checkbox (enabled / disabled)<br>`+Required when answering` |
-| **entityType** | String(255) | The type of the entity that the webhook is bound to<br>`+Required when responding` `+Required when creating` |
-| **id** | UUID | Webhook ID<br>`+Required when answering` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Webhook metadata<br>`+Required when answering` |
-| **method** | Enum| The HTTP method with which the request will be made. Possible values: `POST`<br>`+Required when answering` |
-| **url** | URL | The URL to which the request will be made. Allowed length is up to 255 characters<br>`+Required when answering` `+Required when creating` |
+| **enabled** | Boolean | Webhook status checkbox (enabled / disabled)<br>`+Required when replying` |
+| **entityType** | String(255) | The type of the entity that the webhook is bound to<br>`+Required when replying` `+Required when creating` |
+| **id** | UUID | Webhook ID<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Webhook metadata<br>`+Required when replying` |
+| **method** | Enum| The HTTP method with which the request will be made. Possible values: `POST`<br>`+Required when replying` |
+| **url** | URL | The URL to which the request will be made. Allowed length is up to 255 characters<br>`+Required when replying` `+Required when creating` |
 
 #### Available entity types
 Creating webhooks is available for all entity and document types, except for the following:
