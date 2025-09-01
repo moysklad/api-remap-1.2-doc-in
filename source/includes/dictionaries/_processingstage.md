@@ -115,6 +115,7 @@ Successful request. The result is a JSON representation of the list of Productio
        "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
        "archived": false,
        "allPerformers": false,
+       "distributionRequired" : false,
        "performers": [
         {
           "meta": {
@@ -195,6 +196,7 @@ Successful request. The result is a JSON representation of the created Productio
    "externalCode": "456",
    "archived": false,
    "allPerformers": true,
+   "distributionRequired" : false,
    "performers": []
 }
 ```
@@ -268,6 +270,7 @@ Successful request. The result is a JSON array of representations of the created
      "externalCode": "hsthsrehs",
      "archived": false,
      "allPerformers": true,
+     "distributionRequired" : false,
      "performers": []
    },
    {
@@ -305,6 +308,7 @@ Successful request. The result is a JSON array of representations of the created
      "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
      "archived": false,
      "allPerformers": true,
+     "distributionRequired" : false,
      "performers": []
    }
 ]
@@ -433,6 +437,7 @@ Successful request. The result is a JSON representation of the Production Operat
    "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
    "archived": false,
    "allPerformers": true,
+   "distributionRequired" : false,
    "performers": []
 }
 ```
@@ -506,6 +511,7 @@ Successful request. The result is a JSON representation of the Production Operat
    "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
    "archived": false,
    "allPerformers" : false,
+   "distributionRequired" : false,
   "performers": [
     {
       "meta": {
