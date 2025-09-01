@@ -1127,7 +1127,7 @@ curl -X POST
 }
 ```
 
-When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. Learn more about [the fields parameter](#kladana-json-api-general-info-what-is-fields).
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. Learn more about [the fields parameter](#kladana-json-api-general-info-using-the-fields-parameter).
 
 For example:
 
