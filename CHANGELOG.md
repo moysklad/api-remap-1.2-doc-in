@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 11-09-2025
+#### Added
+- Error [26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-orders)
+
 ### 25-08-2025
 #### Added
 - Field `applicable` in [Operation Report](https://dev.kladana.com/doc/api/remap/1.2/#transactions-operation-report)

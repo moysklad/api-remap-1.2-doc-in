@@ -389,8 +389,8 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Production Orders
 
-| Error code | Message | Description |
-| ---------- | ------- | ----------- |
+| Error code                      | Message | Description |
+|---------------------------------| ------- | ----------- |
 | <a name="error_26101">26101</a> | Error saving production order: the number of items cannot exceed {maximum quantity} | A production order can contain up to 200 items |
 | <a name="error_26102">26102</a> | Error saving production order: you cannot start executing an unposted production order | |
 | <a name="error_26103">26103</a> | Error saving production order: you cannot remove the production start date from a started production order | Before canceling the start of production, you must cancel the execution of all operations |
@@ -405,6 +405,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26112">26112</a> | Error updating Production Order: field {date field} cannot be assigned a value after {date} | The field has limitations and dependencies. A date before the specified one must be passed |
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
 | <a name="error_26114">26114</a> | Production stage update error: cannot enable standard hours calculation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the production stage. When standard hours calculation is enabled, the `labourUnitCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
+| <a name="error_26115">26115</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
 
 ### Error codes for Operation Reports
 

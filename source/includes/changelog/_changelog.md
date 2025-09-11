@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 11-09-2025
+#### Added
+- Error [26115](../#kladana-json-api-errors-error-codes-for-production-orders)
+
 ### 25-08-2025
 #### Added
 - Field `applicable` in [Operation Report](../documents/#transactions-operation-report)
