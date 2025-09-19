@@ -664,7 +664,7 @@ Use the report if you need to monitor the balance of a large number of goods and
  
 Differences from the Advanced balance report:
 
-- Only the administrator can request the Brief Stock Report.
+- Only the administrator or an employee with the Stock permission can request the Brief Stock Report.
 - You can get a report with a large amount of data much faster.
 - All data is transmitted in one response, without the need for paging.
 - The number of products in stock is indicated excluding nested warehouses.
