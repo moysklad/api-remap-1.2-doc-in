@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 22-09-2025
+#### Changed
+- Access to the [Brief Stock Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-stock-report-brief-stock-report) has been expanded: in addition to administrators, employees with the Stock permission can now view it.
+
 ### 25-08-2025
 #### Added
 - Field `applicable` in [Operation Report](../documents/#transactions-operation-report)
