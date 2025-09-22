@@ -216,35 +216,135 @@ The format of oldValue and newValue is the same as the format of the field whose
 
 
 ### Summary table of notification types
-| Notification type | Group | What is the notice |
-| --------------- | ------ | --------- |
+| Notification type                       | Group             | What is the notice                                               |
+|-----------------------------------------|-------------------|------------------------------------------------------------------|
+| **AppAsyncButton**                      | Apps              | Custom button processing completed                               |
+| **AppChangePermissions**                | Apps              | App access permissions expired                                   |
 | **FacebookTokenExpirationNotification** | Internet shopping | About the imminent expiration of access to your Facebook account |
-| **NotificationExportCompleted** | Data exchange | Export completed |
-| **NotificationGoodCountTooLow** | Remains | Reducing the quantity of goods to a minimum balance |
-| **NotificationImportCompleted** | Data exchange | Import completed |
-| **NotificationInvoiceOutOverdue** | Account | Overdue invoice that was not paid or not fully paid by the buyer |
-| **NotificationOrderNew** | Sales Order | New Sales Order |
-| **NotificationOrderOverdue** | Sales Order | Order expired |
-| **NotificationRetailShiftClosed** | Retail | Shift closed |
-| **NotificationRetailShiftOpened** | Retail | Shift is open |
-| **NotificationScript** | Scenarios | Script Notification |
-| **NotificationSubscribeExpired** | Billing | End of subscription |
-| **NotificationSubscribeTermsExpired** | Billing | Subscription terms expire |
-| **NotificationTaskAssigned** | Task | Task assigned |
-| **NotificationTaskChanged** | Task | The task has changed |
-| **NotificationTaskCommentChanged** | Task | The task comment has been changed |
-| **NotificationTaskCommentDeleted** | Task | Task comment has been removed|
-| **NotificationTaskCompleted** | Task | Mission accomplished |
-| **NotificationTaskDeleted** | Task | Task removed |
-| **NotificationTaskNewComment** | Task | The task has a new comment |
-| **NotificationTaskOverdue** | Task | Task overdue |
-| **NotificationTaskReopened** | Task | Task reopened |
-| **NotificationTaskUnassigned** | Task | Task removed |
-| **NotificationBonusMoney** | Balance | Bonus money has been credited to the account |
-| **NewMentionInEvent**  | Employee Mentions | New mention in the event feed |
-| **NewEventInEventFeed**  | Followed events | New events in followed object |
+| **NotificationExportCompleted**         | Data exchange     | Export completed                                                 |
+| **NotificationGoodCountTooLow**         | Remains           | Reducing the quantity of goods to a minimum balance              |
+| **NotificationImportCompleted**         | Data exchange     | Import completed                                                 |
+| **NotificationInvoiceOutOverdue**       | Account           | Overdue invoice that was not paid or not fully paid by the buyer |
+| **NotificationOrderNew**                | Sales Order       | New Sales Order                                                  |
+| **NotificationOrderOverdue**            | Sales Order       | Order expired                                                    |
+| **NotificationRetailShiftClosed**       | Retail            | Shift closed                                                     |
+| **NotificationRetailShiftOpened**       | Retail            | Shift is open                                                    |
+| **NotificationScript**                  | Scenarios         | Script Notification                                              |
+| **NotificationSubscribeExpired**        | Billing           | End of subscription                                              |
+| **NotificationSubscribeTermsExpired**   | Billing           | Subscription terms expire                                        |
+| **NotificationTaskAssigned**            | Task              | Task assigned                                                    |
+| **NotificationTaskChanged**             | Task              | The task has changed                                             |
+| **NotificationTaskCommentChanged**      | Task              | The task comment has been changed                                |
+| **NotificationTaskCommentDeleted**      | Task              | Task comment has been removed                                    |
+| **NotificationTaskCompleted**           | Task              | Mission accomplished                                             |
+| **NotificationTaskDeleted**             | Task              | Task removed                                                     |
+| **NotificationTaskNewComment**          | Task              | The task has a new comment                                       |
+| **NotificationTaskOverdue**             | Task              | Task overdue                                                     |
+| **NotificationTaskReopened**            | Task              | Task reopened                                                    |
+| **NotificationTaskUnassigned**          | Task              | Task removed                                                     |
+| **NotificationBonusMoney**              | Balance           | Bonus money has been credited to the account                     |
+| **NewMentionInEvent**                   | Employee Mentions | New mention in the event feed                                    |
+| **NewEventInEventFeed**                 | Followed events   | New events in followed object                                    |
 
 ## Detailed description of notification types
+
+### Custom button process completed
+#### Notification type
+AppAsyncButton - Async [custom button](https://dev.moysklad.ru/doc/api/vendor/1.0/#kastomnye-knopki) process was completed.
+
+#### Notification attributes
+| Title           | Type                                                 | Description                                                                                              |
+|-----------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+| **accountId**   | UUID                                                 | Account ID<br>`+Required when replying` `+Required when creating`                                        |
+| **created**     | DateTime                                             | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                         | Notification description<br>`+Required when replying` `+Required when creating`                          |
+| **id**          | UUID                                                 | Notification ID<br>`+Required when replying` `+Required when creating`                                   |
+| **meta**        | [Meta](../#kladana-json-api-general-info-metadata)   | Object metadata<br>`+Required when replying` `+Required when creating`                                   |
+| **read**        | Boolean                                              | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`  |
+| **title**       | String(255)                                          | Brief text of notification<br>`+Required when replying` `+Required when creating`                        |
+
+**Parameters**
+
+| Parameter | Description                                                                          |
+|:----------|:-------------------------------------------------------------------------------------|
+| **id**    | `string` (required) *Example: c290e571-f65d-11ee-c0a8-300d0000000a* Notification id. |
+
+> Request to receive a Notification with the specified id.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the Notification.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a",
+    "type": "AppAsyncButton",
+    "mediaType": "application/json"
+  },
+  "id": "c290e571-f65d-11ee-c0a8-300d0000000a",
+  "accountId": "3a0c5979-f5ab-11ee-c0a8-300f00000001",
+  "created": "2024-04-09 13:41:45.173",
+  "read": false,
+  "title": "Online-order: action completed",
+  "description": "Action was completed successfully! Open the link to view created order"
+}
+```
+
+### App access permissions expired
+#### Notification type
+AppChangePermissions - Access permissions for the installed app have expired.
+
+#### Notification attributes
+| Title           | Type                                                 | Description                                                                                              |
+|-----------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+| **accountId**   | UUID                                                 | Account ID<br>`+Required when replying` `+Required when creating`                                        |
+| **created**     | DateTime                                             | Date and time when the Notification was generated<br>`+Required when replying` `+Required when creating` |
+| **description** | String(4096)                                         | Notification description<br>`+Required when replying` `+Required when creating`                          |
+| **id**          | UUID                                                 | Notification ID<br>`+Required when replying` `+Required when creating`                                   |
+| **meta**        | [Meta](../#kladana-json-api-general-info-metadata)   | Object metadata<br>`+Required when replying` `+Required when creating`                                   |
+| **read**        | Boolean                                              | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating`  |
+| **title**       | String(255)                                          | Brief text of notification<br>`+Required when replying` `+Required when creating`                        |
+
+**Parameters**
+
+| Parameter | Description                                                                          |
+|:----------|:-------------------------------------------------------------------------------------|
+| **id**    | `string` (required) *Example: c290e571-f65d-11ee-c0a8-300d0000000a* Notification id. |
+
+> Request to receive a Notification with the specified id.
+
+```shell
+curl -X GET
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
+  -H "Authorization: Basic <Credentials>"
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the Notification.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a",
+    "type": "AppChangePermissions",
+    "mediaType": "application/json"
+  },
+  "id": "c290e571-f65d-11ee-c0a8-300d0000000a",
+  "accountId": "3a0c5979-f5ab-11ee-c0a8-300f00000001",
+  "created": "2024-04-09 13:41:45.173",
+  "read": false,
+  "title": "Access permissions expired: Online-order",
+  "description": "Update access permissions so the application can use the latest settings."
+}
+```
 
 ### Completion of Export
 #### Notification type
