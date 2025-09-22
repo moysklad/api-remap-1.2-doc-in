@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 29-08-2025
+### 22-09-2025
 #### Added
 - Field `distributionRequired` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order-production-operations)
 
