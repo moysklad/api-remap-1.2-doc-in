@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 22-09-2025
 #### Added
-- Field `distributionRequired` in [Production Operations](../documents/#transactions-production-order-production-operations)
+- Field `distributionRequired` in [Production Operations](../dictionaries/#entities-production-operations)
 
 ### 25-08-2025
 #### Added
