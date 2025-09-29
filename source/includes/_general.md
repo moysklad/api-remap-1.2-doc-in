@@ -208,13 +208,16 @@ Along with the error response body, you may receive the following headers:
 - X-Lognex-API-Version-Deprecated — The date the requested API version was disabled.
 - Location — The requested resource's current URL (if you receive 301 or 303 code as a response).
 
-Use the following headers to learn the limits of the remaining requests:
+Use the following headers to check the remaining limits for requests per unit of time:
 
 - X-RateLimit-Limit — The number of requests that can be made before the 429 error occurs.
 - X-Lognex-Retry-TimeInterval — Interval in milliseconds during which these requests can be made.
 - X-RateLimit-Remaining — The number of requests that can be sent before 429 error receiving.
 - X-Lognex-Reset — Time before limit reset in milliseconds. Equal to zero if the limit is not set.
 - X-Lognex-Retry-After — Time before the restriction reset in milliseconds.
+
+The headers do not display the limits for concurrent requests. If the concurrent request limits are exceeded, a response 
+with a 429 status code and error 1073, `Concurrent request limit exceeded` is returned.
 
 ### Additional fields
 

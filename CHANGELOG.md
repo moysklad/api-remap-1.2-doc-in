@@ -2,7 +2,13 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 25-09-2025
+#### Added
+- Condition for automatically disabling JSON API for a user in [Limitations](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-limitations).
+
 ### 22-09-2025
+#### Added
+- Field `distributionRequired` in [Production Operations](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-production-operations)
 #### Changed
 - Access to the [Brief Stock Report](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-stock-report-brief-stock-report) has been expanded: in addition to administrators, employees with the Stock permission can now view it.
 

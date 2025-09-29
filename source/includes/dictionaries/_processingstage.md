@@ -10,6 +10,7 @@ Using the JSON API, you can query and update lists of Production Operations and 
 **allPerformers**   | Boolean |  | Availability indicator for assignment to any employee stage<br>`+Required when replying` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Production Operation been added to the archive<br>`+Required when replying`  |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Production Operation Comment |
+| **distributionRequired** | Boolean | | The visibility flag for tasks for performers in the Shop Floor App web application. true - show the performer only the tasks distributed to him; false - show the performer all available tasks<br>`+Required when replying` |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outer Production Operation code<br>`+Required when replying`  |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Production Operation ID<br>`+Required when replying` `+Read only` |
@@ -114,6 +115,7 @@ Successful request. The result is a JSON representation of the list of Productio
        "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
        "archived": false,
        "allPerformers": false,
+       "distributionRequired" : false,
        "performers": [
         {
           "meta": {
@@ -194,6 +196,7 @@ Successful request. The result is a JSON representation of the created Productio
    "externalCode": "456",
    "archived": false,
    "allPerformers": true,
+   "distributionRequired" : false,
    "performers": []
 }
 ```
@@ -267,6 +270,7 @@ Successful request. The result is a JSON array of representations of the created
      "externalCode": "hsthsrehs",
      "archived": false,
      "allPerformers": true,
+     "distributionRequired" : false,
      "performers": []
    },
    {
@@ -304,6 +308,7 @@ Successful request. The result is a JSON array of representations of the created
      "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
      "archived": false,
      "allPerformers": true,
+     "distributionRequired" : false,
      "performers": []
    }
 ]
@@ -432,6 +437,7 @@ Successful request. The result is a JSON representation of the Production Operat
    "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
    "archived": false,
    "allPerformers": true,
+   "distributionRequired" : false,
    "performers": []
 }
 ```
@@ -505,6 +511,7 @@ Successful request. The result is a JSON representation of the Production Operat
    "externalCode": "sTV9PL-HjZkNgDMUqvKKe3",
    "archived": false,
    "allPerformers" : false,
+   "distributionRequired" : false,
   "performers": [
     {
       "meta": {
