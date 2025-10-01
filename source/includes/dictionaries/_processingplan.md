@@ -1,6 +1,7 @@
 ## Bills of Materials
 
 Using the JSON API, you can create and update information about Bills of Materials, query lists of the Bills of Materials, and information by a Bills of Material. Bills of Materials items can be managed both as part of a separate Bill of Materials, and using special resources for managing materials and products of a Bill of Materials. The entity code for a Bill of Materials in the JSON API is the **processingplan** keyword. Learn more about [Bills of Materials](https://kladana.zendesk.com/hc/en-us/articles/7349036390673-Bills-of-Materials).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 ### Bills of Materials
 #### Entity attributes

@@ -179,8 +179,8 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Returned HTTP error statuses and their description
 
-| HTTP status code | Description   |
-| ---------------- | ------------- |
+| HTTP status code | Description                                                                                                                                                          |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **200**          | The request was successfully completed                                                                                                                               |
 | **301**          | The requested resource has another URL                                                                                                                               |
 | **302**          | The requested resource is temporarily located at a different URI                                                                                                     |
@@ -194,6 +194,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **410**          | API version no longer supported                                                                                                                                      |
 | **412**          | A required query string parameter or JSON structure field was not specified                                                                                          |
 | **413**          | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
+| **414**          | URI too large                                                                                                                                                        |
 | **415**          | The format of the request content in headers or body is not supported                                                                                                |
 | **429**          | Request limit was exceeded                                                                                                                                           |
 | **500**          | An unexpected error occurred while processing the request                                                                                                            |
