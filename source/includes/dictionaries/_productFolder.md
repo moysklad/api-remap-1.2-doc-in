@@ -471,9 +471,6 @@ Request to get metadata of Product Groups. The result is a JSON object including
 | Title | Type | Description |
 | ------- | ------------ |---- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product Groups Metadata<br>`+Required when answering` |
-| **attributes** | Array(Object) | Collection of additional fields |
-
-The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
 > Get product group metadata
 
@@ -485,61 +482,21 @@ curl -X GET
 ```
 
 > Response 200(application/json)
-Successful request. The result is a JSON representation of the additional Product Group fields.
+Successful request. The result is a JSON representation of the product group metadata.
 
 ```json
 {
    "meta": {
      "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
      "mediaType": "application/json"
-   },
-   "attributes": [
-     {
-       "id": "5290a290-0313-11e6-9464-e4de00000020",
-       "name": "attribute_name",
-       "type": "boolean",
-       "required": false
-     }
-   ]
+   }
 }
 ```
   
 ### Separate additional field
 
-**Parameters**
+There are no additional fields for the product group
 
-| Parameter | Description |
-| ------- | ------------ |
-| **id** | `string` (required) *Example: 5290a290-0313-11e6-9464-e4de00000020* Field ID. |
-
-#### Separate additional field
- 
-> Request for information on a separate additional field.
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a separate additional fields.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020",
-     "type": "attributemetadata",
-     "mediaType": "application/json"
-   },
-   "id": "5290a290-0313-11e6-9464-e4de00000020",
-   "name": "attribute_name",
-   "type": "boolean",
-   "required": false
-}
-```
- 
 ### Product group
 
 **Parameters**
