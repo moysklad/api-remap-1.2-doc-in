@@ -58,12 +58,12 @@ The fourth search condition for the fields of all contact persons of the counter
 | **notes**              | MetaArray                                          | | Array of Counterparty incidents. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-account-incidents)<br>`+Expand` |
 | **owner**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
 | **phone**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | City phone number |
-| **priceType**          | Object                                             | `=` `!=` | Counterparty price type. [Learn more](../dictionaries/#entities-price-type-price-types) |
+| **priceType**          | Object                                             | `=` `!=` `~` `~=` `=~` | Counterparty price type. [Learn more](../dictionaries/#entities-price-type-price-types) |
 | **salesAmount**        | Int                                                | | Amount of sales<br>`+Required when answering` `+Read only` |
 | **shared**             | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **state**              | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty Status Metadata<br>`+Expand` |
 | **syncId**             | UUID                                               | `=` `!=` | Synchronization ID<br>`+Cannot be changed after filling` |
-| **tags**               | Array(String)                                      | `=` `!=` | Account groups |
+| **tags**               | Array(String)                                      | `=` `!=` `~` `~=` `=~` | Account groups |
 | **updated**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Counterparty<br>`+Required when answering` `+Read-only` |
 
 ##### Detail fields
