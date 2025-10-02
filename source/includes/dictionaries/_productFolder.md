@@ -463,40 +463,6 @@ curl -X POST
 ]
 ```
 
-### Product Group Metadata
-#### Product Group Metadata
- 
-Request to get metadata of Product Groups. The result is a JSON object including:
-
-| Title | Type | Description |
-| ------- | ------------ |---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Product Groups Metadata<br>`+Required when answering` |
-
-> Get product group metadata
-
-```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the product group metadata.
-
-```json
-{
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
-     "mediaType": "application/json"
-   }
-}
-```
-  
-### Separate additional field
-
-There are no additional fields for the product group
-
 ### Product group
 
 **Parameters**
