@@ -86,6 +86,7 @@ to another object. The **meta** field is an object with the following attributes
 | **metadataHref** | URL | Link to entity metadata (Another kind of metadata. Not present in all entities) |
 | **type** | String(255) | Object type |
 | **mediaType** | String(255) | The type of data that comes in response from the service, or is sent in the request body. Within this API is always equal to `application/json` |
+| **permitted** | Boolean | Is there permission to view the object. This field is only displayed when expanding an object without permission to view it |
 | **uuidHref** | URL | Reference to an object on the UI. Not present in all entities. Can be used to get uuid |
 | **downloadHref** | URL | Link to download Images and thumbnail images. This parameter is indicated only in **meta** for the Image of the Product or Bundle, as well as in the *miniature* field wherever images are used. If the thumbnail has not been created, then the value of this field is `null`. To create a thumbnail, you need to follow the link specified in `href` in the thumbnail. |
 
