@@ -2,7 +2,16 @@
 
 ### Working with the Event Feed in transactions 
 
-Using the JSON API, you can create, update, and delete events, query lists of events, and query details of individual events for the transactions of the following type: [Sales Order](documents/#transactions-sales-order).
+The entity code for the Event Feed in the JSON API is the **notes** keyword.
+
+Using the JSON API, you can request lists of events, as well as information on individual events for transactions of the following types:
+
++ [Purchase Order](../documents/#transactions-purchase-order)
++ [Purchase Return](../documents/#transactions-purchase-returns)
++ [Receiving](../documents/#transactions-receiving)
++ [Sales Invoice](../documents/#transactions-sales-invoice)
++ [Sales Order](../documents/#transactions-sales-order)
++ [Supplier Invoice](../documents/#transactions-supplier-invoice)
 
 #### Working with mentions in the Event Feed
 
@@ -15,7 +24,7 @@ Mention format: `{{type;uuid}}`. For example, when mentioning an employee, the E
 
 Supported entity types in mentions:
 
-+ [Employee](dictionaries/#entities-employee)
++ [Employee](../dictionaries/#entities-employee)
 
 #### Events limit
 
@@ -23,23 +32,24 @@ No more than 5000 Events can be created for each transaction.
 
 #### Access rights
 
-| Operation | Access |
-| --------- | ------- |
-| **View events** | User with administrator rights or with the right to view the transactions. |
-| **Event Creation** | Requires the CRM tariff option. User must have administrator rights or transaction viewing rights. | 
-| **Event Editing** | Requires the CRM tariff option. User must have administrator rights or be the event author with transaction viewing rights. | 
-| **Event Deletion** | Requires the CRM tariff option. User must have administrator rights or be the event author with transaction viewing rights. |
+| Operation              | Access |
+| ---------------------- | ------ |
+| **View events**   | User with administrator rights or with permission to view the transaction|
+| **Create events** | User with administrator rights or with permission to view the transaction|
+| **Edit events**   | User with administrator rights or the event author with permission to view the transaction|
+| **Delete events** | User with administrator rights or the event author with permission to view the transaction|
+
 
 #### Entity attributes
 
 | Name | Type | Description |
 | ----- | ----- | -------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Event Metadata<br>`+Required when responding` |
-| **id** | UUID | Event ID<br>`+Required when responding` `+Read-only` |
-| **accountId** | UUID | Account ID<br>`+Required when responding` `+Read-only` |
-| **created** | DateTime | Event creation time<br>`+Required when responding` `+Read-only` |
-| **description** | String(4096) | Event Text<br>`+Required when responding` `+Required when creating` |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the Event (account administrator, if the author is an application)<br>`+Required when responding` `+Read-only` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Event Metadata<br>`+Required when replying` |
+| **id** | UUID | Event ID<br>`+Required when replying` `+Read-only` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
+| **created** | DateTime | Event creation time<br>`+Required when replying` `+Read-only` |
+| **description** | String(4096) | Event Text<br>`+Required when replying` `+Required when creating` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the Event (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` `+Expand` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application - the creator of the event<br>`+Read-only` `+Expand` |
 
 ### Get a list of Transaction Events
@@ -48,20 +58,20 @@ Request to get all transaction events for the account.
 
 Result: JSON object, including the fields:
 
-| Name | Type | Description |
-| ---- | ---- | ----------  |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issue Metadata. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata on the employee who performed the request. |
-| **rows** | Array(Object) | Array of JSON objects representing [Events](../dictionaries/#entities-event-feed). |
+| Name        | Type                                               | Description                                                                        |
+|-------------|----------------------------------------------------|------------------------------------------------------------------------------------|
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Issue Metadata.                                                                    |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata on the employee who performed the request.                                |
+| **rows**    | Array(Object)                                      | Array of JSON objects representing [Events](../dictionaries/#entities-event-feed). |
 
 **Parameters**
 
-| Parameter | Description |
-|---------- | ------------ |
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which Events are requested. |
-| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities. |
+| Parameter         | Description                                                                                                                 |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which Events are requested.                               |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events.                             |
+| **limit**         | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000`. |
+| **offset**        | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities.                              |
 
 > Get a list of Events for Sales Order
 
@@ -146,11 +156,11 @@ Request to get one transaction Event for this account.
 
 **Parameters**
 
-| Parameter | Description |
-|---------- | ----------- |
+| Parameter         | Description                                                                                      |
+|-------------------|--------------------------------------------------------------------------------------------------|
 | **document_type** | `string` (required) *Example: customerorderr* transaction type for which the Event is requested. |
-| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
-| **id** | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID. |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events.  |
+| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                    |
 
 > Get Sales Order Event
 
@@ -244,11 +254,11 @@ Request to update a single Event for the account.
 
 **Parameters**
 
-| Parameter | Description |
-|---------- | ----------- |
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is updated. |
-| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* Id of the transaction with Events. |
-| **id** | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID. |
+| Parameter         | Description                                                                                            |
+|-------------------|--------------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is updated.          |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* Id of the transaction with Events. |
+| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                          |
 
 > Update Sales Order Event
 
@@ -295,11 +305,11 @@ Request to delete one document Event for the account.
 
 **Parameters**
 
-| Parameter | Description |
-| -------------- | ------------- |
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is deleted. |
-| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* ID of the transaction with Events. |
-| **id** | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID. |
+| Parameter         | Description                                                                                            |
+|-------------------|--------------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is deleted.          |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* ID of the transaction with Events. |
+| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                          |
 
 > Delete Event of Sales Order
 

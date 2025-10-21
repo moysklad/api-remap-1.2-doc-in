@@ -8,18 +8,18 @@ The entity code for Routings as part of the JSON API is the **processingprocess*
 
 | Title | Type  | Filtration| Description | 
 | ----- | ----- | --------- | ----------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Has Routing been archived<br>`+Required when replying` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Has Routing been archived<br>`+Required when answering` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment Routing |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required for response` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Routing<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Routing ID<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required in response` `+Read-only` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required for response` `+Required for creation` |
+| **id** | UUID                                               | `=` `!=` | Routing ID<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Routing Metadata<br>`+Required when replying` `+Read-only` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Routing Name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **positions** | MetaArray                                          | | Routing item metadata<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **positions** | MetaArray                                          | | Routing item metadata<br>`+Required when replying` `+Required when creating` `+Expand` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 #### Nested entity attributes
 ##### Routing Items
@@ -31,8 +31,8 @@ The Routing item object contains the following fields:
 | ----- | ---- | ----------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required when replying` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when replying` `+Required when creating` `+Expand` |
 | **nextPositions**   | MetaArray | Metadata for the following Routing items  |
 
 
@@ -414,8 +414,8 @@ a large number of items can be read on the example of working with document item
 | ---------- | -------- | ---------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required for response` `+Read only` |
-| **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when responding` `+Required when creating` `+Expand` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Routing item metadata<br>`+Required when replying` `+Read only` |
+| **processingstage** | [Meta](../dictionaries/#entities-production-operations) | Stage metadata, which is a item<br>`+Required when replying` `+Required when creating` `+Expand` |
 
 ### Get Routing items
 Request to get a list of all items of this Routing.

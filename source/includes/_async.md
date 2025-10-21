@@ -69,12 +69,18 @@ An asynchronous task contains information about the creator of the task, its cur
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **deletionDate** | DateTime | The date after which the result of the task will become unavailable. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
 | **errors** | Object | json api error if **state** field is set to `API_ERROR`<br>`+Read Only` |
-| **id** | UUID | Asynchronous Task ID<br>`+Required for response` `+Read Only` |
-| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Asynchronous Task Metadata<br>`+Required for response` |
+| **id** | UUID | Asynchronous Task ID<br>`+Required when replying` `+Read Only` |
+| **meta** | [Meta](#kladana-json-api-general-info-metadata) | Asynchronous Task Metadata<br>`+Required when replying` |
 | **owner** | [Meta](#kladana-json-api-general-info-metadata) | The user or application that created the Asynchronous Task<br>`+Read Only` |
-| **request** | String | The URL of the request that created the Asynchronous Task<br>`+Required for response` `+Read Only` |
+| **request** | String | The URL of the request that created the Asynchronous Task<br>`+Required when replying` `+Read Only` |
 | **resultUrl** | String | Link to the task result. Contained in the response if the **state** field is set to `DONE`<br>`+Read Only` |
 | **state** | Enum | The execution status of the Asynchronous Task. [Learn more](#kladana-json-api-asynchronous-exchange-asynchronous-task-entity-attributes-asynchronous-task-execution-status)<br>`+Required when replying` `+Read only` |
+
+#### Attributes available for sorting
+| Title         | Description |
+| ------------- | ----------- |
+| **deletionDate**  | Date after which the task result becomes unavailable. |
+| **request**       | URL of the request by which the Asynchronous task was created.               |
 
 ##### Asynchronous task execution status
 
@@ -169,8 +175,6 @@ Successful request. The result is a JSON representation of the list of Asynchron
 
 Request to get a list of execution statuses of an Asynchronous task.
 The result contains the statuses of the Asynchronous Tasks for the last week.
-
-Filtering by **state**, **request**, **deletionDate** fields is available.
 
 ### Getting the status of an Asynchronous Task
 

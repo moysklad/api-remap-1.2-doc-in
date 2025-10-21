@@ -16,8 +16,12 @@ To add more items, you need to work with a specialized resource, which is descri
 
 Kladana automatically disables:
 
-- API access for a user if they make more than 500 identical requests per minute that result in an error within the last hour.
+- API access for a user if they make more than 200 identical requests per minute that result in an error within the last hour.
+- API access for a user if they make more than 200 requests per minute that result in an Error 429 within the last hour.
+- API access for a user if they make more than 100 PUT requests to the same entity per minute within the last hour.
 - Webhooks if the service receiving them has responded with error codes or been unavailable for more than seven out of the last ten days, and has not successfully processed any webhooks in the last ten days.
+
+Notifications about webhook or API access deactivation are sent to the email of the employee specified as the account owner.
 
 If your API or webhooks are disabled:
 

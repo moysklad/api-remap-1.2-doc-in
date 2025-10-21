@@ -1,6 +1,8 @@
 ## Saved filter
 ### Saved filters
 
+The entity code for Saved filters in the JSON API is the **namedfilter** keyword.
+
 Using the JSON API, you can get saved filters by ID and as a list.
 A saved filter is a set of parameters and their values configured by users,
 to filter the list of entities and documents.
@@ -17,7 +19,7 @@ Each entity type will have its own set of filtering options.
 | Title | Type                                               | Description|
 | ---------|----------------------------------------------------| ----------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
-| **id** | UUID                                               | Filter ID<br>`+Required for response` `+Read only` |
+| **id** | UUID                                               | Filter ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Filter metadata<br>`+Required when replying` |
 | **name** | String                                             | Filter name<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read-only` `+Expand` |
@@ -85,7 +87,7 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
 
 ### Get another user's list of filters
 
-A user with administrator rights or an application has the ability to query the saved filters of other employees on the account.
+A user or an application with administrator rights  has the ability to query the saved filters of other employees on the account.
 To do this, you need to specify the `owner={href of the employee}` parameter in the request parameters.
 
 > Sample request to get another user's filter list

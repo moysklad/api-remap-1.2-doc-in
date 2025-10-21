@@ -15,31 +15,31 @@ The search among employee objects for matching the search string will be carried
 
 | Title | Type  | Filtration | Description |
 | ------- | ----- | --------- | --------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when replying` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
+| **archived** | Boolean                                            | `=` `!=` | Whether the Employee was added to the archive<br>`+Required when answering` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional fields Employee |
-| **created** | DateTime                                           | | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **created** | DateTime                                           | | Employee Creation Time<br>`+Required when replying` `+Read Only` |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Employee |
 | **email** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Email |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when replying` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee's external code<br>`+Required when answering` |
 | **firstName** | String(255)                                        | `=` `!=` `~` `~=` `=~`| Name |
 | **fullName** | String(255)                                        | | First name Middle name Last name<br>`+Read only` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when replying` `+Read Only` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Employee ID<br>`+Required when answering` `+Read Only` |
 | **images** | Object                                             | | Photo of an employee. [Learn more](../dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading) |
 | **inn** | String(255)                                        | | TIN of the employee (in the format of the TIN of an individual) |
 | **lastName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Surname<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when responding` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Employee Metadata<br>`+Required when replying` |
 | **middleName** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Middle name |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when responding` `+Read Only` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Name<br>`+Required when replying` `+Read Only` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Required when replying` `+Expand` |
 | **phone** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee phone |
 | **position** | String(255)                                        | | Employee position |
 | **salary** | Object | | Employee salary  |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
 | **shortFio** | String(255)                                        | | Short Name<br>`+Read Only` |
 | **id** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Employee Login<br>`+Read Only` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when replying` `+Read Only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment when the Employee was last updated<br>`+Required when answering` `+Read Only` |
 
 The **salary**, **owner**, **group** and **archived** fields can only be modified by an administrator. The **email** field can be changed by the administrator and the employee himself.
 
@@ -57,13 +57,13 @@ The structure of the **image** field that you will receive when requesting an em
 
 | Title | Type                                               | Description |
 | ------- |----------------------------------------------------|---------- |
-| **filename** | String(255)                                        | File name<br>`+Required when replying` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when replying` |
-| **size** | Int                                                | File size in bytes<br>`+Required when replying` |
-| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when replying` |
-| **title** | String(255)                                        | Image Title<br>`+Required when replying` |
-| **updated** | DateTime                                           | Last modified time<br>`+Required when replying` |
+| **filename** | String(255)                                        | File name<br>`+Required when answering` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when answering` |
+| **miniature** | [Meta](../#kladana-json-api-general-info-metadata) | Image thumbnail metadata<br>`+Required when answering` |
+| **size** | Int                                                | File size in bytes<br>`+Required when answering` |
+| **tiny** | [Meta](../#kladana-json-api-general-info-metadata) | Thumbnail metadata<br>`+Required when answering` |
+| **title** | String(255)                                        | Image Title<br>`+Required when answering` |
+| **updated** | DateTime                                           | Last modified time<br>`+Required when answering` |
 
 #### Loading
 
@@ -754,8 +754,8 @@ employee with `System Administrator` rights.
 | **authorizedIpNetmask** | String(255)   | Subnet mask with account access rights |
 | **authorizedIpNetwork** | String(255)   | Ipv4 address identifying the corresponding subnet, with the right to access the account |
 | **email** | String(255)   | Employee mail |
-| **group** | Object        | Metadata of the Group, as well as its ID and name<br>`+Required when replying` |
-| **isActive** | Boolean       | Access to Kladana<br>`+Required when replying` |
+| **group** | Object        | Metadata of the Group, as well as its ID and name<br>`+Required when answering` |
+| **isActive** | Boolean       | Access to Kladana<br>`+Required when answering` |
 | **login** | String(255)   | Employee login to enter Kladana |
 | **role** | Object        | Information about the role of the Employee |
 
@@ -769,7 +769,7 @@ for which no individual permissions were previously set.
 
 | Title | Type | Description |
 | ------| ------ | ------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Role metadata<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Role metadata<br>`+Required when answering` |
 | **permissions** | Array(Object) | Permission list |
 
 ###### List of user permissions
@@ -844,31 +844,31 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
   Entity Permission List
  
 
-| Title | Possible values | Default value | Description |
-| ------- | -------- | ------- | -------- |
-| **GTINList** | view, create, delete | All NO | GTIN List |
-| **accountAdjustment** | DICTIONARY | All ALL | Adjustment of account balances |
-| **bonustransaction** | OPERATION | All ALL | Bonus points |
-| **cashIn** | OPERATION | All ALL | Receipt order |
-| **cashOut** | OPERATION | All ALL | Disbursement order |
-| **cashboxAdjustment** | DICTIONARY | All ALL | Balance Adjustment |
-| **company** | DICTIONARY | All ALL | Counterparties |
-| **contract** | DICTIONARY | All ALL | Contracts |
+| Title | Possible values | Default value | Description                                    |
+| ------- | -------- | ------- |------------------------------------------------|
+| **GTINList** | view, create, delete | All NO | GTIN List                                      |
+| **accountAdjustment** | DICTIONARY | All ALL | Adjustment of account balances                 |
+| **bonustransaction** | OPERATION | All ALL | Bonus points                                   |
+| **cashIn** | OPERATION | All ALL | Receipt order                                  |
+| **cashOut** | OPERATION | All ALL | Disbursement order                             |
+| **cashboxAdjustment** | DICTIONARY | All ALL | Balance Adjustment                             |
+| **company** | DICTIONARY | All ALL | Counterparties                                 |
+| **contract** | DICTIONARY | All ALL | Contracts                                      |
 | **counterpartyAdjustment** | DICTIONARY | All ALL | Adjustment of counterparty or employee balances |
-| **country** | base | All ALL | Countries |
-| **crptCancellation** | DICTIONARY | All NO | Writing off marking codes |
-| **crptPackageCreation** | DICTIONARY | All NO | Formation of packaging |
-| **crptPackageDisaggregation** | DICTIONARY | All NO | Unpacking |
-| **crptPackageItemRemoval** | DICTIONARY | All NO | Unpacking |
-| **currency** | base| All ALL | Currencies |
-| **customEntity** | base | All ALL | Elements of user directories |
-| **customerOrder** | OPERATION | All ALL | Order to buyers |
-| **demand** | OPERATION | All ALL | Shipment |
-| **emissionOrder** | DICTIONARY | All NO | Order marking codes |
-| **utilizationReport** | DICTIONARY | All NO | Usage Report |
-| **atkAggregation** | DICTIONARY | All NO | Formation of ATK |
-| **retireOrderOSU** | DICTIONARY | All NO | Write-off from circulation OSU |
-| **employees** | base | All ALL | Employees |
+| **country** | base | All ALL | Countries                                      |
+| **crptCancellation** | DICTIONARY | All NO | Writing off marking codes                      |
+| **crptPackageCreation** | DICTIONARY | All NO | Formation of packaging                         |
+| **crptPackageDisaggregation** | DICTIONARY | All NO | Unpacking                                      |
+| **crptPackageItemRemoval** | DICTIONARY | All NO | Unpacking                                      |
+| **currency** | base| All ALL | Currencies                                     |
+| **customEntity** | base | All ALL | Elements of user directories                   |
+| **customerOrder** | OPERATION | All ALL | Order to buyers                                |
+| **demand** | OPERATION | All ALL | Shipment                                       |
+| **emissionOrder** | DICTIONARY | All NO | Order marking codes                            |
+| **utilizationReport** | DICTIONARY | All NO | Usage Report                                   |
+| **atkAggregation** | DICTIONARY | All NO | Formation of ATK                               |
+| **retireOrderOSU** | DICTIONARY | All NO | Write-off from circulation OSU                 |
+| **employees** | base | All ALL | Employees                                      |
 | **enrollOrder** | DICTIONARY | All NO | Introduction of marking codes into circulation |
 | **enter** | OPERATION | All ALL | Posting |
 | **good** | DICTIONARY | All ALL | Goods and Services |
@@ -886,7 +886,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **processingStage** | base | All ALL | Stages of production |
 | **processingProcess** | base | All ALL | Routing |
 | **productionTask**   | OPERATION | All ALL  | Production Orders              |
-| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report|
+| **productionStageCompletion** | DICTIONARY  | All ALL  | Operation Report |
 | **project** | base | All ALL | Projects |
 | **purchaseOrder** | OPERATION | All ALL | Order to suppliers |
 | **purchaseReturn** | OPERATION | All ALL | Return to supplier |
@@ -895,10 +895,11 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **retailDemand** | OPERATION | All ALL | Sales |
 | **retailSalesReturn** | OPERATION | All ALL | Returns |
 | **retireOrder** | DICTIONARY | All NO | Write-off from circulation |
+| **salesChannel** | BASE | All ALL | Sales Channel |
 | **salesReturn** | OPERATION | All ALL | Sales Return |
 | **supply** | OPERATION | All ALL | Receivings |
 | **trackingCodeList** | view, print | All NO | Marking codes |
-| **uom* | base | All ALL | Units of measure |
+| **uom** | base | All ALL | Units of measure |
 | **warehouse** | base | All ALL | Warehouses |
 
 For `currency`, `country`, `uom` permissions, the value of `view` is immutable and equals `ALL`. When trying to change the value of `view`
@@ -1103,7 +1104,13 @@ Successful request. The result is a JSON representation of information about the
                 "delete": "ALL",
                 "approve": "ALL"
             },
-           
+            "salesChannel": {
+              "view": "ALL",
+              "print": "ALL",
+              "create": "ALL",
+              "update": "ALL",
+              "delete": "ALL"
+            },
             "warehouse": {
                 "view": "ALL",
                 "create": "ALL",

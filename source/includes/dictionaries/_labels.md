@@ -21,15 +21,15 @@ Request for printing labels and price tags according to the template of the prin
 | ---------|----------------------------------------------------| ----------|
 | **organization** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when replying` |
 | **count** | Int                                                | Number of price tags / thermal labels. Maximum number - `1000`<br>`+Required when replying` |
-| **salePrice** | Object                                             | Selling price. [Learn more](../dictionaries/#entities-print-labels-and-price-tags-request-to-print-labels-and-price-tags-selling-price)<br>`+Required when answering` |
-| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required in response` `+Expand` |
+| **salePrice** | Object                                             | Selling price. [Learn more](../dictionaries/#entities-print-labels-and-price-tags-request-to-print-labels-and-price-tags-selling-price)<br>`+Required when replying` |
+| **template** | [Meta](../#kladana-json-api-general-info-metadata) | Print Template Metadata<br>`+Required when replying` `+Expand` |
 
 #### Selling price
 Nested entity attributes
 
 | Title| Type| Description|
 | ---------| -----| ----------|
-| **priceType** | [Meta](../#kladana-json-api-general-info-metadata) | Price type metadata<br>`+Required when replying` |
+| **priceType** | [Meta](../#kladana-json-api-general-info-metadata) | Price type metadata<br>`+Required when answering` |
 
 
 **Parameters**

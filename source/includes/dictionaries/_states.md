@@ -1,5 +1,7 @@
 ## Transaction statuses
 
+The entity code for Transaction statuses in the JSON API is the **state** keyword.
+
 Statuses can be added, changed and deleted through the API only with administrator rights.
 
 ### Statuses
@@ -9,7 +11,7 @@ Statuses can be added, changed and deleted through the API only with administrat
 |---------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                     |
 | **color**     | Int                                                | Status Color<br>`+Required when replying` `+Required when creating`                                      |
-| **entityType**| String(255)                                        | Entity type to which Status refers (keyword within the JSON API)<br>`+Required for response` `+Read-only`|
+| **entityType**| String(255)                                        | Entity type to which Status refers (keyword within the JSON API)<br>`+Required when replying` `+Read-only`|
 | **id**        | UUID                                               | Status ID<br>`+Required when replying` `+Read Only`                                                      |
 | **meta**      | [Meta](../#kladana-json-api-general-info-metadata) | Status Metadata<br>`+Required when replying` `+Read Only`                                                |
 | **name**      | String(255)                                        | Status Name<br>`+Required when replying` `+Required when creating`                                       |

@@ -8,10 +8,10 @@ Using the json api, you can add new variant characteristics.
 | Title | Type | Description |
 | ---------|--------|--------|
 | **id** | UUID | ID of the corresponding Feature<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Feature metadata<br>`+Required for response` `+Read-only` |
-| **name** | String(255) | Name Characteristics<br>`+Required when answering` `+Required when creating` |
-| **required** | Boolean | Mandatory specification of Characteristics in the variant, always set to false<br>`+Required when answering` `+Read-only` |
-| **type** | String(255) | Value type Characteristics, always has the value string<br>`+Required for response` `+Read-only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Feature metadata<br>`+Required when replying` `+Read-only` |
+| **name** | String(255) | Name Characteristics<br>`+Required when replying` `+Required when creating` |
+| **required** | Boolean | Mandatory specification of Characteristics in the variant, always set to false<br>`+Required when replying` `+Read-only` |
+| **type** | String(255) | Value type Characteristics, always has the value string<br>`+Required when replying` `+Read-only` |
 
 You can view lists of existing characteristics in the context of metadata
 variants, for example by making a GET request to the URL https://api.kladana.com/api/remap/1.2/entity/variant/metadata or https://api.kladana.com/api/remap/1.2/entity/variant/ metadata/characteristics

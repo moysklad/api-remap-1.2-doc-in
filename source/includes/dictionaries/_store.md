@@ -1,6 +1,7 @@
 ## Warehouse
-
 ### Warehouses
+
+The entity code for Warehouses in the JSON API is the **store** keyword.
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The search among warehouse objects for matching the search string will be carried out using the following fields:
@@ -12,23 +13,23 @@ The search among warehouse objects for matching the search string will be carrie
 
 | Title | Type                                               | Filtration | Description |
 |----- |----------------------------------------------------| ----- | ------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **address** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse address |
 | **addressFull** | Object                                             | | Address with details on individual fields. [Learn more](../dictionaries/#entities-warehouse-warehouses-attributes-of-entity-address) |
-| **archived** | Boolean                                            | `=` `!=` | Has the Warehouse been archived<br>`+Required when replying` |
+| **archived** | Boolean                                            | `=` `!=` | Has the Warehouse been archived<br>`+Required when answering` |
 | **attributes** | Array(Object)                                      | [Statements of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Array of metadata of additional warehouse fields |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to Warehouse |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of the Warehouse<br>`+Required when replying` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Warehouse ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Name<br>`+Required when replying` `+Required when creating` |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code of the Warehouse<br>`+Required when answering` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when answering` `+Expand` |
+| **id** | UUID                                               | `=` `!=` | Warehouse ID<br>`+Required when answering` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Metadata<br>`+Required when answering` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Warehouse Name<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Companyudnik)<br>`+Expand` |
 | **parent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Parent warehouse metadata (Groups)<br>`+Expand` |
-| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Warehouse Group<br>`+Required when replying` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when replying` `+Read only` |
+| **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Warehouse Group<br>`+Required when answering` |
+| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when answering` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Warehouse was last updated<br>`+Required when answering` `+Read only` |
 | **zones** | MetaArray                                          | |  Warehouse locations. [Learn more](../dictionaries/#entities-warehouse-warehouse-locations)<br>`+Read-only` `+Expand` |
 | **slots** | MetaArray                                          | | Warehouse bins. [Learn more](../dictionaries/#entities-warehouse-warehouse-bins)<br>`+Read-only` `+Expand` |
 
@@ -443,9 +444,8 @@ Successful request. The result is a JSON representation of the list of Warehouse
 Create a new Warehouse.
 
 #### Description
-The warehouse is created based on the passed JSON object,
-which contains a representation of the new Warehouse.
-The field required for creation - `name` must not be empty.
+
+The warehouse is created based on the provided JSON object, which represents the new warehouse. The `name` field is required when creating a warehouse and must not be empty.
 
 > An example of a request to create a new Warehouse.
 
@@ -1459,9 +1459,9 @@ Warehouse locations are accessed if you have the right to see the corresponding 
 |----- |----------------------------------------------------| -------- | ----------- |
 | **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
 | **externalCode** | String(255)                                        || External Warehouse Location Code<br>`+Required when replying` |
-| **id** | UUID                                               | | Warehouse Location ID<br>`+Required for response` `+Read Only` |
+| **id** | UUID                                               | | Warehouse Location ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Warehouse Location Metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | | Warehouse Location Name<br>`+Required for response` `+Required for creation` |
+| **name** | String(255)                                        | | Warehouse Location Name<br>`+Required when replying` `+Required when creating` |
 | **updated** | DateTime                                           | | Time when the Warehouse Location was last updated<br>`+Required when replying` `+Read Only` |
 
 ### Get Warehouse Locations
@@ -1798,12 +1798,12 @@ Access to the bins of the warehouse is carried out if you have the right to see 
 
 | Title | Type   | Filtration | Description |
 | --------- | ------------ | ----- | -------- |
-| **accountId** | UUID                                               | | Account ID<br>`+Required when replying` `+Read Only` |
-| **externalCode** | String(255)                                        | | Bin External Code<br>`+Required when replying` |
-| **id** | UUID                                               | | Bin ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bin Metadata<br>`+Required when replying` |
-| **name** | String(255)                                        | | Bin Name<br>`+Required when replying` `+Required when creating` |
-| **updated** | DateTime                                           | | Bin Last Update<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID                                               | | Account ID<br>`+Required when answering` `+Read Only` |
+| **externalCode** | String(255)                                        | | Bin External Code<br>`+Required when answering` |
+| **id** | UUID                                               | | Bin ID<br>`+Required when answering` `+Read Only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Bin Metadata<br>`+Required when answering` |
+| **name** | String(255)                                        | | Bin Name<br>`+Required when answering` `+Required when creating` |
+| **updated** | DateTime                                           | | Bin Last Update<br>`+Required when answering` `+Read Only` |
 | **barcode**   | String(255)  |  | Bin barcode  |
 | **zone** | Meta                                               | | Bin location. [Learn more](../dictionaries/#entities-warehouse-warehouse-locations)<br>`+Read-only` `+Expand` |
 

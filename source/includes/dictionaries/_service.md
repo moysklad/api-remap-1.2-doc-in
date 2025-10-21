@@ -16,7 +16,7 @@ Search among service objects for matching the search string will be carried out 
 | **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **archived** | Boolean                                            | `=` `!=` | Has the Service been added to the archive<br>`+Required when replying` |
 | **attributes** | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
-| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Service barcodes. [Learn more](../dictionaries/#entities-service-services-services-metadata-barcodes) |
+| **barcodes** | Array(Object)                                      | `=` `!=` `~` `~=` `=~` | Service barcodes. [Learn more](../dictionaries/#entities-service-services-services-metadata-barcodes). To filter by the field, specify it in singular form: **barcode**.|
 | **buyPrice** | Object   |  | Purchase price. [Learn more](../dictionaries/#entities-service-services-services-metadata-purchase-price) |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Service Code |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description of the Service|
@@ -28,12 +28,12 @@ Search among service objects for matching the search string will be carried out 
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Service ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Services<br>`+Required when replying` |
-| **minPrice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
+| **minprice** | Object                                             | | Minimum price. [Learn more](../dictionaries/#entities-service-services-services-metadata-minimum-price) |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Service<br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand`|
 | **pathName** | String                                             | `=` `!=` `~` `~=` `=~` | Name of the group that the Service belongs to<br>`+Required when replying` `+Read only` |
 | **paymentItemType** | Enum                                               | | Sign of the subject of calculation. [Learn more](../dictionaries/#entities-service-services-entity-attributes-sign-of-the-subject-of-calculation) |
-| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | |  group metadata<br>`+Expand` |
+| **productFolder** | [Meta](../#kladana-json-api-general-info-metadata) | | Service group metadata<br>`+Expand` |
 | **salePrice** | Array(Object)                                      | | Sale prices. [Learn more](../dictionaries/#entities-service-services-services-metadata-sales-prices) |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
 | **syncId** | UUID                                               | `=` `!=` | Synchronization ID<br>`+Read-only` `+Fill on creation` |
@@ -98,7 +98,7 @@ About working with Service fields can be read [here](../#kladana-json-api-genera
 
 | Title | Type  | Description |
 | ----- | ----- | ----------- |
-| **value** | Float  | Price value<br>`+Required when answering` |
+| **value** | Float  | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 | **priceType** | Object | Price type<br>`+Required when replying` |
 
@@ -107,21 +107,21 @@ About working with Service fields can be read [here](../#kladana-json-api-genera
 
 | Title | Type      | Description |
 | ----- |---------- | ----------- |
-| **value** | Float                                              | Price value<br>`+Required when replying` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
+| **value** | Float                                              | Price value<br>`+Required when answering` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when answering` `+Expand` |
 
 ##### Minimum price
 
 | Title | Type                                               | Description |
 | ----- |----------------------------------------------------|------- |
-| **value** | Float                                              | Price value<br>`+Required when answering` |
+| **value** | Float                                              | Price value<br>`+Required when replying` |
 | **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Reference to the currency in the format [Metadata](../#kladana-json-api-general-info-metadata)<br>`+Required when replying` `+Expand` |
 
 ##### Group Services
 
 | Title | Type | Description |
 | ----- | ------ |------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Services group.<br>`+Required when replying` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata containing a link to the Services group.<br>`+Required when answering` |
 You can see the description of the Group entity [here](../dictionaries/#entities-product-group).
 Updating this attribute will also update the **pathName** attribute.
 

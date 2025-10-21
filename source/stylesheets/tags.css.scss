@@ -2,15 +2,15 @@
   color: #E57435;
 }
 
-.content .tag-b2e8e1 { /* Заполнение при создании */
+.content .tag-b2e8e1 { /* Fill on creation */
   color: #37A7A7;
 }
 
-.content .tag-2080bb { /* Необходимо при создании */
+.content .tag-2080bb { /* Required when creating */
   color: #2E70EF;
 }
 
-.content .tag-26e162 { /* Обязательное при ответе */
+.content .tag-26e162 { /* Required when answering */
   color: #2D539D;
 }
 
@@ -22,7 +22,7 @@
   color: #1d168c;
 }
 
-.content .tag-2a1a5b { /* После заполнения недоступно для изменения */
+.content .tag-2a1a5b { /* Cannot be changed after filling */
   color: #15767E;
 }
 
@@ -30,22 +30,25 @@
   color: #2D539D;
 }
 
-.content .tag-a5b5d6 { /* Для пользовательских ед. измерений */
+.content .tag-a5b5d6 { /* For custom units. measurements */
   color: #E3B521;
 }
 
-.content .tag-3db012 { /* Для пользовательских стран */
+.content .tag-3db012 { /* For custom countries */
   color: #167553;
 }
 
-.content .tag-8b1b0a { /* Только для чтения */
+.content .tag-8b1b0a { /* Read Only */
   color: #AE069D;
 }
 
-.content .tag-0c5653 { /* Тарифная опция «Расширенная бонусная программа» */
+.content .tag-0c5653 { /* Tariff option "Extended bonus program" */
   color: #BD1C1C;
 }
 
-.content .tag-21c8b3 { /* Устаревшее */
+.content .tag-21c8b3 { /* Deprecated */
   color: #1DAA45;
+}
+.content .tag-b8d8ac { /* Available upon request */
+  color: #aa5c1d;
 }

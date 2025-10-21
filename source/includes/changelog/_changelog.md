@@ -6,6 +6,114 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 25-09-2025
+#### Added
+- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations).
+
+### 22-09-2025
+#### Added
+- Field `distributionRequired` in [Production Operations](../dictionaries/#entities-production-operations)
+#### Changed
+- Access to the [Brief Stock Report](../reports/#reports-stock-report-brief-stock-report) has been expanded: in addition to administrators, employees with the Stock permission can now view it.
+
+### 25-08-2025
+#### Added
+- Field `applicable` in [Operation Report](../documents/#transactions-operation-report)
+
+### 08-08-2025
+#### Added
+- Information for working with header [Accept-Language](../#kladana-json-api-general-info-accept-language-header)
+
+### 07-08-2025
+#### Added
+- New notification type added [New event in the event feed](../notification/#notifications-detailed-description-of-notification-types-new-event-in-the-event-feed)
+- New notification group added [Followed events](../notification/#notifications-notification-settings-change-notification-settings)
+
+### 31-07-2025
+#### Added
+- link to Production Order in [Sales Order](../documents/#transactions-sales-order)
+- link to Production Order in [Internal Order](../documents/#transactions-internal-order)
+- link to Production Order in [Purchase Order](../documents/#transactions-purchase-order)
+- link to Production Order in [Receiving](../documents/#transactions-receiving)
+- link to Production Order in [Transfer](../documents/#transactions-transfer)
+- Error [17024](../#kladana-json-api-errors-error-codes-for-documents)
+
+### 24-07-2025
+#### Fixed
+- Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
+
+### 22-07-2025
+#### Added
+- The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
+
+### 17-07-2025
+#### Added
+- Add new [error 13005](../#kladana-json-api-errors-error-codes-for-the-stock-report)
+
+### 10-07-2025
+#### Added
+- Add new [error 33013](../#kladana-json-api-errors-error-codes-for-printed-forms)
+
+### 09-07-2025
+#### Added
+- Add new [error 3043](..#kladana-json-api-errors-common-validation-errors)
+
+### 02-07-2025
+#### Fixed
+- Actualized [User Settings](../dictionaries/#entities-user-settings)
+
+### 01-07-2025
+#### Added
+- Field `plannedEndDate` in [Production Operations](../documents/#transactions-production-order-production-operations)
+
+### 09-06-2025
+#### Added
+- Description of `fields` parameter [Fields](../#kladana-json-api-general-info-what-is-fields)
+- [Brief Report on Warehouse Bin Balances](../reports/#reports-stock-report-get-a-brief-report-on-warehouse-bin-balances)
+
+### 03-06-2025
+#### Added
+- Fields `description`, `defect` in [Operation Report](../documents/#transactions-operation-report)
+- Errors [26211-26213](../#kladana-json-api-errors-error-codes-for-operation-reports)
+
+### 27-05-2025
+#### Added
+- New transaction types for [Event Feed](../dictionaries/#entities-event-feed)
+
+### 20-05-2025
+#### Added
+- Add new [error 3042](..#kladana-json-api-errors-common-validation-errors)
+
+### 15-05-2025
+#### Changed
+- Description of `accountCountry` attribute in [Company Settings](../dictionaries/#entities-company-settings)
+
+### 13-05-2025
+#### Added
+- Description and examples of bulk deletion of minimum stock using the bulk deletion endpoint in the [product](../dictionaries/#entities-product)
+
+### 05-05-2025
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+### 25-04-2025
+#### Added
+- The minimumStock field in the [product](../dictionaries/#entities-product) entity for working with Minimum Stock.
+
+### 15-04-2025
+#### Changed
+- Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+- Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
+- Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
+
+### 10-04-2025
+#### Changed
+- Description for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations)
+
 ### 10-03-2025
 #### Added
 - Bundles are supported in the following transactions containing the Commission Agency Contract:
@@ -20,11 +128,15 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Removed
 - `18002` [error code](../#kladana-json-api-errors-error-codes-for-sales-and-shipments)
 
+### 05-03-2025
+#### Changed
+- Set `legalIN` as the only available value for `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties-counterparty-type)
+- Set `legalIN` as the only available value for `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity-legal-entity-type)
+
 ### 10-02-2025
 #### Changed
 - Field `companyType` in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Field `companyType` in [Legal entity](../dictionaries/#entities-entity-legal-entity)
-#### Added
 - Requisites details in [Counterparty](../dictionaries/#entities-counterparty-counterparties)
 - Requisites details in [Legal entity](../dictionaries/#entities-entity-legal-entity)
 

@@ -86,6 +86,7 @@ to another object. The **meta** field is an object with the following attributes
 | **metadataHref** | URL | Link to entity metadata (Another kind of metadata. Not present in all entities) |
 | **type** | String(255) | Object type |
 | **mediaType** | String(255) | The type of data that comes in response from the service, or is sent in the request body. Within this API is always equal to `application/json` |
+| **permitted** | Boolean | There is no permission to view the object. This field is only displayed when [expand](workbook/#workbook-expand) an object without permission to view it |
 | **uuidHref** | URL | Reference to an object on the UI. Not present in all entities. Can be used to get uuid |
 | **downloadHref** | URL | Link to download Images and thumbnail images. This parameter is indicated only in **meta** for the Image of the Product or Bundle, as well as in the *miniature* field wherever images are used. If the thumbnail has not been created, then the value of this field is `null`. To create a thumbnail, you need to follow the link specified in `href` in the thumbnail. |
 
@@ -167,7 +168,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 | Name | Type        | Description |
 |------|-------------|-------------|
-| **error** | String(255) | Error name<br>`+Required for response` |
+| **error** | String(255) | Error name<br>`+Required when replying` |
 | **parameter** | String(255) | The parameter on which the error occurred |
 | **code** | Int         | Error code. If the field contains nothing, see HTTP status code |
 | **error_message** | String(255) | Message attached to the error |
@@ -179,25 +180,28 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Returned HTTP error statuses and their description
 
-| HTTP status code | Description |
-| -----------------| ----------- |
-| **301** | The requested resource has another URL |
-| **303** | The requested resource has another URL. Use GET request to find it |
-| **400** | The transmitted request has a JSON structure error |
-| **401** | Incorrect username or password, or the user or account has been blocked |
-| **403** | No permission to view the object |
-| **404** | The requested resource does not exist |
-| **405** | HTTP method specified incorrectly for the requested resource|
-| **409** | The specified object is in use and cannot be deleted |
-| **410** | API version no longer supported |
-| **412** | A required query string parameter or JSON structure field was not specified |
-| **413** | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
-| **415** | The format of the request content in headers or body is not supported |
-| **429** | Request limit was exceeded |
-| **500** | An unexpected error occurred while processing the request |
-| **502** | Service temporarily unavailable |
-| **503** | Service temporarily disabled |
-| **504** | Service timeout exceeded Please try again later |
+| HTTP status code | Description                                                                                                                                                          |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **200**          | The request was successfully completed                                                                                                                               |
+| **301**          | The requested resource has another URL                                                                                                                               |
+| **302**          | The requested resource is temporarily located at a different URI                                                                                                     |
+| **303**          | The requested resource has another URL. Use GET request to find it                                                                                                   |
+| **400**          | The transmitted request has a JSON structure error                                                                                                                   |
+| **401**          | Incorrect username or password, or the user or account has been blocked                                                                                              |
+| **403**          | No permission to view the object                                                                                                                                     |
+| **404**          | The requested resource does not exist                                                                                                                                |
+| **405**          | HTTP method specified incorrectly for the requested resource                                                                                                         |
+| **409**          | The specified object is in use and cannot be deleted                                                                                                                 |
+| **410**          | API version no longer supported                                                                                                                                      |
+| **412**          | A required query string parameter or JSON structure field was not specified                                                                                          |
+| **413**          | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
+| **414**          | URI too large                                                                                                                                                        |
+| **415**          | The format of the request content in headers or body is not supported                                                                                                |
+| **429**          | Request limit was exceeded                                                                                                                                           |
+| **500**          | An unexpected error occurred while processing the request                                                                                                            |
+| **502**          | Service temporarily unavailable                                                                                                                                      |
+| **503**          | Service temporarily disabled                                                                                                                                         |
+| **504**          | Service timeout exceeded Please try again later                                                                                                                      |
 
 Along with the error response body, you may receive the following headers:
 
@@ -206,13 +210,16 @@ Along with the error response body, you may receive the following headers:
 - X-Lognex-API-Version-Deprecated — The date the requested API version was disabled.
 - Location — The requested resource's current URL (if you receive 301 or 303 code as a response).
 
-Use the following headers to learn the limits of the remaining requests:
+Use the following headers to check the remaining limits for requests per unit of time:
 
 - X-RateLimit-Limit — The number of requests that can be made before the 429 error occurs.
 - X-Lognex-Retry-TimeInterval — Interval in milliseconds during which these requests can be made.
 - X-RateLimit-Remaining — The number of requests that can be sent before 429 error receiving.
 - X-Lognex-Reset — Time before limit reset in milliseconds. Equal to zero if the limit is not set.
 - X-Lognex-Retry-After — Time before the restriction reset in milliseconds.
+
+The headers do not display the limits for concurrent requests. If the concurrent request limits are exceeded, a response 
+with a 429 status code and error 1073, `Concurrent request limit exceeded` is returned.
 
 ### Additional fields
 
@@ -223,7 +230,7 @@ List of entities with additional fields:
 
 + [Contract](dictionaries/#entities-contract)
 + [Counterparty](dictionaries/#entities-counterparty)
-+ [Custom list](dictionaries/#entities-custom-list) (each has its own)
++ [Custom list](dictionaries/#entities-custom-list) (each user has its own)
 + [Legal entity](dictionaries/#entities-entity)
 + [Project](dictionaries/#entities-project)
 + [Warehouse](dictionaries/#entities-warehouse)
@@ -262,7 +269,7 @@ The response contains a description of the additional fields in the form of an *
 | Title | Type | Description |
 | ----- | -----| ----------- |
 | **description** | String(4096) | Description of additional fields |
-| **id** | UUID | Additional fields ID<br>`+Required for response` `+Read only` |
+| **id** | UUID | Additional fields ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](#kladana-json-api-general-info-metadata) | Link to metadata fields<br>`+Required when replying` |
 | **name** | String(255) | Name of additional fields<br>`+Required when replying` `+Required when creating` |
 | **required** | Boolean | Is the additional field required<br>`+Required when replying` |
@@ -357,7 +364,7 @@ To load the value for additional fields of the file type, you need to specify an
 | Title | Type | Description |
 | ----- |---- | ---------- |
 | **filename** | String(255) | File name<br>`+Required when replying` `+Required when creating` |
-| **content** | String | File bytes encoded in base64<br>`+Required when responding` `+Required when creating` |
+| **content** | String | File bytes encoded in base64<br>`+Required when replying` `+Required when creating` |
 
 To reset the value of an additional field of the File type, you need to pass the **file** field with the value `null`.
 
@@ -863,7 +870,7 @@ curl -X PUT
   "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d"
   -H "Authorization: Basic <Credentials>"
   -H "Accept-Encoding: gzip"
-  -H 'Content-Type: application/json' \
+  -H 'Content-Type: application/json' 
   -d '{
         "attributes": [
             {
@@ -888,7 +895,7 @@ Successful request. The result is a JSON representation of the shipment with upd
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
     "type": "demand",
     "mediaType": "application/json",
-    "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+    "uuidHref": "https://app.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
   },
   "id": "a6c50571-e705-11ef-ac12-000e0000001d",
   "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -898,7 +905,7 @@ Successful request. The result is a JSON representation of the shipment with upd
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
     }
   },
   "shared": false,
@@ -922,7 +929,7 @@ Successful request. The result is a JSON representation of the shipment with upd
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
       }
     }
   },
@@ -933,7 +940,7 @@ Successful request. The result is a JSON representation of the shipment with upd
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
       "type": "store",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
     }
   },
   "agent": {
@@ -942,7 +949,7 @@ Successful request. The result is a JSON representation of the shipment with upd
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+      "uuidHref": "https://app.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
     }
   },
   "organization": {
@@ -951,7 +958,7 @@ Successful request. The result is a JSON representation of the shipment with upd
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
     }
   },
   "attributes": [
@@ -1125,7 +1132,9 @@ curl -X POST
 }
 ```
 
-When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. For example:
+When requesting and updating transactions, it is possible to receive the balances and cost of the items of the transactions. To get stock and cost in transaction items, you need to pass an additional parameter `fields=stock` in the request. Learn more about [the fields parameter](#kladana-json-api-general-info-using-the-fields-parameter).
+
+For example:
 
 + `/customerorder/{document id}?fields=stock&expand=positions`
 
@@ -1205,7 +1214,9 @@ In the JSON API, fields of type date-time (point in time) are a string in the fo
 + With milliseconds: `YYYY-MM-DD HH:mm:ss.mmm` This format returns date-time fields in query responses.
 + Without seconds: `YYYY-MM-DD HH:mm` Only for filtering parameters.
 
-Minimum value: `1970-01-01 03:00:00`
+Minimum value for filtering: `1970-01-01 03:00:00`, the maximum date value is limited.
+
+The values in the date-time fields, which are responsible for the moment of creation or update, are specified in the time zone: `MSK` (Moscow time).
 
 The following fields are set and output to the JSON API with minute precision, namely seconds and milliseconds set to `00`:
 
@@ -1351,7 +1362,7 @@ ID example:
 
 For example:
 
-+ `filter=productid=94975104-3cad-11e8-1e44-bd4d00000084`
++ `filter=id=94975104-3cad-11e8-1e44-bd4d00000084`
 
 #### Filtering by additional fields
 
@@ -1360,15 +1371,15 @@ Example: `filter=<reference to additional field>=<value>`
 
 ##### Available operators for filtering additional fields
 
-| Title | JSON value field type | Value of type field in JSON |Description |
-| ------| --------------------- | --------------------------- | -----------|
+| Title | JSON value field type | Value of type field in JSON | Description  |
+| ----- | --------------------- | --------------------------- | ------------ |
 | **Date** | string | time | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 | **Handbook** | object | {entityType} | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=` |
-| **Link** | string | link | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `!~val`, `~=val`, `=~val` |
-| **File** | string | file | Filtering not supported |
-| **Checkbox** | boolean | boolean | `=true`, `=false` |
+| **Link** | string | link | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`                            |
+| **String** | string | string | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`  |
+| **Text** | string | text | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `~val`, `~=val`, `=~val`  |
+| **File** | string | file | Filtering not supported   |
+| **Checkbox** | boolean | boolean | `=true`, `=false`, `!=true`, `!=false`  |
 | **The number is fractional**| number | double | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 | **Integer number** | number | long | `=val`, `=`, `!=val`, `!=`, `=val;=val2`, `!=val;!=val2`, `=val;=`, `!=val; !=`, `&lt;val`, `>val`, `>=val`, `<=val`, `>=val;<=val2` |
 
@@ -1397,7 +1408,7 @@ state.name String type parameter. The filtered selection will include all docume
 
 An example request using the state.name filter:
 
-`https://api.kladana.com/api/remap/1.2/entity/customerOrder?filter=state.name=Новый;state.name=Принят`
+`https://api.kladana.com/api/remap/1.2/entity/customerorder?filter=state.name=New;state.name=Accepted`
 
 The filter=assortment=<href of an entity> filter allows you to filter documents by the presence of items with the specified assortment entities.
 assortment - a parameter that accepts the href of an assortment or group of products. Allowed entity types: Product, Product variant, Service, Bundle, Product group.
@@ -1519,7 +1530,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
     "mediaType": "application/json",
-    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
+    "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
   "id": "685a0eb9-e707-11ef-ac12-000e00000043",
   "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -1529,7 +1540,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
     }
   },
   "shared": false,
@@ -1553,7 +1564,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
       }
     }
   },
@@ -1564,7 +1575,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
       "type": "store",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
     }
   },
   "agent": {
@@ -1573,7 +1584,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+      "uuidHref": "https://app.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
     }
   },
   "organization": {
@@ -1582,7 +1593,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
     }
   },
   "created": "2025-02-09 20:00:47.329",
@@ -1617,7 +1628,7 @@ Successful request. Result is a JSON representation of the Sales Return without 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+      "uuidHref": "https://app.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     }
   },
   "payedSum": 0.0
@@ -1647,7 +1658,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
     "mediaType": "application/json",
-    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
+    "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
   "id": "685a0eb9-e707-11ef-ac12-000e00000043",
   "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -1657,7 +1668,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
     }
   },
   "shared": false,
@@ -1681,7 +1692,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
       }
     }
   },
@@ -1692,7 +1703,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
       "type": "store",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
     }
   },
   "agent": {
@@ -1701,7 +1712,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+      "uuidHref": "https://app.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
     }
   },
   "organization": {
@@ -1710,7 +1721,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
     }
   },
   "created": "2025-02-09 20:00:47.329",
@@ -1745,7 +1756,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+      "uuidHref": "https://app.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     },
     "id": "a6c50571-e705-11ef-ac12-000e0000001d",
     "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -1755,7 +1766,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
       }
     },
     "shared": false,
@@ -1779,7 +1790,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
         }
       }
     },
@@ -1790,7 +1801,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
         "type": "store",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+        "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
       }
     },
     "agent": {
@@ -1799,7 +1810,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+        "uuidHref": "https://app.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
       }
     },
     "organization": {
@@ -1808,7 +1819,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
         "type": "organization",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+        "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
       }
     },
     "attributes": [
@@ -1858,7 +1869,7 @@ Successful request. Result is a JSON representation of the Sales Return with an 
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
           "type": "salesreturn",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
+          "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
         }
       }
     ],
@@ -2164,7 +2175,10 @@ curl -X GET
   -H "Accept-Encoding: gzip"
 ```
 
-> Response with expanded Demand and Demand.Agent
+> Response 200 (application/json)
+
+Successful request. The result is a JSON representation of the Customer Return with expanded shipment objects and their agent.
+
 
 ```json
 {
@@ -2173,7 +2187,7 @@ curl -X GET
     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
     "type": "salesreturn",
     "mediaType": "application/json",
-    "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
+    "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
   },
   "id": "685a0eb9-e707-11ef-ac12-000e00000043",
   "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -2183,7 +2197,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
       "type": "employee",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
     }
   },
   "shared": false,
@@ -2207,7 +2221,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
         "type": "currency",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
       }
     }
   },
@@ -2218,7 +2232,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
       "type": "store",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+      "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
     }
   },
   "agent": {
@@ -2227,7 +2241,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+      "uuidHref": "https://app.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
     }
   },
   "organization": {
@@ -2236,7 +2250,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
       "type": "organization",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+      "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
     }
   },
   "created": "2025-02-09 20:00:47.329",
@@ -2271,7 +2285,7 @@ curl -X GET
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/demand/metadata",
       "type": "demand",
       "mediaType": "application/json",
-      "uuidHref": "https://online.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
+      "uuidHref": "https://app.kladana.com/app/#demand/edit?id=a6c50571-e705-11ef-ac12-000e0000001d"
     },
     "id": "a6c50571-e705-11ef-ac12-000e0000001d",
     "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -2281,7 +2295,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
         "type": "employee",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
       }
     },
     "shared": false,
@@ -2305,7 +2319,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
           "type": "currency",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
+          "uuidHref": "https://app.kladana.com/app/#currency/edit?id=a56cd0da-d7d4-11ef-ac12-000f000000a2"
         }
       }
     },
@@ -2316,7 +2330,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
         "type": "store",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
+        "uuidHref": "https://app.kladana.com/app/#warehouse/edit?id=a56684d8-d7d4-11ef-ac12-000f0000009d"
       }
     },
     "agent": {
@@ -2325,7 +2339,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
+        "uuidHref": "https://app.kladana.com/app/#company/edit?id=a56832b7-d7d4-11ef-ac12-000f000000a0"
       },
       "id": "a56832b7-d7d4-11ef-ac12-000f000000a0",
       "accountId": "a3816d8b-d7d4-11ef-ac12-001000000001",
@@ -2335,7 +2349,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
           "type": "employee",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
+          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=a50d2d81-d7d4-11ef-ac12-000f00000051"
         }
       },
       "shared": false,
@@ -2409,7 +2423,7 @@ curl -X GET
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
         "type": "organization",
         "mediaType": "application/json",
-        "uuidHref": "https://online.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
+        "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=a2a04526-e705-11ef-ac12-000e00000018"
       }
     },
     "attributes": [
@@ -2459,7 +2473,7 @@ curl -X GET
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/salesreturn/metadata",
           "type": "salesreturn",
           "mediaType": "application/json",
-          "uuidHref": "https://online.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
+          "uuidHref": "https://app.kladana.com/app/#salesreturn/edit?id=685a0eb9-e707-11ef-ac12-000e00000043"
         }
       }
     ],
@@ -2922,6 +2936,27 @@ Successful request. Result is JSON representation of the updated Shipment with e
 }
 ```
 
+### Using the fields parameter
+
+In the JSON API, some entity fields are not included in responses by default. To retrieve these additional data fields, use the `fields` parameter.
+Specify the field key you want to include as the parameter value.
+
+#### Rules for using the fields parameter
+
+The following rules apply to fields:
+
+* Only 1 value can be passed per request
+* Unsupported or invalid values will trigger [error 3042](#kladana-json-api-errors-common-validation-errors)
+* To get nested objects in hidden fields, explicitly use `expand`. For example: `/customerorder/{id}?fields=stock&expand=positions`.
+* Fields is allowed only for sample sizes of 100 or fewer. For example: `https://api.kladana.com/api/remap/1.2/entity/customerorder?fields=stock&expand=positions&limit=100`. If a larger limit is specified along with fields, the fields parameter will be ignored.
+
+### Where the fields parameter is used
+
+The `fields` parameter can be applied in the following cases:
+
+* [Balances and cost in documents](#kladana-json-api-general-info-balances-and-cost-in-transaction-items)
+* [Minimum stock in product](dictionaries/#entities-product-products-nested-entity-attributes-minimum-stock)
+
 ### Employee request context
 
 Returns data about the employee on whose behalf the request is made. The entity is accessed via the endpoint `/context/employee`
@@ -2934,10 +2969,10 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **archived**     | Boolean | Whether the Employee was added to the archive<br>`+Required when replying` `+Read Only` |
 | **attributes**   | Array(Object) | Additional Employee fields<br>`+Read-only` |
 | **code**         | String(255) | Employee Code<br>`+Read Only` |
-| **created**      | DateTime | Employee Creation Time<br>`+Required for response` `+Read Only` |
+| **created**      | DateTime | Employee Creation Time<br>`+Required when replying` `+Read Only` |
 | **description**  | String(4096) | Employee Comment<br>`+Read Only` |
 | **email**        | String(255) | Employee Email<br>`+Read Only` |
-| **externalCode** | String(255) | Employee External ID<br>`+Required for response` `+Read Only` |
+| **externalCode** | String(255) | Employee External ID<br>`+Required when replying` `+Read Only` |
 | **firstName**    | String(255) | Name<br>`+Read Only` |
 | **fullName**     | String(255) | First name Middle name Last name<br>`+Read only` |
 | **group**        | [Meta](#kladana-json-api-general-info-metadata) | Employee department<br>`+Required when replying` `+Read-only` |
@@ -2945,9 +2980,9 @@ Returns data about the employee on whose behalf the request is made. The entity 
 | **image**        | Object | Photo of an employee. [Learn more](dictionaries/#entities-employee-employees-nested-entity-attributes-employee-photo-structure-and-loading)<br>`+Read only` |
 | **inn**          | String(255) | TIN of the employee (in the format of the TIN of an individual)<br>`+Read-only`|
 | **lastName**     | String(255) | Last name<br>`+Required when replying` `+Read only` |
-| **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when responding` `+Read Only` |
+| **meta**         | [Meta](#kladana-json-api-general-info-metadata) | Employee Metadata<br>`+Required when replying` `+Read Only` |
 | **middleName**   | String(255) | Middle name<br>`+Read only` |
-| **name**         | String(255) | Employee Name<br>`+Required when responding` `+Read Only` |
+| **name**         | String(255) | Employee Name<br>`+Required when replying` `+Read Only` |
 | **owner**        | [Meta](#kladana-json-api-general-info-metadata) | Owner (Employee)<br>`+Required when replying` `+Read Only` |
 | **permissions**  | Object | Enumeration of employee's permissions. [Learn more](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions)<br>`+Required when replying` `+Read only` |
 | **phone**        | String(255) | Employee phone<br>`+Read-only` |
@@ -3609,3 +3644,8 @@ where _id_ is the UUID of the application installed on the account
 An example of a request to get a list of records:
 `https://api.kladana.com/api/remap/1.2/audit?filter=application=https://api.kladana.com/api/remap/1.2/entity/application/46ea8005-2965-11e9-9ff4-34e80009ac49` 
 
+### Accept-Language Header
+
+Use the Accept-Language header to receive error messages in your preferred language. Header value processing complies 
+with the HTTP standard (RFC 7231). Current support is limited to Russian (ru) and English (en) languages and applies 
+only to error messages. The functionality and list of supported languages may be expanded in the future.

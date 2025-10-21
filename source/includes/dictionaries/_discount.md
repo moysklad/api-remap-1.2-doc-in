@@ -9,20 +9,20 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | Title | Type | Description |
 | -------- |------- | ---------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **active** | Boolean | An indicator of whether the discount is active at the moment<br>`+Required when answering` |
+| **active** | Boolean | An indicator of whether the discount is active at the moment<br>`+Required when replying` |
 | **agentTags** | Array(String) | Account tags to which the discount is applied, if not applied to all accounts |
-| **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when answering` |
+| **allProducts** | Boolean | An indicator of whether the discount is valid for all products<br>`+Required when replying` |
 | **assortment** | Array(Object) | An array of metadata for Goods and Services that have been selected to apply the discount, if it is not applied to all products |
 | **id** | UUID | Discount ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata Discounts<br>`+Required when replying` |
-| **name** | String(255) | Discount Name<br>`+Required when answering` |
+| **name** | String(255) | Discount Name<br>`+Required when replying` |
 
 #### Special price fields
 
 | Title | Type          | Description |
 | -------- |---------------| ---------- |
 | **productfolders** | Array(Object) | Array of metadata of Groups of goods to which the discount is applied, if it is not applied to all goods |
-| **discount** | Int           | Discount percentage if fixed percentage is selected |
+| **discount** | Float | Discount percentage if fixed percentage is selected |
 | **specialprice** | Object        | Specialist. price (if a price type is selected). [Learn more](../dictionaries/#entities-discounts-special-price) |
 
 #### Special Price
@@ -44,7 +44,7 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 | Title | Type | Description |
 | -------- |------| ---------- |
 | **amount** | Int  | Amount of savings in paise<br>`+Required when answering` |
-| **discount** | Int  | Discount percentage corresponding to this amount |
+| **discount** | Float  | Discount percentage corresponding to this amount |
 
 
 ### Get all discounts
@@ -52,8 +52,8 @@ The entity code for Discounts in the JSON API is the **discount** keyword. Creat
 Request to receive all account discounts.
 Result: JSON object including fields:
 
-| Title | Type | Description |
-| -------- |------- | ---------- |
+| Title    | Type  | Description |
+| -------- | ----- | ----------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
 | **rows** | Array(Object) | An array of JSON objects representing discounts. |

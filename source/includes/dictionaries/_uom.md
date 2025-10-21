@@ -1,27 +1,28 @@
 ## Unit of measure
 ### Units of measure
+The entity code for Units of Measure in the JSON API is the **uom** keyword.
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
-The search among objects of units of measurement for matching the search string will be carried out in the following fields:
+The search among objects of Units of Measure for matching the search string will be carried out in the following fields:
 
-+ by name Units **name**
-+ according to description Units **description**
++ by name of a Unit of Measure **name**
++ according to the description of a Unit of Measure **description**
 
 #### Entity attributes
 
 | Title | Type                                               | Filtration | Description |
 | ------- |----------------------------------------------------|------ | -------- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
+| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when answering` `+Read Only` |
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Units |
-| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Units |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Units<br>`+Required when replying` |
+| **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Unit of Measure Description |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Unit of Measure External code<br>`+Required when replying` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Department Employee<br>`+Expand` `+For custom units. measurements` |
-| **id** | UUID                                               | `=` `!=` | ID Units<br>`+Required for response` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Units<br>`+Required when replying` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Units of measurement<br>`+Required when answering` `+Required when creating` |
+| **id** | UUID                                               | `=` `!=` | Unit of Measure ID<br>`+Required when replying` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Unit of Measure Metadata <br>`+Required when replying` |
+| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Unit of Measure Name <br>`+Required when replying` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom units. measurements` |
 | **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` `+For custom units. measurements` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Last update time Units<br>`+Required when replying` `+Read-only` |
+| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The time of the Unit of Measure last update<br>`+Required when replying` `+Read-only` |
 
 ### Get Units of measure
 Request to get a list of all units of measure for the given account.

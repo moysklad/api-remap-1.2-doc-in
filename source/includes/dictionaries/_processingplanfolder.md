@@ -7,19 +7,19 @@ Using the JSON API, you can create and update information about Bills of Materia
 
 | Title | Type | Description |
 | ----------| ---------|----------|
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read only` |
-| **archived** | Boolean | Has Bills of Materials Folder been archived<br>`+Required when replying` |
-| **externalCode** | String(255) | Bills of Materials Folder External Code<br>`+Required when replying` |
+| **accountId** | UUID | Account ID<br>`+Required when answering` `+Read only` |
+| **archived** | Boolean | Has Bills of Materials Folder been archived<br>`+Required when answering` |
+| **externalCode** | String(255) | Bills of Materials Folder External Code<br>`+Required when answering` |
 | **code** | String(255) | Bills of Materials Folder Code |
 | **description** | String(4096) | Bills of Materials Folder Descriptions|
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | Employee department metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | Bills of Materials Folder ID<br>`+Required when replying` `+Read only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Bills of Materials Folder Metadata<br>`+Required when replying` |
-| **name** | String(255) | Bills of Materials Folder Name<br>`+Required when replying` `+Required when creating` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | Employee department metadata<br>`+Required when answering` `+Expand` |
+| **id** | UUID | Bills of Materials Folder ID<br>`+Required when answering` `+Read only` |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Bills of Materials Folder Metadata<br>`+Required when answering` |
+| **name** | String(255) | Bills of Materials Folder Name<br>`+Required when answering` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | Owner (Employee) metadata<br>`+Expand` |
 | **pathName** | String | Name of the Bills of Materials Folder<br>`+Required when replying` `+Read Only` |
 | **shared** | Boolean | Sharing<br>`+Required when replying` |
-| **updated** | DateTime | When the entity was last updated<br>`+Required for response` `+Read-only` |
+| **updated** | DateTime | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 ### Get list of Bills of Materials Folder
 
@@ -399,7 +399,7 @@ Request to get metadata of Bills of Materials Folder. The result is a JSON objec
 
 | Title | Type | Description |
 | ------------- | ------ | -------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of Bills of Materials Folders<br>`+Required when replying`|
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of Bills of Materials Folders<br>`+Required when answering`|
 
 The structure of a separate object representing the additional the field is described in detail in the section [Working with additional fields](../#kladana-json-api-general-info-additional-fields).
 
