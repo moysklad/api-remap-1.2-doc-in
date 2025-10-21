@@ -15,6 +15,7 @@ First search term:
 + According to the number of the Counterparty's discount card **discountCardNumber**
 + By e-mail address **email**
 
+
 Second search term:
 
 + By landline phone number **phone**
