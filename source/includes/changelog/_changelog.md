@@ -15,6 +15,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
   - Consignee Statement Received
 
 
+
 #### Changed
 - Description of `32001` [error code](../#kladana-json-api-errors-error-codes-for-contracts)
 
