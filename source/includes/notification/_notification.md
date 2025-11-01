@@ -2254,8 +2254,8 @@ curl -X GET
   "description": "@Admin Which ribbon color?",
   "task": {
     "meta": {
-      "href": "http://localhost/api/remap/1.2/entity/task/54c55c03-b671-11f0-9be5-430a00000031",
-      "metadataHref": "http://localhost/api/remap/1.2/entity/task/metadata",
+      "href": "https://api.moysklad.ru/api/remap/1.2/entity/task/54c55c03-b671-11f0-9be5-430a00000031",
+      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/task/metadata",
       "type": "task",
       "mediaType": "application/json"
     },
