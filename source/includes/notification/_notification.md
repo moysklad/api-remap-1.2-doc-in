@@ -244,7 +244,7 @@ The format of oldValue and newValue is the same as the format of the field whose
 | **NotificationTaskUnassigned**          | Task              | Task removed                                                     |
 | **NotificationBonusMoney**              | Balance           | Bonus money has been credited to the account                     |
 | **NewMentionInEvent**                   | Employee Mentions | New mention in the event feed                                    |
-| **NewMentionInPurposeNote**             | Employee Mentions | New mention in a Task comments                                   |
+| **NewMentionInTaskNote**                | Employee Mentions | New mention in a Task comments                                   |
 | **NewEventInEventFeed**                 | Followed events   | New events in followed object                                    |
 
 ## Detailed description of notification types
