@@ -2246,7 +2246,7 @@ curl -X GET
     "type": "NewMentionInTaskNote",
     "mediaType": "application/json"
   },
-  "id": "9017ee1b-b671-11f0-27bc-f26c0000000d",
+  "id": "c290e571-f65d-11ee-c0a8-300d0000000a",
   "accountId": "cc6f702a-b66d-11f0-ff6f-15bb00000001",
   "created": "2025-10-31 18:52:11.352",
   "read": false,
@@ -2254,8 +2254,8 @@ curl -X GET
   "description": "@Admin Which ribbon color?",
   "task": {
     "meta": {
-      "href": "https://api.moysklad.ru/api/remap/1.2/entity/task/54c55c03-b671-11f0-9be5-430a00000031",
-      "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/task/metadata",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/task/54c55c03-b671-11f0-9be5-430a00000031",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/task/metadata",
       "type": "task",
       "mediaType": "application/json"
     },
