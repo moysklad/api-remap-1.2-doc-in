@@ -1049,7 +1049,7 @@ Successful request. The result is a JSON representation of a list of created com
 [
   {
     "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/5528751f-8b8a-11e8-d9ce-84d90000000f",
+      "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/2050793f-b8c6-11f0-0a80-204500000006",
       "type": "tasknote",
       "mediaType": "application/json"
     },
