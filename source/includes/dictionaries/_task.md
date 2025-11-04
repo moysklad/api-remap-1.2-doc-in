@@ -803,7 +803,22 @@ Successful request. The result is a JSON representation of the updated task.
 ```
 
 ### Comments Tasks
-A separate resource for managing Task comments. With it, you can manage the comments of an issue where the number of comments exceeds the limit on the number of comments that can be saved with the issue. This limit is 1000.
+
+A separate resource for managing Task comments. With it, you can manage the comments of an issue where the number of
+comments exceeds the limit on the number of comments that can be saved with the issue. This limit is 1000.
+
+Comments Tasks can contain mentions of other entities directly in the text of the comment itself.
+
+Mention format: `{{type;uuid}}`. For example, when mentioning an employee, the comment text might look like this:
+`Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?`. The display format for an
+active/archived/deleted entity is the same.
+
+**Attention!** If an entity with such UUID is not found, the text will be displayed in the web interface without any
+processing.
+
+Supported entity types in mentions:
+
++ [Employee](../dictionaries/#entities-employee)
 
 ### Get comments Tasks
 Request to get a list of all comments for this Issue.
