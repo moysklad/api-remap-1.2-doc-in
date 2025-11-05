@@ -553,13 +553,13 @@ Also, you cannot delete tasks created by other employees without administrator r
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
+| **id** | `string` (required) *Example: 47bc1d9b-8b87-11e8-d9ce-84d900000017* task id. |
 
 > Request to delete the task with the specified id.
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -621,13 +621,13 @@ curl -X POST
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
+| **id** | `string` (required) *Example: 47bc1d9b-8b87-11e8-d9ce-84d900000017* task id. |
  
 > Request to get a separate task with the specified id.
 
 ```shell
 curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -700,13 +700,13 @@ Also, you cannot modify tasks created by other employees without administrator r
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
+| **id** | `string` (required) *Example: 47bc1d9b-8b87-11e8-d9ce-84d900000017* task id. |
 
 > An example of a request to update an existing task.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19"
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -936,108 +936,6 @@ For successful creation, the following fields must be specified in the request b
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
        -d '{
-             "text": "text of comment 3"
-           }'
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the created comment for a single Issue.
-
-```json
-[
-   {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/5528751f-8b8a-11e8-d9ce-84d90000000f",
-       "type": "tasknote",
-       "mediaType": "application/json"
-     },
-     "author": {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-         "type": "employee",
-         "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
-       }
-     },
-     "text": "text of comment 3",
-     "moment": "2018-07-19 22:31:28"
-   }
-]
-```
-
-> An example of creating several comments to a Task at once.
-
-```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
-       -d'[
-             {
-               "text": "comment text 4"
-             },
-             {
-               "text": "comment text 5"
-             }
-           ]'
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of a list of created comments for a single Issue.
-
-```json
-[
-   {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba69d28-8b8a-11e8-d9ce-84d900000012",
-       "type": "tasknote",
-       "mediaType": "application/json"
-     },
-     "author": {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-         "type": "employee",
-         "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
-       }
-     },
-     "text": "comment text 4",
-     "moment": "2018-07-19 22:32:59"
-   },
-   {
-     "meta": {
-       "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/8ba6a80c-8b8a-11e8-d9ce-84d900000013",
-       "type": "tasknote",
-       "mediaType": "application/json"
-     },
-     "author": {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/98fa7086-8aa1-11e8-7210-075e0000002c",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-         "type": "employee",
-         "mediaType": "application/json",
-         "uuidHref": "https://app.kladana.com/app/#employee/edit?id=98fa7086-8aa1-11e8-7210-075e0000002c"
-       }
-     },
-     "text": "comment text 5",
-     "moment": "2018-07-19 22:32:59"
-   }
-]
-
-```
-
-> An example of creating comment with mention to a Task.
-
-```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
-       -d '{
              "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?"
            }'
 ```
@@ -1053,30 +951,116 @@ Successful request. The result is a JSON representation of a list of created com
       "type": "tasknote",
       "mediaType": "application/json"
     },
-        "id": "2050793f-b8c6-11f0-0a80-204500000006",
-        "accountId": "5ae35472-b8c5-11f0-0a82-042d00000002",
-        "author": {
-            "meta": {
-                "href": "https://api.kladana.com/api/remap/1.2/entity/employee/5c32c7bb-b8c5-11f0-0a83-01ce00000055",
-                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-                "type": "employee",
-                "mediaType": "application/json",
-                "uuidHref": "https://online-crm-2.testms-test.lognex.ru/app/#employee/edit?id=5c32c7bb-b8c5-11f0-0a83-01ce00000055"
-            }
-        },
-        "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?",
-        "moment": "2025-11-01 18:02:33.338",
-        "files": {
-            "meta": {
-                "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/2050793f-b8c6-11f0-0a80-204500000006/files",
-                "type": "files",
-                "mediaType": "application/json",
-                "size": 0,
-                "limit": 1000,
-                "offset": 0
-            }
-        }
+    "id": "2050793f-b8c6-11f0-0a80-204500000006",
+    "accountId": "5ae35472-b8c5-11f0-0a82-042d00000002",
+    "author": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/5c32c7bb-b8c5-11f0-0a83-01ce00000055",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=5c32c7bb-b8c5-11f0-0a83-01ce00000055"
+      }
+    },
+    "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?",
+    "moment": "2025-11-01 18:02:33.338",
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/2050793f-b8c6-11f0-0a80-204500000006/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
     }
+  }
+]
+```
+
+> An example of creating several comments to a Task at once.
+
+```shell
+   curl -X POST
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes"
+     -H "Authorization: Basic <Credentials>"
+     -H "Accept-Encoding: gzip"
+     -H "Content-Type: application/json"
+       -d'[
+             {
+               "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?"
+             },
+             {
+               "text": "I can do it today!"
+             }
+           ]'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of a list of created comments for a single Issue.
+
+```json
+[
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/bd230383-ba26-11f0-0a83-052900000003",
+      "type": "tasknote",
+      "mediaType": "application/json"
+    },
+    "id": "bd230383-ba26-11f0-0a83-052900000003",
+    "accountId": "3da1d022-b9d4-11f0-0a83-052d00000002",
+    "author": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/3e3001c5-b9d4-11f0-0a80-248f00000056",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=3e3001c5-b9d4-11f0-0a80-248f00000056"
+      }
+    },
+    "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?",
+    "moment": "2025-11-05 12:06:39.264",
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/bd230383-ba26-11f0-0a83-052900000003/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    }
+  },
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/bd23184e-ba26-11f0-0a83-052900000004",
+      "type": "tasknote",
+      "mediaType": "application/json"
+    },
+    "id": "bd23184e-ba26-11f0-0a83-052900000004",
+    "accountId": "3da1d022-b9d4-11f0-0a83-052d00000002",
+    "author": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/3e3001c5-b9d4-11f0-0a80-248f00000056",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=3e3001c5-b9d4-11f0-0a80-248f00000056"
+      }
+    },
+    "text": "I can do it today!",
+    "moment": "2025-11-05 12:06:39.281",
+    "files": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/bd23184e-ba26-11f0-0a83-052900000004/files",
+        "type": "files",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    }
+  }
 ]
 ```
 
@@ -1090,14 +1074,14 @@ Single comment to the Issue with the specified comment id.
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
+| **id** | `string` (required) *Example: 47bc1d9b-8b87-11e8-d9ce-84d900000017* task id. |
 | **tasknoteID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Issue comment id. |
  
 > Request for a separate comment to the Issue with the specified id.
 
 ```shell
 curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
@@ -1138,14 +1122,14 @@ For successful creation, the following fields must be specified in the request b
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
+| **id** | `string` (required) *Example: 47bc1d9b-8b87-11e8-d9ce-84d900000017* task id. |
 | **tasknoteID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Issue comment id. |
 
 > An example of a request to update a separate comment to a Task.
 
 ```shell
    curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c"
      -H "Authorization: Basic <Credentials>"
      -H "Accept-Encoding: gzip"
      -H "Content-Type: application/json"
@@ -1184,14 +1168,14 @@ Successful request. The result is a JSON representation of the updated issue com
 
 | Parameter | Description |
 | ------ | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* task id. |
+| **id** | `string` (required) *Example: 47bc1d9b-8b87-11e8-d9ce-84d900000017* task id. |
 | **tasknoteID** | `string` (required) *Example: 34f6344f-015e-11e6-9464-e4de0000006c* Issue comment id. |
  
 > Request to delete a separate comment to the Task with the specified id.
 
 ```shell
 curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/task/7944ef04-f831-11e5-7a69-971500188b19/notes/34f6344f-015e-11e6-9464-e4de0000006c"
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c"
    -H "Authorization: Basic <Credentials>"
    -H "Accept-Encoding: gzip"
 ```
