@@ -10,6 +10,20 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Error [26115](../#kladana-json-api-errors-error-codes-for-production-orders)
 
+### 30-10-2025
+#### Added
+- Error [19005](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-returns)
+
+### 25-09-2025
+#### Added
+- Condition for automatically disabling JSON API for a user in [Limitations](../#kladana-json-api-limitations).
+
+### 22-09-2025
+#### Added
+- Field `distributionRequired` in [Production Operations](../dictionaries/#entities-production-operations)
+#### Changed
+- Access to the [Brief Stock Report](../reports/#reports-stock-report-brief-stock-report) has been expanded: in addition to administrators, employees with the Stock permission can now view it.
+
 ### 25-08-2025
 #### Added
 - Field `applicable` in [Operation Report](../documents/#transactions-operation-report)

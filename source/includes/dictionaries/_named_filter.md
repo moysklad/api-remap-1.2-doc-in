@@ -87,7 +87,7 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
 
 ### Get another user's list of filters
 
-A user with administrator rights or an application has the ability to query the saved filters of other employees on the account.
+A user or an application with administrator rights  has the ability to query the saved filters of other employees on the account.
 To do this, you need to specify the `owner={href of the employee}` parameter in the request parameters.
 
 > Sample request to get another user's filter list

@@ -22,7 +22,7 @@ Using the JSON API, you can create and update Supplier Invoice information, quer
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 | **id** | UUID                                              | `=` `!=` | Supplier Invoice ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **incomingDate** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Incoming date<br>`+Change-handler` |
-| **incomingNumber** | Float                                             | `=` `!=` `~` `~=` `=~` | Incoming number<br>`+Change-handler` |
+| **incomingNumber** | String(255)                                             | `=` `!=` `~` `~=` `=~` | Incoming number<br>`+Change-handler` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Supplier Invoice Metadata<br>`+Required when replying` `+Change-handler` |
 | **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
 | **name** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Supplier Invoice Name<br>`+Required when replying` `+Change-handler` |

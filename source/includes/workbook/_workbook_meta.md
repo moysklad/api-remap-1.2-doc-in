@@ -27,6 +27,7 @@ The `meta` field consists of the following attributes:
 * `downloadHref` - download link
 * `type` - object type;
 * `mediaType` - data type that comes in response from the service, or is sent in the request body;
+* `permitted`- there is no permission to view the object. This field is only displayed when [expand](workbook/#workbook-expand) an object without permission to view it 
 * `uuidHref` - link to the object in the web version of MyWarehouse. Not present in all entities.
 
 Consider the request of the counterparty `Supplier LLC`

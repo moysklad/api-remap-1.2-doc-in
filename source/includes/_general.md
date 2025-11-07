@@ -86,6 +86,7 @@ to another object. The **meta** field is an object with the following attributes
 | **metadataHref** | URL | Link to entity metadata (Another kind of metadata. Not present in all entities) |
 | **type** | String(255) | Object type |
 | **mediaType** | String(255) | The type of data that comes in response from the service, or is sent in the request body. Within this API is always equal to `application/json` |
+| **permitted** | Boolean | There is no permission to view the object. This field is only displayed when [expand](workbook/#workbook-expand) an object without permission to view it |
 | **uuidHref** | URL | Reference to an object on the UI. Not present in all entities. Can be used to get uuid |
 | **downloadHref** | URL | Link to download Images and thumbnail images. This parameter is indicated only in **meta** for the Image of the Product or Bundle, as well as in the *miniature* field wherever images are used. If the thumbnail has not been created, then the value of this field is `null`. To create a thumbnail, you need to follow the link specified in `href` in the thumbnail. |
 
@@ -179,8 +180,8 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 
 #### Returned HTTP error statuses and their description
 
-| HTTP status code | Description   |
-| ---------------- | ------------- |
+| HTTP status code | Description                                                                                                                                                          |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **200**          | The request was successfully completed                                                                                                                               |
 | **301**          | The requested resource has another URL                                                                                                                               |
 | **302**          | The requested resource is temporarily located at a different URI                                                                                                     |
@@ -194,6 +195,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **410**          | API version no longer supported                                                                                                                                      |
 | **412**          | A required query string parameter or JSON structure field was not specified                                                                                          |
 | **413**          | The size of the request or the number of elements in the request exceeds the limit. For instance, the number of items passed in the **positions** array exceeds 1000 |
+| **414**          | URI too large                                                                                                                                                        |
 | **415**          | The format of the request content in headers or body is not supported                                                                                                |
 | **429**          | Request limit was exceeded                                                                                                                                           |
 | **500**          | An unexpected error occurred while processing the request                                                                                                            |
@@ -208,13 +210,16 @@ Along with the error response body, you may receive the following headers:
 - X-Lognex-API-Version-Deprecated — The date the requested API version was disabled.
 - Location — The requested resource's current URL (if you receive 301 or 303 code as a response).
 
-Use the following headers to learn the limits of the remaining requests:
+Use the following headers to check the remaining limits for requests per unit of time:
 
 - X-RateLimit-Limit — The number of requests that can be made before the 429 error occurs.
 - X-Lognex-Retry-TimeInterval — Interval in milliseconds during which these requests can be made.
 - X-RateLimit-Remaining — The number of requests that can be sent before 429 error receiving.
 - X-Lognex-Reset — Time before limit reset in milliseconds. Equal to zero if the limit is not set.
 - X-Lognex-Retry-After — Time before the restriction reset in milliseconds.
+
+The headers do not display the limits for concurrent requests. If the concurrent request limits are exceeded, a response 
+with a 429 status code and error 1073, `Concurrent request limit exceeded` is returned.
 
 ### Additional fields
 
