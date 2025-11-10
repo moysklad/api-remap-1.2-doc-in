@@ -398,7 +398,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26102">26102</a> | Error saving production order: you cannot start executing an unposted production order | |
 | <a name="error_26103">26103</a> | Error saving production order: you cannot remove the production start date from a started production order | Before canceling the start of production, you must cancel the execution of all operations |
 | <a name="error_26104">26104</a> | Error updating production order item: Replacing the Bill of Materials is not supported | The Bill of Materials of a production order item cannot be changed |
-| <a name="error_26105">26105</a> | Error updating production order item: You cannot change an item that has completed or partially completed operations | Once a production order has started executing, only the volume ratio for an item can be changed. The quantities of products and materials will be recalculated |
+| <a name="error_26105">26105</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
 | <a name="error_26106">26106</a> | Error saving item of Production Order: cannot change or delete products when the final operation of the item has started | Products of Production Order can be changed until its completion |
 | <a name="error_26107">26107</a> | Error saving: Production Order item {identifier} does not belong to the Production Order {identifier} | The request specifies an item from another Production Order |
 | <a name="error_26108">26108</a> | Error deleting Production Order item: cannot delete an item that has completed operations | A Production Order item can be deleted before it has started |
@@ -408,7 +408,6 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26112">26112</a> | Error updating Production Order: field {date field} cannot be assigned a value after {date} | The field has limitations and dependencies. A date before the specified one must be passed |
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
 | <a name="error_26114">26114</a> | Production stage update error: cannot enable standard hours calculation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the production stage. When standard hours calculation is enabled, the `labourUnitCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
-| <a name="error_26115">26115</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
 
 ### Error codes for Operation Reports
 

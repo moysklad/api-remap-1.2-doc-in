@@ -2,10 +2,6 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 07-11-2025
-#### Added
-- Error [26115](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-orders)
-
 ### 30-10-2025
 #### Added
 - Error [19005](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-returns)
