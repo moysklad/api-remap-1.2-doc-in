@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 17-10-2025
+### 18-11-2025
 #### Changed
 - The value of the `name` field in the [warehouse](../dictionaries/#entities-warehouse) entity must be unique.
 

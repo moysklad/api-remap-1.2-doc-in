@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 17-10-2025
+### 18-11-2025
 #### Changed
 - The value of the `name` field in the [warehouse](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-warehouse) entity must be unique.
 
