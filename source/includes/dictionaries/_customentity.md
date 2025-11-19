@@ -8,7 +8,7 @@ Using the JSON API, you can create, update, and delete Custom lists. It also all
 within Custom lists and retrieve details about their additional fields.
 <br>
 To work with Custom lists, you need the identifier for each list.
-This identifier is available in the metadata request for the entity, located in the _\<id\>_ field.
+This identifier is available in the metadata request for the entity, located in the `id` field.
 
 #### Entity attributes
 
