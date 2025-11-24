@@ -88,14 +88,6 @@ The prefix must include the full protocol and domain name. Headers such as `X-Lo
 
 To specify multiple prefixes, you must include multiple `X-Lognex-WebHook-DisableByPrefix` headers in the request. Listing multiple URL prefixes in a single header separated by commas is not supported.
 
-#### Temporary disable header X-Lognex-WebHook-Disable via API
-
-This feature will be deprecated in the future.
-
-Through the JSON API or POS API, you can disable all webhook notifications within the context of a specific request by including the `X-Lognex-WebHook-Disable` header with any value.
-
-Disabling webhook notifications should only be done when absolutely necessary, as this may affect integrations or disable critical notifications.
-
 #### SSL handshake
 If the recipient's address uses an SSL certificate, then you need to make sure that the certificate has the correct Certification Paths. You can check the certificate in the service https://www.ssllabs.com/ssltest/index.html
 
