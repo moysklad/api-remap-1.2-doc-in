@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 27-1-2025
+### 27-11-2025
 #### Added
 - Add new [error 3046](..#kladana-json-api-errors-common-validation-errors)
 
