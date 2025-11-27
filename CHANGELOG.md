@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 27-11-2025
+#### Added
+- Error [3046](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+
 ### 18-11-2025
 #### Changed
 - The value of the `name` field in the [warehouse](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-warehouse) entity must be unique.
