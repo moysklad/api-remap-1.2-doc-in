@@ -317,13 +317,14 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error Codes for Returns
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_19000">19000</a> | Save Refund Error: Retail Shift Already Closed | You cannot save a return to a closed retail shift. Make sure you are using the active shift ID. |
-| <a name="error_19001">19001</a> | Error saving retail refund: fields 'cashSum' and 'noCashSum' are required for returns without reason | The fields 'cashSum' and 'noCashSum' are required to be returned without a reason. Make sure they are filled out. |
+| Error code                      | Message                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                         |
+|---------------------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <a name="error_19000">19000</a> | Save Refund Error: Retail Shift Already Closed                                                          | You cannot save a return to a closed retail shift. Make sure you are using the active shift ID.                                                                                                                                                                                                                                                     |
+| <a name="error_19001">19001</a> | Error saving retail refund: fields 'cashSum' and 'noCashSum' are required for returns without reason    | The fields 'cashSum' and 'noCashSum' are required to be returned without a reason. Make sure they are filled out.                                                                                                                                                                                                                                   |
 | <a name="error_19002">19002</a> | Error saving retail refund: amount of 'cashSum', 'noCashSum' and 'qrSum' does not match document amount | The sum of the fields cashSum, noCashSum and qrSum must be equal to the value of the sum field or differ by less than 10 units. In the case of creating a document and specifying the above fields in the request body, the responsibility for calculating sum lies with the user. sum is calculated as the total sum of all items in the document. |
-| <a name="error_19003">19003</a> | Error saving retail return: return is possible only by QR code | Occurs if the sale was made using a QR code, and the return is made in cash or by card. When creating such a return, the 'cashSum' and 'noCashSum' fields must be absent. |
-| <a name="error_19004">19004</a> | Error saving retail refund: QR code refund is only supported for transactions paid by QR code | Occurs if the sale was made for cash or by card, and the return is made using a QR code. When creating such a return, the 'qrSum' field must be absent. |
+| <a name="error_19003">19003</a> | Error saving retail return: return is possible only by QR code                                          | Occurs if the sale was made using a QR code, and the return is made in cash or by card. When creating such a return, the 'cashSum' and 'noCashSum' fields must be absent.                                                                                                                                                                           |
+| <a name="error_19004">19004</a> | Error saving retail refund: QR code refund is only supported for transactions paid by QR code           | Occurs if the sale was made for cash or by card, and the return is made using a QR code. When creating such a return, the 'qrSum' field must be absent.                                                                                                                                                                                             |
+| <a name="error_19005">19005</a> | Error saving retail refund: Incorrect card payment amount                                               | Occurs if the sale was made with cash or card, and the 'noCashSum' field is negative. When creating such a return, the 'noCashSum' field must be positive.                                                                                                                                                                                          |
 
 ### Error codes for Receivings
 
@@ -391,13 +392,13 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Production Orders
 
-| Error code | Message | Description |
-| ---------- | ------- | ----------- |
+| Error code                      | Message | Description |
+|---------------------------------| ------- | ----------- |
 | <a name="error_26101">26101</a> | Error saving production order: the number of items cannot exceed {maximum quantity} | A production order can contain up to 200 items |
 | <a name="error_26102">26102</a> | Error saving production order: you cannot start executing an unposted production order | |
 | <a name="error_26103">26103</a> | Error saving production order: you cannot remove the production start date from a started production order | Before canceling the start of production, you must cancel the execution of all operations |
 | <a name="error_26104">26104</a> | Error updating production order item: Replacing the Bill of Materials is not supported | The Bill of Materials of a production order item cannot be changed |
-| <a name="error_26105">26105</a> | Error updating production order item: You cannot change an item that has completed or partially completed operations | You can only change a production order item before it has started executing |
+| <a name="error_26105">26105</a> | Error updating production order item: You cannot change an item that has completed or partially completed operations | Once a production order has started executing, only the volume ratio for an item can be changed. The quantities of products and materials will be recalculated |
 | <a name="error_26106">26106</a> | Error saving item of Production Order: cannot change or delete products when the final operation of the item has started | Products of Production Order can be changed until its completion |
 | <a name="error_26107">26107</a> | Error saving: Production Order item {identifier} does not belong to the Production Order {identifier} | The request specifies an item from another Production Order |
 | <a name="error_26108">26108</a> | Error deleting Production Order item: cannot delete an item that has completed operations | A Production Order item can be deleted before it has started |
@@ -407,6 +408,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26112">26112</a> | Error updating Production Order: field {date field} cannot be assigned a value after {date} | The field has limitations and dependencies. A date before the specified one must be passed |
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
 | <a name="error_26114">26114</a> | Production stage update error: cannot enable standard hours calculation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the production stage. When standard hours calculation is enabled, the `labourUnitCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
+| <a name="error_26115">26115</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
 
 ### Error codes for Operation Reports
 

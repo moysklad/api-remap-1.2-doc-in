@@ -445,7 +445,8 @@ Create a new Warehouse.
 
 #### Description
 
-The warehouse is created based on the provided JSON object, which represents the new warehouse. The `name` field is required when creating a warehouse and must not be empty.
+The warehouse is created based on the provided JSON object, which represents the new warehouse.
+The `name` field is required when creating a warehouse, must not be empty, and must be unique.
 
 > An example of a request to create a new Warehouse.
 
