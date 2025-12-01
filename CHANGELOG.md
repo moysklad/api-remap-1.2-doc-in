@@ -2,6 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 01-12-2025
+#### Added
+- Mentions in [task comments](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-task-comments-tasks)
+- [Notifications](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-detailed-description-of-notification-types-new-mention-in-a-task) for mentions in task comments
+
 ### 18-11-2025
 #### Changed
 - The value of the `name` field in the [warehouse](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-warehouse) entity must be unique.
