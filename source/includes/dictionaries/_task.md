@@ -805,7 +805,7 @@ Successful request. The result is a JSON representation of the updated task.
 ### Comments Tasks
 
 A separate resource for managing Task comments. With it, you can manage the comments of an issue where the number of
-comments exceeds the limit on the number of comments that can be saved with the issue. This limit is 1000.
+comments exceeds the limit on the number of comments that can be saved with the issue. This limit is 100.
 
 Comments Tasks can contain mentions of other entities directly in the text of the comment itself.
 
