@@ -2,9 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 27-11-2025
+### 03-12-2025
 #### Added
-- Error [3046](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+- Mentions in [task comments](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-task-comments-tasks)
+- [Notifications](https://dev.kladana.com/doc/api/remap/1.2/notification/#notifications-detailed-description-of-notification-types-new-mention-in-a-task-comment) for mentions in task comments
+- Add new [error 3046](..#kladana-json-api-errors-common-validation-errors)
 
 ### 18-11-2025
 #### Changed
