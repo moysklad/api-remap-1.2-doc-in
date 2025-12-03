@@ -6,10 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 01-12-2025
+### 03-12-2025
 #### Added
 - Mentions in [task comments](../dictionaries/#entities-task-comments-tasks)
-- [Notifications](../notification/#notifications-detailed-description-of-notification-types-new-mention-in-a-task) for mentions in task comments
+- [Notifications](../notification/#notifications-detailed-description-of-notification-types-new-mention-in-a-task-comment) for mentions in task comments
 
 ### 18-11-2025
 #### Changed
