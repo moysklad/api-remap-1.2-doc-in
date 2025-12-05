@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 05-10-2025
+### 05-12-2025
 #### Changed
 - Error [22003](#kladana-json-api-errors-error-codes-for-payments)
 - Field [No closing documents](../documents/#transactions-outgoing-cash-payment) added support for CUD operation.
