@@ -6,6 +6,12 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 05-10-2025
+#### Changed
+- Error [22003](#kladana-json-api-errors-error-codes-for-payments)
+- Field [No closing documents](../documents/#transactions-outgoing-cash-payment) added support for CUD operation.
+- Field [No closing documents](../documents/#transactions-outgoing-payment) added support for CUD operation.
+
 ### 03-12-2025
 #### Added
 - Mentions in [task comments](../dictionaries/#entities-task-comments-tasks)
