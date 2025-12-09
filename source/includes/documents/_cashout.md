@@ -20,7 +20,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying`                                                              |
 | **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand`  |
-| **noClosingDocs**   | Boolean                                           |  | A sign of the possibility of linking closing documents and disabling mutual settlements with the counterparty for this payment<br>`+Required when replying` |
+| **noClosingDocs**   | Boolean                                           |  | Sign "No closing documents". You cannot simultaneously pass **noClosingDocs = true** and a non-empty **operations**.<br>`+Required when replying` |
 | **id** | UUID                                              | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only`                                                                |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying`                                                                       |
 | **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                    |
