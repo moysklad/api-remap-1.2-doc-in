@@ -4,7 +4,7 @@ JSON API 1.2 changes will be added here soon
 
 ### 05-12-2025
 #### Changed
-- Error [22003](#kladana-json-api-errors-error-codes-for-payments)
+- Error [22003](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-payments)
 - Field **noClosingDocs** in [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](../documents/#transactions-outgoing-payment) is now available for editing.
 
 ### 03-12-2025
