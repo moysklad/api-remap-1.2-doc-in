@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 11-12-2025
+#### Added
+- Error codes for serial number validation
+
 ### 03-12-2025
 #### Added
 - Mentions in [task comments](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-task-comments-tasks)
