@@ -4,7 +4,7 @@ JSON API 1.2 changes will be added here soon
 
 ### 11-12-2025
 #### Added
-- Error codes for serial number validation
+- Error codes for serial number validation: [3048-3050](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
 
 ### 03-12-2025
 #### Added

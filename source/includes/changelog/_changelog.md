@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 11-12-2025
+#### Added
+- Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
+
 ### 03-12-2025
 #### Added
 - Mentions in [task comments](../dictionaries/#entities-task-comments-tasks)
